@@ -1,0 +1,36 @@
+# humanstxt.org
+# The humans responsible & technology colophon
+
+## OWNER & CONTACT
+Vreeman.com is a personal website of Simon Vreeman. You can find him on Twitter @vreeman. Or send an email to simon@vreeman.com.
+
+## LICENSE
+Text is licensed under Creative Commons Attribution 4.0 Unported License - http://creativecommons.org/licenses/by/4.0/
+Code is licensed under MIT License - https://github.com/simonvreeman/simonvreeman.github.io/blob/master/LICENSE.md
+
+## TECHNOLOGY COLOPHON
+	- HTML5
+	- CSS3
+	- jQuery - http://jquery.com
+	- Twitter Bootstrap - http://getbootstrap.com
+	- HTML5 Boilerplate - http://html5boilerplate.com
+	- Font Awesome - http://fontawesome.io
+
+## THIRD PARTIES
+	- Github (hosting) - https://github.com/simonvreeman/simonvreeman.github.io
+	- Formspree - http://www.formspree.com
+	- cdnjs (CDN for jQuery, Bootstrap & Font Awesome) - http://cdnjs.com
+	- Google Tag Manager - https://www.google.com/tagmanager
+	- Google Analytics (Universal Analytics) - https://www.google.com/analytics
+
+More details at http://builtwith.com/vreeman.com
+
+## PRIVACY
+	- Google Analytcs
+		Google Analytics Opt-out Browser Add-on - https://tools.google.com/dlpage/gaoptout
+	- Formspree
+		"We don't store contents of the form submissions. Emails are sent using Mailgun's API, so on that end their privacy policies apply."
+		- 26 februari - http://www.formspree.com
+	- Mailgun
+		"We do not permanently store the content of emails you send and receive with the Platform (unless you store emails in Mailboxes) and we do not mine your messages for contextual advertising. We do temporarily store emails if you are using our store() action through Routes. In addition, we temporarily store emails for purposes of our outbound reputation systems, ensuring they comply with our Terms of Service, re-attempting the delivery of emails that were previously unsuccessfully delivered and for providing log data."
+		- 26 februari 2014 - http://www.mailgun.com/privacy
