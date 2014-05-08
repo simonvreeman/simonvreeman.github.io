@@ -1,15 +1,15 @@
 Vreeman.com
 ======================
-The Personal Website of Simon Vreeman. Hello World.
+The Personal Website of [Simon Vreeman](http:/vreeman.com). Hello World.
 
 ## Contact
-@vreeman of simon@vreeman.com
+[@vreeman](https://twitter.com/vreeman) or [simon@vreeman.com](mailto:simon@vreeman.com)
 
 
 ## Privacy Policy
 I use Google Analytics to measure, track and analyse user behaviour on vreeman.com and it is loaded via Google Tag Manager. 
 
-If you want to opt-out use the Google Analytics Opt-out Browser Add-on - https://tools.google.com/dlpage/gaoptout
+If you want to opt-out use the [Google Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout)
 
 Vreeman.com is hosted on Github. jQuery, Bootstrap & Font Awesome is loaded via the cdnjs.com. Which is powered by CloudFlare. They will both probably track some data too.
 
@@ -19,7 +19,7 @@ Google Analytics will place one cookie with a unique user ID.
 Irregularly I will A/B test some stuff on vreeman.com and I use cookies for that too. I don't use an A/B testing tool. Just my own script that is loaded via Google Tag Manager. 
 
 ## Licenses
-Text is licensed under Creative Commons Attribution 4.0 Unported License - http://creativecommons.org/licenses/by/4.0/
+Text is licensed under [Creative Commons Attribution 4.0 Unported License](http://creativecommons.org/licenses/by/4.0/)
 The code is licensed und MIT.
 
 ### The MIT License (MIT)
