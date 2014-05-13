@@ -1,16 +1,16 @@
 #topbar {
+  position: fixed;
+  top: 0;
+  z-index: 999;
   height: 3px;
   width: 100%;
   min-width: 600px;
-  position: fixed;
-  top: 0;
   background-image: -ms-linear-gradient(left, #5bc0de 0%, #5cb85c 100%);
   background-image: -moz-linear-gradient(left, #5bc0de 0%, #5cb85c 100%);
   background-image: -o-linear-gradient(left, #5bc0de 0%, #5cb85c 100%);
   background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #5bc0de), color-stop(1, #5cb85c));
   background-image: -webkit-linear-gradient(left, #5bc0de 0%, #5cb85c 100%);
   background-image: linear-gradient(to right, #5bc0de 0%, #5cb85c 100%);
-  z-index: 999;
 }
 .container {
   overflow-y: scroll;

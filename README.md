@@ -1,4 +1,4 @@
-Vreeman.com
+[Vreeman.com](http://vreeman.com)
 ======================
 The Personal Website of [Simon Vreeman](http:/vreeman.com). Hello World.
 
@@ -16,10 +16,11 @@ Vreeman.com is hosted on Github. jQuery, Bootstrap & Font Awesome is loaded via 
 ## Cookies
 Google Analytics will place one cookie with a unique user ID. 
 
-Irregularly I will A/B test some stuff on vreeman.com and I use cookies for that too. I don't use an A/B testing tool. Just my own script that is loaded via Google Tag Manager. 
+Irregularly I will A/B test some stuff on vreeman.com and I use cookies for that too. I don't use an A/B testing tool. Just [my own script](https://github.com/simonvreeman/A-B-testing-with-Google-Tag-Manager) that is loaded via Google Tag Manager. 
 
 ## Licenses
-Text is licensed under [Creative Commons Attribution 4.0 Unported License](http://creativecommons.org/licenses/by/4.0/)
+Text is licensed under [Creative Commons Attribution 4.0 Unported License](http://creativecommons.org/licenses/by/4.0/).
+
 The code is licensed und MIT.
 
 ### The MIT License (MIT)
