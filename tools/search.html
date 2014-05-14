@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Un-personalized search in Google &middot; Simon Vreeman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/fontawesome/4.0.3/css/font-awesome.min.css">
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="canonical" href="http://vreeman.com/">
+    <link rel="author" href="https://plus.google.com/+SimonVreeman">
+    <link rel="publisher" href="https://plus.google.com/+Vreeman">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NWPFGT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWPFGT');</script>
+    <figure id="topbar"></figure>
+    <section class="container" itemscope itemtype="http://schema.org/Person">
+      <header class="page-header" role="banner">
+        <div class="btn-group pull-right">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://vreeman.com"><i class="fa fa-fw fa-home"></i> Home</a></li>
+            <li><a href="http://vreeman.com/tools/"><i class="fa fa-fw fa-wrench"></i> Tools</a></li>
+            <li><a href="http://vreeman.com/tools/search"><i class="fa fa-fw fa-search"></i> Search</a></li>
+          </ul>
+        </div>
+        <h1 itemprop="name">Search</h1>
+      </header>
+      <section role="main">
+        <p class="lead">Un-personalized search in Google</p>
+        <form id="form" method="get" accept-charset="utf-8" action="https://www.google.nl/search" target="_blank" role="form">
+          <div class="input-group">
+            <input type="search" class="form-control input-lg" name="q" value="" id="query" size="35" placeholder="site:vreeman.com -inurl:s.vreeman.com" autocomplete="off" autofocus required>    
+            <input type="hidden" name="pws" value="0">
+            <input type="hidden" name="gl" value="nl">
+            <input type="hidden" name="hl" value="nl">
+            <!-- <input type="hidden" name="lr" value="lang_nl"> -->
+            <!-- <input type="hidden" name="igu" value="1"> -->
+            <!-- <input type="hidden" name="ip" value="0.0.0.0"> -->
+            <!-- <input type="hidden" name="ncr" value="1"> -->
+            <input type="hidden" name="num" value="10">
+            <!-- <input type="hidden" name="as_qdr" value="all"> -->
+            <input type="hidden" name="newwindow" value="1">
+            <!-- <input type="hidden" name="filter" value="0"> -->
+            <!-- <input type="hidden" name="adtest" value="on"> -->
+            <!-- <input type="hidden" name="tbo" value="1"> -->
+            <span class="input-group-btn">
+              <button class="btn btn-success btn-lg" type="submit">Search</button>
+            </span>
+          </div>
+        </form>
+        <hr />
+        <p>Search Operators: <code>site:</code> <code>cache:</code> <code>inurl:</code> <code>intitle:</code> <code>filetype:</code></p>
+        <p>The <abbr title="Search Engine Results Page">SERP</abbr> will have 10 links on the page and the links will open in a new tab.</p>
+
+      </section>
+      <footer class="footer text-muted" role="contentinfo">
+        <p>Enjoy your <span data-day></span>. <span class="pull-right">Hosted on <a class="text-muted" title="The source code of vreeman.com on Github" href="https://github.com/simonvreeman/simonvreeman.github.io" target="_blank">Github</a>.</span></p>
+      </footer>
+    </section> <!-- /container -->
+    <script src="http://cdn.jsdelivr.net/g/jquery,bootstrap"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
