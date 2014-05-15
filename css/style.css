@@ -12,10 +12,6 @@
   background-image: -webkit-linear-gradient(left, #5bc0de 0%, #5cb85c 100%);
   background-image: linear-gradient(to right, #5bc0de 0%, #5cb85c 100%);
 }
-.container {
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-}
 .footer {
   margin-top: 20px;
   padding-top: 15px;
