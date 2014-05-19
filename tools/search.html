@@ -10,7 +10,7 @@
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
     <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="http://vreeman.com/css/style.css">
-    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/fontawesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/fontawesome/4.1.0/css/font-awesome.min.css">
     <meta name="robots" content="noindex,nofollow">
     <link rel="canonical" href="http://vreeman.com/">
     <link rel="author" href="https://plus.google.com/+SimonVreeman">
@@ -31,15 +31,17 @@
             <li><a href="http://vreeman.com"><i class="fa fa-fw fa-home"></i> Home</a></li>
             <li><a href="http://vreeman.com/tools/"><i class="fa fa-fw fa-wrench"></i> Tools</a></li>
             <li><a href="http://vreeman.com/tools/search"><i class="fa fa-fw fa-search"></i> Search</a></li>
+            <li><a href="http://vreeman.com/tools/valk"><i class="fa fa-fw fa-coffee"></i> Valk Exclusief</a></li>
           </ul>
         </div>
         <h1 itemprop="name">Search</h1>
       </header>
       <section role="main">
-        <p class="lead">Un-personalized search in Google</p>
+        <p class="lead">Un-personalized search in Google.nl</p>
+        <div>
         <form id="form" method="get" accept-charset="utf-8" action="https://www.google.nl/search" target="_blank" role="form">
           <div class="input-group">
-            <input type="search" class="form-control input-lg" name="q" value="" id="query" size="35" placeholder="site:vreeman.com -inurl:s.vreeman.com" autocomplete="off" autofocus required>    
+            <input type="search" class="form-control input-lg" name="q" value="" id="query" size="35" placeholder="Simon Vreeman" autocomplete="off" autofocus required>    
             <input type="hidden" name="pws" value="0">
             <input type="hidden" name="gl" value="nl">
             <input type="hidden" name="hl" value="nl">
@@ -57,11 +59,9 @@
               <button class="btn btn-success btn-lg" type="submit">Search</button>
             </span>
           </div>
+          <span class="help-block">Search Operators: <code>site:</code> <code>cache:</code> <code>info:</code> <code>inurl:</code> <code>intitle:</code> <code>filetype:</code></span>
         </form>
-        <hr />
-        <p>Search Operators: <code>site:</code> <code>cache:</code> <code>inurl:</code> <code>intitle:</code> <code>filetype:</code></p>
-        <p>The <abbr title="Search Engine Results Page">SERP</abbr> will have 10 links on the page and the links will open in a new tab.</p>
-
+        </div>
       </section>
       <footer class="footer text-muted" role="contentinfo">
         <p>Enjoy your <span data-day></span>. <span class="pull-right">Hosted on <a class="text-muted" title="The source code of vreeman.com on Github" href="https://github.com/simonvreeman/simonvreeman.github.io" target="_blank">Github</a>.</span></p>
