@@ -1,3 +1,4 @@
+// Enjoy your ...
 (function() {
     var today;
     today = function() {
@@ -12,3 +13,5 @@
       return $day.text(today());
     });
 }).call(this);
+// Tooltips
+$(document).ready(function(){$('[data-toggle="tooltip"]').tooltip({trigger:'hover','placement':'top'});});
