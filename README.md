@@ -1,9 +1,11 @@
 [Vreeman.com](http://vreeman.com)
 ======================
-The Personal Website of [Simon Vreeman](http:/vreeman.com). Hello World.
+The Personal Website of [Simon Vreeman](http:/vreeman.com).
 
 ## Contact
-[@vreeman](https://twitter.com/vreeman) or [simon@vreeman.com](mailto:simon@vreeman.com)
+* [Google+](https://plus.google.com/+SimonVreeman?rel=author)
+* [Twitter](https://twitter.com/vreeman)
+* [Email](mailto:simon@vreeman.com)
 
 
 ## Privacy Policy
@@ -11,7 +13,7 @@ I use Google Analytics to measure, track and analyse user behaviour on vreeman.c
 
 If you want to opt-out use the [Google Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout)
 
-Vreeman.com is hosted on Github. jQuery, Bootstrap & Font Awesome is loaded via the jsdelivr.net. They will both probably track some data too.
+Vreeman.com is hosted on Github. jQuery, Bootstrap & Font Awesome is loaded via the jsdelivr.net. They will probably track some data too.
 
 ## Cookies
 Google Analytics will place one cookie with a unique user ID. 
