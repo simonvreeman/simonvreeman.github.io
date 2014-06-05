@@ -15,3 +15,14 @@
 }).call(this);
 // Tooltips
 $(document).ready(function(){$('[data-toggle="tooltip"]').tooltip({trigger:'hover','placement':'top'});});
+// Share to Whatsapp
+whatsappShareButton: function() {
+  var self = this;
+  $('.share-whatsapp').on('click', function() {
+    var protocol = 'whatsapp://send?text=';
+    var title = $('h1').text();
+    var link = $('meta[property="og:url"]').attr('content');
+    var message = protocol + self.customEmailMessageEncoder(title) + '%0A%0D' + self.customEmailMessageEncoder(link);
+    window.open(message , '_self');
+  });
+}
