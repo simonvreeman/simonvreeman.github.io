@@ -45,7 +45,6 @@
       </header>
       <section role="main">
         <p class="lead">Un-personalized search in Google.nl</p>
-        <div>
         <form id="form" method="get" accept-charset="utf-8" action="https://www.google.nl/search" target="_blank" role="form">
           <div class="input-group">
             <input type="search" class="form-control input-lg" name="q" value="" id="query" size="35" placeholder="Simon Vreeman" autocomplete="off" autofocus required>    
@@ -68,10 +67,27 @@
           </div>
           <span class="help-block">Search Operators: <code>site:</code> <code>cache:</code> <code>info:</code> <code>inurl:</code> <code>intitle:</code> <code>filetype:</code></span>
         </form>
+        <!-- <h4>Current used search parameters:</h4>
+        <ul>
+          <li>Turn personalised search off: <code>pws=0</code></li>
+          <li>Set GEO location to the Netherlands: <code>gl=nl</code></li>
+          <li>Set interface language to Dutch: <code>hl=nl</code></li>
+          <li>Number of results in de SERP: <code>num=10</code></li>
+          <li>Open links in a new tab: <code>newwindow=1</code></li>
+        </ul> -->
+        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#demo">Current used search parameters</button>
+        <div id="demo" class="collapse">
+          <ul>
+            <li>Turn personalised search off: <code>pws=0</code></li>
+            <li>Set GEO location to the Netherlands: <code>gl=nl</code></li>
+            <li>Set interface language to Dutch: <code>hl=nl</code></li>
+            <li>Number of results in de SERP: <code>num=10</code></li>
+            <li>Open links in a new tab: <code>newwindow=1</code></li>
+          </ul>
         </div>
       </section>
       <footer class="footer text-muted" role="contentinfo">
-        <p>Enjoy your <span data-day></span>. <span class="pull-right">Hosted on <a class="text-muted" title="The source code of vreeman.com on Github" href="https://github.com/simonvreeman/simonvreeman.github.io" target="_blank">Github</a>.</span></p>
+        <p><small>Enjoy your <span data-day></span>. <span class="pull-right">Hosted on <a class="text-muted" title="The source code of vreeman.com on Github" href="https://github.com/simonvreeman/simonvreeman.github.io" target="_blank">Github</a>.</span></small></p>
       </footer>
     </section> <!-- /container -->
     <script src="http://cdn.jsdelivr.net/g/jquery,bootstrap"></script>
