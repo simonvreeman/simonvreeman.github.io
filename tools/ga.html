@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Google Analytics Campaign URL Builder &middot; Simon Vreeman</title>
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="prefetch" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="prefetch" href="//www.google-analytics.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://vreeman.com/css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/fontawesome/4.1.0/css/font-awesome.min.css">
+    <meta name="robots" content="noindex,follow">
+    <link rel="canonical" href="http://vreeman.com/">
+    <link rel="author" href="https://plus.google.com/+SimonVreeman">
+    <link rel="publisher" href="https://plus.google.com/+Vreeman">
+    <!--[if lt IE 9]>
+      <script src="http://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NWPFGT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWPFGT');</script>
+    <figure id="topbar"></figure>
+    <section class="container" itemscope itemtype="http://schema.org/Person">
+      <header class="page-header" role="banner">
+        <div class="btn-group pull-right">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://vreeman.com"><i class="fa fa-fw fa-home"></i> Home</a></li>
+            <li><a href="http://vreeman.com/tools/"><i class="fa fa-fw fa-wrench"></i> Tools</a></li>
+            <li><a href="http://vreeman.com/tools/ab"><i class="fa fa-fw fa-signal"></i> A/B Test Calculator</a></li>
+            <li><a href="http://vreeman.com/tools/search"><i class="fa fa-fw fa-search"></i> Google Search</a></li>
+            <li class="active"><a href="http://vreeman.com/tools/ga"><i class="fa fa-fw fa-link"></i> URL Builder</a></li>
+            <li><a href="http://vreeman.com/tools/valk"><i class="fa fa-fw fa-coffee"></i> Valk Exclusief</a></li>
+            <li class="divider"></li>
+            <li><a href="mailto:?body=http://vreeman.com/tools/ga" target="_blank"><i class="fa fa-fw fa-envelope"></i> Email</a></li>
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://vreeman.com/tools/ga" target="_blank"><i class="fa fa-fw fa-facebook"></i> Facebook</a></li>
+            <li><a href="https://plus.google.com/share?url=http://vreeman.com/tools/ga" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google+</a></li>
+            <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vreeman.com/tools/ga" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></li>
+            <li><a href="https://twitter.com/intent/tweet?url=http://vreeman.com/tools/ga" target="_blank"><i class="fa fa-fw fa-twitter"></i> Twitter</a></li>
+            <li><a href="whatsapp://send?text=http://vreeman.com/tools/ga" target="_blank"><i class="fa fa-fw fa-share-square-o"></i> Whatsapp</a></li>
+          </ul>
+        </div>
+        <h1 itemprop="name">Google Analytics Campaign URL Builder</h1>
+      </header>
+      <section role="main">
+        <form action="" accept-charset="utf-8" role="form">
+          <fieldset>
+            <div class="form-group">
+              <label for="domain"><abbr title="Uniform Resource Locator">URL</abbr></label>
+              <input type="text" name="domain" id="domain" class="form-control" value="http://vreeman.com" required>
+            </div>
+            <div class="form-group">
+              <label for="source">Campaign Source</label>
+              <input type="text" name="source" id="source" class="form-control" value="" placeholder="Required" required>
+              <p class="help-block">(<code>utm_source</code>)</p>
+            </div>
+            <div class="form-group">
+              <label for="medium">Campaign Medium</label>
+              <input type="text" name="medium" id="medium" class="form-control" value="" placeholder="Required" required>
+              <p class="help-block">(<code>utm_medium</code>)</p>
+            </div>
+            <div class="form-group">
+              <label for="name">Campaign Name</label>
+              <input type="text" name="name" id="name" class="form-control" value="" placeholder="Required" required>
+              <p class="help-block">(<code>utm_campaign</code>)</p>
+            </div>
+            <div class="form-group">
+              <label for="term">Campaign Term</label>
+              <input type="text" name="term" id="term" class="form-control" placeholder="" value="">
+              <p class="help-block">(<code>utm_term</code>)</p>
+            </div>
+            <div class="form-group">
+              <label for="content">Campaign Content</label>
+              <input type="text" name="content" id="content" class="form-control" placeholder="" value="">
+              <p class="help-block">(<code>utm_content</code>)</p>
+            </div>
+          </fieldset>
+        </form>
+        <div class="output form-group" id="html">
+          <textarea id="url" readonly="readonly" wrap="off" class="auto form-control"></textarea>
+        </div>
+      </section>
+      <footer class="footer text-muted" role="contentinfo">
+        <p><small>Enjoy your <span data-day></span>. <span class="pull-right">Hosted on <a class="text-muted" title="The source code of vreeman.com on Github" href="https://github.com/simonvreeman/simonvreeman.github.io" target="_blank">Github</a>.</span></small></p>
+      </footer>
+    </section> <!-- /container -->
+    <script src="http://cdn.jsdelivr.net/g/jquery,bootstrap"></script>
+    <script src="http://vreeman.com/js/main.js"></script>
+  </body>
+</html>
