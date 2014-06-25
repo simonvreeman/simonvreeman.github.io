@@ -49,38 +49,36 @@
         <h1 itemprop="name">A/B Test Significance Calculator</h1>
       </header>
       <section role="main">
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>&nbsp;</th>
-                <th>Unique Visitors</th>
-                <th>Conversions</th>
-                <th>Conversion Rate</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="row1" id="row1">
-                <th><span id="row1_label" class="row_label"><p>A</p></span></th>
-                <td><input type="text" class="text form-control" name="a_visits" id="a_visits" value="1000"></td>
-                <td class="conversions"><input type="text" class="text form-control" name="a_conversions" id="a_conversions" value="90"></td>
-                <td><strong class="big_num" id="a_conversion">9%</strong></td>
-              </tr>
-              <tr id="row2" class="success">
-                <th><span id="row2_label" class="row_label row_label_success"><p>B</p></span></th>
-                <td><input type="text" class="text input_success form-control" name="b_visits" id="b_visits" value="1000"></td>
-                <td class="conversions"><input type="text" class="text input_success form-control" name="b_conversions" id="b_conversions" value="120"></td>
-                <td><strong class="big_num" id="b_conversion">12%</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>Unique Visitors</th>
+              <th>Conversions</th>
+              <th>Conversion Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row1" id="row1">
+              <th><span id="row1_label" class="row_label"><p>A</p></span></th>
+              <td><input type="text" class="text form-control" name="a_visits" id="a_visits" value="1000"></td>
+              <td class="conversions"><input type="text" class="text form-control" name="a_conversions" id="a_conversions" value="90"></td>
+              <td><strong class="big_num" id="a_conversion">9%</strong></td>
+            </tr>
+            <tr id="row2" class="success">
+              <th><span id="row2_label" class="row_label row_label_success"><p>B</p></span></th>
+              <td><input type="text" class="text input_success form-control" name="b_visits" id="b_visits" value="1000"></td>
+              <td class="conversions"><input type="text" class="text input_success form-control" name="b_conversions" id="b_conversions" value="120"></td>
+              <td><strong class="big_num" id="b_conversion">12%</strong></td>
+            </tr>
+          </tbody>
+        </table>
         <div class="well well-lg">
           <h4>Your results:</h4>
           <p>Test "<strong id="winner">B</strong>" converted <strong id="winner_improvement">33%</strong> better than Test "<strong id="loser">A</strong>." We are <strong id="certainty">99%</strong> certain that the changes in Test "<strong id="winner_2">B</strong>" will improve your conversion rate.</p>
           <p id="stat_sig">Your A/B test is statistically significant!</p>
         </div>
-        <p><small>Need more information and graphs? Use the <a href="http://abtestguide.com/calc/" target="_blank">A/B Test Significance & Power Calculator</a> by Online Dialogue.</small></p>
+        <p><small>Do you need detailed information and fancy graphs? Use the <a href="http://abtestguide.com/calc/" target="_blank">A/B Test Significance & Power Calculator</a> by Online Dialogue.</small></p>
       </section>
       <footer class="footer text-muted" role="contentinfo">
         <p><small>Enjoy your <span data-day></span>. <span class="pull-right">Hosted on <a class="text-muted" title="The source code of vreeman.com on Github" href="https://github.com/simonvreeman/simonvreeman.github.io" target="_blank">Github</a>.</span></small></p>
