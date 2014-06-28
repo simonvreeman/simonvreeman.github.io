@@ -1,26 +1,26 @@
 // Enjoy your day
-(function() {
+(function () {
     var today;
-    today = function() {
-      var dayNames, now;
-      dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-      now = new Date();
-      return dayNames[now.getDay()];
+    today = function () {
+        var dayNames, now;
+        dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        now = new Date();
+        return dayNames[now.getDay()];
     };
-    $(function() {
-      var $day;
-      $day = $('[data-day]');
-      return $day.text(today());
+    $(function () {
+        var $day;
+        $day = $('[data-day]');
+        return $day.text(today());
     });
 }).call(this);
 
 // Tooltips
-$(document).ready(function(){
+$(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip({trigger:'hover','placement':'top'});
 });
 
 // Auto-growing textareas; technique ripped from Facebook
-(function($) {
+(function ($) {
   $.fn.autogrow = function(options) {
     this.filter('textarea').each(function() {
       var $this = $(this), minHeight = $this.height(), lineHeight = $this.css('lineHeight');
