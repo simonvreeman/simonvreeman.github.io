@@ -9,11 +9,11 @@ The Personal Website of [Simon Vreeman](http:/vreeman.com).
 
 
 ## Privacy Policy
-I use Google Analytics to measure, track and analyse user behaviour on vreeman.com and it is loaded via Google Tag Manager. 
+I use Google Analytics to measure, track and analyse user behaviour on vreeman.com and it is loaded via Google Tag Manager.
 
-If you want to opt-out use the [Google Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout)
+You can read the [privacy policy](http://www.google.com/intl/en/policies/privacy/) of Google. If you want to opt-out use the [Google Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout).
 
-Vreeman.com is hosted on Github. jQuery, Bootstrap & Font Awesome is loaded via the jsdelivr.net. They will probably track some data too.
+Vreeman.com is hosted on Github. jQuery, Bootstrap & Font Awesome is loaded via the CDN of jsdelivr.net. They will probably track some data too.
 
 ## Cookies
 Google Analytics will place one cookie with a unique user ID. 
