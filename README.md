@@ -13,7 +13,7 @@ I use Google Analytics to measure, track and analyse user behaviour on vreeman.c
 
 You can read the [privacy policy](http://www.google.com/intl/en/policies/privacy/) of Google. If you want to opt-out use the [Google Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout).
 
-Vreeman.com is hosted on Github. jQuery, Bootstrap & Font Awesome is loaded via the CDN of jsdelivr.net. They will probably track some data too.
+Vreeman.com is hosted on [Github pages](https://pages.github.com/). [jQuery](http://jquery.com/), [Bootstrap](http://getbootstrap.com/) & [Font Awesome](http://fontawesome.io/) is loaded via the CDN of [jsdelivr.net](http://www.jsdelivr.com/). They will probably track some data too.
 
 ## Cookies
 Google Analytics will place one cookie with a unique user ID. 
