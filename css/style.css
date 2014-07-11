@@ -11,7 +11,6 @@
   background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #5bc0de), color-stop(1, #5cb85c));
   background-image: -webkit-linear-gradient(left, #5bc0de 0%, #5cb85c 100%);
   background-image: linear-gradient(to right, #5bc0de 0%, #5cb85c 100%);
-  // -webkit-animation: hue 1s infinite linear;
 }
 .footer {
   margin-top: 20px;
@@ -22,12 +21,4 @@
   .container{
     max-width: 600px;
   }
-}
-@-webkit-keyframes hue {
-  from {-webkit-filter: hue-rotate(0deg);}
-  to {-webkit-filter: hue-rotate(360deg);}
-
-  // 0%   {-webkit-filter: hue-rotate(0deg);}
-  // 50%  {-webkit-filter: hue-rotate(360deg);}
-  // 100% {-webkit-filter: hue-rotate(0deg);}
 }
