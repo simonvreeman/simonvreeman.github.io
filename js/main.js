@@ -1,23 +1,37 @@
 // Enjoy your day
 (function () {
-    var today;
-    today = function () {
-        var dayNames, now;
-        dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        now = new Date();
-        return dayNames[now.getDay()];
-    };
-    $(function () {
-        var $day;
-        $day = $('[data-day]');
-        return $day.text(today());
-    });
+  var today;
+  today = function () {
+    var dayNames, now;
+    dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    now = new Date();
+    return dayNames[now.getDay()];
+  };
+  $(function () {
+    var $day;
+    $day = $('[data-day]');
+    return $day.text(today());
+  });
 }).call(this);
 
 // Tooltips
 $(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip({trigger:'hover','placement':'top'});
 });
+
+// Don't forget me!
+// Example: http://www.mt.nl
+// var focusTitle = "";
+// var blurTitle  = "Dont' forget me!";
+// jQuery(window).addEvent('blur', function() {
+//   focusTitle = $$('title').shift().innerHTML;
+//   $$('title').shift().innerHTML = blurTitle + " | " + focusTitle;
+// });
+// jQuery(window).addEvent('focus', function() {
+//   if (focusTitle.length > 0) {
+//     $$('title').shift().innerHTML = focusTitle;
+//   }
+// });
 
 // Auto-growing textareas; technique ripped from Facebook
 (function ($) {
