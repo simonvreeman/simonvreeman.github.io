@@ -14,11 +14,6 @@
   });
 }).call(this);
 
-// Tooltips
-$(document).ready(function () {
-  $('[data-toggle="tooltip"]').tooltip({trigger:'hover','placement':'top'});
-});
-
 // Don't forget me!
 // Example: http://www.mt.nl
 // var focusTitle = "";
@@ -146,7 +141,7 @@ function calculate_certainty(t, i) {
 }
 
 function determine_winner(t, i, e) {
-    return 90 > e ? ($("#row1").toggleClass("success", !1), $("#row1_label").toggleClass("row_label_success", !1), $("#row1 input").toggleClass("input_success", !1), $("#row1 strong").toggleClass("conv_success", !1), $("#row2").toggleClass("success", !1), $("#row2_label").toggleClass("row_label_success", !1), $("#row2 input").toggleClass("input_success", !1), $("#row2 strong").toggleClass("conv_success", !1), t > i ? "A" : "B") : t > i ? ($("#row1").toggleClass("success", !0), $("#row1_label").toggleClass("row_label_success", !0), $("#row1 input").toggleClass("input_success", !0), $("#row1 strong").toggleClass("conv_success", !0), $("#row2").toggleClass("success", !1), $("#row2_label").toggleClass("row_label_success", !1), $("#row2 input").toggleClass("input_success", !1), $("#row2 strong").toggleClass("conv_success", !1), "A") : ($("#row1").toggleClass("success", !1), $("#row1_label").toggleClass("row_label_success", !1), $("#row1 input").toggleClass("input_success", !1), $("#row1 strong").toggleClass("conv_success", !1), $("#row2").toggleClass("success", !0), $("#row2_label").toggleClass("row_label_success", !0), $("#row2 input").toggleClass("input_success", !0), $("#row2 strong").toggleClass("conv_success", !0), "B")    
+    return 90 > e ? ($("#row1").toggleClass("success", !1), $("#row1_label").toggleClass("row_label_success", !1), $("#row1 input").toggleClass("input_success", !1), $("#row1 strong").toggleClass("conv_success", !1), $("#row2").toggleClass("success", !1), $("#row2_label").toggleClass("row_label_success", !1), $("#row2 input").toggleClass("input_success", !1), $("#row2 strong").toggleClass("conv_success", !1), t > i ? "A" : "B") : t > i ? ($("#row1").toggleClass("success", !0), $("#row1_label").toggleClass("row_label_success", !0), $("#row1 input").toggleClass("input_success", !0), $("#row1 strong").toggleClass("conv_success", !0), $("#row2").toggleClass("success", !1), $("#row2_label").toggleClass("row_label_success", !1), $("#row2 input").toggleClass("input_success", !1), $("#row2 strong").toggleClass("conv_success", !1), "A") : ($("#row1").toggleClass("success", !1), $("#row1_label").toggleClass("row_label_success", !1), $("#row1 input").toggleClass("input_success", !1), $("#row1 strong").toggleClass("conv_success", !1), $("#row2").toggleClass("success", !0), $("#row2_label").toggleClass("row_label_success", !0), $("#row2 input").toggleClass("input_success", !0), $("#row2 strong").toggleClass("conv_success", !0), "B")
 }
 
 function determine_loser(t) {

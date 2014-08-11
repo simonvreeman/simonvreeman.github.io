@@ -5,6 +5,7 @@
   height: 3px;
   width: 100%;
   min-width: 600px;
+  background: linear-gradient(to right, #5bc0de 0%, #5cb85c 100%);
   background-image: -ms-linear-gradient(left, #5bc0de 0%, #5cb85c 100%);
   background-image: -moz-linear-gradient(left, #5bc0de 0%, #5cb85c 100%);
   background-image: -o-linear-gradient(left, #5bc0de 0%, #5cb85c 100%);
@@ -21,4 +22,9 @@
   .container{
     max-width: 600px;
   }
+}
+.amp {
+  font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+  font-style: italic;
+  font-weight: normal;
 }
