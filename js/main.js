@@ -14,6 +14,22 @@
   });
 }).call(this);
 
+// Tooltips
+$(document).ready(function () {
+  $('[data-toggle="tooltip"]').tooltip({trigger:'hover','placement':'top'});
+});
+$(document).ready(function () {
+  $('[data-toggle="popover"]').popover({trigger:'click','placement':'top'});
+});
+
+// Confirm with users before opening any mailto: link through their default email client.
+// http://mmoustafa.com/experiments/mailto/
+!function(t){t.fn.confirmMailto=function(e){var n=t.extend({message:"Do you want to send an email to $to?",to:"href",callback:function(){},success:function(){},fail:function(){}},e),a=/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi,i=function(e){var i=n.message,c=n.to;if(c="href"==c?t(this).attr("href").match(a):"html"==c?t(this).html():c,i=i.replace("$to",c)==i?i+c:i.replace("$to",c),confirm(i)){n.success();var o=!0}else{e.preventDefault(),n.fail();var o=!1}return setTimeout(function(){n.callback(o)},1),o};return this.filter('[href^="mailto:"]').each(function(){t(this).bind("click",i)}),this}}(jQuery);
+
+$(document).ready(function(){
+  $('a').confirmMailto();
+});
+
 // Don't forget me!
 // Example: http://www.mt.nl
 // var focusTitle = "";
@@ -150,10 +166,10 @@ function determine_loser(t) {
 
 function calculate_winner_improvement(t, i, e) {
     if ("A" == e) {
-        $("#winner_conversion").text(Math.round(t) + "%");
+        $("#winner_conversion").text(Math.round(t * 100) / 100 + "%");
         var n = (t - i) / i
     } else {
-        $("#winner_conversion").text(Math.round(i) + "%");
+        $("#winner_conversion").text(Math.round(i * 100) / 100 + "%");
         var n = (i - t) / t
     }
     return 100 * n
@@ -181,7 +197,7 @@ function add_commas(t) {
 function calculate_conversion_rate() {
     var t = get_field_values(),
         i = t.monthly_uniques * t.conversion_worth * (t.net_conversion_rate / 100);
-    return Math.round(i)
+    return Math.round(i * 100) / 100
 }
 
 function remove_class(t, i, e) {
@@ -1077,7 +1093,7 @@ DistributionFactory.build = function (t) {
             a = determine_winner(t, i, e),
             s = determine_loser(a),
             r = calculate_winner_improvement(t, i, a);
-        $("#a_conversion").text(Math.round(t) + "%"), $("#b_conversion").text(Math.round(i) + "%"), $("#certainty").text(Math.round(e) + "%"), $("#winner").text(a), $("#winner_2").text(a), $("#loser").text(s), $("#loser_2").text(s), $("#winner_improvement").text(Math.round(r) + "%"), $("#stat_sig").text(n)
+        $("#a_conversion").text(Math.round(t * 100) / 100 + "%"), $("#b_conversion").text(Math.round(i * 100) / 100 + "%"), $("#certainty").text(Math.round(e * 100) / 100 + "%"), $("#winner").text(a), $("#winner_2").text(a), $("#loser").text(s), $("#loser_2").text(s), $("#winner_improvement").text(Math.round(r * 100) / 100 + "%"), $("#stat_sig").text(n)
     }), $("#add_row").click(function (i) {
         i.preventDefault(), t = add_row(t)
     }), submit_mailchimp_form()
