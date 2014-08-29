@@ -2,46 +2,142 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <title>Simon Vreeman</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Simon Vreeman</title>
     <link rel="dns-prefetch" href="//ajax.googleapis.com">
     <style>
-      h1 {
-        font-size: 6vmax;
+      * {
+        margin: 0;
+        padding: 0;
       }
-      h2 {
-        font-size: 4vmax;
+      html,
+      body {
+        height: 100%;
       }
-      h1, h2 {
-        text-align: center;
-        font-family: sans-serif;
-      }
-      p {
-        font-size: 4.5vmin;
-        line-height: 1.5;
-
-      }
-      .container {
+      #page {
+        display: table;
+        overflow: hidden;
         margin: 0 auto;
-        max-width: 37.5rem;
-        width: 95vw;
+        height: 100%;
+      }
+      #content_container {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      ::-moz-selection {
+        background: #ccc;
+        text-shadow: none;
+      }
+      ::selection {
+        background: #ccc;
+        text-shadow: none;
+      }
+      h1 {
+        color: #222;
+        font: normal normal 300 5.9vw/1.4 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        text-align: center;
+        text-rendering: geometricPrecision;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      hr {
+        display: block;
+        height: 3px;
+        border: 0;
+        border-top: 1px solid #ccc;
+        margin: 1em 0;
+        padding: 0;
+        background-image: -ms-linear-gradient(left, #46C340 0%, #4691F6 100%);
+        background-image: -moz-linear-gradient(left, #46C340 0%, #4691F6 100%);
+        background-image: -o-linear-gradient(left, #46C340 0%, #4691F6 100%);
+        background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #46C340), color-stop(1, #4691F6));
+        background-image: -webkit-linear-gradient(left, #46C340 0%, #4691F6 100%);
+        background-image: linear-gradient(to right, #46C340 0%, #4691F6 100%);
+      }
+      .animated {
+        -webkit-animation-name: zoomIn;
+        -moz-animation-name: zoomIn;
+        -ms-animation-name: zoomIn;
+        -o-animation-name: zoomIn;
+        animation-name: zoomIn;
+        -webkit-animation-duration: 1s;
+        -moz-animation-duration: 1s;
+        -ms-animation-duration: 1s;
+        -o-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        -moz-animation-fill-mode: both;
+        -ms-animation-fill-mode: both;
+        -o-animation-fill-mode: both;
+        animation-fill-mode: both;
+      }
+      @-webkit-keyframes zoomIn {
+        0% {
+          opacity: 0;
+          -webkit-transform: scale3d(.3, .3, .3);
+          transform: scale3d(.3, .3, .3);
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+      @-moz-keyframes zoomIn {
+        0% {
+          opacity: 0;
+          -moz-transform: scale3d(.3, .3, .3);
+          transform: scale3d(.3, .3, .3);
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+      @-ms-keyframes zoomIn {
+        0% {
+          opacity: 0;
+          -ms-transform: scale3d(.3, .3, .3);
+          transform: scale3d(.3, .3, .3);
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+      @-o-keyframes zoomIn {
+        0% {
+          opacity: 0;
+          -o-transform: scale3d(.3, .3, .3);
+          transform: scale3d(.3, .3, .3);
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+      @keyframes zoomIn {
+        0% {
+          opacity: 0;
+          -webkit-transform: scale3d(.3, .3, .3);
+          -ms-transform: scale3d(.3, .3, .3);
+          transform: scale3d(.3, .3, .3);
+        }
+
+        50% {
+          opacity: 1;
+        }
       }
     </style>
   </head>
   <body>
-    <h1>Simon Vreeman</h1>
-    <h2>Growth & Life Hacker</h2>
-    <div class="container">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus consectetur facilisis. Vestibulum porta enim orci, ac bibendum nulla dapibus nec. Suspendisse cursus lectus quis lectus scelerisque, mattis interdum libero pharetra. Donec congue convallis faucibus. Nunc tempus, eros et congue accumsan, diam risus lacinia sapien, vel ornare mi arcu elementum magna. Duis ut suscipit purus, id facilisis sem. Pellentesque auctor maximus ante, at faucibus est luctus vitae. Nullam aliquet pellentesque ligula quis aliquet. Phasellus vehicula mauris leo, ullamcorper hendrerit risus blandit eget. Duis scelerisque convallis nunc eu condimentum.</p>
-      <ul>
-        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-        <li>Aliquam tincidunt mauris eu risus.</li>
-        <li>Vestibulum auctor dapibus neque.</li>
-      </ul>
-      <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+    <div id="page">
+      <div id="content_container">
+          <h1 class="animated">Simon Vreeman</h1>
+          <hr class="animated">
+      </div>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" async defer></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" async defer></script> -->
     <script>
 
     </script>
