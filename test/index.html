@@ -14,12 +14,12 @@
       html,
       body {
         height: 100%;
-          -webkit-user-select: none;
-          -khtml-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          -o-user-select: none;
-          user-select: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
       }
       #page {
         display: table;
@@ -53,6 +53,7 @@
         border: 0;
         margin: 1em 0;
         padding: 0;
+        background: linear-gradient(to right, #46C340 0%, #4691F6 100%);
         background-image: -ms-linear-gradient(left, #46C340 0%, #4691F6 100%);
         background-image: -moz-linear-gradient(left, #46C340 0%, #4691F6 100%);
         background-image: -o-linear-gradient(left, #46C340 0%, #4691F6 100%);
@@ -68,6 +69,21 @@
         left: 0;
         right: auto;
         z-index: -1;
+      }
+      figure {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        height: 3px;
+        width: 100%;
+        min-width: 600px;
+        background: linear-gradient(to right, #46C340 0%, #4691F6 100%);
+        background-image: -ms-linear-gradient(left, #46C340 0%, #4691F6 100%);
+        background-image: -moz-linear-gradient(left, #46C340 0%, #4691F6 100%);
+        background-image: -o-linear-gradient(left, #46C340 0%, #4691F6 100%);
+        background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #46C340), color-stop(1, #4691F6));
+        background-image: -webkit-linear-gradient(left, #46C340 0%, #4691F6 100%);
+        background-image: linear-gradient(to right, #46C340 0%, #4691F6 100%);
       }
       .animated {
         -webkit-animation-name: zoomIn;
@@ -138,13 +154,22 @@
         }
       }
     </style>
+    <link rel="stylesheet" href="css/vrmn.css">
   </head>
   <body>
-    <canvas id="displayCanvas" height="700"></canvas>
+    <figure id="topbar"></figure>
+    <canvas id="displayCanvas" height="900"></canvas>
     <div id="page">
       <div id="content_container">
           <h1 class="animated">Simon Vreeman</h1>
           <hr class="animated">
+          <!-- <p>
+            <a href=""><i class="icon-twitter"></i></a>
+            <a href=""><i class="icon-linkedin"></i></a>
+            <a href=""><i class="icon-instagramm"></i></a>
+            <a href=""><i class="icon-mail-alt"></i></a>
+            <a href=""><i class="icon-github-circled"></i></a>
+          </p> -->
       </div>
     </div>
     <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" async defer></script> -->
