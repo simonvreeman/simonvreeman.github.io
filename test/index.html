@@ -5,7 +5,7 @@
     <title>Simon Vreeman</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="dns-prefetch" href="//ajax.googleapis.com">
+    <!-- <link rel="dns-prefetch" href="//ajax.googleapis.com"> -->
     <style>
       * {
         margin: 0;
@@ -14,6 +14,12 @@
       html,
       body {
         height: 100%;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          -o-user-select: none;
+          user-select: none;
       }
       #page {
         display: table;
@@ -45,7 +51,6 @@
         display: block;
         height: 3px;
         border: 0;
-        /* border-top: 1px solid #ccc; */
         margin: 1em 0;
         padding: 0;
         background-image: -ms-linear-gradient(left, #46C340 0%, #4691F6 100%);
@@ -54,6 +59,15 @@
         background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #46C340), color-stop(1, #4691F6));
         background-image: -webkit-linear-gradient(left, #46C340 0%, #4691F6 100%);
         background-image: linear-gradient(to right, #46C340 0%, #4691F6 100%);
+      }
+      canvas {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: auto;
+        z-index: -1;
       }
       .animated {
         -webkit-animation-name: zoomIn;
@@ -78,7 +92,6 @@
           -webkit-transform: scale3d(.3, .3, .3);
           transform: scale3d(.3, .3, .3);
         }
-
         50% {
           opacity: 1;
         }
@@ -89,7 +102,6 @@
           -moz-transform: scale3d(.3, .3, .3);
           transform: scale3d(.3, .3, .3);
         }
-
         50% {
           opacity: 1;
         }
@@ -100,7 +112,6 @@
           -ms-transform: scale3d(.3, .3, .3);
           transform: scale3d(.3, .3, .3);
         }
-
         50% {
           opacity: 1;
         }
@@ -111,7 +122,6 @@
           -o-transform: scale3d(.3, .3, .3);
           transform: scale3d(.3, .3, .3);
         }
-
         50% {
           opacity: 1;
         }
@@ -123,7 +133,6 @@
           -ms-transform: scale3d(.3, .3, .3);
           transform: scale3d(.3, .3, .3);
         }
-
         50% {
           opacity: 1;
         }
@@ -131,6 +140,7 @@
     </style>
   </head>
   <body>
+    <canvas id="displayCanvas" height="700"></canvas>
     <div id="page">
       <div id="content_container">
           <h1 class="animated">Simon Vreeman</h1>
@@ -139,7 +149,7 @@
     </div>
     <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" async defer></script> -->
     <script>
-
+      !function(){"use strict";for(var a=0,b=["ms","moz","webkit","o"],c=0;c<b.length&&!window.requestAnimationFrame;c+=1)window.requestAnimationFrame=window[b[c]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[b[c]+"CancelAnimationFrame"]||window[b[c]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(b){var c=(new Date).getTime(),d=Math.max(0,16-(c-a)),e=window.setTimeout(function(){b(c+d)},d);return a=c+d,e}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(a){clearTimeout(a)})}(),function(){"use strict";function a(){var a=document.getElementById("displayCanvas"),b=a.getContext("2d"),c=Math.max(screen.width,screen.height),d=a.height;a.width=c;var e,f,g,h,i,j,k,l,m=2*Math.PI,n=function(){e=200,f=200,g=0,i=5,j=5,l=1,o()},o=function(){k=0,b.setTransform(1,0,0,1,0,0),b.clearRect(0,0,c,d),p(),q()},p=function(){var a,c=f+Math.random()*(e-f),j=g*c;a=b.createLinearGradient(-.85*c,0,.7*c,0),a.addColorStop(1,"rgba(70, 195, 64, 0.05)"),a.addColorStop(0,"rgba(70, 145, 246, 0.05)");var k={centerX:-c,centerY:d/2-50,maxRad:c,minRad:j,color:a,param:0,changeSpeed:.004,phase:Math.random()*m,globalPhase:Math.random()*m};h=k,k.pointList1=r(i),k.pointList2=r(i)},q=function(){var a,d,f,g,n,o,p,s,t,u,v=.75;for(a=0;j>a;a+=1){for(k+=1,d=h,d.param+=d.changeSpeed,d.param>=1&&(d.param=0,d.pointList1=d.pointList2,d.pointList2=r(i)),t=.5-.5*Math.cos(Math.PI*d.param),b.strokeStyle=d.color,b.lineWidth=l,b.beginPath(),g=d.pointList1.first,n=d.pointList2.first,d.phase+=2e-4,s=d.phase,f=d.minRad+(g.y+t*(n.y-g.y))*(d.maxRad-d.minRad),d.centerX+=.5,d.centerY+=.04,u=40*Math.sin(d.globalPhase+k/1e3*6.28),b.setTransform(v,0,0,1,d.centerX,d.centerY+u),o=v*f*Math.cos(s),p=f*Math.sin(s),b.lineTo(o,p);null!==g.next&&void 0!==g.next;)g=g.next,n=n.next,s=m*(g.x+t*(n.x-g.x))+d.phase,f=d.minRad+(g.y+t*(n.y-g.y))*(d.maxRad-d.minRad),o=v*f*Math.cos(s),p=f*Math.sin(s),b.lineTo(o,p);b.closePath(),b.stroke()}d.centerX<c+e&&window.requestAnimationFrame(q)},r=function(a){var b,c,d,e,f,g={first:{x:0,y:1}},h={x:1,y:1},i=1,j=1;g.first.next=h;for(var k=0;a>k;k+=1)for(b=g.first;null!==b.next&&void 0!==b.next;){c=b.next,d=c.x-b.x,e=.5*(b.x+c.x),f=.5*(b.y+c.y),f+=d*(2*Math.random()-1);var l={x:e,y:f};i>f?i=f:f>j&&(j=f),l.next=c,b.next=l,b=c}if(j!==i){var m=1/(j-i);for(b=g.first;null!==b&&void 0!==b;)b.y=m*(b.y-i),b=b.next}else for(b=g.first;null!==b&&void 0!==b;)b.y=1,b=b.next;return g};n()}function b(){a()}window.addEventListener("touchmove",function(a){a.preventDefault()}),window.addEventListener("load",b,!1)}();
     </script>
   </body>
 </html>
