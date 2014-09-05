@@ -39,14 +39,6 @@
         display: table-cell;
         vertical-align: middle;
       }
-      ::-moz-selection {
-        background: #ccc;
-        text-shadow: none;
-      }
-      ::selection {
-        background: #ccc;
-        text-shadow: none;
-      }
       h1 {
         font: normal normal 300 7.5vw/1.4 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
       }
@@ -156,20 +148,16 @@
           opacity: 1;
         }
       }
-      p, a:link, a:visited, a:hover, a.active {
+      p, a:link, a:visited, a:active {
         font: normal normal 300 1.5vw/1.4 Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
         color: #444;
         text-decoration: none;
-        -webkit-transition: all 1s ease-in-out;
-        -moz-transition: all 1s ease-in-out;
-        -o-transition: all 1s ease-in-out;
-        transition: all 1s ease-in-out;
       }
       a:hover {
-        border-bottom-color: #444;
+        border-bottom: 1px solid #444;
+        border-shadow: 0px 1px 2px rgba(150, 150, 150, 1);
       }
     </style>
-    <!-- <link rel="stylesheet" href="css/vrmn.css"> -->
   </head>
   <body>
     <figure id="topbar"></figure>
@@ -178,14 +166,7 @@
       <div id="content_container">
           <h1 class="animated">Simon Vreeman</h1>
           <hr class="animated">
-          <!-- <p>
-            <a href=""><i class="icon-twitter"></i></a>
-            <a href=""><i class="icon-linkedin"></i></a>
-            <a href=""><i class="icon-instagramm"></i></a>
-            <a href=""><i class="icon-mail-alt"></i></a>
-            <a href=""><i class="icon-github-circled"></i></a>
-          </p> -->
-          <p class="animated"><a href="https://twitter.com/vreeman">Twitter</a> &middot; <a href="https://www.linkedin.com/in/simonvreeman">LinkedIn</a> &middot; <a href="http://instagram.com/simonvreeman">Instagram</a> &middot; <a href="mailto:simonvreeman@gmail.com">Email</a></p>
+          <p class="animated"><a href="https://twitter.com/vreeman">Twitter</a> &middot; <a href="https://www.linkedin.com/in/simonvreeman">LinkedIn</a> &middot; <a href="http://instagram.com/simonvreeman">Instagram</a> &middot; <a href="mailto:simon@vreeman.com">Email</a></p>
       </div>
     </div>
     <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" async defer></script> -->
