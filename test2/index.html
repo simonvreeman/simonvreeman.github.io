@@ -6,31 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="dns-prefetch" href="//ajax.googleapis.com"> -->
+    <link rel="dns-prefetch" href="//vreeman.com">
+    <link rel="prefetch" href="//vreeman.com">
+    <link rel="prerender" href="//vreeman.com">
     <style>
       html {
-        font-family: sans-serif;
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
       }
       body{
-        margin: 0 auto;
-        width: 300px;
+        margin: 100px auto;
+        width: 90%;
+        font-family: sans-serif;
+        line-height: 1.6;
+        text-align: center;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
-      h1, a:link, a:visited, a:hover, a.active {
-        color: black;
+      a:link, a:visited, a:hover, a:active {
+        color: #000;
+        text-decoration: none;
+        border-bottom: 1px solid #000;
+      }
+      h1 {
+        font-weight: normal;
+      }
+      address {
+        font-style: normal;
+      }
+      q {
+        font-style: italic;
+        font-size: 85%;
       }
     </style>
   </head>
   <body>
     <h1>Simon Vreeman</h1>
-    <ul>
-      <li><a href="mailto:simon@vreeman.com">simon@vreeman.com</a></li>
-      <li><a href="tel:+31613367285">+31(0)6-13367285</a></li>
-      <li><a href="http://vreeman.com">vreeman.com</a></li>
-    </ul>
+    <blockquote>
+      <q cite="http://vreeman.com">Aways Be Optimizing</q>
+    </blockquote>
+    <address>
+      <a href="mailto:simon@vreeman.com">simon@vreeman.com</a><br />
+      <a href="tel:+31613367285">+31(0)6-13367285</a><br />
+      <a href="http://vreeman.com" rel="me">vreeman.com</a><br />
+    </address>
     <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" async defer></script> -->
   </body>
 </html>

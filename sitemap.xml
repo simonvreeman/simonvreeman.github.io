@@ -5,8 +5,13 @@
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
       http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>http://vreeman.com/</loc> 
+    <loc>http://vreeman.com/</loc>
     <priority>1</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://vreeman.com/a-b-testing-with-google-tag-manager/</loc>
+    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>
