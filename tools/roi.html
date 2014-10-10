@@ -63,8 +63,7 @@
       		<input type="text" id="extra" class="form-control" placeholder="% extra">
       	</form>
 
-      	<div class="well">
-      		<p>Result: </p>
+      	<div class="well" id="result">
       	</div>
 
       </section>
@@ -73,19 +72,25 @@
       </footer>
     </section> <!-- /container -->
     <script src="//cdn.jsdelivr.net/g/jquery,bootstrap"></script>
-    <script src="http://vreeman.com/js/main.js"></script>
+    <!-- <script src="http://vreeman.com/js/main.js"></script> -->
     <script>
-		var costs = $('#costs').val();
-  		var revenue = $('#revenue').val();
-  		var extra = $('#extra').val();
-  		a = $('#costs').val();
-		b = $('#revenue').val();;
-		c = 0.5;
-		d = (a / b) * c
-		e = d * 100;
-		console.log(e);
-		console.log(a);
-		console.log(b);
+function updateOutput() {
+  var costs = $('#costs').val();
+  var revenue = $('#revenue').val();
+  var extra = $('#extra').val();
+
+  var roi1 = costs / revenue
+  var roi2 = roi1 * 100
+  var roi3 = roi2 + extra
+
+}
+console.log(roi1);
+console.log(roi2);
+console.log(roi3);
+
+jQuery('#result').change();
+
+jQuery(window.initpage);
     </script>
   </body>
 </html>

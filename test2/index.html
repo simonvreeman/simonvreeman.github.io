@@ -43,18 +43,6 @@
         padding: 0;
         margin: 5px 0;
       }
-      a:link, a:visited, a:active {
-        color: rgba(0,0,0,0.8);
-        font-family: sans-serif;
-        text-decoration: none;
-        border-bottom: 1px solid;
-        border-bottom-color: rgba(0,0,0,0.1);
-        transition: border-bottom-color 0.5s ease-in-out;
-      }
-      a:hover {
-        border-bottom: 1px solid;
-        border-bottom-color: rgba(0,0,0,0.8);
-      }
       h1{
         font-weight: normal;
         letter-spacing: 0.1rem;
@@ -69,7 +57,23 @@
         letter-spacing: 0.1rem;
       }
       p {
+        margin-bottom: 0;
         font-family: serif;
+      }
+      small, small a {
+        color: rgba(0,0,0,0.6)!important;
+      }
+      a:link, a:visited, a:active {
+        color: rgba(0,0,0,0.8);
+        font-family: sans-serif;
+        text-decoration: none;
+        border-bottom: 1px solid;
+        border-bottom-color: rgba(0,0,0,0.1);
+        transition: border-bottom-color 0.5s ease-in-out;
+      }
+      a:hover {
+        border-bottom: 1px solid;
+        border-bottom-color: rgba(0,0,0,0.8);
       }
       .amp {
         font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
@@ -85,6 +89,7 @@
     </nav>
     <h1 itemprop="name">Simon Vreeman</h1>
     <p itemprop="jobTitle">Online Marketeer at <strong>Valk Exclusief</strong></p>
+    <small>more on <a href="https://www.linkedin.com/in/simonvreeman">LinkedIn</a></small>
     <blockquote>
       <q cite="http://vreeman.com">Aways Be Optimizing</q>
     </blockquote>
