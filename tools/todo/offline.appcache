@@ -1,0 +1,9 @@
+CACHE MANIFEST
+# v3
+
+./styles.css
+./indexeddb.shim.min.js
+./application.js
+
+NETWORK:
+*
