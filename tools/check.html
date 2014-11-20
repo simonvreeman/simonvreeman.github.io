@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" manifest="/offline.appcache">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html">
-    <title>Todo &middot; Simon Vreeman</title>
+    <title>Tools &middot; Simon Vreeman</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/fontawesome/4.2.0/css/font-awesome.min.css">
@@ -26,36 +26,47 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/tools/">Home</a></li>
+            <li class="active"><a href="/tools/">Home</a></li>
             <li><a href="/tools/ab.html">Significance Calculator</a></li>
             <li><a href="/tools/search.html">Google Search</a></li>
             <li><a href="/tools/ga.html">URL Builder</a></li>
             <li><a href="/tools/valk.html">Valk Exclusief</a></li>
-            <li class="active"><a href="/tools/todo.html">Todo</a></li>
+            <li><a href="/tools/todo.html">ToDo</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     <div class="container">
       <div class="page-header">
-        <h1>Todo</h1>
+        <h1>Tools</h1>
       </div>
       <div class="row">
         <div class="col-md-8">
+          <script>
+          var useragent = navigator.userAgent;
+          document.write('<strong>Useragent:</strong> ' + useragent);
+          </script>
+          <hr />
           <form role="form">
-            <div class="form-group form-group-lg">
-              <input class="form-control" placeholder="New todo..." />
+            <div class="form-group">
+              <label for="url">Encode/Decode URL</label>
+              <input type="text" class="form-control" id="url" class="domain" placeholder="Enter URL">
             </div>
+            <button type="submit" class="btn btn-default">Encode/Decode</button>
           </form>
-          <ul class="todos lead">
-          </ul>
+          <script>
+          var uri = document.getElementById('url');
+          var uri_enc = encodeURIComponent(uri);
+          var uri_dec = decodeURIComponent(uri_enc);
+          var res = '<strong>Encoded URL:</strong> ' + uri_enc + '<br />' + '<strong>Decoded URL:</strong> ' + uri_dec;
+          document.write(res);
+          </script>
         </div>
         <div class="col-md-4">
         </div>
       </div>
     </div>
     <script src="//cdn.jsdelivr.net/g/jquery,bootstrap"></script>
-    <script src="/js/indexeddb.shim.min.js"></script>
-    <script src="/js/application.js"></script>
+    <script src="/js/check.js"></script>
   </body>
 </html>
