@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html">
-    <title>Tools &middot; Simon Vreeman</title>
+    <title>Check &middot; Simon Vreeman</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/fontawesome/4.2.0/css/font-awesome.min.css">
@@ -42,25 +42,21 @@
       </div>
       <div class="row">
         <div class="col-md-8">
-          <script>
-          var useragent = navigator.userAgent;
-          document.write('<strong>Useragent:</strong> ' + useragent);
-          </script>
+          <div id="navigator_txt">
+          </div>
           <hr />
           <form role="form">
             <div class="form-group">
               <label for="url">Encode/Decode URL</label>
-              <input type="text" class="form-control" id="url" class="domain" placeholder="Enter URL">
+              <input type="url" name="domain" id="domain" class="form-control" value="http://vreeman.com" required>
             </div>
-            <button type="submit" class="btn btn-default">Encode/Decode</button>
           </form>
-          <script>
-          var uri = document.getElementById('url');
-          var uri_enc = encodeURIComponent(uri);
-          var uri_dec = decodeURIComponent(uri_enc);
-          var res = '<strong>Encoded URL:</strong> ' + uri_enc + '<br />' + '<strong>Decoded URL:</strong> ' + uri_dec;
-          document.write(res);
-          </script>
+          <div class="output form-group" id="html">
+            <h4>Encoded</h4>
+            <textarea id="enc_url" readonly="readonly" wrap="off" class="auto form-control"></textarea>
+            <h4>Decoded</h4>
+            <textarea id="dec_url" readonly="readonly" wrap="off" class="auto form-control"></textarea>
+          </div>
         </div>
         <div class="col-md-4">
         </div>
