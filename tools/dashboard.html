@@ -42,6 +42,7 @@
       </div>
       <div class="row">
         <div class="col-md-8">
+          <div id="active-users-container"></div>
           <div id="chart-container"></div>
         </div>
         <div class="col-md-4">
@@ -70,6 +71,36 @@
           container: 'embed-api-auth-container',
           clientid: '989242002732-f25ang5mpnf8ukv6qbka15oud3a2um64.apps.googleusercontent.com',
         });
+
+         /**
+           * Create a new ActiveUsers instance to be rendered inside of an
+           * element with the id "active-users-container" and poll for changes every
+           * five seconds.
+           */
+          var activeUsers = new gapi.analytics.ext.ActiveUsers({
+            container: 'active-users-container',
+            pollingInterval: 5
+          });
+
+          /**
+           * Add CSS animation to visually show the when users come and go.
+           */
+          activeUsers.once('success', function() {
+            var element = this.container.firstChild;
+            var timeout;
+
+            this.on('change', function(data) {
+              var element = this.container.firstChild;
+              var animationClass = data.delta > 0 ? 'is-increasing' : 'is-decreasing';
+              element.className += (' ' + animationClass);
+
+              clearTimeout(timeout);
+              timeout = setTimeout(function() {
+                element.className =
+                    element.className.replace(/ is-(increasing|decreasing)/g, '');
+              }, 3000);
+            });
+          });
 
         /**
          * Create a new ViewSelector instance to be rendered inside of an
