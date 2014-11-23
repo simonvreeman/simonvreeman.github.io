@@ -94,7 +94,7 @@
          * and Google chart options. It will be rendered inside an element
          * with the id "users-chart-container".
          */
-        var dataChart = new gapi.analytics.googleCharts.DataChart({
+        var dataChartusers = new gapi.analytics.googleCharts.DataChart({
           query: {
             metrics: 'ga:users',
             dimensions: 'ga:date',
@@ -115,7 +115,7 @@
          * and Google chart options. It will be rendered inside an element
          * with the id "transactions-chart-container".
          */
-        var dataChart = new gapi.analytics.googleCharts.DataChart({
+        var dataCharttransactions = new gapi.analytics.googleCharts.DataChart({
           query: {
             metrics: 'ga:transactions',
             dimensions: 'ga:date',
@@ -136,7 +136,7 @@
          * and Google chart options. It will be rendered inside an element
          * with the id "transactionRevenue-chart-container".
          */
-        var dataChart = new gapi.analytics.googleCharts.DataChart({
+        var dataCharttransactionRevenue = new gapi.analytics.googleCharts.DataChart({
           query: {
             metrics: 'ga:transactionRevenue',
             dimensions: 'ga:date',
