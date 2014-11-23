@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <title>Google Analytics Dashboard &middot; Simon Vreeman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/fontawesome/4.2.0/css/font-awesome.min.css">
+    <meta name="robots" content="noindex,follow">
+    <style>body{padding-top:50px}.navbar-default{opacity: 0.9}</style>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWPFGT');</script>
+  </head>
+  <body>
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NWPFGT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Simon Vreeman</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/tools/">Home</a></li>
+            <li><a href="/tools/ab.html">Significance Calculator</a></li>
+            <li><a href="/tools/search.html">Google Search</a></li>
+            <li><a href="/tools/ga.html">URL Builder</a></li>
+            <li><a href="/tools/valk.html">Valk Exclusief</a></li>
+            <li><a href="/tools/todo.html">ToDo</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>Google Analytics Dashboard</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div id="embed-api-auth-container"></div>
+          <div id="chart-container"></div>
+          <div id="view-selector-container"></div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+      </div>
+    </div>
+    <script src="//cdn.jsdelivr.net/g/jquery,bootstrap"></script>
+    <script>
+      (function(w,d,s,g,js,fs){
+        g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+        js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+        js.src='https://apis.google.com/js/platform.js';
+        fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+      }(window,document,'script'));
+    </script>
+    <script>
+      gapi.analytics.ready(function() {
+        /**
+         * Authorize the user immediately if the user has already granted access.
+         * If no access has been created, render an authorize button inside the
+         * element with the ID "embed-api-auth-container".
+         */
+        gapi.analytics.auth.authorize({
+          container: 'embed-api-auth-container',
+          clientid: '299831',
+        });
+
+        /**
+         * Create a new ViewSelector instance to be rendered inside of an
+         * element with the id "view-selector-container".
+         */
+        var viewSelector = new gapi.analytics.ViewSelector({
+          container: 'view-selector-container'
+        });
+
+        // Render the view selector to the page.
+        viewSelector.execute();
+
+        /**
+         * Create a new DataChart instance with the given query parameters
+         * and Google chart options. It will be rendered inside an element
+         * with the id "chart-container".
+         */
+        var dataChart = new gapi.analytics.googleCharts.DataChart({
+          query: {
+            metrics: 'ga:sessions',
+            dimensions: 'ga:date',
+            'start-date': '30daysAgo',
+            'end-date': 'yesterday'
+          },
+          chart: {
+            container: 'chart-container',
+            type: 'LINE',
+            options: {
+              width: '100%'
+            }
+          }
+        });
+
+        /**
+         * Render the dataChart on the page whenever a new view is selected.
+         */
+        viewSelector.on('change', function(ids) {
+          dataChart.set({query: {ids: ids}}).execute();
+        });
+
+      });
+    </script>
+  </body>
+</html>
