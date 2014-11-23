@@ -157,7 +157,9 @@
          * Render the dataChart on the page whenever a new view is selected.
          */
         viewSelector.on('change', function(ids) {
-          dataChart.set({query: {ids: ids}}).execute();
+          dataChartusers.set({query: {ids: ids}}).execute();
+          dataCharttransactions.set({query: {ids: ids}}).execute();
+          dataCharttransactionRevenue.set({query: {ids: ids}}).execute();
         });
 
       });
