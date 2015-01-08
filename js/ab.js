@@ -949,8 +949,9 @@ function () {
             n = determine_statistical_significance(e),
             a = determine_winner(t, i, e),
             s = determine_loser(a),
+            u = 100 - e,
             r = calculate_winner_improvement(t, i, a);
-            $("#a_conversion").text(Math.round(t * 100) / 100 + "%"), $("#b_conversion").text(Math.round(i * 100) / 100 + "%"), $("#certainty").text(Math.round(e * 100) / 100 + "%"), $("#winner").text(a), $("#winner_2").text(a), $("#loser").text(s), $("#loser_2").text(s), $("#winner_improvement").text(Math.round(r * 100) / 100 + "%"), $("#stat_sig").text(n)
+            $("#a_conversion").text(Math.round(t * 100) / 100 + "%"), $("#b_conversion").text(Math.round(i * 100) / 100 + "%"), $("#certainty").text(Math.round(e * 100) / 100 + "%"),$("#coincidence").text(Math.round(u * 100) / 100 + "%"),$("#winner").text(a), $("#winner_2").text(a), $("#loser").text(s), $("#loser_2").text(s), $("#winner_improvement").text(Math.round(r * 100) / 100 + "%"), $("#stat_sig").text(n)
           }), $("#add_row").click(function (i) {
             i.preventDefault(), t = add_row(t)
           })
