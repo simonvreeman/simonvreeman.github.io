@@ -1,0 +1,321 @@
+<html>
+	<head>
+		<title>A/B Testing Eventual Significance Simulation</title>
+		<style>
+		body {
+		  font: 10px sans-serif;
+		}
+
+		.intro {
+		  font: 13px sans-serif;
+		  width: 600px;
+		}
+		
+		.x.axis line {
+			shape-rendering: auto;
+		}
+
+		.line {
+			fill: none;
+			stroke: #000;
+			stroke-width: 1.5px;
+		}
+		.kpiblock {
+			width: 120px;
+			text-align: center;
+			display: inline-block;
+		}
+		.bignumber {
+			font: 40px sans-serif;
+		}
+		</style>
+		<script src="jquery-1.9.1.min.js"></script>
+		<script src="statistics-distributions.js"></script>
+		<script src="d3.v3.min.js" charset="utf-8"></script>
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-17073322-1']);
+		  _gaq.push(['_setDomainName', 'none']);
+		  _gaq.push(['_setAllowLinker', true]);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+		
+		<script>
+//
+// Just set up some basics
+//
+
+function init() {
+	// Chisquare distribution levels
+	// var GTEST_CUTOFF_90 = chisqrdistr(1, .1); // 2.7105; // This means significance at .10 
+	// var GTEST_CUTOFF_95 = chisqrdistr(1, .05); // 3.8502; // This means significance at .05
+	P_VALUE = $("#pval").val();
+	GTEST_CUTOFF = chisqrdistr(1, P_VALUE);
+
+	// How many variants and participants to include
+	VARIANTS        = 2;
+	SAMPLE_SIZE     = $("#sample").val();
+	PARTICIPANTS    = SAMPLE_SIZE * VARIANTS;
+
+	// Conversion rate of mock experiments
+	CONVERSION_RATE = $("#conv").val();
+
+	// How many participants to do before starting checking
+	CHECK_CUTOFF    = $("#cutoff").val();
+
+	// Number of mock experiments to run
+	EXPERIMENTS     = $("#exp").val();
+	
+	$("#samplesize").text(SAMPLE_SIZE/1000+"k");
+	$("#p").text(P_VALUE);
+	recursive_experiment_loop();
+}
+
+//
+// Counts
+//
+
+var totals90 = 0;
+var only_final90 = 0;
+var experiments = 0;
+
+// This takes an array of arrays of any size, and calculates
+// the raw g-test value.  It assumes a square matrix of arguments.
+function calculate_g_test (data) {
+	var rows = data.length;
+	var columns = data[0].length;
+
+	// Initialize our subtotals
+	var row_totals = [];
+	for (var i = 0; i < rows; i++) {
+		row_totals[i] = 0;
+	}
+
+	var column_totals = [];
+	for (var j = 0; j < columns; j++) {
+		column_totals[j] = 0;
+	}
+
+	var total = 0;
+
+	// First we calculate the totals for the row and the column
+	for (var i = 0; i < rows; i++) {
+		for (var j = 0; j < columns; j++) {
+			var entry = data[i][j] - 0;  // - 0 ensures numeric
+			row_totals[i]    += entry;
+			column_totals[j] += entry;
+			total            += entry;
+		}
+	}
+
+	// Now we calculate the g-test contribution from each entry.
+	var g_test = 0;;
+	for (var i = 0; i < rows; i++) {
+		for (var j = 0; j < columns; j++) {
+			var expected = row_totals[i] * column_totals[j] / total;
+			var seen     = data[i][j];
+
+			g_test      += 2 * seen * Math.log( seen / expected );
+		}
+	}
+
+	return g_test;
+}
+
+// One pretend experiment with $participants and the same $CONVERSION_RATE in 
+// each variant, randomly assigning each participant to a variant at time seen
+function run_single_experiment (experiment) {
+	var variant = new Array();
+	for (var i = 0; i < VARIANTS; ++i) { variant.push([i,0,0]); };
+	
+	//var conversion = new Array();
+
+	var finding90 = 0; 
+
+	for (var participant = 0; participant <= PARTICIPANTS; ++participant) {
+		var v = Math.floor(Math.random() * VARIANTS);
+
+		if (Math.floor(Math.random() * 100) <= CONVERSION_RATE) {
+			variant[v][1]++;  // hits
+		} else {
+			variant[v][2]++; // fails
+		}
+
+		/*
+		for (var i = 0; i < VARIANTS; i++) {
+			conversion.push[i,variant[i][1]/(variant[i][1]+variant[i][2])]
+		} */
+
+		if (participant < CHECK_CUTOFF) continue;
+
+		var data_all = [];
+		for (var i = 0; i < VARIANTS; i++) {
+			var this_version = variant[i];
+			data_all.push( [this_version[1], this_version[2]] );
+		}
+		
+		//var g     = new Statistics::Gtest(\@variant);
+		var g     = calculate_g_test(data_all);
+
+		if (g >= GTEST_CUTOFF) finding90++;
+	}
+	
+	var min = variant[0];
+	var max = variant[0];
+	var data_all = [];
+	for (var i = 0; i < VARIANTS; i++) {
+		var this_version = variant[i];
+		data_all.push( [this_version[1], this_version[2]] );
+
+		if ( this_version[1] / this_version[2] > max[1] / max[2]) {
+			max = this_version;
+		}
+		else if (this_version[1] / this_version[2] < min[1] / min[2]) {
+			min = this_version;
+		}
+	}
+
+	var g     = calculate_g_test(data_all);
+
+	var p_all = chisqrprob(VARIANTS - 1, g);
+	var certainty_all = round_to_precision( 100 * (1-p_all), 2);
+
+	if (g >= GTEST_CUTOFF) only_final90++;
+
+	if (finding90 > 0) totals90++;
+  
+	$("#log").prepend("Experiment "+experiment+" of "+EXPERIMENTS+": ("+finding90+" at p<"+P_VALUE+"). Hitrate: "+totals90+" of "+experiment+" at p<"+P_VALUE+". (One check: "+only_final90+" of "+experiment+" at p<"+P_VALUE+")<br />");
+	$("#experiments").text(experiment);
+	$("#totals90").text(totals90);
+	$("#only_final90").text(only_final90);
+	
+	// draw chart
+}
+
+function recursive_experiment_loop() {
+	run_single_experiment(++experiments);
+	if (experiments < EXPERIMENTS) timeoutID = window.setTimeout(recursive_experiment_loop, 10);
+}
+
+$(document).ready(function() {
+	//$("#samplesize").text(SAMPLE_SIZE/1000+"k");
+	//$("#p").text(P_VALUE);
+	//recursive_experiment_loop();
+});
+
+var n = 40, random = d3.random.normal(0, .2);
+
+function chart(domain, interpolation, tick) {
+  var data = d3.range(n).map(random);
+
+  var margin = {top: 6, right: 0, bottom: 6, left: 40},
+      width = 960 - margin.right,
+      height = 120 - margin.top - margin.bottom;
+
+  var x = d3.scale.linear()
+      .domain(domain)
+      .range([0, width]);
+
+  var y = d3.scale.linear()
+      .domain([-1, 1])
+      .range([height, 0]);
+
+  var line = d3.svg.line()
+      .interpolate(interpolation)
+      .x(function(d, i) { return x(i); })
+      .y(function(d, i) { return y(d); });
+
+  var svg = d3.select("body").append("p").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .style("margin-left", -margin.left + "px")
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  svg.append("defs").append("clipPath")
+      .attr("id", "clip")
+    .append("rect")
+      .attr("width", width)
+      .attr("height", height);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(d3.svg.axis().scale(y).ticks(5).orient("left"));
+
+  var path = svg.append("g")
+      .attr("clip-path", "url(#clip)")
+    .append("path")
+      .data([data])
+      .attr("class", "line")
+      .attr("d", line);
+
+  tick(path, line, data, x);
+}
+		</script>
+	</head>
+	<body>
+	<script>
+
+/*
+chart([0, n - 1], "linear", function tick(path, line, data, x) {
+  // push a new data point onto the back
+  data.push(random());
+
+  // redraw the line, and then slide it to the left
+  path
+      .attr("d", line)
+      .attr("transform", null)
+    .transition()
+      .duration(750)
+      .ease("linear")
+      .attr("transform", "translate(" + x(-1) + ")")
+      .each("end", function() { tick(path, line, data, x); });
+
+  // pop the old data point off the front
+  data.shift();
+}); */
+
+</script>
+		<div class="intro">
+			<h1>Repeated Significance Testing Simulation</h1>
+			<p>This simulation was designed to illustrate the effects of repeated significance testing as described in Mats Einarsen's post "<a href="http://www.einarsen.no/is-your-ab-testing-effort-just-chasing-statistical-ghosts/">is your A/B testing effort just chasing statistical ghosts</a>".</p>
+			<form id="input">
+				p-value: <input type="text" id="pval" value="0.1" style="width:30;" /> 
+				sample size: <input type="text" id="sample" value="100000" style="width:60;" /> 
+				conversion: <input type="text" id="conv" value="3" style="width:20;" />%
+				cutoff point: <input type="text" id="cutoff" value="10000" style="width:60;" />
+				experiments: <input type="text" id="exp" value="100" style="width:40;" />
+				
+				<p><a href="#" onClick="$('#input input').prop('disabled', true); init();">start simulation</a></p>
+			</form>
+		</div>
+		<div class="kpiblock">
+			<span class="legend">p-value</span><br />
+			<span class="bignumber" id="p">0.1</span>
+		</div>
+		<div class="kpiblock">
+			<span class="legend">sample size</span><br />
+			<span class="bignumber" id="samplesize">0</span>
+		</div>
+		<div class="kpiblock">
+			<span class="legend">experiments simulated</span><br />
+			<span class="bignumber" id="experiments">0</span>
+		</div>
+		<div class="kpiblock">
+			<span class="legend">were ever significant</span><br />
+			<span class="bignumber" id="totals90">0</span>
+		</div>
+		<div class="kpiblock">
+			<span class="legend">ended as significant</span><br />
+			<span class="bignumber" id="only_final90">0</span>
+		</div>
+
+		<p id="log"></p>
+	</body>
+</html>
