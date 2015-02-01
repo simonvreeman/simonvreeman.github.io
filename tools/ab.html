@@ -6,7 +6,7 @@
     <title>A/B Test Significance Calculator &middot; Simon Vreeman</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/fontawesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
     <meta name="robots" content="noindex,follow">
     <style>body{padding-top:50px}.navbar-default{opacity: 0.9}</style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWPFGT');</script>
@@ -49,6 +49,7 @@
                 <th>Unique Visitors</th>
                 <th>Conversions</th>
                 <th>Conversion Rate</th>
+                <th>Standard Error</th>
               </tr>
             </thead>
             <tbody>
@@ -57,21 +58,32 @@
                 <td><input type="text" class="text form-control" name="a_visits" id="a_visits" value="1000"></td>
                 <td class="conversions"><input type="text" class="text form-control" name="a_conversions" id="a_conversions" value="90"></td>
                 <td><strong class="big_num" id="a_conversion">9%</strong></td>
+                <td><strong class="big_num" id="a_standard">0.90%</strong></td>
               </tr>
               <tr id="row2" class="success">
                 <th><span id="row2_label" class="row_label row_label_success"><p>B</p></span></th>
                 <td><input type="text" class="text input_success form-control" name="b_visits" id="b_visits" value="1000"></td>
                 <td class="conversions"><input type="text" class="text input_success form-control" name="b_conversions" id="b_conversions" value="120"></td>
                 <td><strong class="big_num" id="b_conversion">12%</strong></td>
+                <td><strong class="big_num" id="b_standard">1.03%</strong></td>
               </tr>
             </tbody>
           </table>
           <div class="well well-lg">
             <h4>Your results:</h4>
             <p class="lead" id="stat_sig">Your A/B test is statistically significant!</p>
-            <p>Test "<strong id="winner">B</strong>" converted <strong id="winner_improvement">33.33%</strong> better than Test "<strong id="loser">A</strong>." We are <strong id="certainty">98.58%</strong> certain that the changes in Test "<strong id="winner_2">B</strong>" will improve your conversion rate.</p>
+            <p>Test "<strong id="winner">B</strong>" converted <strong id="winner_improvement">33.33%</strong> better than Test "<strong id="loser">A</strong>". We are <strong id="certainty">98.58%</strong> certain that the changes in Test "<strong id="winner_2">B</strong>" will improve your conversion rate.</p>
             <p><strong id="coincidence">1.42%</strong> of the time that will just be a coincidence.</p>
           </div>
+          <h4>Todo's:</h4>
+          <ul class="fa-ul">
+            <li><i class="fa-li fa fa-check-square-o"></i> Be Awesome</li>
+            <li><i class="fa-li fa fa-check-square-o"></i> Standard Error</li>
+            <li><i class="fa-li fa fa-square-o"></i> Standard Error difference</li>
+            <li><i class="fa-li fa fa-square-o"></i> Z-score</li>
+            <li><i class="fa-li fa fa-square-o"></i> Power</li>
+            <li><i class="fa-li fa fa-square-o"></i> Two sided instead of one sided</li>
+          </ul>
         </div>
         <div class="col-md-4">
           <p>Do you need detailed information and fancy graphs? Use the <a href="http://abtestguide.com/calc/" target="_blank">A/B Test Significance & Power Calculator</a> by Online Dialogue.</p>

@@ -10,6 +10,7 @@ function get_field_values() {
   }
 }
 
+// Calculating Conversion Rate
 function calculate_conversion(t) {
   var i = get_field_values();
   if ("a" == t) var e = 100 * (i.a_conversions / i.a_visits);
@@ -26,6 +27,7 @@ function validate_inputs() {
   parseInt(t.a_visits) < parseInt(t.a_conversions) ? $("#a_visits").append('<span class="warning">Visitors must be greater than conversions.</span>') : $(".warning").remove(), parseInt(t.b_visits) < parseInt(t.b_conversions) ? $("#b_visits").parent().append('<span class="warning">Visitors must be greater than conversions.</span>') : $(".warning").remove()
 }
 
+// Calculating Standard Error
 function calculate_certainty(t, i) {
   if (t >= 0 && i >= 0) {
     t /= 100, i /= 100;
@@ -33,9 +35,14 @@ function calculate_certainty(t, i) {
     n = Math.sqrt(t * (1 - t) / e.a_visits),
     a = Math.sqrt(i * (1 - i) / e.b_visits),
     s = (t - i) / Math.sqrt(Math.pow(n, 2) + Math.pow(a, 2));
+
+    // console.log('Standard Error A: ' + n);
+    // console.log('Standard Error B: ' + a);
+    $("#a_standard").text(Math.round(n * 10000) / 100 + "%"),$("#b_standard").text(Math.round(a * 10000) / 100 + "%");
+
     if (t > i) var r = jstat.pnorm(s, 0, 1, null, null);
     else var r = 1 - jstat.pnorm(s, 0, 1, null, null);
-    return 100 * r
+    return 100 * r;
   }
   return 0
 }
@@ -51,20 +58,23 @@ function determine_loser(t) {
 function calculate_winner_improvement(t, i, e) {
   if ("A" == e) {
     $("#winner_conversion").text(Math.round(t * 100) / 100 + "%");
-    var n = (t - i) / i
+    var n = (t - i) / i;
+    // console.log('Winner A: ' + n);
   }
   else {
     $("#winner_conversion").text(Math.round(i * 100) / 100 + "%");
-    var n = (i - t) / t
+    var n = (i - t) / t;
+    // console.log('Winner B: ' + n);
   }
   return 100 * n
 }
 
 function determine_statistical_significance(t) {
+  // console.log('Significance: ' + t);
   if (t >= 95) var i = "Your A/B test is statistically significant!";
   else if (t >= 90) var i = "It is questionable whether your results are statistically significant.";
   else var i = "Unfortunately, your results are not statistically significant.";
-  return i
+  return i;
 }
 
 function add_row() {}
@@ -80,7 +90,7 @@ function calculate_conversion_rate() {
   i = t.monthly_uniques * t.conversion_worth * (t.net_conversion_rate / 100);
   return Math.round(i * 100) / 100
 }
-
+1
 j = jstat,
 function () {
   var t = !1,
