@@ -407,7 +407,7 @@
               d = m[1] + m[2];
           }
 
-          var sp = $('<span id="days" />').addClass(cls);
+          var sp = $('<strong id="days" />').addClass(cls);
           sp.text(d);
           $('#answer').empty().append("You should run this experiment for ", sp, ".");
       },
