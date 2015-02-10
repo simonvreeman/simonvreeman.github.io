@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <title>A/B Test Duration Calculator &middot; Simon Vreeman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
+    <meta name="robots" content="noindex,follow">
+    <style>
+      body{padding-top:50px}
+      .navbar-default{opacity: 0.9}
+
+      .error {
+          display: none;
+          color: #a94442;
+          text-shadow: none;
+      }
+    </style>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWPFGT');</script>
+  </head>
+  <body>
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NWPFGT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Simon Vreeman</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/tools/">Home</a></li>
+            <li><a href="/tools/check.html">Check</a></li>
+            <li><a href="/tools/dashboard.html">Dashboard</a></li>
+            <li class="active"><a href="/tools/time.html">Duration Calculator</a></li>
+            <li><a href="/tools/search.html">Google Search</a></li>
+            <li><a href="/tools/ab.html">Significance Calculator</a></li>
+            <li><a href="/tools/ga.html">URL Builder</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>A/B Test Duration Calculator</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+
+          <div class="form-group question">
+            <label class="control-label" for="visits">How many eligible visits do you have per day?</label>
+            <input class="form-control" data-format="digits" id="visits" name="visits" placeholder="100,000">
+            <p class="help-block secondary-calc">This is the number of people visiting your site that <em>could</em> see the change on a given day.</p>
+          </div>
+          <div class="error">
+            <div class="message">
+            </div>
+          </div>
+
+          <div class="form-group question">
+            <label class="control-label" for="percentage">What percentage of visits will see the change?</label>
+            <input class="form-control" data-format="percent" id="percentage" name="percentage" placeholder="50%">
+            <p class="help-block secondary-calc" id="visits-seeing-change">Visits per day seeing the change: 50000</p>
+          </div>
+          <div class="error">
+            <div class="message">
+            </div>
+          </div>
+
+          <div class="form-group question">
+            <label class="control-label" for="conversion">What is your current conversion rate?</label>
+            <input class="form-control" data-format="percent" id="conversion" name="conversion" placeholder="4.0%">
+            <p class="help-block secondary-calc" id="converting-visitors">Converting visitors per day: 4000</p>
+          </div>
+          <div class="error">
+            <div class="message">
+            </div>
+          </div>
+
+          <div class="form-group question">
+            <label class="control-label" for="lift">How will you change conversion?</label>
+            <input class="form-control" data-format="percent" id="lift" name="lift" placeholder="+1.0%">
+            <p class="help-block">
+              This is the percent by which you predict you will change your base conversion rate. Use the minimum that would be worth the effort, or play with different values.<br>
+              <span class="secondary-calc" id="treatment-conversion">Conversion in the treatment group: 4.04%</span><br>
+              <span class="secondary-calc" id="treatment-daily-conv">Total daily conversions with the treatment rate: 4040</span><br>
+              <span class="secondary-calc" id="treatment-conv-diff">Change in daily conversions: +40</span>
+            </p>
+          </div>
+          <div class="error">
+            <div class="message">
+            </div>
+          </div>
+          <div class="error">
+            <div class="message">
+            </div>
+          </div>
+
+          <div class="form-group question">
+            <label class="control-label" for="confidence">How confident do you want to be of this?</label>
+            <input class="form-control" data-format="percent" id="confidence" name="confidence" placeholder="95%">
+            <p id="confidence-detail" class="help-block">In the case that there really is no effect, there is a <span class="secondary-calc">5%</span> probability that you will think there is one anyway due to random chance.</p>
+          </div>
+          <div class="error">
+            <div class="message">
+            </div>
+          </div>
+
+          <div class="form-group question">
+            <label class="control-label" for="power">How likely should you be to detect the change?</label>
+            <input class="form-control" data-format="percent" id="power" name="power" placeholder="80%">
+            <p id="power-detail" class="help-block">In the case that the effect is real, there is a <span class="secondary-calc">20%</span> chance that your experiment will fail to see it.</p>
+          </div>
+          <div class="error">
+            <div class="message">
+            </div>
+          </div>
+
+          <div id="answer-row" class="well well-lg">
+            <h4>Your results:</h4>
+            <p class="lead" id="answer" class="">You should run this experiment for <span id="days" class="medium">76 days</span>.</p>
+          </div>
+
+        </div>
+        <div class="col-md-4">
+
+        </div>
+      </div>
+    </div>
+    <script src="//cdn.jsdelivr.net/g/jquery,bootstrap"></script>
+    <script src="/js/libs.js"></script>
+    <script src="/js/time.js"></script>
+  </body>
+</html>
