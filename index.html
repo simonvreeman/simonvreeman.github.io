@@ -9,107 +9,105 @@
     <meta name="description" content="Hi, I am Simon Vreeman and I optimize and growth the websites of The Next Web based on insights & data.">
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
-    <link rel="dns-prefetch" href="//stats.g.doubleclick.net">
-    <link rel="dns-prefetch" href="//static.hotjar.com">
     <style>
-      body {
-        max-width: 30em;
-        margin: 5em auto;
-        padding: 0 1em;
-        color: #333;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        line-height: 1.6;
+      *,
+      *:before,
+      *:after {
+        -webkit-font-smoothing: antialiased !important;
+                font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        text-rendering: optimizeLegibility;
+        -webkit-box-sizing: border-box !important;
+           -moz-box-sizing: border-box !important;
+                box-sizing: border-box !important;
+        -webkit-font-feature-settings: 'kern';
+           -moz-font-feature-settings: 'kern';
+            -ms-font-feature-settings: 'kern';
+             -o-font-feature-settings: 'kern';
+                font-feature-settings: 'kern';
+        font-kerning: normal;
       }
-      h1, h2, h3 {
+      html {
+        display: table;
+        overflow: hidden;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      html, body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        display: table-cell;
+        vertical-align: middle;
+        background-color: FloralWhite;
+      }
+      h1, h2, h3, p {
+        font-family: Georgia, Times, 'Times New Roman', serif;
+        font-style: italic;
         font-weight: 400;
+        color: #333;
+        text-align: center;
       }
       h1 {
-        font-size: 2.5em;
+        font-size: 7.5vw;
+        letter-spacing: 1px;
       }
-      h3 {
-        margin-bottom: 0;
+      @media screen and (orientation:portrait) {
+        h1 { font-size: 6.5vh; }
+      }
+      h2 { font-size: 4vw; }
+      @media screen and (orientation:portrait) {
+        h2 { font-size: 3.5vh; }
+      }
+      h3 { font-size: 3.5vw; }
+      @media screen and (orientation:portrait) {
+        h3 { font-size: 3.25vh; }
       }
       a {
-        color: #08c;
+        color: #999;
         text-decoration: none;
+        -webkit-transition: color .3s ease-in-out;
+           -moz-transition: color .3s ease-in-out;
+                transition: color .3s ease-in-out;
       }
-      small {
-        display: block;
-        padding: 0 1em;
-      }
-      small, small a {
-        color: #999;
-      }
-      hr {
-        height: 1px;
-        border: 0;
-        border-top: 1px solid #ccc;
-      }
-      h1:hover:after {
-        content: ' Always Be Optimizing';
-        color: #999;
-        font-size: 1rem;
-        background-image: -webkit-linear-gradient(225grad,#f35626,#feab3a);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -webkit-animation: hue 4s infinite linear;
-      }
-      @-webkit-keyframes hue {
-        0% {
-          -webkit-filter: hue-rotate(0deg);
-        }
-        25% {
-          -webkit-transform: rotate3d(0, 0, 1, 10deg);
-        }
-        50% {
-          -webkit-transform: scale3d(1.05, 1.05, 1.05);
-        }
-        75% {
-          -webkit-transform: rotate3d(0, 0, 1, -10deg);
-        }
-        100% {
-          -webkit-filter: hue-rotate(-360deg);
-          -webkit-transform: rotate3d(0, 0, 1, 0deg);
-        }
-      }
+      a:active { color: #555; }
+      a:hover { color: #333; }
     </style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWPFGT');</script>
   </head>
-  <body itemscope itemtype="http://schema.org/Person">
+  <body>
     <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NWPFGT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <h1 itemprop="name">Simon Vreeman</h1>
-    <p>Hi, I am a <span itemprop="jobtitle">Web Analyst and Conversion Specialist</span> at <span itemprop="affiliation"><a title="The Next Web blog & events" href="http://thenextweb.com" target="_blank">The Next Web</a></span> and living in <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="addressCountry">the Netherlands</span></span>. I optimize and growth the websites of The Next Web based on insights & data.</p>
-    <p>Besides my work I like to cook, watch a movie or take my bike for a spin and clear my mind. Of cource I measure each ride to improve my performance.</p>
-    <p>Once in a while I scribble some notes on my <a title="Blog by Simon Vreeman" href="http://simonvreeman.tumblr.com">Digital Moleskine</a>.</p>
-    <h2>Previously worked at</h2>
-    <dl>
-      <dt><h3>Online Marketeer at <a title="Van der Valk Exclusief hotels & restaurants" href="http://www.valkexclusief.nl/nl/" target="_bank">Van der Valk Exclusief</a></h3></dt>
-      <dd>I improved the organic visibility of the websites in Google, revised and improved the Google Analytics implementation and based on the measured data conducted A/B tests to improve the conversion and learn more about the users behavior.<br>Some of the persuasion A/B tests about <a title="Persuasion technique Autonomy" href="http://www.wheelofpersuasion.com/technique/autonomy/" target="_bank">Autonomy</a> and <a title="Persuasion technique Visual Cueing" href="http://www.wheelofpersuasion.com/technique/visual-cueing/" target="_bank">Visual Cueing</a> we conducted with <a title="Online Dialogue" href="http://onlinedialogue.com" rel="nofollow" target="_bank">Online Dialogue</a> got published.</dd>
-      <dt><h3>Online Business Developer at <a title="Budeco - the business development company" href="http://budeco.nl/" target="_blank">Budeco</a></h3></dt>
-      <dd>Among others I worked for the Dutch Burns Foundation, Philips and all sorts of SMBs.</dd>
-      <dt><h3>Co-owner of Diteza</h3></dt>
-      <dd>Together with <a title="Coen Jacobs" href="http://coenjacobs.me/" target="_blank" rel="friend">Coen Jacobs</a> I founded WPspeciali.st. A Dutch news blog about WordPress for Dutch WordPress users.</dd>
-    </dl>
-    <p><em>You can find a more detailed <abbr title="Curriculum Vitae">CV</abbr> on <a href="https://www.linkedin.com/in/simonvreeman" title="Simon Vreeman on Linkedin" rel="nofollow me" target="_blank">LinkedIn</a>.</em></p>
-    <h2>Experience</h2>
-    <p>I am a <strong>Google Analytics Certified Individual</strong> and completed the following Google Analytics courses:</p>
-    <ul>
-      <li>Digital Analytics Fundamentals</li>
-      <li>Google Analytics Platform Principles</li>
-      <li>E-commerce Analytics: From Data to Decisions</li>
-      <li>Mobile App Analytics Fundamentals</li>
-    </ul>
-    <p>Besides Google Analytics I use Google Tag Manager intensively. One of the thing I use <abbr title="Google Tag Manager">GTM</abbr> for is for A/B and multivariate testing. For that purpose I made a small script for <a title="A/B & Multivariable testing script for Google Tag Manager & Google Analytics" href="https://github.com/simonvreeman/a-b-testing-with-google-tag-manager" target="_blank">A/B/n testing with Google Tag Manager</a>.</p>
-    <p>Currently I'm working with the Google Analytics Content Experiments API and Google Tag Manager. Here is a <a href="https://gist.github.com/simonvreeman/68cc8dc9266055bc4b07" target="_bank">simple script</a> to get started. It's very easy to make many varations and it uses the multi-armed bandit algorithm.</p>
-    <h2>Contact</h2>
-    <address>
-      <ul>
-        <li><a href="mailto:simon@vreeman.com?subject=Hello" title="Send an e-mail to Simon Vreeman" rel="me" itemprop="email">simon@vreeman.com</a></li>
-        <li><a href="http://twitter.com/vreeman" title="Simon Vreeman on Twitter" rel="nofollow me" target="_blank" itemprop="sameAs">Twitter</a></li>
-        <li><a href="https://www.linkedin.com/in/simonvreeman" title="Simon Vreeman on Linkedin" rel="nofollow me" target="_blank" itemprop="sameAs">LinkedIn</a></li>
-      </ul>
-    </address>
-    <hr>
-    <small><a href="http://vreeman.com" itemprop="url">Vreeman.com</a> is using Google Analytics to measure and analyze anonymous behavior and traffic data. It's used with care and won't be shared with third parties. The content is licensed under <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">CC BY 4.0</a> and <a href="https://github.com/simonvreeman/simonvreeman.github.io" target="_blank">the code</a> under <a href="http://opensource.org/licenses/MIT" rel="license" target="_blank">MIT</a> unless otherwise noted.</small>
+    <h1>Simon Vreeman</h1>
+    <h2>Web Analyst at <a href="http://thenextweb.com" title="The Next Web blog & events" target="_blank">The Next Web</a></h2>
+    <h3><a href="mailto:simon@vreeman.com?subject=Hello">E-mail</a> &middot; <a href="https://www.linkedin.com/in/simonvreeman" title="Simon Vreeman on Linkedin" rel="nofollow" target="_blank">LinkedIn</a> &middot; <a href="https://twitter.com/vreeman" title="Simon Vreeman on Twitter" rel="nofollow" target="_blank">Twitter</a></h3>
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type" : "Person",
+      "name" : "Simon Vreeman",
+      "jobTitle": "Web Analyst",
+      "worksFor" : {
+        "@type" : "Organization",
+        "name" : "The Next Web",
+        "url" : "http://thenextweb.com"
+      },
+      "address" : {
+        "@type" : "PostalAddress",
+        "addressLocality" : "Harfsen",
+        "addressCountry" : "the Netherlands"
+      },
+      "url" : "http://vreeman.com",
+      "email" : "simon@vreeman.com",
+      "sameAs" : [
+        "https://www.facebook.com/simonvreeman",
+        "https://www.linkedin.com/in/simonvreeman",
+        "https://twitter.com/vreeman",
+        "https://plus.google.com/+SimonVreeman"
+      ]
+    }
+    </script>
   </body>
 </html>
