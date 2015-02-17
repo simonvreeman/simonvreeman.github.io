@@ -52,79 +52,90 @@
       </div>
       <div class="row">
         <div class="col-md-8">
-
-          <div class="form-group question">
-            <label class="control-label" for="visits">How many eligible visits do you have per day?</label>
-            <input type="text" class="form-control" data-format="digits" id="visits" name="visits" placeholder="1,000">
-            <p class="help-block secondary-calc">This is the number of people visiting your site that <em>could</em> see the change on a given day.</p>
-          </div>
-          <div class="error">
-            <div class="message">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group question">
+                <label class="control-label" for="visits">How many eligible visits do you have per day?</label>
+                <input type="text" class="form-control" data-format="digits" id="visits" name="visits" placeholder="1,000">
+                <p class="help-block secondary-calc">This is the number of people visiting your site that <em>could</em> see the change on a given day.</p>
+              </div>
+              <div class="error">
+                <div class="message">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group question">
+                <label class="control-label" for="percentage">What percentage of visits will see the change?</label>
+                <input type="text" class="form-control" data-format="percent" id="percentage" name="percentage" placeholder="50%">
+                <p class="help-block secondary-calc" id="visits-seeing-change">Visits per day seeing the change: 500</p>
+              </div>
+              <div class="error">
+                <div class="message">
+                </div>
+              </div>
             </div>
           </div>
-
-          <div class="form-group question">
-            <label class="control-label" for="percentage">What percentage of visits will see the change?</label>
-            <input type="text" class="form-control" data-format="percent" id="percentage" name="percentage" placeholder="50%">
-            <p class="help-block secondary-calc" id="visits-seeing-change">Visits per day seeing the change: 500</p>
-          </div>
-          <div class="error">
-            <div class="message">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group question">
+                <label class="control-label" for="conversion">What is your current conversion rate?</label>
+                <input type="text" class="form-control" data-format="percent" id="conversion" name="conversion" placeholder="9.0%">
+                <p class="help-block secondary-calc" id="converting-visitors">Converting visitors per day: 90</p>
+              </div>
+              <div class="error">
+                <div class="message">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group question">
+                <label class="control-label" for="lift">How will you change conversion?</label>
+                <input type="text" class="form-control" data-format="percent" id="lift" name="lift" placeholder="+33.33%">
+                <p class="help-block">
+                  This is the percent by which you predict you will change your base conversion rate. Use the minimum that would be worth the effort, or play with different values.<br>
+                  <span class="secondary-calc" id="treatment-conversion">Conversion in the treatment group: 12.00%</span><br>
+                  <span class="secondary-calc" id="treatment-daily-conv">Total daily conversions with the treatment rate: 120</span><br>
+                  <span class="secondary-calc" id="treatment-conv-diff">Change in daily conversions: +30</span>
+                </p>
+              </div>
+              <div class="error">
+                <div class="message">
+                </div>
+              </div>
+              <div class="error">
+                <div class="message">
+                </div>
+              </div>
             </div>
           </div>
-
-          <div class="form-group question">
-            <label class="control-label" for="conversion">What is your current conversion rate?</label>
-            <input type="text" class="form-control" data-format="percent" id="conversion" name="conversion" placeholder="9.0%">
-            <p class="help-block secondary-calc" id="converting-visitors">Converting visitors per day: 90</p>
-          </div>
-          <div class="error">
-            <div class="message">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group question">
+                <label class="control-label" for="confidence">How confident do you want to be of this?</label>
+                <input type="text" class="form-control" data-format="percent" id="confidence" name="confidence" placeholder="95%">
+                <p id="confidence-detail" class="help-block">In the case that there really is no effect, there is a <span class="secondary-calc">5%</span> probability that you will think there is one anyway due to random chance.</p>
+              </div>
+              <div class="error">
+                <div class="message">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group question">
+                <label class="control-label" for="power">How likely should you be to detect the change?</label>
+                <input type="text" class="form-control" data-format="percent" id="power" name="power" placeholder="80%">
+                <p id="power-detail" class="help-block">In the case that the effect is real, there is a <span class="secondary-calc">20%</span> chance that your experiment will fail to see it.</p>
+              </div>
+              <div class="error">
+                <div class="message">
+                </div>
+              </div>
             </div>
           </div>
-
-          <div class="form-group question">
-            <label class="control-label" for="lift">How will you change conversion?</label>
-            <input type="text" class="form-control" data-format="percent" id="lift" name="lift" placeholder="+33.33%">
-            <p class="help-block">
-              This is the percent by which you predict you will change your base conversion rate. Use the minimum that would be worth the effort, or play with different values.<br>
-              <span class="secondary-calc" id="treatment-conversion">Conversion in the treatment group: 12.00%</span><br>
-              <span class="secondary-calc" id="treatment-daily-conv">Total daily conversions with the treatment rate: 120</span><br>
-              <span class="secondary-calc" id="treatment-conv-diff">Change in daily conversions: +30</span>
-            </p>
-          </div>
-          <div class="error">
-            <div class="message">
-            </div>
-          </div>
-          <div class="error">
-            <div class="message">
-            </div>
-          </div>
-
-          <div class="form-group question">
-            <label class="control-label" for="confidence">How confident do you want to be of this?</label>
-            <input type="text" class="form-control" data-format="percent" id="confidence" name="confidence" placeholder="95%">
-            <p id="confidence-detail" class="help-block">In the case that there really is no effect, there is a <span class="secondary-calc">5%</span> probability that you will think there is one anyway due to random chance.</p>
-          </div>
-          <div class="error">
-            <div class="message">
-            </div>
-          </div>
-
-          <div class="form-group question">
-            <label class="control-label" for="power">How likely should you be to detect the change?</label>
-            <input type="text" class="form-control" data-format="percent" id="power" name="power" placeholder="80%">
-            <p id="power-detail" class="help-block">In the case that the effect is real, there is a <span class="secondary-calc">20%</span> chance that your experiment will fail to see it.</p>
-          </div>
-          <div class="error">
-            <div class="message">
-            </div>
-          </div>
-
           <div id="answer-row" class="well well-lg">
             <h4>Your results:</h4>
-            <p class="lead" id="answer" class="">You should run this experiment for <strong><span id="days" class="medium">76 days</span></strong>.</p>
+            <p class="lead" id="answer" class="">You should run this experiment for <strong><span id="days" class="medium">4 days</span></strong>.</p>
           </div>
 
         </div>
