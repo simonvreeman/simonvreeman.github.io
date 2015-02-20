@@ -27,12 +27,33 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="/tools/">Home</a></li>
-            <li class="active"><a href="/tools/check.html">Check</a></li>
             <li><a href="/tools/dashboard.html">Dashboard</a></li>
             <li><a href="/tools/time.html">Duration Calculator</a></li>
-            <li><a href="/tools/search.html">Google Search</a></li>
             <li><a href="/tools/ab.html">Significance Calculator</a></li>
-            <li><a href="/tools/ga.html">URL Builder</a></li>
+            <li class="dropdown active">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="active"><a href="/tools/check.html">Check</a></li>
+                <li><a href="/tools/dencoder.html">Dencoder</a></li>
+                <li><a href="/tools/search.html">Search</a></li>
+                <li><a href="/tools/ga.html">URL Builder</a></li>
+              </ul>
+            </li>
+            <form class="navbar-form navbar-left" id="form" method="get" accept-charset="utf-8" action="https://encrypted.google.com/search" target="_blank" role="search">
+              <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  <input type="hidden" name="pws" value="0">
+                  <input type="hidden" name="gl" value="nl">
+                  <input type="hidden" name="hl" value="nl">
+                  <input type="hidden" name="num" value="10">
+                  <input type="hidden" name="newwindow" value="1">
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default">Search</button>
+                  </span>
+                </div>
+              </div>
+            </form>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

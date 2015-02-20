@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html">
-    <title>Google Analytics Campaign URL Builder &middot; Simon Vreeman</title>
+    <title>URL Decoder / Encoder &middot; Simon Vreeman</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
@@ -34,9 +34,9 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="/tools/check.html">Check</a></li>
-                <li><a href="/tools/dencoder.html">Dencoder</a></li>
+                <li class="active"><a href="/tools/dencoder.html">Dencoder</a></li>
                 <li><a href="/tools/search.html">Search</a></li>
-                <li class="active"><a href="/tools/ga.html">URL Builder</a></li>
+                <li><a href="/tools/ga.html">URL Builder</a></li>
               </ul>
             </li>
             <form class="navbar-form navbar-left" id="form" method="get" accept-charset="utf-8" action="https://encrypted.google.com/search" target="_blank" role="search">
@@ -60,65 +60,38 @@
     </nav>
     <div class="container">
       <div class="page-header">
-        <h1>Google Analytics Campaign URL Builder</h1>
+        <h1>URL Decoder / Encoder</h1>
       </div>
       <div class="row">
         <div class="col-md-8">
-          <form action="" accept-charset="utf-8" role="form" class="form-horizontal">
+          <form onsubmit="return false;">
             <div class="form-group">
-              <label for="domain" class="col-sm-3 control-label"><abbr title="Uniform Resource Locator">URL</abbr></label>
-              <div class="col-sm-9">
-                <input type="url" name="domain" id="domain" class="form-control" value="http://vreeman.com" required>
-              </div>
+              <textarea class="form-control" rows="10" id="dencoder" autofocus></textarea>
             </div>
-            <div class="form-group">
-              <label for="source" class="col-sm-3 control-label">Campaign Source</label>
-              <div class="col-sm-9">
-                <input type="text" name="source" id="source" class="form-control" value="" placeholder="Required" required>
-                <p class="help-block"><code>?utm_source=</code></p>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="medium" class="col-sm-3 control-label">Campaign Medium</label>
-              <div class="col-sm-9">
-                <input type="text" name="medium" id="medium" class="form-control" value="" placeholder="Required" required>
-                <p class="help-block"><code>?utm_medium=</code></p>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="name" class="col-sm-3 control-label">Campaign Name</label>
-              <div class="col-sm-9">
-                <input type="text" name="name" id="name" class="form-control" value="" placeholder="Required" required>
-                <p class="help-block"><code>?utm_campaign=</code></p>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="term" class="col-sm-3 control-label">Campaign Term</label>
-              <div class="col-sm-9">
-                <input type="text" name="term" id="term" class="form-control" placeholder="" value="">
-                <p class="help-block"><code>?utm_term=</code></p>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="content" class="col-sm-3 control-label">Campaign Content</label>
-              <div class="col-sm-9">
-                <input type="text" name="content" id="content" class="form-control" placeholder="" value="">
-                <p class="help-block"><code>?utm_content=</code></p>
-              </div>
+            <div class="btn-group btn-group-lg pull-right">
+              <input type="button" onclick="decode()" value="Decode" class="btn btn-success">
+              <input type="button" onclick="encode()" value="Encode" class="btn btn-success">
             </div>
           </form>
-          <div class="output form-group" id="html">
-            <textarea id="url" readonly="readonly" wrap="off" class="auto form-control"></textarea>
-          </div>
-
         </div>
         <div class="col-md-4">
-          <p>If the <abbr title="Uniform Resource Locator">URL</abbr> contains parameters you should replace the second <code>?</code> that is added by the tool with an <code>&</code>.</p>
-          <p>Original source: <a href="http://gaconfig.com" rel="nofollow noreferrer" target="_blank">GA Config</a></p>
+          <p><a href="http://www.blooberry.com/indexdot/html/topics/urlencoding.htm" rel="nofollow noreferrer" target="_blank">More about URL encoding</a></p>
+          <p><a href="http://meyerweb.com/eric/tools/dencoder/" rel="nofollow noreferrer" target="_blank">Source</a></p>
         </div>
       </div>
     </div>
     <script src="//cdn.jsdelivr.net/g/jquery,bootstrap"></script>
-    <script src="/js/ga.js"></script>
+    <script type="text/javascript">
+      function encode() {
+        var obj = document.getElementById('dencoder');
+        var unencoded = obj.value;
+        obj.value = encodeURIComponent(unencoded).replace(/'/g,"%27").replace(/"/g,"%22");
+      }
+      function decode() {
+        var obj = document.getElementById('dencoder');
+        var encoded = obj.value;
+        obj.value = decodeURIComponent(encoded.replace(/\+/g,  " "));
+      }
+    </script>
   </body>
 </html>
