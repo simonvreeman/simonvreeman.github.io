@@ -8,7 +8,29 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
     <meta name="robots" content="noindex,follow">
-    <style>body{padding-top:50px}.navbar-default{opacity: 0.98}</style>
+    <style>
+      html {
+        position: relative;
+        min-height: 100%;
+      }
+      body {
+        padding-top: 50px;
+        margin-bottom: 60px;
+      }
+      .navbar-default {
+        opacity: 0.98;
+      }
+      .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+        background-color: #f8f8f8;
+      }
+      .container .text-muted {
+        margin: 15px 0;
+      }
+    </style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWPFGT');</script>
   </head>
   <body>
@@ -49,33 +71,35 @@
       </div>
       <div class="row">
         <div class="col-md-8">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>&nbsp;</th>
-                <th>Unique Visitors</th>
-                <th>Conversions</th>
-                <th>Conversion Rate</th>
-                <th>Standard Error</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="row1" id="row1">
-                <th><span id="row1_label" class="row_label"><p>A</p></span></th>
-                <td><input type="text" class="text form-control" name="a_visits" id="a_visits" value="1000"></td>
-                <td class="conversions"><input type="text" class="text form-control" name="a_conversions" id="a_conversions" value="90"></td>
-                <td><strong class="big_num" id="a_conversion">9%</strong></td>
-                <td><strong class="big_num" id="a_standard">0.90%</strong></td>
-              </tr>
-              <tr id="row2" class="success">
-                <th><span id="row2_label" class="row_label row_label_success"><p>B</p></span></th>
-                <td><input type="text" class="text input_success form-control" name="b_visits" id="b_visits" value="1000"></td>
-                <td class="conversions"><input type="text" class="text input_success form-control" name="b_conversions" id="b_conversions" value="120"></td>
-                <td><strong class="big_num" id="b_conversion">12%</strong></td>
-                <td><strong class="big_num" id="b_standard">1.03%</strong></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>&nbsp;</th>
+                  <th>Unique Visitors</th>
+                  <th>Conversions</th>
+                  <th>Conversion Rate</th>
+                  <th>Standard Error</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="row1" id="row1">
+                  <th><span id="row1_label" class="row_label"><p>A</p></span></th>
+                  <td><input type="text" class="text form-control" name="a_visits" id="a_visits" value="1000"></td>
+                  <td class="conversions"><input type="text" class="text form-control" name="a_conversions" id="a_conversions" value="90"></td>
+                  <td><strong class="big_num" id="a_conversion">9%</strong></td>
+                  <td><strong class="big_num" id="a_standard">0.90%</strong></td>
+                </tr>
+                <tr id="row2" class="success">
+                  <th><span id="row2_label" class="row_label row_label_success"><p>B</p></span></th>
+                  <td><input type="text" class="text input_success form-control" name="b_visits" id="b_visits" value="1000"></td>
+                  <td class="conversions"><input type="text" class="text input_success form-control" name="b_conversions" id="b_conversions" value="120"></td>
+                  <td><strong class="big_num" id="b_conversion">12%</strong></td>
+                  <td><strong class="big_num" id="b_standard">1.03%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <div class="well well-lg">
             <h4>Your results:</h4>
             <p class="lead" id="stat_sig">Your A/B test is statistically significant!</p>
@@ -106,11 +130,12 @@
           <p><strong>Statistical power</strong> represents the probability that you’ll get a false negative. A power of 0.80 means that there is an 80% chance that if there was an effect, we would detect it (or a 20% chance that we’d miss the effect). Again, Wikipedia has wisdom about what power to pick—”...there are no formal standards for power…most researchers assess the power of their tests using 0.80 for adequacy”.</p>
         </div>
       </div>
-      <hr>
-      <footer>
-        <p class="text-muted"><small>Vreeman.com is licensed under <a class="text-muted" rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> & <a class="text-muted" rel="license" href="http://opensource.org/licenses/MIT">MIT</a></small></p>
-      </footer>
     </div>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted"><small><a class="text-muted" href="http://vreeman.com">Vreeman.com</a> is licensed under <a class="text-muted" rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> & <a class="text-muted" rel="license" href="http://opensource.org/licenses/MIT">MIT</a></small></p>
+      </div>
+    </footer>
     <script src="//cdn.jsdelivr.net/g/jquery,bootstrap"></script>
     <script src="/js/confidence.js"></script>
   </body>

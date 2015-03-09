@@ -8,7 +8,29 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
     <meta name="robots" content="noindex,follow">
-    <style>body{padding-top:50px}.navbar-default{opacity: 0.98}</style>
+    <style>
+      html {
+        position: relative;
+        min-height: 100%;
+      }
+      body {
+        padding-top: 50px;
+        margin-bottom: 60px;
+      }
+      .navbar-default {
+        opacity: 0.98;
+      }
+      .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+        background-color: #f8f8f8;
+      }
+      .container .text-muted {
+        margin: 15px 0;
+      }
+    </style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWPFGT');</script>
   </head>
   <body>
@@ -87,11 +109,12 @@
           <p>To make sure the results are really un-personalized, use the private browsing mode of you internet browser or a private browser like <a href="https://www.whitehatsec.com/aviator/" target="_blank" rel="nofollow noreferrer">WhiteHat Aviator</a>.</p>
         </div>
       </div>
-      <hr>
-      <footer>
-        <p class="text-muted"><small>Vreeman.com is licensed under <a class="text-muted" rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> & <a class="text-muted" rel="license" href="http://opensource.org/licenses/MIT">MIT</a></small></p>
-      </footer>
     </div>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted"><small><a class="text-muted" href="http://vreeman.com">Vreeman.com</a> is licensed under <a class="text-muted" rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> & <a class="text-muted" rel="license" href="http://opensource.org/licenses/MIT">MIT</a></small></p>
+      </div>
+    </footer>
     <script src="//cdn.jsdelivr.net/g/jquery,bootstrap"></script>
   </body>
 </html>
