@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Simon Vreeman &middot; Always Be Optimizing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Simon Vreeman">
@@ -57,22 +57,20 @@
         text-align: center;
         background-color: #fafbfc;
       }
-      h1, h2, h3 {
-        font-weight: 400;
-      }
+      h1, h2, h3 { font-weight: 400; }
       h1 {
         font-size: 7.5vw;
         letter-spacing: 1px;
       }
-      @media screen and (orientation:portrait) {
+      @media screen and (orientation: portrait) {
         h1 { font-size: 6.5vh; }
       }
       h2 { font-size: 4vw; }
-      @media screen and (orientation:portrait) {
+      @media screen and (orientation: portrait) {
         h2 { font-size: 3.5vh; }
       }
       h3 { font-size: 3.5vw; }
-      @media screen and (orientation:portrait) {
+      @media screen and (orientation: portrait) {
         h3 { font-size: 3.25vh; }
       }
       a {
@@ -83,20 +81,29 @@
            -moz-transition: color .3s ease-in-out;
                 transition: color .3s ease-in-out;
       }
-      a:hover {
-        color: #4e5860;
-      }
-      [href="http://thenextweb.com"]:hover {
-        color: #ff3c1f;
-      }
+      a:hover { color: #4e5860; }
+      [href="http://thenextweb.com"]:hover { color: #ff3c1f; }
     </style>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWPFGT');</script>
+    <script async src='//www.google-analytics.com/analytics.js'></script>
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-2826482-20', 'auto', {'sampleRate': 100}, {'siteSpeedSampleRate': 100}, {'alwaysSendReferrer': true}, {'allowLinker': true});
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview',
+        {
+          'hitCallback': function() {
+            console.log('hit sent');
+          }
+        }
+      );
+      ga('require', 'linkid');
+      ga('set', 'anonymizeIp', true);
+    </script>
   </head>
   <body>
-    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NWPFGT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <h1 id="h1">Simon Vreeman</h1>
-    <h2>Web Analyst at <a href="http://thenextweb.com" title="The Next Web Blog, Deals & Events" target="_blank">The Next Web</a></h2>
-    <h3><a href="mailto:simon@vreeman.com?subject=Hello">E-mail</a> &middot; <a href="https://www.linkedin.com/in/simonvreeman" title="Simon Vreeman on Linkedin" rel="nofollow" target="_blank">LinkedIn</a> &middot; <a href="https://twitter.com/vreeman" title="Simon Vreeman on Twitter" rel="nofollow" target="_blank">Twitter</a></h3>
+    <h1>Simon Vreeman</h1>
+    <h2>Web Analyst at <a href="http://thenextweb.com" onclick="ga('send', 'event', 'link', 'external', 'thenextweb.com', {'nonInteraction': 1}, {useBeacon: true});" title="The Next Web Blog, Deals & Events" target="_blank">The Next Web</a></h2>
+    <h3><a href="mailto:simon@vreeman.com?subject=Hello" onclick="ga('send', 'event', 'link', 'external', 'simon@vreeman.com', {'nonInteraction': 1}, {useBeacon: true});">E-mail</a> &middot; <a href="https://www.linkedin.com/in/simonvreeman" onclick="ga('send', 'event', 'link', 'external', 'linkedin.com', {'nonInteraction': 1}, {useBeacon: true});" title="Simon Vreeman on Linkedin" rel="nofollow" target="_blank">LinkedIn</a> &middot; <a href="https://twitter.com/vreeman" onclick="ga('send', 'event', 'link', 'external', 'twitter.com', {'nonInteraction': 1}, {useBeacon: true});" title="Simon Vreeman on Twitter" rel="nofollow" target="_blank">Twitter</a></h3>
     <script type="application/ld+json">
     {
       "@context": "http://schema.org",
