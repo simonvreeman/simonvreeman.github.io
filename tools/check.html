@@ -169,6 +169,13 @@
         else
           document.getElementsByClassName("ip")[1].appendChild(li);
       });
+
+      // get all the HTTP headers
+      var req = new XMLHttpRequest();
+      req.open('GET', document.location, false);
+      req.send(null);
+      var headers = req.getAllResponseHeaders().toLowerCase();
+      alert(headers);
     </script>
   </body>
 </html>
