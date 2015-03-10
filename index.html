@@ -10,8 +10,6 @@
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link rel="dns-prefetch" href="//stats.g.doubleclick.net">
-    <link rel="dns-prefetch" href="//static.hotjar.com">
-    <link rel="dns-prefetch" href="//insights.hotjar.com">
     <style>
       *,
       *:before,
@@ -77,9 +75,7 @@
         padding: 10px;
         color: #a6abaf;
         text-decoration: none;
-        -webkit-transition: color .3s ease-in-out;
-           -moz-transition: color .3s ease-in-out;
-                transition: color .3s ease-in-out;
+        transition: color .3s ease-in-out;
       }
       a:hover { color: #4e5860; }
       [href="http://thenextweb.com"]:hover { color: #ff3c1f; }
@@ -89,14 +85,8 @@
       window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
       ga('create', 'UA-2826482-20', 'auto', {'sampleRate': 100}, {'siteSpeedSampleRate': 100}, {'alwaysSendReferrer': true}, {'allowLinker': true});
       ga('require', 'displayfeatures');
-      ga('send', 'pageview',
-        {
-          'hitCallback': function() {
-            console.log('hit sent');
-          }
-        }
-      );
-      ga('require', 'linkid');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
       ga('set', 'anonymizeIp', true);
     </script>
   </head>
