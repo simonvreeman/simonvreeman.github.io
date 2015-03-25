@@ -87,14 +87,15 @@
       ga('require', 'displayfeatures');
       ga('require', 'linkid', 'linkid.js');
       ga('set', 'dimension1', window.innerHeight > window.innerWidth ? 'portrait' : 'landscape');
+      if(navigator.doNotTrack) { ga('set', 'dimension2', navigator.doNotTrack); };
       ga('set', 'anonymizeIp', true);
       ga('send', 'pageview');
     </script>
   </head>
   <body>
     <h1>Simon Vreeman</h1>
-    <h2>Web Analyst at <a href="http://thenextweb.com" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'thenextweb.com', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'thenextweb.com, {'nonInteraction': 1, useBeacon: true});" title="The Next Web Blog, Deals & Events" target="_blank">The Next Web</a></h2>
-    <h3><a href="mailto:simon@vreeman.com?subject=Hello" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'simon@vreeman.com', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'simon@vreeman.com, {'nonInteraction': 1, useBeacon: true});">E-mail</a> &middot; <a href="https://www.linkedin.com/in/simonvreeman" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'linkedin.com', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'linkedin.com, {'nonInteraction': 1, useBeacon: true});" title="Simon Vreeman on Linkedin" rel="nofollow" target="_blank">LinkedIn</a> &middot; <a href="https://twitter.com/vreeman" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'twitter.com', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'twitter.com, {'nonInteraction': 1, useBeacon: true});" title="Simon Vreeman on Twitter" rel="nofollow" target="_blank">Twitter</a></h3>
+    <h2>Web Analyst at <a href="http://thenextweb.com" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'thenextweb.com', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'thenextweb.com', {'nonInteraction': 1, useBeacon: true});" title="The Next Web Blog, Deals & Events" target="_blank">The Next Web</a></h2>
+    <h3><a href="mailto:simon@vreeman.com?subject=Hello" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'simon@vreeman.com', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'simon@vreeman.com', {'nonInteraction': 1, useBeacon: true});">E-mail</a> &middot; <a href="https://www.linkedin.com/in/simonvreeman" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'linkedin.com', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'linkedin.com', {'nonInteraction': 1, useBeacon: true});" title="Simon Vreeman on Linkedin" rel="nofollow" target="_blank">LinkedIn</a> &middot; <a href="https://twitter.com/vreeman" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'twitter.com', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'twitter.com', {'nonInteraction': 1, useBeacon: true});" title="Simon Vreeman on Twitter" rel="nofollow" target="_blank">Twitter</a></h3>
     <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -104,7 +105,7 @@
       "about": "The personal website of Simon Vreeman",
       "dateCreated": "2014-05-05",
       "datePublished": "2014-05-05",
-      "dateModified": "2015-03-15",
+      "dateModified": "2015-03-25",
       "license": "http://creativecommons.org/licenses/by/4.0/",
       "author": {
         "@type": "Person",
