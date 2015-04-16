@@ -197,6 +197,7 @@
             <li><a href="javascript:(function()%7Bwindow.open(%27http://developers.google.com/speed/pagespeed/insights/%3Furl%3D%27%2BencodeURIComponent(location.href))%7D)()%3B" target="_blank" rel="nofollow noreferrer">PageSpeed</a> - Check the loadtime with Google PageSpeed Insights.</li>
             <li><a href="javascript:(function()%7B%20window.open('https://www.google.com/webmasters/tools/mobile-friendly/?url='+encodeURIComponent(location.href))%7D)();">Mobile Friendly</a> -  Check if the page is mobile friendly according to Google.</li>
             <li><a href="javascript:(function()%7B(function()%7Bvar%20key%3DlocalStorage.wpt_key%3Bif(!key)%7Bvar%20prompt%3Dwindow.__proto__.prompt%3Bkey%3Dprompt(%27Your%20WebPagetest%20API%20key,%20please%3F%27)%3Bif(!key)%7Breturn%20gameOver()%3B%7DlocalStorage.wpt_key%3Dkey%3B%7Dvar%20wpt%3D%27http://www.webpagetest.org/runtest.php%3F%27%3Bvar%20params%3D%7Bk:key,runs:1,video:1,tcpdump:1,url:location.href%7D%3BObject.keys(params).forEach(function(key)%7Bwpt%2B%3Dkey%2B%27%3D%27%2BencodeURIComponent(params%5Bkey%5D)%2B%27%26%27%3B%7D)%3Bvar%20locations%3DlocalStorage.wpt_locations%3Bif(!locations)%7Blocations%3D%5B%27Dulles:Chrome.DSL%27%5D%3B%7Dvar%20open%3Dwindow.__proto__.open%3Blocations.forEach(function(loco)%7Bopen(wpt%2B%27location%3D%27%2BencodeURIComponent(loco))%3B%7D)%3BgameOver()%3Bfunction%20gameOver()%7Bconsole.log(%27JSPerf%20bookmarklet%20help:%20http://phpied.com/jsperf-bookmarklet%27)%3Bconsole.log(%27If%20broken,%20check%20your%20localStorage.wpt_key%20and%20wpt_locations%27)%3B%7D%7D())%3B%7D)()%3B" target="_blank" rel="nofollow noreferrer">WebPageTest</a> - Check the loadtime with WebPageTest.org.</li>
+            <li><a href="javascript:(function()%7Bfunction callback()%7B(function(%24)%7Bvar jQuery%3D%24%3B%24( "iframe" ).hide()%3B%24( "body div" ).last().css( "display"%2C "none" )%7D)(jQuery.noConflict(true))%7Dvar s%3Ddocument.createElement("script")%3Bs.src%3D"https%3A%2F%2Fajax.googleapis.com%2Fajax%2Flibs%2Fjquery%2F1.7.1%2Fjquery.min.js"%3Bif(s.addEventListener)%7Bs.addEventListener("load"%2Ccallback%2Cfalse)%7Delse if(s.readyState)%7Bs.onreadystatechange%3Dcallback%7Ddocument.body.appendChild(s)%3B%7D)()" target="_blank" rel="nofollow noreferrer">Hide GTM Debug</a> - Hide the debug iframe when you need to check some DOM changes in the footer.</li>
             <li><a href="http://mrcoles.com/bookmarklet/" target="_blank" rel="nofollow noreferrer">Bookmarklet Creator</a></li>
           </ul>
           <h3 id="cryptocurrencies">Cryptocurrencies</h3>
@@ -264,6 +265,30 @@
               <li><a href="#additional">Additional</a></li>
             </ul>
           </div>
+          <h4>Terminal & Git commands</h4>
+          <dl>
+            <dt>ls</dt>
+            <dd>list files and directories</dd>
+            <dt>cd</dt>
+            <dd>change directory</dd>
+            <dt>pwd</dt>
+            <dd>the current directory</dd>
+            <dt>mkdir</dt>
+            <dd>create a new directory</dd>
+            <dt>cp</dt>
+            <dd>copy files or directories</dd>
+            <dt>mv</dt>
+            <dd>move (rename) files or directories</dd>
+            <dt>rm</dt>
+            <dd>remove files or directories</dd>
+            <dt>open</dt>
+            <dd>open a documents</dd>
+          </dl>
+          <a href="http://guides.macrumors.com/Terminal" target="_blank" rel="nofollow noreferrer">Guide to Terminal</a>
+          <br>
+          <a href="https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf" target="_blank" rel="nofollow noreferrer">Git Cheat Sheet</a>
+          <br>
+          <a href="http://gitref.org/" target="_blank" rel="nofollow noreferrer">Git Reference</a>
         </div>
       </div>
     </div>
