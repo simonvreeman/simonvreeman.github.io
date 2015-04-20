@@ -5,8 +5,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Simon Vreeman &middot; Always Be Optimizing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="dns-prefetch" href="//www.google-analytics.com">
-    <link rel="dns-prefetch" href="//stats.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://stats.g.doubleclick.net">
     <meta name="author" content="Simon Vreeman">
     <meta name="description" content="✔ Hi, I am Simon Vreeman and as a Web Analyst I optimize the websites of The Next Web based on insights & data.">
     <link rel="canonical" href="http://vreeman.com/">
@@ -40,7 +40,8 @@
         -webkit-text-size-adjust: 100%;
             -ms-text-size-adjust: 100%;
       }
-      html, body {
+      html,
+      body {
         width: 100%;
         height: 100%;
         padding: 0;
@@ -55,41 +56,39 @@
         text-align: center;
         background: #fafbfc;
       }
-      h1, h2, h3, h4 { font-weight: 400; }
+      h1,
+      h2,
+      h3,
+      h4 { font-weight: 400; }
       h1 {
         font-size: 7.5vw;
         letter-spacing: 1px;
-      }
-      @media screen and (orientation: portrait) {
-        h1 { font-size: 6.5vh; }
       }
       h2 {
         margin-bottom: 10px;
         font-size: 4vw;
       }
-      @media screen and (orientation: portrait) {
-        h2 { font-size: 3.5vh; }
-      }
       h3 {
         margin-top: 10px;
         font-size: 2.75vw;
       }
-      @media screen and (orientation: portrait) {
-        h3 { font-size: 3.25vh; }
-      }
       h4 { font-size: 3.25vw; }
-      @media screen and (orientation: portrait) {
-        h4 { font-size: 3.25vh; }
-      }
       a {
         color: #a6abaf;
         text-decoration: none;
         transition: color .3s ease-in-out;
       }
-      a:hover, a:focus { color: #4e5860; }
-      [href="http://thenextweb.com"]:hover, [href="http://thenextweb.com"]:focus { color: #ff3c1f; }
+      a:hover,
+      a:focus { color: #4e5860; }
+      @media screen and (orientation: portrait) {
+        h1 { font-size: 6.5vh; }
+        h2 { font-size: 3.5vh; }
+        h3 { font-size: 3.25vh; }
+        h3 > span { white-space: nowrap; }
+        h4 { font-size: 3.25vh; }
+      }
     </style>
-    <script async src='//www.google-analytics.com/analytics.js'></script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
     <script>
       window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
       ga('create', 'UA-2826482-20', 'auto', {'sampleRate': 100, 'siteSpeedSampleRate': 100, 'alwaysSendReferrer': true, 'allowLinker': true});
@@ -103,9 +102,9 @@
   </head>
   <body>
     <h1>Simon Vreeman</h1>
-    <h2>Web Analyst at <a href="http://thenextweb.com" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'thenextweb.com', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'thenextweb.com', {'nonInteraction': 1, useBeacon: true});" title="The Next Web Blog, Deals & Events" target="_blank">The Next Web</a></h2>
-    <h3>Previously at <a href="http://www.valkexclusief.nl/" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'valkexclusief.nl', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'valkexclusief.nl', {'nonInteraction': 1, useBeacon: true});" title="Valk Exclusief hotels & restaurants" target="_blank">Valk Exclusief</a> and <a href="http://budeco.nl/" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'budeco.nl', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'budeco.nl', {'nonInteraction': 1, useBeacon: true});" title="Budeco - the busines development company" target="_blank">Budeco</a>.</h3>
-    <h4><a href="mailto:simon@vreeman.com?subject=Hello" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'simon@vreeman.com', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'simon@vreeman.com', {'nonInteraction': 1, useBeacon: true});">E-mail</a> &middot; <a href="https://www.linkedin.com/in/simonvreeman" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'linkedin.com', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'linkedin.com', {'nonInteraction': 1, useBeacon: true});" title="Simon Vreeman on Linkedin" rel="nofollow" target="_blank">LinkedIn</a> &middot; <a href="https://twitter.com/vreeman" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'twitter.com', {'nonInteraction': 1, useBeacon: true});" onclick="ga('send', 'event', 'link', 'onclick', 'twitter.com', {'nonInteraction': 1, useBeacon: true});" title="Simon Vreeman on Twitter" rel="nofollow" target="_blank">Twitter</a></h4>
+    <h2>Web Analyst at <a href="http://thenextweb.com" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});" onclick="ga('send', 'event', 'link', 'onclick', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});" title="The Next Web - Blog, Deals & Events" target="_blank">The Next Web</a></h2>
+    <h3>Previously at <a href="http://www.valkexclusief.nl/" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});" onclick="ga('send', 'event', 'link', 'onclick', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});" title="Van der Valk Exclusief hotels & restaurants" target="_blank">Valk Exclusief</a> <span>and <a href="http://budeco.nl/" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});" onclick="ga('send', 'event', 'link', 'onclick', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});" title="Budeco - the busines development company" target="_blank">Budeco</a>.</span></h3>
+    <h4><a href="mailto:simon@vreeman.com?subject=Hello" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});" onclick="ga('send', 'event', 'link', 'onclick', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});" title="Send Simon Vreeman an e-mail">E-mail</a> &middot; <a href="https://www.linkedin.com/in/simonvreeman" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'});" onclick="ga('send', 'event', 'link', 'onclick', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'});" title="Simon Vreeman on Linkedin" rel="nofollow" target="_blank">LinkedIn</a> &middot; <a href="https://twitter.com/vreeman" onmouseover="ga('send', 'event', 'link', 'onmouseover', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'});" onclick="ga('send', 'event', 'link', 'onclick', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'});" title="Simon Vreeman on Twitter" rel="nofollow" target="_blank">Twitter</a></h4>
     <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -148,11 +147,11 @@
     }
     </script>
     <script>
-      window.onload=function(){var e=null;var g=60;var h=3;var c=document.getElementsByTagName("body")[0];if(c){c.onmouseup=function(j){e=b();f=e.length;d=i(e);if(e!=null&&d<g&&f>h){ga('send','event','copytext','highlighted',e,{'nonInteraction':1,useBeacon:true});}function i(k){var l=k;var m=0;a=l.replace(/\s/g," ");a=a.split(" ");for(z=0;z<a.length;z++){if(a[z].length>0){m++}}return m}function b(){if(window.getSelection){d=window.getSelection()}else{if(document.getSelection){d=document.getSelection()}else{if(document.selection){d=document.selection.createRange().text}else{return""}}}return d.toString()}}}};
-      window.onresize = function() { ga('send','event','behavior','resize',{'nonInteraction':1,useBeacon:true}); };
-      window.onblur = function() { ga('send','event','behavior','other browser tab',{'nonInteraction':1,useBeacon:true}); };
-      setTimeout("ga('send','event','behavior','no bounce','over 30 seconds',{'nonInteraction':1,useBeacon:true})", 30000);
-      window.addEventListener ? window.addEventListener('scroll', testScroll, false) : window.attachEvent('onScroll', testScroll);var scrollCount = 0;function testScroll() { ++scrollCount; if (scrollCount == 2) { ga('send','event','behavior','no bounce','scrolled the page',{'nonInteraction':1,useBeacon:true}); } }
+      window.onload=function(){var e=null;var g=60;var h=3;var c=document.getElementsByTagName("body")[0];if(c){c.onmouseup=function(j){e=b();f=e.length;d=i(e);if(e!=null&&d<g&&f>h){ga('send','event','copytext','highlighted',e,{'nonInteraction':1,transport:'beacon'});}function i(k){var l=k;var m=0;a=l.replace(/\s/g," ");a=a.split(" ");for(z=0;z<a.length;z++){if(a[z].length>0){m++}}return m}function b(){if(window.getSelection){d=window.getSelection()}else{if(document.getSelection){d=document.getSelection()}else{if(document.selection){d=document.selection.createRange().text}else{return""}}}return d.toString()}}}};
+      window.onresize = function() { ga('send','event','behavior','resize',{'nonInteraction':1,transport:'beacon'}); };
+      window.onblur = function() { ga('send','event','behavior','other browser tab',{'nonInteraction':1,transport:'beacon'}); };
+      setTimeout("ga('send','event','behavior','no bounce','over 30 seconds',{'nonInteraction':1,transport:'beacon'})", 30000);
+      window.addEventListener ? window.addEventListener('scroll', testScroll, false) : window.attachEvent('onScroll', testScroll);var scrollCount = 0;function testScroll() { ++scrollCount; if (scrollCount == 2) { ga('send','event','behavior','no bounce','scrolled the page',{'nonInteraction':1,transport:'beacon'}); } }
     </script>
     <img style="display: none;" src="https://www.linkedin.com/profile/view?authToken=zRgB&authType=name&id=20146221" />
   </body>
