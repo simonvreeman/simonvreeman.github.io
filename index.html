@@ -151,7 +151,6 @@
       window.onload=function(){var e=null;var g=60;var h=3;var c=document.getElementsByTagName("body")[0];if(c){c.onmouseup=function(j){e=b();f=e.length;d=i(e);if(e!=null&&d<g&&f>h){ga('send','event','copytext','highlighted',e,{'nonInteraction':1,transport:'beacon'});}function i(k){var l=k;var m=0;a=l.replace(/\s/g," ");a=a.split(" ");for(z=0;z<a.length;z++){if(a[z].length>0){m++}}return m}function b(){if(window.getSelection){d=window.getSelection()}else{if(document.getSelection){d=document.getSelection()}else{if(document.selection){d=document.selection.createRange().text}else{return""}}}return d.toString()}}}};
       window.onresize = function() { ga('send','event','behavior','resize',{'nonInteraction':1,transport:'beacon'}); };
       window.onblur = function() { ga('send','event','behavior','other browser tab',{'nonInteraction':1,transport:'beacon'}); };
-      setTimeout("ga('send','event','behavior','no bounce','over 30 seconds',{'nonInteraction':1,transport:'beacon'})", 30000);
       window.addEventListener ? window.addEventListener('scroll', testScroll, false) : window.attachEvent('onScroll', testScroll);var scrollCount = 0;function testScroll() { ++scrollCount; if (scrollCount == 2) { ga('send','event','behavior','no bounce','scrolled the page',{'nonInteraction':1,transport:'beacon'}); } }
       (function (tos) {
         window.setInterval(function () {
@@ -161,6 +160,20 @@
           window.pageTracker ? pageTracker._trackEvent('Time', 'Log', tos) : ga('send','event','behavior','no bounce',tos,{'nonInteraction':1,transport:'beacon'});
         }, 10000);
       })('00');
+      if (document.referrer.match(/google\.com/gi) && document.referrer.match(/cd/gi)) {
+        var myString = document.referrer;
+        var r = myString.match(/cd=(.*?)&/);
+        var rank = parseInt(r[1]);
+        var kw = myString.match(/q=(.*?)&/);
+
+        if (kw[1].length > 0) {
+          var keyWord  = decodeURI(kw[1]);
+        } else {
+          keyWord = "(not provided)";
+        }
+        var p = document.location.pathname;
+        ga('send', 'event', 'ranktracker', keyWord, p, rank, {'nonInteraction':1, transport:'beacon'});
+      }
     </script>
     <img style="display: none;" src="https://www.linkedin.com/profile/view?authToken=zRgB&authType=name&id=20146221" />
   </body>
