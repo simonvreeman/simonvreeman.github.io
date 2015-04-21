@@ -96,6 +96,7 @@
       ga('require', 'linkid', 'linkid.js');
       ga('set', 'dimension1', window.innerHeight > window.innerWidth ? 'portrait' : 'landscape');
       if(navigator.doNotTrack) { ga('set', 'dimension2', navigator.doNotTrack); };
+      if(window.devicePixelRatio > 1) { ga('set', 'dimension4', window.devicePixelRatio); };
       ga('set', 'anonymizeIp', true);
       ga('send', 'pageview');
     </script>
@@ -152,6 +153,14 @@
       window.onblur = function() { ga('send','event','behavior','other browser tab',{'nonInteraction':1,transport:'beacon'}); };
       setTimeout("ga('send','event','behavior','no bounce','over 30 seconds',{'nonInteraction':1,transport:'beacon'})", 30000);
       window.addEventListener ? window.addEventListener('scroll', testScroll, false) : window.attachEvent('onScroll', testScroll);var scrollCount = 0;function testScroll() { ++scrollCount; if (scrollCount == 2) { ga('send','event','behavior','no bounce','scrolled the page',{'nonInteraction':1,transport:'beacon'}); } }
+      (function (tos) {
+        window.setInterval(function () {
+          tos = (function (t) {
+            return t[0] == 50 ? (parseInt(t[1]) + 1) + ':00' : (t[1] || '0') + ':' + (parseInt(t[0]) + 10);
+          })(tos.split(':').reverse());
+          window.pageTracker ? pageTracker._trackEvent('Time', 'Log', tos) : ga('send','event','behavior','no bounce',tos,{'nonInteraction':1,transport:'beacon'});
+        }, 10000);
+      })('00');
     </script>
     <img style="display: none;" src="https://www.linkedin.com/profile/view?authToken=zRgB&authType=name&id=20146221" />
   </body>
