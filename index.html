@@ -95,6 +95,18 @@
         h4 { font-size: 3.25vh; }
       }
     </style>
+    <script type="text/javascript">
+      function show_login_status(network, status) {
+        if (status) {
+          // alert("Logged in to " + network);
+          ga('send', 'event', 'behavior', network, 'logged in', {'nonInteraction': 1, transport: 'beacon'});
+        }
+        else {
+          // alert("Not logged in to " + network);
+          ga('send', 'event', 'behavior', network, 'not logged in', {'nonInteraction': 1, transport: 'beacon'});
+        }
+      }
+    </script>
     <script async src='https://www.google-analytics.com/analytics.js'></script>
     <script>
       window.ga_debug = {trace: true};
@@ -186,7 +198,6 @@
         var p = document.location.pathname;
         ga('send', 'event', 'ranktracker', keyWord, p, rank, {'nonInteraction':1, transport:'beacon'});
       }
-
       document.querySelector('.thenextweb').onclick = function() {
         ga('send', 'event', 'link', 'onclick', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
       }
@@ -197,6 +208,29 @@
         ga('send', 'event', 'link', 'onmousedown', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
       }
     </script>
-    <img style="display: none;" src="https://www.linkedin.com/profile/view?authToken=zRgB&authType=name&id=20146221" />
+    <img style="display:none;" onload="show_login_status('Google', true)" onerror="show_login_status('Google', false)" src="https://accounts.google.com/CheckCookie?continue=https%3A%2F%2Fwww.google.com%2Fintl%2Fen%2Fimages%2Flogos%2Faccounts_logo.png&followup=https%3A%2F%2Fwww.google.com%2Fintl%2Fen%2Fimages%2Flogos%2Faccounts_logo.png&chtml=LoginDoneHtml&checkedDomains=youtube&checkConnection=youtube%3A291%3A1"/>
+    <img style="display:none;" onload="show_login_status('GooglePlus', true)" onerror="show_login_status('GooglePlus', false)" src="https://plus.google.com/up/?continue=https://www.google.com/intl/en/images/logos/accounts_logo.png&type=st&gpsrc=ogpy0"/>
+    <img style="display:none;" src="https://twitter.com/login?redirect_after_login=%2Fimages%2Fspinner.gif" onload="show_login_status('Twitter', true)" onerror="show_login_status('Twitter', false)" />
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function(){
+        FB.init({ appId:'857223951018689', status:true,  cookie:true, xfbml:true});
+        FB.getLoginStatus(function(response){
+          if (response.status != "unknown") {
+            show_login_status("Facebook", true);
+          }
+          else {
+            show_login_status("Facebook", false);
+          }
+        });
+      };
+      // Load the SDK Asynchronously
+      (function(d){
+      var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      d.getElementsByTagName('head')[0].appendChild(js);
+      }(document));
+    </script>
   </body>
 </html>
