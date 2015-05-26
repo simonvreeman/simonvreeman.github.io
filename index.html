@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://stats.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
     <meta name="author" content="Simon Vreeman">
     <meta name="description" content="👉 ✔ Hi, I am Simon Vreeman and as a Web Analyst I optimize the websites of The Next Web based on insights & data.">
     <link rel="canonical" href="https://vreeman.com/">
@@ -57,11 +58,11 @@
       body {
         display: table-cell;
         vertical-align: middle;
-        font-family: Georgia, Times, 'Times New Roman', serif;
+        font-family: Georgia, serif;
         font-style: italic;
-        color: #4e5860;
+        color: #404040; /* #4e5860 */
         text-align: center;
-        background: #fafbfc;
+        background: #fff; /* #fafbfc */
       }
       h1,
       h2,
@@ -81,12 +82,12 @@
       }
       h4 { font-size: 3.25vw; }
       a {
-        color: #a6abaf;
+        color: #060606; /* #a6abaf */
         text-decoration: none;
         transition: color .3s ease-in-out;
       }
       a:hover,
-      a:focus { color: #4e5860; }
+      a:focus { color: #0074bf; } /* #4e5860 */
       @media screen and (orientation: portrait) {
         h1 { font-size: 6.5vh; }
         h2 { font-size: 3.5vh; }
@@ -94,19 +95,27 @@
         h3 > span { white-space: nowrap; }
         h4 { font-size: 3.25vh; }
       }
+      ::selection {
+        background: #0074bf;
+        color: #e5f1f8;
+        -webkit-font-smoothing: antialiased;
+      }
     </style>
-    <script type="text/javascript">
+    <!-- http://www.tomanthony.co.uk/blog/detect-visitor-social-networks/ -->
+    <script>
       function show_login_status(network, status) {
         if (status) {
-          // alert("Logged in to " + network);
           ga('send', 'event', 'behavior', network, 'logged in', {'nonInteraction': 1, transport: 'beacon'});
         }
         else {
-          // alert("Not logged in to " + network);
           ga('send', 'event', 'behavior', network, 'not logged in', {'nonInteraction': 1, transport: 'beacon'});
         }
       }
     </script>
+    <script>
+      var adblock = true;
+    </script>
+    <script src="advertising.js"></script>
     <script async src='https://www.google-analytics.com/analytics.js'></script>
     <script>
       window.ga_debug = {trace: true};
@@ -119,6 +128,12 @@
       ga('set', 'dimension1', window.innerHeight > window.innerWidth ? 'portrait' : 'landscape');
       if(navigator.doNotTrack) { ga('set', 'dimension2', navigator.doNotTrack); };
       if(window.devicePixelRatio > 1) { ga('set', 'dimension4', window.devicePixelRatio); };
+      if(adblock) {
+        ga('set', 'dimension5', 'yes');
+      }
+      else {
+        ga('set', 'dimension5', 'no');
+      }
       ga('set', 'anonymizeIp', true);
       ga('set', 'forceSSL', true);
       ga('send', 'pageview');
@@ -228,7 +243,7 @@
       (function(d){
       var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
       js = d.createElement('script'); js.id = id; js.async = true;
-      js.src = "//connect.facebook.net/en_US/all.js";
+      js.src = "https://connect.facebook.net/en_US/all.js";
       d.getElementsByTagName('head')[0].appendChild(js);
       }(document));
     </script>
