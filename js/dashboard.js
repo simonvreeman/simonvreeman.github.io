@@ -31,7 +31,7 @@ gapi.analytics.ready(function() {
   var dataTable = new gapi.analytics.googleCharts.DataChart({
     query: {
       dimensions: 'ga:date',
-      metrics: 'ga:users', 'ga:sessions', 'ga:pageviews', 'ga:bounces', 'ga:pageviewsPerSession', 'ga:sessionsPerUser',
+      metrics: 'ga:users, ga:sessions, ga:pageviews, ga:bounces, ga:pageviewsPerSession, ga:sessionsPerUser',
       'start-date': '8daysAgo',
       'end-date': 'yesterday'
     },
