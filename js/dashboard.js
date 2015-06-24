@@ -30,10 +30,10 @@ gapi.analytics.ready(function() {
    */
   var dataTable = new gapi.analytics.googleCharts.DataChart({
     query: {
-      metrics: 'ga:users',
       dimensions: 'ga:date',
-      'start-date': '8daysAgo',
-      'end-date': 'yesterday'
+      metrics: 'ga:users',
+      'sort': '-ga:users',
+      'max-results': '6'
     },
     chart: {
       container: 'table-container',
