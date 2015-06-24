@@ -49,7 +49,7 @@ gapi.analytics.ready(function() {
    * and Google chart options. It will be rendered inside an element
    * with the id "sessions-chart-container".
    */
-  var dataChartusers = new gapi.analytics.googleCharts.DataChart({
+  var dataChartsessions = new gapi.analytics.googleCharts.DataChart({
     query: {
       metrics: 'ga:sessions',
       dimensions: 'ga:date',
@@ -70,7 +70,7 @@ gapi.analytics.ready(function() {
    * and Google chart options. It will be rendered inside an element
    * with the id "pageviews-chart-container".
    */
-  var dataChartusers = new gapi.analytics.googleCharts.DataChart({
+  var dataChartpageviews = new gapi.analytics.googleCharts.DataChart({
     query: {
       metrics: 'ga:pageviews',
       dimensions: 'ga:date',
@@ -91,7 +91,7 @@ gapi.analytics.ready(function() {
    * and Google chart options. It will be rendered inside an element
    * with the id "bounces-chart-container".
    */
-  var dataChartusers = new gapi.analytics.googleCharts.DataChart({
+  var dataChartbounces = new gapi.analytics.googleCharts.DataChart({
     query: {
       metrics: 'ga:bounces',
       dimensions: 'ga:date',
@@ -112,7 +112,7 @@ gapi.analytics.ready(function() {
    * and Google chart options. It will be rendered inside an element
    * with the id "pages-session-chart-container".
    */
-  var dataChartusers = new gapi.analytics.googleCharts.DataChart({
+  var dataChartpageviewssession = new gapi.analytics.googleCharts.DataChart({
     query: {
       metrics: 'ga:pageviewsPerSession',
       dimensions: 'ga:date',
@@ -133,7 +133,7 @@ gapi.analytics.ready(function() {
    * and Google chart options. It will be rendered inside an element
    * with the id "sessions-user-chart-container".
    */
-  var dataChartusers = new gapi.analytics.googleCharts.DataChart({
+  var dataChartsessionsuser = new gapi.analytics.googleCharts.DataChart({
     query: {
       metrics: 'ga:sessionsPerUser',
       dimensions: 'ga:date',
@@ -154,6 +154,11 @@ gapi.analytics.ready(function() {
    */
   viewSelector.on('change', function(ids) {
     dataChartusers.set({query: {ids: ids}}).execute();
+    dataChartsessions.set({query: {ids: ids}}).execute();
+    dataChartpageviews.set({query: {ids: ids}}).execute();
+    dataChartbounces.set({query: {ids: ids}}).execute();
+    dataChartpageviewssession.set({query: {ids: ids}}).execute();
+    dataChartsessionsuser.set({query: {ids: ids}}).execute();
   });
 
 });
