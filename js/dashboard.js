@@ -28,6 +28,28 @@ gapi.analytics.ready(function() {
    * and Google chart options. It will be rendered inside an element
    * with the id "users-chart-container".
    */
+  var dataTable = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      metrics: 'ga:users',
+      dimensions: 'ga:date',
+      'start-date': '30daysAgo',
+      'end-date': 'yesterday'
+    },
+    chart: {
+      container: 'table-container',
+      type: 'TABLE',
+      options: {
+        width: '100%'
+      }
+    }
+  });
+
+
+  /**
+   * Create a new DataChart instance with the given query parameters
+   * and Google chart options. It will be rendered inside an element
+   * with the id "users-chart-container".
+   */
   var dataChartusers = new gapi.analytics.googleCharts.DataChart({
     query: {
       metrics: 'ga:users',
