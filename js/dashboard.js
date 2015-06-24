@@ -30,9 +30,9 @@ gapi.analytics.ready(function() {
    */
   var dataTable = new gapi.analytics.googleCharts.DataChart({
     query: {
-      metrics: 'ga:users',
+      metrics: 'ga:users', 'ga:sessions', 'ga:pageviews', 'ga:bounces', 'ga:pageviewsPerSession', 'ga:sessionsPerUser',
       dimensions: 'ga:date',
-      'start-date': '30daysAgo',
+      'start-date': '8daysAgo',
       'end-date': 'yesterday'
     },
     chart: {
@@ -175,6 +175,7 @@ gapi.analytics.ready(function() {
    * Render the dataChart on the page whenever a new view is selected.
    */
   viewSelector.on('change', function(ids) {
+    dataTable.set({query: {ids: ids}}).execute();
     dataChartusers.set({query: {ids: ids}}).execute();
     dataChartsessions.set({query: {ids: ids}}).execute();
     dataChartpageviews.set({query: {ids: ids}}).execute();
