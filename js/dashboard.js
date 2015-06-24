@@ -23,27 +23,6 @@ gapi.analytics.ready(function() {
   // Render the view selector to the page.
   viewSelector.execute();
 
-/**
-   * Create a new DataChart instance with the given query parameters
-   * and Google chart options. It will be rendered inside an element
-   * with the id "sessions-chart-container".
-   */
-  var dataChartsessions = new gapi.analytics.googleCharts.DataChart({
-    query: {
-      metrics: 'ga:sessions',
-      dimensions: 'ga:nthHour',
-      'start-date': '7daysAgo',
-      'end-date': 'yesterday'
-    },
-    chart: {
-      container: 'sessions-chart-container',
-      type: 'COLUMN',
-      options: {
-        width: '100%'
-      }
-    }
-  });
-
   /**
    * Create a new DataChart instance with the given query parameters
    * and Google chart options. It will be rendered inside an element
@@ -65,20 +44,62 @@ gapi.analytics.ready(function() {
     }
   });
 
-  /**
+    /**
    * Create a new DataChart instance with the given query parameters
    * and Google chart options. It will be rendered inside an element
-   * with the id "transactions-chart-container".
+   * with the id "sessions-chart-container".
    */
-  var dataCharttransactions = new gapi.analytics.googleCharts.DataChart({
+  var dataChartusers = new gapi.analytics.googleCharts.DataChart({
     query: {
-      metrics: 'ga:transactions',
+      metrics: 'ga:sessions',
       dimensions: 'ga:date',
       'start-date': '30daysAgo',
       'end-date': 'yesterday'
     },
     chart: {
-      container: 'transactions-chart-container',
+      container: 'sessions-chart-container',
+      type: 'LINE',
+      options: {
+        width: '100%'
+      }
+    }
+  });
+
+    /**
+   * Create a new DataChart instance with the given query parameters
+   * and Google chart options. It will be rendered inside an element
+   * with the id "pageviews-chart-container".
+   */
+  var dataChartusers = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      metrics: 'ga:pageviews',
+      dimensions: 'ga:date',
+      'start-date': '30daysAgo',
+      'end-date': 'yesterday'
+    },
+    chart: {
+      container: 'pageviews-chart-container',
+      type: 'LINE',
+      options: {
+        width: '100%'
+      }
+    }
+  });
+
+    /**
+   * Create a new DataChart instance with the given query parameters
+   * and Google chart options. It will be rendered inside an element
+   * with the id "bounces-chart-container".
+   */
+  var dataChartusers = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      metrics: 'ga:bounces',
+      dimensions: 'ga:date',
+      'start-date': '30daysAgo',
+      'end-date': 'yesterday'
+    },
+    chart: {
+      container: 'bounces-chart-container',
       type: 'LINE',
       options: {
         width: '100%'
@@ -89,17 +110,17 @@ gapi.analytics.ready(function() {
   /**
    * Create a new DataChart instance with the given query parameters
    * and Google chart options. It will be rendered inside an element
-   * with the id "transactionRevenue-chart-container".
+   * with the id "pages-session-chart-container".
    */
-  var dataCharttransactionRevenue = new gapi.analytics.googleCharts.DataChart({
+  var dataChartusers = new gapi.analytics.googleCharts.DataChart({
     query: {
-      metrics: 'ga:transactionRevenue',
+      metrics: 'ga:pageviewsPerSession',
       dimensions: 'ga:date',
       'start-date': '30daysAgo',
       'end-date': 'yesterday'
     },
     chart: {
-      container: 'transactionRevenue-chart-container',
+      container: 'pages-session-chart-container',
       type: 'LINE',
       options: {
         width: '100%'
@@ -107,15 +128,32 @@ gapi.analytics.ready(function() {
     }
   });
 
+  /**
+   * Create a new DataChart instance with the given query parameters
+   * and Google chart options. It will be rendered inside an element
+   * with the id "sessions-user-chart-container".
+   */
+  var dataChartusers = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      metrics: 'ga:sessionsPerUser',
+      dimensions: 'ga:date',
+      'start-date': '30daysAgo',
+      'end-date': 'yesterday'
+    },
+    chart: {
+      container: 'sessions-user-chart-container',
+      type: 'LINE',
+      options: {
+        width: '100%'
+      }
+    }
+  });
 
   /**
    * Render the dataChart on the page whenever a new view is selected.
    */
   viewSelector.on('change', function(ids) {
-    dataChartsessions.set({query: {ids: ids}}).execute();
     dataChartusers.set({query: {ids: ids}}).execute();
-    dataCharttransactions.set({query: {ids: ids}}).execute();
-    dataCharttransactionRevenue.set({query: {ids: ids}}).execute();
   });
 
 });
