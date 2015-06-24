@@ -26,14 +26,14 @@ gapi.analytics.ready(function() {
   /**
    * Create a new DataChart instance with the given query parameters
    * and Google chart options. It will be rendered inside an element
-   * with the id "users-chart-container".
+   * with the id "table-container".
    */
   var dataTable = new gapi.analytics.googleCharts.DataChart({
     query: {
       dimensions: 'ga:date',
-      metrics: 'ga:users',
-      'sort': '-ga:users',
-      'max-results': '6'
+      metrics: 'ga:users', 'ga:sessions', 'ga:pageviews', 'ga:bounces', 'ga:pageviewsPerSession', 'ga:sessionsPerUser',
+      'start-date': '8daysAgo',
+      'end-date': 'yesterday'
     },
     chart: {
       container: 'table-container',
