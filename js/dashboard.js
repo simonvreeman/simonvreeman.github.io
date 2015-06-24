@@ -33,7 +33,8 @@ gapi.analytics.ready(function() {
       dimensions: 'ga:date',
       metrics: 'ga:users, ga:sessions, ga:pageviews, ga:bounces, ga:pageviewsPerSession, ga:sessionsPerUser',
       'start-date': '8daysAgo',
-      'end-date': 'yesterday'
+      'end-date': 'yesterday',
+      'samplingLevel': 'HIGHER_PRECISION'
     },
     chart: {
       container: 'table-container',
