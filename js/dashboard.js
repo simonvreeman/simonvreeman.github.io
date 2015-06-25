@@ -32,7 +32,7 @@ gapi.analytics.ready(function() {
     query: {
       dimensions: 'ga:date',
       metrics: 'ga:users, ga:sessions, ga:pageviews, ga:bounces, ga:pageviewsPerSession, ga:sessionsPerUser',
-      'start-date': '8daysAgo',
+      'start-date': '7daysAgo',
       'end-date': 'yesterday',
       'sort': '-ga:date',
       'samplingLevel': 'HIGHER_PRECISION'
