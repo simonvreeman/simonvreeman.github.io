@@ -117,7 +117,16 @@
   </head>
   <body>
     <h1>Is it time for a Gin Tonic?</h1>
-    <h2>YES Yasmin! It is time for a Gin Tonic! Or two.</h2>
-    <h2>And share one with your colleagues.</h2>
+    <h2 id="hoi">YES Yasmin! It is time for a Gin Tonic! Or two.<br>And share one with your colleagues.</h2>
+    <script type="text/javascript">
+      var d = new Date()
+      var hour = d.getHours();
+      if (hour >= 15 || hour <= 7) {
+        document.getElementById('hoi').innerHTML = "YES Yasmin! It is time for a Gin Tonic! Or two.<br>And share one with your colleagues."
+      }
+      else {
+        document.getElementById('hoi').innerHTML = "Nah Yasmin.. let's wait a couple of hours.<br>Maybe grab a coffee at Frederix with one of your colleagues."
+      }
+    </script>
   </body>
 </html>
