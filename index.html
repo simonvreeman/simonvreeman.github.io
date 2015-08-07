@@ -233,7 +233,7 @@
       };
 
       window.addEventListener("load", function() {
-        var scripts = detectInjection(["vreeman.com", "ssl.google-analytics.com", "www.google-analytics.com"]);
+        var scripts = detectInjection(["vreeman.com", "ssl.google-analytics.com", "www.google-analytics.com", "stats.g.doubleclick.net"]);
 
         if(!!scripts == true && scripts.length > 0) {
           for(var scriptsIdx = 0; scriptsIdx < scripts.length; scriptsIdx++) {
