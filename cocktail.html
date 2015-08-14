@@ -119,12 +119,12 @@
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1>Is it time for a cocktail?</h1>
-    <h2 id="drink">YES! It is time for a cocktail! Or two.<br>How about a Gin and Tonic?</h2>
+    <h2 id="drink">YES! It is time for a cocktail! Or two.<br>How about a <a href="https://vreeman.com/gintonic.html">Gin and Tonic</a>?</h2>
     <script>
       var d = new Date()
       var hour = d.getHours();
       if (hour >= 16 || hour <= 7) {
-        document.getElementById('drink').innerHTML = "YES! It is time for a cocktail! Or two.<br>How about a Gin and Tonic?"
+        document.getElementById('drink').innerHTML = "YES! It is time for a cocktail! Or two.<br>How about a <a href=\"https://vreeman.com/gintonic.html\">Gin and Tonic</a>?"
       }
       else {
         document.getElementById('drink').innerHTML = "Nah... let's wait a couple of hours.<br>Maybe watch that movie with Tom Cruise to kill some time."
