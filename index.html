@@ -116,38 +116,6 @@
       var adblock = true;
     </script>
     <script src="advertising.js"></script>
-    <script async src='https://www.google-analytics.com/analytics.js'></script>
-    <script>
-      window.ga_debug = {trace: true};
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-2826482-20', 'vreeman.com', {'sampleRate': 100, 'siteSpeedSampleRate': 100, 'alwaysSendReferrer': true, 'allowLinker': true});
-      ga('create', 'UA-2826482-22', 'vreeman.com', {'name': 'secondTracker', 'sampleRate': 100, 'siteSpeedSampleRate': 100, 'alwaysSendReferrer': true, 'allowLinker': true});
-      ga('require', 'displayfeatures');
-      ga('secondTracker.require', 'displayfeatures');
-      ga('require', 'linkid', 'linkid.js');
-      ga('secondTracker.require', 'linkid', 'linkid.js');
-      ga('require', 'linker');
-      ga('secondTracker.require', 'linker');
-      ga('linker:autoLink', ['vreeman.com', 'simonvreeman.github.io.dev']);
-      ga('set', 'dimension1', window.innerHeight > window.innerWidth ? 'portrait' : 'landscape');
-      ga('secondTracker.set', 'dimension1', window.innerHeight > window.innerWidth ? 'portrait' : 'landscape');
-      if(navigator.doNotTrack) { ga('set', 'dimension2', navigator.doNotTrack); ga('secondTracker.set', 'dimension2', navigator.doNotTrack); };
-      if(window.devicePixelRatio > 1) { ga('set', 'dimension4', window.devicePixelRatio); ga('secondTracker.set', 'dimension4', window.devicePixelRatio); };
-      if(adblock) {
-        ga('set', 'dimension5', 'yes');
-        ga('secondTracker.set', 'dimension5', 'yes');
-      }
-      else {
-        ga('set', 'dimension5', 'no');
-        ga('secondTracker.set', 'dimension5', 'no');
-      }
-      ga('set', 'anonymizeIp', true);
-      ga('secondTracker.set', 'anonymizeIp', true);
-      ga('set', 'forceSSL', true);
-      ga('secondTracker.set', 'forceSSL', true);
-      ga('send', 'pageview');
-      ga('secondTracker.send', 'pageview');
-    </script>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
   </head>
   <body>
@@ -259,10 +227,10 @@
         }
       });
 
-      document.querySelector('.thenextweb').onclick = function() {
+      /* document.querySelector('.thenextweb').onclick = function() {
         ga('send', 'event', 'link', 'onclick', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onclick', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
-      }
+      } */
       document.querySelector('.thenextweb').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onmouseover', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
@@ -271,10 +239,10 @@
         ga('send', 'event', 'link', 'onmousedown', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onmousedown', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
       }
-      document.querySelector('.valkexclusief').onclick = function() {
+      /* document.querySelector('.valkexclusief').onclick = function() {
         ga('send', 'event', 'link', 'onclick', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onclick', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
-      }
+      } */
       document.querySelector('.valkexclusief').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onmouseover', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
@@ -283,10 +251,10 @@
         ga('send', 'event', 'link', 'onmousedown', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onmousedown', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
       }
-      document.querySelector('.budeco').onclick = function() {
+      /* document.querySelector('.budeco').onclick = function() {
         ga('send', 'event', 'link', 'onclick', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onclick', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
-      }
+      } */
       document.querySelector('.budeco').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onmouseover', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
@@ -295,10 +263,10 @@
         ga('send', 'event', 'link', 'onmousedown', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onmousedown', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
       }
-      document.querySelector('.heatmaps').onclick = function() {
+      /* document.querySelector('.heatmaps').onclick = function() {
         ga('send', 'event', 'link', 'onclick', 'thenextweb.com/heatmaps', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onclick', 'thenextweb.com/heatmaps', {'nonInteraction': 1, transport: 'beacon'});
-      }
+      } */
       document.querySelector('.heatmaps').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'thenextweb.com/heatmaps', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onmouseover', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
@@ -307,10 +275,10 @@
         ga('send', 'event', 'link', 'onmousedown', 'thenextweb.com/heatmaps', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onmousedown', 'thenextweb.com/heatmaps', {'nonInteraction': 1, transport: 'beacon'});
       }
-      document.querySelector('.abtesting').onclick = function() {
+      /* document.querySelector('.abtesting').onclick = function() {
         ga('send', 'event', 'link', 'onclick', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onclick', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
-      }
+      } */
       document.querySelector('.abtesting').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onmouseover', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
@@ -319,10 +287,10 @@
         ga('send', 'event', 'link', 'onmousedown', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onmousedown', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
       }
-      document.querySelector('.email').onclick = function() {
+      /* document.querySelector('.email').onclick = function() {
         ga('send', 'event', 'link', 'onclick', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onclick', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
-      }
+      } */
       document.querySelector('.email').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
         ga('secondTracker.send', 'event', 'link', 'onmouseover', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
@@ -332,8 +300,8 @@
         ga('secondTracker.send', 'event', 'link', 'onmousedown', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.linkedin').onclick = function() {
-        ga('send', 'event', 'link', 'onclick', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onclick', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'});
+        /* ga('send', 'event', 'link', 'onclick', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'});
+        ga('secondTracker.send', 'event', 'link', 'onclick', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'}); */
         ga('send', 'social', {'socialNetwork': 'linkedin', 'socialAction': 'profile', 'socialTarget': 'https://www.linkedin.com/in/simonvreeman'});
         ga('secondTracker.send', 'social', {'socialNetwork': 'linkedin', 'socialAction': 'profile', 'socialTarget': 'https://www.linkedin.com/in/simonvreeman'});
       }
@@ -346,8 +314,8 @@
         ga('secondTracker.send', 'event', 'link', 'onmousedown', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.twitter').onclick = function() {
-        ga('send', 'event', 'link', 'onclick', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onclick', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'});
+        /* ga('send', 'event', 'link', 'onclick', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'});
+        ga('secondTracker.send', 'event', 'link', 'onclick', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'}); */
         ga('send', 'social', {'socialNetwork': 'twitter', 'socialAction': 'profile', 'socialTarget': 'https://twitter.com/vreeman'});
         ga('secondTracker.send', 'social', {'socialNetwork': 'twitter', 'socialAction': 'profile', 'socialTarget': 'https://twitter.com/vreeman'});
       }
