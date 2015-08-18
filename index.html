@@ -168,16 +168,16 @@
     }
     </script>
     <script>
-      window.onload=function(){var e=null;var g=60;var h=3;var c=document.getElementsByTagName("body")[0];if(c){c.onmouseup=function(j){e=b();f=e.length;d=i(e);if(e!=null&&d<g&&f>h){ga('send','event','copytext','highlighted',e,{'nonInteraction':1,transport:'beacon'});ga('secondTracker.send','event','copytext','highlighted',e,{'nonInteraction':1,transport:'beacon'});}function i(k){var l=k;var m=0;a=l.replace(/\s/g," ");a=a.split(" ");for(z=0;z<a.length;z++){if(a[z].length>0){m++}}return m}function b(){if(window.getSelection){d=window.getSelection()}else{if(document.getSelection){d=document.getSelection()}else{if(document.selection){d=document.selection.createRange().text}else{return""}}}return d.toString()}}}};
-      window.onresize = function() { ga('send','event','behavior','resize',{'nonInteraction':1,transport:'beacon'}); ga('secondTracker.send','event','behavior','resize',{'nonInteraction':1,transport:'beacon'}); };
-      window.onblur = function() { ga('send','event','behavior','other browser tab',{'nonInteraction':1,transport:'beacon'}); ga('secondTracker.send','event','behavior','other browser tab',{'nonInteraction':1,transport:'beacon'}); };
-      window.addEventListener ? window.addEventListener('scroll', testScroll, false) : window.attachEvent('onScroll', testScroll);var scrollCount = 0;function testScroll() { ++scrollCount; if (scrollCount == 2) { ga('send','event','behavior','no bounce','scrolled the page',{'nonInteraction':1,transport:'beacon'}); ga('secondTracker.send','event','behavior','no bounce','scrolled the page',{'nonInteraction':1,transport:'beacon'}); } }
+      window.onload=function(){var e=null;var g=60;var h=3;var c=document.getElementsByTagName("body")[0];if(c){c.onmouseup=function(j){e=b();f=e.length;d=i(e);if(e!=null&&d<g&&f>h){ga('send','event','copytext','highlighted',e,{'nonInteraction':1,transport:'beacon'});}function i(k){var l=k;var m=0;a=l.replace(/\s/g," ");a=a.split(" ");for(z=0;z<a.length;z++){if(a[z].length>0){m++}}return m}function b(){if(window.getSelection){d=window.getSelection()}else{if(document.getSelection){d=document.getSelection()}else{if(document.selection){d=document.selection.createRange().text}else{return""}}}return d.toString()}}}};
+      window.onresize = function() { ga('send','event','behavior','resize',{'nonInteraction':1,transport:'beacon'}); };
+      window.onblur = function() { ga('send','event','behavior','other browser tab',{'nonInteraction':1,transport:'beacon'}); };
+      window.addEventListener ? window.addEventListener('scroll', testScroll, false) : window.attachEvent('onScroll', testScroll);var scrollCount = 0;function testScroll() { ++scrollCount; if (scrollCount == 2) { ga('send','event','behavior','no bounce','scrolled the page',{'nonInteraction':1,transport:'beacon'}); } }
       (function (tos) {
         window.setInterval(function () {
           tos = (function (t) {
             return t[0] == 50 ? (parseInt(t[1]) + 1) + ':00' : (t[1] || '0') + ':' + (parseInt(t[0]) + 10);
           })(tos.split(':').reverse());
-          window.pageTracker ? pageTracker._trackEvent('Time', 'Log', tos) : ga('send','event','behavior','no bounce',tos,{'nonInteraction':1,transport:'beacon'}); ga('secondTracker.send','event','behavior','no bounce',tos,{'nonInteraction':1,transport:'beacon'});
+          window.pageTracker ? pageTracker._trackEvent('Time', 'Log', tos) : ga('send','event','behavior','no bounce',tos,{'nonInteraction':1,transport:'beacon'});
         }, 10000);
       })('00');
 
@@ -229,103 +229,77 @@
 
       /* document.querySelector('.thenextweb').onclick = function() {
         ga('send', 'event', 'link', 'onclick', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onclick', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
       } */
       document.querySelector('.thenextweb').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmouseover', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.thenextweb').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmousedown', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
       }
       /* document.querySelector('.valkexclusief').onclick = function() {
         ga('send', 'event', 'link', 'onclick', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onclick', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
       } */
       document.querySelector('.valkexclusief').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmouseover', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.valkexclusief').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmousedown', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
       }
       /* document.querySelector('.budeco').onclick = function() {
         ga('send', 'event', 'link', 'onclick', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onclick', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
       } */
       document.querySelector('.budeco').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmouseover', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.budeco').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmousedown', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
       }
       /* document.querySelector('.heatmaps').onclick = function() {
         ga('send', 'event', 'link', 'onclick', 'thenextweb.com/heatmaps', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onclick', 'thenextweb.com/heatmaps', {'nonInteraction': 1, transport: 'beacon'});
       } */
       document.querySelector('.heatmaps').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'thenextweb.com/heatmaps', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmouseover', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.heatmaps').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'thenextweb.com/heatmaps', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmousedown', 'thenextweb.com/heatmaps', {'nonInteraction': 1, transport: 'beacon'});
       }
       /* document.querySelector('.abtesting').onclick = function() {
         ga('send', 'event', 'link', 'onclick', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onclick', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
       } */
       document.querySelector('.abtesting').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmouseover', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.abtesting').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmousedown', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
       }
       /* document.querySelector('.email').onclick = function() {
         ga('send', 'event', 'link', 'onclick', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onclick', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
       } */
       document.querySelector('.email').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmouseover', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.email').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmousedown', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.linkedin').onclick = function() {
-        /* ga('send', 'event', 'link', 'onclick', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onclick', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'}); */
+        /* ga('send', 'event', 'link', 'onclick', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'}); */
         ga('send', 'social', {'socialNetwork': 'linkedin', 'socialAction': 'profile', 'socialTarget': 'https://www.linkedin.com/in/simonvreeman'});
-        ga('secondTracker.send', 'social', {'socialNetwork': 'linkedin', 'socialAction': 'profile', 'socialTarget': 'https://www.linkedin.com/in/simonvreeman'});
       }
       document.querySelector('.linkedin').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmouseover', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.linkedin').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmousedown', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.twitter').onclick = function() {
-        /* ga('send', 'event', 'link', 'onclick', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onclick', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'}); */
+        /* ga('send', 'event', 'link', 'onclick', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'}); */
         ga('send', 'social', {'socialNetwork': 'twitter', 'socialAction': 'profile', 'socialTarget': 'https://twitter.com/vreeman'});
-        ga('secondTracker.send', 'social', {'socialNetwork': 'twitter', 'socialAction': 'profile', 'socialTarget': 'https://twitter.com/vreeman'});
       }
       document.querySelector('.twitter').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmouseover', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.twitter').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'});
-        ga('secondTracker.send', 'event', 'link', 'onmousedown', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'});
       }
     </script>
   </body>
