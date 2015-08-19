@@ -46,11 +46,6 @@
         overflow: hidden;
         -webkit-text-size-adjust: 100%;
             -ms-text-size-adjust: 100%;
-      // background: url(img/gintonic.jpg) no-repeat center center fixed;
-      // -webkit-background-size: cover;
-      // -moz-background-size: cover;
-      // -o-background-size: cover;
-      // background-size: cover;
       }
       html,
       body {
@@ -69,94 +64,43 @@
         background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
         -webkit-animation: pulse 3s infinite;
       }
-
-      @-webkit-keyframes pulse  {
-      0% { background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); }
-      15% { background: linear-gradient(to right, orange,yellow,green,blue,indigo,violet,red); }
-      30% { background: linear-gradient(to right, yellow,green,blue,indigo,violet,red,orange); }
-      45% { background: linear-gradient(to right, green,blue,indigo,violet,red,orange,yellow); }
-      60% { background: linear-gradient(to right, blue,indigo,violet,red,orange,yellow,green); }
-      75% { background: linear-gradient(to right, indigo,violet,red,orange,yellow,green,blue); }
-      90% { background: linear-gradient(to right, violet,red,orange,yellow,green,blue,indigo); }
-      }
-
-
-
       h1 {
+        font-family: "Comic Sans MS", cursive, sans-serif;
         font-size: 8vw;
+        font-variant: small-caps;
         letter-spacing: 10px;
         font-weight: 400;
+      }
+      h1 span:hover {
+        font-family: Papyrus, fantasy;
+        -webkit-transform: rotate(-90deg);
+        text-shadow:0px 0px 0 rgb(137,156,213),1px 1px 0 rgb(129,148,205),2px 2px 0 rgb(120,139,196),3px 3px 0 rgb(111,130,187),4px 4px 0 rgb(103,122,179),5px 5px 0 rgb(94,113,170),6px 6px 0 rgb(85,104,161),7px 7px 0 rgb(76,95,152),8px 8px 0 rgb(68,87,144),9px 9px 0 rgb(59,78,135),10px 10px 0 rgb(50,69,126),11px 11px 0 rgb(42,61,118),12px 12px 0 rgb(33,52,109),13px 13px 0 rgb(24,43,100),14px 14px 0 rgb(15,34,91),15px 15px 0 rgb(7,26,83),16px 16px 0 rgb(-2,17,74),17px 17px 0 rgb(-11,8,65),18px 18px 0 rgb(-19,0,57),19px 19px 0 rgb(-28,-9,48), 20px 20px 0 rgb(-37,-18,39),21px 21px 20px rgba(0,0,0,1),21px 21px 1px rgba(0,0,0,0.5),0px 0px 20px rgba(0,0,0,.2);
+        -webkit-transition: all 0.1s ease;
+        /* -moz-transition: all 0.1s ease;
+        -o-transition: all 0.1s ease;
+        -ms-transition: all 0.1s ease;
+        transition: all 0.1s ease; */
+        -webkit-transition: -webkit-transform 0.4s ease-out;
+        -moz-transition: -moz-transform 0.4s ease-out;
+        transition: transform 0.4s ease-out;
+        -webkit-transform: rotateZ(360deg);
+        -moz-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+      }
+      @-webkit-keyframes pulse  {
+        0% { background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); }
+        15% { background: linear-gradient(to right, orange,yellow,green,blue,indigo,violet,red); }
+        30% { background: linear-gradient(to right, yellow,green,blue,indigo,violet,red,orange); }
+        45% { background: linear-gradient(to right, green,blue,indigo,violet,red,orange,yellow); }
+        60% { background: linear-gradient(to right, blue,indigo,violet,red,orange,yellow,green); }
+        75% { background: linear-gradient(to right, indigo,violet,red,orange,yellow,green,blue); }
+        90% { background: linear-gradient(to right, violet,red,orange,yellow,green,blue,indigo); }
       }
     </style>
     <script>
       var adblock = true;
     </script>
     <script src="advertising.js"></script>
-    <script async src='https://www.google-analytics.com/analytics.js'></script>
-    <script>
-      window.ga_debug = {trace: true};
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-2826482-20', 'vreeman.com', {'sampleRate': 100, 'siteSpeedSampleRate': 100, 'alwaysSendReferrer': true, 'allowLinker': true});
-      ga('create', 'UA-2826482-22', 'vreeman.com', {'name': 'secondTracker', 'sampleRate': 100, 'siteSpeedSampleRate': 100, 'alwaysSendReferrer': true, 'allowLinker': true});
-      ga('require', 'displayfeatures');
-      ga('secondTracker.require', 'displayfeatures');
-      ga('require', 'linkid', 'linkid.js');
-      ga('secondTracker.require', 'linkid', 'linkid.js');
-      ga('require', 'linker');
-      ga('secondTracker.require', 'linker');
-      ga('linker:autoLink', ['vreeman.com', 'simonvreeman.github.io.dev']);
-      ga('set', 'dimension1', window.innerHeight > window.innerWidth ? 'portrait' : 'landscape');
-      ga('secondTracker.set', 'dimension1', window.innerHeight > window.innerWidth ? 'portrait' : 'landscape');
-      if(navigator.doNotTrack) { ga('set', 'dimension2', navigator.doNotTrack); ga('secondTracker.set', 'dimension2', navigator.doNotTrack); };
-      if(window.devicePixelRatio > 1) { ga('set', 'dimension4', window.devicePixelRatio); ga('secondTracker.set', 'dimension4', window.devicePixelRatio); };
-      if(adblock) {
-        ga('set', 'dimension5', 'yes');
-        ga('secondTracker.set', 'dimension5', 'yes');
-      }
-      else {
-        ga('set', 'dimension5', 'no');
-        ga('secondTracker.set', 'dimension5', 'no');
-      }
-      ga('set', 'anonymizeIp', true);
-      ga('secondTracker.set', 'anonymizeIp', true);
-      ga('set', 'forceSSL', true);
-      ga('secondTracker.set', 'forceSSL', true);
-      ga('send', 'pageview');
-      ga('secondTracker.send', 'pageview');
-    </script>
-    <style>
-    h1 { font-variant: small-caps;}
-    h1 span { font-family: "Comic Sans MS", cursive, sans-serif; }
-    h1 span:nth-child(1) { }
-    h1 span:nth-child(2) {  }
-    h1 span:nth-child(3) { }
-    h1 span:nth-child(4) { }
-    h1 span:nth-child(5) { }
-    h1 span:nth-child(6) { }
-    h1 span:nth-child(7) { }
-    h1 span:nth-child(8) { }
-    h1 span:nth-child(9) { }
-    h1 span:nth-child(10) { }
-
-    h1:hover { }
-    h1 span:hover { font-family: Papyrus, fantasy; -webkit-transform: rotate(-90deg); text-shadow:0px 0px 0 rgb(137,156,213),1px 1px 0 rgb(129,148,205),2px 2px 0 rgb(120,139,196),3px 3px 0 rgb(111,130,187),4px 4px 0 rgb(103,122,179),5px 5px 0 rgb(94,113,170),6px 6px 0 rgb(85,104,161),7px 7px 0 rgb(76,95,152),8px 8px 0 rgb(68,87,144),9px 9px 0 rgb(59,78,135),10px 10px 0 rgb(50,69,126),11px 11px 0 rgb(42,61,118),12px 12px 0 rgb(33,52,109),13px 13px 0 rgb(24,43,100),14px 14px 0 rgb(15,34,91),15px 15px 0 rgb(7,26,83),16px 16px 0 rgb(-2,17,74),17px 17px 0 rgb(-11,8,65),18px 18px 0 rgb(-19,0,57),19px 19px 0 rgb(-28,-9,48), 20px 20px 0 rgb(-37,-18,39),21px 21px 20px rgba(0,0,0,1),21px 21px 1px rgba(0,0,0,0.5),0px 0px 20px rgba(0,0,0,.2); -webkit-transition: all 0.1s ease;
-     /* -moz-transition: all 0.1s ease;
-       -o-transition: all 0.1s ease;
-      -ms-transition: all 0.1s ease;
-          transition: all 0.1s ease; */
-
-          -webkit-transition: -webkit-transform 0.4s ease-out;
-  -moz-transition: -moz-transform 0.4s ease-out;
-  transition: transform 0.4s ease-out;
-  -webkit-transform: rotateZ(360deg);
-  -moz-transform: rotateZ(360deg);
-  transform: rotateZ(360deg);
-
-      }
-    h1 span:nth-child(1):hover {
-    }
-
-    </style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
   </head>
   <body>
