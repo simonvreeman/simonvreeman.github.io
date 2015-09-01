@@ -85,10 +85,9 @@
         color: #999;
         font-size: 1.5vw;
       }
-      h4 a {
-        color: #5cc3f6;
-      }
-      h4 a:hover, h4 a:focus {
+      h4 a { color: #5cc3f6; }
+      h4 a:hover,
+      h4 a:focus {
         color: #08c;
       }
       h5 { font-size: 3.25vw; }
@@ -103,7 +102,10 @@
         h1 { font-size: 6.5vh; }
         h2 { font-size: 3.5vh; }
         h3 { font-size: 3.25vh; }
-        h3 > span, h4 > a { white-space: nowrap; }
+        h3 > span,
+        h4 > a {
+          white-space: nowrap;
+        }
         h4 { font-size: 2vh; }
         h5 { font-size: 3.25vh; }
       }
@@ -126,9 +128,15 @@
     <h4>Marketing the <abbr title="The Next Web">TNW</abbr> way: <a href="http://thenextweb.com/voice/2015/02/16/heat-maps-marketing-at-tnw/" class="heatmaps" title="Marketing the TNW way #1: Heat maps" target="_blank">#1 Heat maps</a>, <a href="http://thenextweb.com/dd/2015/07/24/marketing-the-tnw-way-2-deep-dive-on-ab-testing/" class="abtesting" title="Marketing the TNW way #2: Deep dive on A/B testing" target="_blank">#2 A/B testing</a></h4>
     <h5><a href="mailto:simon@vreeman.com?subject=Hello" class="email" title="Send Simon Vreeman an e-mail to simon@vreeman.com">E-mail</a> &middot; <a href="https://www.linkedin.com/in/simonvreeman" class="linkedin" title="Simon Vreeman on Linkedin" rel="nofollow" target="_blank">LinkedIn</a> &middot; <a href="https://twitter.com/vreeman" class="twitter" title="Simon Vreeman on Twitter at @vreeman" rel="nofollow" target="_blank">Twitter</a></h5>
     <script>
-      window.onresize = function() { ga('send','event','behavior','resize',{'nonInteraction':1,transport:'beacon'}); };
-      window.onblur = function() { ga('send','event','behavior','other browser tab',{'nonInteraction':1,transport:'beacon'}); };
-      window.addEventListener ? window.addEventListener('scroll', testScroll, false) : window.attachEvent('onScroll', testScroll);var scrollCount = 0;function testScroll() { ++scrollCount; if (scrollCount == 2) { ga('send','event','behavior','no bounce','scrolled the page',{'nonInteraction':1,transport:'beacon'}); } }
+      window.onresize = function() {
+        ga('send','event','behavior','resize',{'nonInteraction':1,transport:'beacon'});
+      };
+      window.onblur = function() {
+        ga('send','event','behavior','other browser tab',{'nonInteraction':1,transport:'beacon'});
+      };
+      window.addEventListener ? window.addEventListener('scroll', testScroll, false) : window.attachEvent('onScroll', testScroll);var scrollCount = 0;function testScroll() { ++scrollCount; if (scrollCount == 2) {
+        ga('send','event','behavior','no bounce','scrolled the page',{'nonInteraction':1,transport:'beacon'});
+      } };
       (function (tos) {
         window.setInterval(function () {
           tos = (function (t) {
@@ -138,119 +146,47 @@
         }, 10000);
       })('00');
 
-      var detectInjection = function(knownHostsArray) {
-        var requests = window.performance.getEntriesByType("resource");
-        var unknownHosts = [];
-        var knownHosts = {};
-        var foundHosts = {};
-
-        for (var knownHost in knownHostsArray) {
-          knownHosts[knownHostsArray[knownHost]] = true;
-        }
-
-        for(var requestIdx = 0; requestIdx < requests.length; requestIdx++) {
-          var request = requests[requestIdx];
-          var url = new URL(request.name);
-          var host = url.host;
-
-          // Aggregate all the requests from a host
-
-          if(host in foundHosts) {
-            foundHosts[host].push(request);
-          }
-          else {
-            foundHosts[host] = new Array(request);
-          }
-        }
-
-        for(var foundHost in foundHosts) {
-          // If an unknown host is found, add it to a list.
-          if(!(foundHost in knownHosts)) {
-            unknownHosts.push(foundHost);
-          }
-        }
-
-        return unknownHosts;
-      };
-
-      window.addEventListener("load", function() {
-        var scripts = detectInjection(["vreeman.com", "ssl.google-analytics.com", "www.google-analytics.com", "stats.g.doubleclick.net"]);
-
-        if(!!scripts == true && scripts.length > 0) {
-          for(var scriptsIdx = 0; scriptsIdx < scripts.length; scriptsIdx++) {
-            var scr = scripts[scriptsIdx];
-            ga('send', 'event', 'load', 'unknown-host', scr, {'nonInteraction': 1, transport: 'beacon'});
-          }
-        }
-      });
-
-      /* document.querySelector('.thenextweb').onclick = function() {
-        ga('send', 'event', 'link', 'onclick', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
-      } */
       document.querySelector('.thenextweb').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.thenextweb').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'thenextweb.com', {'nonInteraction': 1, transport: 'beacon'});
       }
-      /* document.querySelector('.valkexclusief').onclick = function() {
-        ga('send', 'event', 'link', 'onclick', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
-      } */
       document.querySelector('.valkexclusief').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.valkexclusief').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'valkexclusief.nl', {'nonInteraction': 1, transport: 'beacon'});
       }
-      /* document.querySelector('.budeco').onclick = function() {
-        ga('send', 'event', 'link', 'onclick', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
-      } */
       document.querySelector('.budeco').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.budeco').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'budeco.nl', {'nonInteraction': 1, transport: 'beacon'});
       }
-      /* document.querySelector('.heatmaps').onclick = function() {
-        ga('send', 'event', 'link', 'onclick', 'thenextweb.com/heatmaps', {'nonInteraction': 1, transport: 'beacon'});
-      } */
       document.querySelector('.heatmaps').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'thenextweb.com/heatmaps', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.heatmaps').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'thenextweb.com/heatmaps', {'nonInteraction': 1, transport: 'beacon'});
       }
-      /* document.querySelector('.abtesting').onclick = function() {
-        ga('send', 'event', 'link', 'onclick', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
-      } */
       document.querySelector('.abtesting').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.abtesting').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'thenextweb.com/abtesting', {'nonInteraction': 1, transport: 'beacon'});
       }
-      /* document.querySelector('.email').onclick = function() {
-        ga('send', 'event', 'link', 'onclick', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
-      } */
       document.querySelector('.email').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.email').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'simon@vreeman.com', {'nonInteraction': 1, transport: 'beacon'});
       }
-      document.querySelector('.linkedin').onclick = function() {
-        /* ga('send', 'event', 'link', 'onclick', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'}); */
-        ga('send', 'social', {'socialNetwork': 'linkedin', 'socialAction': 'profile', 'socialTarget': 'https://www.linkedin.com/in/simonvreeman'});
-      }
       document.querySelector('.linkedin').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'});
       }
       document.querySelector('.linkedin').onmousedown = function() {
         ga('send', 'event', 'link', 'onmousedown', 'linkedin.com', {'nonInteraction': 1, transport: 'beacon'});
-      }
-      document.querySelector('.twitter').onclick = function() {
-        /* ga('send', 'event', 'link', 'onclick', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'}); */
-        ga('send', 'social', {'socialNetwork': 'twitter', 'socialAction': 'profile', 'socialTarget': 'https://twitter.com/vreeman'});
       }
       document.querySelector('.twitter').onmouseover = function() {
         ga('send', 'event', 'link', 'onmouseover', 'twitter.com', {'nonInteraction': 1, transport: 'beacon'});
