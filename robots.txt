@@ -3,4 +3,4 @@
 # Allow crawling of all content
 User-agent: *
 Disallow: /tools/
-Sitemap: http://vreeman.com/sitemap.xml
+Sitemap: https://vreeman.com/sitemap.xml
