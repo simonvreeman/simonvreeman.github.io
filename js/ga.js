@@ -36,6 +36,13 @@ function updateOutput() {
   var term = $('#term').val();
   var content = $('#content').val();
   var name = $('#name').val();
+  var pagespeed = 'https://developers.google.com/speed/pagespeed/insights/?url=';
+  var richtsnippet = 'https://developers.google.com/structured-data/testing-tool/?url=';
+  var htmlpagespeed = pagespeed+domain;
+  var htmlrichsnippet = richtsnippet+domain;
+
+  $(".pagespeed").attr("href", htmlpagespeed);
+  $(".richsnippet").attr("href", htmlrichsnippet);
 
   var html = domain+'?utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
   if (term) {
@@ -53,6 +60,8 @@ function updateOutput() {
     $('#url').html('');
     $('#url').change();
   }
+
+
 }
 
 function initpage() {
