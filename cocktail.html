@@ -91,12 +91,21 @@
     <h2 id="drink">YES! It is time for a cocktail! Or two.<br>How about a <a href="https://vreeman.com/gintonic.html">Gin and Tonic</a>?</h2>
     <script>
       var d = new Date()
-      var hour = d.getHours();
-      if (hour >= 16 || hour <= 7) {
+      var hours = d.getHours();
+      var minutes = d.getMinutes();
+      var diffHour = 16 - hours;
+      var diffMinute = 60 - minutes;
+      if (diffHour == 1) {
+        var difftext = diffMinute + " minutes";
+      }
+      else {
+        var difftext = diffHour + " hours";
+      }
+      if (hours >= 16 || hours <= 7) {
         document.getElementById('drink').innerHTML = "YES! It is time for a cocktail! Or two.<br>How about a <a href=\"https://vreeman.com/gintonic.html\">Gin and Tonic</a>?"
       }
       else {
-        document.getElementById('drink').innerHTML = "Nah... let's wait a couple of hours.<br>Maybe watch that movie with Tom Cruise to kill some time."
+        document.getElementById('drink').innerHTML = "Nah... let's wait " + difftext + ".<br>Maybe watch that movie with Tom Cruise to kill some time."
       }
     </script>
   </body>
