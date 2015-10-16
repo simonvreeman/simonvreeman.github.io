@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Is it time for beer?</title>
+    <!-- https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/ -->
+    <script>
+      var host = "vreeman.com";
+      if ((host == window.location.host) && (window.location.protocol != "https:"))
+        window.location.protocol = "https";
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://stats.g.doubleclick.net">
+    <meta name="author" content="Simon Vreeman">
+    <link rel="canonical" href="https://vreeman.com/beer.html">
+    <style>
+      *,
+      *:before,
+      *:after {
+        -webkit-box-sizing: border-box !important;
+           -moz-box-sizing: border-box !important;
+                box-sizing: border-box !important;
+        outline: 0;
+        -webkit-font-smoothing: antialiased !important;
+                font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        text-rendering: optimizeLegibility;
+        -webkit-font-feature-settings: 'kern';
+        -webkit-font-feature-settings: 'kern' 1;
+           -moz-font-feature-settings: 'kern';
+           -moz-font-feature-settings: 'kern=1';
+           -moz-font-feature-settings: 'kern' 1;
+            -ms-font-feature-settings: 'kern';
+            -ms-font-feature-settings: 'kern' 1;
+             -o-font-feature-settings: 'kern';
+             -o-font-feature-settings: 'kern' 1;
+                font-feature-settings: 'kern';
+                font-feature-settings: 'kern' 1;
+        font-kerning: normal;
+      }
+      html {
+        display: table;
+        overflow: hidden;
+        -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+      background: url(img/beer.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: table-cell;
+        vertical-align: middle;
+        font-family: Georgia, serif;
+        font-style: italic;
+        color: #fff;
+        text-align: center;
+      }
+      h1,
+      h2 { font-weight: 400; }
+      h1 {
+        font-size: 7.5vw;
+        letter-spacing: 1px;
+      }
+      h2 {
+        margin-bottom: 10px;
+        font-size: 4vw;
+      }
+      h2 a { color: #fff; }
+    </style>
+    <script>
+      var adblock = true;
+    </script>
+    <script src="advertising.js"></script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
+  </head>
+  <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <h1>Is it time for beer?</h1>
+    <h2 id="drink">YES!!! .<br>How about a <a href="https://vreeman.com/cocktail.html">cocktial</a>?</h2>
+    <script>
+      var d = new Date()
+      var hours = d.getHours();
+      var minutes = d.getMinutes();
+      var diffHour = 16 - hours;
+      var diffMinute = 60 - minutes;
+      if (diffHour == 1) {
+        var difftext = diffMinute + " minutes";
+      }
+      else {
+        var difftext = diffHour + " hours";
+      }
+      if (hours >= 16 || hours <= 7) {
+        document.getElementById('drink').innerHTML = "YES!!! .<br>How about a <a href=\"https://vreeman.com/cocktail.html\">cocktial</a>?"
+      }
+      else {
+        document.getElementById('drink').innerHTML = "Nah... let's wait " + difftext + ".<br>Is there enough beer in the fridge?"
+      }
+    </script>
+  </body>
+</html>
