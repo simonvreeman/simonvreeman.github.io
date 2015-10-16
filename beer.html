@@ -88,7 +88,7 @@
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1>Is it time for beer?</h1>
-    <h2 id="drink">YES!!! .<br>How about a <a href="https://vreeman.com/cocktail.html">cocktial</a>?</h2>
+    <h2 id="drink">YES!!! Arno, Simon will bring you a beer.<br>Or how about a <a href="https://vreeman.com/cocktail.html">cocktail</a>?</h2>
     <script>
       var d = new Date()
       var hours = d.getHours();
@@ -102,7 +102,7 @@
         var difftext = diffHour + " hours";
       }
       if (hours >= 16 || hours <= 7) {
-        document.getElementById('drink').innerHTML = "YES!!! .<br>How about a <a href=\"https://vreeman.com/cocktail.html\">cocktial</a>?"
+        document.getElementById('drink').innerHTML = "YES!!! Arno, Simon will bring you a beer.<br>Or how about a <a href=\"https://vreeman.com/cocktail.html\">cocktail</a>?"
       }
       else {
         document.getElementById('drink').innerHTML = "Nah... let's wait " + difftext + ".<br>Is there enough beer in the fridge?"
