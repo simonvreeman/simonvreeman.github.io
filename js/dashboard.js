@@ -11,6 +11,19 @@ gapi.analytics.ready(function() {
   });
 
 
+
+ /**
+   * Create a new ActiveUsers instance to be rendered inside of an
+   * element with the id "active-users-container" and poll for changes every
+   * five seconds.
+   */
+  var activeUsers = new gapi.analytics.ext.ActiveUsers({
+    container: 'active-users-container',
+    pollingInterval: 5
+  });
+
+
+
   /**
    * Create a new ViewSelector instance to be rendered inside of an
    * element with the id "view-selector-container".
