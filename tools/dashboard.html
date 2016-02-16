@@ -71,15 +71,7 @@
       </div>
       <div class="row">
         <div class="col-md-8">
-          <div id="active-users-container"></div>
-          <div id="chart-1-container"></div>
-          <div id="legend-1-container"></div>
-          <div id="chart-2-container"></div>
-          <div id="legend-2-container"></div>
-          <div id="chart-3-container"></div>
-          <div id="legend-3-container"></div>
-          <div id="chart-4-container"></div>
-          <div id="legend-4-container"></div>
+          <div id="chart-container"></div>
         </div>
         <div class="col-md-4">
           <div id="embed-api-auth-container"></div>
@@ -101,17 +93,6 @@
       fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
       }(window,document,'script'));
     </script>
-
-    <!-- This demo uses the Chart.js graphing library and Moment.js to do date formatting and manipulation. -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <!-- Include the ViewSelector2 component script. -->
-    <script src="https://ga-dev-tools.appspot.com/public/javascript/embed-api/components/view-selector2.js"></script>
-    <!-- Include the DateRangeSelector component script. -->
-    <script src="https://ga-dev-tools.appspot.com/public/javascript/embed-api/components/date-range-selector.js"></script>
-    <!-- Include the ActiveUsers component script. -->
-    <script src="https://ga-dev-tools.appspot.com/public/javascript/embed-api/components/active-users.js"></script>
-
     <script src="/js/dashboard.js"></script>
   </body>
 </html>
