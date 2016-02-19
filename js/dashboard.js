@@ -7,7 +7,7 @@ gapi.analytics.ready(function() {
    */
   gapi.analytics.auth.authorize({
     container: 'embed-api-auth-container',
-    clientid: '989242002732-f25ang5mpnf8ukv6qbka15oud3a2um64.apps.googleusercontent.com'
+    clientid: '25048035464-k0o4mek6tcc3ii3f1jmvbcajb26igbkn.apps.googleusercontent.com'
   });
 
 
