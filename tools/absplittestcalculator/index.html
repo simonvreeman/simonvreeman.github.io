@@ -1,0 +1,540 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <title>A/B Split Test Calculator | Calculate significance, power and recommended sample size</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../css/core.css" />
+    <link rel="stylesheet" href="../css/style.css?2" />
+
+    <style>
+        /*Overwrite*/
+        html { font-size: 1.1em; }
+        .wrapper, .grids { max-width: 1320px; }
+        #calculator .footer { font-size: 1.0em; margin-top: 0; line-height: 1.6; }
+        #calculator .footer .mini-wrapper { max-width: 840px; }
+        #calculator .footer .info h2 { color: #fff; font-size: 2.3em; margin: 0 0 20px; font-family: "Roboto Slab",serif; font-weight: 300; text-transform: capitalize; }
+
+        /*main*/
+        #calculator { min-width: 1320px; font-family: "Roboto",Helvetica,sans-serif; font-weight: 300; font-size: 1em; background-color: #f6f8f8; line-height: 1.4; }
+        #calculator #header { padding: 0.8em 0 1em 0; }
+        #calculator .logo { }
+        #calculator h1 { margin: 0 0 0.3em; color: #34495e; font-family: "Roboto Slab",serif; font-size: 2.2em; font-weight: 300; line-height: 1.3; text-align: left; text-transform: none; }
+        #calculator h2 { margin: 0 0 0.5em; color: #275c6a; font-family: "Roboto",serif; font-size: 1em; font-weight: 500; text-decoration: none; text-transform: uppercase; text-align: left; }
+        #calculator h3 { margin: 4em 0 1.5em; color: #fff; background-color: #34495e; font-family: "Roboto",serif; font-size: 1em; font-weight: 500; padding: 1em 0.7em; text-decoration: none; text-transform: uppercase; }
+
+        #calculator #hidden { display: none; }
+        #calculator .screen-height { height: auto !important; height: 1000px; min-height: 1000px; position: relative; }
+
+        #calculator label:hover { cursor: default; }
+        #calculator input[type=radio]:hover { cursor: pointer; }
+
+        .a_group, .b_group { font-weight: 500; text-transform: capitalize; }
+        .a_group { color: #3e94e0; }
+        .b_group { color: #13B597; }
+
+        .red { color: #eb5055; font-weight: bold; }
+        .green { color: #67c100; font-weight: bold; }
+
+        .fonic-link { text-align: right; color: #275c6a; font-family: "Roboto",serif; font-size: 1em; font-weight: 500; margin: 0; width: 68.6%; padding-top: 0.5em; }
+        .fonic-link a:link, .fonic-link a:visited { text-decoration: underline; color: #419ab1; }
+        .fonic-link a:hover { text-decoration: none; color: #419ab1; }
+
+        /*Input panel*/
+        #input-panel { background-color: #3eb8d2; padding: 1em; box-shadow: 1px 1px 2px #000; }
+        #input-panel .title { }
+
+        #calculator #input-panel h3 { color: #34495e; background-color: inherit; border-bottom: 1px solid #34495e; margin: 0; padding: 0 0 0.5em 0; text-transform: capitalize; }
+
+        #input-panel label { display: inline-block; cursor: pointer; position: relative; font-size: 1em; margin: 0; padding: 0; line-height: 1; }
+        #input-panel label.field { padding: 0 0 0.4em 0; color: #fff; margin-top: 1.3em; font-family: "Roboto",serif; font-size: 1em; font-weight: 400; }
+        #input-panel input { margin: 0; padding: 0; position: relative; line-height: 1; }
+        #input-panel input[type=text] { width: 80%; padding: 0.2em; color: #2e2e2e; border: 2px solid #fff; }
+        #input-panel input[type=radio] { margin-right: 0.4em; }
+        #input-panel .radio { margin-top: 0.7em; margin-left: 0.2em; }
+        #input-panel .cta-wrapper { background: transparent url(arrow-white.png) 1em 2.0em no-repeat; position: relative; }
+        #input-panel button.cta { margin-top: 5.8em; padding: 0.7em 2em; background-color: #f05000; display: inline-block; font-size: 1em; font-weight: bold; line-height: 1.5; color: #fff; border: none; text-align: center; text-decoration: none; text-transform: uppercase; cursor: pointer; background-image: none; }
+        #input-panel button.cta:hover { text-decoration: none; color: #fff; background-color: #d55317; -webkit-transition: background-color 200ms ease-out; -moz-transition: background-color 200ms ease-out; -o-transition: background-color 200ms ease-out; transition: background-color 200ms ease-out; }
+        #input-panel .set-inputs input { width: 90%; }
+        #input-panel .errors { margin-top: 1em; }
+        #input-panel .errors .msg { display: none; background-color: #fff; color: red; text-align: left; width: 90%; padding: 0.5em; }
+        #input-panel input.error { border-color: red; }
+
+        #input-panel #control-visits, #input-panel #control-conversions, #input-panel #variation-visits, #input-panel #variation-conversions { font-weight: 500; }
+        #input-panel #control-visits, #input-panel #control-conversions { color: #3e94e0; }
+        #input-panel #variation-visits, #input-panel #variation-conversions { color: #13b597; }
+
+        /*share*/
+        .share { text-align: right; margin-right: 0; float: right; }
+        .linkedin { margin-top: 0.7em; }
+
+        /*Verdict & recommendations*/
+        .verdict-item { display: none; }
+        .icon img { max-width: 100px; }
+        .verdict-title { color: #275c6a; font-size: 1em; font-weight: 500; margin: 1em 0; text-decoration: none; }
+        #verdicts ul li { margin-top: 0.5em; }
+        .verdict { line-height: 2; }
+
+        /*Result table*/
+        #results { display: none; margin: 4em 0 2em 0; }
+        #result-table { margin: 0; font-size: 0.9em; width: 100%; }
+        #result-table td { background-color: #f4f1ed; border: 1px solid #ccc; }
+
+        #result-table .result-header td { background-color: #3eb8d2; color: #34495e; font-weight: 400; border-bottom: 1px solid #fff; border-right: 1px solid #fff; }
+
+        #result-table #table-mode { background-color: #999B9D; padding-top: 0.3em; padding-bottom: 0.3em; width: auto !important; min-width: 100px; }
+        #result-table #table-mode input { margin: 0 0.5em 0 0; }
+        #table-mode p { display: block; padding: 0.2em 0; color: #fff; font-size: 1em; font-weight: 300; }
+        #result-table .result-header { font-size: 1em; font-weight: 300; text-transform: none; color: #000; }
+        #result-table td.adv { display: none; }
+
+        /*Graphs*/
+        /*deviation*/
+        #graphs { margin-bottom: 100px; }
+        .graph-dev-axis-y1, .graph-dev-axis-y2, .graph-dev-canvas { height: auto !important; height: 250px; min-height: 250px; margin: 0; padding: 0; }
+        .graph-dev-axis-y1, .graph-dev-axis-y2 { width: 10%; position: relative; }
+        .graph-dev-canvas { width: 80%; float: right; }
+
+        .graph-dev-axis-y1 .control, .graph-dev-axis-y2 .conversions, .graph-dev-axis-y1 .variation, .graph-dev-axis-y2 .difference { position: absolute; font-size: 0.9em; font-weight: 500; }
+        .graph-dev-axis-y1 .control, .graph-dev-axis-y1 .variation { left: 0; }
+        .graph-dev-axis-y2 .conversions, .graph-dev-axis-y2 .difference { left: 0; color: #275c6a; }
+
+        .graph-dev-axis-y1 .control, .graph-dev-axis-y2 .conversions { top: 65px; }
+        .graph-dev-axis-y1 .variation, .graph-dev-axis-y2 .difference { top: 130px; }
+
+        /*cr range*/
+        .graph-cr-range-axis-y1, .graph-cr-range-canvas { height: auto !important; height: 140px; min-height: 140px; margin: 0.5em 0 0 0; padding: 0; }
+        .graph-cr-range-axis-y1 { text-align: right; }
+        .graph-cr-range-axis-y1 .a_group, .graph-cr-range-axis-y1 .b_group { font-weight: 300; }
+
+
+        .graph-cr-range-axis-y1 .control .cr-range-a, .graph-cr-range-axis-y1 .variation .cr-overlap { font-size: 0.8em; font-weight: 500; }
+        .graph-cr-range-axis-y1 .control, .graph-cr-range-axis-y1 .variation { }
+        .graph-cr-range-axis-y2 .cr-range-a .cr-overlap { color: #275c6a; }
+
+        .graph-cr-range-axis-y1 .control, .graph-cr-range-axis-y1 .variation { margin-top: 28px; }
+
+        .canvasjs-chart-credit { display: none; }
+
+        /*loader*/
+        #calculator #empty-results { margin: 2em 0 0 6em; }
+        #calculator #empty-results h3 { color: #275c6a; font-family: "Roboto",serif; font-size: 1.5em; font-weight: 500; text-decoration: none; margin: 0 0 0 2em; }
+        #calculator #empty-results ul { margin: 1em 0 0 4em; padding: 0; }
+        #calculator #empty-results ul li { margin: 0 0 0.7em 0; padding: 0; color: #275c6a; font-size: 1em; font-weight: 500; text-decoration: none; text-transform: none; list-style: decimal; }
+        #calculator #empty-results .read-more { position: absolute; bottom: 0.3em; color: #2e2e2e; font-weight: 400; font-size: 0.8em; text-align: center; width: 8em; left: 50%; margin-left: -4em; }
+
+        /*Popup*/
+        .cd-popup { opacity: 0; visibility: hidden; position: fixed; left: 0; top: 0; height: 100%; width: 100%; background-color: #6e7c98; opacity: 0.9; background-color: rgba(94, 110, 141, 0.9); -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s; -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s; transition: opacity 0.3s 0s, visibility 0s 0.3s; }
+        .cd-popup.is-visible { opacity: 1; visibility: visible; z-index: 10000; -webkit-transition: opacity 0.3s 0s, visibility 0s 0s; -moz-transition: opacity 0.3s 0s, visibility 0s 0s; transition: opacity 0.3s 0s, visibility 0s 0s; }
+        .cd-popup-container { position: relative; width: 90%; max-width: 430px; margin: 8em auto; background-color: #f0f0f0; border-radius: .25em .25em .4em .4em; text-align: center; box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); -webkit-transform: translateY(-40px); -moz-transform: translateY(-40px); -ms-transform: translateY(-40px); -o-transform: translateY(-40px); transform: translateY(-40px); /* Force Hardware Acceleration in WebKit */ -webkit-backface-visibility: hidden; -webkit-transition-property: -webkit-transform; -moz-transition-property: -moz-transform; transition-property: transform; -webkit-transition-duration: 0.3s; -moz-transition-duration: 0.3s; transition-duration: 0.3s; }
+        .is-visible .cd-popup-container { -webkit-transform: translateY(0); -moz-transform: translateY(0); -ms-transform: translateY(0); -o-transform: translateY(0); transform: translateY(0); }
+        .cd-popup-inner { padding: 1em 2em; }
+        #calculator .cd-popup h3 { margin: 0 0 0.5em 0; }
+        .cd-popup input { border: 2px solid #525252; padding-top: 7px; padding-bottom: 7px; }
+        .cd-popup input:focus { box-shadow: none; }
+        a.cd-popup-close:link, a.cd-popup-close:visited { color: #525252; text-decoration: none; display: block; margin-top: 2em; }
+        a.cd-popup-close:hover { color: #000; }
+        .cd-popup input.share-link-input { margin-top: 1em; width: 98%; }
+        .cd-popup button.btn-copy { background-color: #f05000; border: medium none; color: #fff; cursor: pointer; display: inline-block; font-size: 1em; font-weight: normal; line-height: 1.5; margin-top: 1em; padding: 0.2em; text-align: center; text-decoration: none; text-transform: none; }
+
+        /*Rotate phone*/
+        #rotate { opacity: 0; visibility: hidden; position: fixed; left: 0; top: 0; height: 100%; width: 100%; background-color: #000; opacity: 0.8; background-color: rgba(0, 0, 0, 0.8); -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s; -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s; transition: opacity 0.3s 0s, visibility 0s 0.3s; }
+        #rotate.is-visible { opacity: 1; visibility: visible; z-index: 10000; -webkit-transition: opacity 0.3s 0s, visibility 0s 0s; -moz-transition: opacity 0.3s 0s, visibility 0s 0s; transition: opacity 0.3s 0s, visibility 0s 0s; }
+        #rotate .cd-rotate-container { position: relative; width: 80%; padding: 10px 25px 25px 25px; margin: 1em auto 3em auto; background-color: #f0f0f0; border-radius: 1em; text-align: center; -webkit-transform: translateY(-40px); -moz-transform: translateY(-40px); -ms-transform: translateY(-40px); -o-transform: translateY(-40px); transform: translateY(-40px); /* Force Hardware Acceleration in WebKit */ -webkit-backface-visibility: hidden; -webkit-transition-property: -webkit-transform; -moz-transition-property: -moz-transform; transition-property: transform; -webkit-transition-duration: 0.3s; -moz-transition-duration: 0.3s; transition-duration: 0.3s; }
+        #rotate.is-visible .cd-rotate-container { -webkit-transform: translateY(0); -moz-transform: translateY(0); -ms-transform: translateY(0); -o-transform: translateY(0); transform: translateY(0); }
+        #rotate .cd-rotate-close {  position: absolute; bottom: -2.5em; right: 0; color: #fff; padding: 0.3em; font-size: 2.5em; font-weight: 500; }
+        #rotate .cd-rotate-close:hover { cursor: pointer; }
+        #rotate .cd-rotate-img { min-width:80%; }
+    </style>
+
+    <script src="../js/modernizr.2.8.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Modernizr.load({
+            test: Modernizr.mq('only all'),
+            nope: '../js/respond.1.4.2.min.js'
+        });
+    </script>
+</head>
+
+
+<body id="calculator">
+
+    <div class="wrapper screen-height">
+
+        <div id="header" class="">
+            <div class="grids ">
+                <div class="grid-5">
+                    <img class="logo" src="a-b-split-test-results-analyzer.png" alt="A/B split test calculator: check AB tests, significance and sample size" title="A/B split test calculator: check AB tests, significance and sample size" />
+                </div>
+                <div class="grid-11 fonic-link">
+                </div>
+            </div>
+        </div>
+
+        <div id="input-panel" class="">
+
+            <div class="grids title">
+                <div class="grid-8">
+                    <h3>Test Data</h3>
+                </div>
+                <div class="grid-8">
+                    <h3>Test Settings</h3>
+                </div>
+            </div>
+
+            <div class="grids ">
+
+                <div class="grid-2 inputs">
+                    <div class="row">
+                        <label class="field">Visitors A</label>
+                        <input type="text" value="10000" id="control-visits" tabindex="1">
+                    </div>
+                    <div class="row">
+                        <label class="field">Visitors B</label>
+                        <input type="text" value="10000" id="variation-visits" tabindex="3">
+                    </div>
+                </div>
+                <div class="grid-2 inputs">
+                    <div class="row">
+                        <label class="field">Conversions A</label>
+                        <input type="text" value="200" id="control-conversions" tabindex="2">
+                    </div>
+                    <div class="row">
+                        <label class="field">Conversions B</label>
+                        <input type="text" value="234" id="variation-conversions" tabindex="4">
+                    </div>
+                </div>
+                <div class="grid-4 cta-wrapper">
+                    <button class="cta box-shadow" id="calculate" tabindex="5">Analyze</button>
+                </div>
+                <div class="grid-2 settings set-confidence">
+                    <label class="field">Confidence</label>
+                    <div class="radio"><input type="radio" name="confidence" value="90" tabindex="8"><label>90%</label></div>
+                    <div class="radio"><input type="radio" name="confidence" value="95" tabindex="9" checked><label>95%</label></div>
+                    <div class="radio"><input type="radio" name="confidence" value="99" tabindex="10"><label>99%</label></div>
+                </div>
+                <div class="grid-2 settings set-power">
+                    <label class="field">Power</label>
+                    <div class="radio"><input type="radio" name="power" value="80" tabindex="11" checked><label>80%</label></div>
+                    <div class="radio"><input type="radio" name="power" value="90" tabindex="12"><label>90%</label></div>
+                    <div class="radio"><input type="radio" name="power" value="99" tabindex="13"><label>99%</label></div>
+                </div>
+                <div class="grid-2 settings set-side">
+                    <label class="field">Hypothesis</label>
+                    <div class="radio"><input type="radio" name="sided" value="1" tabindex="14" checked><label>1-sided</label></div>
+                    <div class="radio"><input type="radio" name="sided" value="2" tabindex="15"><label>2-sided</label></div>
+                </div>
+                <div class="grid-2 settings set-inputs">
+                    <div class="row">
+                        <label class="field">Test name</label>
+                        <input type="text" value="My A/B test" id="test-name" tabindex="16">
+                    </div>
+                    <div class="row">
+                        <label class="field"> Duration (days)</label>
+                        <input type="text" value="14" id="test-duration" tabindex="17">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="grids">
+                <div class="grid-4 errors">
+                    <p class="msg msg1">- Fields cannot be left blank.</p>
+                    <p class="msg msg2">- Only numbers are allowed.</p>
+                    <p class="msg msg3">- There can't be more conversions than visitors.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="results">
+
+            <div id="results-header">
+                <div class="grids">
+                    <div class="grid-14">
+                        <div id="hidden">
+                            <h1>A/B split test calculator</h1>
+                            <img src="a-b-split-test-analyzer.jpg" alt="a-b calculator" title="a-b calculator" />
+                        </div>
+                        <h1>A/B split test results for [<span class="data-test-name red">My A/B test</span>]</h1>
+                        <h2>Based on <span class="data-test-duration red">14</span> days of data, <span class="data-total-visits red">20,000</span> visitors and a total of <span class="data-total-conversions red">434</span> conversions.</h2>
+                    </div>
+                    <div class="grid-2 share">
+                        <a class="share-link" href="javascript:void(0)">
+                            <img src="share-results.png" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="verdicts">
+
+                <h3>Verdict &amp; recommendations</h3>
+
+                <div class="verdict-summary">
+                    <div class="grids verdict-wrapper">
+                        <div class="grid-2 icon">
+                            <img class="verdict-item verdict-positive" src="verdict-positive.png" />
+                            <img class="verdict-item verdict-inconclusive" src="verdict-inconclusive.png" />
+                            <img class="verdict-item verdict-warning" src="verdict-warning.png" />
+                            <img class="verdict-item verdict-negative" src="verdict-negative.png" />
+                        </div>
+                        <div class="grid-14 text">
+                            <div class="verdict-item verdict-positive">
+                                <p class="verdict-title"><span class="b_group">Variation (B)</span> is a clear winner and performs on average <b><span class="data-difference"></span></b> better than <span class="a_group">Control (A)</span>.</p>
+                                The results are significant without further recommendations.
+                            </div>
+                            <div class="verdict-item verdict-inconclusive">
+                                <p class="verdict-title">The results are not significant and therefore the test is inconclusive.</p>
+                                We recommend you to collect more data, or perhaps you can conclude <span class="b_group">Variation (B)</span> is not significant better.
+                            </div>
+                            <div class="verdict-item verdict-warning">
+                                <p class="verdict-title"><span class="b_group">Variation (B) </span> seem to perform on average <b><span class="data-difference"></span></b> better than <span class="a_group">Control (A)</span>.</p>
+                                The results are significant, however depending on the sensitivity and design of this test we recommend you to:
+                                <ul>
+                                    <li class="verdict-item verdict-warning-sample-size"><i>Collect more data since the sample size is too low.</i><br /> Based on your current results, we <u>estimate</u> you need about <span class="data-sample-size"></span> visitors in total (A+B) before we can safely conclude this test.</li>
+                                    <li class="verdict-item verdict-warning-test-duration"><i>Run tests for a minimum of 7 days to ensure you have a representative data set.</i><br /> Because you run this test for <span class="data-test-duration"></span> days only, you're at risk to measure only a part of your audience and you might get different results over time.</li>
+                                </ul>
+
+                            </div>
+                            <div class="verdict-item verdict-negative">
+                                <p class="verdict-title"><span class="b_group">Variation (B)</span> has lost and is performing on average <b><span class="data-difference"></span></b> less than <span class="a_group">Control (A)</span>.</p>
+                                The results are significant without further recommendations.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="summary">
+
+                <h3>Summary</h3>
+
+                <div class="grids">
+
+                    <div class="grid-6">
+
+                        <p class="verdict">Is <span class="b_group">Variation (B)</span> significantly winning? <span class="verdict-sign-win_b"></span></p>
+                        <p class="verdict"> <span class="verdict-sign-win_a"></span></p>
+                        <p class="verdict">Do we have enough statistical power? <span class="verdict-power"></span></p>
+                        <p class="verdict">Is the test duration sufficient? <span class="verdict-test-duration"></span></p>
+                        <p class="verdict">Is the recommended sample size reached? <span class="verdict-sample-size"></span></p>
+                        <!--<p class="verdict">Is there a conversion overlap between <span class="a_group">Control (A)</span> and <span class="b_group">Variation (B)</span>? <span class="verdict-cr-overlap"></span></p>-->
+
+                    </div>
+
+                    <div class="grid-4 graph-cr-range-axis-y1">
+                        <p class="control a_group">Control (A)</p>
+                        <p class="variation b_group">Variation (B)</p>
+                    </div>
+
+                    <div class="grid-6">
+
+                        <div class="graph-cr-range-canvas" id="graph_cr_range">
+                            <!--canvasjs placeholder-->
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div id="data">
+
+                <h3>Data overview</h3>
+
+                <table id="result-table" class="table">
+                    <tr class="result-header">
+                        <td id="table-mode">
+                            <p><input type="radio" name="mode" value="simple" checked>Simple</p>
+                            <p> <input type="radio" name="mode" value="advanced">Advanced</p>
+                        </td>
+                        <td class="">Visitors (Conversions)</td>
+                        <td class="">Conversion rate</td>
+                        <td class="adv">Conversion range</td>
+                        <td class="">Conversion improvement</td>
+                        <td class="adv">P-value</td>
+                        <td class="adv">Z-score</td>
+                        <td class="adv">Standard deviation</td>
+                        <td class="adv">Standard error</td>
+                        <td class="">Significance</td>
+                        <td class="">Statistical power</td>
+                        <td class="adv">Recommended total visits</td>
+                    </tr>
+                    <tr class="result-control">
+                        <td class="label a_group">Control (A)</td>
+                        <td class="data"></td>
+                        <td class="cr"></td>
+                        <td class="cr_range adv"></td>
+                        <td class="cr-impr">-</td>
+                        <td class="p adv">-</td>
+                        <td class="z adv">-</td>
+                        <td class="dev adv">-</td>
+                        <td class="st_error adv">-</td>
+                        <td class="confidence">-</td>
+                        <td class="power">-</td>
+                        <td class="sample-size adv">-</td>
+                    </tr>
+                    <tr class="result-variation">
+                        <td class="label b_group">Variation (B)</td>
+                        <td class="data"></td>
+                        <td class="cr"></td>
+                        <td class="cr_range adv"></td>
+                        <td class="cr-impr"></td>
+                        <td class="p adv"></td>
+                        <td class="z adv"></td>
+                        <td class="dev adv"></td>
+                        <td class="st_error adv"></td>
+                        <td class="confidence"></td>
+                        <td class="power"></td>
+                        <td class="sample-size adv"></td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div id="graphs">
+
+                <h3>A-B deviation</h3>
+
+                <div class="grids">
+
+                    <div class="grid-4 graph-dev-axis-y1">
+                        <p class="control a_group">Control (A):</p>
+                        <p class="variation b_group">Variation (B):</p>
+                    </div>
+
+                    <div class="grid-4 graph-dev-axis-y2">
+                        <p class="conversions"><span class="data-conversions-a"></span> conversions</p>
+                        <p class="difference"><span class="data-difference"></span></p>
+                    </div>
+
+                    <div class="grid-12 graph-dev-canvas" id="graph_dev">
+                        <!--canvasjs placeholder-->
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="empty-results">
+            <img class="arrow-left" src="arrow-dark-left.png" />
+            <h2>Instructions:</h2>
+            <ul>
+                <li>Insert your A/B test results &amp; define your settings</li>
+                <li>Hit the 'Analyze' button</li>
+                <li>Get detailled analysis &amp; recommendations</li>
+                <li>Share your test results</li>
+            </ul>
+            <p class="read-more">read more<br /><img src="read-more.png" /></p>
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+        <div class="wrapper mini-wrapper">
+
+            <div class="info">
+                <h2>What makes this A/B calculator different?</h2>
+                <p>
+                    The number one mistake in A/B tests is calling a test too early before enough data is collected.
+                    <br />
+                    This A/B split test calculator tries to solve this problem by - in addition to the regular significance level - calculating the recommended data sample size, statistical power and test duration as well.
+                    <br />
+                    Although the outcome of this calculator is mathematically correct, please bear in mind that this is only a part of the story and <a target="_blank" href="http://conversionxl.com/stopping-ab-tests-how-many-conversions-do-i-need/">things can get a bit more complicated</a>.
+                    <br />
+                    <br />
+                    Our goal was to create a calculator which:
+                    <br />
+                    <ul>
+                        <li>helps to answer the question <i>"do I have enough data to stop my experiment?"</i> in an easy-to-understand format</li>
+                        <li>show both detailed statistical data for analysts, and clear verdicts in plain English for greenhorns</li>
+                    </ul>
+                    <br />
+                    You can share your test results by:
+                    <br />
+                    <ul>
+                        <li>clicking the ‘share results’ link (you get a URL that contains all your test data &amp; settings)</li>
+                        <li>linking directly from your excel file (download example <a href="http://www.fonic.me/significance-data-sample-calculator/fonic-a-b-split-test-analyzer.xlsx" target="_blank">here</a>)</li>
+                    </ul>
+                    <br />
+                    <br />
+                    <u>Credits:</u>
+                    <br />
+                    Evan Miller: <a href="http://www.evanmiller.org/">http://www.evanmiller.org/</a> (sample size calculator)
+                    <br />
+                    Annemarie Klaassen: <a href="http://onlinedialogue.com/abtest-visualization-excel/">http://onlinedialogue.com/abtest-visualization-excel/</a> (graph for deviation)
+                </p>
+            </div>
+
+            <hr />
+
+            <div class="grids">
+                <div class="grid-6 footer-logo">
+                    <span>
+                        <img class="sprite-fonic-logo" src="../img/fonic-logo.png" alt="Fonic: conversion rate optimization" title="Fonic: conversion rate optimization" />
+                    </span>
+                </div>
+                <div class="grid-5">
+                    <p>Israel address:<br />Hamizmor 2D,<br /> 3751032 Karkur<br />VAT: 336482443</p>
+                </div>
+                <div class="grid-5">
+                    <p>Belgium postal address:<br />Fonce Nico<br />Berkenlaan 30,<br /> 9840 De Pinte</p>
+                </div>
+            </div>
+            <p class="copyright">
+                Copyright &copy; 2016 <a href="http://www.fonic.me">www.fonic.me</a> - all rights reserved.
+                <br />
+                Questions? Mail us at <a href="mailto:info@fonic.me?subject=Fonic.me contact request">info@fonic.me</a>
+            </p>
+        </div>
+    </div>
+
+
+    <!--Popup: keep out of any wrappers and as a direct child of body-->
+    <div id="popup" class="cd-popup" role="alert">
+        <div class="cd-popup-container">
+            <div class="cd-popup-inner">
+                <h3>Share your results</h3>
+                <p>Copy the link below to share your results</p>
+                <input class="share-link-input" type="text" value="">
+                <p><button class="btn-copy" type="button" data-clipboard-action="copy" data-clipboard-target=".cd-popup input.share-link-input">Copy to clipboard</button></p>
+                <p><a class="cd-popup-close" href="javascript:void(0)">Close</a></p>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Rotate phone image: keep out of any wrappers and as a direct child of body-->
+    <div id="rotate" class="cd-rotate" role="alert">
+        <div class="cd-rotate-container">
+            <img class="cd-rotate-img" src="rotate-phone.png" />
+            <p class="cd-rotate-close">Close</p>
+        </div>
+    </div>
+
+
+    <!-- Keep JavaScript in this order -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script src="../js/jquery-1.11.0.min.js"><\/script>')</script>
+
+    <script src="ab_analyzer.jquery.js?7"></script><!--Calculations are here-->
+    <script src="canvasjs.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#calculator .screen-height').css('min-height', window.innerHeight);
+            $('#input-panel').calculate();/*RUN*/
+        });
+    </script>
+
+</body>
+
+</html>
