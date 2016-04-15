@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bookmarklets</title>
+    <!-- https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/ -->
+    <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
+    <style>
+      html {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      body {
+        margin: 10% auto;
+        padding: 0 3%;
+        max-width: 30em;
+        font: 1.125em/1.6 sans-serif;
+      }
+      small, footer {
+        font-size: 80%;
+      }
+      strong, dt {
+        font-weight: 700;
+      }
+      h1, h2, h3 {
+        line-height: 1.2;
+      }
+      a {
+        background-color: transparent;
+      }
+      a:active, a:hover {
+        outline: 0;
+      }
+      code {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      input, textarea {
+        width: 95%;
+        display: block;
+        padding: .5em 1%;
+        font-size: 1em;
+      }
+      input, textarea, fieldset {
+        margin-bottom: 1.5em;
+      }
+      textarea {
+        resize: vertical;
+      }
+    </style>
+    <link rel="canonical" href="https://vreeman.com/">
+    <meta name="referrer" content="unsafe-url">
+    <meta name="robots" content="noindex,follow">
+  </head>
+  <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header>
+      <h1>Bookmarklets</h1>
+    </header>
+    <ul>
+      <li><a href="javascript:(function()%7Bwindow.open(%27http://www.google.nl/search%3Fq%3Dsite:%27%2BencodeURIComponent(location.href)%2B%27%26pws%3D0%26as_qdr%3Dall%27)%7D)()%3B" target="_blank" rel="nofollow noreferrer">Index Status</a></li>
+      <li><a href="javascript:(function()%7Bwindow.open(%27http://www.google.nl/search%3Fq%3Dsite:%27%2Blocation.host%2B%27%26pws%3D0%26num%3D100%26as_qdr%3Dall%27)%7D)()%3B" target="_blank" rel="nofollow noreferrer">Site Search</a></li>
+      <li><a href="javascript:(function()%7Bwindow.open(%27http://webcache.googleusercontent.com/search%3Fq%3Dcache:%27%2BencodeURIComponent(location.href)%2B%27%26strip%3D1%27)%7D)()%3B" target="_blank" rel="nofollow noreferrer">Google Cache</a></li>
+      <li><a href="javascript:(function()%7Bwindow.open(%27https://developers.google.com/structured-data/testing-tool/%3Furl%3D%27%2BencodeURIComponent(location.href))%7D)()%3B" target="_blank" rel="nofollow noreferrer">Rich Snippets</a></li>
+      <li><a href="javascript:(function()%7Bwindow.open(%27http://developers.google.com/speed/pagespeed/insights/%3Furl%3D%27%2BencodeURIComponent(location.href))%7D)()%3B" target="_blank" rel="nofollow noreferrer">PageSpeed</a></li>
+      <li><a href="javascript:(function()%7B%20window.open('https://www.google.com/webmasters/tools/mobile-friendly/?url='+encodeURIComponent(location.href))%7D)();">Mobile Friendly</a></li>
+      <li><a href="javascript:(function()%7B(function()%7Bvar%20key%3DlocalStorage.wpt_key%3Bif(!key)%7Bvar%20prompt%3Dwindow.__proto__.prompt%3Bkey%3Dprompt(%27Your%20WebPagetest%20API%20key,%20please%3F%27)%3Bif(!key)%7Breturn%20gameOver()%3B%7DlocalStorage.wpt_key%3Dkey%3B%7Dvar%20wpt%3D%27http://www.webpagetest.org/runtest.php%3F%27%3Bvar%20params%3D%7Bk:key,runs:1,video:1,tcpdump:1,url:location.href%7D%3BObject.keys(params).forEach(function(key)%7Bwpt%2B%3Dkey%2B%27%3D%27%2BencodeURIComponent(params%5Bkey%5D)%2B%27%26%27%3B%7D)%3Bvar%20locations%3DlocalStorage.wpt_locations%3Bif(!locations)%7Blocations%3D%5B%27Dulles:Chrome.DSL%27%5D%3B%7Dvar%20open%3Dwindow.__proto__.open%3Blocations.forEach(function(loco)%7Bopen(wpt%2B%27location%3D%27%2BencodeURIComponent(loco))%3B%7D)%3BgameOver()%3Bfunction%20gameOver()%7Bconsole.log(%27JSPerf%20bookmarklet%20help:%20http://phpied.com/jsperf-bookmarklet%27)%3Bconsole.log(%27If%20broken,%20check%20your%20localStorage.wpt_key%20and%20wpt_locations%27)%3B%7D%7D())%3B%7D)()%3B" target="_blank" rel="nofollow noreferrer">WebPageTest</a> </li>
+      <li><a href="javascript:(function()%7Bfunction callback()%7B(function(%24)%7Bvar jQuery%3D%24%3B%24( "iframe" ).hide()%3B%24( "body div" ).last().css( "display"%2C "none" )%7D)(jQuery.noConflict(true))%7Dvar s%3Ddocument.createElement("script")%3Bs.src%3D"https%3A%2F%2Fajax.googleapis.com%2Fajax%2Flibs%2Fjquery%2F1.7.1%2Fjquery.min.js"%3Bif(s.addEventListener)%7Bs.addEventListener("load"%2Ccallback%2Cfalse)%7Delse if(s.readyState)%7Bs.onreadystatechange%3Dcallback%7Ddocument.body.appendChild(s)%3B%7D)()" target="_blank" rel="nofollow noreferrer">Hide GTM Debug</a></li>
+      <li>Add to Tools</li>
+      <textarea readonly="readonly">javascript:void(prompt('Copy to clipboard: ⌘+C, Enter','<li><a href="'+location.href+'" target="_blank" rel="nofollow noreferrer">'+document.title+'</a></li>'));</textarea>
+      <li><a href="http://mrcoles.com/bookmarklet/" target="_blank" rel="nofollow noreferrer">Bookmarklet Creator</a></li>
+    </ul>
+    <hr>
+    <footer>
+      <p>Vreeman.com is the personal website of Simon Vreeman.</p>
+      <dl>
+        <dt>Privacy policy</dt>
+        <dd>Vreeman.com uses Google Analytics to measure, track, analyse and learn user behavior on vreeman.com. Google Analytics is loaded via Google Tag Manager. Vreeman.com is hosted on Github pages. They might track some data too.</dd>
+        <dt>Licenses</dt>
+        <dd>Text is licensed under <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution 4.0 Unported License">Creative Commons Attribution 4.0 Unported License</a>. The code is licensed und <a href="https://opensource.org/licenses/MIT" title="MIT License">MIT</a>.</dd>
+      </dl>
+    </footer>
+  </body>
+</html>
