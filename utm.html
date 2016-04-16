@@ -62,25 +62,28 @@
     <header>
       <h1>Google Analytics URL Builder</h1>
     </header>
-    <form>
-    <fieldset>
-      <legend>URL, Source, Medium, and Name are required</legend>
-      <label for="domain"><abbr title="Uniform Resource Locator">URL</abbr></label>
-      <input type="text" name="domain" id="domain" value="https://vreeman.com" required>
-      <label for="source">Campaign Source</label>
-      <input type="text" name="source" id="source" required>
-      <label for="medium">Campaign Medium</label>
-      <input type="text" name="medium" id="medium" required>
-      <label for="name">Campaign Name</label>
-      <input type="text" name="name" id="name" required>
-      <label for="term">Campaign Term</label>
-      <input type="text" name="term" id="term">
-      <label for="content">Campaign Content</label>
-      <input type="text" name="content" id="content">
-    </fieldset>
-    <button type="button" onclick="getUTM()">Generate URL with UTM tags</button>
+    <form onkeyup="getUTM()">
+      <fieldset>
+        <legend>URL, Source, Medium, and Name are required</legend>
+        <label for="domain"><abbr title="Uniform Resource Locator">URL</abbr></label>
+        <input type="url" name="domain" id="domain" value="https://vreeman.com" required>
+        <label for="source">Campaign Source</label>
+        <input type="text" name="source" id="source" required>
+        <label for="medium">Campaign Medium</label>
+        <input type="text" name="medium" id="medium" required>
+        <label for="name">Campaign Name</label>
+        <input type="text" name="name" id="name" required>
+        <label for="term">Campaign Term</label>
+        <input type="text" name="term" id="term">
+        <label for="content">Campaign Content</label>
+        <input type="text" name="content" id="content">
+      </fieldset>
     </form>
     <textarea id="url" readonly="readonly" wrap="off"></textarea>
+    <ul>
+      <li><a id="pagespeed" href="https://developers.google.com/speed/pagespeed/insights/?url=vreeman.com" rel="nofollow noreferrer" target="_blank">Check Pagespeed Insights</a></li>
+      <li><a id="structured-data" href="https://developers.google.com/structured-data/testing-tool/?url=vreeman.com" rel="nofollow noreferrer" target="_blank">Check Structured Data</a></li>
+    </ul>
     <hr>
     <footer>
       <p>Vreeman.com is the personal website of Simon Vreeman.</p>
@@ -100,6 +103,8 @@
         var content = document.getElementById("content").value;
         var name = document.getElementById("name").value;
         var url = document.getElementById("url");
+        var pagespeed = document.getElementById("pagespeed");
+        var structureddata = document.getElementById("structured-data");
 
         if (domain.indexOf("?") != -1) {
           var html = domain+'&utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
@@ -113,6 +118,10 @@
         if (content) {
           var html = html + '&utm_content='+encodeURIComponent(content);
         }
+
+        pagespeed.href = "https://developers.google.com/speed/pagespeed/insights/?url=" + domain;
+        structureddata.href = "https://developers.google.com/structured-data/testing-tool/?url="  + domain;
+
         url.textContent = html;
       }
     </script>
