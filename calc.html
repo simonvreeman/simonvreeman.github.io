@@ -49,42 +49,13 @@
         margin-bottom: 1.5em;
       }
       textarea {
+        margin-top: 1.5em;
         resize: vertical;
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
     <meta name="referrer" content="unsafe-url">
     <meta name="robots" content="noindex,follow">
-    <script>
-      function calcResults() {
-        var visitorsA = document.getElementById("visitorsA").value;
-        var visitorsB = document.getElementById("visitorsB").value;
-        var conversionsA = document.getElementById("conversionsA").value;
-        var conversionsB = document.getElementById("conversionsB").value;
-        var setConversionrateA = document.getElementById("conversionrateA");
-        var setConversionrateB = document.getElementById("conversionrateB");
-        var setConversionrateDiff = document.getElementById("conversionrateDiff");
-
-        var calcConversionrateA = (conversionsA / visitorsA) * 100;
-        var calcConversionrateB = (conversionsB / visitorsB) * 100;
-        var calcConversionrateDiff = ((calcConversionrateB - calcConversionrateA) / calcConversionrateA) * 100;
-
-        var conversionrateA = Math.round(calcConversionrateA * 100) / 100 + '%';
-        var conversionrateB = Math.round(calcConversionrateB * 100) / 100 + '%';
-        var conversionrateDiff = Math.round(calcConversionrateDiff * 100) / 100 + '%';
-
-        if (calcConversionrateA > calcConversionrateB) {
-          setConversionrateA.innerHTML = conversionrateA.bold();
-          setConversionrateB.innerHTML = conversionrateB;
-          setConversionrateDiff.innerHTML = conversionrateDiff;
-        }
-        else {
-          setConversionrateA.innerHTML = conversionrateA;
-          setConversionrateB.innerHTML = conversionrateB.bold();
-          setConversionrateDiff.innerHTML = conversionrateDiff;
-        }
-      }
-    </script>
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -121,5 +92,35 @@
         <dd>Text is licensed under <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution 4.0 Unported License">Creative Commons Attribution 4.0 Unported License</a>. The code is licensed und <a href="https://opensource.org/licenses/MIT" title="MIT License">MIT</a>.</dd>
       </dl>
     </footer>
+    <script>
+      function calcResults() {
+        var visitorsA = document.getElementById("visitorsA").value;
+        var visitorsB = document.getElementById("visitorsB").value;
+        var conversionsA = document.getElementById("conversionsA").value;
+        var conversionsB = document.getElementById("conversionsB").value;
+        var setConversionrateA = document.getElementById("conversionrateA");
+        var setConversionrateB = document.getElementById("conversionrateB");
+        var setConversionrateDiff = document.getElementById("conversionrateDiff");
+
+        var calcConversionrateA = (conversionsA / visitorsA) * 100;
+        var calcConversionrateB = (conversionsB / visitorsB) * 100;
+        var calcConversionrateDiff = ((calcConversionrateB - calcConversionrateA) / calcConversionrateA) * 100;
+
+        var conversionrateA = Math.round(calcConversionrateA * 100) / 100 + '%';
+        var conversionrateB = Math.round(calcConversionrateB * 100) / 100 + '%';
+        var conversionrateDiff = Math.round(calcConversionrateDiff * 100) / 100 + '%';
+
+        if (calcConversionrateA > calcConversionrateB) {
+          setConversionrateA.innerHTML = conversionrateA.bold();
+          setConversionrateB.innerHTML = conversionrateB;
+          setConversionrateDiff.innerHTML = conversionrateDiff;
+        }
+        else {
+          setConversionrateA.innerHTML = conversionrateA;
+          setConversionrateB.innerHTML = conversionrateB.bold();
+          setConversionrateDiff.innerHTML = conversionrateDiff;
+        }
+      }
+    </script>
   </body>
 </html>

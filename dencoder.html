@@ -49,24 +49,13 @@
         margin-bottom: 1.5em;
       }
       textarea {
+        margin-top: 1.5em;
         resize: vertical;
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
     <meta name="referrer" content="unsafe-url">
     <meta name="robots" content="noindex,follow">
-    <script>
-      function encode() {
-        var obj = document.getElementById('dencoder');
-        var unencoded = obj.value;
-        obj.value = encodeURIComponent(unencoded).replace(/'/g,"%27").replace(/"/g,"%22");
-      }
-      function decode() {
-        var obj = document.getElementById('dencoder');
-        var encoded = obj.value;
-        obj.value = decodeURIComponent(encoded.replace(/\+/g,  " "));
-      }
-    </script>
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,5 +77,17 @@
         <dd>Text is licensed under <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution 4.0 Unported License">Creative Commons Attribution 4.0 Unported License</a>. The code is licensed und <a href="https://opensource.org/licenses/MIT" title="MIT License">MIT</a>.</dd>
       </dl>
     </footer>
+    <script>
+      function encode() {
+        var obj = document.getElementById('dencoder');
+        var unencoded = obj.value;
+        obj.value = encodeURIComponent(unencoded).replace(/'/g,"%27").replace(/"/g,"%22");
+      }
+      function decode() {
+        var obj = document.getElementById('dencoder');
+        var encoded = obj.value;
+        obj.value = decodeURIComponent(encoded.replace(/\+/g,  " "));
+      }
+    </script>
   </body>
 </html>

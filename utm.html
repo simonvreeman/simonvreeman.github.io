@@ -49,31 +49,13 @@
         margin-bottom: 1.5em;
       }
       textarea {
+        margin-top: 1.5em;
         resize: vertical;
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
     <meta name="referrer" content="unsafe-url">
     <meta name="robots" content="noindex,follow">
-    <script>
-      function getUTM() {
-        var domain = document.getElementById("domain").value;
-        var source = document.getElementById("source").value;
-        var medium = document.getElementById("medium").value;
-        var term = document.getElementById("term").value;
-        var content = document.getElementById("content").value;
-        var name = document.getElementById("name").value;
-        var url = document.getElementById("url");
-        var html = domain+'?utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
-        if (term) {
-          var html = html + '&utm_term='+encodeURIComponent(term);
-        }
-        if (content) {
-          var html = html + '&utm_content='+encodeURIComponent(content);
-        }
-        url.textContent = html;
-      }
-    </script>
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -86,19 +68,18 @@
       <label for="domain"><abbr title="Uniform Resource Locator">URL</abbr></label>
       <input type="text" name="domain" id="domain" value="https://vreeman.com" required>
       <label for="source">Campaign Source</label>
-      <input type="text" name="source" id="source" value="" required>
+      <input type="text" name="source" id="source" required>
       <label for="medium">Campaign Medium</label>
-      <input type="text" name="medium" id="medium" value="" required>
+      <input type="text" name="medium" id="medium" required>
       <label for="name">Campaign Name</label>
-      <input type="text" name="name" id="name" value="" required>
+      <input type="text" name="name" id="name" required>
       <label for="term">Campaign Term</label>
-      <input type="text" name="term" id="term" value="">
+      <input type="text" name="term" id="term">
       <label for="content">Campaign Content</label>
-      <input type="text" name="content" id="content" value="">
+      <input type="text" name="content" id="content">
     </fieldset>
     <button type="button" onclick="getUTM()">Generate URL with UTM tags</button>
     </form>
-    <p>If the URL already contains parameters you should replace the second <code>?</code> by an <code>&</code>.</p>
     <textarea id="url" readonly="readonly" wrap="off"></textarea>
     <hr>
     <footer>
@@ -110,5 +91,30 @@
         <dd>Text is licensed under <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution 4.0 Unported License">Creative Commons Attribution 4.0 Unported License</a>. The code is licensed und <a href="https://opensource.org/licenses/MIT" title="MIT License">MIT</a>.</dd>
       </dl>
     </footer>
+    <script>
+      function getUTM() {
+        var domain = document.getElementById("domain").value;
+        var source = document.getElementById("source").value;
+        var medium = document.getElementById("medium").value;
+        var term = document.getElementById("term").value;
+        var content = document.getElementById("content").value;
+        var name = document.getElementById("name").value;
+        var url = document.getElementById("url");
+
+        if (domain.indexOf("?") != -1) {
+          var html = domain+'&utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
+        } else {
+          var html = domain+'?utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
+        }
+
+        if (term) {
+          var html = html + '&utm_term='+encodeURIComponent(term);
+        }
+        if (content) {
+          var html = html + '&utm_content='+encodeURIComponent(content);
+        }
+        url.textContent = html;
+      }
+    </script>
   </body>
 </html>
