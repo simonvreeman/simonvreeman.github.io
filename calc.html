@@ -23,7 +23,7 @@
       small, footer {
         font-size: 80%;
       }
-      strong, dt {
+      b, strong, dt {
         font-weight: 700;
       }
       h1, h2, h3 {
@@ -55,13 +55,62 @@
     <link rel="canonical" href="https://vreeman.com/">
     <meta name="referrer" content="unsafe-url">
     <meta name="robots" content="noindex,follow">
+    <script>
+      function calcResults() {
+        var visitorsA = document.getElementById("visitorsA").value;
+        var visitorsB = document.getElementById("visitorsB").value;
+        var conversionsA = document.getElementById("conversionsA").value;
+        var conversionsB = document.getElementById("conversionsB").value;
+        var setConversionrateA = document.getElementById("conversionrateA");
+        var setConversionrateB = document.getElementById("conversionrateB");
+        var setConversionrateDiff = document.getElementById("conversionrateDiff");
+
+        var calcConversionrateA = (conversionsA / visitorsA) * 100;
+        var calcConversionrateB = (conversionsB / visitorsB) * 100;
+        var calcConversionrateDiff = ((calcConversionrateB - calcConversionrateA) / calcConversionrateA) * 100;
+
+        var conversionrateA = Math.round(calcConversionrateA * 100) / 100 + '%';
+        var conversionrateB = Math.round(calcConversionrateB * 100) / 100 + '%';
+        var conversionrateDiff = Math.round(calcConversionrateDiff * 100) / 100 + '%';
+
+        if (calcConversionrateA > calcConversionrateB) {
+          setConversionrateA.innerHTML = conversionrateA.bold();
+          setConversionrateB.innerHTML = conversionrateB;
+          setConversionrateDiff.innerHTML = conversionrateDiff;
+        }
+        else {
+          setConversionrateA.innerHTML = conversionrateA;
+          setConversionrateB.innerHTML = conversionrateB.bold();
+          setConversionrateDiff.innerHTML = conversionrateDiff;
+        }
+      }
+    </script>
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header>
       <h1>A/B Test Calculator</h1>
     </header>
-
+    <form>
+      <fieldset>
+        <legend>Add the numbers</legend>
+        <label for="visitorsA">Visitors A</label>
+        <input type="number" name="visitorsA" id="visitorsA" value="5000">
+        <label for="visitorsB">Visitors B</label>
+        <input type="number" name="visitorsB" id="visitorsB" value="5000">
+        <label for="conversionsA">Conversions A</label>
+        <input type="number" name="conversionsA" id="conversionsA" value="100">
+        <label for="conversionsB">Conversions B</label>
+        <input type="number" name="conversionsB" id="conversionsB" value="130">
+      </fieldset>
+      <button type="button" onclick="calcResults()">Calculate</button>
+    </form>
+    <h2>Results</h2>
+    <ul>
+      <li>Conversion Rate A: <span id="conversionrateA">2%</span></li>
+      <li>Conversion Rate B: <span id="conversionrateB">2.6%</span></li>
+      <li>Conversion Rate Difference: <span id="conversionrateDiff">30%</span></li>
+    </ul>
     <hr>
     <footer>
       <p>Vreeman.com is the personal website of Simon Vreeman.</p>

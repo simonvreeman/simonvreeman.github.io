@@ -23,7 +23,7 @@
       small, footer {
         font-size: 80%;
       }
-      strong, dt {
+      b, strong, dt {
         font-weight: 700;
       }
       h1, h2, h3 {
@@ -84,13 +84,13 @@
     <fieldset>
       <legend>URL, Source, Medium, and Name are required</legend>
       <label for="domain"><abbr title="Uniform Resource Locator">URL</abbr></label>
-      <input type="text" name="domain" id="domain" value="https://vreeman.com">
+      <input type="text" name="domain" id="domain" value="https://vreeman.com" required>
       <label for="source">Campaign Source</label>
-      <input type="text" name="source" id="source" value="">
+      <input type="text" name="source" id="source" value="" required>
       <label for="medium">Campaign Medium</label>
-      <input type="text" name="medium" id="medium" value="">
+      <input type="text" name="medium" id="medium" value="" required>
       <label for="name">Campaign Name</label>
-      <input type="text" name="name" id="name" value="">
+      <input type="text" name="name" id="name" value="" required>
       <label for="term">Campaign Term</label>
       <input type="text" name="term" id="term" value="">
       <label for="content">Campaign Content</label>
