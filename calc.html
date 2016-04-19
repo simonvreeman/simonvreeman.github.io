@@ -78,6 +78,7 @@
       <button type="button" onclick="calcResults()">Calculate</button>
     </form>
     <h2>Results</h2>
+    <span id="alertmessage"></span>
     <ul>
       <li>Conversion Rate A: <span id="conversionrateA">2%</span></li>
       <li>Conversion Rate B: <span id="conversionrateB">2.6%</span></li>
@@ -102,6 +103,7 @@
         var setConversionrateA = document.getElementById("conversionrateA");
         var setConversionrateB = document.getElementById("conversionrateB");
         var setConversionrateDiff = document.getElementById("conversionrateDiff");
+        var alertMessage = document.getElementById("alertmessage");
 
         var calcConversionrateA = (conversionsA / visitorsA) * 100;
         var calcConversionrateB = (conversionsB / visitorsB) * 100;
@@ -111,6 +113,10 @@
         var conversionrateB = Math.round(calcConversionrateB * 100) / 100 + '%';
         var conversionrateDiff = Math.round(calcConversionrateDiff * 100) / 100 + '%';
 
+        if (conversionsA > visitorsA || conversionsB > visitorsB) {
+          alertMessage.innerHTML = 'The number of conversions is higher than the number of visitors.';
+
+        }
         if (calcConversionrateA > calcConversionrateB) {
           setConversionrateA.innerHTML = conversionrateA.bold();
           setConversionrateB.innerHTML = conversionrateB;
