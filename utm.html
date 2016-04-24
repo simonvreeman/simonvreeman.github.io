@@ -83,8 +83,11 @@
     <textarea id="url" readonly="readonly" wrap="off"></textarea>
     <ul>
       <li><a id="pagespeed" href="https://developers.google.com/speed/pagespeed/insights/?url=vreeman.com" rel="nofollow noreferrer" target="_blank">Check Pagespeed Insights</a></li>
-      <li><a id="structured-data" href="https://developers.google.com/structured-data/testing-tool/?url=vreeman.com" rel="nofollow noreferrer" target="_blank">Check Structured Data</a></li>
-      <li><a id="safe-browsing" href="https://www.google.com/transparencyreport/safebrowsing/diagnostic/index.html#url=vreeman.com" rel="nofollow noreferrer" target="_blank">Check Safe Browsing Site Status</a></li>
+      <li><a id="structureddata" href="https://developers.google.com/structured-data/testing-tool/?url=vreeman.com" rel="nofollow noreferrer" target="_blank">Check Structured Data</a></li>
+      <li><a id="safebrowsing" href="https://www.google.com/transparencyreport/safebrowsing/diagnostic/index.html#url=vreeman.com" rel="nofollow noreferrer" target="_blank">Check Safe Browsing Site Status</a></li>
+      <li><a id="mobilefriendly" href="https://www.google.com/webmasters/tools/mobile-friendly/?url=vreeman.com" rel="nofollow noreferrer" target="_blank">Check Mobile-Friendliness</a></li>
+      <li><a id="twitter" href="https://cards-dev.twitter.com/validator" rel="nofollow noreferrer" target="_blank">Check Twitter validator</a></li>
+      <li><a id="facebook" href="https://developers.facebook.com/tools/debug/sharing/?q=vreeman.com" rel="nofollow noreferrer" target="_blank">Check Facebook Debugger</a></li>
     </ul>
     <hr>
     <footer>
@@ -105,9 +108,6 @@
         var content = document.getElementById("content").value;
         var name = document.getElementById("name").value;
         var url = document.getElementById("url");
-        var pagespeed = document.getElementById("pagespeed");
-        var structureddata = document.getElementById("structured-data");
-        var safebrowsing = document.getElementById("safe-browsing");
 
         if (domain.indexOf("?") != -1) {
           var html = domain+'&utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
@@ -122,11 +122,14 @@
           var html = html + '&utm_content='+encodeURIComponent(content);
         }
 
+        url.textContent = html;
+
         pagespeed.href = "https://developers.google.com/speed/pagespeed/insights/?url=" + domain;
         structureddata.href = "https://developers.google.com/structured-data/testing-tool/?url="  + domain;
         safebrowsing.href = "https://www.google.com/transparencyreport/safebrowsing/diagnostic/index.html#url="  + domain;
-
-        url.textContent = html;
+        mobilefriendly.href = "https://www.google.com/webmasters/tools/mobile-friendly/?url="  + domain;
+        twitter.href = "https://cards-dev.twitter.com/validator?url="  + domain;
+        facebook.href = "https://developers.facebook.com/tools/debug/sharing/?q="  + domain;
       }
     </script>
   </body>
