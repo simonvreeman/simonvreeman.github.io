@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <!-- https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/ -->
+    <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
+    <style>
+      html {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      body {
+        margin: 1% auto;
+        padding: 0 3%;
+        max-width: 30em;
+        font: 1.125em/1.6 sans-serif;
+      }
+      footer, small {
+        font-size: 80%;
+      }
+      b, dt, strong {
+        font-weight: 700;
+      }
+      h1, h2, h3 {
+        line-height: 1.2;
+      }
+      a {
+        background-color: transparent;
+      }
+      a:active, a:hover {
+        outline: 0;
+      }
+      code {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      input, textarea {
+        width: 95%;
+        display: block;
+        padding: .5em 1%;
+        font-size: 1em;
+      }
+      input, textarea, fieldset {
+        margin-bottom: 1.5em;
+      }
+      textarea {
+        margin-top: 1.5em;
+        resize: vertical;
+      }
+    </style>
+    <link rel="canonical" href="https://vreeman.com/">
+    <meta name="referrer" content="unsafe-url">
+    <meta name="robots" content="noindex,follow">
+  </head>
+  <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header>
+      <h1>Dashboard</h1>
+      <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a></p>
+    </header>
+    <div id="embed-api-auth-container"></div>
+    <div id="chart-container"></div>
+    <div id="view-selector-container"></div>
+    <hr>
+    <footer>
+      <p>Vreeman.com is the personal website of Simon Vreeman.</p>
+      <dl>
+        <dt>Privacy policy</dt>
+        <dd>Vreeman.com uses Google Analytics to measure, track, analyse and learn user behavior on vreeman.com. Google Analytics is loaded via Google Tag Manager. Vreeman.com is hosted on Github pages. They might track some data too.</dd>
+        <dt>Licenses</dt>
+        <dd>Text is licensed under <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" title="Creative Commons Attribution 4.0 International License">Creative Commons Attribution 4.0 International License</a>. The code is licensed und <a href="https://opensource.org/licenses/MIT" rel="license" title="MIT License">MIT</a>.</dd>
+      </dl>
+    </footer>
+    <script>
+    (function(w,d,s,g,js,fs){
+      g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+      js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+      js.src='https://apis.google.com/js/platform.js';
+      fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+    }(window,document,'script'));
+    </script>
+<script>
+
+gapi.analytics.ready(function() {
+
+  /**
+   * Authorize the user immediately if the user has already granted access.
+   * If no access has been created, render an authorize button inside the
+   * element with the ID "embed-api-auth-container".
+   */
+  gapi.analytics.auth.authorize({
+    container: 'embed-api-auth-container',
+    clientid: '25048035464-k0o4mek6tcc3ii3f1jmvbcajb26igbkn.apps.googleusercontent.com'
+  });
+
+
+  /**
+   * Create a new ViewSelector instance to be rendered inside of an
+   * element with the id "view-selector-container".
+   */
+  var viewSelector = new gapi.analytics.ViewSelector({
+    container: 'view-selector-container'
+  });
+
+  // Render the view selector to the page.
+  viewSelector.execute();
+
+
+  /**
+   * Create a new DataChart instance with the given query parameters
+   * and Google chart options. It will be rendered inside an element
+   * with the id "chart-container".
+   */
+  var dataChart = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      metrics: 'ga:sessions',
+      dimensions: 'ga:date',
+      'start-date': '30daysAgo',
+      'end-date': 'yesterday'
+    },
+    chart: {
+      container: 'chart-container',
+      type: 'LINE',
+      options: {
+        width: '100%'
+      }
+    }
+  });
+
+
+  /**
+   * Render the dataChart on the page whenever a new view is selected.
+   */
+  viewSelector.on('change', function(ids) {
+    dataChart.set({query: {ids: ids}}).execute();
+  });
+
+});
+</script>
+  </body>
+</html>
