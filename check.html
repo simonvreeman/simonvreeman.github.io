@@ -205,5 +205,78 @@
         document.getElementsByTagName("ul")[1].appendChild(li);
     });
     </script>
+    <script>
+      var bHistory = function(){
+      var sites = {
+        "thenextweb.com": ["http://thenextweb.com"],
+        "index.co": ["https://index.co/"],
+        "tqams.com": ["http://tqams.com/"],
+        "valkexclusief.nl": ["https://www.valkexclusief.nl/"],
+        "budeco.nl": ["https://budeco.nl/"]
+      };
+      var visited = {};
+      function getStyle(el, scopeDoc,styleProp) {
+        if (el.currentStyle) var y = el.currentStyle[styleProp];
+        else if (window.getComputedStyle) var y = scopeDoc.defaultView.getComputedStyle(el,null).getPropertyValue(styleProp);
+        return y;
+      }
+      function remove( el ) {
+        el.parentNode.removeChild( el );
+      }
+      function createIframe() {
+        var iframe = document.createElement("iframe");
+        iframe.style.position = "absolute";
+        iframe.style.visibility = "hidden";
+        document.body.appendChild(iframe);
+        if(iframe.contentDocument) iframe.doc = iframe.contentDocument;
+        else if(iframe.contentWindow) iframe.doc = iframe.contentWindow.document;
+        iframe.doc.open();
+        iframe.doc.write('<style>');
+        iframe.doc.write("a{color: #000000; display:none;}");
+        iframe.doc.write("a:visited {color: #FF0000; display:inline;}");
+        iframe.doc.write('</style>');
+        iframe.doc.close();
+        return iframe;
+      }
+      var iframe = createIframe();
+      function embedLinkInIframe( href, text ) {
+        var a = iframe.doc.createElement("a");
+        a.href = href;
+        a.innerHTML = site;
+        iframe.doc.body.appendChild( a );
+      }
+      for( var site in sites ) {
+        var urls = sites[site];
+        for( var i=0; i<urls .length; i++ ) {
+          embedLinkInIframe( urls[i], site );
+          if( urls[i].match(/www\./) ){
+            var sansWWW = urls[i].replace(/www\./, "");
+            embedLinkInIframe( sansWWW, site );
+          } else {
+            var httpLen = urls[i].indexOf("//") + 2;
+            var withWWW = urls[i].substring(0, httpLen ) + "www." + urls[i].substring( httpLen );
+            embedLinkInIframe( withWWW, site );
+          }
+        }
+      }
+      var links = iframe.doc.body.childNodes;
+      for( var i=0; i<links.length; i++) {
+        var displayValue = getStyle(links[i], iframe.doc, "display");
+        var didVisit = displayValue != "none";
+        if( didVisit ){
+          visited[ links[i].innerHTML ] = true;
+        }
+      }
+      remove( iframe );
+      var usedSites = [];
+      for( var site in visited ){
+        usedSites.push( site );
+      }
+      return usedSites;
+    }
+
+    var visited = new bHistory();
+    console.log(visited);
+    </script>
   </body>
 </html>
