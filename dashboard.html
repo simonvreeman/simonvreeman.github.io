@@ -137,7 +137,7 @@ gapi.analytics.ready(function() {
   var dataTable = new gapi.analytics.googleCharts.DataChart({
     query: {
       metrics: 'ga:users,ga:sessions,ga:pageviews',
-      dimensions: 'ga:date',
+      dimensions: 'ga:date,ga:dayOfWeekName',
       'start-date': '8daysAgo',
       'end-date': 'today',
       'sort': '-ga:date',
