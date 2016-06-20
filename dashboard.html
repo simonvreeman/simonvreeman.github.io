@@ -52,7 +52,7 @@
         margin-top: 1.5em;
         resize: vertical;
       }
-      #table-container {
+      #day-table-container {
         font: .75em/1 sans-serif;
       }
     </style>
@@ -71,7 +71,7 @@
     <hr>
     <div id="chart-container"></div>
     <div id="column-container"></div>
-    <div id="table-container"></div>
+    <div id="day-table-container"></div>
     <hr>
     <footer>
       <p>Vreeman.com is the personal website of Simon Vreeman.</p>
@@ -137,7 +137,7 @@ gapi.analytics.ready(function() {
       }
     }
   });
-  var dataTable = new gapi.analytics.googleCharts.DataChart({
+  var dataDayTable = new gapi.analytics.googleCharts.DataChart({
     query: {
       metrics: 'ga:users,ga:sessions,ga:pageviews',
       dimensions: 'ga:date,ga:dayOfWeekName',
@@ -147,7 +147,7 @@ gapi.analytics.ready(function() {
       'samplingLevel': 'HIGHER_PRECISION'
     },
     chart: {
-      container: 'table-container',
+      container: 'day-table-container',
       type: 'TABLE',
       options: {
         width: '100%'
@@ -155,11 +155,10 @@ gapi.analytics.ready(function() {
     }
   });
 
-
   viewSelector.on('change', function(ids) {
     dataChart.set({query: {ids: ids}}).execute();
     dataColumn.set({query: {ids: ids}}).execute();
-    dataTable.set({query: {ids: ids}}).execute();
+    dataDayTable.set({query: {ids: ids}}).execute();
   });
 
 });
