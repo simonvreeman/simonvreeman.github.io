@@ -63,30 +63,31 @@
       <h1>Hypothesis</h1>
       <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a></p>
     </header>
-    <form>
+    <p>Based on the <a href="https://medium.com/@optimiseordie/hypothesis-kit-2-eff0446e09fc#.8d2gvzj4o" target="_blank" rel="nofollow noreferrer">Hypothesis Kit v3</a> by Craig Sullivan.</p>
+    <form onkeyup="getHypothesis()">
       <fieldset>
         <legend>1</legend>
         <label for="because">Because we saw</label>
-        <input type="text" name="because" id="because" value="qual & quant data">
+        <textarea name="because" id="because">qual & quant data</textarea>
       </fieldset>
       <fieldset>
         <legend>2</legend>
         <label for="change">We expect that</label>
-        <input type="text" name="change" id="change" value="change">
-        <label for="for">For</label>
-        <input type="text" name="for" id="for" value="population">
+        <textarea name="change" id="change">change</textarea>
+        <label for="population">For</label>
+        <textarea name="population" id="population">population</textarea>
         <label for="impact">Will cause</label>
-        <input type="text" name="impact" id="impact" value="impact(s)">
+        <textarea name="impact" id="impact">impact(s)</textarea>
       </fieldset>
       <fieldset>
         <legend>3</legend>
         <label for="metric">We expect to see</label>
-        <input type="text" name="metric" id="metric" value="data metric(s) change">
+        <textarea name="metric" id="metric">data metric(s) change</textarea>
         <label for="cycles">Over a period of</label>
-        <input type="text" name="cycles" id="cycles" value="x business cycles">
+        <textarea name="cycles" id="cycles">x business cycles</textarea>
       </fieldset>
     </form>
-    <p id="result">Because we saw (qual & quant data). We expect that (change) for (population) will cause (impact(s)). We expect to see (data metric(s) change) over a period of (x business cycles).</p>
+    <p><code id="result">Because we saw (qual & quant data). We expect that (change) for (population) will cause (impact(s)). We expect to see (data metric(s) change) over a period of (x business cycles).</code></p>
     <hr>
     <footer>
       <p>Vreeman.com is the personal website of Simon Vreeman.</p>
@@ -98,7 +99,18 @@
       </dl>
     </footer>
     <script>
+      function getHypothesis() {
+          var because = document.getElementById("because").value;
+          var change = document.getElementById("change").value;
+          var population = document.getElementById("population").value;
+          var impact = document.getElementById("impact").value;
+          var metric = document.getElementById("metric").value;
+          var cycles = document.getElementById("cycles").value;
 
+          var html = 'Because we saw '+because+'. We expect that '+change+' for '+population+' will cause '+impact+'. We expect to see '+metric+' over a period of '+cycles+'.';
+
+          result.textContent = html;
+        }
     </script>
   </body>
 </html>
