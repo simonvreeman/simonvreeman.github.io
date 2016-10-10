@@ -55,7 +55,7 @@
     </style>
     <link rel="canonical" href="https://vreeman.com/">
     <meta name="referrer" content="unsafe-url">
-    <meta name="robots" content="noindex,follow">
+    <meta name="robots" content="index,follow">
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -68,16 +68,16 @@
         <legend>URL, Source, Medium, and Name are required</legend>
         <label for="domain"><abbr title="Uniform Resource Locator">URL</abbr></label>
         <input type="url" name="domain" id="domain" placeholder="required" value="https://vreeman.com">
-        <label for="source">Campaign Source</label>
-        <input type="text" name="source" id="source" placeholder="required">
-        <label for="medium">Campaign Medium</label>
-        <input type="text" name="medium" id="medium" placeholder="required">
-        <label for="name">Campaign Name</label>
-        <input type="text" name="name" id="name" placeholder="required">
-        <label for="term">Campaign Term</label>
-        <input type="text" name="term" id="term">
-        <label for="content">Campaign Content</label>
-        <input type="text" name="content" id="content">
+        <label for="source">Campaign Source (<code>utm_source</code>)</label>
+        <input type="text" name="source" id="source" placeholder="Required">
+        <label for="medium">Campaign Medium (<code>utm_medium</code>)</label>
+        <input type="text" name="medium" id="medium" placeholder="Required">
+        <label for="name">Campaign Name (<code>utm_campaign</code>)</label>
+        <input type="text" name="name" id="name" placeholder="Required">
+        <label for="term">Campaign Term (<code>utm_term</code>)</label>
+        <input type="text" name="term" id="term" placeholder="Optional">
+        <label for="content">Campaign Content (<code>utm_content</code>)</label>
+        <input type="text" name="content" id="content" placeholder="Optional">
       </fieldset>
     </form>
     <textarea id="url" readonly="readonly" wrap="off">https://vreeman.com</textarea>
