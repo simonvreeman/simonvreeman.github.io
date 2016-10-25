@@ -116,7 +116,7 @@
     <!-- <blockquote><p>Imitation is the sincerest form of flattery that mediocrity can pay to greatness.</p><cite>— Oscar Wilde</cite></blockquote> -->
     <hr>
     <footer>
-      <p>Vreeman.com is the personal website of Simon Vreeman.</p>
+      <p class="footer">Vreeman.com is the personal website of Simon Vreeman</p>
       <dl>
         <dt>Privacy policy</dt>
         <dd>Vreeman.com uses Google Analytics and Google Tag Manager to measure and analyze anonymous user behavior. Vreeman.com uses Cloudflare and is hosted on Github pages.</dd>
@@ -124,5 +124,24 @@
         <dd>Text is licensed under <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" title="Creative Commons Attribution 4.0 International License">Creative Commons Attribution 4.0 International License</a>. The code is licensed und <a href="https://opensource.org/licenses/MIT" rel="license" title="MIT License">MIT</a>.</dd>
       </dl>
     </footer>
+    <script>
+      window.onload = function(){
+        setTimeout(function(){
+          window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+          var t = performance.timing || {};
+
+          if (!t) {
+            //fail silently
+            return;
+          }
+          var start = t.navigationStart,
+          end = t.loadEventEnd
+          loadTime = (end - start) / 1000;
+
+          var copy = document.getElementsByClassName('footer');
+          copy[0].innerHTML += "<span class='loaded'> and is loaded in " + loadTime + " seconds.</span>";
+        }, 0);
+      }
+    </script>
   </body>
 </html>
