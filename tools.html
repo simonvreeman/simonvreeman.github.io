@@ -181,11 +181,7 @@
     </footer>
     <script>
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/serviceWorker.js').then(function() {
-          // Success
-        }).catch(function() {
-          // Fail :(
-        });
+        navigator.serviceWorker.register('serviceWorker.js');
       }
     </script>
   </body>
