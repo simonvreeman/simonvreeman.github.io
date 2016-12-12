@@ -133,6 +133,31 @@
         document.write('<li><strong>document.' + f + '</strong>: ' + document[f] + '</li>');
       }
     </script>
+    <p><code>console.log(window.performance);</code></p>
+    <h3>Performance timing</h3>
+    <script>
+      for (g in window.performance.timing) {
+        document.write('<li><strong>document.' + g + '</strong>: ' + window.performance.timing[g] + '</li>');
+      }
+    </script>
+    <h3>Performance memory</h3>
+    <script>
+      for (h in window.performance.memory) {
+        document.write('<li><strong>document.' + h + '</strong>: ' + window.performance.memory[h] + '</li>');
+      }
+    </script>
+    <h3>Performance navigation</h3>
+    <script>
+      for (i in window.performance.navigation) {
+        document.write('<li><strong>document.' + i + '</strong>: ' + window.performance.navigation[i] + '</li>');
+      }
+    </script>
+    <h3>dataLayer</h3>
+    <script>
+      for (j in window.dataLayer) {
+        document.write('<li><strong>document.' + j + '</strong>: ' + window.dataLayer[j] + '</li>');
+      }
+    </script>
     </ul>
     <hr>
     <footer>
