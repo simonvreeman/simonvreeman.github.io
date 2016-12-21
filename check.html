@@ -110,6 +110,13 @@
       }
     </script>
     </ul>
+    <ul>
+    <script>
+      for (ca in screen.orientation) {
+        document.write('<li><strong>screen.' + ca + '</strong>: ' + screen[ca] + '</li>');
+      }
+    </script>
+    </ul>
     <h3>History</h3>
     <ul>
     <script>
@@ -137,25 +144,43 @@
     <h3>Performance timing</h3>
     <script>
       for (g in window.performance.timing) {
-        document.write('<li><strong>document.' + g + '</strong>: ' + window.performance.timing[g] + '</li>');
+        document.write('<li><strong>window.' + g + '</strong>: ' + window.performance.timing[g] + '</li>');
       }
     </script>
     <h3>Performance memory</h3>
     <script>
       for (h in window.performance.memory) {
-        document.write('<li><strong>document.' + h + '</strong>: ' + window.performance.memory[h] + '</li>');
+        document.write('<li><strong>window.' + h + '</strong>: ' + window.performance.memory[h] + '</li>');
       }
     </script>
     <h3>Performance navigation</h3>
     <script>
       for (i in window.performance.navigation) {
-        document.write('<li><strong>document.' + i + '</strong>: ' + window.performance.navigation[i] + '</li>');
+        document.write('<li><strong>window.' + i + '</strong>: ' + window.performance.navigation[i] + '</li>');
       }
     </script>
     <h3>dataLayer</h3>
     <script>
       for (j in window.dataLayer) {
-        document.write('<li><strong>document.' + j + '</strong>: ' + window.dataLayer[j] + '</li>');
+        document.write('<li><strong>window.' + j + '</strong>: ' + window.dataLayer[j] + '</li>');
+      }
+    </script>
+    <h3>localStorage</h3>
+    <script>
+      for (k in window.localStorage) {
+        document.write('<li><strong>window.' + k + '</strong>: ' + window.localStorage[k] + '</li>');
+      }
+    </script>
+    <h3>clientInformation</h3>
+    <script>
+      for (l in window.clientInformation) {
+        document.write('<li><strong>window.' + l + '</strong>: ' + window.clientInformation[l] + '</li>');
+      }
+    </script>
+    <h3>screen</h3>
+    <script>
+      for (m in window.screen) {
+        document.write('<li><strong>window.' + m + '</strong>: ' + window.screen[m] + '</li>');
       }
     </script>
     </ul>
