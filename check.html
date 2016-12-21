@@ -110,10 +110,23 @@
       }
     </script>
     </ul>
-    <ul>
+    <p><code>console.log(window.performance);</code></p>
+    <h3>Performance timing</h3>
     <script>
-      for (ca in screen.orientation) {
-        document.write('<li><strong>screen.' + ca + '</strong>: ' + screen[ca] + '</li>');
+      for (g in window.performance.timing) {
+        document.write('<li><strong>window.' + g + '</strong>: ' + window.performance.timing[g] + '</li>');
+      }
+    </script>
+    <h3>Performance memory</h3>
+    <script>
+      for (h in window.performance.memory) {
+        document.write('<li><strong>window.' + h + '</strong>: ' + window.performance.memory[h] + '</li>');
+      }
+    </script>
+    <h3>Performance navigation</h3>
+    <script>
+      for (i in window.performance.navigation) {
+        document.write('<li><strong>window.' + i + '</strong>: ' + window.performance.navigation[i] + '</li>');
       }
     </script>
     </ul>
@@ -138,25 +151,6 @@
     <script>
       for (f in document) {
         document.write('<li><strong>document.' + f + '</strong>: ' + document[f] + '</li>');
-      }
-    </script>
-    <p><code>console.log(window.performance);</code></p>
-    <h3>Performance timing</h3>
-    <script>
-      for (g in window.performance.timing) {
-        document.write('<li><strong>window.' + g + '</strong>: ' + window.performance.timing[g] + '</li>');
-      }
-    </script>
-    <h3>Performance memory</h3>
-    <script>
-      for (h in window.performance.memory) {
-        document.write('<li><strong>window.' + h + '</strong>: ' + window.performance.memory[h] + '</li>');
-      }
-    </script>
-    <h3>Performance navigation</h3>
-    <script>
-      for (i in window.performance.navigation) {
-        document.write('<li><strong>window.' + i + '</strong>: ' + window.performance.navigation[i] + '</li>');
       }
     </script>
     </ul>
