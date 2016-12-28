@@ -85,75 +85,96 @@
     <ul>
       <li id="adblocked"></li>
     </ul>
-    <iframe id="iframe" sandbox="allow-same-origin" style="display: none"></iframe>
-    <h3>Navigator</h3>
+    <ul>
+      <script>
+        document.write('<li><strong>navigator.userAgent</strong>: ' + navigator.userAgent + '</li>');
+        document.write('<li><strong>document.referrer</strong>: ' + document.referrer + '</li>');
+        document.write('<li><strong>window.devicePixelRatio</strong>: ' + window.devicePixelRatio + '</li>');
+        document.write('<li><strong>window.outerHeight</strong>: ' + window.outerHeight + '</li>');
+        document.write('<li><strong>navigator.userAgent</strong>: ' + window.outerWidth + '</li>');
+        document.write('<li><strong>window.innerHeight</strong>: ' + window.innerHeight + '</li>');
+        document.write('<li><strong>window.innerWidth</strong>: ' + window.innerWidth + '</li>');
+        document.write('<li><strong>screen.availWidth</strong>: ' + screen.availWidth + '</li>');
+        document.write('<li><strong>screen.availHeight</strong>: ' + screen.availHeight + '</li>');
+        document.write('<li><strong>screen.width</strong>: ' + screen.width + '</li>');
+        document.write('<li><strong>screen.height</strong>: ' + screen.height + '</li>');
+      </script>
+    </ul>
+
+    <hr>
+    <!--<h3>Navigator</h3>
     <ul>
     <script>
       for (a in navigator) {
         document.write('<li><strong>navigator.' + a + '</strong>: ' + navigator[a] + '</li>');
       }
     </script>
-    </ul>
-    <h3>Window</h3>
+    </ul>-->
+    <!--<h3>Window</h3>
     <ul>
     <script>
       for (b in window) {
         document.write('<li><strong>window.' + b + '</strong>: ' + window[b] + '</li>');
       }
     </script>
-    </ul>
-    <h3>Screen</h3>
+    </ul>-->
+    <!--<h3>Screen</h3>
     <ul>
     <script>
       for (c in screen) {
         document.write('<li><strong>screen.' + c + '</strong>: ' + screen[c] + '</li>');
       }
     </script>
-    </ul>
-    <p><code>console.log(window.performance);</code></p>
+    </ul>-->
     <h3>Performance timing</h3>
-    <script>
-      for (g in window.performance.timing) {
-        document.write('<li><strong>window.' + g + '</strong>: ' + window.performance.timing[g] + '</li>');
-      }
-    </script>
-    <h3>Performance memory</h3>
-    <script>
-      for (h in window.performance.memory) {
-        document.write('<li><strong>window.' + h + '</strong>: ' + window.performance.memory[h] + '</li>');
-      }
-    </script>
-    <h3>Performance navigation</h3>
-    <script>
-      for (i in window.performance.navigation) {
-        document.write('<li><strong>window.' + i + '</strong>: ' + window.performance.navigation[i] + '</li>');
-      }
-    </script>
+    <p><code>console.log(window.performance);</code></p>
+    <ul>
+      <script>
+        for (g in window.performance.timing) {
+          document.write('<li><strong>window.' + g + '</strong>: ' + window.performance.timing[g] + '</li>');
+        }
+      </script>
     </ul>
-    <h3>History</h3>
+    <!--<h3>Performance memory</h3>
+      <ul>
+      <script>
+        for (h in window.performance.memory) {
+          document.write('<li><strong>window.' + h + '</strong>: ' + window.performance.memory[h] + '</li>');
+        }
+      </script>
+    </ul>-->
+    <!--<h3>Performance navigation</h3>
+    <ul>
+      <script>
+        for (i in window.performance.navigation) {
+          document.write('<li><strong>window.' + i + '</strong>: ' + window.performance.navigation[i] + '</li>');
+        }
+      </script>
+    </ul>-->
+    <!--<h3>History</h3>
     <ul>
     <script>
       for (d in history) {
         document.write('<li><strong>history.' + d + '</strong>: ' + history[d] + '</li>');
       }
     </script>
-    </ul>
-    <h3>Location</h3>
+    </ul>-->
+    <!--<h3>Location</h3>
     <ul>
     <script>
       for (e in location) {
         document.write('<li><strong>location.' + e + '</strong>: ' + location[e] + '</li>');
       }
     </script>
-    </ul>
-    <h3>Document</h3>
+    </ul>-->
+    <!--<h3>Document</h3>
     <ul>
     <script>
       for (f in document) {
         document.write('<li><strong>document.' + f + '</strong>: ' + document[f] + '</li>');
       }
     </script>
-    </ul>
+    </ul>-->
     <hr>
     <footer>
       <p>Vreeman.com is the personal website of Simon Vreeman.</p>
