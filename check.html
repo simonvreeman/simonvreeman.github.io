@@ -177,7 +177,7 @@
     </ul>-->
     <hr>
     <footer>
-      <p>Vreeman.com is the personal website of Simon Vreeman.</p>
+      <p class="footer">Vreeman.com is the personal website of Simon Vreeman</p>
       <dl>
         <dt>Privacy policy</dt>
         <dd>Vreeman.com uses Google Analytics and Google Tag Manager to measure and analyze anonymous user behavior. Vreeman.com uses Cloudflare and is hosted on Github pages.</dd>
@@ -245,6 +245,33 @@
       else
         document.getElementsByTagName("ul")[1].appendChild(li);
     });
+    </script>
+    <script>
+      window.onload = function(){
+        setTimeout(function(){
+          window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+          var t = performance.timing || {};
+
+          if (!t) {
+            //fail silently
+            return;
+          }
+          var loadTimeStart = t.navigationStart,
+          loadTimeEnd = t.loadEventEnd,
+          DOMContentLoadTimeEnd = t.domContentLoadedEventEnd
+
+          loadTime = (loadTimeEnd - loadTimeStart) / 1000;
+          DOMContentloadTime = (DOMContentLoadTimeEnd - loadTimeStart) / 1000;
+
+          var copy = document.getElementsByClassName('footer');
+          copy[0].innerHTML += "<span class='loaded'> and is loaded in " + loadTime + " (" + DOMContentloadTime + ") seconds.</span>";
+
+          for (j in window.performance.timing) {
+            console.log( 'window.' + j + ': ' + window.performance.timing[j] );
+          }
+
+        }, 0);
+      }
     </script>
   </body>
 </html>
