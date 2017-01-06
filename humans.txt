@@ -7,22 +7,18 @@ Vreeman.com is a personal website of Simon Vreeman. You can find him on Twitter 
 ## TECHNOLOGY COLOPHON
 	- HTML5
 	- CSS3
-  - JavaScript
-	- jQuery - http://jquery.com
-	- Twitter Bootstrap - http://getbootstrap.com
-	- HTML5 Boilerplate - http://html5boilerplate.com
-	- Font Awesome - http://fontawesome.io
+	- AMP - https://www.ampproject.org/
 
 ## THIRD PARTIES
 	- Github for hosting (You can find here the source code of vreeman.com) - https://github.com/simonvreeman/simonvreeman.github.io
-  - Bootstrap CDN - http://www.bootstrapcdn.com
-	- jsDelivr (CDN for jQuery, Bootstrap & Font Awesome) - http://www.jsdelivr.com
 	- Google Tag Manager - https://www.google.com/tagmanager
-	- Google Analytics (Universal Analytics) - https://www.google.com/analytics
+	- Google Analytics - https://www.google.com/analytics
+	- AMP - https://www.ampproject.org/
+	- CloudFlare - https://www.cloudflare.com/
 
 ## PRIVACY
 	- Google Analytics
-    Google Analytics is used to measure and analyse anonymous user behavior on vreeman.com. The data is used with care and will not be shared with any third parties.
+	Vreeman.com uses Google Analytics and Google Tag Manager to measure and analyze anonymous user behavior. Vreeman.com uses Cloudflare and is hosted on Github pages. The data is used with care and will not be shared with any third parties.
 		Google Analytics Opt-out Browser Add-on - https://tools.google.com/dlpage/gaoptout
 
 ## LICENSE
