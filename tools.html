@@ -209,6 +209,11 @@
       </dl>
     </footer>
     <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+      }
+    </script>
+    <script>
       window.onload = function(){
         setTimeout(function(){
           window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
@@ -226,14 +231,21 @@
           DOMContentloadTime = (DOMContentLoadTimeEnd - loadTimeStart) / 1000;
 
           var copy = document.getElementsByClassName('footer');
-          copy[0].innerHTML += "<span class='loaded'> and is loaded in " + loadTime + " (" + DOMContentloadTime + ") seconds.</span>";
+
+          var d = new Date();
+          var weekday = new Array(7);
+          weekday[0] = "Sunday";
+          weekday[1] = "Monday";
+          weekday[2] = "Tuesday";
+          weekday[3] = "Wednesday";
+          weekday[4] = "Thursday";
+          weekday[5] = "Friday";
+          weekday[6] = "Saturday";
+          var n = weekday[d.getDay()];
+
+          copy[0].innerHTML += "<span class='loaded'> and is loaded in " + loadTime + " (" + DOMContentloadTime + ") seconds. Enjoy the rest of your " + n + ".</span>";
         }, 0);
         console.log(window.performance);
-      }
-    </script>
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js');
       }
     </script>
   </body>
