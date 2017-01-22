@@ -14,6 +14,23 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
     <style>
+      /* *,
+      *:before,
+      *:after {
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale !important;
+        -webkit-font-smoothing: antialiased !important;
+        font-smoothing: antialiased !important;
+        -moz-font-feature-settings: 'kern';
+        -ms-font-feature-settings: 'kern';
+        -o-font-feature-settings: 'kern';
+        -webkit-font-feature-settings: 'kern';
+        font-feature-settings: 'kern';
+        font-kerning: normal;
+        -moz-box-sizing: border-box !important;
+        -webkit-box-sizing: border-box !important;
+        box-sizing: border-box !important;
+      } */
       html {
         overflow-y: scroll;
         overflow-x: hidden;
@@ -73,6 +90,9 @@
       <h1>Tools & Resources</h1>
       <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a></p>
     </header>
+    <nav>
+      <p><a href="#cro">CRO</a> | <a href="#analytics">Analytics</a> | <a href="#seo">SEO</a> | <a href="#social">Social</a> | <a href="#dev">Dev</a></p>
+    </nav>
     <ul>
       <li><a href="calc.html">A/B Test Calculator</a></li>
       <li><a href="hypothesis.html">A/B Test Hypothesis</a></li>
@@ -84,7 +104,7 @@
       <li><a href="dashboard.html">Dashboard</a></li>
       <li><a href="realtime.html">Realtime Dashboard</a></li>
     </ul>
-    <h3>CRO</h3>
+    <h3 id="cro">CRO</h3>
     <ul>
       <li><a href="http://www.timewellspent.io/" target="_blank" rel="nofollow noopener noreferrer">Time Well Spent</a></li>
       <li><a href="https://onlinedialogue.shinyapps.io/ab-test-calculator/" target="_blank" rel="nofollow noopener noreferrer">Frequentist A/B-Test Power & Significance Calculator</a></li>
@@ -110,7 +130,7 @@
       <li><a href="https://medium.com/@optimiseordie/the-a3-experiment-sheet-84d4d7864ee7#.kn8wup7pc" target="_blank" rel="nofollow noopener noreferrer">The A3 Experiment Sheet</a></li>
       <li><a href="http://www.experimentationhub.com/jargonbuster.html" target="_blank" rel="nofollow noopener noreferrer">Experimentation Hub: Jargon Buster</a></li>
     </ul>
-    <h3>Analytics</h3>
+    <h3 id="analytics">Analytics</h3>
     <ul>
       <li><a href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets" target="_blank" rel="nofollow noopener noreferrer">Dimensions & Metrics Explorer</a></li>
       <li><a href="https://developers.google.com/analytics/devguides/reporting/realtime/dimsmets/" target="_blank" rel="nofollow noopener noreferrer">Real Time Dimensions & Metrics Explorer</a></li>
@@ -128,7 +148,7 @@
       <li><a href="http://screentime.parsnip.io/" target="_blank" rel="nofollow noopener noreferrer">Screentime</a></li>
       <li><a href="http://riveted.parsnip.io/" target="_blank" rel="nofollow noopener noreferrer">Riveted</a></li>
     </ul>
-    <h3>SEO</h3>
+    <h3 id="seo">SEO</h3>
     <ul>
       <li><a href="https://developers.google.com/search/pilot/open/" target="_blank" rel="nofollow noopener noreferrer">Google Search Pilot Features</a></li>
       <li><a href="https://search.google.com/structured-data/testing-tool/" target="_blank" rel="nofollow noopener noreferrer">Structured Data Testing Tool</a></li>
@@ -143,7 +163,7 @@
       <li><a href="http://perf.rocks/" target="_blank" rel="nofollow noopener noreferrer">Perf.Rocks</a></li>
       <li><a href="http://www.perf-tooling.today/" target="_blank" rel="nofollow noopener noreferrer">Performance Tooling Today</a></li>
     </ul>
-    <h3>Social</h3>
+    <h3 id="social">Social</h3>
     <ul>
       <li><a href="http://newsroom.fb.com/news/category/metrics-fyi/" target="_blank" rel="nofollow noopener noreferrer">Facebook Metrics Newsroom</a></li>
       <li><a href="https://www.facebook.com/help/274400362581037" target="_blank" rel="nofollow noopener noreferrer">Facebook - Difference between impressions and reach</a> Reach is unique impressions</li>
@@ -151,7 +171,7 @@
       <li><a href="https://developers.facebook.com/docs/graph-api/reference/" target="_blank" rel="nofollow noopener noreferrer">Graph API Reference</a></li>
       <li><a href="https://research.fb.com/" target="_blank" rel="nofollow noopener noreferrer">Facebook Research</a></li>
     </ul>
-    <h3>Dev</h3>
+    <h3 id="dev">Dev</h3>
     <p><a href="http://localhost:8000/Sites/simonvreeman.github.io/tools.html">Local Web Server</a>: <code>python -m SimpleHTTPServer</code></p>
     <ul>
       <li><a href="https://www.webpagetest.org/" target="_blank" rel="nofollow noopener noreferrer">WebPageTest</a></li>
