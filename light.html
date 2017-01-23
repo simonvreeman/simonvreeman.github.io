@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Light</title>
+    <!-- https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/ -->
+    <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
+    <style>
+      html {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      body {
+        margin: 1% auto;
+        padding: 0 3%;
+        max-width: 30em;
+        font: 1.125em/1.6 -apple-system, BlinkMacSystemFont, sans-serif;
+        text-align: center;
+        background-color: #000;
+        color: #fff;
+      }
+      body.front {
+        background-color: #fff;
+        color: #000;
+      }
+      body.rear {
+        background-color: red;
+      }
+      button {
+
+      }
+    </style>
+    <link rel="canonical" href="https://vreeman.com/">
+    <meta name="referrer" content="unsafe-url">
+    <meta name="robots" content="noindex,follow">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Light">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  </head>
+  <body class="">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <h1>Light</h1>
+    <button onclick="frontLight();">Front</button>
+    <button onclick="rearLight();">Rear</button>
+    <button onclick="offLight();">Off</button>
+
+    <script>
+      function frontLight() {
+        document.body.className = "front";
+      }
+      function rearLight() {
+        document.body.className = "rear";
+      }
+      function offLight() {
+        document.querySelector('body').classList.remove('front');
+        document.querySelector('body').classList.remove('rear');
+      }
+    </script>
+  </body>
+</html>
