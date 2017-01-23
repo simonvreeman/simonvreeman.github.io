@@ -64,17 +64,13 @@
     <script>
       var noSleep = new NoSleep();
 
-      function enableNoSleep() {
-        noSleep.enable();
-        document.removeEventListener('touchstart', enableNoSleep, false);
-      }
       function frontLight() {
         document.body.className = "front";
-        document.addEventListener('touchstart', enableNoSleep, false);
+        noSleep.enable();
       }
       function rearLight() {
         document.body.className = "rear";
-        document.addEventListener('touchstart', enableNoSleep, false);
+        noSleep.enable();
       }
       function offLight() {
         document.querySelector('body').classList.remove('front');
