@@ -58,9 +58,9 @@
   <body onload="getBeer()">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1 id="beers"><span id="count">2</span> beers</h1>
-    <button id="less" onclick="lessBeer();">-</button>
-    <button id="more" onclick="moreBeer();">+</button>
-    <p><button id="thanks" onclick="thanks();">Thanks</button></p>
+    <button id="less" ontouchstart="lessBeer();">-</button>
+    <button id="more" ontouchstart="moreBeer();">+</button>
+    <p><button id="thanks" ontouchstart="thanks();">Thanks</button></p>
     <script>
       var counter = 2;
 
