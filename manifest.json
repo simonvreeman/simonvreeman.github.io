@@ -1,0 +1,13 @@
+{
+  "short_name": "Tools",
+  "name": "Tools & Resources",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/tools.html",
+  "display": "standalone"
+}
