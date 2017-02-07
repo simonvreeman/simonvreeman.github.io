@@ -9,5 +9,7 @@
     }
   ],
   "start_url": "/tools.html",
-  "display": "standalone"
+  "display": "standalone",
+  "background_color": "#0000EE",
+  "theme_color": "#000"
 }
