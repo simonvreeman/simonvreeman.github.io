@@ -1,4 +1,6 @@
 {
+  "dir": "ltr",
+  "lang": "en",
   "short_name": "Tools",
   "name": "Tools & Resources",
   "icons": [
@@ -11,5 +13,6 @@
   "start_url": "/tools.html",
   "display": "standalone",
   "background_color": "#0000EE",
-  "theme_color": "#000"
+  "theme_color": "#000",
+  "prefer_related_applications": false
 }
