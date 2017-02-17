@@ -151,5 +151,10 @@
         ssl.href = "https://www.ssllabs.com/ssltest/analyze.html?d="  + domain;
       }
     </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+      }
+    </script>
   </body>
 </html>
