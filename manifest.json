@@ -11,8 +11,9 @@
     }
   ],
   "start_url": "/tools.html",
-  "display": "standalone",
-  "background_color": "#0000EE",
-  "theme_color": "#000",
+  "display": "browser",
+  "orientation": "any",
+  "background_color": "transparent",
+  "theme_color": "transparent",
   "prefer_related_applications": false
 }
