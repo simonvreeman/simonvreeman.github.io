@@ -302,6 +302,24 @@
         }, 0);
         console.log(window.performance);
       }
+
+      document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState == 'hidden') {
+          document.title = "Hidden Tools & Resources";
+        }
+      if (document.visibilityState == 'visible') {
+        document.title = "Visible Tools & Resources";
+      }
+    });
+    </script>
+    <script>
+      var sec = 0;
+      // function pad ( val ) { return val > 9 ? val : "0" + val; }
+      function pad ( val ) { return val > 9 ? val : val; }
+      setInterval( function(){
+        var testseconds = pad(++sec%60);
+        document.title = testseconds;
+      }, 1000);
     </script>
   </body>
 </html>

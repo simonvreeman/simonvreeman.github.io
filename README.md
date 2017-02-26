@@ -1,6 +1,6 @@
-[Vreeman.com](http://vreeman.com)
+[Vreeman.com](https://vreeman.com)
 ======================
-The Personal Website of [Simon Vreeman](http:/vreeman.com).
+The Personal Website of [Simon Vreeman](https:/vreeman.com).
 
 ## Contact
 * [Google+](https://plus.google.com/+SimonVreeman?rel=author)
@@ -13,21 +13,21 @@ I use Google Analytics to measure, track and analyse user behaviour on vreeman.c
 
 You can read the [privacy policy](http://www.google.com/intl/en/policies/privacy/) of Google. If you want to opt-out use the [Google Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout).
 
-Vreeman.com is hosted on [Github pages](https://pages.github.com/). [jQuery](http://jquery.com/), [Bootstrap](http://getbootstrap.com/) & [Font Awesome](http://fontawesome.io/) is loaded via the CDN of [jsdelivr.net](http://www.jsdelivr.com/). They will probably track some data too.
+Vreeman.com uses [AMP](https://www.ampproject.org/), [Cloudflare](https://www.cloudflare.com/) and is hosted on [Github pages](https://pages.github.com/). They will probably track some data too.
 
 ## Cookies
-Google Analytics will place one cookie with a unique user ID. 
+Google Analytics will place one cookie with a unique user ID.
 
-Irregularly I will A/B test some stuff on vreeman.com and I use cookies for that too. I don't use an A/B testing tool. Just [my own script](https://github.com/simonvreeman/A-B-testing-with-Google-Tag-Manager) that is loaded via Google Tag Manager. 
+Irregularly I will A/B test some stuff on vreeman.com and I use cookies for that too. I don't use an A/B testing tool. Just [my own script](https://github.com/simonvreeman/A-B-testing-with-Google-Tag-Manager) that is loaded via Google Tag Manager.
 
 ## Licenses
-Text is licensed under [Creative Commons Attribution 4.0 Unported License](http://creativecommons.org/licenses/by/4.0/).
+Text is licensed under [Creative Commons Attribution 4.0 Unported License](https://creativecommons.org/licenses/by/4.0/).
 
 The code is licensed und MIT.
 
 ### The MIT License (MIT)
 
-Copyright (c) 2014 [Simon Vreeman](http://vreeman.com)
+Copyright (c) 2017 [Simon Vreeman](https://vreeman.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
