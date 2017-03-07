@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Christmas</title>
+    <!-- https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/ -->
+    <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
+    <style>
+      html {
+
+      }
+      body {
+        height: 10000px;
+        text-align: center;
+        background: -moz-linear-gradient(top, rgba(0,0,0,0.99) 0%, rgba(0,0,0,0) 100%);
+        background: -webkit-linear-gradient(top, rgba(0,0,0,0.99) 0%,rgba(0,0,0,0) 100%);
+        background: linear-gradient(to bottom, rgba(0,0,0,0.99) 0%,rgba(0,0,0,0) 100%);
+      }
+      h1 {
+        font: 3em/1.6 -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #fff;
+      }
+    </style>
+    <link rel="canonical" href="https://vreeman.com/">
+    <meta name="referrer" content="unsafe-url">
+    <meta name="robots" content="noindex,follow">
+  </head>
+  <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <h1><span id="days"></span> days until Christmas</h1>
+    <p class="elevator">Back to Top</p>
+    <script>
+      var copy = document.getElementById('days');
+      myDate=new Date();
+      cmas=Date.parse("Dec 25, "+myDate.getFullYear())
+      today=Date.parse(myDate)
+      daysToChristmas=Math.round((cmas-today)/(1000*60*60*24))
+      copy.innerHTML += "<b>" + daysToChristmas + "</b>";
+    </script>
+    <script src='http://tholman.com/elevator.js/elevator.js'></script>
+    <script>
+
+            // Simple elevator usage.
+            var elementButton = document.querySelector('.elevator');
+            var elevator = new Elevator({
+                element: elementButton,
+                mainAudio: 'http://tholman.com/elevator.js/music/elevator.mp3', // Music from http://www.bensound.com/
+                endAudio:  'http://tholman.com/elevator.js/music/ding.mp3'
+            });
+
+        </script>
+  </body>
+</html>
