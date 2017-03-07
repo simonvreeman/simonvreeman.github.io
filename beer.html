@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Beer time</title>
+    <!-- https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/ -->
+    <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
+    <style>
+      body {
+        background: #000;
+        height: 100%;
+        vertical-align: middle;
+      }
+      h1 {
+        top: 50%;
+        position:absolute;
+        text-align: center;
+        width: 100%;
+        font: 3em/1.6 -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #fff;
+      }
+    </style>
+    <link rel="canonical" href="https://vreeman.com/">
+    <meta name="referrer" content="unsafe-url">
+    <meta name="robots" content="noindex,follow">
+  </head>
+  <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <h1 id="beer"></h1>
+    <script>
+            var d = new Date()
+            var hour = d.getHours();
+            if (hour >= 15 || hour <= 7) {
+                document.getElementById('beer').innerHTML = "Is it time for beer? Yes, and Jägermeister!"
+            }
+            else {
+                document.getElementById('beer').innerHTML = "Is it time for beer? Almost, but make sure there is enough in the fridge."
+            }
+        </script>
+  </body>
+</html>
