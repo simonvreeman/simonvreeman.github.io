@@ -1,43 +1,46 @@
-//This is the "Offline copy of pages" wervice worker
+var cacheName = 'vreeman';
+var cacheFiles = [
+  '/',
+  '/boilerplate.html'
+];
 
-//Install stage sets up the index page (home page) in the cahche and opens a new cache
 self.addEventListener('install', function(event) {
-  var indexPage = new Request('boilerplate.html');
   event.waitUntil(
-    fetch(indexPage).then(function(response) {
-      return caches.open('manifoldjs-offline').then(function(cache) {
-        console.log('[Manifoldjs] Cached index page during Install'+ response.url);
-        return cache.put(indexPage, response);
-      });
-  }));
-});
-
-//If any fetch fails, it will look for the request in the cache and serve it from there first
-self.addEventListener('fetch', function(event) {
-  var updateCache = function(request){
-    return caches.open('manifoldjs-offline').then(function (cache) {
-      return fetch(request).then(function (response) {
-        console.log('[manifoldjs] add page to offline'+response.url)
-        return cache.put(request, response);
-      });
-    });
-  };
-
-  event.waitUntil(updateCache(event.request));
-
-  event.respondWith(
-    fetch(event.request).catch(function(error) {
-      console.log( '[Manifoldjs] Network request Failed. Serving content from cache: ' + error );
-
-      //Check to see if you have it in the cache
-      //Return response
-      //If not in the cache, then return error page
-      return caches.open('manifoldjs-offline').then(function (cache) {
-        return cache.match(event.request).then(function (matching) {
-          var report =  !matching || matching.status == 404?Promise.reject('no-match'): matching;
-          return report
-        });
-      });
+    caches.open(cacheName)
+    .then(function(cache) {
+      return cache.addAll(cacheFiles);
     })
   );
-})
+});
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Grab the asset from SW cache.
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+    }).catch(function() {
+      // Can't access the network return an offline page from the cache
+      return caches.match('/');
+    })
+  );
+});
+
+// Empty out any caches that don’t match the ones listed.
+self.addEventListener('activate', function(event) {
+  var cacheWhitelist = ['vreeman'];
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});

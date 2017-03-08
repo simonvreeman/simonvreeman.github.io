@@ -1,6 +1,5 @@
-var cacheName = 'vreeman';
+var cacheName = 'tools';
 var cacheFiles = [
-  '/',
   '/tools.html',
   '/calc.html',
   '/hypothesis.html',
@@ -8,15 +7,13 @@ var cacheFiles = [
   '/search.html',
   '/dencoder.html',
   '/bookmarklets.html',
-  '/check.html',
-  '/boilerplate.html'
+  '/check.html'
 ];
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(cacheName)
     .then(function(cache) {
-      //console.log('Opened cache');
       return cache.addAll(cacheFiles);
     })
   );
@@ -33,14 +30,14 @@ self.addEventListener('fetch', function(event) {
         return fetch(event.request);
     }).catch(function() {
       // Can't access the network return an offline page from the cache
-      return caches.match('/offline/');
+      return caches.match('/tools.html');
     })
   );
 });
 
 // Empty out any caches that don’t match the ones listed.
 self.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['vreeman'];
+  var cacheWhitelist = ['tools'];
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
