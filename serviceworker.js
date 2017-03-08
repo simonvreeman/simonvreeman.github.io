@@ -1,7 +1,6 @@
 var cacheName = 'vreeman';
 var cacheFiles = [
-  '/',
-  '/boilerplate.html'
+  '/?ref=offline'
 ];
 
 self.addEventListener('install', function(event) {
