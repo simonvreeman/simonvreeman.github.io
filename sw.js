@@ -8,7 +8,8 @@ var cacheFiles = [
   '/search.html',
   '/dencoder.html',
   '/bookmarklets.html',
-  '/check.html'
+  '/check.html',
+  '/boilerplate.html'
 ];
 
 self.addEventListener('install', function(event) {
