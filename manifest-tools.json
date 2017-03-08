@@ -1,8 +1,8 @@
 {
   "dir": "ltr",
   "lang": "en",
-  "short_name": "Vreeman",
-  "name": "Simon Vreeman",
+  "short_name": "Tools",
+  "name": "Tools & Resources",
   "icons": [
     {
       "src": "apple-touch-icon.png",
@@ -10,7 +10,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": "/tools.html",
   "display": "browser",
   "orientation": "any",
   "background_color": "transparent",
