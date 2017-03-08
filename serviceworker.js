@@ -1,6 +1,6 @@
 var cacheName = 'vreeman';
 var cacheFiles = [
-  '/?ref=offline'
+  '/'
 ];
 
 self.addEventListener('install', function(event) {
