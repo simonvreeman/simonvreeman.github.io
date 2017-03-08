@@ -11,7 +11,7 @@
     }
   ],
   "start_url": "/?ref=homescreen",
-  "display": "browser",
+  "display": "standalone",
   "orientation": "any",
   "background_color": "transparent",
   "theme_color": "transparent",
