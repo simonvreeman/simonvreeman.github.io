@@ -76,7 +76,7 @@
       <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a></p>
     </header>
     <nav>
-      <p><a href="#cro">CRO</a> | <a href="#analytics">Analytics</a> | <a href="#seo">SEO</a> | <a href="#social">Social</a> | <a href="#dev">Dev</a> | <a href="#more">More</a></p>
+      <p><a href="#cro">CRO</a> | <a href="#analytics">Analytics</a> | <a href="#seo">SEO</a> | <a href="#social">Social</a> | <a href="#perf">Perf</a> | <a href="#dev">Dev</a> | <a href="#more">More</a></p>
     </nav>
     <ul>
       <li><a href="calc.html">A/B Test Calculator</a></li>
@@ -171,16 +171,10 @@
       <li><a href="https://search.google.com/structured-data/testing-tool/" target="_blank" rel="nofollow noopener noreferrer">Structured Data Testing Tool</a></li>
       <li><a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" rel="nofollow noopener noreferrer">PageSpeed Insights</a></li>
       <li><a href="https://search.google.com/search-console/mobile-friendly" target="_blank" rel="nofollow noopener noreferrer">Mobile-Friendly Test</a></li>
-      <li><a href="https://cards-dev.twitter.com/validator" target="_blank" rel="nofollow noopener noreferrer">Twitter Card Validator</a></li>
-      <li><a href="https://developers.facebook.com/tools/debug/" target="_blank" rel="nofollow noopener noreferrer">Facebook Debugger</a></li>
       <li><a href="https://httpstatus.io/" target="_blank" rel="nofollow noopener noreferrer">HTTP Status Code, Header & Redirect Checker</a></li>
       <li><a href="http://keywordsuggestions.herokuapp.com/" target="_blank" rel="nofollow noopener noreferrer">Keyword Suggestions</a></li>
       <li><a href="https://securityheaders.io/" target="_blank" rel="nofollow noopener noreferrer">Analyse HTTP response headers</a></li>
       <li><a href="https://report-uri.io/home/tools" target="_blank" rel="nofollow noopener noreferrer">Report-uri.io</a></li>
-      <li><a href="http://perf.rocks/" target="_blank" rel="nofollow noopener noreferrer">Perf.Rocks</a></li>
-      <li><a href="http://www.perf-tooling.today/" target="_blank" rel="nofollow noopener noreferrer">Performance Tooling Today</a></li>
-      <li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp" target="_blank" rel="nofollow noopener noreferrer">Measuring the Critical Rendering Path</a></li>
-      <li><a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index" target="_blank" rel="nofollow noopener noreferrer">WebPagetest Speed Index</a></li>
       <li><a href="https://cdn.ampproject.org/experiments.html" target="_blank" rel="nofollow noopener noreferrer">AMP Experiments</a></li>
     </ul>
     <h3 id="social">Social</h3>
@@ -190,11 +184,20 @@
       <li><a href="https://developers.facebook.com/tools/explorer/145634995501895/" target="_blank" rel="nofollow noopener noreferrer">Graph API Explorer</a></li>
       <li><a href="https://developers.facebook.com/docs/graph-api/reference/" target="_blank" rel="nofollow noopener noreferrer">Graph API Reference</a></li>
       <li><a href="https://research.fb.com/" target="_blank" rel="nofollow noopener noreferrer">Facebook Research</a></li>
+      <li><a href="https://developers.facebook.com/tools/debug/" target="_blank" rel="nofollow noopener noreferrer">Facebook Debugger</a></li>
+      <li><a href="https://cards-dev.twitter.com/validator" target="_blank" rel="nofollow noopener noreferrer">Twitter Card Validator</a></li>
+    </ul>
+    <h3 id="perf">Performance</h3>
+    <ul>
+      <li><a href="https://www.webpagetest.org/" target="_blank" rel="nofollow noopener noreferrer">WebPageTest</a></li>
+      <li><a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index" target="_blank" rel="nofollow noopener noreferrer">WebPagetest Speed Index</a></li>
+      <li><a href="http://perf.rocks/" target="_blank" rel="nofollow noopener noreferrer">Perf.Rocks</a></li>
+      <li><a href="http://www.perf-tooling.today/" target="_blank" rel="nofollow noopener noreferrer">Performance Tooling Today</a></li>
+      <li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp" target="_blank" rel="nofollow noopener noreferrer">Measuring the Critical Rendering Path</a></li>
     </ul>
     <h3 id="dev">Dev</h3>
     <p><a href="http://localhost:8000/Sites/simonvreeman.github.io/tools.html">Local Web Server</a>: <code>python -m SimpleHTTPServer</code></p>
     <ul>
-      <li><a href="https://www.webpagetest.org/" target="_blank" rel="nofollow noopener noreferrer">WebPageTest</a></li>
       <li><a href="http://youmightnotneedjquery.com/" target="_blank" rel="nofollow noopener noreferrer">You Might Not Need jQuery</a></li>
       <li><a href="http://codeguide.co/" target="_blank" rel="nofollow noopener noreferrer">Code Guide by @mdo</a></li>
       <li><a href="http://minifybeautify.com/" target="_blank" rel="nofollow noopener noreferrer">Minify-Beautify</a></li>
@@ -297,7 +300,7 @@
           weekday[6] = "Saturday";
           var n = weekday[d.getDay()];
 
-          copy[0].innerHTML += "<span class='loaded'> and is loaded in " + loadTime + " (" + DOMContentloadTime + ") seconds. Enjoy the rest of your " + n + ".</span>";
+          copy[0].innerHTML += "<span class='loaded'> and is loaded in " + loadTime + " (DOM in " + DOMContentloadTime + ") seconds. Enjoy the rest of your " + n + ".</span>";
         }, 0);
         console.log(window.performance);
       }
