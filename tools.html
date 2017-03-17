@@ -138,7 +138,7 @@
       <li><a href="http://screentime.parsnip.io/" target="_blank" rel="nofollow noopener noreferrer">Screentime</a></li>
       <li><a href="http://riveted.parsnip.io/" target="_blank" rel="nofollow noopener noreferrer">Riveted</a></li>
     </ul>
-    <details>
+   <!--  <details>
       <summary>RegEx for Google Analytics</summary>
       <dl>
         <dt>Backslash: <code>\</code></dt>
@@ -164,7 +164,7 @@
         <dt>Dollar sign: <code>$</code></dt>
         <dd>Explanation for the dollar sign</dd>
       </dl>
-    </details>
+    </details> -->
     <h3 id="seo">SEO</h3>
     <ul>
       <li><a href="https://developers.google.com/search/pilot/open/" target="_blank" rel="nofollow noopener noreferrer">Google Search Pilot Features</a></li>
@@ -201,6 +201,7 @@
       <li><a href="http://gpbmike.github.io/refresh-sf/" target="_blank" rel="nofollow noopener noreferrer">JavaScript/CSS/HTML Compressor</a></li>
       <li><a href="http://jsbeautifier.org/" target="_blank" rel="nofollow noopener noreferrer">Online JavaScript beautifier</a></li>
       <li><a href="https://css.github.io/csso/csso.html" target="_blank" rel="nofollow noopener noreferrer">CSSO – CSS optimizer</a></li>
+      <li><a href="https://www.base64-image.de/" target="_blank" rel="nofollow noopener noreferrer">Base64 Image Encoder</a></li>
       <li><a href="https://github.com/equinusocio/material-theme" target="_blank" rel="nofollow noopener noreferrer">Material Theme for Sublime Text</a></li>
       <li><a href="https://developers.google.com/web/progressive-web-apps/checklist" target="_blank" rel="nofollow noopener noreferrer">Progressive Web App Checklist</a></li>
       <li><a href="https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/" target="_blank" rel="nofollow noopener noreferrer">The Web App Manifest</a></li>
@@ -232,9 +233,7 @@
         <li><a href="http://www.blessthisstuff.com/" target="_blank" rel="nofollow noopener noreferrer">Bless This Stuff</a></li>
       </ul>
       <ul>
-        <li><a href="http://www.goruck.com/gr-echo-black-/p/GEAR-000064" target="_blank" rel="nofollow noopener noreferrer">GORUCK Echo</a></li>
-        <li><a href="http://www.goruck.com/gr1-black-/p/GEAR-000574" target="_blank" rel="nofollow noopener noreferrer">GORUCK GR1</a></li>
-        <li><a href="http://www.goruck.com/gr2-black-/p/GEAR-000509" target="_blank" rel="nofollow noopener noreferrer">GORUCK GR2</a></li>
+        <li><a href="http://www.goruck.com/gr-echo-black-/p/GEAR-000064" target="_blank" rel="nofollow noopener noreferrer">Goruck Echo</a></li>
         <li><a href="http://www.meistersinger.com/" target="_blank" rel="nofollow noopener noreferrer">MeisterSinger</a></li>
         <li><a href="https://www.luminox.com/" target="_blank" rel="nofollow noopener noreferrer">Luminox (ANU)</a></li>
         <li><a href="http://us.roddandgunn.com/collections/jackets/products/the-jack-jacket-swamp" target="_blank" rel="nofollow noopener noreferrer">Harrington jacket</a></li>
@@ -314,10 +313,11 @@
     </script>
     <script>
       var sec = 0;
+      var testseconds = 0;
       function pad ( val ) { return val > 9 ? val : val; }
       setInterval( function(){
         var testseconds = pad(++sec%60);
-        document.title = testseconds;
+        console.log(testseconds);
       }, 1000);
     </script>
     <script src="//s3.eu-central-1.amazonaws.com/smartnotifications/sn-376743.js" async></script>
