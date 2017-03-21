@@ -1,5 +1,7 @@
 var cacheName = 'tools';
 var cacheFiles = [
+  '/',
+  '/index.html',
   '/tools.html',
   '/calc.html',
   '/hypothesis.html',
