@@ -20,7 +20,9 @@
         -webkit-overflow-scrolling: touch;
       }
       body {
-        color: rgba(0, 0, 0, .8);
+        --primary: rgba(0, 0, 0, .8);
+        --secondary: rgb(65, 110, 210);
+        color: var(--primary);
         font: 1.125em/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
         font-style: normal;
         font-weight: 400;
@@ -52,7 +54,7 @@
       }
       a {
         background-color: transparent;
-        color: rgb(65, 110, 210);
+        color: var(--secondary);
         text-decoration: none;
         -webkit-text-decoration-skip: objects;
       }

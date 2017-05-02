@@ -312,25 +312,8 @@
         }, 0);
         console.log(window.performance);
       }
-
-      document.addEventListener('visibilitychange', function() {
-        if (document.visibilityState == 'hidden') {
-          document.title = "Hidden Tools & Resources";
-        }
-      if (document.visibilityState == 'visible') {
-        document.title = "Visible Tools & Resources";
-      }
-    });
     </script>
-    <script>
-      var sec = 0;
-      var testseconds = 0;
-      function pad ( val ) { return val > 9 ? val : val; }
-      setInterval( function(){
-        var testseconds = pad(++sec%60);
-        //console.log(testseconds);
-      }, 1000);
-    </script>
+    <script src="js/engagement.js"></script>
     <script src="https://vreeman.com/js/rum-speedindex.js"></script>
     <script async>
       var speedIndexResult = RUMSpeedIndex();
