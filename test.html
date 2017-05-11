@@ -40,8 +40,11 @@
     </dl>
     <script>
       var ua = navigator.userAgent || navigator.vendor || window.opera;
-      var inapp = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) ? 'Facebook' : 'Nope';
-      document.getElementById("in-app").innerHTML = inapp;
+      var fbinapp = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) ? 'Yes' : 'Nope';
+      var liinapp = (ua.indexOf("LinkedIn") > -1) ? 'Yes' : 'Nope';
+      var twinapp = (ua.indexOf("Twitter") > -1) ? 'Yes' : 'Nope';
+      var flinapp = (ua.indexOf("Flipboard") > -1) ? 'Yes' : 'Nope';
+      document.getElementById("in-app").innerHTML = "Facebook: " + fbinapp + ", LinkedIn: " + liinapp + ", Twitter: " + twinapp + ", Flipboard: " + flinapp;
     </script>
   </body>
 </html>
