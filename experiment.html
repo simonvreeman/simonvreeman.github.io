@@ -2,22 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Test</title>
+    <title>Experiment</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>
     <style>
+      html {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
       body {
         color: rgba(0, 0, 0, .8);
         font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
         font-size: 1.125em;
         line-height: 1.6;
+        margin: 1% auto;
+        padding: 0 3%;
+        max-width: 20em;
       }
-      dt {
-        font-weight: 700;
+      h1, h2 {
+        text-align: center;
+        margin: 0;
       }
-      code {
-        font-family: monospace, monospace;
-        font-size: 1em;
+      p {
+        line-height: 1;
       }
     </style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
@@ -27,25 +36,25 @@
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <dl>
-      <dt>navigator.userAgent:</dt>
-      <dd><code><script>document.write(navigator.userAgent);</script></code></dd>
-      <dt>navigator.standalone:</dt>
-      <dd><code><script>document.write(navigator.standalone);</script></code></dd>
-      <dt>document.referrer:</dt>
-      <dd><code><script>document.write(document.referrer);</script></code></dd>
-      <dt>Google Analytics Client ID:</dt>
-      <dd><code id="clientid"></code></dd>
-      <dt>In-app browser:</dt>
-      <dd><code id="in-app"></code></dd>
-    </dl>
-    <script>
-      var ua = navigator.userAgent || navigator.vendor || window.opera;
-      var fbinapp = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) ? 'Yes' : 'Nope';
-      var liinapp = (ua.indexOf("LinkedIn") > -1) ? 'Yes' : 'Nope';
-      var twinapp = (ua.indexOf("Twitter") > -1) ? 'Yes' : 'Nope';
-      var flinapp = (ua.indexOf("Flipboard") > -1) ? 'Yes' : 'Nope';
-      document.getElementById("in-app").innerHTML = "Facebook: " + fbinapp + ", LinkedIn: " + liinapp + ", Twitter: " + twinapp + ", Flipboard: " + flinapp;
-    </script>
+    <h1>Experiment</h1>
+    <h2>by Cole Porter</h2>
+    <p>Experiment.</p>
+    <p>Make it your motto day and night.</p>
+    <p>Experiment</p>
+    <p>And it will lead you to the light.</p>
+    <p>The apple on the top of the tree</p>
+    <p>Is never too high to achieve,</p>
+    <p>So take an example from Eve,</p>
+    <p>Experiment.</p>
+    <p>Be curious,</p>
+    <p>Though interfering friends may frown.</p>
+    <p>Get furious</p>
+    <p>At each attempt to hold you down.</p>
+    <p>If this advice you always employ</p>
+    <p>The future can offer you infinite joy</p>
+    <p>And merriment,</p>
+    <p>Experiment</p>
+    <p>And you'll see</p>
+    <iframe src="https://open.spotify.com/embed/track/23i77phF1cMeJPETAxVo4s" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>
   </body>
 </html>
