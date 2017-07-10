@@ -6,9 +6,7 @@ var cacheFiles = [
   '/calc.html',
   '/hypothesis.html',
   '/utm.html',
-  '/search.html',
   '/dencoder.html',
-  '/bookmarklets.html',
   '/check.html'
 ];
 
