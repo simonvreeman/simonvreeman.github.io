@@ -23,7 +23,7 @@ Irregularly I will A/B test some stuff on vreeman.com and I use cookies for that
 ## Licenses
 Text is licensed under [Creative Commons Attribution 4.0 Unported License](https://creativecommons.org/licenses/by/4.0/).
 
-The code is licensed und MIT.
+The code is licensed under MIT License.
 
 ### The MIT License (MIT)
 
