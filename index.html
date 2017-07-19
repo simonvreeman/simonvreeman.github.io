@@ -7,7 +7,7 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
-    <title>Simon Vreeman &middot; Web Analyst and Conversion Specialist at The Next Web &middot; Always Be Optimizing</title>
+    <title>Simon Vreeman &middot; Web Analyst and Conversion Specialist at The Next Web</title>
     <!-- https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/
     <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>-->
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
@@ -16,6 +16,7 @@
       :root {
         --primary: rgba(0, 0, 0, .8);
         --secondary: rgb(65, 110, 210);
+        --tertiary: rgb(204, 204, 204);
       }
       html {
         overflow-y: scroll;
@@ -74,7 +75,16 @@
       }
       hr {
         border: 0;
-        border-top: 1px solid #ccc;
+        border-top: 1px solid var(--tertiary);
+      }
+      .footer {
+        color: var(--tertiary);
+        font-family: Georgia, serif;
+        font-style: italic;
+        font-weight: 100;
+        text-align: center;
+        letter-spacing: 1px;
+        -webkit-font-smoothing: antialiased;
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
@@ -378,6 +388,7 @@
         <li><a href="https://app.convertkit.com/landing_pages/210894" title="Newsletter by Jason Hreha" rel="nofollow noopener noreferrer" target="_blank" data-vars-outbound-text="Jason Hreha" data-vars-outbound-link="https://app.convertkit.com/landing_pages/210894">Daily behavioral science newsletter by Jason Hreha</a></li>
         <li><a href="http://ben-evans.com/newsletter" title="Newsletter by Benedict Evans" rel="nofollow noopener noreferrer" target="_blank" data-vars-outbound-text="Benedict Evans" data-vars-outbound-link="http://ben-evans.com/newsletter">Weekly tech newsletter by Benedict Evans</a></li>
         <li><a href="https://www.exponentialview.co/" title="Newsletter by Azeem Azhar" rel="nofollow noopener noreferrer" target="_blank" data-vars-outbound-text="Azeem Azhar" data-vars-outbound-link="https://www.exponentialview.co/">Weekly tech newsletter by Azeem Azhar</a></li>
+        <li><a href="https://www.kaushik.net/avinash/" title="Newsletter by Avinash Kaushik" rel="nofollow noopener noreferrer" target="_blank" data-vars-outbound-text="Avinash Kaushik" data-vars-outbound-link="https://www.kaushik.net/avinash/">Weekly analytics newsletter by Avinash Kaushik</a></li>
         <li><a href="https://www.thejournal.email/" title="Newsletter by Kevin Rose" rel="nofollow noopener noreferrer" target="_blank" data-vars-outbound-text="Kevin Rose" data-vars-outbound-link="https://www.thejournal.email/">Monthly newsletter for the curious by Kevin Rose</a></li>
       </ul>
     </aside>
@@ -391,6 +402,8 @@
         <dt>Other:</dt>
         <dd><a href="https://vreeman.com/f1.html" title="FIA Formula One (F1) 2018 Calendar / Agenda" data-vars-outbound-text="F1 Calendar" data-vars-outbound-link="https://vreeman.com/f1.html">F1 2018 Calendar</a></dd>
       </dl>
+      <hr>
+      <p class="footer">Always Be Optimizing</p>
     </footer>
     <amp-install-serviceworker src="https://vreeman.com/serviceworker.js" layout="nodisplay"></amp-install-serviceworker>
   </body>
