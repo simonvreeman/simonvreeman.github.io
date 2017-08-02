@@ -29,15 +29,16 @@
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1 id="beer"></h1>
+    <noscript><h1 id="beer">Is it time for beer? Yes, and Jägermeister!</h1></noscript>
     <script>
-            var d = new Date()
-            var hour = d.getHours();
-            if (hour >= 15 || hour <= 7) {
-                document.getElementById('beer').innerHTML = "Is it time for beer? Yes, and Jägermeister!"
-            }
-            else {
-                document.getElementById('beer').innerHTML = "Is it time for beer? Almost, but make sure there is enough in the fridge."
-            }
-        </script>
+        var d = new Date()
+        var hour = d.getHours();
+        if (hour >= 15 || hour <= 7) {
+            document.getElementById('beer').innerHTML = "Is it time for beer? Yes, and Jägermeister!"
+        }
+        else {
+            document.getElementById('beer').innerHTML = "Is it time for beer? Almost, make sure there is enough in the fridge."
+        }
+    </script>
   </body>
 </html>
