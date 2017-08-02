@@ -73,6 +73,7 @@
     <div id="column-container"></div>
     <div id="day-table-container"></div>
     <div id="device-container"></div>
+    <div id="datasource-container"></div>
     <hr>
     <footer>
       <p>Vreeman.com is the personal website of Simon Vreeman.</p>
@@ -173,12 +174,30 @@ gapi.analytics.ready(function() {
       }
     }
   });
+    var dataDataSource = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      metrics: 'ga:sessions',
+      dimensions: 'ga:dataSource',
+      'start-date': '8daysAgo',
+      'end-date': 'today',
+      'samplingLevel': 'HIGHER_PRECISION',
+      'prettyPrint': 'true'
+    },
+    chart: {
+      container: 'datasource-container',
+      type: 'PIE',
+      options: {
+        width: '100%'
+      }
+    }
+  });
 
   viewSelector.on('change', function(ids) {
     dataChart.set({query: {ids: ids}}).execute();
     dataColumn.set({query: {ids: ids}}).execute();
     dataDayTable.set({query: {ids: ids}}).execute();
     dataDeviceTable.set({query: {ids: ids}}).execute();
+    dataDataSource.set({query: {ids: ids}}).execute();
   });
 
 });
