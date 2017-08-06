@@ -10,7 +10,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/tools.html",
+  "start_url": "/tools.html?ref=homescreen",
   "display": "standalone",
   "orientation": "any",
   "background_color": "transparent",
