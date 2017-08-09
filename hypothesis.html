@@ -49,7 +49,6 @@
         margin-bottom: 1.5em;
       }
       textarea {
-        margin-top: 1.5em;
         resize: vertical;
       }
     </style>
@@ -69,15 +68,15 @@
       <h1>Hypothesis</h1>
       <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a></p>
     </header>
-    <p>Based on the <a href="https://medium.com/@optimiseordie/hypothesis-kit-2-eff0446e09fc#.8d2gvzj4o" target="_blank" rel="nofollow noopener noreferrer">Hypothesis Kit v3</a> by Craig Sullivan.</p>
+    <p>Based on the <a href="https://medium.com/@optimiseordie/hypothesis-kit-2-eff0446e09fc#.8d2gvzj4o" target="_blank" rel="noopener noreferrer">Hypothesis Kit v3</a> by Craig Sullivan.</p>
     <form>
       <fieldset onkeyup="getHypothesis1()">
-        <legend>1</legend>
+        <legend>Step 1</legend>
         <label for="because">Because we saw</label>
         <textarea name="because" id="because" placeholder="qual & quant data"></textarea>
       </fieldset>
       <fieldset onkeyup="getHypothesis2()">
-        <legend>2</legend>
+        <legend>Step 2</legend>
         <label for="change">We expect that</label>
         <textarea name="change" id="change" placeholder="change"></textarea>
         <label for="population">For</label>
@@ -86,16 +85,16 @@
         <textarea name="impact" id="impact" placeholder="impact(s)"></textarea>
       </fieldset>
       <fieldset onkeyup="getHypothesis3()">
-        <legend>3</legend>
+        <legend>Step 3</legend>
         <label for="metric">We expect to see</label>
         <textarea name="metric" id="metric" placeholder="data metric(s) change"></textarea>
         <label for="cycles">Over a period of</label>
         <textarea name="cycles" id="cycles" placeholder="x business cycles"></textarea>
       </fieldset>
     </form>
-    <p id="result1">Because we saw (qual & quant data).</p>
-    <p id="result2">We expect that (change) for (population) will cause (impact(s)).</p>
-    <p id="result3">We expect to see (data metric(s) change) over a period of (x business cycles).</p>
+      <p id="result1">Because we saw (qual & quant data).</p>
+      <p id="result2">We expect that (change) for (population) will cause (impact(s)).</p>
+      <p id="result3">We expect to see (data metric(s) change) over a period of (x business cycles).</p>
     <hr>
     <footer>
       <p>Vreeman.com is the personal website of Simon Vreeman.</p>
@@ -109,26 +108,20 @@
     <script>
       function getHypothesis1() {
           var because = document.getElementById("because").value;
-
           var html1 = 'Because we saw '+because+'.';
-
           result1.textContent = html1;
         }
         function getHypothesis2() {
           var change = document.getElementById("change").value;
           var population = document.getElementById("population").value;
           var impact = document.getElementById("impact").value;
-
           var html2 = 'We expect that '+change+' for '+population+' will cause '+impact+'.';
-
           result2.textContent = html2;
         }
         function getHypothesis3() {
           var metric = document.getElementById("metric").value;
           var cycles = document.getElementById("cycles").value;
-
           var html3 = 'We expect to see '+metric+' over a period of '+cycles+'.';
-
           result3.textContent = html3;
         }
     </script>
