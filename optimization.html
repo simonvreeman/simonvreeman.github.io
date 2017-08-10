@@ -18,12 +18,21 @@
       h1 {
         color: #555;
         font-family: Georgia, serif;
+        font-size: 9vw;
         font-style: italic;
         font-weight: 100;
         text-align: center;
         letter-spacing: 1px;
         -webkit-font-smoothing: antialiased;
-        display:flex;justify-content:center;align-items:center;
+        font-smooth: always;
+        text-size-adjust: 100%;
+        text-rendering: optimizeLegibility;
+        text-transform: capitalize;
+        /*-webkit-font-smoothing: subpixel-antialiased;*/
+        -moz-osx-font-smoothing: grayscale;
+        -moz-font-feature-settings: "liga" on;
+        -webkit-font-feature-settings: "kern" 1, "dlig" 1, "ss01" 1, "opbd" 1;
+        font-feature-settings: "kern" 1, "dlig" 1, "ss01" 1, "opbd" 1;
       }
       .optimizing {
       }
@@ -52,9 +61,9 @@
   <body>
     <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-N78R5VT&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
     <div class="container">
-      <h1 class="optimizing">Always Be Optimizing</h1>
-      <h1 class="learning">Always Be Learning</h1>
-      <h1 class="experimenting">Always Be Experimenting</h1>
+      <h1 class="optimizing">Always be optimizing</h1>
+      <h1 class="learning">Always be learning</h1>
+      <h1 class="experimenting">Always be experimenting</h1>
     </div>
   </body>
 </html>
