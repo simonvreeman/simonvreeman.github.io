@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Test</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+    <title>Test</title>
     <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>
     <style>
       body {
@@ -41,10 +41,10 @@
     </dl>
     <script>
       var ua = navigator.userAgent || navigator.vendor || window.opera;
-      var fbinapp = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) ? 'Yes' : 'Nope';
-      var liinapp = (ua.indexOf("LinkedIn") > -1) ? 'Yes' : 'Nope';
-      var twinapp = (ua.indexOf("Twitter") > -1) ? 'Yes' : 'Nope';
-      var flinapp = (ua.indexOf("Flipboard") > -1) ? 'Yes' : 'Nope';
+      var fbinapp = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) ? 'Yes' : 'No';
+      var liinapp = (ua.indexOf("LinkedIn") > -1) ? 'Yes' : 'No';
+      var twinapp = (ua.indexOf("Twitter") > -1) ? 'Yes' : 'No';
+      var flinapp = (ua.indexOf("Flipboard") > -1) ? 'Yes' : 'No';
       document.getElementById("in-app").innerHTML = "Facebook: " + fbinapp + ", LinkedIn: " + liinapp + ", Twitter: " + twinapp + ", Flipboard: " + flinapp;
     </script>
   </body>
