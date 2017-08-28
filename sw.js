@@ -7,8 +7,7 @@ var cacheFiles = [
   '/hypothesis.html',
   '/utm.html',
   '/dencoder.html',
-  '/check.html',
-  '/test.html'
+  '/check.html'
 ];
 
 self.addEventListener('install', function(event) {
