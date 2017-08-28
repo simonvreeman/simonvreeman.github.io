@@ -3,6 +3,9 @@
   <head>
     <script src="https://www.googletagmanager.com/gtag/js?id=UA-2826482-20" async></script>
     <script>
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+      var ref = document.referrer;
+
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments)};
       gtag('js', new Date());
@@ -13,8 +16,8 @@
         },
         'transport_type': 'beacon',
         'link_attribution': true,
-        'referrer': document.referrer,
-        'useragent': navigator.userAgent
+        'referrer': ref,
+        'useragent': ua
       });
       gtag('event', 'test_action', {
         'event_category': 'test_category',
@@ -49,25 +52,34 @@
   <body>
     <dl>
       <dt>navigator.userAgent:</dt>
-      <dd><code><script>document.write(navigator.userAgent);</script></code></dd>
-      <dt>navigator.standalone:</dt>
-      <dd><code><script>document.write(navigator.standalone);</script></code></dd>
+      <dd><code id="ua"></code></dd>
       <dt>document.referrer:</dt>
-      <dd><code><script>document.write(document.referrer);</script></code></dd>
+      <dd><code id="ref"></code></dd>
       <!-- <dt>Google Analytics Client ID:</dt>
       <dd><code id="clientid"></code></dd> -->
+      <dt>Fingerprintjs2:</dt>
+      <dd><code id="fingerprint"></code></dd>
       <dt>window.performance.now:</dt>
       <dd><code id="window-performance"></code></dd>
       <dt>In-app browser:</dt>
       <dd><code id="in-app"></code></dd>
     </dl>
     <script>
-      var ua = navigator.userAgent || navigator.vendor || window.opera;
+      document.getElementById("ua").innerHTML = ua;
+      document.getElementById("ref").innerHTML = ref;
       var fbinapp = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) ? 'Yes' : 'No';
       var liinapp = (ua.indexOf("LinkedIn") > -1) ? 'Yes' : 'No';
       var twinapp = (ua.indexOf("Twitter") > -1) ? 'Yes' : 'No';
       var flinapp = (ua.indexOf("Flipboard") > -1) ? 'Yes' : 'No';
       document.getElementById("in-app").innerHTML = "Facebook: " + fbinapp + ", LinkedIn: " + liinapp + ", Twitter: " + twinapp + ", Flipboard: " + flinapp;
+    </script>
+    <script src="https://cdn.jsdelivr.net/fingerprintjs2/1.5.1/fingerprint2.min.js"></script>
+    <script>
+      new Fingerprint2().get(function(result, components){
+        console.log(result); //a hash, representing your device fingerprint
+        document.getElementById("fingerprint").innerHTML = result;
+        console.log(components); // an array of FP components
+      });
     </script>
     <script>
       // Feature detects Navigation Timing API support.
@@ -82,15 +94,6 @@
           'name': 'load',
           'value': timeSincePageLoad,
           'event_category': 'JS Dependencies'
-        });
-      }
-      try {
-        // Runs code that may or may not work.
-        window.possiblyUndefinedFunction();
-      } catch(err) {
-        gtag('event', 'exception', {
-          'description': err.message,
-          'fatal': false
         });
       }
     </script>
