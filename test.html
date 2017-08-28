@@ -13,17 +13,14 @@
         },
         'transport_type': 'beacon',
         'link_attribution': true,
-        'page_title': document.title,
-        'page_location': document.location.href,
-        'page_path': document.location.pathname
+        'referrer': document.referrer,
+        'useragent': navigator.userAgent
       });
       gtag('event', 'test_action', {
         'event_category': 'test_category',
         'event_label': 'test_label',
         'value': 10,
-        'non_interaction': true,
-        'referrer': document.referrer,
-        'useragent': navigator.userAgent
+        'non_interaction': true
       });
     </script>
     <meta charset="utf-8">
