@@ -12,6 +12,7 @@
       gtag('config', 'UA-2826482-20', {
         'custom_map': {
           'dimension6': 'referrer',
+          'dimension8': 'fingerprint',
           'dimension10': 'useragent'
         },
         'transport_type': 'beacon',
@@ -79,6 +80,11 @@
         console.log(result); //a hash, representing your device fingerprint
         document.getElementById("fingerprint").innerHTML = result;
         console.log(components); // an array of FP components
+        gtag('event', 'fingerprint', {
+          'event_category': 'Fingerprint',
+          'event_action': result,
+          'fingerprint': result
+        });
       });
     </script>
     <script>
