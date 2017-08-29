@@ -78,6 +78,17 @@
         <dd><code><script>document.write( window.innerWidth + ' &times; ' + window.innerHeight );</script></code></dd>
       </dl>
     </details>
+<!--     <details>
+      <summary>More&hellip;</summary>
+      <p><code>console.log(window.performance);</code></p>
+      <ul>
+        <script>
+          for (g in window.performance.timing) {
+            document.write('<li><strong>window.' + g + '</strong>: ' + window.performance.timing[g] + '</li>');
+          }
+        </script>
+      </ul>
+    </details> -->
     <script>
       var fbinapp = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) ? 'Yes' : 'No';
       var liinapp = (ua.indexOf("LinkedIn") > -1) ? 'Yes' : 'No';
