@@ -65,14 +65,27 @@
       <dt>In-app browser:</dt>
       <dd><code id="in-app"></code></dd>
     </dl>
+    <details>
+      <summary>More&hellip;</summary>
+      <dl>
+        <dt>Total screen width/height:</dt>
+        <dd><code><script>document.write( screen.width + ' &times; ' + screen.height );</script></code></dd>
+        <dt>Available screen width/height:</dt>
+        <dd><code><script>document.write( screen.availWidth + ' &times; ' + screen.availHeight );</script></code></dd>
+        <dt>Total browser width/height:</dt>
+        <dd><code><script>document.write( window.outerWidth + ' &times; ' + window.outerHeight );</script></code></dd>
+        <dt>Available browser width/height:</dt>
+        <dd><code><script>document.write( window.innerWidth + ' &times; ' + window.innerHeight );</script></code></dd>
+      </dl>
+    </details>
     <script>
-      document.getElementById("ua").innerHTML = ua;
-      document.getElementById("ref").innerHTML = ref;
       var fbinapp = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) ? 'Yes' : 'No';
       var liinapp = (ua.indexOf("LinkedIn") > -1) ? 'Yes' : 'No';
       var twinapp = (ua.indexOf("Twitter") > -1) ? 'Yes' : 'No';
       var flinapp = (ua.indexOf("Flipboard") > -1) ? 'Yes' : 'No';
       document.getElementById("in-app").innerHTML = "Facebook: " + fbinapp + ", LinkedIn: " + liinapp + ", Twitter: " + twinapp + ", Flipboard: " + flinapp;
+      document.getElementById("ua").innerHTML = ua;
+      document.getElementById("ref").innerHTML = ref;
     </script>
     <script src="https://cdn.jsdelivr.net/fingerprintjs2/1.5.1/fingerprint2.min.js"></script>
     <script>
