@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-2826482-20" async></script>
+    <script>
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+      var ref = document.referrer;
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+      gtag('config', 'UA-2826482-20', {
+        'custom_map': {
+          'dimension6': 'referrer',
+          'dimension8': 'fingerprint',
+          'dimension10': 'useragent'
+        },
+        'transport_type': 'beacon',
+        'link_attribution': true,
+        'referrer': ref,
+        'useragent': ua
+      });
+      gtag('event', 'test_action', {
+        'event_category': 'test_category',
+        'event_label': 'test_label',
+        'value': 10,
+        'non_interaction': true
+      });
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+    <title>Timer</title>
+    <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>
+    <style>
+      body {
+        font: 1.125em/1.6 BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      }
+    </style>
+    <link rel="canonical" href="https://vreeman.com/">
+    <meta name="referrer" content="unsafe-url">
+    <meta name="robots" content="noindex, nofollow">
+  </head>
+  <body>
+<div id="hms">00:01:10</div>
+<script type="text/javascript">
+    var timeoutHandle;
+    function count() {
+
+    var startTime = document.getElementById('hms').innerHTML;
+    var pieces = startTime.split(":");
+    var time = new Date();    time.setHours(pieces[0]);
+    time.setMinutes(pieces[1]);
+    time.setSeconds(pieces[2]);
+    var timedif = new Date(time.valueOf() - 1000);
+    var newtime = timedif.toTimeString().split(" ")[0];
+    document.getElementById('hms').innerHTML=newtime;
+    timeoutHandle=setTimeout(count, 1000);
+}
+count();
+
+</script>
+  </body>
+</html>
