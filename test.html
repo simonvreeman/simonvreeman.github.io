@@ -17,6 +17,8 @@
         },
         'transport_type': 'beacon',
         'link_attribution': true,
+        'sampleRate': 100,
+        'siteSpeedSampleRate': 100,
         'referrer': ref,
         'useragent': ua
       });
@@ -79,13 +81,13 @@
       <summary>More&hellip;</summary>
       <ul>
         <script>
-          for (g in window.performance.timing) {
-            document.write('<li><strong>window.' + g + '</strong>: ' + window.performance.timing[g] + '</li>');
+          for (a in window.performance.timing) {
+            document.write('<li><strong>window.' + a + '</strong>: ' + window.performance.timing[a] + '</li>');
           }
         </script>
       </ul>
     </details> -->
-    <p><small>Some tests by <a href="https://vreeman.com" rel="noopener" onclick="gtag('event', 'link_click', { 'event_category': 'Link click', 'event_action': 'Simon Vreeman', 'event_label': 'https://vreeman.com', 'non_interaction': true });">Simon Vreeman</a></small></p>
+    <p><small>Some tests by <a href="https://vreeman.com" rel="noopener" onclick="gtag('event', 'link_click', { 'event_category': 'Link click', 'event_action': 'Simon Vreeman', 'event_label': 'https://vreeman.com', 'non_interaction': true });">Simon Vreeman</a>.</small></p>
     <script>
       var fbinapp = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) ? 'Yes' : 'No';
       var liinapp = (ua.indexOf("LinkedIn") > -1) ? 'Yes' : 'No';
@@ -98,7 +100,7 @@
     <script src="https://cdn.jsdelivr.net/fingerprintjs2/1.5.1/fingerprint2.min.js"></script>
     <script>
       new Fingerprint2().get(function(result, components){
-        console.log(result); //a hash, representing your device fingerprint
+        console.log("Fingerprint2: " + result); //a hash, representing your device fingerprint
         document.getElementById("fingerprint").innerHTML = result;
         console.log(components); // an array of FP components
         gtag('event', 'fingerprint', {
