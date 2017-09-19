@@ -6,6 +6,15 @@
       var ua = navigator.userAgent || navigator.vendor || window.opera;
       var ref = document.referrer;
 
+        function hitCallback() {
+          var gaclientid = ga.getAll()[0].get('clientId');
+          var galinkerParam = ga.getAll()[0].get("linkerParam");
+          console.log(gaclientid);
+          console.log(linkerParam);
+          document.getElementById("clientid").innerHTML = gaclientid;
+          document.getElementById("linker").innerHTML = galinkerParam;
+        }
+
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments)};
       gtag('js', new Date());
@@ -27,7 +36,8 @@
         'event_category': 'test_category',
         'event_label': 'test_label',
         'value': 10,
-        'non_interaction': true
+        'non_interaction': true,
+        event_callback: hitCallback
       });
     </script>
     <meta charset="utf-8">
@@ -56,8 +66,10 @@
       <dd><code id="ua"></code></dd>
       <dt>document.referrer:</dt>
       <dd><code id="ref"></code></dd>
-      <!-- <dt>Google Analytics Client ID:</dt>
-      <dd><code id="clientid"></code></dd> -->
+      <dt>Google Analytics Client ID:</dt>
+      <dd><code id="clientid"></code></dd>
+      <dt>Google Analytics Linker parameters:</dt>
+      <dd><code id="linker"></code></dd>
       <dt>Fingerprintjs2:</dt>
       <dd><code id="fingerprint"></code></dd>
       <dt>window.performance.now:</dt>
