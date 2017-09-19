@@ -6,17 +6,17 @@
       var ua = navigator.userAgent || navigator.vendor || window.opera;
       var ref = document.referrer;
 
-        function hitCallback() {
-          var gaclientid = ga.getAll()[0].get('clientId');
-          console.log(gaclientid);
-          document.getElementById("clientid").innerHTML = gaclientid;
-          gtag('event', 'clientid', {
+      function hitCallback() {
+        var gaclientid = ga.getAll()[0].get('clientId');
+        console.log(gaclientid);
+        document.getElementById("clientid").innerHTML = gaclientid;
+        gtag('event', 'clientid', {
           'event_category': 'Client ID',
           'event_action': gaclientid,
           'clientidsession': gaclientid,
           'clientiduser': gaclientid
         });
-        }
+      }
 
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments)};
@@ -37,6 +37,7 @@
         'referrer': ref,
         'useragent': ua
       });
+
       gtag('event', 'test_action', {
         'event_category': 'test_category',
         'event_label': 'test_label',
@@ -135,7 +136,6 @@
         document.getElementById("window-performance").innerHTML = timeSincePageLoad;
         console.log(window.performance);
 
-        // Sends the timing event to Google Analytics.
         gtag('event', 'timing_complete', {
           'name': 'load',
           'value': timeSincePageLoad,
