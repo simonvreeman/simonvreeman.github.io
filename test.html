@@ -10,6 +10,12 @@
           var gaclientid = ga.getAll()[0].get('clientId');
           console.log(gaclientid);
           document.getElementById("clientid").innerHTML = gaclientid;
+          gtag('event', 'clientid', {
+          'event_category': 'Client ID',
+          'event_action': gaclientid,
+          'clientidsession': gaclientid,
+          'clientiduser': gaclientid
+        });
         }
 
       window.dataLayer = window.dataLayer || [];
@@ -17,7 +23,9 @@
       gtag('js', new Date());
       gtag('config', 'UA-2826482-20', {
         'custom_map': {
+          'dimension2': 'clientidsession',
           'dimension6': 'referrer',
+          'dimension7': 'clientiduser',
           'dimension8': 'fingerprint',
           'dimension10': 'useragent'
         },
