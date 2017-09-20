@@ -125,6 +125,7 @@
         console.log("Fingerprint2: " + result); //a hash, representing your device fingerprint
         document.getElementById("fingerprint").innerHTML = result;
         console.log(components); // an array of FP components
+
         gtag('event', 'fingerprint', {
           'event_category': 'Fingerprint',
           'event_action': result,
