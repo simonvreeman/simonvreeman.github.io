@@ -8,12 +8,31 @@
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <title>Always Be Optimizing</title>
     <style amp-custom>
-      .container {
-        display: flex;
+      #container, body, html {
+        height: 100%;
+      }
+      #container {
+        /*display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 100vh;
+        height: 100vh;*/
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
       }
       h1 {
         color: #555;
@@ -21,7 +40,7 @@
         font-size: 9vw;
         font-style: italic;
         font-weight: 100;
-        text-align: center;
+        /*text-align: center;*/
         letter-spacing: 1px;
         -webkit-font-smoothing: antialiased;
         font-smooth: always;
@@ -35,6 +54,17 @@
         font-feature-settings: "kern" 1, "dlig" 1, "ss01" 1, "opbd" 1;
       }
       .optimizing {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
       }
       .learning {
         display: none;
@@ -61,7 +91,7 @@
   </head>
   <body>
     <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-N78R5VT&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
-    <div class="container">
+    <div id="container">
       <h1 class="optimizing">Always be optimizing</h1>
       <h1 class="learning">Always be learning</h1>
       <h1 class="experimenting">Always be experimenting</h1>

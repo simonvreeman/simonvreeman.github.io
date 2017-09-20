@@ -118,7 +118,8 @@
       document.getElementById("ua").innerHTML = ua;
       document.getElementById("ref").innerHTML = ref;
     </script>
-    <script src="https://cdn.jsdelivr.net/fingerprintjs2/1.5.1/fingerprint2.min.js"></script>
+    <script src="js/engagement.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fingerprintjs2@1/dist/fingerprint2.min.js"></script>
     <script>
       new Fingerprint2().get(function(result, components){
         console.log("Fingerprint2: " + result); //a hash, representing your device fingerprint
