@@ -8,7 +8,7 @@
 
       function hitCallback() {
         var gaclientid = ga.getAll()[0].get('clientId');
-        console.log(gaclientid);
+        console.log("Google Analytics Client ID: " + gaclientid);
         document.getElementById("clientid").innerHTML = gaclientid;
         gtag('event', 'clientid', {
           'event_category': 'Client ID',
