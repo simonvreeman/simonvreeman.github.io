@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Advanced Hypothesis Kit</title>
+    <title>Simple Hypothesis Kit</title>
     <!-- https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/ -->
     <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
@@ -57,7 +57,7 @@
     <meta name="robots" content="noindex,follow">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Advanced Hypothesis Kit">
+    <meta name="apple-mobile-web-app-title" content="Simple Hypothesis Kit">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="theme-color" content="#000">
     <link rel="manifest" href="/manifest.json">
@@ -65,35 +65,23 @@
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header>
-      <h1>Advanced Hypothesis Kit</h1>
+      <h1>Simple Hypothesis Kit</h1>
       <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a></p>
     </header>
-    <form>
-      <fieldset onkeyup="getHypothesis1()">
-        <legend>Step 1</legend>
+    <form onkeyup="getHypothesis()">
+      <fieldset>
+        <legend>Build your own hypothesis</legend>
         <label for="because">Because we saw</label>
-        <textarea name="because" id="because" placeholder="qual & quant data"></textarea>
-      </fieldset>
-      <fieldset onkeyup="getHypothesis2()">
-        <legend>Step 2</legend>
+        <textarea name="because" id="because" placeholder="(data/feedback)"></textarea>
         <label for="change">We expect that</label>
-        <textarea name="change" id="change" placeholder="change"></textarea>
-        <label for="population">For</label>
-        <textarea name="population" id="population" placeholder="population"></textarea>
+        <textarea name="change" id="change" placeholder="(change)"></textarea>
         <label for="impact">Will cause</label>
-        <textarea name="impact" id="impact" placeholder="impact(s)"></textarea>
-      </fieldset>
-      <fieldset onkeyup="getHypothesis3()">
-        <legend>Step 3</legend>
-        <label for="metric">We expect to see</label>
-        <textarea name="metric" id="metric" placeholder="data metric(s) change"></textarea>
-        <label for="cycles">Over a period of</label>
-        <textarea name="cycles" id="cycles" placeholder="x business cycles"></textarea>
+        <textarea name="impact" id="impact" placeholder="(impact"></textarea>
+        <label for="metric">We’ll measure this using</label>
+        <textarea name="metric" id="metric" placeholder="(data metric)"></textarea>
       </fieldset>
     </form>
-    <p id="result1">Because we saw (qual & quant data).</p>
-    <p id="result2">We expect that (change) for (population) will cause (impact(s)).</p>
-    <p id="result3">We expect to see (data metric(s) change) over a period of (x business cycles).</p>
+    <p id="result">Because we saw (data/feedback).<br>We expect that (change) will cause (impact).<br>We’ll measure this using (data metric).</p>
     <p>Based on the <a href="https://medium.com/@optimiseordie/hypothesis-kit-2-eff0446e09fc#.8d2gvzj4o" target="_blank" rel="noopener noreferrer">Hypothesis Kit v3</a> by Craig Sullivan.</p>
     <hr>
     <footer>
@@ -106,29 +94,20 @@
       </dl>
     </footer>
     <script>
-      function getHypothesis1() {
-          var because = document.getElementById("because").value;
-          var html1 = 'Because we saw '+because+'.';
-          result1.textContent = html1;
-        }
-        function getHypothesis2() {
-          var change = document.getElementById("change").value;
-          var population = document.getElementById("population").value;
-          var impact = document.getElementById("impact").value;
-          var html2 = 'We expect that '+change+' for '+population+' will cause '+impact+'.';
-          result2.textContent = html2;
-        }
-        function getHypothesis3() {
-          var metric = document.getElementById("metric").value;
-          var cycles = document.getElementById("cycles").value;
-          var html3 = 'We expect to see '+metric+' over a period of '+cycles+'.';
-          result3.textContent = html3;
-        }
+      function getHypothesis() {
+        var because = document.getElementById("because").value;
+        var change = document.getElementById("change").value;
+        var impact = document.getElementById("impact").value;
+        var metric = document.getElementById("metric").value;
+        var result = document.getElementById("result");
+        var html = 'Because we saw ' + because + '.<br>We expect that ' + change + ' will cause ' + impact + '.<br>We’ll measure this using ' + metric + '.';
+        result.innerHTML = html;
+      }
     </script>
-    <script>
+    <!-- <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js');
       }
-    </script>
+    </script> -->
   </body>
 </html>
