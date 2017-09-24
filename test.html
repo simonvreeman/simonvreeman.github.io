@@ -51,11 +51,15 @@
       });
     </script>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, viewport-fit=cover">
     <title>Test</title>
     <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>
     <style>
       body {
+        padding-top: constant(safe-area-inset-top);
+        padding-left: constant(safe-area-inset-left);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-right: constant(safe-area-inset-right);
         font: 1.125em/1.6 BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       }
       dt {
