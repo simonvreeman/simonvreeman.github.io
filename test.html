@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, viewport-fit=cover">
+    <title>Test</title>
+    <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>
     <script src="https://www.googletagmanager.com/gtag/js?id=UA-2826482-20" async></script>
     <script>
       var ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -33,7 +37,7 @@
         'link_attribution': true,
         'linker': {
           'accept_incoming': true,
-          'domains': ['vreeman.com']
+          'domains': ['vreeman.com', 'simonvreeman.com', 'simonvreeman.nl']
         },
         'sampleRate': 100,
         'siteSpeedSampleRate': 100,
@@ -50,10 +54,6 @@
         event_callback: hitCallback
       });
     </script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, viewport-fit=cover">
-    <title>Test</title>
-    <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>
     <style>
       body {
         padding-top: constant(safe-area-inset-top);
@@ -113,22 +113,14 @@
       </ul>
     </details> -->
     <p><small>Some tests by <a href="https://vreeman.com" rel="noopener" onclick="gtag('event', 'link_click', { 'event_category': 'Link click', 'event_action': 'Simon Vreeman', 'event_label': 'https://vreeman.com', 'non_interaction': true });">Simon Vreeman</a>.</small></p>
-    <script>
-      var fbinapp = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) ? 'Yes' : 'No';
-      var liinapp = (ua.indexOf("LinkedIn") > -1) ? 'Yes' : 'No';
-      var twinapp = (ua.indexOf("Twitter") > -1) ? 'Yes' : 'No';
-      var flinapp = (ua.indexOf("Flipboard") > -1) ? 'Yes' : 'No';
-      document.getElementById("in-app").innerHTML = "Facebook: " + fbinapp + ", LinkedIn: " + liinapp + ", Twitter: " + twinapp + ", Flipboard: " + flinapp;
-      document.getElementById("ua").innerHTML = ua;
-      document.getElementById("ref").innerHTML = ref;
-    </script>
     <script src="js/engagement.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fingerprintjs2@1/dist/fingerprint2.min.js"></script>
     <script>
+      // Fingerprint2
       new Fingerprint2().get(function(result, components){
-        console.log("Fingerprint2: " + result); //a hash, representing your device fingerprint
+        console.log("Fingerprint2: " + result);
         document.getElementById("fingerprint").innerHTML = result;
-        console.log(components); // an array of FP components
+        console.log(components);
 
         gtag('event', 'fingerprint', {
           'event_category': 'Fingerprint',
@@ -136,8 +128,16 @@
           'fingerprint': result
         });
       });
-    </script>
-    <script>
+
+      // Check Facebook, LinkedIn, Twitter or Flipboard In-App browsers
+      var fbinapp = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) ? 'Yes' : 'No';
+      var liinapp = (ua.indexOf("LinkedIn") > -1) ? 'Yes' : 'No';
+      var twinapp = (ua.indexOf("Twitter") > -1) ? 'Yes' : 'No';
+      var flinapp = (ua.indexOf("Flipboard") > -1) ? 'Yes' : 'No';
+      document.getElementById("in-app").innerHTML = "Facebook: " + fbinapp + ", LinkedIn: " + liinapp + ", Twitter: " + twinapp + ", Flipboard: " + flinapp;
+      document.getElementById("ua").innerHTML = ua;
+      document.getElementById("ref").innerHTML = ref;
+
       // Feature detects Navigation Timing API support.
       if (window.performance) {
         // Gets the number of milliseconds since page load
