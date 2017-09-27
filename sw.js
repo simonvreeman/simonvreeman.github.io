@@ -4,6 +4,7 @@ var cacheFiles = [
   '/index.html',
   '/tools.html',
   '/calc.html',
+  '/growth.html',
   '/hypothesis.html',
   '/simple.html',
   '/utm.html',
