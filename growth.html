@@ -66,30 +66,83 @@
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header>
-      <h1>E-commerce Revenue Growth Calculator</h1>
+      <h1>Revenue Growth Calculator</h1>
       <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a></p>
     </header>
     <!-- https://form.jotformeu.com/70175677375365 -->
     <form>
       <fieldset>
-        <legend>Add the numbers</legend>
-        <label for="visitorsA">Visitors A</label>
-        <input type="number" name="visitorsA" id="visitorsA" value="5000">
-        <label for="visitorsB">Visitors B</label>
-        <input type="number" name="visitorsB" id="visitorsB" value="5000">
-        <label for="conversionsA">Conversions A</label>
-        <input type="number" name="conversionsA" id="conversionsA" value="100">
-        <label for="conversionsB">Conversions B</label>
-        <input type="number" name="conversionsB" id="conversionsB" value="130">
+        <legend>Conversion Growth</legend>
+        <select id="conversionrate" required>
+          <option value="1">0%</option>
+          <option value="1.025">2.5%</option>
+          <option value="1.05">5%</option>
+          <option value="1.1" selected>10%</option>
+          <option value="1.2">20%</option>
+          <option value="1.3">30%</option>
+          <option value="1.4">40%</option>
+          <option value="1.5">50%</option>
+          <option value="1.6">60%</option>
+          <option value="1.7">70%</option>
+          <option value="1.8">80%</option>
+          <option value="1.9">90%</option>
+          <option value="2">100%</option>
+          <option value="2.1">110%</option>
+        </select>
+        <label for="conversionrate">Increase in % of transactions / visitors</label>
       </fieldset>
-      <button type="button" onclick="calcResults()">Calculate</button>
+      <fieldset>
+        <legend>Average Order Value Growth</legend>
+        <select id="ordervalue" required>
+          <option value="1">0%</option>
+          <option value="1.025">2.5%</option>
+          <option value="1.05">5%</option>
+          <option value="1.1" selected>10%</option>
+          <option value="1.2">20%</option>
+          <option value="1.3">30%</option>
+          <option value="1.4">40%</option>
+          <option value="1.5">50%</option>
+          <option value="1.6">60%</option>
+          <option value="1.7">70%</option>
+          <option value="1.8">80%</option>
+          <option value="1.9">90%</option>
+          <option value="2">100%</option>
+          <option value="2.1">110%</option>
+        </select>
+        <label for="ordervalue">Increase in % of revenue / transactions</label>
+      </fieldset>
+      <fieldset>
+        <legend>Visitor Growth</legend>
+        <select id="visitors" required>
+          <option value="1">0%</option>
+          <option value="1.025">2.5%</option>
+          <option value="1.05">5%</option>
+          <option value="1.1" selected>10%</option>
+          <option value="1.2">20%</option>
+          <option value="1.3">30%</option>
+          <option value="1.4">40%</option>
+          <option value="1.5">50%</option>
+          <option value="1.6">60%</option>
+          <option value="1.7">70%</option>
+          <option value="1.8">80%</option>
+          <option value="1.9">90%</option>
+          <option value="2">100%</option>
+          <option value="2.1">110%</option>
+        </select>
+        <label for="visitors">Increase in % of visitors</label>
+      </fieldset>
+      <fieldset>
+        <legend>Revenue Growth</legend>
+        <label for="revenue">Current Revenue</label>
+        <input type="number" name="revenue" id="revenue" value="1000" min="0" placeholder="Enter current revenue that is subject to this change" required>
+      </fieldset>
+      <button type="button" onclick="calcResults()">Calculate growth</button>
     </form>
     <h2>Results</h2>
-    <span id="alertmessage"></span>
     <ul>
-      <li>Conversion Rate A: <span id="conversionrateA">2%</span></li>
-      <li>Conversion Rate B: <span id="conversionrateB">2.6%</span></li>
-      <li>Conversion Rate Difference: <span id="conversionrateDiff">30%</span></li>
+      <li>Revenue Growth Multiplier: <span id="multiplier">1.33</span></li>
+      <li>Incremental Revenue: <span id="incrementalrevenue">331</span></li>
+      <li>New Revenue: <span id="newrevenue">1,331</span></li>
     </ul>
     <hr>
     <footer>
@@ -103,37 +156,21 @@
     </footer>
     <script>
       function calcResults() {
-        var visitorsA = document.getElementById("visitorsA").value;
-        var visitorsB = document.getElementById("visitorsB").value;
-        var conversionsA = document.getElementById("conversionsA").value;
-        var conversionsB = document.getElementById("conversionsB").value;
-        var setConversionrateA = document.getElementById("conversionrateA");
-        var setConversionrateB = document.getElementById("conversionrateB");
-        var setConversionrateDiff = document.getElementById("conversionrateDiff");
-        var alertMessage = document.getElementById("alertmessage");
+        var conversionrate = document.getElementById("conversionrate").value;
+        var ordervalue = document.getElementById("ordervalue").value;
+        var visitors = document.getElementById("visitors").value;
+        var revenue = document.getElementById("revenue").value;
+        var setMultiplier = document.getElementById("multiplier");
+        var setIncrementalrevenue = document.getElementById("incrementalrevenue");
+        var setNewrevenue = document.getElementById("newrevenue");
 
-        var calcConversionrateA = (conversionsA / visitorsA) * 100;
-        var calcConversionrateB = (conversionsB / visitorsB) * 100;
-        var calcConversionrateDiff = ((calcConversionrateB - calcConversionrateA) / calcConversionrateA) * 100;
+        var getMultiplier = conversionrate * ordervalue * visitors;
+        var getNewrevenue = revenue * getMultiplier;
+        var getIncrementalrevenue = ( revenue * getMultiplier ) - revenue;
 
-        var conversionrateA = Math.round(calcConversionrateA * 100) / 100 + '%';
-        var conversionrateB = Math.round(calcConversionrateB * 100) / 100 + '%';
-        var conversionrateDiff = Math.round(calcConversionrateDiff * 100) / 100 + '%';
-
-        if (conversionsA > visitorsA || conversionsB > visitorsB) {
-          alertMessage.innerHTML = 'The number of conversions is higher than the number of visitors.';
-
-        }
-        if (calcConversionrateA > calcConversionrateB) {
-          setConversionrateA.innerHTML = conversionrateA.bold();
-          setConversionrateB.innerHTML = conversionrateB;
-          setConversionrateDiff.innerHTML = conversionrateDiff;
-        }
-        else {
-          setConversionrateA.innerHTML = conversionrateA;
-          setConversionrateB.innerHTML = conversionrateB.bold();
-          setConversionrateDiff.innerHTML = conversionrateDiff;
-        }
+        setMultiplier.innerHTML = (Math.round(getMultiplier * 100) / 100).toLocaleString();
+        setNewrevenue.innerHTML = (Math.round(getNewrevenue * 100) / 100).toLocaleString();
+        setIncrementalrevenue.innerHTML = (Math.round(getIncrementalrevenue * 100) / 100).toLocaleString();
       }
     </script>
     <script>
