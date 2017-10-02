@@ -10,6 +10,10 @@
       var ua = navigator.userAgent || navigator.vendor || window.opera;
       var ref = document.referrer;
 
+      function hitCallbacks() {
+        console.log('Hit sent.')
+      }
+
       function hitCallback() {
         var gaclientid = ga.getAll()[0].get('clientId');
         console.log("Google Analytics Client ID: " + gaclientid);
@@ -20,6 +24,7 @@
           'clientidsession': gaclientid,
           'clientiduser': gaclientid
         });
+        hitCallbacks();
       }
 
       window.dataLayer = window.dataLayer || [];
@@ -43,7 +48,8 @@
         'siteSpeedSampleRate': 100,
         'useAmpClientId': true,
         'referrer': ref,
-        'useragent': ua
+        'useragent': ua,
+        event_callback: hitCallbacks
       });
 
       gtag('event', 'test_action', {
@@ -112,7 +118,7 @@
         </script>
       </ul>
     </details> -->
-    <p><small>Some tests by <a href="https://vreeman.com" rel="noopener" onclick="gtag('event', 'link_click', { 'event_category': 'Link click', 'event_action': 'Simon Vreeman', 'event_label': 'https://vreeman.com', 'non_interaction': true });">Simon Vreeman</a>.</small></p>
+    <p><small>Some tests by <a href="https://vreeman.com" rel="noopener" onclick="gtag('event', 'link_click', { 'event_category': 'Link click', 'event_action': 'Simon Vreeman', 'event_label': 'https://vreeman.com', 'non_interaction': true, event_callback: hitCallbacks } );">Simon Vreeman</a>.</small></p>
     <script src="js/engagement.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fingerprintjs2@1/dist/fingerprint2.min.js"></script>
     <script>
@@ -125,7 +131,8 @@
         gtag('event', 'fingerprint', {
           'event_category': 'Fingerprint',
           'event_action': result,
-          'fingerprint': result
+          'fingerprint': result,
+          event_callback: hitCallbacks
         });
       });
 
@@ -149,7 +156,8 @@
         gtag('event', 'timing_complete', {
           'name': 'load',
           'value': timeSincePageLoad,
-          'event_category': 'JS Dependencies'
+          'event_category': 'JS Dependencies',
+          event_callback: hitCallbacks
         });
       }
     </script>
