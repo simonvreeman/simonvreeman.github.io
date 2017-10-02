@@ -11,7 +11,7 @@
       var ref = document.referrer;
 
       function hitCallbacks() {
-        console.log('Hit sent.')
+        console.log('Test & Client ID event hits sent.');
       }
 
       function hitCallback() {
@@ -49,7 +49,7 @@
         'useAmpClientId': true,
         'referrer': ref,
         'useragent': ua,
-        event_callback: hitCallbacks
+        event_callback: console.log('Pageview hit sent.')
       });
 
       gtag('event', 'test_action', {
@@ -118,7 +118,7 @@
         </script>
       </ul>
     </details> -->
-    <p><small>Some tests by <a href="https://vreeman.com" rel="noopener" onclick="gtag('event', 'link_click', { 'event_category': 'Link click', 'event_action': 'Simon Vreeman', 'event_label': 'https://vreeman.com', 'non_interaction': true, event_callback: hitCallbacks } );">Simon Vreeman</a>.</small></p>
+    <p><small>Some tests by <a href="https://vreeman.com" rel="noopener" onclick="gtag('event', 'link_click', { 'event_category': 'Link click', 'event_action': 'Simon Vreeman', 'event_label': 'https://vreeman.com', 'non_interaction': true, event_callback: console.log('Link click event hit sent.') } );">Simon Vreeman</a>.</small></p>
     <script src="js/engagement.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fingerprintjs2@1/dist/fingerprint2.min.js"></script>
     <script>
@@ -132,7 +132,7 @@
           'event_category': 'Fingerprint',
           'event_action': result,
           'fingerprint': result,
-          event_callback: hitCallbacks
+          event_callback: console.log('Fingerprint event hit sent.')
         });
       });
 
@@ -157,7 +157,7 @@
           'name': 'load',
           'value': timeSincePageLoad,
           'event_category': 'JS Dependencies',
-          event_callback: hitCallbacks
+          event_callback: console.log('Timing hit sent.')
         });
       }
     </script>
