@@ -90,6 +90,8 @@
       <dt>In-app browser:</dt>
       <dd><code id="in-app"></code></dd>
     </dl>
+    <script>document.write( navigator.connection.effectiveType );</script>
+    <script>document.write( navigator.connection.type );</script>
     <details>
       <summary>More&hellip;</summary>
       <dl>
@@ -136,6 +138,7 @@
         var timeSincePageLoad = Math.round(performance.now());
         document.getElementById("window-performance").innerHTML = timeSincePageLoad;
         console.log(window.performance);
+        console.log(navigator.connection);
 
         gtag('event', 'timing_complete', {
           'name': 'load',
