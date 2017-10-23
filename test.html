@@ -90,8 +90,16 @@
       <dt>In-app browser:</dt>
       <dd><code id="in-app"></code></dd>
     </dl>
-    <script>document.write( navigator.connection.effectiveType );</script>
-    <script>document.write( navigator.connection.type );</script>
+    <details>
+      <summary>More&hellip;</summary>
+      <ul>
+        <script>
+          for (a in navigator.connection) {
+            document.write('<li><strong>navigator.' + a + '</strong>: <code>' + navigator.connection[a] + '</code></li>');
+          }
+        </script>
+      </ul>
+    </details>
     <details>
       <summary>More&hellip;</summary>
       <dl>
