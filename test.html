@@ -113,14 +113,10 @@
         <dd><code><script>document.write( window.innerWidth + ' &times; ' + window.innerHeight );</script></code></dd>
       </dl>
     </details>
-    <button onclick="vibratePattern()">Vibrate</button>
     <p><small>Some tests by <a href="https://vreeman.com" rel="noopener" onclick="gtag('event', 'link_click', { 'event_category': 'Link click', 'event_action': 'Simon Vreeman', 'event_label': 'https://vreeman.com', 'non_interaction': true } );">Simon Vreeman</a>.</small></p>
     <script src="js/engagement.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fingerprintjs2@1/dist/fingerprint2.min.js"></script>
     <script>
-      function vibratePattern() {
-        navigator.vibrate([100, 200, 200, 200, 500]);
-      }
       // Fingerprint2
       new Fingerprint2().get(function(result, components){
         document.getElementById("fingerprint").innerHTML = result;
