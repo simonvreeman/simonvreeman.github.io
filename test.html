@@ -131,7 +131,7 @@
       });
 
       // Check Facebook, LinkedIn, Twitter or Flipboard In-App browsers
-      var fbinapp = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) ? 'Yes' : 'No';
+      var fbinapp = (ua.indexOf("FBAN/FBIOS") > -1) || (ua.indexOf("FB_IAB/FB4A") > -1) ? 'Yes' : 'No';
       var liinapp = (ua.indexOf("LinkedIn") > -1) ? 'Yes' : 'No';
       var twinapp = (ua.indexOf("Twitter") > -1) ? 'Yes' : 'No';
       var flinapp = (ua.indexOf("Flipboard") > -1) ? 'Yes' : 'No';
