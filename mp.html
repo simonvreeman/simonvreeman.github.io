@@ -144,7 +144,6 @@
         var eventCategory = document.getElementById("eventcategory").value;
         var eventAction = document.getElementById("eventaction").value;
         var eventLabel = document.getElementById("eventlabel").value;
-        var eventHit = '&ec=' + eventCategory + '&ea=' + eventAction + '&el=' + eventLabel;
         var hitPayload = 'v=1&t=' + hitType + '&tid=' + trackingID + '&cid=' + clientID + '&uip=' + ipAddress + '&dp=' + pagePath + '&dh=' + documentHostname + '&dt=' + documentTitle + '&cs=' + source + '&cm=' + medium + '&cn=' + campaign + '&aip=1&ds=web&ul=en-us&de=UTF-8&sd=24-bit&sr=2560x1440&vp=1280x1343&ua=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36';
         if (eventCategory) {
           var hitPayload = hitPayload + '&ec=' + eventCategory;
