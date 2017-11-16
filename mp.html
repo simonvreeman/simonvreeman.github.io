@@ -2,84 +2,171 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <title>Google Analytics Measurement Protocol Hit Builder</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script> -->
     <style>
+      html {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
       body {
-        font: 1.125em/1.6 BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        margin: 1% auto;
+        padding: 0 3%;
+        max-width: 30em;
+        font: 1.125em/1.6 -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+      footer, small {
+        font-size: 80%;
+      }
+      b, dt, strong {
+        font-weight: 700;
+      }
+      h1, h2, h3 {
+        line-height: 1.2;
+      }
+      a {
+        background-color: transparent;
+      }
+      a:active, a:hover {
+        outline: 0;
+      }
+      code {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      input, textarea {
+        width: 95%;
+        display: block;
+        padding: .5em 1%;
+        font-size: 1em;
+      }
+      fieldset, input, textarea {
+        margin-bottom: 1.5em;
+      }
+      textarea {
+        margin-top: 1.5em;
+        resize: vertical;
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
     <meta name="referrer" content="unsafe-url">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex,follow">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="URL Builder">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#000">
+    <!-- <link rel="manifest" href="/manifest.json"> -->
   </head>
   <body>
-    <h1>Google Analytics Measurement Protocol Hit Builder</h1>
+    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+    <header>
+      <h1>Google Analytics Measurement Protocol Hit Builder</h1>
+      <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a></p>
+    </header>
+
+    <label for="trackingid">Tracking ID</label>
     <input type="text" name="trackingid" value="UA-2826482-20" id="trackingid" placeholder="UA-2826482-20">
-    <br>
+    <label for="hostname">Hostname</label>
+    <input type="text" name="hostname" value="measurement-protocol.com" id="hostname" placeholder="measurement-protocol.com">
+    <label for="pagepath">Page Path</label>
     <input type="text" name="pagepath" value="mp-test" id="pagepath" placeholder="mp-test">
-    <br>
+    <label for="pagetitle">Page Title</label>
+    <input type="text" name="pagetitle" value="Measurement Protocol hit" id="pagetitle" placeholder="Measurement Protocol hit">
+
     <button id="btn">Send one hit</button>
-    <br>
-    <br>
     <button onclick="startCount()">Start sending hits</button>
-    <input type="text" id="txt">
+    <!-- 2 -->
     <button onclick="stopCount()">Stop sending hits</button>
+    
+    <p id="txt"></p>
     <p id="feedback"></p>
 
+    <ul>
+      <li><a href="https://ga-dev-tools.appspot.com/hit-builder/" target="_blank" rel="nofollow noopener noreferrer">Measurement Protocol Hit Builder</a></li>
+      <li><a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters" target="_blank" rel="nofollow noopener noreferrer">Measurement Protocol Parameter Reference</a></li>
+      <li><a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/reference" target="_blank" rel="nofollow noopener noreferrer">Measurement Protocol Reference</a></li>
+      <li><a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide" target="_blank" rel="nofollow noopener noreferrer">Working with the Measurement Protocol</a></li>
+    </ul>
+    <hr>
+    <footer>
+      <p>Vreeman.com is the personal website of Simon Vreeman.</p>
+      <dl>
+        <dt>Privacy policy</dt>
+        <dd>Vreeman.com uses Google Analytics and Google Tag Manager to measure and analyze anonymous user behavior. Vreeman.com uses Cloudflare and is hosted on Github pages.</dd>
+        <dt>Licenses</dt>
+        <dd>Text is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" title="Creative Commons Attribution 4.0 International License">Creative Commons Attribution 4.0 International License</a>. The code is licensed under <a href="https://opensource.org/licenses/MIT" rel="license" title="MIT License">MIT License</a>.</dd>
+      </dl>
+    </footer>
     <script>
-document.getElementById("btn").addEventListener("click", sentHit);
+      document.getElementById("btn").addEventListener("click", sentHit);
 
-function sentHit() {
-  var request = new XMLHttpRequest();
-  var hitType = 'pageview';
-  var trackingID = document.getElementById("trackingid").value;
-  var clientID = uuid();
-  var pagePath = document.getElementById("pagepath").value;
-  var hitPayload = 'v=1&t=' + hitType + '&tid=' + trackingID + '&cid=' + clientID + '&dp=' + pagePath;
+      function sentHit() {
+        var request = new XMLHttpRequest();
+        var hitType = 'pageview';
+        var trackingID = document.getElementById("trackingid").value;
+        var clientID = uuid();
+        var ipAddress = randomIp();
+        var documentHostname = document.getElementById("hostname").value;
+        var pagePath = document.getElementById("pagepath").value;
+        var documentTitle = document.getElementById("pagetitle").value;
+        var hitPayload = 'v=1&t=' + hitType + '&tid=' + trackingID + '&cid=' + clientID + '&uip=' + ipAddress + '&dp=' + pagePath + '&dh=' + documentHostname + '&dt=' + documentTitle + '&aip=1&ds=mp&ul=en-us&de=UTF-8&sd=24-bit&sr=2560x1440&vp=1280x1343&ua=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36';
 
-  request.open('POST', 'https://www.google-analytics.com/collect', true);
-  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-  request.send(hitPayload);
+        request.open('POST', 'https://www.google-analytics.com/collect', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.send(hitPayload);
 
-  document.getElementById("feedback").innerHTML = 'The following hit has been sent: ' + hitPayload;
-}
+        document.getElementById("feedback").innerHTML = 'The following hit has been sent: <code>' + hitPayload + '</code>';
+        console.log ( ipAddress );
+      }
 
-function uuid() {
-  var uuid = "", i, random;
-  for (i = 0; i < 32; i++) {
-    random = Math.random() * 16 | 0;
+      // Generate random Client ID
+      function uuid() {
+        var uuid = "", i, random;
+        for (i = 0; i < 32; i++) {
+          random = Math.random() * 16 | 0;
 
-    if (i == 8 || i == 12 || i == 16 || i == 20) {
-      uuid += "-"
-    }
-    uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
-  }
-  return uuid;
-}
+          if (i == 8 || i == 12 || i == 16 || i == 20) {
+            uuid += "-"
+          }
+          uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
+        }
+        return uuid;
+      }
 
-var c = 0;
-var t;
-var timer_is_on = 0;
+      // Generate random IP address
+      randomByte = function() {
+        return Math.round(Math.random()*256);
+      }
 
-function timedCount() {
-    document.getElementById("txt").value = c + ' hits sent';
-    sentHit();
-    c = c + 1;
-    t = setTimeout(function(){ timedCount() }, 1000);
-}
+      function randomIp() {
+        var randomIp = randomByte() +'.' + randomByte() +'.' + randomByte() +'.' + randomByte();
+        return randomIp;
+      }
 
-function startCount() {
-    if (!timer_is_on) {
-        timer_is_on = 1;
-        timedCount();
-    }
-}
-
-function stopCount() {
-    clearTimeout(t);
-    timer_is_on = 0;
-}
+      // Timer stuff
+      var c = 0;
+      var t;
+      var timer_is_on = 0;
+      function timedCount() {
+        document.getElementById("txt").innerHTML = c + ' hits sent';
+          sentHit();
+          c = c + 1;
+          t = setTimeout(function(){ timedCount() }, 1000);
+      }
+      function startCount() {
+          if (!timer_is_on) {
+              timer_is_on = 1;
+              timedCount();
+          }
+      }
+      function stopCount() {
+          clearTimeout(t);
+          timer_is_on = 0;
+      }
     </script>
   </body>
 </html>
