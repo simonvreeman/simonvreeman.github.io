@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Google Analytics Measurement Protocol Hit Builder</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
-    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script> -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
     <style>
       html {
         overflow-y: scroll;
@@ -62,10 +62,10 @@
     <meta name="apple-mobile-web-app-title" content="URL Builder">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="theme-color" content="#000">
-    <!-- <link rel="manifest" href="/manifest.json"> -->
+    <link rel="manifest" href="/manifest.json">
   </head>
   <body>
-    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header>
       <h1>Google Analytics Measurement Protocol Hit Builder</h1>
       <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a></p>
@@ -189,6 +189,18 @@
         var eventCategory = document.getElementById("eventcategory").value = '';
         var eventAction = document.getElementById("eventaction").value = '';
         var eventLabel = document.getElementById("eventlabel").value = '';
+      }
+
+      // Generate random user-agent
+      function userAgent() {
+        // simon
+        var userAgent1 = '&sr=2560x1440&vp=1280x1343&ua=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/604.3.5 (KHTML, like Gecko) Version/11.0.1 Safari/604.3.5';
+        // Android nexus 5x
+        var userAgent2 = '&sr=412x732&vp=412x660&ua=Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Mobile Safari/537.36';
+        // iPhone 6
+        var userAgent3 = '&sr=375x667&vp=375x667&ua=Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1';
+        // Microsoft Windows Edge
+        var userAgent4 = '&sr=1440x900&vp=800x600&ua=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/13.10586';
       }
 
       // Generate random Client ID
