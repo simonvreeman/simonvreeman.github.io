@@ -37,18 +37,21 @@
         font-family: monospace, monospace;
         font-size: 1em;
       }
-      input, textarea {
+      input, textarea, select {
         width: 95%;
         display: block;
         padding: .5em 1%;
         font-size: 1em;
       }
-      fieldset, input, textarea {
+      fieldset, input, textarea, select {
         margin-bottom: 1.5em;
       }
       textarea {
         margin-top: 1.5em;
         resize: vertical;
+      }
+      .hidden {
+        display: none;
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
@@ -67,7 +70,17 @@
       <h1>Google Analytics Measurement Protocol Hit Builder</h1>
       <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a></p>
     </header>
-
+    <label for="hittype">Hit type</label>
+    <select id="hittype" onchange="getHittype();">
+      <option value="pageview" selected="">Pageview</option>
+      <option value="screenview" disabled>Screenview</option>
+      <option value="event">Event</option>
+      <option value="transaction" disabled>Transaction</option>
+      <option value="item" disabled>Item</option>
+      <option value="social" disabled>Social</option>
+      <option value="exception" disabled>Exception</option>
+      <option value="timing" disabled>Timing</option>
+    </select>
     <label for="trackingid">Tracking ID</label>
     <input type="text" id="trackingid" name="trackingid" value="UA-2826482-20" placeholder="UA-2826482-20">
     <label for="hostname">Hostname</label>
@@ -76,6 +89,14 @@
     <input type="text" id="pagepath" name="pagepath" value="mp-test" placeholder="mp-test">
     <label for="pagetitle">Page Title</label>
     <input type="text" id="pagetitle" name="pagetitle" value="Measurement Protocol hit" placeholder="Measurement Protocol hit">
+
+    <label for="eventcategory" class="event hidden">Event Category</label>
+    <input type="text" id="eventcategory" name="eventcategory" placeholder="Event Category" class="event hidden">
+    <label for="eventaction" class="event hidden">Event Action</label>
+    <input type="text" id="eventaction" name="eventaction" placeholder="Event Action" class="event hidden">
+    <label for="eventlabel" class="event hidden">Event Label</label>
+    <input type="text" id="eventlabel" name="eventlabel" placeholder="Event Label" class="event hidden">
+
     <label for="source">Source (<code>utm_source</code>)</label>
     <input type="text" id="source" name="source" placeholder="bing">
     <label for="medium">Medium (<code>utm_medium</code>)</label>
@@ -110,7 +131,7 @@
 
       function sentHit() {
         var request = new XMLHttpRequest();
-        var hitType = 'pageview';
+        var hitType = document.getElementById("hittype").options[document.getElementById("hittype").selectedIndex].value;
         var trackingID = document.getElementById("trackingid").value;
         var clientID = uuid();
         var ipAddress = randomIp();
@@ -120,13 +141,55 @@
         var source = document.getElementById("source").value;
         var medium = document.getElementById("medium").value;
         var campaign = document.getElementById("campaign").value;
+        var eventCategory = document.getElementById("eventcategory").value;
+        var eventAction = document.getElementById("eventaction").value;
+        var eventLabel = document.getElementById("eventlabel").value;
+        var eventHit = '&ec=' + eventCategory + '&ea=' + eventAction + '&el=' + eventLabel;
         var hitPayload = 'v=1&t=' + hitType + '&tid=' + trackingID + '&cid=' + clientID + '&uip=' + ipAddress + '&dp=' + pagePath + '&dh=' + documentHostname + '&dt=' + documentTitle + '&cs=' + source + '&cm=' + medium + '&cn=' + campaign + '&aip=1&ds=web&ul=en-us&de=UTF-8&sd=24-bit&sr=2560x1440&vp=1280x1343&ua=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36';
+        if (eventCategory) {
+          var hitPayload = hitPayload + '&ec=' + eventCategory;
+        }
+        if (eventAction) {
+          var hitPayload = hitPayload + '&ec=' + eventAction;
+        }
+        if (eventLabel) {
+          var hitPayload = hitPayload + '&ec=' + eventLabel;
+        }
 
         request.open('POST', 'https://www.google-analytics.com/collect', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         request.send(hitPayload);
 
         document.getElementById("feedback").innerHTML = 'The following hit has been sent: <code>' + hitPayload + '</code>';
+      }
+
+      function getHittype() {
+        var hitType = document.getElementById("hittype").options[document.getElementById("hittype").selectedIndex].value;
+
+        if (hitType == 'event') {
+          removeClass();
+        }
+        else {
+          addClass();
+        }
+      }
+
+      // Remove class
+      function removeClass() {
+        var elems = document.querySelectorAll(".hidden");
+        [].forEach.call(elems, function(el) {
+          el.classList.remove("hidden");
+        });
+      }
+      // Add class & reset events values
+      function addClass() {
+        var elems = document.querySelectorAll(".event");
+        [].forEach.call(elems, function(el) {
+          el.classList.add("hidden");
+        });
+        var eventCategory = document.getElementById("eventcategory").value = '';
+        var eventAction = document.getElementById("eventaction").value = '';
+        var eventLabel = document.getElementById("eventlabel").value = '';
       }
 
       // Generate random Client ID
@@ -147,7 +210,6 @@
       randomByte = function() {
         return Math.round(Math.random()*256);
       }
-
       function randomIp() {
         var randomIp = randomByte() +'.' + randomByte() +'.' + randomByte() +'.' + randomByte();
         return randomIp;
