@@ -69,19 +69,23 @@
     </header>
 
     <label for="trackingid">Tracking ID</label>
-    <input type="text" name="trackingid" value="UA-2826482-20" id="trackingid" placeholder="UA-2826482-20">
+    <input type="text" id="trackingid" name="trackingid" value="UA-2826482-20" placeholder="UA-2826482-20">
     <label for="hostname">Hostname</label>
-    <input type="text" name="hostname" value="measurement-protocol.com" id="hostname" placeholder="measurement-protocol.com">
+    <input type="text" id="hostname" name="hostname" value="measurement-protocol.com" placeholder="measurement-protocol.com">
     <label for="pagepath">Page Path</label>
-    <input type="text" name="pagepath" value="mp-test" id="pagepath" placeholder="mp-test">
+    <input type="text" id="pagepath" name="pagepath" value="mp-test" placeholder="mp-test">
     <label for="pagetitle">Page Title</label>
-    <input type="text" name="pagetitle" value="Measurement Protocol hit" id="pagetitle" placeholder="Measurement Protocol hit">
+    <input type="text" id="pagetitle" name="pagetitle" value="Measurement Protocol hit" placeholder="Measurement Protocol hit">
+    <label for="source">Source (<code>utm_source</code>)</label>
+    <input type="text" id="source" name="source" placeholder="bing">
+    <label for="medium">Medium (<code>utm_medium</code>)</label>
+    <input type="text" id="medium" name="medium" placeholder="organic">
+    <label for="campaign">Campaign Name (<code>utm_campaign</code>)</label>
+    <input type="text" id="campaign" name="campaign" placeholder="adwords">
 
     <button id="btn">Send one hit</button>
     <button onclick="startCount()">Start sending hits</button>
-    <!-- 2 -->
     <button onclick="stopCount()">Stop sending hits</button>
-    
     <p id="txt"></p>
     <p id="feedback"></p>
 
@@ -113,14 +117,16 @@
         var documentHostname = document.getElementById("hostname").value;
         var pagePath = document.getElementById("pagepath").value;
         var documentTitle = document.getElementById("pagetitle").value;
-        var hitPayload = 'v=1&t=' + hitType + '&tid=' + trackingID + '&cid=' + clientID + '&uip=' + ipAddress + '&dp=' + pagePath + '&dh=' + documentHostname + '&dt=' + documentTitle + '&aip=1&ds=mp&ul=en-us&de=UTF-8&sd=24-bit&sr=2560x1440&vp=1280x1343&ua=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36';
+        var source = document.getElementById("source").value;
+        var medium = document.getElementById("medium").value;
+        var campaign = document.getElementById("campaign").value;
+        var hitPayload = 'v=1&t=' + hitType + '&tid=' + trackingID + '&cid=' + clientID + '&uip=' + ipAddress + '&dp=' + pagePath + '&dh=' + documentHostname + '&dt=' + documentTitle + '&cs=' + source + '&cm=' + medium + '&cn=' + campaign + '&aip=1&ds=web&ul=en-us&de=UTF-8&sd=24-bit&sr=2560x1440&vp=1280x1343&ua=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36';
 
         request.open('POST', 'https://www.google-analytics.com/collect', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         request.send(hitPayload);
 
         document.getElementById("feedback").innerHTML = 'The following hit has been sent: <code>' + hitPayload + '</code>';
-        console.log ( ipAddress );
       }
 
       // Generate random Client ID
