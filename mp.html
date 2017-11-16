@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+    <title>Google Analytics Measurement Protocol Hit Builder</title>
+    <style>
+      body {
+        font: 1.125em/1.6 BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      }
+    </style>
+    <link rel="canonical" href="https://vreeman.com/">
+    <meta name="referrer" content="unsafe-url">
+    <meta name="robots" content="noindex, nofollow">
+  </head>
+  <body>
+    <h1>Google Analytics Measurement Protocol Hit Builder</h1>
+    <input type="text" name="trackingid" value="UA-2826482-20" id="trackingid" placeholder="UA-2826482-20">
+    <br>
+    <input type="text" name="pagepath" value="mp-test" id="pagepath" placeholder="mp-test">
+    <br>
+    <button id="btn">Send one hit</button>
+    <br>
+    <br>
+    <button onclick="startCount()">Start sending hits</button>
+    <input type="text" id="txt">
+    <button onclick="stopCount()">Stop sending hits</button>
+    <p id="feedback"></p>
+
+    <script>
+document.getElementById("btn").addEventListener("click", sentHit);
+
+function sentHit() {
+  var request = new XMLHttpRequest();
+  var hitType = 'pageview';
+  var trackingID = document.getElementById("trackingid").value;
+  var clientID = uuid();
+  var pagePath = document.getElementById("pagepath").value;
+  var hitPayload = 'v=1&t=' + hitType + '&tid=' + trackingID + '&cid=' + clientID + '&dp=' + pagePath;
+
+  request.open('POST', 'https://www.google-analytics.com/collect', true);
+  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+  request.send(hitPayload);
+
+  document.getElementById("feedback").innerHTML = 'The following hit has been sent: ' + hitPayload;
+}
+
+function uuid() {
+  var uuid = "", i, random;
+  for (i = 0; i < 32; i++) {
+    random = Math.random() * 16 | 0;
+
+    if (i == 8 || i == 12 || i == 16 || i == 20) {
+      uuid += "-"
+    }
+    uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
+  }
+  return uuid;
+}
+
+var c = 0;
+var t;
+var timer_is_on = 0;
+
+function timedCount() {
+    document.getElementById("txt").value = c + ' hits sent';
+    sentHit();
+    c = c + 1;
+    t = setTimeout(function(){ timedCount() }, 1000);
+}
+
+function startCount() {
+    if (!timer_is_on) {
+        timer_is_on = 1;
+        timedCount();
+    }
+}
+
+function stopCount() {
+    clearTimeout(t);
+    timer_is_on = 0;
+}
+    </script>
+  </body>
+</html>
