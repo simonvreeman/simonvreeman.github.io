@@ -59,7 +59,7 @@
     <meta name="robots" content="noindex,follow">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="URL Builder">
+    <meta name="apple-mobile-web-app-title" content="Hit Builder">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="theme-color" content="#000">
     <link rel="manifest" href="/manifest.json">
@@ -72,9 +72,9 @@
     </header>
     <label for="hittype">Hit type (<code>t</code>)</label>
     <select id="hittype" onchange="getHittype();">
-      <option value="pageview" selected="">Pageview</option>
-      <option value="screenview" disabled>Screenview</option>
+      <option value="pageview" selected>Pageview</option>
       <option value="event">Event</option>
+      <option value="screenview" disabled>Screenview</option>
       <option value="transaction" disabled>Transaction</option>
       <option value="item" disabled>Item</option>
       <option value="social" disabled>Social</option>
@@ -191,13 +191,6 @@
         var eventCategory = document.getElementById("eventcategory").value = '';
         var eventAction = document.getElementById("eventaction").value = '';
         var eventLabel = document.getElementById("eventlabel").value = '';
-      }
-
-      // Generate random user-agent
-      function userAgent() {
-        var useragentArray = ['&sr=2560x1440&vp=1280x1343&ua=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/604.3.5 (KHTML, like Gecko) Version/11.0.1 Safari/604.3.5', '&sr=412x732&vp=412x660&ua=Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Mobile Safari/537.36', '&sr=375x667&vp=375x667&ua=Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1', '&sr=1440x900&vp=800x600&ua=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/13.10586'];
-        var userAgent = useragentArray[Math.floor(Math.random() * useragentArray.length)];
-        console.log ( rand );
       }
 
       // Generate random Client ID
