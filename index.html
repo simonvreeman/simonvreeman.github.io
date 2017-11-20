@@ -130,7 +130,10 @@
     {
       "@context": "http://schema.org",
       "@type": "Person",
+      "@id": "#person",
       "name": "Simon Vreeman",
+      "givenName": "Simon",
+      "familyName": "Vreeman",
       "jobTitle": "Senior CRO Analyst",
       "worksFor": {
         "@type": "Organization",
@@ -144,7 +147,12 @@
           "https://www.instagram.com/fietsenwinkel.nl/",
           "https://www.youtube.com/user/Fietsenwinkelnl"
         ],
-        "logo": "http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2016/06/tnw-logo-amp.png"
+        "logo": "https://vreeman.com/img/fietsenwinkel.png",
+        "contactPoint": {
+          "@type" : "ContactPoint",
+          "telephone" : "+31207052800",
+          "contactType" : "Customer Service"
+        }
       },
       "address": {
         "@type": "PostalAddress",
@@ -160,8 +168,19 @@
       "homeLocation": {
         "@id": "#homeLocation"
       },
-      "image": "https://vreeman.com/img/simon-vreeman.jpg",
-      "gender": "male",
+      "image": {
+        "@context": "http://schema.org",
+        "@type": "ImageObject",
+        "author": {
+          "@id": "#person"
+        },
+        "contentUrl": "https://vreeman.com/img/simon-vreeman.jpg",
+        "name": "A profile picture of Simon Vreeman"
+      },
+      "gender": {
+        "@type": "GenderType",
+        "name": "male"
+      },
       "nationality": "the Netherlands",
       "email": "simon@vreeman.com",
       "url": "https://vreeman.com",
@@ -175,6 +194,9 @@
       "alumniOf": [
       {
         "@type": "Organization",
+        "alumni": {
+          "@id": "#person"
+        },
         "name": "The Next Web",
         "alternateName": "TNW",
         "url": "https://thenextweb.com",
@@ -187,6 +209,9 @@
       },
       {
         "@type": "Organization",
+        "alumni": {
+          "@id": "#person"
+        },
         "url": "https://www.valkexclusief.nl/",
         "name": "Valk Exclusief",
         "alternateName": "Van der Valk",
@@ -202,6 +227,12 @@
         "name": "Vreeman.com",
         "alternateName" : "Simon Vreeman",
         "about": "The personal website of Simon Vreeman. Senior CRO Analyst at Fietsenwinkel.nl.",
+        "author": {
+          "@id": "#person"
+        },
+        "creator": {
+          "@id": "#person"
+        },
         "license": "https://opensource.org/licenses/MIT",
         "mainEntityOfPage":{
           "@context": "http://schema.org",
@@ -212,6 +243,9 @@
           "name": "Simon Vreeman",
           "url": "https://vreeman.com",
           "keywords": "Simon Vreeman, Simon, Vreeman, Conversion Specialist, Web Analyst, CRO, Fietsenwinkel.nl",
+          "author": {
+            "@id": "#person"
+          },
           "license": "https://opensource.org/licenses/MIT",
           "breadcrumb":
           {
