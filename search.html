@@ -39,13 +39,13 @@
         font-family: monospace, monospace;
         font-size: 1em;
       }
-      input, textarea {
+      input, textarea, select {
         width: 95%;
         display: block;
         padding: .5em 1%;
         font-size: 1em;
       }
-      fieldset, input, textarea {
+      fieldset, input, textarea, select {
         margin-bottom: 1.5em;
       }
       textarea {
@@ -74,12 +74,8 @@
         <legend>Search Operators:</legend>
         <label for="query"><code>site:</code> <code>cache:</code> <code>info:</code> <code>inurl:</code> <code>intitle:</code> <code>filetype:</code></label>
         <input type="text" name="q" value="" id="query" size="35" placeholder="Simon Vreeman" autocomplete="off" autofocus required>
-
-        <!-- <input type="hidden" name="gl" value="nl"> -->
-        <!-- <input type="hidden" name="hl" value="nl"> -->
-        <input type="hidden" name="gl" value="us">
-        <input type="hidden" name="hl" value="en">
-
+        <input type="hidden" id="country" name="gl" value="us">
+        <input type="hidden" id="language" name="hl" value="en">
         <input type="hidden" name="pws" value="0">
         <!-- <input type="hidden" name="lr" value="lang_nl"> -->
         <!-- <input type="hidden" name="igu" value="1"> -->
@@ -91,6 +87,11 @@
         <!-- <input type="hidden" name="filter" value="0"> -->
         <!-- <input type="hidden" name="adtest" value="on"> -->
         <!-- <input type="hidden" name="tbo" value="1"> -->
+
+        <select id="selectcountry" onchange="getCountry();">
+          <option value="us" selected>United States</option>
+          <option value="nl">the Netherlands</option>
+        </select>
 
         <button type="submit">Search</button>
       </fieldset>
@@ -105,6 +106,13 @@
         <dd>Text is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" title="Creative Commons Attribution 4.0 International License">Creative Commons Attribution 4.0 International License</a>. The code is licensed under <a href="https://opensource.org/licenses/MIT" rel="license" title="MIT License">MIT License</a>.</dd>
       </dl>
     </footer>
+    <script>
+      function getCountry() {
+        var country =   document.getElementById("selectcountry").options[document.getElementById("selectcountry").selectedIndex].value;
+        "nl" == country && (document.getElementById("country").value = "nl", document.getElementById("language").value = "nl"),
+        "us" == country && (document.getElementById("country").value = "us", document.getElementById("language").value = "en")
+      }
+    </script>
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js');
