@@ -89,7 +89,12 @@
       <li>Conversion Rate Difference: <span id="conversionrateDiff">30%</span></li>
     </ul>
     <ul>
-      <li>Sample ratio: <span id="alertmessage">0.5</span></li>
+      <li>Sample ratio: <span id="sampleratio"></span></li>
+      <li>Standard error A: <span id="standarderrorA"></span></li>
+      <li>Standard error B: <span id="standarderrorB"></span></li>
+      <li>Standard error Difference: <span id="standarderrorDiff"></span></li>
+      <li>Z-score: <span id="zscore"></span></li>
+      <li>P-value: <span id="pvalue"></span></li>
     </ul>
     <p><small>Or check with this <a href="chi.html">tool</a>.</small></p>
     <hr>
@@ -111,25 +116,54 @@
         var setConversionrateA = document.getElementById("conversionrateA");
         var setConversionrateB = document.getElementById("conversionrateB");
         var setConversionrateDiff = document.getElementById("conversionrateDiff");
-        var alertMessage = document.getElementById("alertmessage");
+        var setSampleratio = document.getElementById("sampleratio");
+        var setStandarderrorA = document.getElementById("standarderrorA");
+        var setStandarderrorB = document.getElementById("standarderrorB");
+        var setStandarderrorDiff = document.getElementById("standarderrorDiff");
+        var setZscore = document.getElementById("zscore");
+        var setPvalue = document.getElementById("pvalue");
+        var mean = 0;
+        var standard_deviation = 1;
 
-        var calcConversionrateA = (conversionsA / visitorsA) * 100;
-        var calcConversionrateB = (conversionsB / visitorsB) * 100;
+        var calcConversionrateA = (conversionsA / visitorsA);
+        var calcConversionrateB = (conversionsB / visitorsB);
         var calcConversionrateDiff = ((calcConversionrateB - calcConversionrateA) / calcConversionrateA) * 100;
         var calcSampleratio = (visitorsA / (visitorsA + visitorsB));
+        var calcStandarderrorA = Math.sqrt( ((conversionsA / visitorsA) * (1 - (conversionsA / visitorsA)) / visitorsA ) );
+        var calcStandarderrorB = Math.sqrt( ((conversionsB / visitorsB) * (1 - (conversionsB / visitorsB)) / visitorsB ) );
+        var standarderrorDiff = Math.pow((Math.pow(calcStandarderrorA, 2) + Math.pow(calcStandarderrorB, 2)), 0.5);
+        var zscore = (calcConversionrateB - calcConversionrateA) / standarderrorDiff;
 
-        console.log( calcSampleratio );
-
-        var conversionrateA = Math.round(calcConversionrateA * 100) / 100 + '%';
-        var conversionrateB = Math.round(calcConversionrateB * 100) / 100 + '%';
+        var conversionrateA = Math.round((calcConversionrateA * 100) * 100) / 100 + '%';
+        var conversionrateB = Math.round((calcConversionrateB * 100) * 100) / 100 + '%';
         var conversionrateDiff = Math.round(calcConversionrateDiff * 100) / 100 + '%';
         var sampleRatio = Math.round(calcSampleratio * 1000) / 1000;
         
+        with(Math) {
+          probability = normalcdf((zscore - mean) / standard_deviation);
+          pvalue = 1 - probability;
+          probability = Math.round((probability * 100) * 100) / 100 + '%';
+        }
+
         setConversionrateA.innerHTML = conversionrateA;
         setConversionrateB.innerHTML = conversionrateB;
         setConversionrateDiff.innerHTML = conversionrateDiff;
-        alertMessage.innerHTML = sampleRatio;
+        setSampleratio.innerHTML = sampleRatio;
+        setStandarderrorA.innerHTML = calcStandarderrorA;
+        setStandarderrorB.innerHTML = calcStandarderrorB;
+        setStandarderrorDiff.innerHTML = standarderrorDiff;
+        setZscore.innerHTML = zscore;
+        setPvalue.innerHTML = pvalue + ' (' + probability + ')';
       }
+      function normalcdf(X) {
+        var T = 1 / (1 + .2316419 * Math.abs(X));
+        var D = .3989423 * Math.exp(-X * X / 2);
+        var probability = D * T * (.3193815 + T * (-.3565638 + T * (1.781478 + T * (-1.821256 + T * 1.330274))));
+        if (X > 0) {
+          probability = 1 - probability
+        }
+        return probability
+      }      
     </script>
     <script>
       if ('serviceWorker' in navigator) {
