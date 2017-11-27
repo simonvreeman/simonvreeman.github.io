@@ -69,7 +69,7 @@
       <h1>A/B Test Calculator</h1>
       <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a></p>
     </header>
-    <form>
+    <form onkeyup="calcResults()">
       <fieldset>
         <legend>Add the numbers</legend>
         <label for="visitorsA">Visitors A</label>
@@ -81,14 +81,15 @@
         <label for="conversionsB">Conversions B</label>
         <input type="number" name="conversionsB" id="conversionsB" value="130">
       </fieldset>
-      <button type="button" onclick="calcResults()">Calculate</button>
     </form>
     <h2>Results</h2>
-    <span id="alertmessage"></span>
     <ul>
       <li>Conversion Rate A: <span id="conversionrateA">2%</span></li>
       <li>Conversion Rate B: <span id="conversionrateB">2.6%</span></li>
       <li>Conversion Rate Difference: <span id="conversionrateDiff">30%</span></li>
+    </ul>
+    <ul>
+      <li>Sample ratio: <span id="alertmessage">0.5</span></li>
     </ul>
     <p><small>Or check with this <a href="chi.html">tool</a>.</small></p>
     <hr>
@@ -103,10 +104,10 @@
     </footer>
     <script>
       function calcResults() {
-        var visitorsA = document.getElementById("visitorsA").value;
-        var visitorsB = document.getElementById("visitorsB").value;
-        var conversionsA = document.getElementById("conversionsA").value;
-        var conversionsB = document.getElementById("conversionsB").value;
+        var visitorsA = parseInt(document.getElementById("visitorsA").value);
+        var visitorsB = parseInt(document.getElementById("visitorsB").value);
+        var conversionsA = parseInt(document.getElementById("conversionsA").value);
+        var conversionsB = parseInt(document.getElementById("conversionsB").value);
         var setConversionrateA = document.getElementById("conversionrateA");
         var setConversionrateB = document.getElementById("conversionrateB");
         var setConversionrateDiff = document.getElementById("conversionrateDiff");
@@ -115,25 +116,19 @@
         var calcConversionrateA = (conversionsA / visitorsA) * 100;
         var calcConversionrateB = (conversionsB / visitorsB) * 100;
         var calcConversionrateDiff = ((calcConversionrateB - calcConversionrateA) / calcConversionrateA) * 100;
+        var calcSampleratio = (visitorsA / (visitorsA + visitorsB));
+
+        console.log( calcSampleratio );
 
         var conversionrateA = Math.round(calcConversionrateA * 100) / 100 + '%';
         var conversionrateB = Math.round(calcConversionrateB * 100) / 100 + '%';
         var conversionrateDiff = Math.round(calcConversionrateDiff * 100) / 100 + '%';
-
-        if (conversionsA > visitorsA || conversionsB > visitorsB) {
-          alertMessage.innerHTML = 'The number of conversions is higher than the number of visitors.';
-
-        }
-        if (calcConversionrateA > calcConversionrateB) {
-          setConversionrateA.innerHTML = conversionrateA.bold();
-          setConversionrateB.innerHTML = conversionrateB;
-          setConversionrateDiff.innerHTML = conversionrateDiff;
-        }
-        else {
-          setConversionrateA.innerHTML = conversionrateA;
-          setConversionrateB.innerHTML = conversionrateB.bold();
-          setConversionrateDiff.innerHTML = conversionrateDiff;
-        }
+        var sampleRatio = Math.round(calcSampleratio * 1000) / 1000;
+        
+        setConversionrateA.innerHTML = conversionrateA;
+        setConversionrateB.innerHTML = conversionrateB;
+        setConversionrateDiff.innerHTML = conversionrateDiff;
+        alertMessage.innerHTML = sampleRatio;
       }
     </script>
     <script>
