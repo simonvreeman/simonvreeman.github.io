@@ -55,7 +55,7 @@
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
-    <meta name="referrer" content="unsafe-url">
+    <meta name="referrer" content="no-referrer">
     <meta name="robots" content="noindex,follow">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -74,13 +74,15 @@
     <select id="hittype" onchange="getHittype();">
       <option value="pageview" selected>Pageview</option>
       <option value="event">Event</option>
+      <option value="transaction">Transaction</option>
       <option value="screenview" disabled>Screenview</option>
-      <option value="transaction" disabled>Transaction</option>
       <option value="item" disabled>Item</option>
       <option value="social" disabled>Social</option>
       <option value="exception" disabled>Exception</option>
       <option value="timing" disabled>Timing</option>
     </select>
+    <label for="refund" class="event hidden">Refund</label>
+    <input type="checkbox" id="refund" class="event hidden" name="refund" value="refund">
     <label for="trackingid">Tracking ID (<code>tid</code>)</label>
     <input type="text" id="trackingid" name="trackingid" value="UA-2826482-22" placeholder="UA-2826482-22">
     <label for="hostname">Hostname (<code>dh</code>)</label>
@@ -96,6 +98,8 @@
     <input type="text" id="eventaction" name="eventaction" placeholder="Event Action" class="event hidden">
     <label for="eventlabel" class="event hidden">Event Label (<code>el</code>)</label>
     <input type="text" id="eventlabel" name="eventlabel" placeholder="Event Label" class="event hidden">
+    <label for="transactionid" class="event hidden transaction">Transaction ID (<code>ti</code>)</label>
+    <input type="text" id="transactionid" name="transactionid" placeholder="12345" class="event hidden transaction">
 
     <label for="source">Source (<code>cs</code>)</label>
     <input type="text" id="source" name="source" placeholder="bing">
@@ -129,9 +133,24 @@
     <script>
       document.getElementById("btn").addEventListener("click", sentHit);
 
+// TRANSACTION
+// &t=transaction    // Transaction hit type.
+// &ti=12345         // transaction ID. Required.
+// &ta=westernWear   // Transaction affiliation.
+// &tr=50.00         // Transaction revenue.
+// &ts=32.00         // Transaction shipping.
+// &tt=12.00         // Transaction tax.
+// &cu=EUR           // Currency code.
+
+// REFUND
+// &ni=1                                 // Non-interaction parameter.
+// &ti=T12345                            // Transaction ID. Required.
+// &pa=refund
+
       function sentHit() {
         var request = new XMLHttpRequest();
         var hitType = document.getElementById("hittype").options[document.getElementById("hittype").selectedIndex].value;
+        var refund = document.getElementById("refund").checked;
         var trackingID = document.getElementById("trackingid").value;
         var clientID = uuid();
         var ipAddress = randomIp();
