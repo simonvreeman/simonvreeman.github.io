@@ -89,7 +89,7 @@
       <dt>window.performance.now:</dt>
       <dd><code id="window-performance"></code></dd>
       <dt>Browser Mode</dt>
-      <dd><code id="browser-mode"></code></dd>
+      <dd><code id="browser-mode"></code> | <code id="browser-mode1"></code></dd>
       <dt>In-app browser:</dt>
       <dd><code id="in-app"></code></dd>
     </dl>
@@ -329,14 +329,15 @@ detectPrivateMode(
             document.getElementById('browser-mode').innerHTML = typeof is_private === 'undefined' ? 'cannot detect' : is_private ? 'private' : 'not private';
         }
     );
-
-
-    try {
-  // try to use localStorage
-  localStorage.test = 2;        
+    </script>
+    <script>
+try {
+// try to use localStorage
+localStorage.test = 2;        
 } catch (e) {
-  // there was an error so...
-  alert('You are in Privacy Mode\nPlease deactivate Privacy Mode and then reload the page.');
+// there was an error so...
+document.getElementById("browser-mode1").innerHTML = 'You are in Privacy Mode. Please deactivate Privacy Mode and then reload the page.';
+// alert('You are in Privacy Mode\nPlease deactivate Privacy Mode and then reload the page.');
 }
     </script>
   </body>
