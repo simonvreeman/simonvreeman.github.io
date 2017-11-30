@@ -232,8 +232,8 @@
       new Fingerprint2().get(function(result, components){
         document.getElementById("fingerprint").innerHTML = result;
         document.getElementById("components").innerHTML = components;
-        console.log(result);
-        console.log(components);
+        // console.log(result);
+        // console.log(components);
         var details = '';
 
         for (var index in components) {
@@ -267,8 +267,8 @@
         // (and rounds the result since the value must be an integer).
         var timeSincePageLoad = Math.round(performance.now());
         document.getElementById("window-performance").innerHTML = timeSincePageLoad;
-        console.log(window.performance);
-        console.log(navigator.connection);
+        // console.log(window.performance);
+        // console.log(navigator.connection);
 
         gtag('event', 'timing_complete', {
           'name': 'load',
