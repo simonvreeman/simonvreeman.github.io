@@ -31,6 +31,7 @@
           'dimension6': 'referrer',
           'dimension7': 'clientiduser',
           'dimension8': 'fingerprint',
+          'dimension9': 'browsermode',
           'dimension10': 'useragent'
         },
         'transport_type': 'beacon',
@@ -126,39 +127,6 @@
     <script src="js/engagement.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fingerprintjs2@1/dist/fingerprint2.min.js"></script>
     <script>
-      // Fingerprint2
-      new Fingerprint2().get(function(result, components){
-        document.getElementById("fingerprint").innerHTML = result;
-        document.getElementById("components").innerHTML = components;
-        console.log(result);
-        console.log(components);
-        var details = '';
-
-        for (var index in components) {
-          var obj = components[index];
-          var key = obj.key;
-          var value = obj.value;
-          var line = '<li><strong>' + key + '</strong>: <code>' + value.toString() + '</code></li>';
-          details += line;
-        }
-        document.getElementById("components").innerHTML = details;
-
-        gtag('event', 'fingerprint', {
-          'event_category': 'Fingerprint',
-          'event_action': result,
-          'fingerprint': result
-        });
-      });
-
-      // Check Facebook, LinkedIn, Twitter or Flipboard In-App browsers
-      var fbinapp = (ua.indexOf("FBAN/FBIOS") > -1) || (ua.indexOf("FB_IAB/FB4A") > -1) ? 'Yes' : 'No';
-      var liinapp = (ua.indexOf("LinkedIn") > -1) ? 'Yes' : 'No';
-      var twinapp = (ua.indexOf("Twitter") > -1) ? 'Yes' : 'No';
-      var flinapp = (ua.indexOf("Flipboard") > -1) ? 'Yes' : 'No';
-      document.getElementById("in-app").innerHTML = "Facebook: " + fbinapp + ", LinkedIn: " + liinapp + ", Twitter: " + twinapp + ", Flipboard: " + flinapp;
-      document.getElementById("ua").innerHTML = ua;
-      document.getElementById("ref").innerHTML = ref;
-
       function retry(isDone, next) {
         var current_trial = 0, max_retry = 50, interval = 10, is_timeout = false;
         var id = window.setInterval(
@@ -251,8 +219,47 @@
       detectPrivateMode(
         function(is_private) {
           document.getElementById('browser-mode').innerHTML = typeof is_private === 'undefined' ? 'Cannot Detect' : is_private ? 'Private' : 'Not Private';
+
+          gtag('event', 'Browser mode', {
+            'event_category': 'Engagement',
+            'event_label': typeof is_private === 'undefined' ? 'Cannot Detect' : is_private ? 'Private' : 'Not Private',
+            'browsermode': typeof is_private === 'undefined' ? 'Cannot Detect' : is_private ? 'Private' : 'Not Private'
+          });
         }
       );
+
+      // Fingerprint2
+      new Fingerprint2().get(function(result, components){
+        document.getElementById("fingerprint").innerHTML = result;
+        document.getElementById("components").innerHTML = components;
+        console.log(result);
+        console.log(components);
+        var details = '';
+
+        for (var index in components) {
+          var obj = components[index];
+          var key = obj.key;
+          var value = obj.value;
+          var line = '<li><strong>' + key + '</strong>: <code>' + value.toString() + '</code></li>';
+          details += line;
+        }
+        document.getElementById("components").innerHTML = details;
+
+        gtag('event', 'fingerprint', {
+          'event_category': 'Fingerprint',
+          'event_action': result,
+          'fingerprint': result
+        });
+      });
+
+      // Check Facebook, LinkedIn, Twitter or Flipboard In-App browsers
+      var fbinapp = (ua.indexOf("FBAN/FBIOS") > -1) || (ua.indexOf("FB_IAB/FB4A") > -1) ? 'Yes' : 'No';
+      var liinapp = (ua.indexOf("LinkedIn") > -1) ? 'Yes' : 'No';
+      var twinapp = (ua.indexOf("Twitter") > -1) ? 'Yes' : 'No';
+      var flinapp = (ua.indexOf("Flipboard") > -1) ? 'Yes' : 'No';
+      document.getElementById("in-app").innerHTML = "Facebook: " + fbinapp + ", LinkedIn: " + liinapp + ", Twitter: " + twinapp + ", Flipboard: " + flinapp;
+      document.getElementById("ua").innerHTML = ua;
+      document.getElementById("ref").innerHTML = ref;
 
       // Feature detects Navigation Timing API support.
       if (window.performance) {
