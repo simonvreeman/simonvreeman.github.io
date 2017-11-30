@@ -8,6 +8,7 @@
     <script src="https://www.googletagmanager.com/gtag/js?id=UA-2826482-20" async></script>
     <script>
       var ua = navigator.userAgent || navigator.vendor || window.opera;
+      var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
       var ref = document.referrer;
 
       function hitCallback() {
@@ -87,6 +88,8 @@
       <dd><code id="fingerprint"></code></dd>
       <dt>window.performance.now:</dt>
       <dd><code id="window-performance"></code></dd>
+      <dt>Browser Mode</dt>
+      <dd><code id="browser-mode"></code></dd>
       <dt>In-app browser:</dt>
       <dd><code id="in-app"></code></dd>
     </dl>
@@ -138,6 +141,23 @@
       document.getElementById("in-app").innerHTML = "Facebook: " + fbinapp + ", LinkedIn: " + liinapp + ", Twitter: " + twinapp + ", Flipboard: " + flinapp;
       document.getElementById("ua").innerHTML = ua;
       document.getElementById("ref").innerHTML = ref;
+
+      if (!fs) {
+        // no such function, ignore
+      }
+      else {
+        fs(window.TEMPORARY, 100,
+        function(fs) {
+          document.getElementById("browser-mode").innerHTML = 'Normal';
+          // dataLayer.push( { 'Browser mode': 'Normal' });
+          console.log('Normal');
+        }, function(err) {
+          document.getElementById("browser-mode").innerHTML = 'Incognito';
+          // dataLayer.push( { 'Browser mode': 'Incognito' });
+          console.log('Incognito');
+        }
+        );
+      };
 
       // Feature detects Navigation Timing API support.
       if (window.performance) {
