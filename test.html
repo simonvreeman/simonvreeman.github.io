@@ -142,21 +142,17 @@
       document.getElementById("ua").innerHTML = ua;
       document.getElementById("ref").innerHTML = ref;
 
+      var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
       if (!fs) {
-        // no such function, ignore
-      }
-      else {
-        fs(window.TEMPORARY, 100,
-        function(fs) {
-          document.getElementById("browser-mode").innerHTML = 'Normal';
-          // dataLayer.push( { 'Browser mode': 'Normal' });
-          console.log('Normal');
-        }, function(err) {
-          document.getElementById("browser-mode").innerHTML = 'Incognito';
-          // dataLayer.push( { 'Browser mode': 'Incognito' });
-          console.log('Incognito');
-        }
-        );
+          // no such function, ignore
+      } else {
+          fs(window.TEMPORARY, 100,
+             function(fs) {
+                document.getElementById("browser-mode").innerHTML = 'Normal';
+             }, function(err) {
+                document.getElementById("browser-mode").innerHTML = 'Incognito';
+             }
+          );
       };
 
       // Feature detects Navigation Timing API support.
@@ -174,6 +170,61 @@
           'event_category': 'JS Dependencies'
         });
       }
+    </script>
+    <script>
+      function isPrivateMode() {
+        return new Promise((resolve) => {
+          const on = () => resolve(true); // is in private mode
+          const off = () => resolve(false); // not private mode
+          const testLocalStorage = () => {
+            try {
+              if (localStorage.length) off();
+              else {
+                localStorage.x = 1;
+                localStorage.removeItem('x');
+                off();
+              }
+            } catch (e) {
+              // Safari only enables cookie in private mode
+              // if cookie is disabled then all client side storage is disabled
+              // if all client side storage is disabled, then there is no point
+              // in using private mode
+              navigator.cookieEnabled ? on() : off();
+            }
+          };
+          // Chrome & Opera
+          if (window.webkitRequestFileSystem) {
+            return void window.webkitRequestFileSystem(0, 0, off, on);
+          }
+          // Firefox
+          if ('MozAppearance' in document.documentElement.style) {
+            const db = indexedDB.open('test');
+            db.onerror = on;
+            db.onsuccess = off;
+            return void 0;
+          }
+          // Safari
+          if (/constructor/i.test(window.HTMLElement)) {
+            return testLocalStorage();
+          }
+          // IE10+ & Edge
+          if (!window.indexedDB && (window.PointerEvent || window.MSPointerEvent)) {
+            return on();
+          }
+          // others
+          return off();
+        });
+      }
+
+      isPrivateMode().then((isPrivate) => {
+        console.log('Is in private mode: ', isPrivate);
+        if (isPrivate == true) {
+          document.getElementById("browser-mode").innerHTML = 'Incognito';
+        }
+        else {
+         document.getElementById("browser-mode").innerHTML = 'Normal'; 
+        }
+      });
     </script>
   </body>
 </html>
