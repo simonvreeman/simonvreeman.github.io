@@ -329,6 +329,15 @@ detectPrivateMode(
             document.getElementById('browser-mode').innerHTML = typeof is_private === 'undefined' ? 'cannot detect' : is_private ? 'private' : 'not private';
         }
     );
+
+
+    try {
+  // try to use localStorage
+  localStorage.test = 2;        
+} catch (e) {
+  // there was an error so...
+  alert('You are in Privacy Mode\nPlease deactivate Privacy Mode and then reload the page.');
+}
     </script>
   </body>
 </html>
