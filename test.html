@@ -138,7 +138,7 @@
           var obj = components[index];
           var key = obj.key;
           var value = obj.value;
-          var line = '<li><strong>' + key + '</strong>: <code>' + value.toString().substr(0, 100) + '</code></li>';
+          var line = '<li><strong>' + key + '</strong>: <code>' + value.toString() + '</code></li>';
           details += line;
         }
         document.getElementById("components").innerHTML = details;
