@@ -38,7 +38,7 @@
         margin: auto;
         color: var(--primary);
         font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-        font-size: 10vw;
+        font-size: 12vw;
         font-weight: 100;
         font-smooth: always;
         font-smoothing: antialiased;
@@ -57,10 +57,25 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
-        transition: color 0.5s ease-in-out;
+        /*transition: color .25s ease-in-out;*/
       }
       h1:hover {
-        color: var(--secondary);
+        /*color: var(--secondary);*/
+        font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;
+        font-weight: bold;
+        background: linear-gradient(to right,red,yellow,lime,aqua,blue,fuchsia);
+        background-size: 1500% 1500%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: AnimationName 2s linear infinite;
+      }
+      @keyframes AnimationName { 
+        0% {
+          background-position: 0% 100%;
+        }
+        100% {
+          background-position: 100% 0%;
+        }
       }
     </style>
   </head>
