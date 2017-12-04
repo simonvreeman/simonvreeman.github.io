@@ -87,9 +87,30 @@
         font-family: Georgia, serif;
         font-style: italic;
         font-weight: 100;
-        text-align: center;
+        width: fit-content;
+        width: -moz-fit-content;
+        margin: 0 auto;
         letter-spacing: 1px;
+        text-rendering: geometricPrecision;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .footer:hover {
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        font-weight: bold;
+        background: linear-gradient(to right,red,yellow,lime,aqua,blue,fuchsia);
+        background-size: 1500% 1500%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: AnimationName 2s linear infinite;
+      }
+      @keyframes AnimationName { 
+        0% {
+          background-position: 0% 100%;
+        }
+        100% {
+          background-position: 100% 0%;
+        }
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
