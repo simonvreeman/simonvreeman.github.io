@@ -4,4 +4,4 @@
 User-agent: *
 Disallow: /tools/
 Sitemap: https://vreeman.com/sitemap.xml
-host: vreeman.com
+host: https://vreeman.com
