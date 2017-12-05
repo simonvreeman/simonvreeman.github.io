@@ -67,14 +67,19 @@
         background-size: 1500% 1500%;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: AnimationName 2s linear infinite;
+        animation: AnimationName 1s linear infinite;
+        animation-direction: alternate;
       }
       @keyframes AnimationName { 
         0% {
           background-position: 0% 100%;
+          transform: skewX(25deg);
+          transform: skewY(25deg);
         }
         100% {
           background-position: 100% 0%;
+          transform: skewX(-25deg);
+          transform: skewY(-25deg);
         }
       }
     </style>
