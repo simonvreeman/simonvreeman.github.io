@@ -2,9 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, shrink-to-fit=no>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, shrink-to-fit=no">
     <title>Test</title>
-    <script>var host="vreeman.com";host==window.location.host&&"https:"!=window.location.protocol&&(window.location.protocol="https");</script>
     <script src="https://www.googletagmanager.com/gtag/js?id=UA-2826482-20" async></script>
     <script>
       var ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -96,6 +95,16 @@
         <script>
           for (a in navigator.connection) {
             document.write('<li><strong>navigator.' + a + '</strong>: <code>' + navigator.connection[a] + '</code></li>');
+          }
+        </script>
+      </ul>
+    </details>
+    <details>
+      <summary>window.performance&hellip;</summary>
+      <ul>
+        <script>
+          for (b in window.performance.timing) {
+            document.write('<li><strong>window.' + b + '</strong>: <code>' + window.performance.timing[b] + '</code></li>');
           }
         </script>
       </ul>
