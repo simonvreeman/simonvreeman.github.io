@@ -32,6 +32,8 @@
         -webkit-overflow-scrolling: touch;
         -ms-overflow-style: scrollbar;
         -webkit-tap-highlight-color: transparent;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
       }
       h1 {
         display: block;
@@ -57,10 +59,8 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
-        /*transition: color .25s ease-in-out;*/
       }
-      h1:hover {
-        /*color: var(--secondary);*/
+      h1:hover, h1:active, h1hover {
         font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;
         font-weight: bold;
         background: linear-gradient(to right,red,yellow,lime,aqua,blue,fuchsia);
@@ -73,18 +73,19 @@
       @keyframes AnimationName { 
         0% {
           background-position: 0% 100%;
-          transform: skewX(5deg);
-          transform: skewY(5deg);
+          transform: skewX(10deg) skewY(10deg) scale(0.9);
         }
         100% {
           background-position: 100% 0%;
-          transform: skewX(-5deg);
-          transform: skewY(-5deg);
+          transform: skewX(-10deg) skewY(-10deg) scale(1.1);
         }
       }
     </style>
   </head>
   <body>
-    <h1>Simon Vreeman</h1>
+    <h1 id="btn">Simon Vreeman</h1>
+    <script>
+      document.addEventListener("touchstart", function(){}, true);
+    </script>
   </body>
 </html>
