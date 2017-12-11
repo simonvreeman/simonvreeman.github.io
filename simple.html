@@ -33,7 +33,7 @@
       a:active, a:hover {
         outline: 0;
       }
-      code {
+      samp, code {
         font-family: monospace, monospace;
         font-size: 1em;
       }
@@ -70,16 +70,16 @@
       <fieldset>
         <legend>Build your own hypothesis</legend>
         <label for="because">Because we saw</label>
-        <textarea name="because" id="because" placeholder="(data/feedback)"></textarea>
+        <textarea name="because" id="because" placeholder="(data/feedback)" rows="3"></textarea>
         <label for="change">We expect that</label>
-        <textarea name="change" id="change" placeholder="(change)"></textarea>
+        <textarea name="change" id="change" placeholder="(change)" rows="3"></textarea>
         <label for="impact">Will cause</label>
-        <textarea name="impact" id="impact" placeholder="(impact)"></textarea>
+        <textarea name="impact" id="impact" placeholder="(impact)" rows="3"></textarea>
         <label for="metric">We’ll measure this using</label>
-        <textarea name="metric" id="metric" placeholder="(data metric)"></textarea>
+        <textarea name="metric" id="metric" placeholder="(data metric)" rows="3"></textarea>
       </fieldset>
     </form>
-    <p id="result">Because we saw (data/feedback).<br>We expect that (change) will cause (impact).<br>We’ll measure this using (data metric).</p>
+    <p><samp id="result">Because we saw (data/feedback).<br>We expect that (change) will cause (impact).<br>We’ll measure this using (data metric).</samp></p>
     <p>Based on the <a href="https://medium.com/@optimiseordie/hypothesis-kit-2-eff0446e09fc#.8d2gvzj4o" target="_blank" rel="noopener noreferrer">Hypothesis Kit v3</a> by Craig Sullivan.</p>
     <hr>
     <footer>
