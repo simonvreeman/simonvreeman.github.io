@@ -95,18 +95,21 @@
       .footer:hover {
         font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;
         font-weight: bold;
-        background: linear-gradient(to right,red,yellow,lime,aqua,blue,fuchsia);
+        background: linear-gradient(to right, red, yellow, lime, aqua, blue, fuchsia);
         background-size: 1500% 1500%;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: AnimationName 2s linear infinite;
+        animation: AnimationName 1s linear infinite;
+        animation-direction: alternate;
       }
       @keyframes AnimationName { 
         0% {
           background-position: 0% 100%;
+          transform: skewX(5deg) skewY(5deg) scale(0.9);
         }
         100% {
           background-position: 100% 0%;
+          transform: skewX(-5deg) skewY(-5deg) scale(1.1);
         }
       }
     </style>
