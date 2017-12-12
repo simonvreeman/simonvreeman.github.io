@@ -74,7 +74,7 @@
     <select id="hittype" onchange="getHittype();">
       <option value="pageview" selected>Pageview</option>
       <option value="event">Event</option>
-      <option value="transaction">Transaction</option>
+      <option value="transaction" disabled>Transaction</option>
       <option value="screenview" disabled>Screenview</option>
       <option value="item" disabled>Item</option>
       <option value="social" disabled>Social</option>
@@ -98,6 +98,7 @@
     <input type="text" id="eventaction" name="eventaction" placeholder="Event Action" class="event hidden">
     <label for="eventlabel" class="event hidden">Event Label (<code>el</code>)</label>
     <input type="text" id="eventlabel" name="eventlabel" placeholder="Event Label" class="event hidden">
+
     <label for="transactionid" class="event hidden transaction">Transaction ID (<code>ti</code>)</label>
     <input type="text" id="transactionid" name="transactionid" placeholder="12345" class="event hidden transaction">
 
@@ -133,20 +134,6 @@
     <script>
       document.getElementById("btn").addEventListener("click", sentHit);
 
-// TRANSACTION
-// &t=transaction    // Transaction hit type.
-// &ti=12345         // transaction ID. Required.
-// &ta=westernWear   // Transaction affiliation.
-// &tr=50.00         // Transaction revenue.
-// &ts=32.00         // Transaction shipping.
-// &tt=12.00         // Transaction tax.
-// &cu=EUR           // Currency code.
-
-// REFUND
-// &ni=1                                 // Non-interaction parameter.
-// &ti=T12345                            // Transaction ID. Required.
-// &pa=refund
-
       function sentHit() {
         var request = new XMLHttpRequest();
         var hitType = document.getElementById("hittype").options[document.getElementById("hittype").selectedIndex].value;
@@ -163,8 +150,10 @@
         var eventCategory = document.getElementById("eventcategory").value;
         var eventAction = document.getElementById("eventaction").value;
         var eventLabel = document.getElementById("eventlabel").value;
+        var transactionID = document.getElementById("transactionid").value;
         var useragentArray = ['&sr=2560x1440&vp=1280x1343&ua=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/604.3.5 (KHTML, like Gecko) Version/11.0.1 Safari/604.3.5', '&sr=412x732&vp=412x660&ua=Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Mobile Safari/537.36', '&sr=375x667&vp=375x667&ua=Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1', '&sr=1440x900&vp=800x600&ua=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/13.10586', '&sr=1024x768&vp=1024x768&ua=Mozilla/5.0 (iPad; CPU OS 10_3 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.3 Mobile/14E277 Safari/603.1.30'];
         var userAgent = useragentArray[Math.floor(Math.random() * useragentArray.length)];
+        
         var hitPayload = 'v=1&t=' + hitType + '&tid=' + trackingID + '&cid=' + clientID + '&uip=' + ipAddress + '&dp=' + pagePath + '&dh=' + documentHostname + '&dt=' + documentTitle + '&cs=' + source + '&cm=' + medium + '&cn=' + campaign + userAgent + '&aip=1&ds=web&ul=en-us&de=UTF-8&sd=24-bit';
         if (eventCategory) {
           var hitPayload = hitPayload + '&ec=' + eventCategory;
@@ -174,6 +163,9 @@
         }
         if (eventLabel) {
           var hitPayload = hitPayload + '&el=' + eventLabel;
+        }
+        if (transactionID) {
+          var hitPayload = hitPayload + '&ni=1&pa=refund&ti=' + transactionID;
         }
 
         request.open('POST', 'https://www.google-analytics.com/collect', true);
@@ -214,15 +206,7 @@
 
       // Generate random Client ID
       function uuid() {
-        var uuid = "", i, random;
-        for (i = 0; i < 32; i++) {
-          random = Math.random() * 16 | 0;
-
-          if (i == 8 || i == 12 || i == 16 || i == 20) {
-            uuid += "-"
-          }
-          uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
-        }
+        var uuid = ( [1e7]+-1e3+-4e3+-8e3+-1e11 ).replace( /[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16) );
         return uuid;
       }
 
