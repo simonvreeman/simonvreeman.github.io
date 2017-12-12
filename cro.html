@@ -32,7 +32,26 @@
         "@type": "NewsArticle",
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://vreeman.com/cro.html"
+          "@id": "https://vreeman.com/cro.html",
+          "breadcrumb": {
+            "@context": "http://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@id": "https://vreeman.com/cro.html",
+                "name": "CRO Toolkit"
+              }
+            }, {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@id": "https://vreeman.com/cro.html#abtesting",
+                "name": "A/B Testing Tools"
+              }
+            }]
+          }
         },
         "headline": "Conversion Rate Optimization (CRO) Tools",
         "image": [
@@ -62,7 +81,7 @@
       <h1>CRO Toolkit</h1>
       <p>An unsorted list of Conversion Rate Optimization tools that a CRO specialist needs in their toolbox. New tools are added regularly. Missing a CRO tool? Send a message to <a href="https://vreeman.com" rel="noopener">Simon Vreeman</a>.</p>
       <hr>
-      <h2>A/B Testing Tools</h2>
+      <h2 id="abtesting">A/B Testing Tools</h2>
       <ul>
         <li><a href="https://github.com/thenextweb/cro" rel="noopener">A/B Testing with GTM</a></li>
         <li><a href="https://www.abtasty.com/" rel="noopener">AB Tasty</a></li>
@@ -88,7 +107,7 @@
         <li><a href="https://github.com/intuit/wasabi" rel="noopener">Intuit Wasabi</a></li>
         <li><a href="http://sixpack.seatgeek.com/" rel="noopener">Sixpack SeatGeek</a></li>
       </ul>
-      <h2>Planning & workflow tools</h2>
+      <h2 id="workflow">Planning & workflow tools</h2>
       <ul>
         <li><a href="https://www.effectiveexperiments.com/" rel="noopener">Effective Experiments</a></li>
         <li><a href="http://www.cronotes.com" rel="noopener">Cronotes</a></li>
@@ -96,7 +115,7 @@
         <li><a href="https://metadimensions.com/" rel="noopener">MetaDimensions</a></li>
         <li><a href="https://www.iridion.com/" rel="noopener">Iridion</a></li>
       </ul>
-      <h2>Qualitative research tools</h2>
+      <h2 id="research">Qualitative research tools</h2>
       <ul>
         <li><a href="https://www.hotjar.com/" rel="noopener">Hotjar</a></li>
         <li><a href="https://www.crazyegg.com/" rel="noopener">Crazy Egg</a></li>
@@ -104,17 +123,17 @@
         <li><a href="https://peek.usertesting.com/" rel="noopener">UserTesting</a></li>
         <li><a href="https://www.surveymonkey.com/" rel="noopener">SurveyMonkey</a></li>
       </ul>
-      <h2>Calculators</h2>
+      <h2 id="calculators">Calculators</h2>
       <ul>
         <li><a href="https://abtestguide.com/bayesian/" rel="noopener">Bayesian A/B-test Calculator</a></li>
         <li><a href="https://abtestguide.com/calc/" rel="noopener">Frequentist A/B-test Calculator</a></li>
         <li><a href="https://onlinedialogue.shinyapps.io/ab-test-size/" rel="noopener">Minimum Sample Size Calculator</a></li>
       </ul>
-      <h2>Maturity tools</h2>
+      <h2 id="maturity">Maturity tools</h2>
       <ul>
         <li><a href="https://www.cromaturityaudit.com/" rel="noopener">Conversion Optimisation Maturity Audit</a></li>
       </ul>
-      <h2>Prioritization Frameworks</h2>
+      <h2 id="prioritization">Prioritization Frameworks</h2>
       <ul>
         <li><a href="https://www.practicalecommerce.com/Use-the-PIE-Method-to-Prioritize-Ecommerce-Tests" rel="noopener">PIE</a> <a href="https://www.widerfunnel.com/pie-framework/" rel="noopener">framework</a></li>
         <li><a href="#" rel="noopener">ICE [Impact, Confidence, Ease] framework</a></li>
@@ -122,7 +141,7 @@
         <li><a href="https://blog.optimizely.com/2015/05/05/how-to-prioritize-ab-testing-ideas/" rel="noopener">HotWire’s Prioritization Model</a></li>
         <li><a href="https://conversionxl.com/blog/better-way-prioritize-ab-tests/" rel="noopener">PXL framework</a></li>
       </ul>
-      <h2>Knowledge Platforms</h2>
+      <h2 id="knowledge">Knowledge Platforms</h2>
       <ul>
         <li><a href="http://exp-platform.com/" rel="noopener">ExP Platform</a></li>
         <li><a href="https://conversionxl.com/" rel="noopener">Conversion XL</a></li>
