@@ -9,7 +9,7 @@
       var ua = navigator.userAgent || navigator.vendor || window.opera;
       var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
       var ref = document.referrer;
-      var memory = navigator.deviceMemory || '(not set)';
+      var memory = navigator.deviceMemory || navigator.hardwareConcurrency || '(not set)';
 
       function hitCallback() {
         var gaclientid = ga.getAll()[0].get('clientId');
