@@ -9,6 +9,7 @@
       var ua = navigator.userAgent || navigator.vendor || window.opera;
       var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
       var ref = document.referrer;
+      var memory = navigator.deviceMemory || '(not set)';
 
       function hitCallback() {
         var gaclientid = ga.getAll()[0].get('clientId');
@@ -31,7 +32,8 @@
           'dimension7': 'clientiduser',
           'dimension8': 'fingerprint',
           'dimension9': 'browsermode',
-          'dimension10': 'useragent'
+          'dimension10': 'useragent',
+          'dimension11': 'devicememory'
         },
         'transport_type': 'beacon',
         'link_attribution': false,
@@ -46,7 +48,8 @@
         'useAmpClientId': true,
         'page_path': '/test.html',
         'referrer': ref,
-        'useragent': ua
+        'useragent': ua,
+        'devicememory': memory
       });
 
       gtag('event', 'test_action', {
@@ -87,6 +90,8 @@
       <dd><code id="window-performance"></code></dd>
       <dt>Browser Mode</dt>
       <dd><code id="browser-mode"></code></dd>
+      <dt>Device Memory</dt>
+      <dd><code id="device-memory"></code></dd>
       <dt>In-app browser:</dt>
       <dd><code id="in-app"></code></dd>
     </dl>
@@ -270,6 +275,7 @@
       document.getElementById("in-app").innerHTML = "Facebook: " + fbinapp + ", LinkedIn: " + liinapp + ", Twitter: " + twinapp + ", Flipboard: " + flinapp;
       document.getElementById("ua").innerHTML = ua;
       document.getElementById("ref").innerHTML = ref;
+      document.getElementById("device-memory").innerHTML = memory + ' RAM(GiB)';
 
       // Feature detects Navigation Timing API support.
       if (window.performance) {
