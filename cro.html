@@ -16,6 +16,9 @@
         margin: 0 auto;
         padding: 0 3%;
       }
+      abbr[title] {
+        text-decoration: none;
+      }
       hr {
         border: 0;
         border-top: 1px solid #ccc;
@@ -40,12 +43,21 @@
               "@type": "ListItem",
               "position": 1,
               "item": {
-                "@id": "https://vreeman.com/cro.html",
-                "name": "CRO Toolkit"
+                "@id": "https://vreeman.com/",
+                "name": "Simon Vreeman"
               }
-            }, {
+            },
+            {
               "@type": "ListItem",
               "position": 2,
+              "item": {
+                "@id": "https://vreeman.com/cro.html",
+                "name": "CRO Tools"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
               "item": {
                 "@id": "https://vreeman.com/cro.html#abtesting",
                 "name": "A/B Testing Tools"
@@ -84,7 +96,7 @@
           "position": "1",
           "item": {
             "url": "https://vreeman.com/cro.html",
-            "name": "CRO Toolkit"
+            "name": "CRO Tools"
           }
         },
         {
@@ -150,8 +162,8 @@
   <body>
     <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-N78R5VT&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
     <div class="container">
-      <h1>CRO Toolkit</h1>
-      <p>An unsorted list of Conversion Rate Optimization tools that a CRO specialist needs in their toolbox. New tools are added regularly. Missing a CRO tool? Send a message to <a href="https://vreeman.com" rel="noopener">Simon Vreeman</a>.</p>
+      <h1><abbr title="Conversion Rate Optimization">CRO</abbr> Tools</h1>
+      <p>An unsorted list of Conversion Rate Optimization tools that a <abbr title="Conversion Rate Optimization">CRO</abbr> specialist needs in their toolbox. New tools are added regularly. Missing a <abbr title="Conversion Rate Optimization">CRO</abbr> tool? Send a message to <a href="https://vreeman.com" rel="noopener">Simon Vreeman</a>.</p>
       <hr>
       <h2 id="abtesting">A/B Testing Tools</h2>
       <ul>
@@ -219,7 +231,7 @@
         <li><a href="https://conversionxl.com/" rel="noopener">Conversion XL</a></li>
       </ul>
       <hr>
-      <p>Missing a CRO tool? Send a message to <a href="https://vreeman.com" rel="noopener">Simon Vreeman</a>.</p>
+      <p>Missing a <abbr title="Conversion Rate Optimization">CRO</abbr> tool? Send a message to <a href="https://vreeman.com" rel="noopener">Simon Vreeman</a>.</p>
     </div>
   </body>
 </html>
