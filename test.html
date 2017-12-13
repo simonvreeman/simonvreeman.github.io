@@ -240,7 +240,8 @@
       );
 
       // Fingerprint2
-      new Fingerprint2().get(function(result, components){
+      var options = {excludeJsFonts: true, excludeCanvas: true, excludeWebGL: true, detectScreenOrientation: true};
+      new Fingerprint2(options).get(function(result, components){
         document.getElementById("fingerprint").innerHTML = result;
         document.getElementById("components").innerHTML = components;
         // console.log(result);
