@@ -14,12 +14,6 @@
       function hitCallback() {
         var gaclientid = ga.getAll()[0].get('clientId');
         document.getElementById("clientid").innerHTML = gaclientid;
-        gtag('event', 'clientid', {
-          'event_category': 'Client ID',
-          'event_action': gaclientid,
-          'clientidsession': gaclientid,
-          'clientiduser': gaclientid
-        });
       }
 
       window.dataLayer = window.dataLayer || [];
@@ -27,9 +21,9 @@
       gtag('js', new Date());
       gtag('config', 'UA-2826482-20', {
         'custom_map': {
-          'dimension2': 'clientidsession',
+          'dimension2': 'clientId',
           'dimension6': 'referrer',
-          'dimension7': 'clientiduser',
+          'dimension7': 'clientId',
           'dimension8': 'fingerprint',
           'dimension9': 'browsermode',
           'dimension10': 'useragent',
