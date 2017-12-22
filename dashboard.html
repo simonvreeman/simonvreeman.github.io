@@ -136,7 +136,7 @@ gapi.analytics.ready(function() {
   });
   var dataDayTable = new gapi.analytics.googleCharts.DataChart({
     query: {
-      metrics: 'ga:users,ga:sessions,ga:pageviews',
+      metrics: 'ga:transactions,ga:transactionRevenue',
       dimensions: 'ga:date,ga:dayOfWeekName',
       'start-date': '8daysAgo',
       'end-date': 'today',
