@@ -90,6 +90,19 @@
       <dd><code id="in-app"></code></dd>
     </dl>
     <details>
+      <summary>Width / Height&hellip;</summary>
+      <dl>
+        <dt>Total screen width/height:</dt>
+        <dd><code><script>document.write( screen.width + ' &times; ' + screen.height );</script></code></dd>
+        <dt>Available screen width/height:</dt>
+        <dd><code><script>document.write( screen.availWidth + ' &times; ' + screen.availHeight );</script></code></dd>
+        <dt>Total browser width/height:</dt>
+        <dd><code><script>document.write( window.outerWidth + ' &times; ' + window.outerHeight );</script></code></dd>
+        <dt>Available browser width/height:</dt>
+        <dd><code><script>document.write( window.innerWidth + ' &times; ' + window.innerHeight );</script></code></dd>
+      </dl>
+    </details>
+    <details>
       <summary>navigator.connection&hellip;</summary>
       <ul>
         <script>
@@ -110,27 +123,8 @@
       </ul>
     </details>
     <details>
-      <summary>Width / Height&hellip;</summary>
-      <dl>
-        <dt>Total screen width/height:</dt>
-        <dd><code><script>document.write( screen.width + ' &times; ' + screen.height );</script></code></dd>
-        <dt>Available screen width/height:</dt>
-        <dd><code><script>document.write( screen.availWidth + ' &times; ' + screen.availHeight );</script></code></dd>
-        <dt>Total browser width/height:</dt>
-        <dd><code><script>document.write( window.outerWidth + ' &times; ' + window.outerHeight );</script></code></dd>
-        <dt>Available browser width/height:</dt>
-        <dd><code><script>document.write( window.innerWidth + ' &times; ' + window.innerHeight );</script></code></dd>
-      </dl>
-    </details>
-    <details>
       <summary>Fingerprint2</summary>
       <ul id="components">
-        <li><strong></strong>: <code></code></li>
-      </ul>
-    </details>
-    <details>
-      <summary>PWA</summary>
-      <ul>
         <li><strong></strong>: <code></code></li>
       </ul>
     </details>
