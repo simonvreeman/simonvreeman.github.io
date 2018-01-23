@@ -6,39 +6,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://ww
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <script>
-      googleTrack = function(data){
-        var ua = 'UA-2826482-22';
-        if (typeof ga === 'function') {
-          console.log('GA Loaded');
-          if ( navigator.userAgent.toLowerCase().indexOf('googlebot') > -1 ){
-            $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
-              Object.defineProperty(document, "referrer", {
-                get : function(){
-                  return "notgoogle.com";
-                }
-              });
-              var url = window.location.href;
-              var city = data.city;
-              var state = data.region_code;
-              var ip = data.ip;
-              
-              ga('create', ua , 'auto');
-              ga('send', {
-                hitType: 'event',
-                eventCategory: 'Googlebot',
-                eventAction: url,
-                eventLabel:  ip + " : " + city + ", " + state
-              });
-              console.log('GA hit sent');
-            });
-          }
-        } else {
-          console.log('GA Not loaded');
-          setTimeout( function(){ googleTrack(); }, 500 );
-        }
+<script>
+  googleTrack = function(data){
+    var ua = 'UA-2826482-22';
+    if (typeof ga === 'function') {
+      console.log('GA Loaded');
+      if ( navigator.userAgent.toLowerCase().indexOf('googlebot') > -1 ){
+        $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
+          Object.defineProperty(document, "referrer", {
+            get : function(){
+              return "notgoogle.com";
+            }
+          });
+          var url = window.location.href;
+          var city = data.city;
+          var state = data.region_code;
+          var ip = data.ip;
+          var ua = navigator.userAgent || navigator.vendor || window.opera;
+
+          ga('create', ua , 'auto');
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'Googlebot' + ua,
+            eventAction: url,
+            eventLabel:  ip + " : " + city + ", " + state
+          });
+          console.log('GA hit sent');
+        });
       }
-      googleTrack();
-    </script>
+    } else {
+      console.log('GA Not loaded');
+      setTimeout( function(){ googleTrack(); }, 500 );
+    }
+  }
+  googleTrack();
+</script>
   </body>
 </html>
