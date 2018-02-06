@@ -78,8 +78,6 @@
       <option value="exception" disabled>Exception</option>
       <option value="timing" disabled>Timing</option>
     </select>
-    <label for="refund" class="event hidden">Refund</label>
-    <input type="checkbox" id="refund" class="event hidden" name="refund" value="refund">
     <label for="trackingid">Tracking ID (<code>tid</code>)</label>
     <input type="text" id="trackingid" name="trackingid" value="UA-2826482-22" placeholder="UA-2826482-22">
     <label for="hostname">Hostname (<code>dh</code>)</label>
@@ -97,7 +95,7 @@
     <input type="text" id="eventlabel" name="eventlabel" placeholder="Event Label" class="event hidden">
 
     <label for="transactionid" class="event hidden transaction">Transaction ID (<code>ti</code>)</label>
-    <input type="text" id="transactionid" name="transactionid" placeholder="12345" class="event hidden transaction">
+    <input type="text" id="transactionid" name="transactionid" placeholder="12345" class="event hidden">
 
     <label for="source">Source (<code>cs</code>)</label>
     <input type="text" id="source" name="source" placeholder="bing">
@@ -133,7 +131,6 @@
       function sentHit() {
         var request = new XMLHttpRequest();
         var hitType = document.getElementById("hittype").options[document.getElementById("hittype").selectedIndex].value;
-        var refund = document.getElementById("refund").checked;
         var trackingID = document.getElementById("trackingid").value;
         var clientID = uuid();
         var ipAddress = randomIp();
