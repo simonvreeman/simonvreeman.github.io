@@ -149,28 +149,28 @@
         
         var hitPayload = 'v=1&t=' + hitType + '&tid=' + trackingID + '&cid=' + clientID + '&uip=' + ipAddress + '&dp=' + pagePath + '&dh=' + documentHostname + '&dt=' + documentTitle + '&cs=' + source + '&cm=' + medium + '&cn=' + campaign + userAgent + '&aip=1&ds=web&ul=en-us&de=UTF-8&sd=24-bit';
         if (eventCategory) {
-          var hitPayload = hitPayload + '&ec=' + eventCategory;
+          hitPayload = hitPayload + '&ec=' + eventCategory;
         }
         if (eventAction) {
-          var hitPayload = hitPayload + '&ea=' + eventAction;
+          hitPayload = hitPayload + '&ea=' + eventAction;
         }
         if (eventLabel) {
-          var hitPayload = hitPayload + '&el=' + eventLabel;
+          hitPayload = hitPayload + '&el=' + eventLabel;
         }
         if (transactionID) {
-          var hitPayload = hitPayload + '&ni=1&pa=refund&ti=' + transactionID;
+          hitPayload = hitPayload + '&ni=1&pa=refund&ti=' + transactionID;
         }
-
+        
         request.open('POST', 'https://www.google-analytics.com/collect', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         request.send(hitPayload);
-
+        
         document.getElementById("feedback").innerHTML = 'The following hit has been sent: <code>' + hitPayload + '</code>';
       }
 
       function getHittype() {
         var hitType = document.getElementById("hittype").options[document.getElementById("hittype").selectedIndex].value;
-
+        
         if (hitType == 'event') {
           removeClass();
         }
@@ -206,7 +206,7 @@
       // Generate random IP address
       randomByte = function() {
         return Math.round(Math.random()*256);
-      }
+      };
       function randomIp() {
         var randomIp = randomByte() +'.' + randomByte() +'.' + randomByte() +'.' + randomByte();
         return randomIp;
@@ -220,17 +220,17 @@
         document.getElementById("txt").innerHTML = c + ' hits sent';
         sentHit();
         c = c + 1;
-        t = setTimeout(function(){ timedCount() }, 1000);
+        t = setTimeout(function(){ timedCount(); }, 1000);
       }
       function startCount() {
-          if (!timer_is_on) {
-              timer_is_on = 1;
-              timedCount();
-          }
+        if (!timer_is_on) {
+          timer_is_on = 1;
+          timedCount();
+        }
       }
       function stopCount() {
-          clearTimeout(t);
-          timer_is_on = 0;
+        clearTimeout(t);
+        timer_is_on = 0;
       }
     </script>
   </body>
