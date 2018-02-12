@@ -132,6 +132,8 @@
     <script src="js/engagement.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fingerprintjs2@1/dist/fingerprint2.min.js"></script>
     <script>
+
+      // Browser mode: Private or Not Private
       function retry(isDone, next) {
         var current_trial = 0, max_retry = 50, interval = 10, is_timeout = false;
         var id = window.setInterval(
