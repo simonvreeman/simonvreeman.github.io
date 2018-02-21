@@ -62,7 +62,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header>
       <h1>Google Analytics URL Builder</h1>
-      <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a></p>
+      <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a> | <span id="btn">Share</span></p>
     </header>
     <form onkeyup="getUTM()">
       <fieldset>
@@ -150,6 +150,33 @@
         amp.href = "https://validator.ampproject.org/#url="  + domain;
         ssl.href = "https://www.ssllabs.com/ssltest/analyze.html?d="  + domain;
       }
+    </script>
+    <script>
+      document.getElementById("btn").addEventListener("click", sharing);
+
+      async function sharing() {
+        console.log('Test?!');
+        if (navigator.share === undefined) {
+          logError('Error: Unsupported feature: navigator.share');
+          return;
+        }
+        const title = 'Google Analytics URL Builder';
+        const text = 'Simple tool to add UTM parameters to your URL';
+        const url = 'https://vreeman.com/utm.html';
+        try {
+          await navigator.share({title, text, url});
+        } catch (error) {
+          console.log('Error sharing: ' + error);
+          return;
+        }
+        console.log('Successfully sent share');
+      }
+
+      // navigator.share({
+      //   title: 'Google Analytics URL Builder',
+      //   text: 'Simple tool to add UTM parameters to your URL',
+      //   url: 'https://vreeman.com/utm.html',
+      // })
     </script>
     <script>
       if ('serviceWorker' in navigator) {
