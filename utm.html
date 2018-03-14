@@ -16,7 +16,7 @@
         margin: 1% auto;
         padding: 0 3%;
         max-width: 30em;
-        font: 1.125em/1.6 -apple-system, BlinkMacSystemFont, sans-serif;
+        font: 1.125em/1.6 BlinkMacSystemFont, -apple-system, Segoe UI, system-ui, Roboto, Helvetica, Arial, sans-serif;
       }
       footer, small {
         font-size: 80%;
@@ -67,6 +67,12 @@
     <form onkeyup="getUTM()">
       <fieldset>
         <legend>URL, Source, Medium, and Name are required</legend>
+        <!-- <label for="campaigns">Predefined campaigns</label>
+        <select id="campaigns">
+          <option value="optional" selected disabled>Optional</option>
+          <option value="email">Email</option>
+        </select>
+        <br> -->
         <label for="domain"><abbr title="Uniform Resource Locator">URL</abbr></label>
         <input type="url" name="domain" id="domain" placeholder="required" value="https://vreeman.com">
         <label for="source">Campaign Source (<code>utm_source</code>)</label>
@@ -120,6 +126,16 @@
         var content = document.getElementById("content").value;
         var name = document.getElementById("name").value;
         var url = document.getElementById("url");
+        // var campaigns = document.getElementById("campaigns").options[document.getElementById("campaigns").selectedIndex].value;
+
+        // console.log(campaigns);
+
+        // if (campaigns === 'email') {
+        //   console.log('campaigns is email');
+        // } else {
+        //   console.log('campaigns is not email');
+        // }
+
 
         if (domain.indexOf("?") != -1) {
           var html = domain+'&utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
@@ -150,33 +166,6 @@
         amp.href = "https://validator.ampproject.org/#url="  + domain;
         ssl.href = "https://www.ssllabs.com/ssltest/analyze.html?d="  + domain;
       }
-    </script>
-    <script>
-      document.getElementById("btn").addEventListener("click", sharing);
-
-      async function sharing() {
-        console.log('Test?!');
-        if (navigator.share === undefined) {
-          logError('Error: Unsupported feature: navigator.share');
-          return;
-        }
-        const title = 'Google Analytics URL Builder';
-        const text = 'Simple tool to add UTM parameters to your URL';
-        const url = 'https://vreeman.com/utm.html';
-        try {
-          await navigator.share({title, text, url});
-        } catch (error) {
-          console.log('Error sharing: ' + error);
-          return;
-        }
-        console.log('Successfully sent share');
-      }
-
-      // navigator.share({
-      //   title: 'Google Analytics URL Builder',
-      //   text: 'Simple tool to add UTM parameters to your URL',
-      //   url: 'https://vreeman.com/utm.html',
-      // })
     </script>
     <script>
       if ('serviceWorker' in navigator) {
