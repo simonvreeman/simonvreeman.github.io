@@ -67,12 +67,12 @@
     <form onkeyup="getUTM()">
       <fieldset>
         <legend>URL, Source, Medium, and Name are required</legend>
-        <!-- <label for="campaigns">Predefined campaigns</label>
+        <label for="campaigns">Predefined campaigns</label>
         <select id="campaigns">
-          <option value="optional" selected disabled>Optional</option>
+          <option value="optional" selected>Optional</option>
           <option value="email">Email</option>
         </select>
-        <br> -->
+        <br>
         <label for="domain"><abbr title="Uniform Resource Locator">URL</abbr></label>
         <input type="url" name="domain" id="domain" placeholder="required" value="https://vreeman.com">
         <label for="source">Campaign Source (<code>utm_source</code>)</label>
@@ -126,15 +126,13 @@
         var content = document.getElementById("content").value;
         var name = document.getElementById("name").value;
         var url = document.getElementById("url");
-        // var campaigns = document.getElementById("campaigns").options[document.getElementById("campaigns").selectedIndex].value;
 
-        // console.log(campaigns);
+        var campaigns = document.getElementById("campaigns").options[document.getElementById("campaigns").selectedIndex].value;
 
-        // if (campaigns === 'email') {
-        //   console.log('campaigns is email');
-        // } else {
-        //   console.log('campaigns is not email');
-        // }
+
+        if (campaigns === 'email') {
+          var medium = document.getElementById("medium").value = "email";
+        }
 
 
         if (domain.indexOf("?") != -1) {
