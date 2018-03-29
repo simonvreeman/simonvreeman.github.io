@@ -150,7 +150,7 @@
           var html = html + '&utm_content='+encodeURIComponent(content);
         }
 
-        url.textContent = html;
+        url.textContent = html.toLowerCase();
 
         pagespeed.href = "https://developers.google.com/speed/pagespeed/insights/?url=" + domain;
         structureddata.href = "https://search.google.com/structured-data/testing-tool/u/0/#url="  + domain;
