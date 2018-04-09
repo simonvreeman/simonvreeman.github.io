@@ -3,14 +3,15 @@
   "lang": "en",
   "short_name": "Vreeman",
   "name": "Simon Vreeman",
+  "description": "The personal website of Simon Vreeman. Growth Marketing Manager at VanMoof.",
   "icons": [
     {
-      "src": "apple-touch-icon.png",
+      "src": "https://vreeman.com/apple-touch-icon.png",
       "sizes": "558x558",
       "type": "image/png"
     }
   ],
-  "start_url": "/?ref=homescreen",
+  "start_url": "https://vreeman.com/?ref=homescreen",
   "display": "standalone",
   "orientation": "any",
   "background_color": "transparent",
