@@ -88,6 +88,7 @@
       </fieldset>
     </form>
     <textarea id="url" readonly="readonly" wrap="off" onclick="this.focus();this.select()" rows="3">https://vreeman.com</textarea>
+    <button onclick="copyURL()">Copy URL with UTM</button>
     <ul>
       <li><a id="pagespeed" href="https://developers.google.com/speed/pagespeed/insights/?url=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Pagespeed Insights</a></li>
       <li><a id="structureddata" href="https://search.google.com/structured-data/testing-tool/u/0/#url=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Structured Data</a></li>
@@ -165,6 +166,13 @@
         sourcecache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=0&vwsrc=1";
         amp.href = "https://validator.ampproject.org/#url="  + domain;
         ssl.href = "https://www.ssllabs.com/ssltest/analyze.html?d="  + domain;
+      }
+    </script>
+    <script>
+      function copyURL() {
+        var url = document.getElementById("url");
+        url.select();
+        document.execCommand("Copy");
       }
     </script>
     <script>
