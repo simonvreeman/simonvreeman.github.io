@@ -165,7 +165,12 @@
             "name": "VanMoof",
             "url": "https://www.vanmoof.com/",
             "sameAs": ["https://nl.wikipedia.org/wiki/VanMoof", "https://www.facebook.com/VANMOOF/", "https://twitter.com/vanmoof", "https://www.instagram.com/vanmoof/", "https://www.youtube.com/user/vanmoof, https://www.pinterest.com/vanmoof/"],
-            "logo": "https://vreeman.com/img/vanmoof.jpg",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://vreeman.com/img/vanmoof.jpg",
+              "width": 3231,
+              "height":340
+            },
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Amsterdam",
@@ -176,13 +181,21 @@
             "contactPoint": [{
               "@type": "ContactPoint",
               "telephone": "+31202051079",
-              "contactType": "Customer Service"
+              "contactType": "customer support",
+              "availableLanguage": [
+                "English",
+                "German",
+                "Dutch"
+              ]
             },
             {
               "@type": "ContactPoint",
-              "telephone": "+1 3472277477",
-              "contactType": "Customer Service",
-              "areaServed": "US"
+              "telephone": "+13472277477",
+              "contactType": "customer support",
+              "areaServed": "US",
+              "availableLanguage": [
+                "English"
+              ]
             }],
             "employee":  {
               "@id": "#person"
