@@ -163,6 +163,7 @@
           "worksFor": {
             "@type": "Organization",
             "additionalType": "BikeStore",
+            "id": "#vanmoof",
             "name": "VanMoof",
             "url": "https://www.vanmoof.com/",
             "email": "info@vanmoof.com",
@@ -222,6 +223,36 @@
                 "Japanese"
               ]
             }],
+            "brand": {
+              "@type": "Product",
+              "id": "#electrified",
+              "name": "VanMoof Electrified X2 & S2",
+              "image": [
+                "https://www.vanmoof.com/media/wysiwyg/efied/bikes/ex_white.png",
+                "https://www.vanmoof.com/media/wysiwyg/efied/bikes/ex_grey.png",
+                "https://www.vanmoof.com/media/wysiwyg/efied/bikes/es_white.png",
+                "https://www.vanmoof.com/media/wysiwyg/efied/bikes/es_grey.png"
+               ],
+              "description": "Our latest version of our Electrified bikes. They come in 2 frame types and 2 colors. Checkout vanmoof.com for all the details and reserver now.",
+              "brand": {
+                "@type": "Thing",
+                "name": "VanMoof"
+              },
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "price": "2598",
+                "availability": "http://schema.org/InStock",
+                "url": "https://www.vanmoof.com/en_nl/electrified-s2-x2",
+                "seller": {
+                  "@type": "Organization",
+                  "name": "VanMoof"
+                }
+              }
+            },
+            "owns": {
+              "@id": "#electrified"
+            },
             "employee":  {
               "@id": "#person"
             }
@@ -316,7 +347,8 @@
                 "@id": "https://vreeman.com/",
                 "name": "Simon Vreeman"
               }
-            }, {
+            },
+            {
               "@type": "ListItem",
               "position": 2,
               "item": {
