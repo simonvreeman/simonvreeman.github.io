@@ -137,16 +137,17 @@ gapi.analytics.ready(function() {
   });
   var dataDeviceTable = new gapi.analytics.googleCharts.DataChart({
     query: {
-      metrics: 'ga:sessions',
+      metrics: 'ga:sessions,ga:transactions',
       dimensions: 'ga:deviceCategory',
       'start-date': '8daysAgo',
       'end-date': 'today',
+      'sort': '-ga:transactions',
       'samplingLevel': 'HIGHER_PRECISION',
       'prettyPrint': 'true'
     },
     chart: {
       container: 'device-container',
-      type: 'PIE',
+      type: 'TABLE',
       options: {
         width: '100%'
       }
