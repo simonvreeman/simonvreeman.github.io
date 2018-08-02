@@ -16,5 +16,11 @@
   "orientation": "any",
   "background_color": "transparent",
   "theme_color": "transparent",
-  "prefer_related_applications": false
+  "prefer_related_applications": false,
+  "categories": ["marketing", "business", "technology"],
+  "serviceworker": {
+    "src": "serviceworker.js",
+    "scope": "/",
+    "update_via_cache": "none"
+  }
 }
