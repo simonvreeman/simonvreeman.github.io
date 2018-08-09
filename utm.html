@@ -120,53 +120,54 @@
       </dl>
     </footer>
     <script>
-      function getUTM() {
-        var domain = document.getElementById("domain").value;
-        var source = document.getElementById("source").value;
-        var medium = document.getElementById("medium").value;
-        var term = document.getElementById("term").value;
-        var content = document.getElementById("content").value;
-        var name = document.getElementById("name").value;
-        var url = document.getElementById("url");
+function getUTM() {
+  var domain = document.getElementById("domain").value;
+  var source = document.getElementById("source").value;
+  var medium = document.getElementById("medium").value;
+  var term = document.getElementById("term").value;
+  var content = document.getElementById("content").value;
+  var name = document.getElementById("name").value;
+  var url = document.getElementById("url");
+  var html;
 
-        var campaigns = document.getElementById("campaigns").options[document.getElementById("campaigns").selectedIndex].value;
-
-
-        if (campaigns === 'email') {
-          var medium = document.getElementById("medium").value = "email";
-        }
+  var campaigns = document.getElementById("campaigns").options[document.getElementById("campaigns").selectedIndex].value;
 
 
-        if (domain.indexOf("?") != -1) {
-          var html = domain+'&utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
-        } else {
-          var html = domain+'?utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
-        }
+  if (campaigns === 'email') {
+    medium = document.getElementById("medium").value = "email";
+  }
 
-        if (term) {
-          var html = html + '&utm_term='+encodeURIComponent(term);
-        }
-        if (content) {
-          var html = html + '&utm_content='+encodeURIComponent(content);
-        }
 
-        url.textContent = html.toLowerCase();
+  if (domain.indexOf("?") != -1) {
+    html = domain+'&utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
+  } else {
+    html = domain+'?utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
+  }
 
-        pagespeed.href = "https://developers.google.com/speed/pagespeed/insights/?url=" + domain;
-        structureddata.href = "https://search.google.com/structured-data/testing-tool/u/0/#url="  + domain;
-        richresults.href = "https://search.google.com/test/rich-results?url="  + domain;
-        safebrowsing.href = "https://www.google.com/transparencyreport/safebrowsing/diagnostic/index.html#url="  + domain;
-        mobilefriendly.href = "https://search.google.com/search-console/mobile-friendly?url="  + domain;
-        twitter.href = "https://cards-dev.twitter.com/validator?url="  + domain;
-        facebook.href = "https://developers.facebook.com/tools/debug/sharing/?q="  + domain;
-        opengraph.href = "https://developers.facebook.com/tools/debug/og/object/?q="  + domain;
-        pinterest.href = "https://developers.pinterest.com/tools/url-debugger/?link=" + domain;
-        fullcache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=0&vwsrc=0";
-        textcache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=1&vwsrc=0";
-        sourcecache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=0&vwsrc=1";
-        amp.href = "https://validator.ampproject.org/#url="  + domain;
-        ssl.href = "https://www.ssllabs.com/ssltest/analyze.html?d="  + domain;
-      }
+  if (term) {
+    html = html + '&utm_term='+encodeURIComponent(term);
+  }
+  if (content) {
+    html = html + '&utm_content='+encodeURIComponent(content);
+  }
+
+  url.textContent = html.toLowerCase();
+
+  pagespeed.href = "https://developers.google.com/speed/pagespeed/insights/?url=" + domain;
+  structureddata.href = "https://search.google.com/structured-data/testing-tool/u/0/#url="  + domain;
+  richresults.href = "https://search.google.com/test/rich-results?url="  + domain;
+  safebrowsing.href = "https://www.google.com/transparencyreport/safebrowsing/diagnostic/index.html#url="  + domain;
+  mobilefriendly.href = "https://search.google.com/search-console/mobile-friendly?url="  + domain;
+  twitter.href = "https://cards-dev.twitter.com/validator?url="  + domain;
+  facebook.href = "https://developers.facebook.com/tools/debug/sharing/?q="  + domain;
+  opengraph.href = "https://developers.facebook.com/tools/debug/og/object/?q="  + domain;
+  pinterest.href = "https://developers.pinterest.com/tools/url-debugger/?link=" + domain;
+  fullcache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=0&vwsrc=0";
+  textcache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=1&vwsrc=0";
+  sourcecache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=0&vwsrc=1";
+  amp.href = "https://validator.ampproject.org/#url="  + domain;
+  ssl.href = "https://www.ssllabs.com/ssltest/analyze.html?d="  + domain;
+}
     </script>
     <script>
       function copyURL() {
