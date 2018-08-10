@@ -264,6 +264,38 @@ dt {
       },
       "employee": {
         "@id": "#person"
+      },
+      "subOrganization": {
+        "@context": "http://www.schema.org",
+        "@type": "LocalBusiness",
+        "additionalType": "BikeStore",
+        "name": "VanMoof Amsterdam",
+        "url": "https://www.vanmoof.com/amsterdam",
+        "sameAs": [
+          "https://twitter.com/vanmoof"
+        ],
+        "logo": "https://www.vanmoof.com/amsterdam",
+        "image": "https://www.vanmoof.com/amsterdam",
+        "description": "The VanMoof brand store in Amsterdam.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Mauritskade 55a",
+          "addressLocality": "Amsterdam",
+          "addressRegion": "Noord Holland",
+          "postalCode": "1092AD",
+          "addressCountry": "Netherlands"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "52.361731",
+          "longitude": "4.917765"
+        },
+        "hasMap": "https://goo.gl/maps/N2bRXGJU7Ws",
+        "openingHours": "Mo, Tu, We, Sa, Su 09:30-17:30 Th, Fr 09:30-19:00",
+        "telephone": "+31203307401",
+        "parentOrganization": {
+          "@id": "#vanmoof"
+        }
       }
     },
     "address": {
