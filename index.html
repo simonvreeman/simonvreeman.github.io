@@ -128,11 +128,13 @@ dt {
     <meta property="og:url" content="https://vreeman.com/?utm_campaign=share">
     <meta property="og:description" content="Hi, I am Simon Vreeman and I am a Growth Marketing Manager. I optimize the websites of VanMoof based on insights & data.">
     <meta property="og:image" content="https://vreeman.com/img/simonvreeman.jpg">
+    <meta property="og:image:secure_url" content="https://vreeman.com/img/simonvreeman.jpg">
     <meta property="og:image:width" content="960">
     <meta property="og:image:height" content="640">
     <meta property="og:image:alt" content="A photo of Simon Vreeman">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image" content="https://vreeman.com/img/simon-vreeman.jpg">
+    <meta property="og:image:secure_url" content="https://vreeman.com/img/simon-vreeman.jpg">
     <meta property="og:image:width" content="600">
     <meta property="og:image:height" content="600">
     <meta property="og:image:alt" content="A photo of Simon Vreeman">
@@ -279,47 +281,89 @@ dt {
       "employee": {
         "@id": "#person"
       },
-      "subOrganization": {
-        "@context": "http://www.schema.org",
-        "@type": "LocalBusiness",
-        "additionalType": "BikeStore",
-        "@id": "#amsterdam",
-        "name": "VanMoof Amsterdam",
-        "url": "https://www.vanmoof.com/amsterdam",
-        "sameAs": [
-          "https://nl.wikipedia.org/wiki/VanMoof",
-          "https://www.wikidata.org/wiki/Q5881409",
-          "https://www.facebook.com/VANMOOF/",
-          "https://twitter.com/vanmoof",
-          "https://www.instagram.com/vanmoof/",
-          "https://www.youtube.com/user/vanmoof",
-          "https://www.pinterest.com/vanmoof/"
-        ],
-        "logo": {
-          "@id": "#vanmooflogo"
+      "subOrganization": [
+        {
+          "@context": "http://www.schema.org",
+          "@type": "LocalBusiness",
+          "additionalType": "BikeStore",
+          "@id": "#amsterdam",
+          "name": "VanMoof Amsterdam",
+          "url": "https://www.vanmoof.com/amsterdam",
+          "sameAs": [
+            "https://nl.wikipedia.org/wiki/VanMoof",
+            "https://www.wikidata.org/wiki/Q5881409",
+            "https://www.facebook.com/VANMOOF/",
+            "https://twitter.com/vanmoof",
+            "https://www.instagram.com/vanmoof/",
+            "https://www.youtube.com/user/vanmoof",
+            "https://www.pinterest.com/vanmoof/"
+          ],
+          "logo": {
+            "@id": "#vanmooflogo"
+          },
+          "image": "https://www.vanmoof.com/amsterdam",
+          "description": "The VanMoof brand store in Amsterdam.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Mauritskade 55a",
+            "addressLocality": "Amsterdam",
+            "addressRegion": "Noord Holland",
+            "postalCode": "1092AD",
+            "addressCountry": "Netherlands"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "52.361731",
+            "longitude": "4.917765"
+          },
+          "hasMap": "https://goo.gl/maps/N2bRXGJU7Ws",
+          "openingHours": "Mo, Tu, We, Sa, Su 09:30-17:30 Th, Fr 09:30-19:00",
+          "telephone": "+31203307401",
+          "parentOrganization": {
+            "@id": "#vanmoof"
+          }
         },
-        "image": "https://www.vanmoof.com/amsterdam",
-        "description": "The VanMoof brand store in Amsterdam.",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Mauritskade 55a",
-          "addressLocality": "Amsterdam",
-          "addressRegion": "Noord Holland",
-          "postalCode": "1092AD",
-          "addressCountry": "Netherlands"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "52.361731",
-          "longitude": "4.917765"
-        },
-        "hasMap": "https://goo.gl/maps/N2bRXGJU7Ws",
-        "openingHours": "Mo, Tu, We, Sa, Su 09:30-17:30 Th, Fr 09:30-19:00",
-        "telephone": "+31203307401",
-        "parentOrganization": {
-          "@id": "#vanmoof"
+        {
+          "@context": "http://www.schema.org",
+          "@type": "LocalBusiness",
+          "additionalType": "BikeStore",
+          "@id": "#berlin",
+          "name": "VanMoof Berlin",
+          "url": "https://www.vanmoof.com/berlin",
+          "sameAs": [
+            "https://nl.wikipedia.org/wiki/VanMoof",
+            "https://www.wikidata.org/wiki/Q5881409",
+            "https://www.facebook.com/VANMOOF/",
+            "https://twitter.com/vanmoof",
+            "https://www.instagram.com/vanmoof/",
+            "https://www.youtube.com/user/vanmoof",
+            "https://www.pinterest.com/vanmoof/"
+          ],
+          "logo": {
+            "@id": "#vanmooflogo"
+          },
+          "image": "https://www.vanmoof.com/berlin",
+          "description": "The VanMoof brand store in Berlin.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Schliemannstraße 23a",
+            "addressLocality": "Berlin",
+            "postalCode": "10437",
+            "addressCountry": "Germany"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "52.5447024",
+            "longitude": "13.4209919"
+          },
+          "hasMap": "https://goo.gl/maps/pKYozjarftQ2",
+          "openingHours": "Tu, We, Th, Fr 10:00-19:00 Sa 10:00-16:00",
+          "telephone": "+31203307401",
+          "parentOrganization": {
+            "@id": "#vanmoof"
+          }
         }
-      }
+      ]
     },
     "address": {
       "@type": "PostalAddress",
@@ -489,8 +533,8 @@ dt {
       <h2>Contact</h2>
       <address>
         <ul>
-          <li>Follow me on <a href="https://twitter.com/vreeman" title="Simon Vreeman on Twitter at @vreeman" rel="nofollow noopener noreferrer" target="_blank" data-vars-outbound-text="Twitter" data-vars-outbound-link="https://twitter.com/vreeman">Twitter</a></li>
-          <li>Connect me on <a href="https://www.linkedin.com/in/simonvreeman/" title="Simon Vreeman on Linkedin" rel="nofollow noopener noreferrer" target="_blank" data-vars-outbound-text="LinkedIn" data-vars-outbound-link="https://www.linkedin.com/in/simonvreeman/">LinkedIn</a></li>
+          <li>Follow me on <a href="https://twitter.com/vreeman" title="Simon Vreeman on Twitter at @vreeman" rel="me nofollow noopener noreferrer" target="_blank" data-vars-outbound-text="Twitter" data-vars-outbound-link="https://twitter.com/vreeman">Twitter</a></li>
+          <li>Connect me on <a href="https://www.linkedin.com/in/simonvreeman/" title="Simon Vreeman on Linkedin" rel="me nofollow noopener noreferrer" target="_blank" data-vars-outbound-text="LinkedIn" data-vars-outbound-link="https://www.linkedin.com/in/simonvreeman/">LinkedIn</a></li>
           <li>Send an e-mail to <a href="mailto:simon@vreeman.com" title="Send Simon Vreeman an e-mail to simon@vreeman.com" data-vars-outbound-text="simon@vreeman.com" data-vars-outbound-link="mailto:simon@vreeman.com">simon@vreeman.com</a></li>
         </ul>
       </address>
