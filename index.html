@@ -13,7 +13,7 @@
 <style amp-custom>
 :root {
   --primary: rgba(0, 0, 0, .8);
-  --secondary: rgb(65, 110, 210);
+  --secondary: rgb(0, 112, 201);
   --tertiary: rgb(204, 204, 204);
 }
 html {
@@ -101,6 +101,15 @@ dt {
   100% {
     background-position: 100% 0%;
     transform: skewX(-5deg) skewY(-5deg) scale(1.1);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--primary);
+    color: rgba(255, 255, 255, 1);
+  }
+  a {
+    color: rgb(102, 187, 255);
   }
 }
 </style>
