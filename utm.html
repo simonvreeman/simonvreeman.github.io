@@ -99,7 +99,7 @@
       <li><a id="facebook" href="https://developers.facebook.com/tools/debug/sharing/?q=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Facebook Debugger</a></li>
       <li><a id="opengraph" href="https://developers.facebook.com/tools/debug/og/object/?q=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Open Graph Object Debugger</a></li>
       <li><a id="pinterest" href="https://developers.pinterest.com/tools/url-debugger/?link=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Pinterest</a></li>
-      <li><a id="linkedin" href="https://www.linkedin.com/post-inspector/inspect/https:%2F%2Fvreeman.com" rel="nofollow noopener noreferrer">Check Linkedin</a></li>
+      <li><a id="linkedin" href="https://www.linkedin.com/post-inspector/inspect/https:%2F%2Fvreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Linkedin</a></li>
       <li><a id="fullcache" href="http://webcache.googleusercontent.com/search?q=cache:https://vreeman.com/&num=1&hl=en&gl=en&strip=0&vwsrc=0" rel="nofollow noopener noreferrer" target="_blank">Full version Google Cache</a></li>
       <li><a id="textcache" href="http://webcache.googleusercontent.com/search?q=cache:https://vreeman.com/&num=1&hl=en&gl=en&strip=1&vwsrc=0" rel="nofollow noopener noreferrer" target="_blank">Text-only version Google Cache</a></li>
       <li><a id="sourcecache" href="http://webcache.googleusercontent.com/search?q=cache:https://vreeman.com/&num=1&hl=en&gl=en&strip=0&vwsrc=1" rel="nofollow noopener noreferrer" target="_blank">View source via Google Cache</a></li>
@@ -123,6 +123,7 @@
     <script>
 function getUTM() {
   var domain = document.getElementById("domain").value;
+  var encodedomain = encodeURIComponent(domain).replace(/'/g,"%27").replace(/"/g,"%22");
   var source = document.getElementById("source").value;
   var medium = document.getElementById("medium").value;
   var term = document.getElementById("term").value;
@@ -163,7 +164,7 @@ function getUTM() {
   facebook.href = "https://developers.facebook.com/tools/debug/sharing/?q="  + domain;
   opengraph.href = "https://developers.facebook.com/tools/debug/og/object/?q="  + domain;
   pinterest.href = "https://developers.pinterest.com/tools/url-debugger/?link=" + domain;
-  linkedin.href = "https://www.linkedin.com/post-inspector/inspect/" + domain;
+  linkedin.href = "https://www.linkedin.com/post-inspector/inspect/" + encodedomain;
   fullcache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=0&vwsrc=0";
   textcache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=1&vwsrc=0";
   sourcecache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=0&vwsrc=1";
