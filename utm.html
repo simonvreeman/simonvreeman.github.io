@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Google Analytics URL Builder</title>
+    <title>Google Analytics UTM Campaign URL Builder</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
     <style>
@@ -89,6 +89,7 @@
     </form>
     <textarea id="url" readonly="readonly" wrap="off" onclick="this.focus();this.select()" rows="3">https://vreeman.com</textarea>
     <button onclick="copyURL()">Copy URL with UTM</button>
+    <h2>Check URL with more tools</h2>
     <ul>
       <li><a id="pagespeed" href="https://developers.google.com/speed/pagespeed/insights/?url=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Pagespeed Insights</a></li>
       <li><a id="structureddata" href="https://search.google.com/structured-data/testing-tool/u/0/#url=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Structured Data</a></li>
@@ -104,9 +105,8 @@
       <li><a id="textcache" href="http://webcache.googleusercontent.com/search?q=cache:https://vreeman.com/&num=1&hl=en&gl=en&strip=1&vwsrc=0" rel="nofollow noopener noreferrer" target="_blank">Text-only version Google Cache</a></li>
       <li><a id="sourcecache" href="http://webcache.googleusercontent.com/search?q=cache:https://vreeman.com/&num=1&hl=en&gl=en&strip=0&vwsrc=1" rel="nofollow noopener noreferrer" target="_blank">View source via Google Cache</a></li>
       <li><a id="amp" href="https://validator.ampproject.org/#url=https://vreeman.com/" rel="nofollow noopener noreferrer" target="_blank">Check AMP</a> </li>
-      <li><a id="ampbench" href="https://ampbench.appspot.com/validate?url=https://vreeman.com/" rel="nofollow noopener noreferrer" target="_blank">Check AMP Bench</a> </li>
-      <li><a id="ampgoogle" href="https://search.google.com/test/amp?url=https://vreeman.com/" rel="nofollow noopener noreferrer" target="_blank">Check AMP with Google</a> </li>
-      <li><a href="https://vreeman-com.cdn.ampproject.org/c/s/vreeman.com"  rel="nofollow noopener noreferrer" target="_blank">AMP Project Cache URL</a> - <a href="https://www.google.com/amp/s/vreeman.com/" rel="nofollow noopener noreferrer" target="_blank">Google AMP Cache URL</a> - <a href="https://cdn.ampproject.org/update-ping/c/s/vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Update cache</a></li>
+      <li><a id="ampbench" href="https://ampbench.appspot.com/validate?url=https://vreeman.com/" rel="nofollow noopener noreferrer" target="_blank">Check AMP Bench</a></li>
+      <li><a id="ampgoogle" href="https://search.google.com/test/amp?url=https://vreeman.com/" rel="nofollow noopener noreferrer" target="_blank">Check AMP with Google</a></li>
       <li><a id="ssl" href="https://www.ssllabs.com/ssltest/analyze.html?d=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">SSL Server Test</a></li>
       <li><a href="https://search.developer.apple.com/appsearch-validation-tool" target="_blank" rel="nofollow noopener noreferrer">Apple App Search API Validation Tool</a></li>
     </ul>
@@ -169,6 +169,8 @@ function getUTM() {
   textcache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=1&vwsrc=0";
   sourcecache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=0&vwsrc=1";
   amp.href = "https://validator.ampproject.org/#url="  + domain;
+  ampbench.href = "https://ampbench.appspot.com/validate?url="  + domain;
+  ampgoogle.href = "https://search.google.com/test/amp?url="  + domain;
   ssl.href = "https://www.ssllabs.com/ssltest/analyze.html?d="  + domain;
 }
     </script>
