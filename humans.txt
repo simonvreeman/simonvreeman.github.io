@@ -1,7 +1,7 @@
 Description: Vreeman.com is the personal website of Simon Vreeman
 
 Contact: https://twitter.com/vreeman
-Contact: simon@vreeman@.com
+Contact: simon@vreeman.com
 
 Tech: AMP Project
 Tech: Github Pages

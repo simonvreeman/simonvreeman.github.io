@@ -8,6 +8,16 @@
     <loc>https://vreeman.com/</loc>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://vreeman.com/img/simonvreeman.jpg</image:loc>
+      <image:title><![CDATA[Simon Vreeman]]></image:title>
+      <image:caption><![CDATA[A photo of Simon Vreeman]]></image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://vreeman.com/img/simon-vreeman.jpg</image:loc>
+      <image:title><![CDATA[Simon Vreeman]]></image:title>
+      <image:caption><![CDATA[A photo of Simon Vreeman]]></image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://vreeman.com/f1.html</loc>
