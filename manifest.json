@@ -1,19 +1,26 @@
 {
   "dir": "ltr",
   "lang": "en",
-  "short_name": "Tools",
-  "name": "Tools & Resources",
+  "short_name": "Vreeman",
+  "name": "Simon Vreeman",
+  "description": "The personal website of Simon Vreeman. Growth Marketing Manager at VanMoof.",
   "icons": [
     {
-      "src": "apple-touch-icon.png",
+      "src": "https://vreeman.com/apple-touch-icon.png",
       "sizes": "558x558",
       "type": "image/png"
     }
   ],
-  "start_url": "/tools.html?ref=homescreen",
+  "start_url": "https://vreeman.com/?ref=homescreen",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "transparent",
-  "theme_color": "transparent",
-  "prefer_related_applications": false
+  "background_color": "#000000cc",
+  "theme_color": "#000000cc",
+  "prefer_related_applications": false,
+  "categories": ["marketing", "business", "technology"],
+  "serviceworker": {
+    "src": "serviceworker.js",
+    "scope": "/",
+    "update_via_cache": "none"
+  }
 }
