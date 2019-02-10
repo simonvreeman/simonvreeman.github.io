@@ -111,8 +111,9 @@
     <button onclick="sentHit()">Send one hit</button>
     <button onclick="startCount()">Start sending hits</button>
     <button onclick="stopCount()">Stop sending hits</button>
-    <p id="txt"></p>
+    <p id="txt">0 hits sent</p>
     <p id="feedback"></p>
+    <p>More info:</p>
     <ul>
       <li><a href="https://ga-dev-tools.appspot.com/hit-builder/" target="_blank" rel="nofollow noopener noreferrer">Measurement Protocol Hit Builder</a></li>
       <li><a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters" target="_blank" rel="nofollow noopener noreferrer">Measurement Protocol Parameters</a></li>
@@ -225,7 +226,7 @@
       }
 
       // Timer stuff
-      var c = 0;
+      var c = 1;
       var t;
       var timer_is_on = 0;
       function timedCount() {
