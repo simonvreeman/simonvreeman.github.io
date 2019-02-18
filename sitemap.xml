@@ -4,6 +4,7 @@
     <loc>https://vreeman.com/</loc>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
+    <link rel="alternate" href="https://vreeman.com/" hreflang="x-default" />
     <image:image>
       <image:loc>https://vreeman.com/img/simonvreeman.jpg</image:loc>
       <image:title><![CDATA[Simon Vreeman]]></image:title>
