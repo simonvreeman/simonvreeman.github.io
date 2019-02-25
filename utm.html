@@ -43,10 +43,6 @@
       fieldset, input, textarea {
         margin-bottom: 1.5em;
       }
-      textarea {
-        margin-top: 1.5em;
-        resize: vertical;
-      }
     </style>
     <link rel="canonical" href="https://vreeman.com/utm.html">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -84,6 +80,7 @@
         <input type="text" name="content" id="content" autocapitalize="none" placeholder="Optional">
       </fieldset>
     </form>
+    <label for="url">The URL with UTM tags</label>
     <textarea id="url" readonly="readonly" wrap="off" onclick="this.focus();this.select()" rows="3">https://vreeman.com</textarea>
     <button onclick="copyURL()">Copy URL with UTM</button>
     <h2>Check URL with more tools</h2>

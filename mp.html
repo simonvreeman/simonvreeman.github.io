@@ -24,7 +24,7 @@
       b, dt, strong {
         font-weight: 700;
       }
-      h1, h2, h3 {
+      h1 {
         line-height: 1.2;
       }
       a {
@@ -34,18 +34,12 @@
         font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace;
         font-size: 1em;
       }
-      input, textarea, select {
+      input, select {
+        margin-bottom: 1.5em;
         width: 95%;
         display: block;
         padding: .5em 1%;
         font-size: 1em;
-      }
-      fieldset, input, textarea, select {
-        margin-bottom: 1.5em;
-      }
-      textarea {
-        margin-top: 1.5em;
-        resize: vertical;
       }
       .hidden {
         display: none;
@@ -101,7 +95,7 @@
     <input type="text" id="medium" name="medium" placeholder="social">
     <label for="campaign">Campaign Name (<code>cn</code>)</label>
     <input type="text" id="campaign" name="campaign" placeholder="adwords">
-    <label for="campaign">Google AdWords ID (<code>gclid</code>)</label>
+    <label for="gclid">Google AdWords ID (<code>gclid</code>)</label>
     <input type="text" id="gclid" name="gclid" placeholder="CL6Q-OXyqKUCFcgK2goddQuoHg">
     <label for="queuetime">Queue Time in hours (<code>qt</code>)</label>
     <input type="number" id="queuetime" name="queuetime" placeholder="4">
