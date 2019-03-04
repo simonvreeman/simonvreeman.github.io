@@ -55,9 +55,10 @@
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header>
-      <h1>Google Analytics UTM Campaign URL Builder</h1>
+      <h1>Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> Campaign <abbr title="Uniform Resource Locator">URL</abbr> Builder</h1>
       <p><a href="https://vreeman.com/">Home</a> | <a href="cro.html">CRO Tools</a></p>
     </header>
+    <p>Simple tool to create an <abbr title="Uniform Resource Locator">URL</abbr> with Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> campaign parameters. All input will be lowercase appended to the url. The URL Builder will also check if the URL already contains an questionmark. With one click you can add the URL to your clipboard.</p>
     <form onkeyup="getUTM()">
       <fieldset>
         <legend>URL, Source, Medium, and Name are required</legend>
@@ -84,7 +85,7 @@
     <label for="url">The URL with UTM tags</label>
     <textarea id="url" readonly="readonly" wrap="off" onclick="this.focus();this.select()" rows="3">https://vreeman.com</textarea>
     <button onclick="copyURL()">Copy URL with UTM</button>
-    <h2>Check URL with more tools</h2>
+    <h2>Check the URL with more tools</h2>
     <ul>
       <li><a id="pagespeed" href="https://developers.google.com/speed/pagespeed/insights/?url=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Pagespeed Insights</a></li>
       <li><a id="structureddata" href="https://search.google.com/structured-data/testing-tool/u/0/#url=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Structured Data</a></li>
