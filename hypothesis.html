@@ -49,6 +49,11 @@
       textarea {
         resize: vertical;
       }
+      input[type=radio]{
+        display: inline-block;
+        width: 1em;
+        border: 1px solid red;
+      }
     </style>
     <link rel="canonical" href="https://vreeman.com/hypothesis.html">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -65,10 +70,11 @@
     </header>
     <p>Based on the <a href="https://medium.com/@optimiseordie/hypothesis-kit-2-eff0446e09fc#.8d2gvzj4o" target="_blank" rel="noopener">Hypothesis Kit v3</a> by Craig Sullivan. With the help of Colin Mcfarland, Lukas Vermeer, Rik Higham, Doug Hall and Michael Aagard.</p>
 
-    <!-- <input type="radio" name="simple" id="simple" value="simple">
+    <input type="radio" name="setting" id="simple" value="simple">
     <label for="simple">Simple</label>
-    <input type="radio" name="advanced" id="advanced" value="advanced">
-    <label for="advanced">Advanced</label> -->
+    
+    <input type="radio" name="setting" id="advanced" value="advanced">
+    <label for="advanced">Advanced</label>
 
     <form>
       <fieldset onkeyup="getHypothesis1()">
