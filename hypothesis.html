@@ -52,7 +52,9 @@
       input[type=radio]{
         display: inline-block;
         width: 1em;
-        border: 1px solid red;
+      }
+      .hidden {
+        display: none;
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/hypothesis.html">
@@ -70,38 +72,45 @@
     </header>
     <p>Based on the <a href="https://medium.com/@optimiseordie/hypothesis-kit-2-eff0446e09fc#.8d2gvzj4o" target="_blank" rel="noopener">Hypothesis Kit v3</a> by Craig Sullivan. With the help of Colin Mcfarland, Lukas Vermeer, Rik Higham, Doug Hall and Michael Aagard.</p>
 
-    <input type="radio" name="setting" id="simple" value="simple">
-    <label for="simple">Simple</label>
-    
-    <input type="radio" name="setting" id="advanced" value="advanced">
-    <label for="advanced">Advanced</label>
+    <form id="settingsForm">
+      <input type="radio" name="setting" id="simple" value="simple" checked>
+      <label for="simple">Simple</label>    
+      <input type="radio" name="setting" id="advanced" value="advanced">
+      <label for="advanced">Advanced</label>
+    </form>
 
-    <form>
-      <fieldset onkeyup="getHypothesis1()">
-        <legend>Step 1</legend>
-        <label for="because">Because we saw</label>
-        <textarea name="because" id="because" placeholder="qual & quant data"></textarea>
-      </fieldset>
-      <fieldset onkeyup="getHypothesis2()">
-        <legend>Step 2</legend>
-        <label for="change">We expect that</label>
-        <textarea name="change" id="change" placeholder="change"></textarea>
-        <label for="population">For</label>
-        <textarea name="population" id="population" placeholder="population"></textarea>
-        <label for="impact">Will cause</label>
-        <textarea name="impact" id="impact" placeholder="impact(s)"></textarea>
-      </fieldset>
-      <fieldset onkeyup="getHypothesis3()">
-        <legend>Step 3</legend>
-        <label for="metric">We expect to see</label>
-        <textarea name="metric" id="metric" placeholder="data metric(s) change"></textarea>
-        <label for="cycles">Over a period of</label>
-        <textarea name="cycles" id="cycles" placeholder="x business cycles"></textarea>
+    <form onkeyup="getSimpleHypothesis()" id="simpleForm">
+      <fieldset>
+        <legend>Build your own simple hypothesis</legend>
+        <label for="because">Because we saw (<code>data/feedback</code>)</label>
+        <textarea name="because" id="s1" placeholder="data/feedback" rows="3"></textarea>
+        <label for="change">We expect that (<code>change</code>)</label>
+        <textarea name="change" id="s2" placeholder="change" rows="3"></textarea>
+        <label for="impact">Will cause (<code>impact</code>)</label>
+        <textarea name="impact" id="s3" placeholder="impact" rows="3"></textarea>
+        <label for="metric">We’ll measure this using (<code>data metric</code>)</label>
+        <textarea name="metric" id="s4" placeholder="data metric" rows="3"></textarea>
       </fieldset>
     </form>
-    <p><samp id="result1">Because we saw (qual & quant data).</samp></p>
-    <p><samp id="result2">We expect that (change) for (population) will cause (impact(s)).</samp></p>
-    <p><samp id="result3">We expect to see (data metric(s) change) over a period of (x business cycles).</samp></p>
+
+    <form onkeyup="getAdvancedHypothesis()" id="advancedForm" class="hidden">
+      <fieldset>
+        <legend>Build your own advanced hypothesis</legend>
+        <label for="because">Because we saw (<code>quantitative &amp; qualitative data</code>)</label>
+        <textarea name="because" id="a1" placeholder="quantitative &amp; qualitative data"></textarea>
+        <label for="change">We expect that (<code>change</code>)</label>
+        <textarea name="change" id="a2" placeholder="change"></textarea>
+        <label for="population">For (<code>population</code>)</label>
+        <textarea name="population" id="a3" placeholder="population"></textarea>
+        <label for="impact">Will cause (<code>impact(s)</code>)</label>
+        <textarea name="impact" id="a4" placeholder="impact(s)"></textarea>
+        <label for="metric">We expect to see (<code>data metric(s) change</code>)</label>
+        <textarea name="metric" id="a5" placeholder="data metric(s) change"></textarea>
+        <label for="cycles">Over a period of (<code>x business cycles</code>)</label>
+        <textarea name="cycles" id="a6" placeholder="x business cycles"></textarea>
+      </fieldset>
+    </form>
+    <p><samp id="result">Because we saw (data/feedback).<br>We expect that (change) will cause (impact).<br>We’ll measure this using (data metric).</samp></p>
     <hr>
     <footer>
       <p>Vreeman.com is the personal website of <a class="h-card" rel="me" href="https://vreeman.com" title="Simon Vreeman">Simon Vreeman</a>.</p>
@@ -125,24 +134,46 @@
       </dl>
     </footer>
     <script>
-      function getHypothesis1() {
-          var because = document.getElementById("because").value;
-          var html1 = 'Because we saw '+because+'.';
-          result1.textContent = html1;
-        }
-        function getHypothesis2() {
-          var change = document.getElementById("change").value;
-          var population = document.getElementById("population").value;
-          var impact = document.getElementById("impact").value;
-          var html2 = 'We expect that '+change+' for '+population+' will cause '+impact+'.';
-          result2.textContent = html2;
-        }
-        function getHypothesis3() {
-          var metric = document.getElementById("metric").value;
-          var cycles = document.getElementById("cycles").value;
-          var html3 = 'We expect to see '+metric+' over a period of '+cycles+'.';
-          result3.textContent = html3;
-        }
+      var sz = document.forms['settingsForm'].elements['setting'];
+      var simplefrom = document.getElementById("simpleForm");
+      var advancedfrom = document.getElementById("advancedForm");
+
+      for (var i=0, len=sz.length; i<len; i++) {
+        sz[i].onclick = function() {
+          if (this.value == "simple") {
+            advancedfrom.classList.add("hidden");
+            simplefrom.classList.remove("hidden");
+            result.innerHTML = "Because we saw (data/feedback).<br>We expect that (change) will cause (impact).<br>We’ll measure this using (data metric)."
+          }
+          else if (this.value == "advanced") {
+            simplefrom.classList.add("hidden");
+            advancedfrom.classList.remove("hidden");
+            result.innerHTML = "Because we saw (quantitative & qualitative data).<br>We expect that (change) for (population) will cause (impact(s)).<br>We expect to see (data metric(s) change) over a period of (x business cycles)."
+          }
+        };
+      }
+    </script>
+    <script>
+      function getSimpleHypothesis() {
+        var s1 = document.getElementById("s1").value;
+        var s2 = document.getElementById("s2").value;
+        var s3 = document.getElementById("s3").value;
+        var s4 = document.getElementById("s4").value;
+        var html = 'Because we saw ' + s1 + '.<br>We expect that ' + s2 + ' will cause ' + s3 + '.<br>We’ll measure this using ' + s4 + '.';
+        result.innerHTML = html;
+      }
+    </script>
+    <script>
+      function getAdvancedHypothesis() {
+        var a1 = document.getElementById("a1").value;
+        var a2 = document.getElementById("a2").value;
+        var a3 = document.getElementById("a3").value;
+        var a4 = document.getElementById("a4").value;
+        var a5 = document.getElementById("a5").value;
+        var a6 = document.getElementById("a6").value;
+        var html = 'Because we saw '+a1+'.<br>We expect that '+a2+' for '+a3+' will cause '+a4+'.<br>We expect to see '+a5+' over a period of '+a6+'.';
+        result.innerHTML = html;
+      }
     </script>
     <script>
       if ('serviceWorker' in navigator) {
