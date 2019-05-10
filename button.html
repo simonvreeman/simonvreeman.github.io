@@ -76,6 +76,9 @@
       case "light":
       theme_html = $('#light_theme_html').html().toString().trim();
       break;
+      case "yellow":
+      theme_html = $('#yellow_theme_html').html().toString().trim();
+      break;
       }
 
       var url = $('#url').val();
@@ -137,6 +140,28 @@
     </tr>
     </table>
   </div>
+  <div id="yellow_theme_html" class="hidden">
+  	<table cellspacing="0" cellpadding="0" style="background-color:#ffff00;border-radius:4px;">
+  	<tr>
+  	<td class="button-cap-left" style="height:46px;width:72px;" width="72" height="46" cellspacing="0" cellpadding="0">
+  	<a href="{{ url }}" style="text-decoration:none;width:72px;height:46px;" width="72" height="46" border="0" alt="{{ alt }}">
+  	<img src="https://gallery.mailchimp.com/d218a5656807f859ab7e72ec5/images/4aba6851-4989-481b-8fb9-41b390b5c44a.png" width="72" height="46" border="0" style="width:72px;height:46px;display:block;">
+  	</a>
+  	</td>
+  	<td style="height:46px;background-color:#ffff00;" class="button-center" cellspacing="0" cellpadding="0" valign="middle" align="center">
+  	<a href="{{ url }}" style="font-size:15px;line-height:46px;font-weight:bold;font-family:Helvetica,sans-serif;color:#2d3033 !important;text-decoration:none !important;background-color:#ffff00;" alt="{{ alt }}">
+  	{{ txt }}
+  	</a>
+  	</td>
+  	<td class="button-cap-right" style="height:46px;width:52px;" width="52" height="46" cellspacing="0" cellpadding="0">
+  	<a href="{{ url }}" style="text-decoration:none;width:52px;height:46px;" alt="{{ alt }}">
+  	<img src="https://gallery.mailchimp.com/d218a5656807f859ab7e72ec5/images/fc8d8804-3adf-4624-a874-66d657d77d98.png" style="width:52px;height:46px;display:block;" width="52" height="46" border="0" >
+  	</a>
+  	</td>
+  	</tr>
+  	</table>
+  </div>
+
   <div class="ui--wrapper">
     <input id="url" type="text" placeholder="href / link"/>
   </div>
@@ -154,6 +179,10 @@
     <label for="light_theme">
       <input type="radio" name="type" value="light" id="light_theme" />
       Light
+    </label>
+    <label for="yellow_theme">
+      <input type="radio" name="type" value="yellow" id="yellow_theme" />
+      Yellow
     </label>
   </div>
   <div class="ui--wrapper">
