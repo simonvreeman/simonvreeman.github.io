@@ -96,6 +96,22 @@ dt {
   -webkit-text-fill-color: transparent;
   animation: wow 1s alternate ease-in-out infinite;
 }
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none;
+    transition: none;
+  }
+  .footer:hover {
+    background: none;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 100;
+    letter-spacing: 1px;
+    animation: none;
+    transition: none;
+    -webkit-text-fill-color: inherit;
+  }
+}
 @keyframes wow {
   0% {
     background-position: 0% 100%;
@@ -116,12 +132,7 @@ dt {
     color: rgb(102, 187, 255);
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none!important;
-    transition: none!important;
-  }
-}
+
 </style>
     <link rel="canonical" href="https://vreeman.com/">
     <meta name="robots" content="index, follow">
