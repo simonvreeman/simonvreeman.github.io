@@ -27,17 +27,17 @@
       window.ga=function(){ga.q.push(arguments)},ga.q=[],ga.l=+new Date;
       ga("create", "UA-2826482-20", "auto"),
       ga("set", "transport", "beacon"),
-      ga('set', 'sendHitTask', function(model) {
-        console.log(model.get('hitPayload'));
-        document.getElementById("hit").innerHTML = model.get('hitPayload');
-      }),
+      // ga('set', 'sendHitTask', function(model) {
+      //   console.log(model.get('hitPayload'));
+      //   document.getElementById("hit").innerHTML = model.get('hitPayload');
+      // }),
       ga("send", "pageview", {
         hitCallback: function() {
           callBack();
         }
       });
     </script>
-    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    <script src="https://www.google-analytics.com/analytics.js" importance="high" async defer></script>
     <link rel="canonical" href="https://vreeman.com/">
     <meta name="robots" content="noindex, nofollow">
   </head>
@@ -50,8 +50,8 @@
       <dd><code id="ref"></code></dd>
       <dt>Google Analytics Client ID</dt>
       <dd><code id="clientid"></code></dd>
-      <dt>Google Analytics Hit</dt>
-      <dd><code id="hit"></code></dd>
+      <dt>Google Analytics Hit Payload</dt>
+      <dd><code id="payload"></code></dd>
       <dt>Google Analytics hit sent?</dt>
       <dd><code id="sent"></code></dd>
       <dt>window.performance.now</dt>
@@ -92,6 +92,22 @@
       <dd><code id=""></code></dd>
     </dl>
     <script>
+      function callBack() {
+        document.getElementById("sent").innerHTML = 'Yes!';
+
+        ga(function(tracker) {
+          var clientid = tracker.get('clientId');
+          document.getElementById("clientid").innerHTML = clientid;
+          console.log(clientid);
+
+          var payload = tracker.get('hitPayload');
+          document.getElementById("payload").innerHTML = payload;
+          console.log(payload);
+
+          // var trackers = ga.getAll();
+          // console.log(trackers);
+        });
+      }
       var ua = navigator.userAgent || navigator.vendor || window.opera;
       var ref = document.referrer;
       var perf = Math.round(window.performance.now());
@@ -99,19 +115,6 @@
       document.getElementById("ua").innerHTML = ua;
       document.getElementById("ref").innerHTML = ref;
       document.getElementById("perf").innerHTML = perf;
-
-      ga(function(tracker) {
-        var clientid = tracker.get('clientId');
-        console.log(tracker.get('clientId'));
-        document.getElementById("clientid").innerHTML = clientid;
-
-        // var trackers = ga.getAll();
-        // console.log(trackers);
-      });
-      
-      function callBack() {
-        document.getElementById("sent").innerHTML = 'Yes!';
-      }
     </script>
   </body>
 </html>

@@ -97,7 +97,9 @@ dt {
   animation: wow 1s alternate ease-in-out infinite;
 }
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *,
+  *::before,
+  *::after {
     animation: none;
     transition: none;
   }
