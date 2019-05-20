@@ -51,6 +51,8 @@
       <dd><code id="payload"></code></dd>
       <dt>window.performance.now</dt>
       <dd><code id="perf"></code></dd>
+      <dt>Cookies</dt>
+      <dd><code id="cookies"></code></dd>
     </dl>
     <dl>
       <dt>Total screen width/height</dt>
@@ -110,11 +112,15 @@
 
       var ua = navigator.userAgent || navigator.vendor || window.opera;
       var ref = document.referrer;
-      var perf = Math.round(window.performance.now());
-
       document.getElementById("ua").innerHTML = ua;
       document.getElementById("ref").innerHTML = ref;
-      document.getElementById("perf").innerHTML = perf;
+
+      window.addEventListener('load', function() {
+        var cookies = document.cookie;
+        document.getElementById("cookies").innerHTML = cookies;
+        var perf = Math.round(window.performance.now());
+        document.getElementById("perf").innerHTML = perf;
+      })
     </script>
   </body>
 </html>
