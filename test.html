@@ -102,6 +102,12 @@
         });
       }
 
+      var date = new Date();
+      date.setTime(date.getTime() + (8 * 24 * 60 * 60 * 1000));
+      expires = date.toUTCString();
+      document.cookie = "javascript=itpcookie; expires=" + expires + "; path=/";
+
+
       var ua = navigator.userAgent || navigator.vendor || window.opera;
       var ref = document.referrer;
       var perf = Math.round(window.performance.now());
