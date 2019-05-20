@@ -27,10 +27,6 @@
       window.ga=function(){ga.q.push(arguments)},ga.q=[],ga.l=+new Date;
       ga("create", "UA-2826482-20", "auto"),
       ga("set", "transport", "beacon"),
-      // ga('set', 'sendHitTask', function(model) {
-      //   console.log(model.get('hitPayload'));
-      //   document.getElementById("hit").innerHTML = model.get('hitPayload');
-      // }),
       ga("send", "pageview", {
         hitCallback: function() {
           callBack();
@@ -52,8 +48,6 @@
       <dd><code id="clientid"></code></dd>
       <dt>Google Analytics Hit Payload</dt>
       <dd><code id="payload"></code></dd>
-      <dt>Google Analytics hit sent?</dt>
-      <dd><code id="sent"></code></dd>
       <dt>window.performance.now</dt>
       <dd><code id="perf"></code></dd>
     </dl>
@@ -93,8 +87,6 @@
     </dl>
     <script>
       function callBack() {
-        document.getElementById("sent").innerHTML = 'Yes!';
-
         ga(function(tracker) {
           var clientid = tracker.get('clientId');
           document.getElementById("clientid").innerHTML = clientid;
@@ -108,6 +100,7 @@
           // console.log(trackers);
         });
       }
+
       var ua = navigator.userAgent || navigator.vendor || window.opera;
       var ref = document.referrer;
       var perf = Math.round(window.performance.now());
