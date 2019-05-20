@@ -52,8 +52,10 @@
       <dd><code id="clientid"></code></dd>
       <dt>Google Analytics Hit</dt>
       <dd><code id="hit"></code></dd>
+      <dt>Google Analytics hit sent?</dt>
+      <dd><code id="sent"></code></dd>
       <dt>window.performance.now</dt>
-      <dd><code id=""></code></dd>
+      <dd><code id="perf"></code></dd>
     </dl>
     <dl>
       <dt>Total screen width/height</dt>
@@ -92,9 +94,11 @@
     <script>
       var ua = navigator.userAgent || navigator.vendor || window.opera;
       var ref = document.referrer;
+      var perf = Math.round(window.performance.now());
 
       document.getElementById("ua").innerHTML = ua;
       document.getElementById("ref").innerHTML = ref;
+      document.getElementById("perf").innerHTML = perf;
 
       ga(function(tracker) {
         var clientid = tracker.get('clientId');
@@ -105,9 +109,8 @@
         // console.log(trackers);
       });
       
-
       function callBack() {
-
+        document.getElementById("sent").innerHTML = 'Yes!';
       }
     </script>
   </body>
