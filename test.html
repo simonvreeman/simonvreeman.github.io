@@ -43,11 +43,11 @@
   <body>
     <p>Some tests by <a href="https://vreeman.com" title="Simon Vreeman">Simon Vreeman</a></p>
     <ul>
-      <li><a href="https://www.vanmoof.com/en_nl/" title="VanMoof" target="_blank">VanMoof</a></li>
-      <li><a href="https://www.vanmoof.com/en_nl/?ref=vreeman.com" title="VanMoof" target="_blank">VanMoof</a> ?ref=vreeman.com</li>
-      <li><a href="https://www.vanmoof.com/en_nl/" title="VanMoof" target="_blank" rel="noopener noreferrer">VanMoof</a> noopener noreferrer</li>
-      <li><a href="http://bit.ly/2WYXtZ7" title="VanMoof" target="_blank">VanMoof</a> bit.ly</li>
-      <li><a href="#" onclick="console.log('Click');">VanMoof</a></li>
+      <li><a href="https://www.vanmoof.com/en_nl/" onclick="ga('send', 'event', 'test', 'click', 'vanmoof', {transport: 'beacon', nonInteraction: true});" target="_blank">VanMoof</a></li>
+      <li><a href="https://www.vanmoof.com/en_nl/?ref=vreeman.com" onclick="ga('send', 'event', 'test', 'click', '?ref=vreeman.com', {transport: 'beacon', nonInteraction: true});" target="_blank">VanMoof</a> ?ref=vreeman.com</li>
+      <li><a href="https://www.vanmoof.com/en_nl/" onclick="ga('send', 'event', 'test', 'click', 'noopener noreferrer', {transport: 'beacon', nonInteraction: true});" target="_blank" rel="noopener noreferrer">VanMoof</a> noopener noreferrer</li>
+      <li><a href="http://bit.ly/2WYXtZ7" onclick="ga('send', 'event', 'test', 'click', 'bitly', {transport: 'beacon', nonInteraction: true});" target="_blank">VanMoof</a> bit.ly</li>
+      <li><a href="#" onclick="ga('send', 'event', 'test', 'click', 'empty', {transport: 'beacon', nonInteraction: true});">VanMoof</a></li>
     </ul>
     <dl>
       <dt>navigator.userAgent</dt>
