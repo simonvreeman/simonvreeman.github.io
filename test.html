@@ -23,6 +23,15 @@
         word-break: break-word;
         word-wrap: break-word;
       }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: black;
+          color: white;
+        }
+        a {
+          color: lime;
+        }
+      }
     </style>
     <script>
       var ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -48,9 +57,10 @@
       <li><a href="https://www.vanmoof.com/en_nl/" onclick="ga('send', 'event', 'test', 'click', 'vanmoof', {transport: 'beacon', nonInteraction: true});" target="_blank">VanMoof</a></li>
       <li><a href="https://www.vanmoof.com/en_nl/?ref=vreeman.com" onclick="ga('send', 'event', 'test', 'click', '?ref=vreeman.com', {transport: 'beacon', nonInteraction: true});" target="_blank">VanMoof</a> ?ref=vreeman.com</li>
       <li><a href="https://www.vanmoof.com/en_nl/" onclick="ga('send', 'event', 'test', 'click', 'noopener noreferrer', {transport: 'beacon', nonInteraction: true});" target="_blank" rel="noopener noreferrer">VanMoof</a> noopener noreferrer</li>
-      <li><a href="http://bit.ly/2WYXtZ7" onclick="ga('send', 'event', 'test', 'click', 'bitly', {transport: 'beacon', nonInteraction: true});" target="_blank">VanMoof</a> bit.ly</li>
+      <li><a href="http://bit.ly/2WYXtZ7" onclick="ga('send', 'event', 'test', 'click', 'bitly', {transport: 'beacon', nonInteraction: true});" target="_blank">VanMoof</a> bit.ly<a href="http://bit.ly/2WYXtZ7+">+</a></li>
       <li><a href="#" onclick="ga('send', 'event', 'test', 'click', 'empty', {transport: 'beacon', nonInteraction: true});">VanMoof</a></li>
     </ul>
+    <hr>
     <dl>
       <dt>navigator.userAgent</dt>
       <dd><code id="ua"></code></dd>
@@ -95,10 +105,6 @@
         </script>
       </ul>
     </details>
-    <dl>
-      <dt></dt>
-      <dd><code id=""></code></dd>
-    </dl>
     <script>
       function callBack() {
         ga(function(tracker) {
