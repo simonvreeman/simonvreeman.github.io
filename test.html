@@ -25,16 +25,18 @@
       }
     </style>
     <script>
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+      var ref = document.referrer;
+
       window.ga=function(){ga.q.push(arguments)},ga.q=[],ga.l=+new Date;
       ga("create", "UA-2826482-20", "auto"),
       ga("set", "transport", "beacon"),
       ga("send", "pageview", {
+        'dimension10': ua,
         hitCallback: function() {
           callBack();
         }
       });
-      // ga('send', 'event', 'click', 'vanmoof.com', 'bitly', {transport: 'beacon', nonInteraction: true});
-      // ga('send', 'event', 'click', 'vanmoof.com', 'bitly');
     </script>
     <script src="https://www.google-analytics.com/analytics.js" importance="high" async defer></script>
     <link rel="canonical" href="https://vreeman.com/">
@@ -118,9 +120,6 @@
       expires = date.toUTCString();
       document.cookie = "javascript=itpcookie; expires=" + expires + "; path=/";
 
-
-      var ua = navigator.userAgent || navigator.vendor || window.opera;
-      var ref = document.referrer;
       document.getElementById("ua").innerHTML = ua;
       document.getElementById("ref").innerHTML = ref;
 
