@@ -72,8 +72,6 @@
       <dd><code id="payload"></code></dd>
       <dt>window.performance.now</dt>
       <dd><code id="perf"></code></dd>
-      <dt>Cookies</dt>
-      <dd><code id="cookies"></code></dd>
     </dl>
     <dl>
       <dt>Total screen width/height</dt>
@@ -85,6 +83,15 @@
       <dt>Available browser width/height</dt>
       <dd><code><script>document.write( window.innerWidth + ' &times; ' + window.innerHeight );</script></code></dd>
     </dl>
+    <dl>
+      <dt>Cookies</dt>
+      <dd><code id="cookies"></code></dd>
+    </dl>
+    <label for="days">Days:</label>
+    <input type="number" name="days" id="days" name="days" min="1" max="1000" value="1" placeholder="42" step="1">
+    <button onclick="setCookies();">Set Cookie</button>
+    <button onclick="getCookies();">Get Cookie</button>
+    <button onclick="deleteCookies();">Delete Cookie</button>
     <details>
       <summary>window.performance&#x2026;</summary>
       <ul>
@@ -121,10 +128,21 @@
         });
       }
 
-      var date = new Date();
-      date.setTime(date.getTime() + (8 * 24 * 60 * 60 * 1000));
-      expires = date.toUTCString();
-      document.cookie = "javascript=itpcookie; expires=" + expires + "; path=/";
+      function setCookies() {
+        var date = new Date();
+        var days = document.getElementById('days').value;
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = date.toUTCString();
+        document.cookie = "vreeman-js=" + days + "days; expires=" + expires + "; path=/";
+      }
+      function getCookies() {
+        var cookies = document.cookie;
+        document.getElementById("cookies").innerHTML = cookies;
+      }
+      function deleteCookies() {
+        var days = document.getElementById('days').value;
+        document.cookie = "vreeman-js=" + days + "days; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+      }
 
       document.getElementById("ua").innerHTML = ua;
       document.getElementById("ref").innerHTML = ref;
