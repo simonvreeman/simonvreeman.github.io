@@ -78,6 +78,8 @@
       <dd><code id="ref"></code></dd>
       <dt>Google Analytics Client ID <code>_ga</code></dt>
       <dd><code id="clientid"></code></dd>
+      <dt>Vreeman Client ID <code>_vr</code></dt>
+      <dd><code id="vreemanid"></code></dd>
       <dt>Google Analytics Hit Payload</dt>
       <dd><code id="payload"></code></dd>
       <dt>window.performance.now</dt>
@@ -126,6 +128,16 @@
 
           // var trackers = ga.getAll();
           // console.log(trackers);
+
+          var date = new Date();
+          date.setTime(date.getTime() + (730 * 24 * 60 * 60 * 1000));
+          expires = date.toUTCString();
+          document.cookie = "_vr=" + clientid + "; expires=" + expires + "; path=/";
+
+          // get value of _vr cookie.
+          var vreemanid = readCookie('_vr');
+          console.log("vr_ :: " + vreemanid);
+          document.getElementById("vreemanid").innerHTML = vreemanid;
         });
       }
 
@@ -142,6 +154,16 @@
       function getCookies() {
         var cookies = document.cookie;
         document.getElementById("cookies").innerHTML = cookies;
+      }
+      function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1,c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
       }
       function deleteCookies() {
         var days = document.getElementById('days').value;
