@@ -136,6 +136,7 @@
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = date.toUTCString();
         console.log(today);
+        console.log(date);
         document.cookie = "vreeman-js=" + today + "; expires=" + expires + "; path=/";
       }
       function getCookies() {
