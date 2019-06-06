@@ -53,7 +53,7 @@
       outline:none;
       font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace;
     }
-    .ui--wrapper a{
+    .ui--wrapper a, button{
       display:inline-block;
       padding:12px 24px;
       background-color:#00a8ff;
@@ -95,6 +95,13 @@
       $('#results').addClass('has_result');
     }
   </script>
+  <script>
+      function copyCode() {
+        var code = document.getElementById("code");
+        code.select();
+        document.execCommand("Copy");
+      }
+    </script>
   <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
@@ -191,7 +198,8 @@
   <div id="results">
     <div id="preview"></div>
     <div class="result--wrapper">
-      <textarea id="code"></textarea>
+      <textarea id="code" onclick="this.focus();this.select()"></textarea>
+      <button onclick="copyCode()">Copy the button code</button>
     </div>
   </div>
 </body>

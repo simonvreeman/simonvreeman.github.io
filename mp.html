@@ -192,6 +192,12 @@
           hitPayload = hitPayload + '&qt=' + milliseconds;
         }
 
+        localStorage.setItem('testObject', hitPayload);
+
+        var retrievedObject = localStorage.getItem('testObject');
+        console.log('typeof retrievedObject: ' + typeof retrievedObject);
+        console.log('Value of retrievedObject: ' + retrievedObject);
+
         request.open('POST', 'https://www.google-analytics.com/collect', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         request.send(hitPayload);
