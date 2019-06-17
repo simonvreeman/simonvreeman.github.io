@@ -14,7 +14,8 @@
 <style amp-custom>
 :root {
   --primary: rgba(0, 0, 0, .8);
-  --secondary: rgb(0, 112, 201);
+  --blue-dark: rgb(0, 112, 201);
+  --blue-light: rgb(102, 187, 255);
   --tertiary: rgb(204, 204, 204);
   color-scheme: light dark;
 }
@@ -60,11 +61,14 @@ h1, h2, h3 {
 }
 a {
   background-color: transparent;
-  color: var(--secondary);
+  color: var(--blue-dark);
   text-decoration: none;
   text-decoration-skip: ink;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
+}
+a:hover, a:active {
+  color: rgb(102, 187, 255);
 }
 abbr {
   text-decoration: none;
@@ -131,7 +135,7 @@ dt {
     word-spacing: .05em;
   }
   a {
-    color: rgb(102, 187, 255);
+    color: var(--light-dark);
   }
 }
 </style>
