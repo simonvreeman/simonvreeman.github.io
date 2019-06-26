@@ -68,7 +68,8 @@ a {
   touch-action: manipulation;
 }
 a:hover, a:active, a:focus {
-  color: rgb(102, 187, 255);
+  /*color: rgb(102, 187, 255);*/
+  color: var(--blue-light);
 }
 abbr {
   text-decoration: none;
@@ -135,7 +136,10 @@ dt {
     word-spacing: .05em;
   }
   a {
-    color: var(--light-dark);
+    color: var(--blue-light);
+  }
+  a:hover, a:active, a:focus {
+    color: var(--blue-dark);
   }
 }
 </style>
