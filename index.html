@@ -13,11 +13,11 @@
     <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 <style amp-custom>
 :root {
-  --primary: rgba(0, 0, 0, .8);
+  --black: rgba(0, 0, 0, .8);
   --blue-dark: rgb(0, 112, 201);
   --blue-light: rgb(102, 187, 255);
-  --tertiary: rgb(204, 204, 204);
-  color-scheme: light dark;
+  --gray: rgb(204, 204, 204);
+  /*color-scheme: light dark;*/
 }
 html {
   overflow-x: hidden;
@@ -34,7 +34,7 @@ html {
 }
 body {
   background-color: rgba(0, 0, 0, 0);
-  color: var(--primary);
+  color: var(--black);
   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1.125rem;
   line-height: 1.618;
@@ -70,7 +70,6 @@ a {
   touch-action: manipulation;
 }
 a:hover, a:active, a:focus {
-  /*color: rgb(102, 187, 255);*/
   color: var(--blue-light);
 }
 abbr {
@@ -82,7 +81,7 @@ code {
 }
 hr {
   border: 0;
-  border-top: 1px solid var(--tertiary);
+  border-top: 1px solid var(--gray);
 }
 dt {
   font-weight: 700;
@@ -133,7 +132,7 @@ dt {
 }
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: var(--primary);
+    background-color: var(--black);
     color: rgba(255, 255, 255, 1);
     word-spacing: .05em;
   }
