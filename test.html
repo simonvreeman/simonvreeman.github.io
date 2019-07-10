@@ -180,5 +180,15 @@
         document.getElementById("perf").innerHTML = perf;
       })
     </script>
+    <script>
+      var head = document.getElementsByTagName('head')[0];
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.onload = function() {
+          callFunctionFromScript();
+      }
+      script.src = 'cloudflare.js';
+      head.appendChild(script);
+    </script>
   </body>
 </html>
