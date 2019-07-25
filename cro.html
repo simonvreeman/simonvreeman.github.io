@@ -8,20 +8,52 @@
     <script src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js" custom-element="amp-analytics" async></script>
     <title>🆎 Conversion Rate Optimization (CRO) Tools list curated by Simon Vreeman</title>
     <style amp-custom>
+      :root {
+        --black: rgba(0, 0, 0, .8);
+        --blue-dark: rgb(0, 112, 201);
+        --blue-light: rgb(102, 187, 255);
+        --gray: rgb(204, 204, 204);
+        /*color-scheme: light dark;*/
+      }
       html {
         scroll-behavior: smooth;
       }
       body {
-        font: 1.125em/1.618 BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        background-color: rgba(0, 0, 0, 0);
+        color: var(--black);
+        font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 1.125rem;
+        line-height: 1.618;
       }
       .container {
         max-width: 30em;
         margin: 0 auto;
         padding: 0 3%;
       }
+      h1, h2, h3 {
+        line-height: 1.2;
+        letter-spacing: .02em;
+      }
+      h2 {
+        margin-top: 2em
+      }
       dt {
         margin-top: 1rem;
         font-weight: 700;
+      }
+      a {
+        background-color: transparent;
+        color: var(--blue-dark);
+        text-decoration: none;
+        text-decoration-skip: ink;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+      }
+      a:hover, a:active, a:focus {
+        color: var(--blue-light);
+      }
+      abbr {
+        text-decoration: none;
       }
       abbr[title] {
         text-decoration: none;
@@ -32,7 +64,11 @@
       }
       hr {
         border: 0;
-        border-top: 1px solid #ccc;
+        border-top: 1px solid var(--gray);
+      }
+      footer {
+        margin: 0 auto 10%;
+        font-size: 80%;
       }
       @media (prefers-color-scheme: dark) {
         body {
@@ -428,25 +464,27 @@
       </ul>
       <p>Missing a <abbr title="Conversion Rate Optimization">CRO</abbr> tool? Send a message to <a href="https://vreeman.com">Simon Vreeman</a>.</p>
       <hr>
-      <p>Vreeman.com is the personal website of <a class="h-card" rel="me" href="https://vreeman.com" title="Simon Vreeman">Simon Vreeman</a>.</p>
-      <dl>
-        <dt>Privacy &amp; Cookie Policy</dt>
-        <dd>Vreeman.com uses Google Analytics (<code>_ga</code> &amp; <code>AMP_TOKEN</code>), Google Tag Manager and DoubleClick to measure and analyze anonymous user behavior data for improving the website in an ethical manner. Vreeman.com uses <abbr title="Accelerated Mobile Pages Project">AMP</abbr>, Cloudflare (<code>__cfduid</code>) and is hosted on Github pages to ensure it loads fast.</dd>
-        <dt>Licenses</dt>
-        <dd>Text is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" title="Creative Commons Attribution 4.0 International License" data-vars-outbound-text="Creative Commons License" data-vars-outbound-link="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. <code>&lt;/&gt;</code> is licensed under <a href="https://opensource.org/licenses/MIT" rel="license" title="MIT License" data-vars-outbound-text="MIT License" data-vars-outbound-link="https://opensource.org/licenses/MIT">MIT License</a>.</dd>
-        <dt>Other</dt>
-        <dd>
-          <a href="https://vreeman.com/cro.html" title="CRO (Conversion Rate Optimization) Tools" data-vars-outbound-text="CRO Tools" data-vars-outbound-link="https://vreeman.com/cro.html"><abbr title="Conversion Rate Optimization">CRO</abbr> Tools</a>
-          <br>
-          <a href="https://vreeman.com/f1.html" title="FIA Formula One (F1) 2018 & 2019 Calendar / Agenda, Teams and Drivers" data-vars-outbound-text="F1 Calendar" data-vars-outbound-link="https://vreeman.com/f1.html">F1 2018 & 2019 Calendar, Teams &amp; Drivers</a>
-          <br>
-          <a href="https://vreeman.com/gear.html" title="What is in my backpack?" data-vars-outbound-text="Travel Gear" data-vars-outbound-link="https://vreeman.com/gear.html">Travel Gear</a>
-          <br>
-          <a href="https://womeninanalytics.nl/" title="Women in Analytics" data-vars-outbound-text="Women in Analytics" data-vars-outbound-link="https://womeninanalytics.nl/">Women in Analytics</a>
-          <br>
-          <a href="https://tachtien.nl" title="Tachtien" data-vars-outbound-text="Tachtien" data-vars-outbound-link="https://tachtien.nl">Tachtien</a>
-        </dd>
-      </dl>
+      <footer>
+        <p>Vreeman.com is the personal website of <a class="h-card" rel="me" href="https://vreeman.com" title="Simon Vreeman">Simon Vreeman</a>.</p>
+        <dl>
+          <dt>Privacy &amp; Cookie Policy</dt>
+          <dd>Vreeman.com uses Google Analytics (<code>_ga</code> &amp; <code>AMP_TOKEN</code>), Google Tag Manager and DoubleClick to measure and analyze anonymous user behavior data for improving the website in an ethical manner. Vreeman.com uses <abbr title="Accelerated Mobile Pages Project">AMP</abbr>, Cloudflare (<code>__cfduid</code>) and is hosted on Github pages to ensure it loads fast.</dd>
+          <dt>Licenses</dt>
+          <dd>Text is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" title="Creative Commons Attribution 4.0 International License" data-vars-outbound-text="Creative Commons License" data-vars-outbound-link="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. <code>&lt;/&gt;</code> is licensed under <a href="https://opensource.org/licenses/MIT" rel="license" title="MIT License" data-vars-outbound-text="MIT License" data-vars-outbound-link="https://opensource.org/licenses/MIT">MIT License</a>.</dd>
+          <dt>Other</dt>
+          <dd>
+            <a href="https://vreeman.com/cro.html" title="CRO (Conversion Rate Optimization) Tools" data-vars-outbound-text="CRO Tools" data-vars-outbound-link="https://vreeman.com/cro.html"><abbr title="Conversion Rate Optimization">CRO</abbr> Tools</a>
+            <br>
+            <a href="https://vreeman.com/f1.html" title="FIA Formula One (F1) 2018 & 2019 Calendar / Agenda, Teams and Drivers" data-vars-outbound-text="F1 Calendar" data-vars-outbound-link="https://vreeman.com/f1.html">F1 2018 & 2019 Calendar, Teams &amp; Drivers</a>
+            <br>
+            <a href="https://vreeman.com/gear.html" title="What is in my backpack?" data-vars-outbound-text="Travel Gear" data-vars-outbound-link="https://vreeman.com/gear.html">Travel Gear</a>
+            <br>
+            <a href="https://womeninanalytics.nl/" title="Women in Analytics" data-vars-outbound-text="Women in Analytics" data-vars-outbound-link="https://womeninanalytics.nl/">Women in Analytics</a>
+            <br>
+            <a href="https://tachtien.nl" title="Tachtien" data-vars-outbound-text="Tachtien" data-vars-outbound-link="https://tachtien.nl">Tachtien</a>
+          </dd>
+        </dl>
+      </footer>
     </div>
   </body>
 </html>
