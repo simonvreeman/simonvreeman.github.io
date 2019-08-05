@@ -7,6 +7,12 @@
     <title>Experiment Hypothesis Builder</title>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
     <style>
+      :root {
+        --black: rgba(0, 0, 0, .8);
+        --blue-dark: rgb(0, 112, 201);
+        --blue-light: rgb(102, 187, 255);
+        --gray: rgb(204, 204, 204);
+      }
       html {
         overflow-y: scroll;
         overflow-x: hidden;
@@ -17,7 +23,11 @@
         margin: 1% auto;
         padding: 0 3%;
         max-width: 30em;
-        font: 1.125em/1.618 BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        background-color: rgba(0, 0, 0, 0);
+        color: var(--black);
+        font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 1.125rem;
+        line-height: 1.618;
       }
       footer, small {
         font-size: 80%;
@@ -27,11 +37,20 @@
       }
       h1, h2, h3 {
         line-height: 1.2;
+        letter-spacing: .02em;
       }
       a {
         background-color: transparent;
+        color: var(--blue-dark);
+        text-decoration: none;
+        text-decoration-skip: ink;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
       }
-      abbr {
+      a:hover, a:active, a:focus {
+        color: var(--blue-light);
+      }
+      abbr[title] {
         text-decoration: none;
       }
       code, samp {
@@ -54,17 +73,28 @@
         display: inline-block;
         width: 1em;
       }
+      hr {
+        border: 0;
+        border-top: 1px solid var(--gray);
+      }
       .hidden {
         display: none;
       }
       @media (prefers-color-scheme: dark) {
         body {
-          background-color: rgba(0, 0, 0, .8);
+          background-color: var(--black);
           color: rgba(255, 255, 255, 1);
           word-spacing: .05em;
         }
         a {
-          color: rgb(102, 187, 255);
+          color: var(--blue-light);
+        }
+        a:hover, a:active, a:focus {
+          color: var(--blue-dark);
+        }
+        input, select, textarea {
+          background-color: var(--black);
+          color: var(--gray);
         }
       }
     </style>
