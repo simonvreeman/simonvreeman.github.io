@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <script src="https://cdn.ampproject.org/v0.js" async></script>
     <script src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js" custom-element="amp-analytics" async></script>
-    <title>🏎 FIA Formula One (F1) 2018 & 2019 Calendar / Agenda & Teams and Drivers</title>
+    <title>🏎 FIA Formula One (F1) 2018, 2019 & 2020 Calendar / Agenda & Teams and Drivers</title>
     <style amp-custom>
       :root {
         --black: rgba(0, 0, 0, .8);
@@ -61,6 +61,20 @@
       s {
         text-decoration: line-through;
       }
+      table {
+        border-collapse: collapse;
+        border-style: hidden;
+        font-feature-settings: 'tnum' on;
+        font-variant-numeric: tabular-nums;
+      }
+      th, td {
+        border: 1px solid var(--gray);
+        border-collapse: collapse;
+        padding: 3px;
+      }
+      tbody tr:nth-child(odd) {
+        background-color: #eee;
+      }
       hr {
         border: 0;
         border-top: 1px solid var(--gray);
@@ -110,7 +124,14 @@
         "name": "When does the F1 2020 season start?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The F1 2020 season will be the 70th anniversary of Fia Formula 1 World Championship and will start in Melbourne, Australia on March 15. Which also celabrates the 25th anniversary at Albert Park."
+          "text": "The F1 2020 season will be the 70th anniversary of FIA Formula 1 World Championship and will start in Melbourne, Australia on March 15. Which also celabrates the 25th anniversary at Albert Park."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How many races are on the F1 2020 Race Calendar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The F1 2020 season will consist of 22 Grands Prix. And 7 back-to-back race weekends."
         }
       }]
     }
@@ -130,10 +151,18 @@
         },
         {
           "@type": "ListItem",
-          "position": "11",
+          "position": "2",
           "item": {
             "url": "https://vreeman.com/f1.html#teams",
             "name": "F1 2019 Teams & Drivers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": "3",
+          "item": {
+            "url": "https://vreeman.com/f1.html#2020",
+            "name": "F1 2020 Calendar"
           }
         }
       ]
@@ -143,16 +172,121 @@
   <body>
     <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-N78R5VT&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
     <div class="container">
-      <h1>Formula 1 races in 2018 & 2019</h1>
-      <p>Below is a list of all the F1 teams and F1 racing drivers that are competing in the F1 2018 season and F1 2019 season. And of course the F1 2018 & 2019 racing calendars.</p>
+      <h1>Formula 1 races in 2018, 2019 & 2020</h1>
+      <p>Below is a list of all the F1 teams and F1 racing drivers that are competing in the F1 2018 season, F1 2019 season and F1 2020 season. And of course the F1 2018, 2019, 2020 racing calendars.</p>
       <p>Go to the overviews of F1 2019 <a href="#calendar">Calendar</a> and <a href="#teams">Teams & Drivers</a></p>
       <hr>
-      <h2>F1 2020 Race Calendar</h2>
-      <p>The F1 2020 season will be the 70th anniversary of Fia Formula 1 World Championship and will start in Melbourne, Australia on March 15. Which also celabrates the 25th anniversary at Albert Park.</p>
+      <h2 id="2020">F1 2020 Race Calendar</h2>
+      <p>The F1 2020 season will be the 70th anniversary of FIA Formula 1 World Championship and will start in Melbourne, Australia on March 15. Which also celabrates the 25th anniversary at Albert Park.</p>
       <ul>
-        <li>March 15 - Albert Park, Melbourne, Australia</li>
+        <li>Vietnam is new on the agenda.</li>
+        <li>Zandvoort is returns on the agenda after 35 years.</li>
+        <li>After 2 years Hockenheimring, Hockenheim, Germany is off the agenda.</li>
       </ul>
-
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>March 15</td>
+            <td>Albert Park, Melbourne, Australia</td>
+          </tr>
+          <tr>
+            <td>March 22</td>
+            <td>Bahrain International Circuit, Sakhir, Bahrain</td>
+          </tr>
+          <tr>
+            <td>April 5</td>
+            <td>Hanoi, Vietnam</td>
+          </tr>
+          <tr>
+            <td>April 19</td>
+            <td>Shanghai International Circuit, Jiading, China</td>
+          </tr>
+          <tr>
+            <td>May 3</td>
+            <td>Zandvoort Circuit, Zandvoort, the Netherlands</td>
+          </tr>
+          <tr>
+            <td>May 10</td>
+            <td>Circuit de Barcelona-Catalunya, Montmeló, Spain</td>
+          </tr>
+          <tr>
+            <td>May 24</td>
+            <td>Circuit de Monaco, Monte Carlo, Monaco</td>
+          </tr>
+          <tr>
+            <td>June 7</td>
+            <td>Baku City Circuit, Bakoe, Azerbaijan</td>
+          </tr>
+          <tr>
+            <td>June 14</td>
+            <td>Circuit Gilles Villeneuve, Montreal, Canada</td>
+          </tr>
+          <tr>
+            <td>June 28</td>
+            <td>Circuit Paul Ricard, Le Castellet, France</td>
+          </tr>
+          <tr>
+            <td>July 5</td>
+            <td>Red Bull Ring, Spielberg, Austria</td>
+          </tr>
+          <tr>
+            <td>July 19</td>
+            <td>Silverstone Circuit, Silverstone, Great Britain</td>
+          </tr>
+          <tr>
+            <td>August 2</td>
+            <td>Hungaroring, Mogyoród, Hungary</td>
+          </tr>
+          <tr>
+            <td>August 30</td>
+            <td>Circuit Spa-Francorchamps, Francorchamps, Belgium</td>
+          </tr>
+          <tr>
+            <td>September 6 </td>
+            <td>Autodromo Nazionale Monza, Monza, Italy</td>
+          </tr>
+          <tr>
+            <td>September 20</td>
+            <td>Marina Bay Street Circuit, Singapore</td>
+          </tr>
+          <tr>
+            <td>September 27</td>
+            <td>Sochi Autodrom, Sotsji, Russia</td>
+          </tr>
+          <tr>
+            <td>October 11</td>
+            <td>Suzuka International Racing Course, Suzuka, Japan</td>
+          </tr>
+          <tr>
+            <td>Ocotober 25</td>
+            <td>Circuit of the Americas, Travis County, Texas, USA</td>
+          </tr>
+          <tr>
+            <td>November 1</td>
+            <td>Autódromo Hermanos Rodríguez, Mexico City, Mexico</td>
+          </tr>
+          <tr>
+            <td>November 15</td>
+            <td>Autódromo de Interlagos José Carlos Pace, Cidade Dutra, Brazil</td>
+          </tr>
+          <tr>
+            <td>November 29</td>
+            <td>Yas Marina Circuit, Yas, Abu Dhabi</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">The calendar is still subject to FIA approval.</td>
+          </tr>
+        </tfoot>
+      </table>
+      <hr>
       <h2 id="calendar">F1 2019 Race Calendar</h2>
       <ul>
         <li><s>March 17 - Albert Park, Melbourne, Australia</s></li>
