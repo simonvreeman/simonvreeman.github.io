@@ -66,8 +66,8 @@
     <form method="get" accept-charset="utf-8" action="https://encrypted.google.com/search" target="_blank" role="form">
       <fieldset>
         <legend>Search Operators:</legend>
-        <label for="query"><code>site:</code> <code>cache:</code> <code>info:</code> <code>inurl:</code> <code>intitle:</code> <code>filetype:</code></label>
-        <input type="text" inputmode="search" name="q" value="" id="query" size="35" placeholder="Simon Vreeman" autocomplete="off" autofocus required>
+        <label for="query"><code>site:</code> <code>cache:</code> <code>info:</code> <code>inurl:</code> <code>intitle:</code> <code>intext:</code></label>
+        <input type="text" inputmode="search" name="q" value="" id="query" size="35" placeholder="Simon Vreeman -site:vreeman.com" autocomplete="off" autofocus required>
         <input type="hidden" id="country" name="gl" value="us">
         <input type="hidden" id="language" name="hl" value="en">
         <input type="hidden" name="pws" value="0">
@@ -75,18 +75,26 @@
         <!-- <input type="hidden" name="igu" value="1"> -->
         <!-- <input type="hidden" name="ip" value="0.0.0.0"> -->
         <input type="hidden" name="ncr" value="1">
-        <input type="hidden" name="num" value="10">
+        <input type="hidden" id="numberresults" name="num" value="10">
         <!-- <input type="hidden" name="as_qdr" value="all"> -->
         <input type="hidden" name="newwindow" value="1">
         <!-- <input type="hidden" name="filter" value="0"> -->
         <!-- <input type="hidden" name="adtest" value="on"> -->
         <!-- <input type="hidden" name="tbo" value="1"> -->
 
+        <label for="selectcountry">Country:</label>
         <select id="selectcountry" onchange="getCountry();">
           <option value="us" selected>United States</option>
           <option value="uk">United Kingdom</option>
           <option value="nl">the Netherlands</option>
           <option value="de">Germany</option>
+          <option value="fr">France</option>
+        </select>
+        <label for="selectresults">Number of results: </label>
+        <select id="selectresults" onchange="getNumberResults();">
+          <option value="10" selected>10</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
         </select>
         <button type="submit">Search</button>
       </fieldset>
@@ -107,7 +115,12 @@
         "us" == country && (document.getElementById("country").value = "us", document.getElementById("language").value = "en"),
         "uk" == country && (document.getElementById("country").value = "uk", document.getElementById("language").value = "en"),
         "nl" == country && (document.getElementById("country").value = "nl", document.getElementById("language").value = "nl"),
-        "de" == country && (document.getElementById("country").value = "de", document.getElementById("language").value = "de")
+        "de" == country && (document.getElementById("country").value = "de", document.getElementById("language").value = "de"),
+        "fr" == country && (document.getElementById("country").value = "fr", document.getElementById("language").value = "fr");
+      }
+      function getNumberResults() {
+        var numberResults = document.getElementById("selectresults").options[document.getElementById("selectresults").selectedIndex].value;
+        document.getElementById("numberresults").value = numberResults;
       }
     </script>
     <script>
