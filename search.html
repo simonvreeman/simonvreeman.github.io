@@ -63,7 +63,7 @@
       <h1>Google Search</h1>
       <p><a href="https://vreeman.com/">Home</a> | <a href="tools.html">Tools</a></p>
     </header>
-    <form method="get" accept-charset="utf-8" action="https://encrypted.google.com/search" target="_blank" role="form">
+    <form method="get" action="https://encrypted.google.com/search" accept-charset="utf-8" target="_blank" role="form" name="searchForm">
       <fieldset>
         <legend>Search Operators:</legend>
         <label for="query"><code>site:</code> <code>cache:</code> <code>info:</code> <code>inurl:</code> <code>intitle:</code> <code>intext:</code></label>
@@ -112,11 +112,11 @@
     <script>
       function getCountry() {
         var country = document.getElementById("selectcountry").options[document.getElementById("selectcountry").selectedIndex].value;
-        "us" == country && (document.getElementById("country").value = "us", document.getElementById("language").value = "en"),
-        "uk" == country && (document.getElementById("country").value = "uk", document.getElementById("language").value = "en"),
-        "nl" == country && (document.getElementById("country").value = "nl", document.getElementById("language").value = "nl"),
-        "de" == country && (document.getElementById("country").value = "de", document.getElementById("language").value = "de"),
-        "fr" == country && (document.getElementById("country").value = "fr", document.getElementById("language").value = "fr");
+        "us" == country && (document.getElementById("country").value = "us", document.getElementById("language").value = "en", document.searchForm.action = "https://encrypted.google.com/search"),
+        "uk" == country && (document.getElementById("country").value = "uk", document.getElementById("language").value = "en", document.searchForm.action = "https://www.google.co.uk/search"),
+        "nl" == country && (document.getElementById("country").value = "nl", document.getElementById("language").value = "nl", document.searchForm.action = "https://www.google.nl/search"),
+        "de" == country && (document.getElementById("country").value = "de", document.getElementById("language").value = "de", document.searchForm.action = "https://www.google.de/search"),
+        "fr" == country && (document.getElementById("country").value = "fr", document.getElementById("language").value = "fr", document.searchForm.action = "https://www.google.fr/search");
       }
       function getNumberResults() {
         var numberResults = document.getElementById("selectresults").options[document.getElementById("selectresults").selectedIndex].value;
