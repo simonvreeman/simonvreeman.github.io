@@ -177,6 +177,7 @@
     </footer>
     <script>
 function getUTM() {
+  var campaigns = document.getElementById("campaigns").options[document.getElementById("campaigns").selectedIndex].value;
   var domain = document.getElementById("domain").value;
   var encodedomain = encodeURIComponent(domain).replace(/'/g,"%27").replace(/"/g,"%22");
   var source = document.getElementById("source").value;
@@ -187,13 +188,9 @@ function getUTM() {
   var url = document.getElementById("url");
   var html;
 
-  var campaigns = document.getElementById("campaigns").options[document.getElementById("campaigns").selectedIndex].value;
-
-
   if (campaigns === 'email') {
     medium = document.getElementById("medium").value = "email";
   }
-
 
   if (domain.indexOf("?") != -1) {
     html = domain+'&utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
