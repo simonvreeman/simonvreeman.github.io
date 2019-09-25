@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
-    <meta name="disabled-adaptations" content="watch">
     <title>Simon Vreeman</title>
     <!-- <style>
 * {
@@ -74,7 +73,12 @@ h3 {
 }
     </style> -->
     <style>
-      h1, h2, h3, p, a, li {
+      * {
+        margin: 0;
+        padding: 0;
+        /*border: 1px solid red;*/
+      }
+      h1, h2, h3, p, a, ul {
         font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace;
         font-size: 1.25rem;
         line-height: 1.618;
@@ -90,11 +94,15 @@ h3 {
         font-variant-numeric: proportional-nums;
         font-kerning: none;
       }
-      body, header, main, aside {
+      body, header, main, aside, h2 {
         padding: 1rem;
       }
       h1 {
+        font-size: 1.5rem;
         font-weight: 600;
+      }
+      ul {
+        padding-left: 3rem
       }
     </style>
   </head>
@@ -114,7 +122,15 @@ h3 {
       </ul>
     </main>
     <aside>
-      <h3>Contact</h3>
+      <h2>Previously at</h2>
+      <ul>
+        <li>VanMoof</li>
+        <li>The Next Web</li>
+        <li>Van der Valk</li>
+      </ul>
+    </aside>
+    <aside>
+      <h2>Contact</h2>
       <ul>
         <li><a href="#">Email</a></li>
         <li><a href="#">LinkedIn</a></li>
