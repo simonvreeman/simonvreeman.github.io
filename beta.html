@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <meta name="disabled-adaptations" content="watch">
     <title>Simon Vreeman</title>
-    <style>
+    <!-- <style>
 * {
   margin: 0;
   padding: 0;
@@ -34,13 +34,11 @@ body {
   background: white;
   color: rgba(0, 0, 0, .8);
 }
-h1 {
-  font-size: calc(1rem + 7vw);
-  line-height: calc((1rem + 7vw) * 1.618);
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+h1, h2, h3 {
+  /*font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
   /*font-family: Georgia, serif;*/
   /*font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;*/
-  /*font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace, monospace;*/
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace, monospace;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 2px;
@@ -56,15 +54,72 @@ h1 {
   font-variant-numeric: proportional-nums;
   font-kerning: none;
 }
+/*h1 {
+  font-size: calc(1rem + 7vw);
+  line-height: calc((1rem + 7vw) * 1.618);
+}
+h2 {
+  font-size: calc(1rem + 3vw);
+  line-height: calc((1rem + 3vw) * 1.618);
+}
+h3 {
+  font-size: calc(1rem + 2vw);
+  line-height: calc((1rem + 2vw) * 1.618);
+}*/
 @media (prefers-color-scheme: dark) {
   body {
     background-color: black;
     color: white;
   }
 }
+    </style> -->
+    <style>
+      h1, h2, h3, p, a, li {
+        font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace;
+        font-size: 1.25rem;
+        line-height: 1.618;
+        color: black;
+        font-style: normal;
+        font-weight: 400;
+        text-rendering: geometricPrecision;
+        font-smooth: always;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: subpixel-antialiased;
+        -webkit-font-feature-settings: "pnum";
+        font-feature-settings: "pnum";
+        font-variant-numeric: proportional-nums;
+        font-kerning: none;
+      }
+      body, header, main, aside {
+        padding: 1rem;
+      }
+      h1 {
+        font-weight: 600;
+      }
     </style>
   </head>
   <body>
-    <h1>Simon Vreeman</h1>
+    <!-- <h1>Simon Vreeman</h1>
+    <h2>CRO &middot; SEO &middot; Analytics</h2>
+    <h3>Email &middot; LinkedIn &middot; Twitter</h3> -->
+    <header>
+      <h1>Simon Vreeman</h1>
+    </header>
+    <main>
+      <h2>Services</h2>
+      <ul>
+        <li><abbr title="Converion Rate Optimization">CRO</abbr></li>
+        <li><abbr title="Search Engine Optimization">SEO</abbr></li>
+        <li>Web Analytics</li>
+      </ul>
+    </main>
+    <aside>
+      <h3>Contact</h3>
+      <ul>
+        <li><a href="#">Email</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter</a></li>
+      </ul>
+    </aside>
   </body>
 </html>
