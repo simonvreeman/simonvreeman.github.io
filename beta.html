@@ -67,7 +67,7 @@ h3 {
 }*/
 
     </style> -->
-    <style>
+    <!-- <style>
       * {
         margin: 0;
         padding: 0;
@@ -121,13 +121,73 @@ h3 {
           color: white;
         }
       }
+    </style> -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      *, ::before, ::after {
+        background-repeat: no-repeat;
+        box-sizing: inherit;
+      }
+      html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: scrollbar;
+        -webkit-tap-highlight-color: transparent;
+        
+      }
+      body {
+        display: -ms-grid;
+        display: grid;
+        height: 100vh;
+        place-items: center;
+        text-align: center;
+      }
+      h1, h2, h3, a {
+        font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace;
+        font-size: 1.5rem;
+        line-height: 1.618;
+        line-height: 2.5;
+        color: black;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 2px;
+        text-rendering: geometricPrecision;
+        font-smooth: always;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: subpixel-antialiased;
+        -webkit-font-feature-settings: "pnum";
+        font-feature-settings: "pnum";
+        font-variant-numeric: proportional-nums;
+        font-kerning: none;
+      }
+      h1 {
+        font-size: 1.75rem;
+        font-weight: 600;
+      }
+      h2 {
+        font-size: 1.125rem;
+      }
+      h3, a {
+        font-size: 1.25rem;
+      }
+      abbr {
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
     <!-- <h1>Simon Vreeman</h1>
     <h2>CRO &middot; SEO &middot; Analytics</h2>
     <h3>Email &middot; LinkedIn &middot; Twitter</h3> -->
-    <header>
+    <!-- <header>
       <h1>Simon Vreeman</h1>
     </header>
     <main>
@@ -145,6 +205,11 @@ h3 {
         <li><a href="#">LinkedIn</a></li>
         <li><a href="#">Twitter</a></li>
       </ul>
-    </aside>
+    </aside> -->
+    <main>
+      <h1>Simon Vreeman</h1>
+      <h2><abbr title="Converion Rate Optimization">CRO</abbr> &middot; <abbr title="Search Engine Optimization">SEO</abbr> &middot; Web Analytics</h2>
+      <h3><a href="#">simon@vreeman.com</a></h3>
+    </main>
   </body>
 </html>
