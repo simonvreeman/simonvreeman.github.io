@@ -140,8 +140,10 @@ h3 {
         text-size-adjust: 100%;
         -webkit-overflow-scrolling: touch;
         -ms-overflow-style: scrollbar;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
         -webkit-tap-highlight-color: transparent;
-        
       }
       body {
         display: -ms-grid;
@@ -150,70 +152,42 @@ h3 {
         place-items: center;
         text-align: center;
       }
+      main {
+      	align-content: center;
+      	justify-content: center;
+      	place-items: center;
+      }
       h1, h2, h3, a {
         font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace;
-        font-size: 1.5rem;
-        line-height: 1.618;
+        /*font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;*/
+        /*font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
+        font-size: 1.125rem;
         line-height: 2.5;
         color: rgba(0, 0, 0, .8);
         font-style: normal;
         font-weight: 400;
-        letter-spacing: 2px;
+        letter-spacing: 2.5px;
         text-rendering: geometricPrecision;
-        font-smooth: always;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: subpixel-antialiased;
-        -webkit-font-feature-settings: "pnum";
-        font-feature-settings: "pnum";
         font-variant-numeric: proportional-nums;
         font-kerning: none;
+        text-decoration: none;
       }
       h1 {
         font-size: 1.75rem;
         font-weight: 600;
       }
-      h2 {
-        font-size: 1.125rem;
-        font-weight: 100;
-      }
-      h3, a {
-        font-size: 1.25rem;
-      }
-      a {
-        text-decoration: none;
-      }
-      abbr {
-        text-decoration: none;
+      a:hover, a:focus {
+      	text-decoration: underline;
+      	outline: 0;
       }
     </style>
   </head>
   <body>
-    <!-- <h1>Simon Vreeman</h1>
-    <h2>CRO &middot; SEO &middot; Analytics</h2>
-    <h3>Email &middot; LinkedIn &middot; Twitter</h3> -->
-    <!-- <header>
-      <h1>Simon Vreeman</h1>
-    </header>
-    <main>
-      <h2>Services</h2>
-      <ul>
-        <li><abbr title="Converion Rate Optimization">CRO</abbr></li>
-        <li><abbr title="Search Engine Optimization">SEO</abbr></li>
-        <li>Web Analytics</li>
-      </ul>
-    </main>
-    <aside>
-      <h2>Contact</h2>
-      <ul>
-        <li><a href="#">Email</a></li>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Twitter</a></li>
-      </ul>
-    </aside> -->
     <main>
       <h1>Simon Vreeman</h1>
-      <!-- <h2><abbr title="Converion Rate Optimization">CRO</abbr> &middot; <abbr title="Search Engine Optimization">SEO</abbr> &middot; Web Analytics</h2> -->
-      <h2>Optimizing websites</h2>
+      <h2>Optimizing Websites</h2>
       <h3><a href="#">simon@vreeman.com</a></h3>
     </main>
   </body>
