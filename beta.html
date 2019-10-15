@@ -153,10 +153,6 @@ h3 {
         font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace;
         font-size: 1rem;
         line-height: 1.618;
-        color: rgba(0, 0, 0, .5);
-        font-style: normal;
-        font-weight: 400;
-        word-spacing: 2.5px;
         text-rendering: geometricPrecision;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: subpixel-antialiased;
@@ -169,12 +165,13 @@ h3 {
       	place-items: center;
       }
       h1, h2, h3, a {
-        font-size: 1.125rem;
-        line-height: 2.5;
         color: rgba(0, 0, 0, .8);
+        font-size: 1.125rem;
         font-style: normal;
-        font-weight: 400;
+        font-weight: normal;
+        line-height: 2.5;
         letter-spacing: 2.5px;
+        word-spacing: 0.15rem;
         text-rendering: geometricPrecision;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: subpixel-antialiased;
@@ -184,14 +181,20 @@ h3 {
       }
       h1 {
         font-size: 1.75rem;
-        font-weight: 600;
-      }
-      a {
-      	text-decoration: none;
+        font-weight: bold;
       }
       a:hover, a:focus {
       	text-decoration: underline;
       	outline: 0;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: rgba(0, 0, 0, .8);
+        }
+        h1, h2, h3, a {
+          color: rgba(255, 255, 255, 1);
+          font-weight: normal;
+        }
       }
     </style>
   </head>
