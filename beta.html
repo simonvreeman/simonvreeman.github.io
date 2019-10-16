@@ -5,14 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <title>Simon Vreeman</title>
-    <!-- <style>
+<style>
 * {
   margin: 0;
   padding: 0;
 }
 *, ::before, ::after {
-    background-repeat: no-repeat;
-    box-sizing: inherit;
+  background-repeat: no-repeat;
+  box-sizing: inherit;
 }
 html {
   overflow-x: hidden;
@@ -23,6 +23,8 @@ html {
   text-size-adjust: 100%;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
 }
 body {
@@ -30,173 +32,47 @@ body {
   display: grid;
   height: 100vh;
   place-items: center;
-  background: white;
-  color: rgba(0, 0, 0, .8);
-}
-h1, h2, h3 {
-  /*font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
-  /*font-family: Georgia, serif;*/
-  /*font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;*/
-  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace, monospace;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 2px;
-  word-spacing: 5px;
   text-align: center;
-  padding: .5rem;
+}
+main {
+	align-content: center;
+	justify-content: center;
+	place-items: center;
+}
+h1, h2, h3, a {
+  color: rgba(0, 0, 0, .8);
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 2.5;
+  letter-spacing: 2.5px;
+  word-spacing: 0.15rem;
   text-rendering: geometricPrecision;
-  font-smooth: always;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: subpixel-antialiased;
-  -webkit-font-feature-settings: "pnum";
-  font-feature-settings: "pnum";
   font-variant-numeric: proportional-nums;
   font-kerning: none;
+  text-decoration: none;
 }
-/*h1 {
-  font-size: calc(1rem + 7vw);
-  line-height: calc((1rem + 7vw) * 1.618);
+h1 {
+  font-size: 1.75rem;
+  font-weight: bold;
 }
-h2 {
-  font-size: calc(1rem + 3vw);
-  line-height: calc((1rem + 3vw) * 1.618);
+a:hover, a:focus {
+	text-decoration: underline;
+	outline: 0;
 }
-h3 {
-  font-size: calc(1rem + 2vw);
-  line-height: calc((1rem + 2vw) * 1.618);
-}*/
-
-    </style> -->
-    <!-- <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      *, ::before, ::after {
-        background-repeat: no-repeat;
-        box-sizing: inherit;
-      }
-      html {
-        overflow-x: hidden;
-        overflow-y: scroll;
-        -webkit-text-size-adjust: 100%;
-        -moz-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: scrollbar;
-        -webkit-tap-highlight-color: transparent;
-      }
-      h1, h2, h3, p, a, ul {
-        font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace;
-        font-size: 1.25rem;
-        line-height: 1.618;
-        color: black;
-        font-style: normal;
-        font-weight: 400;
-        text-rendering: geometricPrecision;
-        font-smooth: always;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: subpixel-antialiased;
-        -webkit-font-feature-settings: "pnum";
-        font-feature-settings: "pnum";
-        font-variant-numeric: proportional-nums;
-        font-kerning: none;
-      }
-      body, header, main, aside, h2 {
-        padding: 1rem;
-      }
-      h1 {
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
-      ul {
-        padding-left: 3rem
-      }
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: black;
-        }
-        h1, h2, h3, p, a, ul {
-          color: white;
-        }
-      }
-    </style> -->
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      *, ::before, ::after {
-        background-repeat: no-repeat;
-        box-sizing: inherit;
-      }
-      html {
-        overflow-x: hidden;
-        overflow-y: scroll;
-        -webkit-text-size-adjust: 100%;
-        -moz-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: scrollbar;
-        -webkit-tap-highlight-color: rgba(0,0,0,0);
-        -webkit-touch-callout: none;
-        -webkit-tap-highlight-color: transparent;
-      }
-      body {
-        display: -ms-grid;
-        display: grid;
-        height: 100vh;
-        place-items: center;
-        text-align: center;
-        font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace;
-        font-size: 1rem;
-        line-height: 1.618;
-        text-rendering: geometricPrecision;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: subpixel-antialiased;
-        font-variant-numeric: proportional-nums;
-        font-kerning: none;
-      }
-      main {
-      	align-content: center;
-      	justify-content: center;
-      	place-items: center;
-      }
-      h1, h2, h3, a {
-        color: rgba(0, 0, 0, .8);
-        font-size: 1.125rem;
-        font-style: normal;
-        font-weight: normal;
-        line-height: 2.5;
-        letter-spacing: 2.5px;
-        word-spacing: 0.15rem;
-        text-rendering: geometricPrecision;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: subpixel-antialiased;
-        font-variant-numeric: proportional-nums;
-        font-kerning: none;
-        text-decoration: none;
-      }
-      h1 {
-        font-size: 1.75rem;
-        font-weight: bold;
-      }
-      a:hover, a:focus {
-      	text-decoration: underline;
-      	outline: 0;
-      }
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: rgba(0, 0, 0, .8);
-        }
-        h1, h2, h3, a {
-          color: rgba(255, 255, 255, 1);
-          font-weight: normal;
-        }
-      }
-    </style>
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgba(0, 0, 0, .8);
+  }
+  h1, h2, h3, a {
+    color: rgba(255, 255, 255, 1);
+    font-weight: normal;
+  }
+}
+</style>
   </head>
   <body>
     <main>
