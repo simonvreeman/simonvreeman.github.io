@@ -102,7 +102,7 @@
       <h1>Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> Campaign <abbr title="Uniform Resource Locator">URL</abbr> Builder</h1>
       <p><a href="https://vreeman.com/">Home</a> | <a href="cro.html"><abbr title="Conversion Rate Optimization">CRO</abbr> Tools</a></p>
     </header>
-    <p>A simple tool to create an <abbr title="Uniform Resource Locator">URL</abbr> with Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> campaign parameters. All input will be lowercase appended to the <abbr title="Uniform Resource Locator">URL</abbr>. The Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> Campaign <abbr title="Uniform Resource Locator">URL</abbr> Builder will also check if the <abbr title="Uniform Resource Locator">URL</abbr> already contains parameters. With one click you can add the <abbr title="Uniform Resource Locator">URL</abbr> to your clipboard.</p>
+    <p>A simple tool to create an <abbr title="Uniform Resource Locator">URL</abbr> with Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> campaign parameters. All input will be lowercase appended to the <abbr title="Uniform Resource Locator">URL</abbr>. The Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> Campaign <abbr title="Uniform Resource Locator">URL</abbr> Builder will also check if the <abbr title="Uniform Resource Locator">URL</abbr> already contains parameters and if it returns a succesful <abbr title="Hypertext Transfer Protocol">HTTP</abbr> response status code. With one click you can add the <abbr title="Uniform Resource Locator">URL</abbr> to your clipboard.</p>
     <p>Make sure you are strict in using <code>utm_source</code> and <code>utm_medium</code>. Otherwise, you will end up with a lot of traffic in the (other) Default Channel Grouping. Your email campaigns should be tagged as <code>email</code> for you <code>utm_medium</code>. Then they will match for the Email Default Channel Grouping. More information about the Default Channel Grouping definitions and rules can be found <a href="https://support.google.com/analytics/answer/3297892?hl=en" rel="nofollow noopener noreferrer" target="_blank">here</a>.</p>
     <form onkeyup="getUTM()">
       <fieldset>
@@ -129,7 +129,7 @@
     </form>
     <label for="url">The <abbr title="Uniform Resource Locator">URL</abbr> with <abbr title="Urchin Tracking Module">UTM</abbr> tags</label>
     <textarea id="url" readonly="readonly" wrap="off" onclick="this.focus();this.select()" rows="3">https://vreeman.com</textarea>
-    <p>HTTP response status code: <b><span id="statuscode"></span></b></p>
+    <p><abbr title="Hypertext Transfer Protocol">HTTP</abbr> response status code: <b><span id="statuscode"></span></b></p>
     <button onclick="copyURL()">Copy URL with <abbr title="Urchin Tracking Module">UTM</abbr></button>
     <h2>Check the URL with more tools</h2>
     <ul>
@@ -211,8 +211,6 @@ function getUTM() {
 
   var httpRequest = new Request( html );
   fetch(httpRequest).then(function(response) {
-    // console.log(response.status);
-    // console.log( html );
     statuscode.textContent = response.status;
   });
 
