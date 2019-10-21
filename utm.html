@@ -129,6 +129,7 @@
     </form>
     <label for="url">The <abbr title="Uniform Resource Locator">URL</abbr> with <abbr title="Urchin Tracking Module">UTM</abbr> tags</label>
     <textarea id="url" readonly="readonly" wrap="off" onclick="this.focus();this.select()" rows="3">https://vreeman.com</textarea>
+    <p>HTTP response status code: <b><span id="statuscode"></span></b></p>
     <button onclick="copyURL()">Copy URL with <abbr title="Urchin Tracking Module">UTM</abbr></button>
     <h2>Check the URL with more tools</h2>
     <ul>
@@ -186,6 +187,7 @@ function getUTM() {
   var content = document.getElementById("content").value;
   var name = document.getElementById("name").value;
   var url = document.getElementById("url");
+  var statuscode = document.getElementById("statuscode");
   var html;
 
   if (campaigns === 'email') {
@@ -206,6 +208,13 @@ function getUTM() {
   }
 
   url.textContent = html.toLowerCase();
+
+  var httpRequest = new Request( html );
+  fetch(httpRequest).then(function(response) {
+    // console.log(response.status);
+    // console.log( html );
+    statuscode.textContent = response.status;
+  });
 
   pagespeed.href = "https://developers.google.com/speed/pagespeed/insights/?url=" + domain;
   structureddata.href = "https://search.google.com/structured-data/testing-tool/u/0/#url="  + domain;
