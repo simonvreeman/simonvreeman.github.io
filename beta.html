@@ -58,64 +58,80 @@ a:active, a:focus, a:hover {
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
-  "@type": "Person",
-  "@id": "#person",
-  "givenName": "Simon",
-  "familyName": "Vreeman",
-  "gender": {
-    "@type": "GenderType",
-    "name": "male"
+  "@graph": [{
+    "@type": "Person",
+    "@id": "#person",
+    "givenName": "Simon",
+    "familyName": "Vreeman",
+    "gender": {
+      "@type": "GenderType",
+      "name": "male"
+    },
+    "nationality": "the Netherlands",
+    "email": "simon@vreeman.com",
+    "url": "https://vreeman.com/",
+    "jobTitle": "Growth Marketing Manager",
+    "worksFor": {
+      "@id": "#vanmoof"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "@id": "#homeLocation",
+      "addressLocality": "Amsterdam",
+      "addressCountry": "the Netherlands"
+    },
+    "birthDate": "1990-09-01",
+    "birthPlace": {
+      "@type": "Place",
+      "name": "Deventer"
+    },
+    "homeLocation": {
+      "@id": "#homeLocation"
+    },
+    "image": {
+      "@context": "http://schema.org",
+      "@type": "ImageObject",
+      "@id": "#image",
+      "author": {
+        "@id": "#person"
+      },
+      "contentUrl": "https://vreeman.com/img/simon-vreeman.jpg",
+      "name": "A profile picture of Simon Vreeman"
+    },
+    "knowsLanguage": [
+      "en",
+      "nl"
+    ],
+    "sameAs": [
+      "https://www.facebook.com/simonvreeman",
+      "https://www.linkedin.com/in/simonvreeman/",
+      "https://twitter.com/vreeman",
+      "https://plus.google.com/+SimonVreeman?rel=author",
+      "https://www.instagram.com/simonvreeman/",
+      "https://github.com/simonvreeman",
+      "https://www.crunchbase.com/person/simon-vreeman",
+      "https://www.wikidata.org/wiki/Q56708228",
+      "https://g.co/kg/m/010rn7wd"
+    ]
   },
-  "nationality": "the Netherlands",
-  "email": "simon@vreeman.com",
-  "url": "https://vreeman.com/",
-  "jobTitle": "Growth Marketing Manager",
-  "worksFor": {
-    "@type": "Organization",
-    "additionalType": "BikeStore",
+  {
+    "@type": ["Organization", "BikeStore"],
     "@id": "#vanmoof",
     "name": "VanMoof",
-    "url": "https://www.vanmoof.com/"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "@id": "#homeLocation",
-    "addressLocality": "Amsterdam",
-    "addressCountry": "the Netherlands"
-  },
-  "birthDate": "1990-09-01",
-  "birthPlace": {
-    "@type": "Place",
-    "name": "Deventer"
-  },
-  "homeLocation": {
-    "@id": "#homeLocation"
-  },
-  "image": {
-    "@context": "http://schema.org",
-    "@type": "ImageObject",
-    "@id": "#image",
-    "author": {
-      "@id": "#person"
+    "url": "https://www.vanmoof.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "@id": "#vanmooflogo",
+      "contentUrl": "https://vreeman.com/img/vanmoof-192x192.png",
+      "url": "https://vreeman.com/img/vanmoof-192x192.png",
+      "name": "Logo of VanMoof",
+      "width": "192 px",
+      "height": "192 px"
     },
-    "contentUrl": "https://vreeman.com/img/simon-vreeman.jpg",
-    "name": "A profile picture of Simon Vreeman"
-  },
-  "knowsLanguage": [
-    "en",
-    "nl"
-  ],
-  "sameAs": [
-    "https://www.facebook.com/simonvreeman",
-    "https://www.linkedin.com/in/simonvreeman/",
-    "https://twitter.com/vreeman",
-    "https://plus.google.com/+SimonVreeman?rel=author",
-    "https://www.instagram.com/simonvreeman/",
-    "https://github.com/simonvreeman",
-    "https://www.crunchbase.com/person/simon-vreeman",
-    "https://www.wikidata.org/wiki/Q56708228",
-    "https://g.co/kg/m/010rn7wd"
-  ]
+    "image": {
+      "@id": "#vanmooflogo"
+    }
+  }]
 }
 </script>
   </head>
