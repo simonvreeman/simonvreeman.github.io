@@ -2,6 +2,6 @@
 
 # Allow crawling of all content
 User-agent: *
-Disallow: /tools/
+Disallow: /tools.html
 Sitemap: https://vreeman.com/sitemap.xml
 host: https://vreeman.com
