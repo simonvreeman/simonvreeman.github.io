@@ -12,6 +12,7 @@
         --blue-dark: rgb(0, 112, 201);
         --blue-light: rgb(102, 187, 255);
         --gray: rgb(204, 204, 204);
+        --white: rgba(255, 255, 255, 1);
       }
       html {
         overflow-y: scroll;
@@ -73,7 +74,7 @@
       @media (prefers-color-scheme: dark) {
         body {
           background-color: var(--black);
-          color: rgba(255, 255, 255, 1);
+          color: var(--white);
           word-spacing: .05em;
         }
         a {
@@ -84,7 +85,7 @@
         }
         input, select, textarea {
           background-color: var(--black);
-          color: var(--gray);
+          color: var(--white);
         }
       }
     </style>
