@@ -6,7 +6,6 @@ var cacheFiles = [
   '/calc.html',
   '/growth.html',
   '/hypothesis.html',
-  '/simple.html',
   '/utm.html',
   '/dencoder.html'
 ];
