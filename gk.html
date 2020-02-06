@@ -21,15 +21,26 @@
         background-repeat: no-repeat;
         background-size: cover;
       }
-      h1 {
+      footer {
+        position: fixed;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+      }
+      h1, h2 {
         color: rgba(0, 0, 0, .95);
-        font-size: calc(2rem + 2vw);
-        font-weight: 400;
         line-height: 1.4;
         text-align: center;
         text-rendering: geometricPrecision;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+      }
+      h1 {
+        font-size: calc(2rem + 2vw);
+      }
+      h2 {
+        font-size: calc(1rem + 1vw);
+        font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;
       }
       img {
         width: 100%;
@@ -58,6 +69,7 @@
       }
       a, p {
         color: rgba(0, 0, 0, .75);
+        color: white;
         font-size: calc(1rem + 1vw);
         font-weight: 400;
         line-height: 1.4;
@@ -104,6 +116,13 @@
     <meta property="og:image" content="img/geen-koriander.jpeg">
   </head>
   <body>
-    <h1>🚫 Geen koriander! 🚫</h1>
+    <main>
+      <h1>🚫 Geen koriander! 🚫</h1>
+      <h2>En al helemaal niet voor Sabine de Witte.</h2>
+    </main>
+    <footer>
+      <p>Inspired by @ditisdesteven</p>
+    </footer>
+
   </body>
 </html>
