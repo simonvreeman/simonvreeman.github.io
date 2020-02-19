@@ -182,12 +182,19 @@
       "@type": "Table",
       "name": "F1 2020 Race Calendar",
       "about": "The table with the full FIA Formula One 2020 Race Calendar.",
-      "url": "https://vreeman.com/f1.html#calendar",
+      "url": "https://vreeman.com/f1.html#calendar-table",
       "xpath": [
-        "/html/body/div/table"
-      ],
-      "cssSelector": [
-        "body > div > table"
+        "//*[@id="calendar-table"]"
+      ]
+    }
+    {
+      "@context": "http://schema.org",
+      "@type": "Table",
+      "name": "F1 2020 Racing drivers and Teams",
+      "about": "The table with the full FIA Formula One 2020 Racing drivers and Teams.",
+      "url": "https://vreeman.com/f1.html#teams-table",
+      "xpath": [
+        "//*[@id="teams-table"]"
       ]
     }
     </script>
@@ -200,7 +207,7 @@
       <p>Go to the overviews of F1 2020 <a href="#calendar">Race Calendar</a> and <a href="#teams">Teams & Drivers</a></p>
       <hr>
       <h2 id="calendar">F1 2020 Race Calendar</h2>
-      <table>
+      <table id="calendar-table">
         <thead>
           <tr>
             <th>Date</th>
@@ -312,7 +319,7 @@
       </ul>
       <hr>
       <h2 id="teams">F1 2020 Racing drivers and Teams</h2>
-      <table>
+      <table id="teams-table">
         <thead>
           <tr>
             <th>F1 Teams</th>
