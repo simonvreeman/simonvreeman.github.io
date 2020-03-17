@@ -12,15 +12,19 @@
   padding: 0;
 }
 body {
-  display: -ms-grid;
-  display: grid;
   height: 100vh;
-  place-items: center;
+  /*display: -ms-grid;
+  display: grid;
+  place-items: center;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 h1, h2, h3, a {
   color: rgba(0, 0, 0, .8);
   font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace;
-  font-size: 1.125rem;
+  font-size: calc(1.125rem + .3236vw);
   font-weight: normal;
   line-height: 1.618;
   letter-spacing: 0.1618rem;
@@ -34,7 +38,7 @@ h1, h2, h3, a {
   margin: 1rem 0;
 }
 h1 {
-  font-size: 1.75rem;
+  font-size: calc(1.75rem + .3236vw);
   font-weight: bold;
 }
 a:active, a:focus, a:hover {
