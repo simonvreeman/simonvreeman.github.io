@@ -22,9 +22,9 @@ body {
   align-items: center;
   place-items: center;
 }
-h1, h2, h3, a {
+h1, h2, h3, p, a {
   color: rgba(0, 0, 0, .8);
-  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace, monospace, BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: calc(1.125rem + .25vw);
   font-weight: normal;
   line-height: 1.618;
@@ -50,7 +50,7 @@ a:active, a:focus, a:hover {
   body {
     background-color: rgba(0, 0, 0, .8);
   }
-  h1, h2, h3, a {
+  h1, h2, h3, p, a {
     color: rgba(255, 255, 255, 1);
     font-weight: normal;
   }
@@ -82,6 +82,7 @@ ga("send", "pageview");
     "familyName": "Vreeman",
     "email": "simon@vreeman.com",
     "url": "https://vreeman.com/",
+    "birthDate": "1990-09-01",
     "jobTitle": "Growth Marketing Manager",
     "worksFor": {
       "@id": "#vanmoof"
@@ -145,10 +146,17 @@ ga("send", "pageview");
 </script>
   </head>
   <body>
-    <main>
+    <!-- <main>
   	  <h1>Simon Vreeman</h1>
   	  <h2>Optimizing Websites</h2>
+      <h2>I optimize websites</h2>
   	  <h3><a href="#" onclick="ga('send', 'event', 'click', 'link', 'email', {transport: 'beacon', nonInteraction: true});">simon@vreeman.com</a></h3>
+    </main> -->
+    <main>
+      <p>Hi, I'm Simon Vreeman.</p>
+      <p>I optimize websites.</p>
+      <p>Currently at <a href="#">VanMoof</a>.</p>
+      <p><a href="#" onclick="ga('send', 'event', 'click', 'link', 'email', {transport: 'beacon', nonInteraction: true});">simon@vreeman.com</a></p>
     </main>
   </body>
 </html>
