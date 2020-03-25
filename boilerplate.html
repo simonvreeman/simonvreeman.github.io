@@ -16,15 +16,17 @@
       window.ga=function(){ga.q.push(arguments)},ga.q=[],ga.l=+new Date;
       window.ga_debug = {trace: true};
       ga("create","UA-2826482-20","auto",{"sampleRate":100,"siteSpeedSampleRate":100});
-      ga("set",{"transport":"beacon","anonymizeIp":true,"displayFeaturesTask":null,"allowAdFeatures":false});
+      ga("set",{"transport":"beacon","anonymizeIp":true,"forceSSL":true,"displayFeaturesTask":null,"allowAdFeatures":false});
       ga("send","pageview");
     </script>
+    <!-- <script src="https://www.google-analytics.com/analytics.js" importance="high" async></script> -->
     <script src="https://www.google-analytics.com/analytics_debug.js" importance="high" async></script>
-    <link rel="canonical" href="">
+    <link rel="canonical" href="https://vreeman.com">
     <meta name="robots" content="noindex, nofollow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
     <meta name="description" content="">
   </head>
   <body>
     <p>hello world</p>
+    <p><a href="#" onclick="ga('send','event','click','link','boilerplate',{nonInteraction:true});">link</a></p>
   </body>
 </html>
