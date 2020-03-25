@@ -2,9 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <title>Simon Vreeman</title> 
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" crossorigin>
 <style>
 *, *::before, *::after {
@@ -58,15 +57,10 @@ a:active, a:focus, a:hover {
 </style>
 <script>
 window.ga=function(){ga.q.push(arguments)},ga.q=[],ga.l=+new Date;
-ga("create", "UA-2826482-20", "auto", {
-  "sampleRate": 100,
-  "siteSpeedSampleRate": 100
-}),
-ga("set", "transport", "beacon"),
-ga("set", "anonymizeIp", true),
-ga("set", "displayFeaturesTask", null),
-ga("set", "allowAdFeatures", false),
-ga("send", "pageview");
+window.ga_debug = {trace: true};
+ga("create","UA-2826482-20","auto",{"sampleRate":100,"siteSpeedSampleRate":100});
+ga("set",{"transport":"beacon","anonymizeIp":true,"forceSSL":true,"displayFeaturesTask":null,"allowAdFeatures":false});
+ga("send","pageview");
 </script>
 <script src="https://www.google-analytics.com/analytics.js" importance="high" async></script>
 <link rel="canonical" href="https://vreeman.com/">
@@ -149,7 +143,7 @@ ga("send", "pageview");
     <main>
   	  <h1>Simon Vreeman</h1>
   	  <h2>Always be Optimizing</h2>
-  	  <h3><a href="#" onclick="ga('send', 'event', 'click', 'link', 'email', {transport: 'beacon', nonInteraction: true});">simon@vreeman.com</a></h3>
+  	  <h3><a href="#" onclick="ga('send', 'event', 'click', 'link', 'email', {nonInteraction:true});">simon@vreeman.com</a></h3>
     </main>
   </body>
 </html>
