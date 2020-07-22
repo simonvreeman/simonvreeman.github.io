@@ -7,18 +7,22 @@
     <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
 <style>
+:root {
+  --black: rgba(0, 0, 0, .8);
+  color-scheme: light dark;
+}
 *, *::before, *::after {
   margin: 0;
   padding: 0;
 }
 body {
-  height: 100vh;
-  display: -ms-grid;
+  background-color: rgba(0, 0, 0, 0);
+  height: 100vh;  
   display: grid;
   place-items: center;
 }
 h1, h2, h3, p, a {
-  color: rgba(0, 0, 0, .8);
+  color: var(--black);
   font-family: SFMono-Regular, Menlo, Consolas, Roboto Mono, "Liberation Mono", Monaco, "Courier New", monospace, monospace, BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: calc(1.125rem + .25vw);
   font-weight: normal;
@@ -43,7 +47,7 @@ a:active, a:focus, a:hover {
 }
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: rgba(0, 0, 0, .8);
+    background-color: var(--black);
   }
   h1, h2, h3, p, a {
     color: rgba(255, 255, 255, 1);
