@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>hello world</title>
+    <title>Boilerplate</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
@@ -14,7 +14,7 @@
         margin: 0;
         padding: 0;
       }
-      * {
+      html {
         font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         font-size: 1.125rem;
         line-height: 1.618;
@@ -23,31 +23,24 @@
         margin: 0 auto;
         max-width: 32rem;
       }
-      h1, h2, h3, p {
-        margin-bottom: 1rem;
-      }
       a {
         color: inherit;
       }
     </style>
     <script>
       window.ga=function(){ga.q.push(arguments)},ga.q=[],ga.l=+new Date;
-      // window.ga_debug = {trace: true};
-      ga("create","UA-2826482-20","auto",{sampleRate:100,siteSpeedSampleRate:100,cookieFlags:"secure;samesite=none"});
-      ga("set",{"transport":"beacon","anonymizeIp":true,"forceSSL":true,"displayFeaturesTask":null,"allowAdFeatures":false});
-      ga("send","pageview");
+      ga("create", "UA-2826482-20", "auto", {sampleRate: 100, siteSpeedSampleRate: 100, cookieFlags: "secure;samesite=none"});
+      ga("set", {"transport": "beacon", "anonymizeIp": true, "forceSSL": true, "displayFeaturesTask": null, "allowAdFeatures": false, "allowAdPersonalizationSignals": false});
+      ga("send", "pageview");
     </script>
     <script src="https://www.google-analytics.com/analytics.js" importance="high" async></script>
-    <!-- <script src="https://www.google-analytics.com/analytics_debug.js" importance="high" async></script> -->
     <link rel="canonical" href="https://vreeman.com">
     <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
     <meta name="description" content="">
   </head>
   <body>
     <h1>Heading 1</h1>
-    <h2>Heading 2</h2>
-    <h3>Heading 3</h3>
-    <p>Paragraph</p >
-    <p><a href="#" onclick="ga('send','event','category','action','label',{nonInteraction:true});">Link</a></p>
+    <p>Paragraph</p>
+    <p><a href="#" onclick="ga('send', 'event', 'click', 'link', 'boilerplate', {nonInteraction: true});">Link</a></p>
   </body>
 </html>
