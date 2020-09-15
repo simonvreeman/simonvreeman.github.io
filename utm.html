@@ -165,6 +165,8 @@
       <li><a id="ssl" href="https://www.ssllabs.com/ssltest/analyze.html?d=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">SSL Server Test</a></li>
       <li><a id="mozilla" href="https://observatory.mozilla.org/" rel="nofollow noopener noreferrer" target="_blank">Mozilla Observatory</a></li>
       <li><a href="https://search.developer.apple.com/appsearch-validation-tool" target="_blank" rel="nofollow noopener noreferrer">Apple App Search API Validation Tool</a></li>
+      <li><a id="googlesitemap" href="https://google.com/ping?sitemap=https://vreeman.com/sitemap.xml" target="_blank" rel="nofollow noopener noreferrer">Ping Google with XML Sitemap</a></li>
+      <li><a id="bingsitemap" href="https://bing.com/ping?sitemap=https://vreeman.com/sitemap.xml" target="_blank" rel="nofollow noopener noreferrer">Ping Bing with XML Sitemap</a></li>
     </ul>
     <p>Besides this Google Analytics UTM Campaign URL Builder I made a list of handy <a href="cro.html" title="CRO Tools"><abbr title="Conversion Rate Optimization">CRO</abbr> tools</a>, <a href="mp.html" title="Google Analytics Measurement Protocol Hit Builder">Google Analytics Measurement Protocol Hit Builder</a> and <a href="hypothesis.html" title="A/B Test Hypothesis Builder">Experiment Hypothesis Builder</a>.</p>
     <hr>
@@ -224,22 +226,24 @@ function getUTM() {
   });
 
   pagespeed.href = "https://developers.google.com/speed/pagespeed/insights/?url=" + domain;
-  structureddata.href = "https://search.google.com/structured-data/testing-tool/u/0/#url="  + domain;
-  richresults.href = "https://search.google.com/test/rich-results?url="  + domain;
-  safebrowsing.href = "https://www.google.com/transparencyreport/safebrowsing/diagnostic/index.html#url="  + domain;
-  mobilefriendly.href = "https://search.google.com/test/mobile-friendly?url="  + domain;
-  twitter.href = "https://cards-dev.twitter.com/validator?url="  + domain;
-  facebook.href = "https://developers.facebook.com/tools/debug/sharing/?q="  + domain;
-  opengraph.href = "https://developers.facebook.com/tools/debug/og/object/?q="  + domain;
+  structureddata.href = "https://search.google.com/structured-data/testing-tool/u/0/#url=" + domain;
+  richresults.href = "https://search.google.com/test/rich-results?url=" + domain;
+  safebrowsing.href = "https://www.google.com/transparencyreport/safebrowsing/diagnostic/index.html#url=" + domain;
+  mobilefriendly.href = "https://search.google.com/test/mobile-friendly?url=" + domain;
+  twitter.href = "https://cards-dev.twitter.com/validator?url=" + domain;
+  facebook.href = "https://developers.facebook.com/tools/debug/sharing/?q=" + domain;
+  opengraph.href = "https://developers.facebook.com/tools/debug/og/object/?q=" + domain;
   pinterest.href = "https://developers.pinterest.com/tools/url-debugger/?link=" + domain;
   linkedin.href = "https://www.linkedin.com/post-inspector/inspect/" + encodedomain;
-  fullcache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=0&vwsrc=0";
-  textcache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=1&vwsrc=0";
-  sourcecache.href = "http://webcache.googleusercontent.com/search?q=cache:"  + domain + "&num=1&hl=en&gl=en&strip=0&vwsrc=1";
-  amp.href = "https://validator.ampproject.org/#url="  + domain;
-  ampbench.href = "https://ampbench.appspot.com/validate?url="  + domain;
-  ampgoogle.href = "https://search.google.com/test/amp?url="  + domain;
-  ssl.href = "https://www.ssllabs.com/ssltest/analyze.html?d="  + domain;
+  fullcache.href = "http://webcache.googleusercontent.com/search?q=cache:" + domain + "&num=1&hl=en&gl=en&strip=0&vwsrc=0";
+  textcache.href = "http://webcache.googleusercontent.com/search?q=cache:" + domain + "&num=1&hl=en&gl=en&strip=1&vwsrc=0";
+  sourcecache.href = "http://webcache.googleusercontent.com/search?q=cache:" + domain + "&num=1&hl=en&gl=en&strip=0&vwsrc=1";
+  amp.href = "https://validator.ampproject.org/#url=" + domain;
+  ampbench.href = "https://ampbench.appspot.com/validate?url=" + domain;
+  ampgoogle.href = "https://search.google.com/test/amp?url=" + domain;
+  ssl.href = "https://www.ssllabs.com/ssltest/analyze.html?d=" + domain;
+  googlesitemap.href = "https://google.com/ping?sitemap=" + domain;
+  bingsitemap.href = "https://bing.com/ping?sitemap=" + domain;
 }
     </script>
     <script>
