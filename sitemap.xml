@@ -56,6 +56,31 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://vreeman.com/vanmoof.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://vreeman.com/img/bikes/vanmoof-s3-dark.avif</image:loc>
+      <image:title><![CDATA[VanMoof S3 Dark Electric Bike]]></image:title>
+      <image:caption><![CDATA[VanMoof S3 Dark Electric Bike]]></image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://vreeman.com/img/bikes/vanmoof-s3-light.avif</image:loc>
+      <image:title><![CDATA[VanMoof S3 Light Electric Bike]]></image:title>
+      <image:caption><![CDATA[VanMoof S3 Light Electric Bike]]></image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://vreeman.com/img/bikes/vanmoof-x3-dark.avif</image:loc>
+      <image:title><![CDATA[VanMoof X3 Dark Electric Bike]]></image:title>
+      <image:caption><![CDATA[VanMoof X3 Dark Electric Bike]]></image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://vreeman.com/img/bikes/vanmoof-x3-light.avif</image:loc>
+      <image:title><![CDATA[VanMoof X3 Light Electric Bike]]></image:title>
+      <image:caption><![CDATA[VanMoof X3 Light Electric Bike]]></image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://vreeman.com/ip/</loc>
     <priority>0.5</priority>
     <changefreq>daily</changefreq>
