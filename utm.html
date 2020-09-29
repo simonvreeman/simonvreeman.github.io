@@ -224,10 +224,10 @@ function getUTM() {
 
   url.textContent = html;
 
-  var httpRequest = new Request( html );
-  fetch(httpRequest).then(function(response) {
-    statuscode.textContent = response.status;
-  });
+  // var httpRequest = new Request( html );
+  // fetch(httpRequest).then(function(response) {
+  //   statuscode.textContent = response.status;
+  // });
 
   if (source == null || source == "", medium == null || medium == "", name == null || name == "") {
     console.log("Please Fill All Required Field");
