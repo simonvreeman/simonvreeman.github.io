@@ -88,6 +88,9 @@
           background-color: var(--black);
           color: var(--white);
         }
+        input:invalid {
+          border: 5px dashed red;
+        }
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/utm.html">
@@ -129,11 +132,11 @@
         <label for="domain"><abbr title="Uniform Resource Locator">URL</abbr> without <abbr title="Urchin Tracking Module">UTM</abbr> tags</label>
         <input type="url" inputmode="url" name="domain" id="domain" autocapitalize="none" autocomplete="off" placeholder="Required" value="https://vreeman.com" autofocus required>
         <label for="source">Campaign Source (<code>utm_source</code>)</label>
-        <input type="text" name="source" id="source" autocapitalize="none" placeholder="Required">
+        <input type="text" name="source" id="source" autocapitalize="none" placeholder="Required" required>
         <label for="medium">Campaign Medium (<code>utm_medium</code>)</label>
-        <input type="text" name="medium" id="medium" autocapitalize="none" placeholder="Required">
+        <input type="text" name="medium" id="medium" autocapitalize="none" placeholder="Required" required>
         <label for="name">Campaign Name (<code>utm_campaign</code>)</label>
-        <input type="text" name="name" id="name" autocapitalize="none" placeholder="Required">
+        <input type="text" name="name" id="name" autocapitalize="none" placeholder="Required" required>
         <label for="term">Campaign Term (<code>utm_term</code>)</label>
         <input type="text" name="term" id="term" autocapitalize="none" placeholder="Optional">
         <label for="content">Campaign Content (<code>utm_content</code>)</label>
@@ -151,6 +154,7 @@
       <li><a id="richresults" href="https://search.google.com/test/rich-results?url=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Rich Results</a></li>
       <li><a id="safebrowsing" href="https://www.google.com/transparencyreport/safebrowsing/diagnostic/index.html#url=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Safe Browsing Site Status</a></li>
       <li><a id="mobilefriendly" href="https://search.google.com/test/mobile-friendly?url=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Mobile-Friendliness</a></li>
+      <li><a id="bing" href="https://www.bing.com/webmasters/urlinspection?urlToInspect=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Inspect in Bing Webmaster Tools</a></li>
       <li><a id="twitter" href="https://cards-dev.twitter.com/validator" rel="nofollow noopener noreferrer" target="_blank">Check Twitter Validator</a></li>
       <li><a id="facebook" href="https://developers.facebook.com/tools/debug/sharing/?q=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Facebook Debugger</a></li>
       <li><a id="opengraph" href="https://developers.facebook.com/tools/debug/og/object/?q=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Open Graph Object Debugger</a></li>
@@ -225,11 +229,17 @@ function getUTM() {
     statuscode.textContent = response.status;
   });
 
+  if (source == null || source == "", medium == null || medium == "", name == null || name == "") {
+    console.log("Please Fill All Required Field");
+    return false;
+  }
+
   pagespeed.href = "https://developers.google.com/speed/pagespeed/insights/?url=" + domain;
   structureddata.href = "https://search.google.com/structured-data/testing-tool/u/0/#url=" + domain;
   richresults.href = "https://search.google.com/test/rich-results?url=" + domain;
   safebrowsing.href = "https://www.google.com/transparencyreport/safebrowsing/diagnostic/index.html#url=" + domain;
   mobilefriendly.href = "https://search.google.com/test/mobile-friendly?url=" + domain;
+  bing.href = "https://www.bing.com/webmasters/urlinspection?urlToInspect=" + domain;
   twitter.href = "https://cards-dev.twitter.com/validator?url=" + domain;
   facebook.href = "https://developers.facebook.com/tools/debug/sharing/?q=" + domain;
   opengraph.href = "https://developers.facebook.com/tools/debug/og/object/?q=" + domain;
