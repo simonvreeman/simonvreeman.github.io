@@ -118,28 +118,19 @@
           },
           {
             "@id": "https://vreeman.com/meditations/#/schema/author",
-            "@type": "Person",
+            "@type": ["Person", "author", "creator"],
             "name": "Marcus Aurelius",
             "additionalName": "Marcus Aurelius Antoninus",
             "sameAs": "https://www.wikidata.org/wiki/Q1430",
             "birthDate": "121-04-26",
             "birthPlace": "Rome",
             "deathDate": "180-03-17",
-            "deathPlace": "Vindobona",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/book"
-            },
-            "creator": {
-              "@id": "https://vreeman.com/meditations/#/schema/book"
-            }
+            "deathPlace": "Vindobona"
           },
           {
             "@id": "https://vreeman.com/meditations/#/schema/translator",
-            "@type": "Person",
-            "name": "Gregory Hays",
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/book"
-            }
+            "@type": ["Person", "translator"],
+            "name": "Gregory Hays"
           }
         ]
       }
