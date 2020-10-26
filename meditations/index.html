@@ -42,34 +42,47 @@
         "@context": "https://schema.org/",
         "@graph": [
           {
-            "@id": "#book",
+            "@id": "https://vreeman.com/meditations/#/schema/book",
             "@type": "Book",
             "author": {
-              "@id": "#author"
+              "@id": "https://vreeman.com/meditations/#/schema/author"
+            },
+            "translator": {
+              "@id": "https://vreeman.com/meditations/#/schema/translator"
             },
             "name": "Meditations",
+            "alternateName": "Ta eis heauton",
             "url": "https://vreeman.com/meditations/",
             "workExample": "",
-            "sameAs": "https://www.wikidata.org/wiki/Q1152283",
-            "bookFormat": "",
+            "sameAs": [
+              "https://www.wikidata.org/wiki/Q1152283",
+              "http://id.loc.gov/authorities/names/n80058356",
+              "https://www.gutenberg.org/ebooks/2680",
+              "http://id.worldcat.org/fast/1364811/",
+              "https://viaf.org/viaf/312359587/",
+              "https://g.co/kg/m/04z83c"
+            ],
+            "bookFormat": "http://schema.org/EBook",
             "inLanguage": "en",
             "isbn": "0-679-64260-9",
             "potentialAction": "",
             "bookEdition": "",
-            "datePublished": "",
+            "datePublished": "2002",
             "identifier": "",
-            "translator": {
-              "@id": "#translator"
+            "accessMode": ["auditory", "textual", "visual"],
+            "audience": {
+              "@type": "PeopleAudience",
+              "name": "People interested in philosophy and specificly stoicism"
             }
           },
           {
-            "@id": "#author",
+            "@id": "https://vreeman.com/meditations/#/schema/author",
             "@type": "Person",
             "name": "Marcus Aurelius",
             "sameAs": "https://www.wikidata.org/wiki/Q1430"
           },
           {
-            "@id": "#translator",
+            "@id": "https://vreeman.com/meditations/#/schema/translator",
             "@type": "Person",
             "name": "Gregory Hays"
           }
