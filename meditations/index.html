@@ -72,7 +72,15 @@
             "isbn": "0-679-64260-9",
             "potentialAction": [{
               "@type": "ReadAction",
-              "target": ["https://vreeman.com/meditations/"]
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://vreeman.com/meditations/",
+                "actionPlatform": [
+                  "http://schema.org/DesktopWebPlatform",
+                  "http://schema.org/AndroidPlatform",
+                  "http://schema.org/IOSPlatform"
+                ]
+              }
             }],
             "bookEdition": "",
             "datePublished": "2002",
