@@ -6,36 +6,95 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
-    <!-- <meta name="color-scheme" content="dark light"> -->
     <style>
-      /*:root {
-        
-      }*/
-      /**, ::before, ::after {
-        margin: 0;
-        padding: 0;
-      }*/
-      /*html {
-        color-scheme: dark light;
-        font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      :root {
+        --black: rgba(0, 0, 0, .8);
+        --blue-dark: rgb(0, 112, 201);
+        --blue-light: rgb(102, 187, 255);
+        --gray: rgb(204, 204, 204);
+        --sans: Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        --sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        --monospace: SFMono-Regular, Menlo, Consolas, Roboto Mono, "Liberation Mono", Monaco, "Courier New", monospace;
+      }
+      html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: scrollbar;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        margin: 0 auto;
+        max-width: 50rem;
+        font-family: var(--sans);
         font-size: 1.125rem;
         line-height: 1.618;
+        text-rendering: geometricPrecision;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      h1, h2, h3, h4, h5, table {
+        font-family: var(--sans-serif);
+      }
+      table {
+        border-collapse: collapse;
+        border-style: hidden;
+        font-feature-settings: 'tnum' on;
+        font-variant-numeric: tabular-nums;
+        /*width: 100%;*/
+      }
+      th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 3px;
+      }
+      tbody {
+        vertical-align: text-bottom;
+      }
+      /*tbody tr:nth-child(odd) {
+        background-color: #eee;
       }*/
-      /*body {
-        margin: 0 auto;
-        max-width: 42rem;
-      }*/
-      /*a {
-        color: inherit;
-      }*/
-      /*table {
-        
-      }*/
+      a {
+        background-color: transparent;
+        color: var(--blue-dark);
+        text-decoration-skip: ink;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+      }
+      a:active, a:focus, a:hover {
+        color: var(--blue-light);
+      }
+      h1 a, h2 a, h3 a, h4 a, h5 a{
+        text-decoration: none;
+      }
       dt, strong {
         font-weight: 700;
       }
-      em {
+      cite, em {
         font-style: italic;
+      }
+      blockquote::before {
+        content: open-quote;
+      }
+      blockquote::after {
+        content: close-quote;
+      }
+      sub, sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+      sub {
+        bottom: -0.25em;
+      }
+      sup {
+        top: -0.5em;
       }
     </style>
     <script>
@@ -259,7 +318,7 @@
     </script>
   </head>
   <body>
-    <header>
+    <header id="header">
       <h1>Meditations &middot; <em>Ta eis heauton</em> &middot; by Marcus Aurelius</h1>
       <h2>A New Translation, with an Introduction, by Gregory Hays</h2>
     </header>
@@ -296,8 +355,8 @@
     </nav>
     <main>
 
-        <h2 id="chronology">Chronology</h2>
-        <table border="1">
+        <h2 id="chronology"><a href="#chronology">&num;</a> Chronology <a href="#header">&uarr;</a></h2>
+        <table>
           <thead>
             <tr>
               <th>Year</th>
@@ -305,7 +364,7 @@
               <th>Literary/Philosophical</th>
             </tr>
           </thead>
-          <tbody style="vertical-align: text-bottom;">
+          <tbody>
             <tr>
               <td>500</td>
               <td></td>
@@ -349,8 +408,8 @@
           </tbody>
         </table>
 
-        <h2 id="introduction">Introduction by Gregory Hays</h2>
-        <h3 id="marcus-aurelius-antoninus">Marcus Aurelius Antoninus</h3>
+        <h2 id="introduction"><a href="#introduction">&num;</a> Introduction by Gregory Hays <a href="#header">&uarr;</a></h2>
+        <h3 id="marcus-aurelius-antoninus"><a href="#marcus-aurelius-antoninus">&num;</a> Marcus Aurelius Antoninus <a href="#header">&uarr;</a></h3>
         <blockquote>
           <p>States will never be happy until rulers become philosophers or philosophers become rulers.</p>
           <cite>—Plato, The Republic</cite>
@@ -377,12 +436,12 @@
         <p>By 175 the Romans seemed to have gained the upper hand. But at this point disturbing news arrived. Avidius Cassius, who had distinguished himself as a general during the Parthian War and who as governor of Syria now served as virtual regent of the Eastern empire, had revolted and declared himself emperor. Some of the Eastern provinces (notably Cappadocia) remained loyal to Marcus, but Cassius was recognized as emperor throughout much of the East, and in particular in Egypt, whose grain supply was crucial to the capital. Civil war seemed inevitable, and was prevented only by Cassius’s assassination at the hands of a subordinate. Marcus was nevertheless obliged to travel east to reassert his authority, taking with him Faustina (who died in the course of the journey). He visited the major cities of the East, Antioch and Alexandria, arriving finally at Athens, where he was initiated into the Eleusinian Mysteries, a set of mystic rites connected with the worship of Demeter, the goddess of agriculture.</p>
         <p>Now in his fifties, Marcus was in declining health, and the revolt of Cassius had only underlined the need to make arrangements for the succession. Faustina had borne at least thirteen children, many of whom had died young. By the mid- 170s, Marcus had only one surviving son, Commodus, just entering his teens. There was no reason for Marcus to continue the policy of adoption followed by his predecessors, and there is no reason to think he even considered it. The years that follow see Commodus’s rapid promotion to a position not far short of co-emperor. He was consul in 177 at the age of fifteen. In the same year he was accorded all the major imperial privileges, except for the post of Pontifex Maximus, the head of the Roman state religion, held by the reigning emperor alone, and for life.</p>
         <p>The gains of the Marcomannic Wars had not proved permanent, and in 178, Marcus and Commodus marched north again. Two years later Marcus died at age fifty-eight, the first emperor to pass on the throne to his son since Vespasian a century before. Sadly, Commodus’s performance did not bear out whatever promise Marcus had discerned in him. He was to be remembered as a dissolute tyrant, a second Caligula or Nero whose many defects were only emphasized by the contrast with his father. His assassination after a twelve-year reign would usher in the first in a series of power struggles that would burden the empire for the next century.</p>
-        <h3 id="philosophical-background">Philosophical Background</h3>
+        <h3 id="philosophical-background"><a href="#philosophical-background">&num;</a> Philosophical Background <a href="#header">&uarr;</a></h3>
         <p>The composition of the <em>Meditations</em> is normally dated to the 170s—Marcus’s last decade. That this was a dark and stressful period for him can hardly be doubted. In the ten years between 169 and 179 he had to cope with constant fighting on the frontier, the abortive revolt of Cassius, and the deaths of his colleague Verus; his wife, Faustina; and others. Though he could hardly have anticipated the century of turmoil that would follow his death, he may have suspected that his son and successor, Commodus, was not the man he hoped. That in these circumstances Marcus should have sought consolation in philosophy is only natural. But understanding what Marcus looked for from his philosophical studies requires a certain amount of orientation. To understand the <em>Meditations</em> in context, we must familiarize ourselves not only with Stoicism, the philosophical system that underlies the work, but also with the role of philosophy in ancient life more generally.</p>
         <p>Today philosophy is an academic discipline, one that few people other than professional philosophers would consider central to their everyday existence. While we may think of ourselves as having a “philosophy of life,” it bears little relation to what goes on in the philosophy departments of our universities. The careers of twentieth-century analytic philosophy often seem remote from what the American philosopher Thomas Nagel terms “mortal questions”: the problems involved in making ethical choices, constructing a just society, responding to suffering and loss, and coming to terms with the prospect of death. Indeed, most of us would be inclined to see these issues as the province of religion rather than philosophy.</p>
         <p>For Marcus and his contemporaries, the situation was very different. Ancient philosophy certainly had its academic side. Athens and other large cities had publicly financed chairs of philosophy, and professional philosophers taught, argued and wrote, as they do today. But philosophy also had a more practical dimension. It was not merely a subject to write or argue about, but one that was expected to provide a “design for living”—a set of rules to live one’s life by. This was a need not met by ancient religion, which privileged ritual over doctrine and provided little in the way of moral and ethical guidelines. Nor did anyone expect it to. That was what philosophy was for.</p>
         <p>Philosophy in the modern sense is largely the creation of one man, the fifth-century B.C. Athenian thinker Socrates. But it is primarily in the Hellenistic period that we see the rise of philosophical sects, promulgating coherent “belief systems” that an individual could accept as a whole and which were designed to explain the world in its totality. Of these Hellenistic systems the most important, both for Romans in general and for Marcus in particular, was the Stoic school. The movement takes its name from the stoa (“porch” or “portico”) in downtown Athens where its founder, Zeno (332/3–262 B.C.), taught and lectured. Zeno’s doctrines were reformulated and developed by his successors, Cleanthes (331–232 B.C.) and Chrysippus (280–c. 206 B.C.). Chrysippus in particular was a voluminous writer, and it was he who laid the foundations for systematic Stoicism. This early “academic” Stoicism is the source of certain key terms and concepts that reappear frequently in the <em>Meditations</em>, and proper understanding of Marcus’s approach requires some familiarity with the system as a whole.</p>
-        <h4>Stoicism</h4>
+        <h4 id="stoicism"><a href="#stoicism">&num;</a> Stoicism <a href="#header">&uarr;</a></h4>
         <p>Of the doctrines central to the Stoic worldview, perhaps the most important is the unwavering conviction that the world is organized in a rational and coherent way. More specifically, it is controlled and directed by an all-pervading force that the Stoics designated by the term <em>logos</em>. The term (from which English “logic” and the suffix “-logy” derive) has a semantic range so broad as to be almost untranslatable. At a basic level it designates rational, connected thought— whether envisioned as a characteristic (rationality, the ability to reason) or as the product of that characteristic (an intelligible utterance or a connected discourse). <em>Logos</em> operates both in individuals and in the universe as a whole. In individuals it is the faculty of reason. On a cosmic level it is the rational principle that governs the organization of the universe.<sup><a href="#in1" id="in1-ref">1</a></sup> In this sense it is synonymous with “nature,” “Providence,” or “God.” (When the author of John’s Gospel tells us that “the Word”—<em>logos</em>—was with God and is to be identified with God, he is borrowing Stoic terminology.)</p>
         <p>All events are determined by the <em>logos</em>, and follow in an unbreakable chain of cause and effect. Stoicism is thus from the outset a deterministic system that appears to leave no room for human free will or moral responsibility. In reality the Stoics were reluctant to accept such an arrangement, and attempted to get around the difficulty by defining free will as a voluntary accommodation to what is in any case inevitable. According to this theory, man is like a dog tied to a moving wagon. If the dog refuses to run along with the wagon he will be dragged by it, yet the choice remains his: to run or be dragged. In the same way, humans are responsible for their choices and actions, even though these have been anticipated by the <em>logos</em> and form part of its plan. Even actions which appear to be—and indeed are—immoral or unjust advance the overall design, which taken as a whole is harmonious and good. They, too, are governed by the <em>logos</em>.</p>
         <p>But the <em>logos</em> is not simply an impersonal power that governs and directs the world. It is also an actual substance that pervades that world, not in a metaphorical sense but in a form as concrete as oxygen or carbon. In its physical embodiment, the <em>logos</em> exists as <em>pneuma</em>, a substance imagined by the earliest Stoics as pure fire, and by Chrysippus as a mixture of fire and air. <em>Pneuma</em> is the power —the vital breath—that animates animals and humans. It is, in Dylan Thomas’s phrase, “the force that through the green fuse drives the flower,” and is present even in lifeless materials like stone or metal as the energy that holds the object together—the internal tension that makes a stone a stone. All objects are thus a compound of lifeless substance and vital force. When Marcus refers, as he does on a number of occasions, to “cause and material” he means the two elements of these compounds—inert substance and animating <em>pneuma</em>—which are united so long as the object itself exists. When the object perishes, the <em>pneuma</em> that animated it is reabsorbed into the <em>logos</em> as a whole. This process of destruction and reintegration happens to individual objects at every moment. It also happens on a larger scale to the entire universe, which at vast intervals is entirely consumed by fire (a process known as <em>ekpyrosis</em>), and then regenerated.<sup><a href="#in2" id="in2-ref">2</a></sup></p>
@@ -393,7 +452,7 @@
         <p>Cato, Thrasea, and Helvidius were doers, not writers, and their legendary heroism inevitably lends them a somewhat two-dimensional quality. A more complex and much more interesting figure was the poet Lucan’s uncle, Lucius Annaeus Seneca (c. 4 B.C.–A.D. 65), commonly known as Seneca the Younger to distinguish him from his equally distinguished father. Originally councillor to the young Nero, he was eventually forced to commit suicide after being implicated in an attempted coup against his erstwhile pupil. Men’s lives are not always consistent with their ideals, and some critics have found it hard to reconcile Seneca’s fabulous wealth and his shameless flattery of Nero with his philosophical views. Yet his works (in particular the <em>Letters to Lucilius</em>) remain the most engaging and accessible expressions of later Stoicism. Because they were written in Latin they were also among the most influential on succeeding generations.</p>
         <p>But not all Stoics were wealthy senators. There was another kind of Stoic exemplar as well: the outsider whose ascetic lifestyle won him the admiration of his wealthier contemporaries and enabled him to criticize the pretenses of upper-class society with real authority. An early example of the type is Gaius Musonius Rufus (c. 30–100), a member of the Roman administrative class, the so-called knights (<em>equites</em>), who was banished by both Nero and Vespasian. A still more dramatic example was Musonius’s student Epictetus (c. 55–c. 135), who had taken up the practice of philosophy as a slave and devoted the remainder of his life to it after being freed. He had been exiled to Nicopolis (in northern Greece) under Domitian, and after the tyrant’s death, elected to remain there where he taught and lectured to visitors who often traveled great distances to study with him.</p>
         <p>One of these was the upper-class historian and statesman Arrian (c. 86–160), who published an extensive record of the master’s discussions, a text conventionally referred to as the <em>Discourses of Epictetus</em>. He later produced an abridged version, the <em>Encheiridion</em> (“Manual” or “Handbook”). Epictetus seems to have been an especially important figure for Marcus. He thanks his philosophical mentor Rusticus for introducing him to “Epictetus’s lectures” (either the Discourses themselves or a private set of lecture notes), and a series of quotations and paraphrases from the philosopher appear in <a href="#book11">Book 11</a> of the <em>Meditations</em>. And Arrian’s abridged <em>Encheiridion</em> provides the closest literary parallel to the <em>Meditations</em> itself, not only in its content, but also in its form: a series of relatively short and unrelated entries.</p>
-        <h4>Stoicism and the Meditations</h4>
+        <h4 id="stoicism-and-the-meditations"><a href="#stoicism-and-the-meditations">&num;</a> Stoicism and the Meditations <a href="#header">&uarr;</a></h4>
         <p>The late Stoicism of Epictetus is a radically stripped-down version of its Hellenistic predecessor, a philosophy which “had learnt much from its competitors and had almost forgotten parts of itself.”<sup><a href="#in3" id="in3-ref">3</a></sup> Both these tendencies, the narrowing of the field and the eclectic borrowing from non-Stoic sources, can be discerned also in the <em>Meditations</em>.</p>
         <p>Chrysippus and his followers had divided knowledge into three areas: logic, physics and ethics, concerned, respectively, with the nature of knowledge, the structure of the physical world and the proper role of human beings in that world. Marcus pays lip service to this triadic division in at least one entry (<a href="#book8-13">8.13</a>), but it is clear from other chapters and from the <em>Meditations</em> as a whole that logic and physics were not his focus. Among the things for which he thanks the gods is that he was never “absorbed by logic-chopping, or preoccupied by physics” (<a href="#book1-17">1.17</a>). Occasional entries show an awareness of Stoic thought about language (the etymological pun in <a href="#book8-57">8.57</a> is perhaps the clearest example), but they are the exception, not the rule. In many cases Marcus’s logic is weak —the logic of the rhetorician, not of the philosopher; it is rare to find a developed chain of reasoning like that in <em>Meditations</em> <a href="#book4-4">4.4</a>. His interest in the nature of the physical world is limited to its relevance to human problems. About one of the basic Stoic physical doctrines—the notion of the periodic conflagration (<em>ekpyrosis</em>) that ends a cosmic cycle —Marcus adopts an agnostic position (though he was not alone in this). To him it was ethics that was the basis of the system: “just because you’ve abandoned your hopes of becoming a great thinker or scientist, don’t give up on attaining freedom, achieving humility, serving others . . .” (<a href="#book7-67">7.67</a>).</p>
         <p>The questions that the <em>Meditations</em> tries to answer are primarily metaphysical and ethical ones: Why are we here? How should we live our lives? How can we ensure that we do what is right? How can we protect ourselves against the stresses and pressures of daily life? How should we deal with pain and misfortune? How can we live with the knowledge that someday we will no longer exist? It would be both pointless and impertinent to try to summarize Marcus’s responses; the influence of the <em>Meditations</em> on later readers springs in part from the clarity and insistence with which he addresses these questions. It may be worthwhile, however, to draw attention to one pattern of thought that is central to the philosophy of the <em>Meditations</em> (as well as to Epictetus), and that has been identified and documented in detail by Pierre Hadot. This is the doctrine of the three “disciplines”: the disciplines of perception, of action and of the will.</p>
@@ -409,13 +468,12 @@
             <li>to accept this event with humility [will];</li>
             <li>to treat this person as he should be treated [action];</li>
             <li>to approach this thought with care, so that nothing irrational creeps in [perception].</li>
-          </ul>
-        </blockquote>
+          </ul></blockquote>
         <p>We find the same triad rephrased and reordered in <em>Meditations</em> <a href="#book9-6">9.6</a>: “Objective judgment . . . Unselfish action . . . Willing acceptance . . . of all external events.”</p>
         <p>And we find it in a more subtle form underlying <em>Meditations</em> <a href="#book8-7">8.7</a>:</p>
         <blockquote>. . . progress for a rational mind means not accepting falsehood or uncertainty in its perceptions, making unselfish actions its only aim, seeking and shunning only the things it has control over, embracing what nature demands of it—the nature in which it participates, as the leaf’s nature does in the tree’s.</blockquote>
         <p>A score of other entries could be cited. The almost obsessive repetition of these three points suggests that they lie at the very heart of Marcus’s thought, and of his project in the <em>Meditations</em>.</p>
-        <h4>Other Influences</h4>
+        <h4 id="other-influences"><a href="#other-influences">&num;</a> Other Influences <a href="#header">&uarr;</a></h4>
         <p>Marcus Aurelius is often thought of and referred to as the quintessential Stoic. Yet the only explicit reference to Stoicism in the <em>Meditations</em> (<a href="#book5-10">5.10</a>) is phrased in curiously distant terms, as if it were merely one school among others. The great figures of early Stoicism are conspicuous by their absence. Neither Zeno nor Cleanthes is mentioned in the <em>Meditations</em>, and Chrysippus appears only twice—quoted once in passing for a pithy comparison (<a href="#book6-42">6.42</a>) and included with Socrates and Epictetus in a list of dead thinkers (<a href="#book7-19">7.19</a>). This is not to deny the essentially Stoic basis of Marcus’s thought, or the deep influence on him exercised by later Stoic thinkers (most obviously Epictetus). If he had to be identified with a particular school, that is surely the one he would have chosen. Yet I suspect that if asked what it was that he studied, his answer would have been not “Stoicism” but simply “philosophy.”</p>
         <p>There is nothing surprising about this. The imperial period saw the development of a widespread ecumenical tendency in philosophy. Adherents of most of the major schools—the Platonists, Peripatetics, Cynics, and Stoics—preferred to focus on the points they shared, rather than those that separated them. Not all the figures Marcus credits as influential on his own philosophical development were Stoics; Severus, for example, was a Peripatetic. Although authors like Seneca and Epictetus accepted the basic premises of the system developed by Zeno and Chrysippus, they showed no reluctance to borrow aphorisms, anecdotes, and argumentative strategies from non-Stoic sources. The <em>Meditations</em> follows a similar procedure. While built on a Stoic foundation, it also refers to and quotes a wide range of figures, both precursors of the Stoics and representatives of rival schools.</p>
         <p>Of the predecessors Marcus invokes, the most important is surely Socrates, the great Athenian thinker who had helped redirect philosophy from a preoccupation with the physical world to a focus on the role of man in society and the nature of human morality. Socrates himself wrote nothing. His teachings were transmitted (and greatly elaborated) in the philosophical dialogues of his student Plato. Marcus quotes Plato repeatedly (especially in <a href="#book7">Book 7</a>), and Socratic or Platonic elements can be discerned elsewhere too. One example is the so-called Socratic paradox, the claim that no one does wrong willingly, and that if men were able to recognize what is right, they would inevitably do it. “They are like this,” Marcus says of other people, “because they can’t tell good from evil” (<a href="#book2-1">2.1</a>), and he repeats this assertion elsewhere.</p>
@@ -433,7 +491,7 @@
         <p>Although the sect numbered not a few prominent Romans among its adherents, it never attained the success of Stoicism, and was regarded with genial contempt by most outsiders. The quietism endorsed by the Epicureans was obviously difficult to reconcile with an active public life— an important Roman value—and the Epicurean equation of the good with pleasure was bound to raise eyebrows among conservative Romans. “Eat, drink and be merry” was popularly supposed to be the Epicureans’ motto, though Epicurus himself had been quite explicit in identifying pleasure with intellectual contemplation rather than the vulgar enjoyment of food and sex. Though a minority view, Epicureanism was, nonetheless, the only potential rival to Stoicism in offering a systematic cosmology, as Marcus acknowledges on a number of occasions by the stark dichotomy “Providence or atoms” (<a href="#book4-3">4.3</a>, <a href="#book10-6">10.6</a>, <a href="#book11-18">11.18</a>, <a href="#book12-14">12.14</a>).</p>
         <p>Marcus normally seems to view Epicureanism with disapproval (as we would expect). In <em>Meditations</em> <a href="#book6-10">6.10</a> he contrasts the Epicurean universe, founded on “mixture, interaction, dispersal” with the components of the Stoic system: “unity, order, design”—clearly to the advantage of the latter. Should we not be ashamed to fear death, he asks in another entry, when “even” the Epicureans disdain it? (<a href="#book12-34">12.34</a>). But other entries suggest a less dismissive attitude. Marcus quotes with apparent approval Epicurus’s account of his own exemplary conduct during an illness (<a href="#book9-41">9.41</a>) and twice seeks comfort in the philosopher’s remarks on the endurance of pain (<a href="#book7-33">7.33</a>, <a href="#book7-64">7.64</a>). Like other late Stoics (Seneca is a notable example), he was willing to accept truth wherever he found it.</p>
         <p>Thus far we have been concerned with the content of the <em>Meditations</em>: the ethical doctrine of late Stoicism, incorporating a certain amount of Platonic and Heraclitean material, and overlaid with occasional reference to other schools and thinkers. But what of the <em>Meditations</em> itself? How and why was it written? Who is its audience? What kind of book is it? For the answers to these questions we must turn from the book’s content to its form and origins.</p>
-        <h3 id="the-meditations-genre-structure-and-style">The <em>Meditations</em>: Genre, Structure, and Style</h3>
+        <h3 id="the-meditations-genre-structure-and-style"><a href="#the-meditations-genre-structure-and-style">&num;</a> The <em>Meditations</em>: Genre, Structure, and Style <a href="#header">&uarr;</a></h3>
         <p>I suspect that Marcus would have been surprised (and perhaps rather dismayed) to find himself enshrined in the Modern Library of the World’s Best Books. He would have been surprised, to begin with, by the title of the work ascribed to him. The long-established English title <em>Meditations</em> is not only not original, but positively misleading, lending a spurious air of resonance and authority quite alien to the haphazard set of notes that constitute the book. In the lost Greek manuscript used for the first printed edition—itself many generations removed from Marcus’s original—the work was entitled “To Himself” (Eis heauton). This is no more likely than <em>Meditations</em> to be the original title, though it is at least a somewhat more accurate description of the work.<sup><a href="#in6" id="in6-ref">6</a></sup></p>
         <p>In fact, it seems unlikely that Marcus himself gave the work any title at all, for the simple reason that he did not think of it as an organic whole in the first place. Not only was it not written for publication, but Marcus clearly had no expectation that anyone but himself would ever read it. The entries include a number of cryptic references to persons or events that an ancient reader would have found as unintelligible as we do. While a contemporary might have recognized some of the figures mentioned in <em>Meditations</em> <a href="#book8-25">8.25</a> or <a href="#book12-27">12.27</a>, for example, no ancient reader could have known what was in the letter that Rusticus wrote from Sinuessa (<a href="#book1-7">1.7</a>), what Antoninus said to the customs agent at Tusculum (<a href="#book1-16">1.16</a>), or what happened to Marcus at Caieta (<a href="#book1-17">1.17</a>). Elsewhere Marcus reflects directly on his role as emperor, in terms that would be quite irrelevant to anyone else. We find him worrying about the dangers of becoming “imperialized” (<a href="#book6-30">6.30</a>), reminding himself to speak simply in the Senate (<a href="#book8-30">8.30</a>), and reflecting on the unique position he occupies (<a href="#book11-7">11.7</a>). From these entries and others it seems clear that the “you” of the text is not a generic “you,” but the emperor himself. “When you look at yourself, see any of the emperors” (<a href="#book10-31">10.31</a>).</p>
         <p>How are we to categorize the <em>Meditations</em>? It is not a diary, at least in the conventional sense. The entries contain little or nothing related to Marcus’s day-to-day life: few names, no dates and, with two exceptions, no places. It also lacks the sense of audience—the reader over one’s shoulder —that tends to characterize even the most secretive diarist. Some scholars have seen it as the basis for an unwritten larger treatise, like Pascal’s <em>Pensées</em> or the notebooks of Joseph Joubert. Yet the notes are too repetitive and, in a philosophical sense, too elementary for that. The entries perhaps bear a somewhat closer resemblance to the working notes of a practicing philosopher: Wittgenstein’s <em>Zettel</em>, say, or the <em>Cahiers</em> of Simone Weil. Yet here, too, there is a significant difference. The <em>Meditations</em> is not tentative and exploratory, like the notes of Wittgenstein or Weil, and it contains little or nothing that is original. It suggests not a mind recording new perceptions or experimenting with new arguments, but one obsessively repeating and reframing ideas long familiar but imperfectly absorbed.</p>
@@ -454,7 +512,7 @@
         <p>The longer entries (none, of course, are very long) are marked by a coherent if sometimes slightly labored style. Not all critics have had kind words for Marcus’s expository prose, and some have been inclined to attribute perceived shortcomings to deficiencies in his Greek. But in all likelihood the occasional awkwardness is due less to an imperfect grasp of the language than to roughness of composition—Marcus thinking aloud or groping for an idea. The same explanation may underlie one of the most noticeable features of Marcus’s prose—namely, his tendency to string together pairs of near-synonymous words and phrases, as if uncertain whether he has hit the target the first time. When combined with the very abstract vocabulary natural in philosophical prose, this can make for difficult reading, especially in English, which privileges concision and concrete vocabulary to a greater degree than Greek. At its best, however, Marcus’s writing can be extraordinarily effective, most of all when it strikes a balance between image and idea, as in the opening of <a href="#book5-23">5.23</a>:</p>
         <blockquote>Keep in mind how fast things pass by and are gone—those that are now, and those to come. Existence flows past us like a river: the “what” is in constant flux, the “why” has a thousand variations. Nothing is stable, not even what’s right here. The infinity of past and future gapes before us—a chasm whose depths we cannot see.</blockquote>
         <p>This particular topic—the transience of human life, the constant change that shapes and informs the world—is a recurrent theme in the <em>Meditations</em>, and as we shall see, it is one whose treatment owes as much to literary as to philosophical models, and as much to Marcus’s own character as to Stoic doctrine.</p>
-        <h3 id="recurring-themes">Recurring Themes</h3>
+        <h3 id="recurring-themes"><a href="#recurring-themes">&num;</a> Recurring Themes <a href="#header">&uarr;</a></h3>
         <p>To try to extract a sustained and coherent argument from the <em>Meditations</em> as a whole would be an unprofitable exercise. It is simply not that kind of work. It would be equally fruitless to try to read autobiographical elements into individual entries (to take <a href="#book9-42">9.42</a> as referring to the revolt of Avidius Cassius, for example, or <a href="#book10-4">10.4</a> as a reflection on Commodus) —all the more so since so few of the entries can be dated with any security. This is not to say that the <em>Meditations</em> has no unity or no relationship to Marcus’s own life, for it has both. What unifies it is the recurrence of a small number of themes that surely reflect Marcus’s own preoccupations. It is the points to which Marcus returns most often that offer the best insight into his character and concerns.</p>
         <p>One example that will strike almost any reader is the sense of mortality that pervades the work. Death is not to be feared, Marcus continually reminds himself. It is a natural process, part of the continual change that forms the world. At other points it is the ultimate consolation. “Soon you will be dead,” Marcus tells himself on a number of occasions, “and none of it will matter” (cf. <a href="#book4-6">4.6</a>, <a href="#book7-22">7.22</a>, <a href="#book8-2">8.2</a>). The emphasis on the vanity and worthlessness of earthly concerns is here linked to the more general idea of transience. All things change or pass away, perish and are forgotten. This is the burden of several of the thought exercises that Marcus sets himself: to think of the court of Augustus (<a href="#book8-31">8.31</a>), of the age of Vespasian or Trajan (<a href="#book4-32">4.32</a>), the great philosophers and thinkers of the past (<a href="#book6-47">6.47</a>)—all now dust and ashes.</p>
         <p>This theme is not specific to Stoicism. We meet it at every turn in ancient literature. Marcus himself quotes the famous passage in <a href="#book6">Book 6</a> of Homer’s Iliad in which the lives of mortals are compared to leaves that grow in the spring, flourish for a season and then fall and die, to be replaced by others (10.34). He would have recognized the sentiment in other writers too, from the melancholy Greek lyric poet Mimnermus, who develops and expands on Homer’s simile, to the Roman lawyer Servius Sulpicius, writing to his friend Cicero on the death of the latter’s daughter:</p>
@@ -467,10 +525,10 @@
         <p>As one scholar has observed, “reading the <em>Meditations</em> for long periods can be conducive of melancholy.” And even those who love the book cannot deny that there is something impoverishing about the view of human life it presents. Matthew Arnold, whose essay on the work reveals a deep respect and affection for Marcus, identified the central shortcoming of his philosophy as its failure to make any allowance for joy, and I think this is a fair criticism. Marcus does not offer us a means of achieving happiness, but only a means of resisting pain. The Stoicism of the <em>Meditations</em> is fundamentally a defensive philosophy; it is noteworthy how many military images recur, from references to the soul as being “posted” or “stationed” to the famous image of the mind as an invulnerable fortress (<a href="#book8-48">8.48</a>). Such images are not unique to Marcus, but one can imagine that they might have had special meaning for an emperor whose last years were spent in “<em>warfare and a journey far from home</em>” (<a href="#book2-17">2.17</a>). For Marcus, life was a battle, and often it must have seemed— what in some sense it must always be—a losing battle.</p>
         <p>There are also a handful of points in the text where we have glimpses of a different frame of mind, most obviously when Marcus refers to the gods. From a Stoic perspective, of course, “God” or “the gods” (the terms are used interchangeably by many ancient writers) are merely conventional terms for what we might equally well call “nature” or “the <em>logos</em>” or “Providence,” or simply “how things are.” Marcus stresses the benevolence of this power (what is divine must be good, surely?), but it is clear that he also ascribes to its actions the implacability with which orthodox Stoic doctrine endows it. It is not easy to see why one should pray to a power whose decisions one can hardly hope to influence, and indeed Marcus several times seems to admit the possibility that one should not (<a href="#book5-7">5.7</a>, <a href="#book6-44">6.44</a>, <a href="#book9-40">9.40</a>).</p>
         <p>It is all the more surprising, then, to find Marcus elsewhere suggesting a more personal concern on the gods’ part. The final entry of <a href="#book1">Book 1</a> is the most obvious example. Here Marcus indicates that the gods have aided him quite directly “through their gifts, their help, their inspiration,” just as they have others (cf. <a href="#book9-11">9.11</a>). Their help is curiously concrete. Among the things for which they are thanked are “remedies granted through dreams,” including “the one at Caieta” (<a href="#book1-17">1.17</a>; the text is uncertain). The gods also assist other people, he reminds himself, “just as they do you—by signs and dreams and every other way” (<a href="#book9-27">9.27</a>). That Marcus himself did believe deeply in the gods, not merely as a figure of speech but as a real force in his own life, is suggested by his refutation of those who doubt their existence: “I know the gods exist. . . .—from having felt their power, over and over” (<a href="#book12-28">12.28</a>). How was this personal relationship with the divine to be reconciled with the impersonal <em>logos</em> of the Stoics? The question seems to be played out in the dialogue at <em>Meditations</em> <a href="#book9-40">9.40</a>. “But those are things the gods left up to me,” protests one voice, to which another responds, “And what makes you think the gods don’t care about what’s up to us?” Marcus himself may not have fully recognized or acknowledged this conflict, but its existence may point to a half-conscious awareness that the answer Stoicism offered was not in every respect satisfactory.</p>
-        <h3 id="later-influence">Later Influence</h3>
+        <h3 id="later-influence"><a href="#later-influence">&num;</a> Later Influence <a href="#header">&uarr;</a></h3>
         <p>How or by whom the <em>Meditations</em> was preserved is unknown. The late-fourth-century <em>Historia Augusta</em> paints a picture of Marcus lecturing on the <em>Meditations</em> to a spellbound audience at Rome—one of the charming fantasies in which that peculiar work abounds, but certainly an invention. The passage does suggest, however, that the text was in circulation by the fourth century, when it is also mentioned by the orator Themistius. It was very likely familiar also to a contemporary of Themistius’s, the neo- pagan emperor Julian (known to later ages as Julian the Apostate), in whose dialogue “The Caesars” Marcus is pictured as a model for the kind of philosopher-king that Julian himself aspired to be.</p>
         <p>The century that followed Themistius and Julian was one of decline, at least in the West—decline in political institutions, and also in the knowledge of Greek. For the next thousand years Marcus’s work, like that of Homer and Euripides, would remain unknown to Western readers. Copies survived in the Greek-speaking East, of course, but even there the <em>Meditations</em> seems to have been little read. For centuries, all trace of it is lost, until at the beginning of the tenth century it reappears in a letter from the scholar and churchman Arethas, who writes to a friend, “I have had for a while now a copy of the Emperor Marcus’s invaluable book. It was not only old but practically coming apart. . . . I have had it copied and can now pass it on to posterity in better shape.” Whether Arethas’s copy was indeed responsible for the work’s survival we do not know. At any rate, its readership seems to have increased in the centuries that followed. It is quoted a generation or two later by the vast Byzantine encyclopedia known as the <em>Suda</em>, and it was perhaps around this period also that an unknown Byzantine poet composed a brief appreciation that came to be copied along with the text:</p>
-        <h3 id="on-the-book-of-marcus">On the book of Marcus</h3>
+        <h3 id="on-the-book-of-marcus"><a href="#on-the-book-of-marcus">&num;</a> On the book of Marcus <a href="#header">&uarr;</a></h3>
         <blockquote>
           If you desire to master pain<br>
           Unroll this book and read with care,<br>
@@ -484,7 +542,7 @@
         <p>The <em>Meditations</em> has never attracted great interest from professional students of the classics, and the reasons are perhaps understandable. It contains few direct references to historical events and provides relatively little material for social historians. As evidence for later Stoicism it pales beside the greater bulk of Epictetus’s <em>Discourses</em>. Yet it has always exerted a fascination on those outside the narrow orbit of classical study, perhaps especially on those who can best appreciate the pressures that Marcus himself faced. The <em>Meditations</em> was among the favorite reading of Frederick the Great; a recent American president has claimed to reread it every few years. But it has attracted others too, from poets like Pope, Goethe, and Arnold to the southern planter William Alexander Percy, who observed in his autobiography that “there is left to each of us, no matter how far defeat pierces, the unassailable wintry kingdom of Marcus Aurelius. . . . It is not outside, but within, and when all is lost, it stands fast.”<sup><a href="#in12" id="in12-ref">12</a></sup></p>
         <p>If Marcus has been studied less than many ancient authors, he has been translated more than most. But it has been a generation since his last English incarnation, and the time seems ripe for another attempt. My intention in what follows has been to represent in readable English both the content and the texture of the <em>Meditations</em>. I have been especially concerned to convey the patchwork character of the original, both the epigrammatic concision that characterizes some entries and the straggling discursiveness of others. I hope the results will bear out my conviction that what a Roman emperor wrote long ago for his own use can still be meaningful to those far removed from him in time and space. We do not live in Marcus’s world, but it is not as remote from us as we sometimes imagine. There could be no better witness to the effect of the <em>Meditations</em> on a modern reader than the Russian poet Joseph Brodsky, whose essay “Homage to Marcus Aurelius” takes its departure from the famous statue of the emperor on the Capitoline hill in Rome:</p>
         <blockquote>I saw him for the last time a few years ago, on a wet winter night, in the company of a stray Dalmatian. I was returning by taxi to my hotel after one of the most disastrous evenings in my entire life. The next morning I was leaving Rome for the States. I was drunk. The traffic moved with the speed one wishes for one’s funeral. At the foot of the Capitol I asked the driver to stop, paid, and got out of the car. . . . Presently I discovered I was not alone: a middle-sized Dalmatian appeared out of nowhere and quietly sat down a couple of feet away. Its sudden presence was so oddly comforting that momentarily I felt like offering it one of my cigarettes. . . . For a while we both stared at the horseman’s statue. . . . And suddenly—presumably because of the rain and the rhythmic pattern of Michelangelo’s pilasters and arches—all got blurred, and against that blur, the shining statue, devoid of any geometry, seemed to be moving. Not at great speed, and not out of this place; but enough for the Dalmatian to leave my side and follow the bronze progress.</blockquote>
-        <h3 id="further-reading">Further reading</h3>
+        <h3 id="further-reading"><a href="#further-reading">&num;</a> Further reading <a href="#header">&uarr;</a></h3>
         <p>The standard modern biography of Marcus is A. R. Birley, <em>Marcus Aurelius</em> (1966; rev. ed., New Haven, Conn.: Yale University Press, 1987), which makes full use of the principal ancient literary sources—not only the <em>Meditations</em> (especially <a href="#book1">Book 1</a>), but the remains of the history of Dio Cassius, the letters of Fronto and the biography of Marcus in the so-called <em>Historia Augusta</em>. Birley also draws on recent research into the careers of upper-class officeholders (prosopography) and the workings of the imperial administration to paint a picture of Marcus’s background and the society he moved in.</p>
         <p>The most comprehensive and reliable treatment of the Antonine age can be found in the <em>Cambridge Ancient History</em>, volume XI, <em>The High Empire</em>, A.D. 70–192 (Cambridge University Press, 2000). Edward Gibbon’s famous characterization of the period in the opening chapters of his <em>History of the Decline and Fall of the Roman Empire</em> remains well worth reading, although the picture it paints may be too rosy-colored. A useful counterbalance is E. R. Dodds, <em>Pagan and Christian in an Age of Anxiety</em> (Cambridge, Eng.: Cambridge University Press, 1965), which offers a very different assessment of the period.</p>
         <p>Treatments of special topics abound, and only a few titles can be mentioned. The upper-class education that Marcus enjoyed is described by S. F. Bonner, <em>Education in Ancient Rome</em> (Berkeley: University of California Press, 1977). E. Champlin’s <em>Fronto and Antonine Rome</em> (Cambridge, Mass.: Harvard University Press, 1980) is the best modern study of Marcus’s teacher. Glen Bowersock’s <em>Greek Sophists in the Roman Empire</em> (Oxford: Oxford University Press, 1969) is a fundamental study of intellectual culture in the second century. Fergus Millar’s <em>The Emperor in the Roman World</em> (Ithaca, N.Y.: Cornell University Press, 1977) is an exhaustive analysis of the civil and administrative functions performed by Marcus and his fellow emperors, complemented for military matters by J. B. Campbell’s <em>The Emperor and the Roman Army</em> (Oxford: Oxford University Press, 1984).</p>
@@ -493,9 +551,9 @@
         <p>For Stoicism under the empire, the most important sources are the works of Seneca the Younger and Epictetus. The best introduction to Seneca is probably the <em>Letters to Lucilius</em>, of which a selection is available in <em>Letters from a Stoic</em>, trans. R. Campbell (New York: Penguin, 1969). Epictetus’s <em>Discourses</em> and the <em>Encheiridion</em> are available in the Loeb series in a translation by W. A. Oldfather (2 volumes, 1925). The <em>Encheiridion</em> has also been translated by T. W. Higginson (Indianapolis: Bobbs-Merrill, 1955).</p>
         <p>For the <em>Meditations</em> itself the indispensable resource (though long out of print and difficult to obtain) is A.S.L. Farquharson’s The <em>Meditations</em> of the Emperor Marcus Antoninus, 2 vols. (Oxford, Eng.: Oxford University Press, 1944). I have derived benefit from a number of earlier English translations, notably those of Farquharson (recently reprinted with a new introduction by R. B. Rutherford); George Long (1862); C. R. Haines (Loeb, 1916); G.M.A. Grube (Indianapolis: Bobbs-Merrill, 1963) and Maxwell Staniforth (New York: Penguin, 1964), as well as from W. Theiler’s German translation (Zurich: Artemis, 1951) and the French edition of <a href="#book1">Book 1</a> by Pierre Hadot (Paris: Les Belles Lettres, 1998). The best modern edition of the Greek text is that by J. Dalfen (2d ed., B. G. Teubner, 1987), though in vexed passages I have sometimes preferred different readings.</p>
         <p>Among scholarly studies of the <em>Meditations</em>, three in particular deserve mention. P. A. Brunt, “Marcus Aurelius in His <em>Meditations</em>,” <em>Journal of Roman Studies</em> 64 (1974): 1– 20, analyzes the themes that especially exercise Marcus. Pierre Hadot, <em>The Inner Citadel: The “>Meditations” of Marcus Aurelius</em>, trans. M. Chase (Cambridge, Mass.: Harvard University Press, 1998), is a thoughtful reconstruction of Marcus’s philosophical system. R. B. Rutherford, <em>The Meditations of Marcus Aurelius: A Study</em> (Oxford, Eng.: Clarendon, 1989), is an excellent analysis from a more literary perspective, with good remarks also on Marcus’s relationship with the gods. Among the many appreciations by nonclassicists two deserve special mention: Matthew Arnold’s “Marcus Aurelius” (originally a review of Long’s translation) in his <em>Lectures and Essays in Criticism</em>, ed. R. H. Super (Ann Arbor: University of Michigan Press, 1962), and Joseph Brodsky’s “Homage to Marcus Aurelius” in his collection <em>On Grief and Reason</em> (New York: Farrar, Straus and Giroux, 1995).</p>
-        <h4>Acknowledgments</h4>
+        <h4 id="acknowledgments"><a href="#acknowledgments">&num;</a> Acknowledgments <a href="#header">&uarr;</a></h4>
         <p>Karen Schwabach read through an initial draft of the translation and suggested numerous improvements, for which I am deeply grateful. For help of various sorts I am also indebted to Deborah DeMania, Gregory Gelburd, Krista Kane, Charles Mathewes, Katherine Odell, Hayden Pelliccia, Ellyn Schumacher, and Alphonse Vinh. My colleagues in the Department of Classics at the University of Virginia, and in particular my department chair, John Miller, made it possible for me to take course relief during the fall semester of 2001, when much of the work was completed. Thanks are due finally to my editor, Will Murphy, for his patience and enthusiasm for this project.</p>
-        <h4>Introduction notes</h4>
+        <h4 id="introduction-notes"><a href="#introduction-notes">&num;</a> Introduction notes <a href="#header">&uarr;</a></h4>
         <ol>
           <li id="in1">In this larger sense, rather than attempting to translate it, I have generally left it simply as “(the) <em>logos</em>.” I hope that readers who have assimilated such terms as “karma” and “the Tao” will be prepared to welcome this one too. <a href="#in1-ref">↩</a></li>
           <li id="in2">So, too, some modern physicists have imagined a series of universes produced by an alternation of expansions and contractions—“big bangs” and “big crunches.” <a href="#in2-ref">↩</a></li>
@@ -512,7 +570,7 @@
           <li id="in13">A survey of work on the predecessors and rivals of the Stoics is obviously beyond the scope of this note, but two good starting points may be mentioned. The surviving fragments of Heraclitus and other early philosophers who appear in the <em>Meditations</em> are translated in Kathleen Freeman, <em>Ancilla to the Presocratic Philosophers</em> (Oxford: Blackwell, 1948 and later reprints). Any reader unfamiliar with Plato should probably begin with the <em>Apology of Socrates</em>, available in the Modern Library’s <em>Selected Dialogues of Plato</em>, trans. B. Jowett, rev. H. Pelliccia (New York: Random House, 2000) or any number of other translations. <a href="#in13-ref">↩</a></li>
         </ol>
 
-        <h2 id="book1">Book 1: Debts and Lessons</h2>
+        <h2 id="book1"><a href="#book1">&num;</a> Book 1: Debts and Lessons <a href="#header">&uarr;</a></h2>
         <h3 id="book1-1">1. My grandfather Verus</h3>
         <p>Character and self-control.</p>
         <h3 id="book1-2">2. My father (from my own memories and his reputation)</h3>
@@ -617,7 +675,7 @@
         <p>That when I became interested in philosophy I didn’t fall into the hands of charlatans, and didn’t get bogged down in writing treatises, or become absorbed by logic-chopping, or preoccupied with physics.</p>
         <p>All things for which “we need the help of fortune and the gods.”</p>
 
-        <h2 id="book2">Book 2: On the River Gran, Among the Quadi</h2>
+        <h2 id="book2"><a href="#book2">&num;</a> Book 2: On the River Gran, Among the Quadi <a href="#header">&uarr;</a></h2>
         <p><strong id="book2-1">1.</strong> When you wake up in the morning, tell yourself: The people I deal with today will be meddling, ungrateful, arrogant, dishonest, jealous, and surly. They are like this because they can’t tell good from evil. But I have seen the beauty of good, and the ugliness of evil, and have recognized that the wrongdoer has a nature related to my own—not of the same blood or birth, but the same mind, and possessing a share of the divine. And so none of them can hurt me. No one can implicate me in ugliness. Nor can I feel angry at my relative, or hate him. We were born to work together like feet, hands, and eyes, like the two rows of teeth, upper and lower. To obstruct each other is unnatural. To feel anger at someone, to turn your back on him: these are obstructions.</p>
         <p><strong id="book2-2">2.</strong> Whatever this is that I am, it is flesh and a little spirit and an intelligence. Throw away your books; stop letting yourself be distracted. That is not allowed. Instead, as if you were dying right now, despise your flesh. A mess of blood, pieces of bone, a woven tangle of nerves, veins, arteries. Consider what the spirit is: air, and never the same air, but vomited out and gulped in again every instant. Finally, the intelligence. Think of it this way: You are an old man. Stop allowing your mind to be a slave, to be jerked about by selfish impulses, to kick against fate and the present, and to mistrust the future.</p>
         <p><strong id="book2-3">3.</strong> What is divine is full of Providence. Even chance is not divorced from nature, from the inweaving and enfolding of things governed by Providence. Everything proceeds from it. And then there is necessity and the needs of the whole world, of which you are a part. Whatever the nature of the whole does, and whatever serves to maintain it, is good for every part of nature. The world is maintained by change—in the elements and in the things they compose. That should be enough for you; treat it as an axiom. Discard your thirst for books, so that you won’t die in bitterness, but in cheerfulness and truth, grateful to the gods from the bottom of your heart.</p>
@@ -659,7 +717,7 @@
         <p>Only philosophy.</p>
         <p>Which means making sure that the power within stays safe and free from assault, superior to pleasure and pain, doing nothing randomly or dishonestly and with imposture, not dependent on anyone else’s doing something or not doing it. And making sure that it accepts what happens and what it is dealt as coming from the same place it came from. And above all, that it accepts death in a cheerful spirit, as nothing but the dissolution of the elements from which each living thing is composed. If it doesn’t hurt the individual elements to change continually into one another, why are people afraid of all of them changing and separating? It’s a natural thing. And nothing natural is evil.</p>
 
-        <h2 id="book3">Book 3: In Carnuntum</h2>
+        <h2 id="book3"><a href="#book3">&num;</a> Book 3: In Carnuntum <a href="#header">&uarr;</a></h2>
         <p><strong id="book3-1">1.</strong> Not just that every day more of our life is used up and less and less of it is left, but this too: if we live longer, can we be sure our mind will still be up to understanding the world—to the contemplation that aims at divine and human knowledge? If our mind starts to wander, we’ll still go on breathing, go on eating, imagining things, feeling urges and so on. But getting the most out of ourselves, calculating where our duty lies, analyzing what we hear and see, deciding whether it’s time to call it quits—all the things you need a healthy mind for . . . all those are gone.</p>
         <p>So we need to hurry.</p>
         <p>Not just because we move daily closer to death but also because our understanding—our grasp of the world—may be gone before we get there.</p>
@@ -716,7 +774,7 @@
         <p>If all the rest is common coin, then what is unique to the good man?</p>
         <p>To welcome with affection what is sent by fate. Not to stain or disturb the spirit within him with a mess of false beliefs. Instead, to preserve it faithfully, by calmly obeying God—saying nothing untrue, doing nothing unjust. And if the others don’t acknowledge it—this life lived with simplicity, humility, cheerfulness—he doesn’t resent them for it, and isn’t deterred from following the road where it leads: to the end of life. An end to be approached in purity, in serenity, in acceptance, in peaceful unity with what must be.</p>
 
-        <h2 id="book4">Book 4</h2>
+        <h2 id="book4"><a href="#book4">&num;</a> Book 4 <a href="#header">&uarr;</a></h2>
         <p><strong id="book4-1">1.</strong> Our inward power, when it obeys nature, reacts to events by accommodating itself to what it faces—to what is possible. It needs no specific material. It pursues its own aims as circumstances allow; it turns obstacles into fuel. As a fire overwhelms what would have quenched a lamp. What’s thrown on top of the conflagration is absorbed, consumed by it—and makes it burn still higher.</p>
         <p><strong id="book4-2">2.</strong> No random actions, none not based on underlying principles.</p>
         <p><strong id="book4-3">3.</strong> People try to get away from it all—to the country, to the beach, to the mountains. You always wish that you could too. Which is idiotic: you can get away from it anytime you like.</p>
@@ -855,7 +913,7 @@
         <p>Our lifetime is so brief. And to live it out in these circumstances, among these people, in this body? Nothing to get excited about. Consider the abyss of time past, the infinite future. Three days of life or three generations: what’s the difference?</p>
         <p><strong id="book4-51">51.</strong> Take the shortest route, the one that nature planned—to speak and act in the healthiest way. Do that, and be free of pain and stress, free of all calculation and pretension.</p>
 
-        <h2 id="book5">Book 5</h2>
+        <h2 id="book5"><a href="#book5">&num;</a> Book 5 <a href="#header">&uarr;</a></h2>
         <p><strong id="book5-1">1.</strong> At dawn, when you have trouble getting out of bed, tell yourself: “I have to go to work—as a human being. What do I have to complain of, if I’m going to do what I was born for— the things I was brought into the world to do? Or is this what I was created for? To huddle under the blankets and stay warm?</p>
         <p>—But it’s nicer here. . . .</p>
         <p>So you were born to feel “nice”? Instead of doing things and experiencing them? Don’t you see the plants, the birds, the ants and spiders and bees going about their individual tasks, putting the world in order, as best they can? And you’re not willing to do your job as a human being? Why aren’t you running to do what your nature demands?</p>
@@ -982,7 +1040,7 @@
         <p><strong id="book5-37">37.</strong> I was once a fortunate man but at some point fortune abandoned me.</p>
         <p>But true good fortune is what you make for yourself. Good fortune: good character, good intentions, and good actions.</p>
 
-        <h2 id="book6">Book 6</h2>
+        <h2 id="book6"><a href="#book6">&num;</a> Book 6 <a href="#header">&uarr;</a></h2>
         <p><strong id="book6-1">1.</strong> Nature is pliable, obedient. And the logos that governs it has no reason to do evil. It knows no evil, does none, and causes harm to nothing. It dictates all beginnings and all endings.</p>
         <p><strong id="book6-2">2.</strong> Just that you do the right thing. The rest doesn’t matter. Cold or warm.</p>
         <p>Tired or well-rested.</p>
@@ -1107,7 +1165,7 @@
         <p><strong id="book6-58">58.</strong> No one can keep you from living as your nature requires. Nothing can happen to you that is not required by Nature.</p>
         <p><strong id="book6-59">59.</strong> The people they want to ingratiate themselves with, and the results, and the things they do in the process. How quickly it will all be erased by time. How much has been erased already.</p>
 
-        <h2 id="book7">Book 7</h2>
+        <h2 id="book7"><a href="#book7">&num;</a> Book 7 <a href="#header">&uarr;</a></h2>
         <p><strong id="book7-1">1.</strong> Evil: the same old thing.</p>
         <p>No matter what happens, keep this in mind: It’s the same old thing, from one end of the world to the other. It fills the history books, ancient and modern, and the cities, and the houses too. Nothing new at all.</p>
         <p>Familiar, transient.</p>
@@ -1245,7 +1303,7 @@
         <p><strong id="book7-75">75.</strong> Nature willed the creation of the world. Either all that exists follows logically or even those things to which the world’s intelligence most directs its will are completely random.</p>
         <p>A source of serenity in more situations than one.</p>
 
-        <h2 id="book8">Book 8</h2>
+        <h2 id="book8"><a href="#book8">&num;</a> Book 8 <a href="#header">&uarr;</a></h2>
         <p><strong id="book8-1">1.</strong> Another encouragement to humility: you can’t claim to have lived your life as a philosopher—not even your whole adulthood. You can see for yourself how far you are from philosophy. And so can many others. You’re tainted. It’s not so easy now—to have a reputation as a philosopher. And your position is an obstacle as well.</p>
         <p>So you know how things stand. Now forget what they think of you. Be satisfied if you can live the rest of your life, however short, as your nature demands. Focus on that, and don’t let anything distract you. You’ve wandered all over and finally realized that you never found what you were after: how to live. Not in syllogisms, not in money, or fame, or self-indulgence. Nowhere.</p>
         <p>—Then where is it to be found?</p>
@@ -1382,7 +1440,7 @@
         <p><strong id="book8-60">60.</strong> An arrow has one motion and the mind another. Even when pausing, even when weighing conclusions, the mind is moving forward, toward its goal.</p>
         <p><strong id="book8-61">61.</strong> To enter others’ minds and let them enter yours.</p>
 
-        <h2 id="book9">Book 9</h2>
+        <h2 id="book9"><a href="#book9">&num;</a> Book 9 <a href="#header">&uarr;</a></h2>
         <p><strong id="book9-1">1.</strong> Injustice is a kind of blasphemy. Nature designed rational beings for each other’s sake: to help—not harm—one another, as they deserve. To transgress its will, then, is to blaspheme against the oldest of the gods.</p>
         <p>And to lie is to blaspheme against it too. Because “nature” means the nature of that which is. And that which is and that which is the case are closely linked, so that nature is synonymous with Truth—the source of all true things. To lie deliberately is to blaspheme—the liar commits deceit, and thus injustice. And likewise to lie without realizing it. Because the involuntary liar disrupts the harmony of nature— its order. He is in conflict with the way the world is structured. As anyone is who deviates toward what is opposed to the truth—even against his will. Nature gave him the resources to distinguish between true and false. And he neglected them, and now can’t tell the difference.</p>
         <p>And to pursue pleasure as good, and flee from pain as evil —that too is blasphemous. Someone who does that is bound to find himself constantly reproaching nature—complaining that it doesn’t treat the good and bad as they deserve, but often lets the bad enjoy pleasure and the things that produce it, and makes the good suffer pain, and the things that produce pain. And moreover, to fear pain is to fear something that’s bound to happen, the world being what it is—and that again is blasphemy. While if you pursue pleasure, you can hardly avoid wrongdoing—which is manifestly blasphemous.</p>
@@ -1500,7 +1558,7 @@
         <p>And when others stray off course, you can always try to set them straight, because every wrongdoer is doing something wrong—doing something <em>the wrong way</em>.</p>
         <p>And how does it injure you anyway? You’ll find that none of the people you’re upset about has done anything that could do damage to your mind. But that’s all that “harm” or “injury” could mean. Yes, boorish people do boorish things. What’s strange or unheard-of about that? Isn’t it yourself you should reproach—for not anticipating that they’d act this way? The <em>logos</em> gave you the means to see it—that a given person would act a given way—but you paid no attention. And now you’re astonished that he’s gone and done it. So when you call someone “untrustworthy” or “ungrateful,” turn the reproach on yourself. It was <em>you</em> who did wrong. By assuming that someone with those traits deserved your trust. Or by doing them a favor and expecting something in return, instead of looking to the action itself for your reward. What else did you expect from helping someone out? Isn’t it enough that you’ve done what your nature demands? You want a salary for it too? As if your eyes expected a reward for seeing, or your feet for walking. That’s what they were made for. By doing what they were designed to do, they’re performing their function. Whereas humans were made to help others. And when we do help others—or help them to do something—we’re doing what we were designed for. We perform our function.</p>
 
-        <h2 id="book10">Book 10</h2>
+        <h2 id="book10"><a href="#book10">&num;</a> Book 10 <a href="#header">&uarr;</a></h2>
         <p><strong id="book10-1">1.</strong> To my soul:</p>
         <p>Are you ever going to achieve goodness? Ever going to be simple, whole, and naked—as plain to see as the body that contains you? Know what an affectionate and loving disposition would feel like? Ever be fulfilled, ever stop desiring—lusting and longing for people and things to enjoy? Or for more time to enjoy them? Or for some other place or country—“a more temperate clime”? Or for people easier to get along with? And instead be satisfied with what you have, and accept the present—all of it. And convince yourself that everything is the gift of the gods, that things are good and always will be, whatever they decide and have in store for the preservation of that perfect entity—good and just and beautiful, creating all things, connecting and embracing them, and gathering in their separated fragments to create more like them.</p>
         <p>Will you ever take your stand as a fellow citizen with gods and human beings, blaming no one, deserving no one’s censure?</p>
@@ -1628,7 +1686,7 @@
         <p>Starting with your own.</p>
         <p><strong id="book10-38">38.</strong> Remember that what pulls the strings is within—hidden from us. Is speech, is life, is the person. Don’t conceive of the rest as part of it—the skin that contains it, and the accompanying organs. Which are tools—like a carpenter’s axe, except that they’re attached to us from birth, and are no more use without what moves and holds them still than the weaver’s shuttle, the writer’s pencil, the driver’s whip.</p>
 
-        <h2 id="book11">Book 11</h2>
+        <h2 id="book11"><a href="#book11">&num;</a> Book 11 <a href="#header">&uarr;</a></h2>
         <p><strong id="book11-1">1.</strong> Characteristics of the rational soul:</p>
         <p>Self-perception, self-examination, and the power to make of itself whatever it wants.</p>
         <p>It reaps its own harvest, unlike plants (and, in a different way, animals), whose yield is gathered in by others.</p>
@@ -1745,7 +1803,7 @@
         <p>—We already have.</p>
         <p>Then why all this squabbling?</p>
 
-        <h2 id="book12">Book 12</h2>
+        <h2 id="book12"><a href="#book12">&num;</a> Book 12 <a href="#header">&uarr;</a></h2>
         <p><strong id="book12-1">1.</strong> Everything you’re trying to reach—by taking the long way round—you could have right now, this moment. If you’d only stop thwarting your own attempts. If you’d only let go of the past, entrust the future to Providence, and guide the present toward reverence and justice.</p>
         <p>Reverence: so you’ll accept what you’re allotted. Nature intended it for you, and you for it.</p>
         <p>Justice: so that you’ll speak the truth, frankly and without evasions, and act as you should—and as other people deserve.</p>
@@ -1885,7 +1943,7 @@
         <p>Yes. This will be a drama in three acts, the length fixed by the power that directed your creation, and now directs your dissolution. Neither was yours to determine.</p>
         <p>So make your exit with grace—the same grace shown to you.</p>
 
-        <h2 id="notes">Notes</h2>
+        <h2 id="notes"><a href="#notes">&num;</a> Notes <a href="#header">&uarr;</a></h2>
         <p><strong><a href="#book1-1">1.1</a></strong> <em>My grandfather Verus</em>: <a href="#verus1">Verus (1)</a>.</p>
         <p><strong><a href="#book1-2">1.2</a></strong> <em>My father</em>: <a href="#verus2">Verus (2)</a>.</p>
         <p><strong><a href="#book1-3">1.3</a></strong> <em>My mother</em>: <a href="#lucilla">Lucilla</a>.</p>
@@ -2021,7 +2079,7 @@
         <p><strong><a href="#book12-27">12.27</a></strong> <em>Fabius Catullinus et al.</em>: Most of the references are obscure; see the Index of Persons for what can be guessed of them.</p>
         <p><strong><a href="#book12-34">12.34</a></strong> <em>people whose only morality . . . </em>: The Epicureans.</p>
       
-        <h2 id="persons">Index of Persons</h2>
+        <h2 id="persons"><a href="#persons">&num;</a> Index of Persons <a href="#header">&uarr;</a></h2>
         <p>This list covers only persons named, referred to, or quoted in the text of the <em>Meditations</em> itself.</p>
         <dl>
           <dt id="agrippa">Agrippa</dt>
