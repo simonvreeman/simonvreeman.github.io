@@ -206,6 +206,13 @@
             ]
           },
           {
+            "@id": "https://vreeman.com/meditations/#/schema/chapter/introduction",
+            "type": "Chapter",
+            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+            "name": "Introduction by Gregory Hays",
+            "url": "https://vreeman.com/meditations/#introduction"
+          },
+          {
             "@id": "https://vreeman.com/meditations/#/schema/chapter/1",
             "type": "Chapter",
             "isPartOf": "https://vreeman.com/meditations/#/schema/book",
@@ -290,10 +297,24 @@
             "url": "https://vreeman.com/meditations/#book12"
           },
           {
+            "@id": "https://vreeman.com/meditations/#/schema/chapter/notes",
+            "type": "Chapter",
+            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+            "name": "Notes",
+            "url": "https://vreeman.com/meditations/#notes"
+          },
+          {
+            "@id": "https://vreeman.com/meditations/#/schema/chapter/persons",
+            "type": "Chapter",
+            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+            "name": "Index of Persons",
+            "url": "https://vreeman.com/meditations/#persons"
+          },
+          {
             "@id": "https://vreeman.com/meditations/#/schema/author",
             "@type": "Person",
             "name": "Marcus Aurelius",
-            "additionalName": "Marcus Aurelius Antoninus",
+            "additionalName": "Marcus Aurelius Antoninus Augustus",
             "sameAs": [
               "https://www.wikidata.org/wiki/Q1430",
               "https://nl.wikipedia.org/wiki/Marcus_Aurelius",
@@ -303,8 +324,19 @@
             "birthPlace": "Rome",
             "deathDate": "0180-03-17",
             "deathPlace": "Vindobona",
-            "gender": "https://schema.org/Male"
-          },
+            "gender": "https://schema.org/Male",
+            "hasOccupation": [
+              {
+                "@type": "Occupation",
+                "name": "Roman emperor",
+                "startDate": "0161-03-08",
+                "endDate": "0180-03-17 "
+              },
+              {
+                "@type": "Occupation",
+                "name": "Stoic philosopher"
+              }
+          ],
           {
             "@id": "https://vreeman.com/meditations/#/schema/translator",
             "@type": "Person",
