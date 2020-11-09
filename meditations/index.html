@@ -157,6 +157,9 @@
               "Τὰ εἰς ἑαυτόν"
             ],
             "url": "https://vreeman.com/meditations/",
+            "isPartOf": {
+              "@id": "https://vreeman.com/meditations/"
+            },
             "about": "Meditations is a series of personal writings by Marcus Aurelius, Roman Emperor from 161 to 180 AD, recording his private notes to himself and ideas on Stoic philosophy.",
             "workExample": {
               "@id": "https://vreeman.com/meditations/#/schema/book"
@@ -460,6 +463,30 @@
             "description": "Gregory Hays is an assistant professor of classics at the University of Virginia. He has published articles and reviews on various ancient writers and is currently completing a translation and critical study of the mythographer Fulgentius.",
             "sameAs": "https://twitter.com/aristofontes",
             "url": "https://people.virginia.edu/~bgh2n/"
+          },
+          {
+            "@id": "https://vreeman.com/meditations/#/schema/website",
+            "@type": "WebSite",
+            "name": "Vreeman.com",
+            "url": "https://vreeman.com",
+            "publisher": {
+              "@id": "https://vreeman.com/meditations/#/schema/owner"
+            }
+          },
+          {
+            "@id": "https://vreeman.com/meditations/",
+            "@type": "WebPage",
+            "name": "Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+            "url": "https://vreeman.com/meditations/",
+            "isPartOf": {
+              "@id": "https://vreeman.com/meditations/#/schema/website"
+            },
+            "potentialAction": [
+              {
+                "@type": "ReadAction",
+                "target": [ "https://vreeman.com/meditations/" ]
+              }
+            ]
           }
         ]
       }
