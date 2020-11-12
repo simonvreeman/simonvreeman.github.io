@@ -496,12 +496,18 @@
             "hasPart": {
               "@id": "https://vreeman.com/meditations/#/schema/book"
             },
-            "potentialAction": [
-              {
-                "@type": "ReadAction",
-                "target": [ "https://vreeman.com/meditations/" ]
+            "potentialAction": [{
+              "@type": "ReadAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://vreeman.com/meditations/",
+                "actionPlatform": [
+                  "https://schema.org/DesktopWebPlatform",
+                  "https://schema.org/AndroidPlatform",
+                  "https://schema.org/IOSPlatform"
+                ]
               }
-            ]
+            }]
           },
           {
             "@id": "https://vreeman.com/meditations/#/schema/publisher",
