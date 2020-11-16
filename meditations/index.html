@@ -200,10 +200,28 @@
             "bookEdition": "",
             "datePublished": "2002-05-14",
             "identifier": "",
-            "accessMode": ["auditory", "textual", "visual"],
-            "accessibilityAPI": "ARIA",
+            "accessMode": [
+              "auditory",
+              "textual",
+              "visual"
+            ],
+            "encodingFormat": [
+              "text/html",
+              "image/png",
+              "text/javascript",
+              "text/css"
+            ],
+            "accessibilityAPI": [
+              "ARIA",
+              "UIA",
+              "iOSAccessibility",
+              "MacOSXAccessibility"
+            ],
             "accessibilityControl": [
               "fullKeyboardControl",
+              "fullTouchControl",
+              "fullVoiceControl",
+              "fullSwitchControl",
               "fullMouseControl"
             ],
             "accessibilityFeature": [
@@ -212,7 +230,11 @@
               "resizeText/CSSEnabled",
               "displayTransformability",
               "longDescription",
-              "alternativeText"
+              "alternativeText",
+              "bookmarks",
+              "structuralNavigation",
+              "tableOfContents",
+              "index"
             ],
             "accessibilityHazard": [
               "noFlashingHazard",
