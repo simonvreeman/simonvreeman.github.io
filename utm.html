@@ -92,6 +92,29 @@
           border: 5px dashed red;
         }
       }
+
+      #wrapper {
+        margin: auto;
+        width: 70%;
+        font-family: sans-serif;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-rows: 50px;
+        grid-template-areas: '. . .';
+        padding-bottom: 10px;
+      }
+
+      .box-good {
+        background-color: hsl(118, 41%, 49%);
+      }
+      .box-needs-improvement {
+        background-color: hsl(31, 78%, 53%);
+      }
+      .box-poor {
+        background-color: hsl(359, 80%, 50%);
+      }
     </style>
     <link rel="canonical" href="https://vreeman.com/utm.html">
     <meta name="description" content="A simple tool to easily add UTM tags for Google Analytics to your URL. And you can check the URL for Pagespeed, Structured Data or Facebook Open Graph.">
@@ -146,7 +169,7 @@
     <label for="url">The <abbr title="Uniform Resource Locator">URL</abbr> with <abbr title="Urchin Tracking Module">UTM</abbr> tags</label>
     <textarea id="url" readonly="readonly" wrap="off" onclick="this.focus();this.select()" rows="3">https://vreeman.com</textarea>
     <p><abbr title="Hypertext Transfer Protocol">HTTP</abbr> response status code: <b><span id="statuscode"></span></b></p>
-    <button onclick="copyURL()">Copy URL with <abbr title="Urchin Tracking Module">UTM</abbr></button>
+    <button onclick="copyURL()">Copy URL with <abbr title="Urchin Tracking Module">UTM</abbr></button> <button onclick="indexThis()">Google Indexing API</button>
     <h2>Check the URL with more tools</h2>
     <ul>
       <li><a id="pagespeed" href="https://developers.google.com/speed/pagespeed/insights/?url=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Pagespeed Insights</a></li>
@@ -171,7 +194,14 @@
       <li><a href="https://search.developer.apple.com/appsearch-validation-tool" target="_blank" rel="nofollow noopener noreferrer">Apple App Search API Validation Tool</a></li>
       <li><a id="googlesitemap" href="https://google.com/ping?sitemap=https://vreeman.com/sitemap.xml" target="_blank" rel="nofollow noopener noreferrer">Ping Google with XML Sitemap</a></li>
       <li><a id="bingsitemap" href="https://bing.com/ping?sitemap=https://vreeman.com/sitemap.xml" target="_blank" rel="nofollow noopener noreferrer">Ping Bing with XML Sitemap</a></li>
+      <li></li>
     </ul>
+    <!-- <hr>
+    <div id="wrapper">
+      <h1>Chrome User Experience Report API demo</h1>
+      <p>The field data collected over the last 28 days.</p>
+    </div>
+    <hr> -->
     <p>Besides this Google Analytics UTM Campaign URL Builder I made a list of handy <a href="cro.html" title="CRO Tools"><abbr title="Conversion Rate Optimization">CRO</abbr> tools</a>, <a href="mp.html" title="Google Analytics Measurement Protocol Hit Builder">Google Analytics Measurement Protocol Hit Builder</a> and <a href="hypothesis.html" title="A/B Test Hypothesis Builder">Experiment Hypothesis Builder</a>.</p>
     <hr>
     <footer>
@@ -188,6 +218,8 @@
           <a href="https://vreeman.com/f1.html" title="FIA Formula One (F1) 2020, 2019 & 2018 Calendar / Agenda, Teams and Drivers" data-vars-outbound-text="F1 Calendar" data-vars-outbound-link="https://vreeman.com/f1.html">F1 2020, 2019 &amp; 2018 Calendar, Teams &amp; Drivers</a>
           <br>
           <a href="https://vreeman.com/gear.html" title="What is in my backpack?" data-vars-outbound-text="Travel Gear" data-vars-outbound-link="https://vreeman.com/gear.html">Travel Gear</a>
+          <br>
+          <a href="https://vreeman.com/meditations/" title="Meditations by Marcus Aurelius" data-vars-outbound-text="Meditations" data-vars-outbound-link="https://vreeman.com/meditations/">Meditations</a>
         </dd>
       </dl>
     </footer>
@@ -264,9 +296,160 @@ function getUTM() {
       }
     </script>
     <script>
+      function indexThis() {
+        var payloadURL = document.getElementById("domain").value;
+        var url = "http://www.google.com/";
+        var method = "POST";
+        var postData = "Some data";
+        var shouldBeAsync = true;
+        var request = new XMLHttpRequest();
+
+        request.onload = function () {
+          var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
+          var data = request.responseText; // Returned data, e.g., an HTML document.
+        }
+
+        request.open(method, url, shouldBeAsync);
+
+        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        // Or... request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+        // Or... whatever
+
+        // Actually sends the request to the server.
+        request.send(postData);
+        
+        console.log("Domain: " + url);
+      }
+    </script>
+    <!-- <script>
+      var apiKey = "AIzaSyA1dkiJ3MH4Ob5OIrxDI0ADYVaqYgBPnEs";
+      var payloadURL = document.getElementById("domain").value;
+
+      /**
+       * @url https://developers.google.com/web/tools/chrome-user-experience-report/api/guides/getting-started
+       */
+      const CrUXApiUtil = {
+        /**
+         * Query the CrUX API for metric records
+         * @param {{origin?: string, url?: string, formFactor?: string,  metrics?: Array<string>}} requestBody
+         * @param {string} apiKey
+         * @return {{record: {key: Object, metrics: Map<string, {histogram: Array<{ start: number, end?: number, density: number}>}>}, urlNormalizationDetails: Object}}
+         */
+        query: async function (requestBody, apiKey) {
+          const endpointUrl = 'https://chromeuxreport.googleapis.com/v1/records:queryRecord';
+          const resp = await fetch(`${endpointUrl}?key=${apiKey}`, {
+            method: 'POST',
+            body: JSON.stringify(requestBody),
+          });
+          const json = await resp.json();
+          if (!resp.ok) throw new Error(json.error.message);
+          return json;
+        }
+      };
+
+      // Gather the data for example.com and display it
+      //(async function () {
+        function getCRUXdata () {
+        const json = await CrUXApiUtil.query({origin: + payloadURL}, apiKey);
+        console.log('CrUX API response:', json);
+
+        const labeledMetrics = labelMetricData(json.record.metrics);
+
+        // Display metric results
+        for (const metric of labeledMetrics) {
+          const metricEl = document.createElement('section');
+
+          const titleEl = document.createElement('h2');
+          titleEl.textContent = metric.acronym;
+
+          const [descEl, barsEl] = createDescriptionAndBars(metric.labeledBins);
+
+          metricEl.append(titleEl, descEl, barsEl);
+          document.getElementById('wrapper').append(metricEl);
+        }
+      }();
+
+      /**
+       * Utility method to transform the response's metric data into an array of usable metric objects
+       * Example return value:
+        [
+          {
+            "acronym": "FCP",
+            "name": "first_contentful_paint",
+            "labeledBins": [{
+              "label": "good",
+              "percentage": 43.51,
+              "start": 0,
+              "end": 1000,
+              "density": 0.4351
+            }, // ... (other bins) ]
+          }, // ... (other metrics) ]
+      *
+      * @return {{acronym: string, name: string, labelsBins: Array<{label: 'good'|'needs improvement'|'poor', percentage: number, start: number, end?: number, density: number}>}}
+      */
+      function labelMetricData(metrics) {
+        const nameToAcronymMap = {
+          first_contentful_paint: 'FCP',
+          largest_contentful_paint: 'LCP',
+          first_input_delay: 'FID',
+          cumulative_layout_shift: 'CLS',
+        };
+
+        return Object.entries(metrics).map(([metricName, metricData]) => {
+          const standardBinLabels = ['good', 'needs improvement', 'poor'];
+          const metricBins = metricData.histogram;
+
+          // We assume there are 3 histogram bins and they're in order of: good => poor
+          const labeledBins = metricBins.map((bin, i) => {
+            // Assign a good/poor label, calculate a percentage, and add retain all existing bin properties
+            return {
+              label: standardBinLabels[i],
+              percentage: bin.density * 100,
+              ...bin,
+            };
+          });
+
+          return {
+            acronym: nameToAcronymMap[metricName],
+            name: metricName,
+            labeledBins,
+          };
+        });
+      }
+
+      // Create the three bars w/ a 3-column grid
+      // This consumes the output from labelMetricData, not a raw API response.
+      function createDescriptionAndBars(labeledBins) {
+        const descEl = document.createElement('p');
+        // Example: 'good: 43.63%, needs improvement: 42.10%, poor: 14.27%'
+        descEl.textContent = labeledBins
+          .map(bin => `${bin.label}: ${bin.percentage.toFixed(2)}%`)
+          .join(', ');
+
+        let barsEl = document.createElement('div');
+
+        for (const bin of labeledBins) {
+          const barEl = document.createElement('div');
+          // Reuse the label for the styling class, changing any spaces:  `needs improvement` => `needs-improvement`
+          barEl.classList.add(`box-${bin.label.replace(' ', '-')}`);
+          // Add tooltip to share the size of each bin
+          barEl.title = `bin start: ${bin.start}, bin end: ${bin.end}`;
+          barsEl.append(barEl);
+        }
+
+        // Set the width of the bar columns based on metric bins
+        // Ex: `grid-template-columns: 43.51% 42.26% 14.23%`;
+        barsEl.style.gridTemplateColumns = labeledBins.map(bin => `${bin.percentage}%`).join(' ');
+        barsEl.classList.add(`grid-container`);
+
+        return [descEl, barsEl];
+      }
+
+    </script> -->
+    <!-- <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js');
       }
-    </script>
+    </script> -->
   </body>
 </html>
