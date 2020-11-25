@@ -90,4 +90,9 @@
     <priority>0.9</priority>
     <changefreq>daily</changefreq>
   </url>
+  <url>
+    <loc>https://vreeman.com/discourses/</loc>
+    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
+  </url>
 </urlset>
