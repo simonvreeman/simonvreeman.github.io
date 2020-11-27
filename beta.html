@@ -24,7 +24,7 @@ body {
   display: grid;
   place-items: center;
 }
-a, h1, h2, h3, p {
+a, abbr, h1, h2, h3, p {
   color: var(--black);
   font-family: var(--mono);
   font-size: calc(1.125rem + .25vw);
@@ -44,7 +44,7 @@ h1 {
   font-size: calc(1.75rem + .5vw);
   font-weight: 700;
 }
-a:active, a:focus, a:hover {
+a:active, a:focus, a:hover, abbr:hover {
   text-decoration: underline;
   outline: none;
 }
@@ -52,7 +52,7 @@ a:active, a:focus, a:hover {
   body {
     background-color: var(--black);
   }
-  h1, h2, h3, p, a {
+  h1, h2, h3, p, a, abbr {
     color: rgba(255, 255, 255, 1);
     font-weight: normal;
   }
@@ -72,6 +72,7 @@ a:active, a:focus, a:hover {
   <body>
     <main>
   	  <h1>Simon Vreeman</h1>
+      <!-- <h2>Head of <abbr title="Conversion Rate Optimizing">CRO</abbr> & <abbr title="Search Engine Optimizing">SEO</abbr><br>at <a href="#">VanMoof</a></h2> -->
       <h2>Always be Optimizing</h2>
 <!--  <h2>Always Be Learning</h2>
       <h2>Always Be Testing</h2>
