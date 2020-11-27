@@ -46,24 +46,22 @@
       h1, h2, h3, h4, h5, table {
         font-family: var(--sans-serif);
       }
-      table {
+      table, td, th {
         border-collapse: collapse;
+      }
+      table {
         border-style: hidden;
         font-feature-settings: 'tnum' on;
         font-variant-numeric: tabular-nums;
         width: 100%;
       }
-      th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
+      td, th {
+        border: 1px solid #000;
         padding: 3px;
       }
       tbody {
         vertical-align: text-bottom;
       }
-      /*tbody tr:nth-child(odd) {
-        background-color: #eee;
-      }*/
       a {
         background-color: transparent;
         color: var(--blue-dark);
@@ -74,7 +72,7 @@
       a:active, a:focus, a:hover {
         color: var(--blue-light);
       }
-      h1 a, h2 a, h3 a, h4 a, h5 a{
+      abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
         text-decoration: none;
       }
       dt, strong {
@@ -101,9 +99,6 @@
       sup {
         top: -0.5em;
       }
-      abbr[title] {
-        text-decoration: none;
-      }
       li::marker {
         color: var(--blue-dark);
       }
@@ -115,7 +110,6 @@
         margin: 1em 0;
         padding: 0;
       }
-
       .roman {
         list-style-type: lower-roman;
       }
