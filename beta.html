@@ -12,10 +12,9 @@
   --mono: SFMono-Regular, Menlo, Consolas, Roboto Mono, "Liberation Mono", Monaco, "Courier New", monospace, monospace, BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --serif: Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  
   color-scheme: light dark;
 }
-*, *::before, *::after {
+*, ::after, ::before {
   margin: 0;
   padding: 0;
 }
@@ -25,7 +24,7 @@ body {
   display: grid;
   place-items: center;
 }
-h1, h2, h3, p, a {
+a, h1, h2, h3, p {
   color: var(--black);
   font-family: var(--mono);
   font-size: calc(1.125rem + .25vw);
@@ -43,7 +42,7 @@ h1, h2, h3, p, a {
 }
 h1 {
   font-size: calc(1.75rem + .5vw);
-  font-weight: bold;
+  font-weight: 700;
 }
 a:active, a:focus, a:hover {
   text-decoration: underline;
