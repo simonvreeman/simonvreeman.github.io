@@ -169,7 +169,7 @@
     <label for="url">The <abbr title="Uniform Resource Locator">URL</abbr> with <abbr title="Urchin Tracking Module">UTM</abbr> tags</label>
     <textarea id="url" readonly="readonly" wrap="off" onclick="this.focus();this.select()" rows="3">https://vreeman.com</textarea>
     <p><abbr title="Hypertext Transfer Protocol">HTTP</abbr> response status code: <b><span id="statuscode"></span></b></p>
-    <button onclick="copyURL()">Copy URL with <abbr title="Urchin Tracking Module">UTM</abbr></button> <button onclick="indexThis()">Google Indexing API</button>
+    <button onclick="copyURL()">Copy URL with <abbr title="Urchin Tracking Module">UTM</abbr></button> <!-- <button onclick="indexThis()">Google Indexing API</button> -->
     <h2>Check the URL with more tools</h2>
     <ul>
       <li><a id="pagespeed" href="https://developers.google.com/speed/pagespeed/insights/?url=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Pagespeed Insights</a></li>
@@ -300,7 +300,7 @@ function getUTM() {
         var payloadURL = document.getElementById("domain").value;
         var url = "http://www.google.com/";
         var method = "POST";
-        var postData = "Some data";
+        var postData = "Some-Data";
         var shouldBeAsync = true;
         var request = new XMLHttpRequest();
 
