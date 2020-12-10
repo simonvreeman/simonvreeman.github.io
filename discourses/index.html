@@ -103,6 +103,12 @@
       sup {
         top: -.5em;
       }
+      sub::before, sup::before {
+        content: " [";
+      }
+      sub::after, sup::after {
+        content: "]";
+      }
       li::marker {
         color: var(--blue-dark);
       }
