@@ -151,452 +151,541 @@
     <meta property="og:description" content="Meditations by Marcus Aurelius. Translated by Gregory Hays.">
     <meta property="og:image" content="https://vreeman.com/meditations/meditations.png">
     <meta property="og:image:secure_url" content="https://vreeman.com/meditations/meditations.png">
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org/",
-        "@graph": [
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/book",
-            "@type": ["CreativeWork", "Book"],
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            },
-            "name": "Meditations",
-            "alternateName": [
-              "Ta eis heauton",
-              "Ta eis he'auton",
-              "things to one's self",
-              "Τὰ εἰς ἑαυτόν"
-            ],
-            "url": "https://vreeman.com/meditations/",
-            "isPartOf": {
-              "@id": "https://vreeman.com/meditations/"
-            },
-            "about": "Meditations is a series of personal writings by Marcus Aurelius, Roman Emperor from 161 to 180 AD, recording his private notes to himself and ideas on Stoic philosophy.",
-            "workExample": {
-              "@id": "https://vreeman.com/meditations/#/schema/book"
-            },
-            "sameAs": [
-              "https://www.wikidata.org/wiki/Q1152283",
-              "https://en.wikipedia.org/wiki/Meditations",
-              "https://nl.wikipedia.org/wiki/Ta_eis_heauton",
-              "https://id.loc.gov/authorities/names/n80058356.html",
-              "https://www.gutenberg.org/ebooks/2680",
-              "http://id.worldcat.org/fast/1364811/",
-              "https://www.worldcat.org/title/meditations/oclc/680050248",
-              "https://openlibrary.org/books/OL18134563M/Meditations",
-              "https://viaf.org/viaf/312359587/",
-              "https://g.co/kg/m/04z83c"
-            ],
-            "keywords": ["stoicism", "philosophy"],
-            "genre": "philosophy",
-            "publisher": {
-              "@type": "Organization",
-              "name": "Modern Library"
-            },
-            "isFamilyFriendly": "https://schema.org/True",
-            "abridged": "https://schema.org/False",
-            "bookFormat": "https://schema.org/EBook",
-            "inLanguage": "en",
-            "isbn": "9781588361738", 
-            "bookEdition": "Webpage",
-            "datePublished": "2002-05-14",
-            "identifier": "https://vreeman.com/meditations/",
-            "accessMode": [
-              "auditory",
-              "textual",
-              "visual"
-            ],
-            "encodingFormat": [
-              "text/html",
-              "image/png",
-              "text/javascript",
-              "text/css"
-            ],
-            "accessibilityAPI": [
-              "ARIA",
-              "UIA",
-              "iOSAccessibility",
-              "MacOSXAccessibility"
-            ],
-            "accessibilityControl": [
-              "fullKeyboardControl",
-              "fullTouchControl",
-              "fullVoiceControl",
-              "fullSwitchControl",
-              "fullMouseControl"
-            ],
-            "accessibilityFeature": [
-              "largePrint/CSSEnabled",
-              "highContrast/CSSEnabled",
-              "resizeText/CSSEnabled",
-              "displayTransformability",
-              "longDescription",
-              "alternativeText",
-              "bookmarks",
-              "structuralNavigation",
-              "tableOfContents",
-              "index"
-            ],
-            "accessibilityHazard": [
-              "noFlashingHazard",
-              "noMotionSimulationHazard",
-              "noSoundHazard"
-            ],
-            "potentialAction": [{
-              "@type": "ReadAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://vreeman.com/meditations/",
-                "actionPlatform": [
-                  "https://schema.org/DesktopWebPlatform",
-                  "https://schema.org/AndroidPlatform",
-                  "https://schema.org/IOSPlatform"
-                ]
-              },
-              "object": {
-                "@id": "https://vreeman.com/meditations/#/schema/book"
-              }
-            }],
-            "audience": {
-              "@type": ["Audience", "PeopleAudience"],
-              "name": "People interested in philosophy and specifically stoicism"
-            },
-            "hasPart": [
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/introduction"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/1"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/2"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/3"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/4"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/5"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/6"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/7"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/8"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/9"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/10"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/11"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/12"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/notes"},
-              {"@id": "https://vreeman.com/meditations/#/schema/chapter/persons"}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@graph": [
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/book",
+      "@type": [
+        "CreativeWork",
+        "Book"
+      ],
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      },
+      "name": "Meditations",
+      "alternateName": [
+        "Ta eis heauton",
+        "Ta eis he'auton",
+        "things to one's self",
+        "Τὰ εἰς ἑαυτόν"
+      ],
+      "url": "https://vreeman.com/meditations/",
+      "isPartOf": {
+        "@id": "https://vreeman.com/meditations/"
+      },
+      "about": "Meditations is a series of personal writings by Marcus Aurelius, Roman Emperor from 161 to 180 AD, recording his private notes to himself and ideas on Stoic philosophy.",
+      "workExample": {
+        "@id": "https://vreeman.com/meditations/#/schema/book"
+      },
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q1152283",
+        "https://en.wikipedia.org/wiki/Meditations",
+        "https://nl.wikipedia.org/wiki/Ta_eis_heauton",
+        "https://id.loc.gov/authorities/names/n80058356.html",
+        "https://www.gutenberg.org/ebooks/2680",
+        "http://id.worldcat.org/fast/1364811/",
+        "https://www.worldcat.org/title/meditations/oclc/680050248",
+        "https://openlibrary.org/books/OL18134563M/Meditations",
+        "https://viaf.org/viaf/312359587/",
+        "https://g.co/kg/m/04z83c"
+      ],
+      "keywords": [
+        "stoicism",
+        "philosophy"
+      ],
+      "genre": "philosophy",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Modern Library"
+      },
+      "isFamilyFriendly": "https://schema.org/True",
+      "abridged": "https://schema.org/False",
+      "bookFormat": "https://schema.org/EBook",
+      "inLanguage": "en",
+      "isbn": "9781588361738",
+      "bookEdition": "Webpage",
+      "datePublished": "2002-05-14",
+      "identifier": "https://vreeman.com/meditations/",
+      "accessMode": [
+        "auditory",
+        "textual",
+        "visual"
+      ],
+      "encodingFormat": [
+        "text/html",
+        "image/png",
+        "text/javascript",
+        "text/css"
+      ],
+      "accessibilityAPI": [
+        "ARIA",
+        "UIA",
+        "iOSAccessibility",
+        "MacOSXAccessibility"
+      ],
+      "accessibilityControl": [
+        "fullKeyboardControl",
+        "fullTouchControl",
+        "fullVoiceControl",
+        "fullSwitchControl",
+        "fullMouseControl"
+      ],
+      "accessibilityFeature": [
+        "largePrint/CSSEnabled",
+        "highContrast/CSSEnabled",
+        "resizeText/CSSEnabled",
+        "displayTransformability",
+        "longDescription",
+        "alternativeText",
+        "bookmarks",
+        "structuralNavigation",
+        "tableOfContents",
+        "index"
+      ],
+      "accessibilityHazard": [
+        "noFlashingHazard",
+        "noMotionSimulationHazard",
+        "noSoundHazard"
+      ],
+      "potentialAction": [
+        {
+          "@type": "ReadAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://vreeman.com/meditations/",
+            "actionPlatform": [
+              "https://schema.org/DesktopWebPlatform",
+              "https://schema.org/AndroidPlatform",
+              "https://schema.org/IOSPlatform"
             ]
           },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/introduction",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Introduction by Gregory Hays",
-            "url": "https://vreeman.com/meditations/#introduction",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/1",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Book 1: Debts and Lessons",
-            "url": "https://vreeman.com/meditations/#book1",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/2",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Book 2: On the River Gran, Among the Quadi",
-            "url": "https://vreeman.com/meditations/#book2",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/3",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Book 3: In Carnuntum",
-            "url": "https://vreeman.com/meditations/#book3",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/4",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Book 4",
-            "url": "https://vreeman.com/meditations/#book4",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/5",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Book 5",
-            "url": "https://vreeman.com/meditations/#book5",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/6",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Book 6",
-            "url": "https://vreeman.com/meditations/#book6",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/7",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Book 7",
-            "url": "https://vreeman.com/meditations/#book7",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/8",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Book 8",
-            "url": "https://vreeman.com/meditations/#book8",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/9",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Book 9",
-            "url": "https://vreeman.com/meditations/#book9",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/10",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Book 10",
-            "url": "https://vreeman.com/meditations/#book10",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/11",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Book 11",
-            "url": "https://vreeman.com/meditations/#book11",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/12",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Book 12",
-            "url": "https://vreeman.com/meditations/#book12",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/notes",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Notes",
-            "url": "https://vreeman.com/meditations/#notes",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/chapter/persons",
-            "type": ["CreativeWork", "Chapter"],
-            "isPartOf": "https://vreeman.com/meditations/#/schema/book",
-            "name": "Index of Persons",
-            "url": "https://vreeman.com/meditations/#persons",
-            "author": {
-              "@id": "https://vreeman.com/meditations/#/schema/author"
-            },
-            "translator": {
-              "@id": "https://vreeman.com/meditations/#/schema/translator"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/author",
-            "@type": "Person",
-            "name": "Marcus Aurelius",
-            "additionalName": "Imperator Caesar Marcus Aurelius Antoninus Augustus",
-            "description": "Marcus Aurelius was a Roman emperor from 161 to 180. He was the last of the Five Good Emperors.",
-            "disambiguatingDescription": "Marcus Aurelius is a stoic philosopher who wrote a series of personal writings to reflect and for self-improvement.",
-            "sameAs": [
-              "https://www.wikidata.org/wiki/Q1430",
-              "https://nl.wikipedia.org/wiki/Marcus_Aurelius",
-              "https://en.wikipedia.org/wiki/Marcus_Aurelius"
-            ],
-            "birthDate": "0121-04-26",
-            "birthPlace": {
-              "@type": "Place",
-              "name": "Rome"
-            },
-            "deathDate": "0180-03-17",
-            "deathPlace": {
-              "@type": "Place",
-              "name": "Vindobona"
-            },
-            "gender": "https://schema.org/Male",
-            "jobTitle": "Emperor of Ancient Rome",
-            "parent": {
-              "@type": "Person",
-              "name": [
-                "Marcus Annius Verus",
-                "Titus Aelius Hadrianus Antoninus Augustus Pius",
-                "Domitia Lucilla Minor"
-            ]},
-            "spouse": "Annia Galeria Faustina Minor",
-            "sibling": "Annia Cornificia Faustina"
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/translator",
-            "@type": "Person",
-            "name": "Gregory Hays",
-            "gender": "https://schema.org/Male",
-            "description": "Gregory Hays is an assistant professor of classics at the University of Virginia. He has published articles and reviews on various ancient writers and is currently completing a translation and critical study of the mythographer Fulgentius.",
-            "sameAs": "https://twitter.com/aristofontes",
-            "url": "https://people.virginia.edu/~bgh2n/"
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/website",
-            "@type": "WebSite",
-            "name": "Vreeman.com",
-            "url": "https://vreeman.com",
-            "publisher": {
-              "@id": "https://vreeman.com/meditations/#/schema/publisher"
-            },
-            "hasPart": {
-              "@id": "https://vreeman.com/meditations/"
-            }
-          },
-          {
-            "@id": "https://vreeman.com/meditations/",
-            "@type": "WebPage",
-            "name": "Meditations by Marcus Aurelius. Translation by Gregory Hays.",
-            "url": "https://vreeman.com/meditations/",
-            "isPartOf": {
-              "@id": "https://vreeman.com/meditations/#/schema/website"
-            },
-            "hasPart": {
-              "@id": "https://vreeman.com/meditations/#/schema/book"
-            },
-            "publisher": {
-              "@id": "https://vreeman.com/meditations/#/schema/publisher"
-            },
-            "potentialAction": [{
-              "@type": "ReadAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://vreeman.com/meditations/",
-                "actionPlatform": [
-                  "https://schema.org/DesktopWebPlatform",
-                  "https://schema.org/AndroidPlatform",
-                  "https://schema.org/IOSPlatform"
-                ]
-              },
-              "object": {
-                "@id": "https://vreeman.com/meditations/"
-              }
-            }]
-          },
-          {
-            "@id": "https://vreeman.com/meditations/#/schema/publisher",
-            "@type": "Person",
-            "name": "Simon Vreeman",
-            "givenName": "Simon",
-            "familyName": "Vreeman",
-            "jobTitle": "Growth Marketing Manager",
-            "email": "simon@vreeman.com",
-            "url": "https://vreeman.com/",
-            "knowsAbout": [
-              "CRO",
-              "SEO",
-              "Web Analytics"
-            ],
-            "knowsLanguage": [
-              "en",
-              "nl"
-            ],
-            "sameAs": [
-              "https://www.facebook.com/simonvreeman",
-              "https://www.linkedin.com/in/simonvreeman/",
-              "https://twitter.com/vreeman",
-              "https://plus.google.com/+SimonVreeman?rel=author",
-              "https://www.instagram.com/simonvreeman/",
-              "https://github.com/simonvreeman",
-              "https://www.crunchbase.com/person/simon-vreeman",
-              "https://www.wikidata.org/wiki/Q56708228",
-              "https://en.wikipedia.org/wiki/User:Simonvreeman",
-              "https://g.co/kg/m/010rn7wd"
-            ]
+          "object": {
+            "@id": "https://vreeman.com/meditations/#/schema/book"
           }
-        ]
+        }
+      ],
+      "audience": {
+        "@type": [
+          "Audience",
+          "PeopleAudience"
+        ],
+        "name": "People interested in philosophy and specifically stoicism"
+      },
+      "hasPart": [
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/introduction"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/1"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/2"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/3"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/4"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/5"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/6"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/7"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/8"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/9"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/10"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/11"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/12"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/notes"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/chapter/persons"
+        }
+      ]
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/introduction",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Introduction by Gregory Hays",
+      "url": "https://vreeman.com/meditations/#introduction",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
       }
-    </script>
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/1",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Book 1: Debts and Lessons",
+      "url": "https://vreeman.com/meditations/#book1",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/2",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Book 2: On the River Gran, Among the Quadi",
+      "url": "https://vreeman.com/meditations/#book2",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/3",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Book 3: In Carnuntum",
+      "url": "https://vreeman.com/meditations/#book3",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/4",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Book 4",
+      "url": "https://vreeman.com/meditations/#book4",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/5",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Book 5",
+      "url": "https://vreeman.com/meditations/#book5",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/6",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Book 6",
+      "url": "https://vreeman.com/meditations/#book6",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/7",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Book 7",
+      "url": "https://vreeman.com/meditations/#book7",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/8",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Book 8",
+      "url": "https://vreeman.com/meditations/#book8",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/9",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Book 9",
+      "url": "https://vreeman.com/meditations/#book9",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/10",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Book 10",
+      "url": "https://vreeman.com/meditations/#book10",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/11",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Book 11",
+      "url": "https://vreeman.com/meditations/#book11",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/12",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Book 12",
+      "url": "https://vreeman.com/meditations/#book12",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/notes",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Notes",
+      "url": "https://vreeman.com/meditations/#notes",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chapter/persons",
+      "type": [
+        "CreativeWork",
+        "Chapter"
+      ],
+      "isPartOf": "https://vreeman.com/meditations/#/schema/book",
+      "name": "Index of Persons",
+      "url": "https://vreeman.com/meditations/#persons",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/author",
+      "@type": "Person",
+      "name": "Marcus Aurelius",
+      "additionalName": "Imperator Caesar Marcus Aurelius Antoninus Augustus",
+      "description": "Marcus Aurelius was a Roman emperor from 161 to 180. He was the last of the Five Good Emperors.",
+      "disambiguatingDescription": "Marcus Aurelius is a stoic philosopher who wrote a series of personal writings to reflect and for self-improvement.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q1430",
+        "https://nl.wikipedia.org/wiki/Marcus_Aurelius",
+        "https://en.wikipedia.org/wiki/Marcus_Aurelius"
+      ],
+      "birthDate": "0121-04-26",
+      "birthPlace": {
+        "@type": "Place",
+        "name": "Rome"
+      },
+      "deathDate": "0180-03-17",
+      "deathPlace": {
+        "@type": "Place",
+        "name": "Vindobona"
+      },
+      "gender": "https://schema.org/Male",
+      "jobTitle": "Emperor of Ancient Rome",
+      "parent": {
+        "@type": "Person",
+        "name": [
+          "Marcus Annius Verus",
+          "Titus Aelius Hadrianus Antoninus Augustus Pius",
+          "Domitia Lucilla Minor"
+        ]
+      },
+      "spouse": "Annia Galeria Faustina Minor",
+      "sibling": "Annia Cornificia Faustina"
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/translator",
+      "@type": "Person",
+      "name": "Gregory Hays",
+      "gender": "https://schema.org/Male",
+      "description": "Gregory Hays is an assistant professor of classics at the University of Virginia. He has published articles and reviews on various ancient writers and is currently completing a translation and critical study of the mythographer Fulgentius.",
+      "sameAs": "https://twitter.com/aristofontes",
+      "url": "https://people.virginia.edu/~bgh2n/"
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/website",
+      "@type": "WebSite",
+      "name": "Vreeman.com",
+      "url": "https://vreeman.com",
+      "publisher": {
+        "@id": "https://vreeman.com/meditations/#/schema/publisher"
+      },
+      "hasPart": {
+        "@id": "https://vreeman.com/meditations/"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/",
+      "@type": "WebPage",
+      "name": "Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+      "url": "https://vreeman.com/meditations/",
+      "isPartOf": {
+        "@id": "https://vreeman.com/meditations/#/schema/website"
+      },
+      "hasPart": {
+        "@id": "https://vreeman.com/meditations/#/schema/book"
+      },
+      "publisher": {
+        "@id": "https://vreeman.com/meditations/#/schema/publisher"
+      },
+      "potentialAction": [
+        {
+          "@type": "ReadAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://vreeman.com/meditations/",
+            "actionPlatform": [
+              "https://schema.org/DesktopWebPlatform",
+              "https://schema.org/AndroidPlatform",
+              "https://schema.org/IOSPlatform"
+            ]
+          },
+          "object": {
+            "@id": "https://vreeman.com/meditations/"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/publisher",
+      "@type": "Person",
+      "name": "Simon Vreeman",
+      "givenName": "Simon",
+      "familyName": "Vreeman",
+      "jobTitle": "Growth Marketing Manager",
+      "email": "simon@vreeman.com",
+      "url": "https://vreeman.com/",
+      "knowsAbout": [
+        "CRO",
+        "SEO",
+        "Web Analytics"
+      ],
+      "knowsLanguage": [
+        "en",
+        "nl"
+      ],
+      "sameAs": [
+        "https://www.facebook.com/simonvreeman",
+        "https://www.linkedin.com/in/simonvreeman/",
+        "https://twitter.com/vreeman",
+        "https://plus.google.com/+SimonVreeman?rel=author",
+        "https://www.instagram.com/simonvreeman/",
+        "https://github.com/simonvreeman",
+        "https://www.crunchbase.com/person/simon-vreeman",
+        "https://www.wikidata.org/wiki/Q56708228",
+        "https://en.wikipedia.org/wiki/User:Simonvreeman",
+        "https://g.co/kg/m/010rn7wd"
+      ]
+    }
+  ]
+}
+</script>
   </head>
   <body>
     <header id="header">
