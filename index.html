@@ -234,7 +234,12 @@ li::marker {
     "name": "Simon Vreeman",
     "givenName": "Simon",
     "familyName": "Vreeman",
-    "jobTitle": "Growth Marketing Manager",
+    "jobTitle": {
+      "type": "DefinedTerm",
+      "name": "Growth Marketing Manager",
+      "termcode": "2431.10.4",
+      "indefinedtermset": "http://data.europa.eu/esco/occupation/356227b9-2263-4dbd-81e9-7dfc6d3f3af7"
+    },
     "worksFor": {
       "@type": "Organization",
       "additionalType": "BikeStore",
@@ -472,9 +477,29 @@ li::marker {
     "email": "simon@vreeman.com",
     "url": "https://vreeman.com/",
     "knowsAbout": [
-      "CRO",
-      "SEO",
-      "Web Analytics"
+      {
+        "type": "Thing",
+        "name": "Digital Marketing",
+        "alternatename": "Online Marketing",
+        "sameas": "https://www.wikidata.org/wiki/Q1323528"
+      },
+      {
+        "type": "Thing",
+        "name": "CRO",
+        "alternatename": "Conversion Rate Optimization",
+        "sameas": "https://www.wikidata.org/wiki/Q52083677"
+      },
+      {
+        "type": "Thing",
+        "name": "SEO",
+        "alternatename": "Search Engine Optimization",
+        "sameas": "https://www.wikidata.org/wiki/Q180711"
+      },
+      {
+        "type": "Thing",
+        "name": "Web Analytics",
+        "sameas": "https://www.wikidata.org/wiki/Q10719477"
+      }
     ],
     "knowsLanguage": [
       "en",
