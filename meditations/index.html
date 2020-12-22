@@ -2705,8 +2705,24 @@
         <li><small><a href="https://vreeman.com/meditations/" title="Meditations by Marcus Aurelius">Meditations by Marcus Aurelius</a></small></li>
         <li><small><a href="https://vreeman.com/discourses/" title="Discourses of Epictetus">Discourses of Epictetus</a></small></li>
       </ul>
-      <p><small>Another page by <a href="https://vreeman.com/" title="Simon Vreeman">Simon Vreeman</a></small></p>
+      <p><small>Another page by <a href="https://vreeman.com/" title="Simon Vreeman">Simon Vreeman</a> <span class="copy"></span></small></p>
     </footer>
-  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2e25f2fb81fb4372997bb8ce264e4c36"}'></script><!-- End Cloudflare Web Analytics -->
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2e25f2fb81fb4372997bb8ce264e4c36"}'></script><!-- End Cloudflare Web Analytics -->
+    <script>
+    window.onload = function(){
+      setTimeout(function(){
+        window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+        var t = performance.timing || {};
+        if (!t) {
+          return;
+        }
+        var start = t.navigationStart,
+            end = t.loadEventEnd
+            loadTime = (end - start) / 1000;
+        var copy = document.querySelectorAll('.copy');
+        copy[0].innerHTML += "loaded in " + loadTime + " seconds.";
+      }, 0); 
+    }
+    </script>
   </body>
 </html>
