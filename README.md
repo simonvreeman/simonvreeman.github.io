@@ -8,5 +8,6 @@ With a list of [CRO tools](https://vreeman.com/cro.html):
 * [Experiment Hypothesis Builder](https://vreeman.com/hypothesis.html)
 * [F1 2020, 2019 & 2018 Calendar, Teams & Drivers](https://vreeman.com/f1.html)
 
+Other pages:
 * [Meditations by Marcus Aurelius. Translation by Gregory Hays.](https://vreeman.com/meditations/)
 * [Arrian’s Discourses of Epictetus. Translation by George Long.](https://vreeman.com/discourses/)
