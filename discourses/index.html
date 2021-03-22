@@ -12,9 +12,10 @@
     <link rel="dns-prefetch" href="https://gtm.vreeman.com">
     <style>
       :root {
-        --black: rgba(0, 0, 0, .8);
-        --blue-dark: rgb(0, 112, 201);
-        --blue-light: rgb(102, 187, 255);
+        --eigengrau: #16161d;
+        --blue-dark: #06c;
+        --blue-light: #2997ff;
+        --blue-lighter: #6bf;
         --gray: rgb(204, 204, 204);
         --sans: Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         --sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -36,6 +37,7 @@
         margin: 0 auto;
         max-width: 50rem;
         padding: 0 3%;
+        color: var(--eigengrau);
         font-family: var(--sans);
         font-size: 1.25rem;
         line-height: 1.618;
@@ -98,10 +100,10 @@
         vertical-align: baseline;
       }
       sub {
-        bottom: -.25em;
+        bottom: -.25rem;
       }
       sup {
-        top: -.5em;
+        top: -.5rem;
       }
       sub::before, sup::before {
         content: " [";
@@ -112,19 +114,28 @@
       li::marker {
         color: var(--blue-dark);
       }
+      mark {
+        color: var(--eigengrau);
+        background-color: var(--blue-lighter);
+        padding: .25rem;
+      }
       hr {
         display: block;
         height: 1px;
         border: 0;
-        border-top: 1px solid #000;
+        border-top: 1px solid var(--eigengrau);
         margin: 1em 0;
         padding: 0;
       }
       .roman {
         list-style-type: lower-roman;
+        font-feature-settings: 'tnum' on;
+        font-variant-numeric: tabular-nums;
       }
       .alpha {
         list-style-type: lower-alpha;
+        font-feature-settings: 'tnum' on;
+        font-variant-numeric: tabular-nums;
       }
       [id] {
         scroll-margin-top: 2ex;
