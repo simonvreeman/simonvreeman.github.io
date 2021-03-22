@@ -8,9 +8,10 @@
     <link rel="dns-prefetch" href="https://gtm.vreeman.com">
     <style>
       :root {
-        --black: rgba(0, 0, 0, .8);
-        --blue-dark: rgb(0, 112, 201);
-        --blue-light: rgb(102, 187, 255);
+        --eigengrau: #16161d;
+        --blue-dark: #06c;
+        --blue-light: #2997ff;
+        --blue-lighter: #6bf;
         --gray: rgb(204, 204, 204);
         --sans: Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         --sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -32,6 +33,7 @@
         margin: 0 auto;
         max-width: 50rem;
         padding: 0 3%;
+        color: var(--eigengrau);
         font-family: var(--sans);
         font-size: 1.25rem;
         line-height: 1.618;
@@ -94,10 +96,10 @@
         vertical-align: baseline;
       }
       sub {
-        bottom: -.25em;
+        bottom: -.25rem;
       }
       sup {
-        top: -.5em;
+        top: -.5rem;
       }
       sub::before, sup::before {
         content: " [";
@@ -108,11 +110,16 @@
       li::marker {
         color: var(--blue-dark);
       }
+      mark {
+        color: var(--eigengrau);
+        background-color: var(--blue-lighter);
+        padding: .25rem;
+      }
       hr {
         display: block;
         height: 1px;
         border: 0;
-        border-top: 1px solid #000;
+        border-top: 1px solid var(--eigengrau);
         margin: 1em 0;
         padding: 0;
       }
@@ -2031,7 +2038,7 @@
         <p><strong id="book10-14">14.</strong> Nature gives and nature takes away. Anyone with sense and humility will tell her, “Give and take as you please,” not out of defiance, but out of obedience and goodwill.</p>
         <p><strong id="book10-15">15.</strong> Only a short time left. Live as if you were alone—out in the wilderness. No difference between here and there: the city that you live in is the world.</p>
         <p>Let people see someone living naturally, and understand what that means. Let them kill him if they can’t stand it. (Better than living like this.)</p>
-        <p><strong id="book10-16">16.</strong> To stop talking about what the good man is like, and just be one.</p>
+        <p><strong id="book10-16">16.</strong> <mark>To stop talking about what the good man is like, and just be one.</mark></p>
         <p><strong id="book10-17">17.</strong> Continual awareness of all time and space, of the size and life span of the things around us. A grape seed in infinite space. A half twist of a corkscrew against eternity.</p>
         <p><strong id="book10-18">18.</strong> Bear in mind that everything that exists is already fraying at the edges, and in transition, subject to fragmentation and to rot.</p>
         <p>Or that everything was born to die.</p>
@@ -2753,7 +2760,8 @@
           return;
         }
         var start = t.navigationStart,
-            end = t.loadEventEnd
+            end = t.loadEventEnd,
+
             loadTime = (end - start) / 1000;
         var copy = document.querySelectorAll('.copy');
         copy[0].innerHTML += "loaded in " + loadTime + " seconds.";
