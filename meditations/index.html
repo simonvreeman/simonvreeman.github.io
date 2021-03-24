@@ -2774,7 +2774,6 @@
         }
         var start = t.navigationStart,
             end = t.loadEventEnd,
-
             loadTime = (end - start) / 1000;
         var copy = document.querySelectorAll('.copy');
         copy[0].innerHTML += "loaded in " + loadTime + " seconds.";
