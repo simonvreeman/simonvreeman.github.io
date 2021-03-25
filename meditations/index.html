@@ -148,6 +148,19 @@
       [id] {
         scroll-margin-top: 2ex;
       }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none;
+          transition: none;
+        }
+      }
+      @media (prefers-color-scheme: dark) {
+      }
+      @media print {
+        /* https://www.smashingmagazine.com/2011/11/how-to-set-up-a-print-style-sheet/ */
+      }
     </style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://gtm.vreeman.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
     <link rel="canonical" href="https://vreeman.com/meditations/">
@@ -239,6 +252,7 @@
       },
       "isFamilyFriendly": "https://schema.org/True",
       "abridged": "https://schema.org/False",
+      "isAccessibleForFree" : true,
       "bookFormat": "https://schema.org/EBook",
       "inLanguage": "en",
       "isbn": "9781588361738",
