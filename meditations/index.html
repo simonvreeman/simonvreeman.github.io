@@ -160,6 +160,13 @@
       }
       @media print {
         /* https://www.smashingmagazine.com/2011/11/how-to-set-up-a-print-style-sheet/ */
+        body {
+          font-size: 1rem;
+          line-height: 1.618;
+        }
+        footer {
+          display: none;
+        }
       }
     </style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://gtm.vreeman.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
@@ -293,6 +300,7 @@
         "bookmarks",
         "structuralNavigation",
         "tableOfContents",
+        "readingOrder",
         "index"
       ],
       "accessibilityHazard": [
