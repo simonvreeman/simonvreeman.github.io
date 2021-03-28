@@ -13,6 +13,7 @@
         --blue-light: #2997ff;
         --blue-lighter: #6bf;
         --gray: rgb(204, 204, 204);
+        --white: #f5f5f7;
         --sans: Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         --sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         --monospace: SFMono-Regular, Menlo, Consolas, Roboto Mono, "Liberation Mono", Monaco, "Courier New", monospace;
@@ -157,9 +158,28 @@
         }
       }
       @media (prefers-color-scheme: dark) {
+        body {
+          background-color: var(--eigengrau);
+          color: var(--white);
+        }
+        a {
+          color: var(--blue-lighter);
+        }
+        a:active, a:focus, a:hover {
+          color: var(--blue-light);
+        }
+        li::marker {
+          color: var(--blue-light);
+        }
+        mark {
+          color: var(--white);
+          background-color: var(--blue-dark);
+        }
+        hr {
+          border-top: 1px solid var(--white);
+        }
       }
       @media print {
-        /* https://www.smashingmagazine.com/2011/11/how-to-set-up-a-print-style-sheet/ */
         body {
           color: #000;
           font-size: 1rem;
