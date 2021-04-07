@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Simon Vreeman</title>
+    <title>Simon Vreeman &middot; CRO &infin; SEO</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <!-- <link rel="preconnect" href="https://www.google-analytics.com" crossorigin> -->
     <!-- <link rel="dns-prefetch" href="https://www.google-analytics.com"> -->
@@ -15,9 +15,10 @@
         --gray: rgb(204, 204, 204);
         --red: #e30000;
         --green: #008009;
+        --white: #f5f5f7;
         --serif: Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        --sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        --monospace: SFMono-Regular, Menlo, Consolas, Roboto Mono, "Liberation Mono", Monaco, "Courier New", monospace;
+        --sans-serif: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        --monospace: SFMono-Regular, Menlo, Monaco, Consolas, Roboto Mono, "Liberation Mono", "Courier New", monospace;
       }
       *, ::after, ::before {
         margin: 0;
@@ -27,18 +28,18 @@
         touch-action: manipulation;
       }
       body {
-        background-color: rgba(0, 0, 0, 0);
         height: 100vh;  
         display: grid;
         place-items: center;
         place-content: center;
+        margin: 0 1rem;
       }
-      a, abbr, h1, h2, h3, h4, p {
+      h1, p {
         color: var(--eigengrau);
-        font-family: var(--monospace);
-        font-size: calc(1.125rem + .25vw);
+        font-family: var(--sans-serif);
         font-weight: normal;
-        line-height: calc(1ex / 0.32);
+        font-size: calc(1.25rem + .25vw);
+        line-height: calc(1ex / 0.3236);
         letter-spacing: 0.1618rem;
         word-spacing: 0.1618rem;
         text-rendering: geometricPrecision;
@@ -46,28 +47,73 @@
         -webkit-font-smoothing: subpixel-antialiased;
         font-kerning: none;
         text-decoration: none;
-        text-align: center;
-        margin: 1rem 0;
       }
       h1 {
-        font-size: calc(1.75rem + .5vw);
         font-weight: 700;
+        font-size: calc(1.5rem + .25vw);
       }
-      h4 {
-        font-family: var(--sans-serif);
-        font-weight: 100;
+      h1:before, p:nth-child(2):before, p:nth-child(3):before {
+        margin-right: 1rem;
+        font-size: calc(1.5rem + .25vw);
+        line-height: calc(1ex / 0.3236);
+        vertical-align: baseline;
       }
-      a:active, a:focus, a:hover, abbr:hover {
+      h1:before {
+        content: '👨‍💻';
+      }
+      p:nth-child(2):before {
+        content: '💼';
+      }
+      p:nth-child(3):before {
+        content: '📧';
+      }
+      a {
+        color: var(--eigengrau);
+        text-decoration: none;
+      }
+      a:active, a:focus, a:hover {
         text-decoration: underline;
         outline: none;
+      }
+      abbr {
+        text-decoration: none;
+      }
+      abbr:hover {
+        text-decoration: underline dotted;
+      }
+      .amp {
+        font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+        font-style: italic;
+        font-weight: normal;
+      }
+      .infin {
+        background: linear-gradient(to right, red, yellow, lime, aqua, blue, fuchsia);
+        background-size: 1000% 1000%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: wow 3s alternate ease-in-out infinite;
+      }
+      @keyframes wow {
+        0% {
+          background-position: 0% 100%;
+        }
+        25% {
+          background-position: 100% 0%;
+        }
+        50% {
+          background-position: 0% 100%;
+        }
+        100% {
+          background-position: 100% 0%;
+        }
       }
       @media (prefers-color-scheme: dark) {
         body {
           background-color: var(--eigengrau);
+          color: var(--white);
         }
-        h1, h2, h3, h4, p, a, abbr {
-          color: rgba(255, 255, 255, 1);
-          font-weight: normal;
+        h1, p, a {
+          color: var(--white);
         }
       }
     </style>
@@ -80,23 +126,13 @@
     <script src="https://gtm.vreeman.com/analytics.js" importance="high" async></script>
     <link rel="canonical" href="https://vreeman.com/">
     <meta name="robots" content="noindex, nofollow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
-    <meta name="description" content="Hi, I am Simon Vreeman and I am a Growth Marketing Manager at VanMoof. I optimize websites based on insights & data for users, search engines and profit.">
+    <meta name="description" content="Hi, I am Simon Vreeman and I am a Freelance CRO and SEO Consultant. I optimize websites based on insights & data for users, search engines and profit.">
   </head>
   <body>
-    <!-- <header></header> -->
     <main>
-  	  <h1>Simon Vreeman</h1>
-      <!-- <h2>Freelance <abbr title="Conversion Rate Optimizing">CRO</abbr> &amp; <abbr title="Search Engine Optimizing">SEO</abbr> Consultant</h2> -->
-      <h2>Always be Optimizing</h2>
-      <!-- <h2>Always Be Learning</h2> -->
-      <!-- <h2>Always Be Testing</h2> -->
-      <!-- <h2>Always Be Linking</h2> -->
-      <!-- <h2>Always Be Measuring</h2> -->
-      <!-- <h2>Always Be Reflecting</h2> -->
-      <!-- <h2>Always Be Exploring</h2> -->
-  	  <h3><a href="#" onclick="ga('send', 'event', 'click', 'link', 'email', {nonInteraction: true});">simon@vreeman.com</a></h3>
-      <h4>&infin;</h4>
+      <h1>Simon Vreeman</h1>
+      <p>Freelance <abbr title="Conversion Rate Optimizing">CRO</abbr> <!-- <span class="amp">&amp;</span> --><span class="infin">&infin;</span> <abbr title="Search Engine Optimizing">SEO</abbr> Consultant</p>
+      <p><a href="#" onclick="ga('send', 'event', 'click', 'link', 'email', {nonInteraction: true});">simon@vreeman.com</a></p>
     </main>
-    <!-- <footer>Privacy Policy &middot; Terms and Conditions</footer> -->
   </body>
 </html>
