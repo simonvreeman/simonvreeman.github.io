@@ -53,7 +53,7 @@
         font-weight: 700;
         font-size: calc(1.5rem + .25vw);
       }
-      h1:before, p:nth-child(2):before, p:nth-child(3):before {
+      h1:before, p:nth-child(2):before, p:nth-child(3):before, p:nth-child(4):before {
         margin-right: 1rem;
         font-family: var(--emoji);
         font-size: calc(1.5rem + .25vw);
@@ -64,13 +64,17 @@
         content: '👨‍💻';
       }
       p:nth-child(2):before {
-        content: '💼';
+        content: '📈';
       }
       p:nth-child(3):before {
+        content: '💼';
+      }
+      p:nth-child(4):before {
         content: '📧';
       }
       a:active, a:focus, a:hover {
         text-decoration: underline;
+        text-decoration-color: var(--blue-light);
         outline: none;
       }
       abbr {
@@ -122,6 +126,8 @@
     <main>
       <h1>Simon Vreeman</h1>
       <p>Freelance <abbr title="Conversion Rate Optimizing">CRO</abbr> <span class="infin">&infin;</span> <abbr title="Search Engine Optimizing">SEO</abbr> Consultant</p>
+      <!-- <p>Freelance Growth Marketing Consultant</p> -->
+      <p>Prior at VanMoof, TNW, and Van der Valk</p>
       <p><a href="#" onclick="ga('send', 'event', 'click', 'link', 'email', {nonInteraction: true});">simon@vreeman.com</a></p>
     </main>
   </body>
