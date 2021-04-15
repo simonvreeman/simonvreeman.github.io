@@ -41,7 +41,6 @@
         -webkit-overflow-scrolling: touch;
         -ms-overflow-style: scrollbar;
         -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
       }
       body {
         margin: 0 auto;
@@ -88,7 +87,7 @@
       a:active, a:focus, a:hover {
         color: var(--blue-light);
       }
-      abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a, .return {
+      .return, abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
         text-decoration: none;
       }
       dt, strong {
@@ -154,8 +153,8 @@
       }
       @media (prefers-reduced-motion: reduce) {
         *,
-        *::before,
-        *::after {
+        *::after,
+        *::before {
           animation: none;
           transition: none;
         }
