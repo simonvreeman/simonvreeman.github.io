@@ -45,7 +45,6 @@
         -webkit-overflow-scrolling: touch;
         -ms-overflow-style: scrollbar;
         -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
       }
       body {
         margin: 0 auto;
@@ -92,7 +91,7 @@
       a:active, a:focus, a:hover {
         color: var(--blue-light);
       }
-      abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a, .return {
+      .return, abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
         text-decoration: none;
       }
       dt, strong {
@@ -154,11 +153,12 @@
       }
       [id] {
         scroll-margin-top: 2ex;
+        scroll-snap-margin-top: 2ex;
       }
       @media (prefers-reduced-motion: reduce) {
         *,
-        *::before,
-        *::after {
+        *::after,
+        *::before {
           animation: none;
           transition: none;
         }
@@ -195,7 +195,7 @@
           color: #000;
           text-decoration: none;
         }
-        .return, h1 a, h2 a, h3 a, h4 a, h5 a {
+        .return, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
           display: none;
         }
         mark {
@@ -204,9 +204,6 @@
         }
         li::marker {
           color: #000;
-        }
-        footer {
-          display: none;
         }
         main:after {
           content: "Thank you for printing Meditations by Marcus Aurelius from: https://vreeman.com/meditations/.";
