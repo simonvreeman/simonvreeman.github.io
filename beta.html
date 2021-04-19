@@ -64,10 +64,12 @@
         content: '👨‍💻';
       }
       p:nth-child(2):before {
-        content: '📈';
+        /*content: '📈';*/
+        content: '💼';
       }
       p:nth-child(3):before {
-        content: '💼';
+        /*content: '💼';*/
+        content: '📧';
       }
       p:nth-child(4):before {
         content: '📧';
@@ -86,6 +88,9 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         animation: wow 3s alternate ease-in-out infinite;
+      }
+      h1:hover::before {
+        -webkit-animation:rotation-r 2s infinite linear;
       }
       @keyframes wow {
         0% {
@@ -110,6 +115,11 @@
           color: var(--white);
         }
       }
+      @keyframes rotation-r{0%{transform:rotate(0)}to{transform:rotate(359deg)}}
+      @keyframes rotation-l{0%{transform:rotate(359deg)}to{transform:rotate(0)}}
+      
+      .c{display:inline-block;-webkit-animation:rotation-r 2s infinite linear}
+      .c:active,.c:focus,.c:hover{display:inline-block;-webkit-animation:rotation-l 2s infinite linear}
     </style>
     <script>
       window.ga=function(){ga.q.push(arguments)},ga.q=[],ga.l=+new Date;
@@ -126,8 +136,8 @@
     <main>
       <h1>Simon Vreeman</h1>
       <p>Freelance <abbr title="Conversion Rate Optimizing">CRO</abbr> <span class="infin">&infin;</span> <abbr title="Search Engine Optimizing">SEO</abbr> Consultant</p>
-      <!-- <p>Freelance Growth Marketing Consultant</p> -->
-      <p>Prior at VanMoof, TNW, and Van der Valk</p>
+      <!-- <p>Growth Marketing Consultant</p> -->
+      <!-- <p>Prior at VanMoof, TNW, and Van der Valk</p> -->
       <p><a href="#" onclick="ga('send', 'event', 'click', 'link', 'email', {nonInteraction: true});">simon@vreeman.com</a></p>
     </main>
   </body>
