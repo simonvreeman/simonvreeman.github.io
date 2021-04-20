@@ -30,6 +30,10 @@
         color: var(--eigengrau);
         background-color: var(--blue-lighter);
       }
+      :focus {
+        outline: 3px solid var(--blue-lighter);
+        outline-offset: 1px;
+      }
       html {
         overflow-x: hidden;
         overflow-y: scroll;
@@ -51,8 +55,10 @@
         font-size: 1.25rem;
         line-height: 1.618;
         text-rendering: geometricPrecision;
+        -moz-font-feature-settings: "kern";
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        direction: ltr;
       }
       h1, h2, h3, h4, h5, table {
         font-family: var(--sans-serif);
