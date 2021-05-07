@@ -741,9 +741,20 @@
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/website"
       },
-      "hasPart": {
-        "@id": "https://vreeman.com/meditations/#/schema/book"
-      },
+      "hasPart": [
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/book"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/header"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/navigation"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/footer"
+        }
+      ],
       "publisher": {
         "@id": "https://vreeman.com/meditations/#/schema/publisher"
       },
@@ -772,17 +783,26 @@
     {
       "@id": "https://vreeman.com/meditations/#/schema/header",
       "@type": "WPHeader",
-      "xpath": "/html/body/header"
+      "xpath": "/html/body/header",
+      "isPartOf": {
+        "@id": "https://vreeman.com/meditations/"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#/schema/navigation",
       "@type": "SiteNavigationElement",
-      "xpath": "/html/body/nav"
+      "xpath": "/html/body/nav",
+      "isPartOf": {
+        "@id": "https://vreeman.com/meditations/"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#/schema/footer",
       "@type": "WPFooter",
-      "xpath": "/html/body/footer"
+      "xpath": "/html/body/footer",
+      "isPartOf": {
+        "@id": "https://vreeman.com/meditations/"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#/schema/publisher",
