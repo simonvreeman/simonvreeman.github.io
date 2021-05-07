@@ -752,6 +752,9 @@
           "@id": "https://vreeman.com/meditations/#/schema/navigation"
         },
         {
+          "@id": "https://vreeman.com/meditations/#/schema/chronology"
+        },
+        {
           "@id": "https://vreeman.com/meditations/#/schema/footer"
         }
       ],
@@ -800,6 +803,15 @@
       "@id": "https://vreeman.com/meditations/#/schema/footer",
       "@type": "WPFooter",
       "xpath": "/html/body/footer",
+      "isPartOf": {
+        "@id": "https://vreeman.com/meditations/"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/chronology",
+      "@type": "table",
+      "xpath": "/html/body/main/table",
+      "about": "Chronology of Roman emperors and philosophers."
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/"
       }
