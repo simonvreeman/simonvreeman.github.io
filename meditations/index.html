@@ -6,219 +6,219 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <link rel="preconnect" href="https://gtm.vreeman.com" crossorigin>
     <link rel="dns-prefetch" href="https://gtm.vreeman.com">
-    <style>
-      :root {
-        --eigengrau: #16161d;
-        --blue-dark: #06c;
-        --blue-light: #2997ff;
-        --blue-lighter: #6bf;
-        --gray: rgb(204, 204, 204);
-        --white: #f5f5f7;
-        --serif: Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        --sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        --monospace: SFMono-Regular, Menlo, Monaco, Consolas, Roboto Mono, "Liberation Mono", "Courier New", monospace;
-      }
-      ::-moz-selection {
-        color: var(--eigengrau);
-        background-color: var(--blue-lighter);
-      }
-      ::selection {
-        color: var(--eigengrau);
-        background-color: var(--blue-lighter);
-      }
-      ::target-text {
-        color: var(--eigengrau);
-        background-color: var(--blue-lighter);
-      }
-      :focus {
-        outline: 3px solid var(--blue-lighter);
-        outline-offset: 1px;
-      }
-      html {
-        overflow-x: hidden;
-        overflow-y: scroll;
-        scroll-behavior: smooth;
-        -webkit-text-size-adjust: 100%;
-        -moz-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: scrollbar;
-        -webkit-tap-highlight-color: transparent;
-      }
-      body {
-        margin: 0 auto;
-        max-width: 50rem;
-        padding: 0 3%;
-        color: var(--eigengrau);
-        font-family: var(--serif);
-        font-size: 1.25rem;
-        line-height: 1.618;
-        text-rendering: geometricPrecision;
-        -moz-font-feature-settings: "kern";
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        direction: ltr;
-      }
-      h1, h2, h3, h4, h5, table {
-        font-family: var(--sans-serif);
-      }
-      h1, h2, h3, h4, h5, li, p {
-        word-break: break-word;
-        hyphens: auto;
-      }
-      table, td, th {
-        border-collapse: collapse;
-      }
-      table {
-        border-style: hidden;
-        font-family: var(--monospace);
-        font-feature-settings: 'tnum' on;
-        font-variant-numeric: tabular-nums;
-        width: 100%;
-      }
-      td, th {
-        border: 1px solid #000;
-        padding: 3px;
-      }
-      tbody {
-        vertical-align: text-bottom;
-      }
-      a {
-        background-color: transparent;
-        color: var(--blue-dark);
-        text-decoration-skip: ink;
-        -ms-touch-action: manipulation;
-        touch-action: manipulation;
-      }
-      a:active, a:focus, a:hover {
-        color: var(--blue-light);
-      }
-      .return, abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
-        text-decoration: none;
-      }
-      dt, strong {
-        font-weight: 700;
-      }
-      cite, em {
-        font-style: italic;
-      }
-      blockquote > p::before {
-        content: open-quote;
-      }
-      blockquote > p::after {
-        content: close-quote;
-      }
-      sub, sup {
-        font-size: 75%;
-        line-height: 0;
-        position: relative;
-        vertical-align: baseline;
-      }
-      sub {
-        bottom: -.25rem;
-      }
-      sup {
-        top: -.5rem;
-      }
-      sub::before, sup::before {
-        content: " [";
-      }
-      sub::after, sup::after {
-        content: "]";
-      }
-      li::marker {
-        color: var(--blue-dark);
-        font-weight: 700;
-      }
-      mark {
-        color: var(--eigengrau);
-        background-color: var(--blue-lighter);
-        padding: .25rem;
-      }
-      hr {
-        display: block;
-        height: 1px;
-        border: 0;
-        border-top: 1px solid var(--eigengrau);
-        margin: 1em 0;
-        padding: 0;
-      }
-      .roman {
-        list-style-type: lower-roman;
-        font-feature-settings: 'tnum' on;
-        font-variant-numeric: tabular-nums;
-      }
-      .alpha {
-        list-style-type: lower-alpha;
-        font-feature-settings: 'tnum' on;
-        font-variant-numeric: tabular-nums;
-      }
-      [id] {
-        scroll-margin-top: 2ex;
-        scroll-snap-margin-top: 2ex;
-      }
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *::after,
-        *::before {
-          animation: none;
-          transition: none;
-        }
-      }
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: var(--eigengrau);
-          color: var(--white);
-        }
-        a {
-          color: var(--blue-lighter);
-        }
-        a:active, a:focus, a:hover {
-          color: var(--blue-light);
-        }
-        li::marker {
-          color: var(--blue-light);
-        }
-        mark {
-          color: var(--white);
-          background-color: var(--blue-dark);
-        }
-        hr {
-          border-top: 1px solid var(--white);
-        }
-      }
-      @media print {
-        body {
-          color: #000;
-          font-size: 1rem;
-          line-height: 1.618;
-        }
-        a {
-          color: #000;
-          text-decoration: none;
-        }
-        .return, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
-          display: none;
-        }
-        mark {
-          color: #000;
-          background-color: #fff;
-        }
-        li::marker {
-          color: #000;
-        }
-        main:after {
-          content: "Thank you for printing Meditations by Marcus Aurelius from: https://vreeman.com/meditations/.";
-        }
-        main table, nav ul {
-          font-size: 80%;
-        }
-        main h2 {
-          page-break-before: always;
-        }
-      }
-    </style>
+<style>
+:root {
+  --eigengrau: #16161d;
+  --blue-dark: #06c;
+  --blue-light: #2997ff;
+  --blue-lighter: #6bf;
+  --gray: rgb(204, 204, 204);
+  --white: #f5f5f7;
+  --serif: Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --monospace: SFMono-Regular, Menlo, Monaco, Consolas, Roboto Mono, "Liberation Mono", "Courier New", monospace;
+}
+::-moz-selection {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+::selection {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+::target-text {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+:focus {
+  outline: 3px solid var(--blue-lighter);
+  outline-offset: 1px;
+}
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0 auto;
+  max-width: 50rem;
+  padding: 0 3%;
+  color: var(--eigengrau);
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.618;
+  text-rendering: geometricPrecision;
+  -moz-font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+}
+h1, h2, h3, h4, h5, table {
+  font-family: var(--sans-serif);
+}
+h1, h2, h3, h4, h5, li, p {
+  word-break: break-word;
+  hyphens: auto;
+}
+table, td, th {
+  border-collapse: collapse;
+}
+table {
+  border-style: hidden;
+  font-family: var(--monospace);
+  font-feature-settings: 'tnum' on;
+  font-variant-numeric: tabular-nums;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #000;
+  padding: 3px;
+}
+tbody {
+  vertical-align: text-bottom;
+}
+a {
+  background-color: transparent;
+  color: var(--blue-dark);
+  text-decoration-skip: ink;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+a:active, a:focus, a:hover {
+  color: var(--blue-light);
+}
+.return, abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
+  text-decoration: none;
+}
+dt, strong {
+  font-weight: 700;
+}
+cite, em {
+  font-style: italic;
+}
+blockquote > p::before {
+  content: open-quote;
+}
+blockquote > p::after {
+  content: close-quote;
+}
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -.25rem;
+}
+sup {
+  top: -.5rem;
+}
+sub::before, sup::before {
+  content: " [";
+}
+sub::after, sup::after {
+  content: "]";
+}
+li::marker {
+  color: var(--blue-dark);
+  font-weight: 700;
+}
+mark {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+  padding: .25rem;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid var(--eigengrau);
+  margin: 1em 0;
+  padding: 0;
+}
+.roman {
+  list-style-type: lower-roman;
+  font-feature-settings: 'tnum' on;
+  font-variant-numeric: tabular-nums;
+}
+.alpha {
+  list-style-type: lower-alpha;
+  font-feature-settings: 'tnum' on;
+  font-variant-numeric: tabular-nums;
+}
+[id] {
+  scroll-margin-top: 2ex;
+  scroll-snap-margin-top: 2ex;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::after,
+  *::before {
+    animation: none;
+    transition: none;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--eigengrau);
+    color: var(--white);
+  }
+  a {
+    color: var(--blue-lighter);
+  }
+  a:active, a:focus, a:hover {
+    color: var(--blue-light);
+  }
+  li::marker {
+    color: var(--blue-light);
+  }
+  mark {
+    color: var(--white);
+    background-color: var(--blue-dark);
+  }
+  hr {
+    border-top: 1px solid var(--white);
+  }
+}
+@media print {
+  body {
+    color: #000;
+    font-size: 1rem;
+    line-height: 1.618;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+  .return, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
+    display: none;
+  }
+  mark {
+    color: #000;
+    background-color: #fff;
+  }
+  li::marker {
+    color: #000;
+  }
+  main:after {
+    content: "Thank you for printing Meditations by Marcus Aurelius from: https://vreeman.com/meditations/.";
+  }
+  main table, nav ul {
+    font-size: 80%;
+  }
+  main h2 {
+    page-break-before: always;
+  }
+}
+</style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://gtm.vreeman.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
     <link rel="canonical" href="https://vreeman.com/meditations/">
     <link rel="alternate" href="https://vreeman.com/meditations/" hreflang="x-default">
@@ -1306,7 +1306,7 @@
         <p>And olives on the point of falling: the shadow of decay gives them a peculiar beauty.</p>
         <p>Stalks of wheat bending under their own weight. The furrowed brow of the lion. Flecks of foam on the boar’s mouth.</p>
         <p>And other things. If you look at them in isolation there’s nothing beautiful about them, and yet by supplementing nature they enrich it and draw us in. And anyone with a feeling for nature&mdash;a deeper sensitivity&mdash;will find it all gives pleasure. Even what seems inadvertent. He’ll find the jaws of live animals as beautiful as painted ones or sculptures. He’ll look calmly at the distinct beauty of old age in men, women, and at the loveliness of children. And other things like that will call out to him constantly&mdash;things unnoticed by others. Things seen only by those at home with Nature and its works.</p>
-        <p><a href="#book3-3" class="return">&#35;</a> <strong id="book3-3">3.</strong> <a href="#hippocrates">Hippocrates</a> cured many illnesses&mdash;and then fell ill and died. The Chaldaeans predicted the deaths of many others; in due course their own hour arrived. Alexander, <a href="#pompey">Pompey</a>, Caesar&mdash;who utterly destroyed so many cities, cut down so many thousand foot and horse in battle&mdash;they too departed this life. Heraclitus often told us the world would end in fire. But it was moisture that carried him off; he died smeared with cowshit. Democritus was killed by ordinary vermin, Socrates by the human kind.</p>
+        <p><a href="#book3-3" class="return">&#35;</a> <strong id="book3-3">3.</strong> <a href="#hippocrates">Hippocrates</a> cured many illnesses&mdash;and then fell ill and died. The Chaldaeans predicted the deaths of many others; in due course their own hour arrived. <a href="#alexander3">Alexander</a>, <a href="#pompey">Pompey</a>, Caesar&mdash;who utterly destroyed so many cities, cut down so many thousand foot and horse in battle&mdash;they too departed this life. Heraclitus often told us the world would end in fire. But it was moisture that carried him off; he died smeared with cowshit. Democritus was killed by ordinary vermin, Socrates by the human kind.</p>
         <p>And?</p>
         <p>You boarded, you set sail, you’ve made the passage. Time to disembark. If it’s for another life, well, there’s nowhere without gods on that side either. If to nothingness, then you no longer have to put up with pain and pleasure, or go on dancing attendance on this battered crate, your body&mdash;so much inferior to that which serves it.</p>
         <p>One is mind and spirit, the other earth and garbage.</p>
@@ -1674,7 +1674,7 @@
         <p><a href="#book6-23" class="return">&#35;</a> <strong id="book6-23">23.</strong> When you deal with irrational animals, with things and circumstances, be generous and straightforward. You are rational; they are not. When you deal with fellow human beings, behave as one. They share in the <em>logos</em>. And invoke the gods regardless.</p>
         <p>Don’t worry about how long you’ll go on doing this.</p>
         <p>A single afternoon would be enough.</p>
-        <p><a href="#book6-24" class="return">&#35;</a> <strong id="book6-24">24.</strong> Alexander the Great and his mule driver both died and the same thing happened to both. They were absorbed alike into the life force of the world, or dissolved alike into atoms.</p>
+        <p><a href="#book6-24" class="return">&#35;</a> <strong id="book6-24">24.</strong> <a href="#alexander3">Alexander the Great</a> and his mule driver both died and the same thing happened to both. They were absorbed alike into the life force of the world, or dissolved alike into atoms.</p>
         <p><a href="#book6-25" class="return">&#35;</a> <strong id="book6-25">25.</strong> Think how much is going on inside you every second&mdash;in your soul, in your body. Why should it astonish you that so much more&mdash;everything that happens in that all-embracing unity, the world&mdash;is happening at the same time?</p>
         <p><a href="#book6-26" class="return">&#35;</a> <strong id="book6-26">26.</strong> If someone asked you how to write your name, would you clench your teeth and spit out the letters one by one? If he lost his temper, would you lose yours as well? Or would you just spell out the individual letters?</p>
         <p>Remember&mdash;your responsibilities can be broken down into individual parts as well. Concentrate on those, and finish the job methodically&mdash;without getting stirred up or meeting anger with anger.</p>
@@ -1895,7 +1895,7 @@
         <p>Those to do with good and evil. That nothing is good except what leads to fairness, and self-control, and courage, and free will. And nothing bad except what does the opposite.</p>
         <p><a href="#book8-2" class="return">&#35;</a> <strong id="book8-2">2.</strong> For every action, ask: How does it affect me? Could I change my mind about it?</p>
         <p>But soon I’ll be dead, and the slate’s empty. So this is the only question: Is it the action of a responsible being, part of society, and subject to the same decrees as God?</p>
-        <p><a href="#book8-3" class="return">&#35;</a> <strong id="book8-3">3.</strong> Alexander and Caesar and Pompey. Compared with Diogenes, Heraclitus, Socrates? The philosophers knew the what, the why, the how. Their minds were their own.</p>
+        <p><a href="#book8-3" class="return">&#35;</a> <strong id="book8-3">3.</strong> <a href="#alexander3">Alexander</a> and Caesar and <a href="#pompey">Pompey</a>. Compared with <a href="#diogenes">Diogenes</a>, <a href="heraclitus">Heraclitus</a>, <a href="#socrates">Socrates</a>? The philosophers knew the what, the why, the how. Their minds were their own.</p>
         <p>The others? Nothing but anxiety and enslavement.</p>
         <p><a href="#book8-4" class="return">&#35;</a> <strong id="book8-4">4.</strong> You can hold your breath until you turn blue, but they’ll still go on doing it.</p>
         <p><a href="#book8-5" class="return">&#35;</a> <strong id="book8-5">5.</strong> The first step: Don’t be anxious. Nature controls it all. And before long you’ll be no one, nowhere&mdash;like Hadrian, like Augustus.</p>
