@@ -37,7 +37,6 @@
 html {
   overflow-x: hidden;
   overflow-y: scroll;
-  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -45,6 +44,9 @@ html {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent;
+}
+html:focus-within {
+  scroll-behavior: smooth;
 }
 body {
   margin: 0 auto;
@@ -159,11 +161,15 @@ hr {
   scroll-snap-margin-top: 2ex;
 }
 @media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
   *,
   *::after,
   *::before {
     animation: none;
     transition: none;
+    scroll-behavior: auto;
   }
 }
 @media (prefers-color-scheme: dark) {
