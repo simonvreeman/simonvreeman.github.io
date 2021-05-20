@@ -263,7 +263,8 @@ hr {
       "@id": "https://vreeman.com/meditations/#/schema/book",
       "@type": [
         "CreativeWork",
-        "Book"
+        "Book",
+        "Product"
       ],
       "author": {
         "@id": "https://vreeman.com/meditations/#/schema/author"
@@ -290,8 +291,20 @@ hr {
         "@id": "https://vreeman.com/meditations/"
       },
       "about": "Meditations is a series of personal writings by Marcus Aurelius, Roman Emperor from 161 to 180 AD, recording his private notes to himself and ideas on Stoic philosophy.",
+      "description": "Read here for free Meditations, the book with personal notes by Roman emperor and Stoic philosopher Marcus Aurelius in an English translation by Gregory Hays.",
       "workExample": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
+      },
+      "brand": {
+        "@id": "https://vreeman.com/#/schema/website"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://vreeman.com/meditations/",
+        "priceCurrency": "EUR",
+        "price": "0",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
       },
       "sameAs": [
         "https://www.wikidata.org/wiki/Q1152283",
@@ -991,24 +1004,6 @@ hr {
     },
     {
       "@context": "https://schema.org/",
-      "@type": "Product",
-      "@id": "https://vreeman.com/meditations/#/schema/book",
-      "name": "Meditations by Marcus Aurelius. Translation by Gregory Hays",
-      "brand": {
-        "@id": "https://vreeman.com/#/schema/website"
-      },
-      "description": "Read here for free Meditations, the book with personal notes by Roman emperor and Stoic philosopher Marcus Aurelius in an English translation by Gregory Hays.",
-      "offers": {
-        "@type": "Offer",
-        "url": "https://vreeman.com/meditations/",
-        "priceCurrency": "EUR",
-        "price": "0",
-        "itemCondition": "https://schema.org/NewCondition",
-        "availability": "https://schema.org/InStock"
-      }
-    },
-    {
-      "@context": "https://schema.org/",
       "@type": "Quotation",
       "author": {
         "@id": "https://vreeman.com/meditations/#/schema/author"
@@ -1030,6 +1025,18 @@ hr {
       },
       "text": "Think of yourself as dead. You have lived your life. Now take what’s left and live it properly.",
       "url": "https://vreeman.com/meditations/#book7-56"
+    },
+    {
+      "@context": "https://schema.org/",
+      "@type": "Quotation",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "isPartOf": {
+        "@id": "https://vreeman.com/meditations/#/schema/chapter/2"
+      },
+      "text": "You could leave life right now. Let that determine what you do and say and think.",
+      "url": "https://vreeman.com/meditations/#book2-11"
     }
   ]
 }
