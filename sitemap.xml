@@ -69,6 +69,16 @@
       <image:title><![CDATA[Meditations by Marcus Aurelius]]></image:title>
       <image:caption><![CDATA[Meditations by Marcus Aurelius. Translation by Gregory Hays.]]></image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://vreeman.com/meditations/meditations.webp</image:loc>
+      <image:title><![CDATA[Meditations by Marcus Aurelius]]></image:title>
+      <image:caption><![CDATA[Meditations by Marcus Aurelius. Translation by Gregory Hays.]]></image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://vreeman.com/meditations/meditations.jpg</image:loc>
+      <image:title><![CDATA[Meditations by Marcus Aurelius]]></image:title>
+      <image:caption><![CDATA[Meditations by Marcus Aurelius. Translation by Gregory Hays.]]></image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://vreeman.com/discourses/</loc>
