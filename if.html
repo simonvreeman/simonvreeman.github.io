@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+    <link rel="preconnect" href="https://gtm.vreeman.com" crossorigin>
+    <link rel="dns-prefetch" href="https://gtm.vreeman.com">
     <title>If–, a poem by Joseph Rudyard Kipling</title>
     <style>
       html {
@@ -170,6 +172,22 @@
     <p>And — which is more — you'll be a Man, my son!</p>
     <hr>
     <p data-nosnippet><small><a href="https://vreeman.com/experiment.html" title="Experiment, a song by Cole Albert Porter">Experiment by Cole Porter</a> | <a href="https://vreeman.com/if.html" title="If–, a poem by Joseph Rudyard Kipling">If– by Joseph Rudyard Kipling</a> | <a href="https://vreeman.com/meditations/" title="Meditations by Marcus Aurelius. Translations by Gregory Hays.">Meditations by Marcus Aurelius</a> | <a href="https://vreeman.com/discourses/" title="Discourses of Epictetus">Discourses of Epictetus</a></small></p>
-    <p data-nosnippet><small>Another page by <a href="https://vreeman.com/" title="Simon Vreeman">Simon Vreeman</a></small></p>
+    <p data-nosnippet><small>Another page by <a href="https://vreeman.com/" title="Simon Vreeman">Simon Vreeman</a> <span class="copy"></span></small></p>
+<script>
+window.onload = function(){
+  setTimeout(function(){
+    window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+    var t = performance.timing || {};
+    if (!t) {
+      return;
+    }
+    var start = t.navigationStart,
+        end = t.loadEventEnd,
+        loadTime = (end - start) / 1000;
+    var copy = document.querySelectorAll('.copy');
+    copy[0].innerHTML += "loaded in " + loadTime + " seconds.";
+  }, 0); 
+}
+</script>
   </body>
 </html>
