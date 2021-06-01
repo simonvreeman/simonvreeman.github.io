@@ -139,6 +139,11 @@ mark {
   background-color: var(--blue-lighter);
   padding: .25rem;
 }
+mark[title] {
+  color: var(--white);
+  background-color: var(--blue-dark);
+  padding: .25rem;
+}
 hr {
   display: block;
   height: 1px;
@@ -919,7 +924,10 @@ hr {
     },
     {
       "@id": "https://vreeman.com/meditations/",
-      "@type": "WebPage",
+      "@type": [
+        "WebPage",
+        "ItemPage"
+      ],
       "name": "Meditations by Marcus Aurelius. Translation by Gregory Hays.",
       "url": "https://vreeman.com/meditations/",
       "isPartOf": {
@@ -937,6 +945,9 @@ hr {
         },
         {
           "@id": "https://vreeman.com/meditations/#/schema/chronology"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/daily-stoic"
         },
         {
           "@id": "https://vreeman.com/meditations/#/schema/footer"
@@ -1013,6 +1024,14 @@ hr {
       "@type": "SiteNavigationElement",
       "xpath": "/html/body/nav",
       "url": "https://vreeman.com/meditations/#nav",
+      "isPartOf": {
+        "@id": "https://vreeman.com/meditations/"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/daily-stoic",
+      "@type": "WebPageElement",
+      "xpath": "/html/body/aside",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/"
       }
@@ -1180,6 +1199,7 @@ hr {
         <li><a href="#book12" title="Go to chapter Book 12 of Meditations">Book 12</a></li>
         <li><a href="#notes" title="Go to chapter Notes of Meditations">Notes</a></li>
         <li><a href="#persons" title="Go to chapter Index of Persons of Meditations">Index of Persons</a></li>
+        <li><a href="#daily-stoic" title="Go to section Quoted in The Daily Stoic">Quoted in The Daily Stoic</a></li>
       </ul>
     </nav>
     <hr>
@@ -1415,7 +1435,7 @@ hr {
       <p>The recognition that I needed to train and discipline my character.</p>
       <p>Not to be sidetracked by my interest in rhetoric. Not to write treatises on abstract questions, or deliver moralizing little sermons, or compose imaginary descriptions of The Simple Life or The Man Who Lives Only for Others. To steer clear of oratory, poetry and <em>belles lettres</em>.</p>
       <p>Not to dress up just to stroll around the house, or things like that. To write straightforward letters (like the one he sent my mother from Sinuessa). And to behave in a conciliatory way when people who have angered or annoyed us want to make up.</p>
-      <p>To read attentively&mdash;not to be satisfied with “just getting the gist of it.” And not to fall for every smooth talker.</p>
+      <p><mark title="The Daily Stoic: January 24th">To read attentively&mdash;not to be satisfied with “just getting the gist of it.” And not to fall for every smooth talker.</mark></p>
       <p>And for introducing me to <a href="#epictetus">Epictetus</a>’s lectures&mdash;and loaning me his own copy.</p>
       <h3 id="book1-8"><a href="#book1-8">&#35;</a> 8. Apollonius <sup><a href="#apollonius">i</a></sup></h3>
       <p>Independence and unvarying reliability, and to pay attention to nothing, no matter how fleetingly, except the <em>logos</em>. And to
@@ -1507,7 +1527,7 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
       <p><a href="#book2-2" class="return">&#35;</a> <strong id="book2-2">2.</strong> Whatever this is that I am, it is flesh and a little spirit and an intelligence. Throw away your books; stop letting yourself be distracted. That is not allowed. Instead, as if you were dying right now, despise your flesh. A mess of blood, pieces of bone, a woven tangle of nerves, veins, arteries. Consider what the spirit is: air, and never the same air, but vomited out and gulped in again every instant. Finally, the intelligence. Think of it this way: You are an old man. Stop allowing your mind to be a slave, to be jerked about by selfish impulses, to kick against fate and the present, and to mistrust the future.</p>
       <p><a href="#book2-3" class="return">&#35;</a> <strong id="book2-3">3.</strong> What is divine is full of Providence. Even chance is not divorced from nature, from the inweaving and enfolding of things governed by Providence. Everything proceeds from it. And then there is necessity and the needs of the whole world, of which you are a part. Whatever the nature of the whole does, and whatever serves to maintain it, is good for every part of nature. The world is maintained by change&mdash;in the elements and in the things they compose. That should be enough for you; treat it as an axiom. Discard your thirst for books, so that you won’t die in bitterness, but in cheerfulness and truth, grateful to the gods from the bottom of your heart.</p>
       <p><a href="#book2-4" class="return">&#35;</a> <strong id="book2-4">4.</strong> <mark>Remember how long you’ve been putting this off, how many extensions the gods gave you, and you didn’t use them. At some point you have to recognize what world it is that you belong to; what power rules it and from what source you spring; that there is a limit to the time assigned you, and if you don’t use it to free yourself it will be gone and will never return.</mark></p>
-      <p><a href="#book2-5" class="return">&#35;</a> <strong id="book2-5">5.</strong> <mark>Concentrate every minute like a Roman-like a man&mdash;on doing what’s in front of you with precise and genuine seriousness, tenderly, willingly, with justice. And on freeing yourself from all other distractions. Yes, you can&mdash;if you do everything as if it were the last thing you were doing in your life, and stop being aimless, stop letting your emotions override what your mind tells you, stop being hypocritical, self-centered, irritable. You see how few things you have to do to live a satisfying and reverent life? If you can manage this, that’s all even the gods can ask of you.</mark></p>
+      <p><a href="#book2-5" class="return">&#35;</a> <strong id="book2-5">5.</strong> <mark title="The Daily Stoic: January 29th">Concentrate every minute like a Roman-like a man&mdash;on doing what’s in front of you with precise and genuine seriousness, tenderly, willingly, with justice. And on freeing yourself from all other distractions. Yes, you can&mdash;if you do everything as if it were the last thing you were doing in your life, and stop being aimless, stop letting your emotions override what your mind tells you, stop being hypocritical, self-centered, irritable. You see how few things you have to do to live a satisfying and reverent life? If you can manage this, that’s all even the gods can ask of you.</mark></p>
       <p><a href="#book2-6" class="return">&#35;</a> <strong id="book2-6">6.</strong> Yes, keep on degrading yourself, soul. But soon your chance at dignity will be gone. Everyone gets one life. Yours is almost used up, and instead of treating yourself with respect, you have entrusted your own happiness to the souls of others.</p>
       <p><a href="#book2-7" class="return">&#35;</a> <strong id="book2-7">7.</strong> Do external things distract you? Then make time for yourself to learn something worthwhile; stop letting yourself be pulled in all directions. But make sure you guard against the other kind of confusion. People who labor all their lives but have no purpose to direct every thought and impulse toward are wasting their time&mdash;even when hard at work.</p>
       <p><a href="#book2-8" class="return">&#35;</a> <strong id="book2-8">8.</strong> Ignoring what goes on in other people’s souls&mdash;no one ever came to grief that way. But if you won’t keep track of what your <em>own</em> soul’s doing, how can you <em>not</em> be unhappy?</p>
@@ -1708,7 +1728,7 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
       <p><a href="#book4-35" class="return">&#35;</a> <strong id="book4-35">35.</strong> Everything transitory&mdash;the knower and the known.</p>
       <p><a href="#book4-36" class="return">&#35;</a> <strong id="book4-36">36.</strong> Constant awareness that everything is born from change. The knowledge that there is nothing nature loves more than to alter what exists and make new things like it. All that exists is the seed of what will emerge from it. You think the only seeds are the ones that make plants or children? Go deeper.</p>
       <p><a href="#book4-37" class="return">&#35;</a> <strong id="book4-37">37.</strong> On the verge of dying and still weighed down, still turbulent, still convinced external things can harm you, still rude to other people, still not acknowledging the truth: that wisdom is justice.</p>
-      <p><a href="#book4-38" class="return">&#35;</a> <strong id="book4-38">38.</strong> Look into their minds, at what the wise do and what they don’t.</p>
+      <p><a href="#book4-38" class="return">&#35;</a> <strong id="book4-38">38.</strong> <mark title="The Daily Stoic: January 28th">Look into their minds, at what the wise do and what they don’t.</mark></p>
       <p><a href="#book4-39" class="return">&#35;</a> <strong id="book4-39">39.</strong> Nothing that goes on in anyone else’s mind can harm you. Nor can the shifts and changes in the world around you.</p>
       <p>&mdash;Then where is harm to be found?</p>
       <p>In your capacity to see it. Stop doing that and everything will be fine. Let the part of you that makes that judgment keep quiet even if the body it’s attached to is stabbed or burnt, or stinking with pus, or consumed by cancer. Or to put it another way: It needs to realize that what happens to everyone&mdash;bad and good alike&mdash;is neither good nor bad. That what happens in every life&mdash;lived naturally or not&mdash;is neither natural nor unnatural.</p>
@@ -1727,9 +1747,9 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
       <p>How many whole cities have met their end: Helike, Pompeii, Herculaneum, and countless others.</p>
       <p>And all the ones you know yourself, one after another. One who laid out another for burial, and was buried himself, and then the man who buried him&mdash;all in the same short space of time.</p>
       <p>In short, know this: Human lives are brief and trivial. Yesterday a blob of semen; tomorrow embalming fluid, ash.</p>
-      <p>To pass through this brief life as nature demands. To give it upwithout complaint.</p>
-      <p>Like an olive that ripens and falls.</p>
-      <p>Praising its mother, thanking the tree it grew on.</p>
+      <p><mark title="The Daily Stoic: January 18th">To pass through this brief life as nature demands. To give it upwithout complaint.</mark></p>
+      <p><mark title="The Daily Stoic: January 18th">Like an olive that ripens and falls.</mark></p>
+      <p><mark title="The Daily Stoic: January 18th">Praising its mother, thanking the tree it grew on.</mark></p>
       <p><a href="#book4-49" class="return">&#35;</a> <strong id="book4-49">49.</strong> To be like the rock that the waves keep crashing over. It stands unmoved and the raging of the sea falls still around it.</p>
       <p><a href="#book4-49a" class="return">&#35;</a> <strong id="book4-49a">49a.</strong>&mdash;It’s unfortunate that this has happened.</p>
       <p>No. It’s fortunate that this has happened and I’ve remained unharmed by it&mdash;not shattered by the present or frightened of the future. It could have happened to anyone. But not everyone could have remained unharmed by it. Why treat the one as a misfortune rather than the other as fortunate? Can you really call something a misfortune that doesn’t violate human nature? Or do you think something that’s not against nature’s will can violate it? But you know what its will is. Does what’s happened keep you from acting with justice, generosity, self-control, sanity, prudence, honesty, humility, straightforwardness, and all the other qualities that allow a person’s nature to fulfill itself?</p>
@@ -1773,7 +1793,7 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
       <p>So there are two reasons to embrace what happens. One is that it’s happening to <em>you</em>. It was prescribed for you, and it pertains to you. The thread was spun long ago, by the oldest cause of all.</p>
       <p>The other reason is that what happens to an individual is a cause of well-being in what directs the world&mdash;of its well- being, its fulfillment, of its very existence, even. Because the whole is damaged if you cut away anything&mdash;anything at all&mdash;from its continuity and its coherence. Not only its parts, but its purposes. And that’s what you’re doing when you complain: hacking and destroying.</p>
       <p><a href="#book5-9" class="return">&#35;</a> <strong id="book5-9">9.</strong> <mark>Not to feel exasperated, or defeated, or despondent because your days aren’t packed with wise and moral actions. But to get back up when you fail, to celebrate behaving like a human&mdash;however imperfectly&mdash;and fully embrace the pursuit that you’ve embarked on.</mark></p>
-      <p>And not to think of philosophy as your instructor, but as the sponge and egg white that relieve ophthalmia&mdash;as a soothing ointment, a warm lotion. Not showing off your obedience to the <em>logos</em>, but resting in it. Remember: philosophy requires only what your nature already demands. What you’ve been after is something else again&mdash;something unnatural.</p>
+      <p><mark title="The Daily Stoic: January 31st">And not to think of philosophy as your instructor, but as the sponge and egg white that relieve ophthalmia&mdash;as a soothing ointment, a warm lotion. Not showing off your obedience to the <em>logos</em>, but resting in it. Remember: philosophy requires only what your nature already demands. What you’ve been after is something else again&mdash;something unnatural.</mark></p>
       <p>&mdash;But what could be preferable?</p>
       <p>That’s exactly how pleasure traps us, isn’t it? Wouldn’t magnanimity be preferable? Or freedom? Honesty? Prudence? Piety? And is there anything preferable to thought itself&mdash;to logic, to understanding? Think of their surefootedness. Their fluent stillness.</p>
       <p><a href="#book5-10" class="return">&#35;</a> <strong id="book5-10">10.</strong> Things are wrapped in such a veil of mystery that many good philosophers have found it impossible to make sense of them. Even the Stoics have trouble. Any assessment we make is subject to alteration&mdash;just as we are ourselves.</p>
@@ -1795,7 +1815,7 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
       <p>N.B.: Still holds good, even if the world goes through recurrent cycles.</p>
       <p><a href="#book5-14" class="return">&#35;</a> <strong id="book5-14">14.</strong> The <em>logos</em> and its employment are forces sufficient for themselves and for their works. They start from their own beginning, they proceed to the appointed end. We call such activities “directed,” from the directness of their course.</p>
       <p><a href="#book5-15" class="return">&#35;</a> <strong id="book5-15">15.</strong> Nothing pertains to human beings except what defines us as human. No other things can be demanded of us. They aren’t proper to human nature, nor is it incomplete without them. It follows that they are not our goal, or what helps us reach it&mdash;the good. If any of them were proper to us, it would be improper to disdain or resist it. Nor would we admire people who show themselves immune to it. If the things themselves were good, it could hardly be good to give them up. But in reality the more we deny ourselves such things (and things like them)&mdash;or are deprived of them involuntarily, even&mdash;the better we become.</p>
-      <p><a href="#book5-16" class="return">&#35;</a> <strong id="book5-16">16.</strong> <mark title="Daily Stoic: April 1st">The things you think about determine the quality of your mind. Your soul takes on the color of your thoughts.</mark> Color it with a run of thoughts like these:</p>
+      <p><a href="#book5-16" class="return">&#35;</a> <strong id="book5-16">16.</strong> <mark title="The Daily Stoic: April 1st">The things you think about determine the quality of your mind. Your soul takes on the color of your thoughts.</mark> Color it with a run of thoughts like these:</p>
       <ol class="roman">
         <li>Anywhere you can lead your life, you can lead a good one.<br>&mdash;Lives are led at court&hellip;.<br>Then good ones can be.</li>
         <li>Things gravitate toward what they were intended for.</li>
@@ -1903,10 +1923,10 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
       <p>Or eating, and relieving yourself afterwards.</p>
       <p>Then what is to be prized?</p>
       <p>An audience clapping? No. No more than the clacking of their tongues. Which is all that public praise amounts to&mdash;a clacking of tongues.</p>
-      <p>So we throw out other people’s recognition. What’s left for us to prize?</p>
-      <p>I think it’s this: to do (and not do) what we were designed for. That’s the goal of all trades, all arts, and what each of them aims at: that the thing they create should do what it was designed to do. The nurseryman who cares for the vines, the horse trainer, the dog breeder&mdash;this is what they aim at. And teaching and education&mdash;what else are they trying to accomplish?</p>
-      <p>So that’s what we should prize. Hold on to that, and you won’t be tempted to aim at anything else.</p>
-      <p>And if you can’t stop prizing a lot of other things? Then you’ll never be free&mdash;free, independent, imperturbable. Because you’ll always be envious and jealous, afraid that people might come and take it all away from you. Plotting against those who have them&mdash;those things you prize. People who need those things are bound to be a mess&mdash;and bound to take out their frustrations on the gods. Whereas to respect your own mind&mdash;to prize it&mdash;will leave you satisfied with your own self, well integrated into your community and in tune with the gods as well&mdash;embracing what they allot you, and what they ordain.</p>
+      <p>So we throw out other people’s recognition. <mark title="The Daily Stoic: January 25th">What’s left for us to prize?</mark></p>
+      <p><mark title="The Daily Stoic: January 25th">I think it’s this: to do (and not do) what we were designed for. That’s the goal of all trades, all arts, and what each of them aims at: that the thing they create should do what it was designed to do. The nurseryman who cares for the vines, the horse trainer, the dog breeder&mdash;this is what they aim at. And teaching and education&mdash;what else are they trying to accomplish?</mark></p>
+      <p><mark title="The Daily Stoic: January 25th">So that’s what we should prize. Hold on to that, and you won’t be tempted to aim at anything else.</mark></p>
+      <p><mark title="The Daily Stoic: January 25th">And if you can’t stop prizing a lot of other things? Then you’ll never be free&mdash;free, independent, imperturbable. Because you’ll always be envious and jealous, afraid that people might come and take it all away from you. Plotting against those who have them&mdash;those things you prize. People who need those things are bound to be a mess&mdash;and bound to take out their frustrations on the gods. Whereas to respect your own mind&mdash;to prize it&mdash;will leave you satisfied with your own self, well integrated into your community and in tune with the gods as well&mdash;embracing what they allot you, and what they ordain.</mark></p>
       <p><a href="#book6-17" class="return">&#35;</a> <strong id="book6-17">17.</strong> The elements move upward, downward, in all directions. The motion of virtue is different&mdash;deeper. It moves at a steady pace on a road hard to discern, and always forward.</p>
       <p><a href="#book6-18" class="return">&#35;</a> <strong id="book6-18">18.</strong> The way people behave. They refuse to admire their contemporaries, the people whose lives they share. No, but to be admired by Posterity&mdash;people they’ve never met and never will&mdash;that’s what they set their hearts on. You might as well be upset at not being a hero to your great-grandfather.</p>
       <p><a href="#book6-19" class="return">&#35;</a> <strong id="book6-19">19.</strong> Not to assume it’s impossible because you find it hard. But to recognize that if it’s humanly possible, you can do it too.</p>
@@ -1992,8 +2012,8 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
       <p><a href="#book7-1" class="return">&#35;</a> <strong id="book7-1">1.</strong> Evil: the same old thing.</p>
       <p>No matter what happens, keep this in mind: It’s the same old thing, from one end of the world to the other. It fills the history books, ancient and modern, and the cities, and the houses too. Nothing new at all.</p>
       <p>Familiar, transient.</p>
-      <p><a href="#book7-2" class="return">&#35;</a> <strong id="book7-2">2.</strong> You cannot quench understanding unless you put out the insights that compose it. But you can rekindle those at will, like glowing coals. <mark>I can control my thoughts as necessary; then how can I be troubled? What is outside my mind means nothing to it. Absorb that lesson and your feet stand firm.</mark></p>
-      <p>You can return to life. Look at things as you did before. And life returns.</p>
+      <p><a href="#book7-2" class="return">&#35;</a> <strong id="book7-2">2.</strong> <mark title="The Daily Stoic: January 20th">You cannot quench understanding unless you put out the insights that compose it. But you can rekindle those at will, like glowing coals. I can control my thoughts as necessary; then how can I be troubled? What is outside my mind means nothing to it. Absorb that lesson and your feet stand firm.</mark></p>
+      <p><mark title="The Daily Stoic: January 20th">You can return to life. Look at things as you did before. And life returns.</mark></p>
       <p><a href="#book7-3" class="return">&#35;</a> <strong id="book7-3">3.</strong> Pointless bustling of processions, opera arias, herds of sheep and cattle, military exercises. A bone flung to pet poodles, a little food in the fish tank. The miserable servitude of ants, scampering of frightened mice, puppets jerked on strings.</p>
       <p>Surrounded as we are by all of this, we need to practice acceptance. Without disdain. But remembering that our own worth is measured by what we devote our energy to.</p>
       <p><a href="#book7-4" class="return">&#35;</a> <strong id="book7-4">4.</strong> Focus on what is said when you speak and on what results from each action. Know what the one aims at, and what the other means.</p>
@@ -2187,7 +2207,7 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
         <li>with the people around you.</li>
       </ol>
       <p><a href="#book8-28" class="return">&#35;</a> <strong id="book8-28">28.</strong> Either pain affects the body (which is the body’s problem) or it affects the soul. But the soul can choose not to be affected, preserving its own serenity, its own tranquillity. All our decisions, urges, desires, aversions lie within. No evil can touch them.</p>
-      <p><a href="#book8-29" class="return">&#35;</a> <strong id="book8-29">29.</strong> To erase false perceptions, tell yourself: I have it in me to keep my soul from evil, lust and all confusion. To see things as they are and treat them as they deserve. Don’t overlook this innate ability.</p>
+      <p><a href="#book8-29" class="return">&#35;</a> <strong id="book8-29">29.</strong> <mark title="The Daily Stoic: January 26th">To erase false perceptions, tell yourself: I have it in me to keep my soul from evil, lust and all confusion. To see things as they are and treat them as they deserve. Don’t overlook this innate ability.</mark></p>
       <p><a href="#book8-30" class="return">&#35;</a> <strong id="book8-30">30.</strong> To speak to the Senate&mdash;or anyone&mdash;in the right tone, without being overbearing. To choose the right words.</p>
       <p><a href="#book8-31" class="return">&#35;</a> <strong id="book8-31">31.</strong> Augustus’s court: his wife, his daughter, his grandsons, his stepsons, his sister, <a href="#agrippa">Agrippa</a>, the relatives, servants, friends, <a href="#areius">Areius</a>, <a href="#maecenas">Maecenas</a>, the doctors, the sacrificial priests &hellip; the whole court, dead.</p>
       <p>And consider the others &hellip; not just the deaths of individuals (like the family of the Pompeys).</p>
@@ -2245,10 +2265,10 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
       <p>A man standing by a spring of clear, sweet water and cursing it. While the fresh water keeps on bubbling up. He can shovel mud into it, or dung, and the stream will carry it away, wash itself clean, remain unstained.</p>
       <p>To have that. Not a cistern but a perpetual spring.</p>
       <p>How? By working to win your freedom. Hour by hour. Through patience, honesty, humility.</p>
-      <p><a href="#book8-52" class="return">&#35;</a> <strong id="book8-52">52.</strong> Not to know what the world is is to be ignorant of where you are.</p>
-      <p>Not to know why it’s here is to be ignorant of who you are. And what it is.</p>
-      <p>Not to know any of this is to be ignorant of why you’re here.</p>
-      <p>And what are we to make of anyone who cares about the applause of such people, who don’t know where or who they are?</p>
+      <p><a href="#book8-52" class="return">&#35;</a> <strong id="book8-52">52.</strong> <mark title="The Daily Stoic: January 6th">Not to know what the world is is to be ignorant of where you are.</mark></p>
+      <p><mark title="The Daily Stoic: January 6th">Not to know why it’s here is to be ignorant of who you are. And what it is.</mark></p>
+      <p><mark title="The Daily Stoic: January 6th">Not to know any of this is to be ignorant of why you’re here.</mark></p>
+      <p><mark title="The Daily Stoic: January 6th">And what are we to make of anyone who cares about the applause of such people, who don’t know where or who they are?</mark></p>
       <p><a href="#book8-53" class="return">&#35;</a> <strong id="book8-53">53.</strong> You want praise from people who kick themselves every fifteen minutes, the approval of people who despise themselves. (Is it a sign of self-respect to regret nearly everything you do?)</p>
       <p><a href="#book8-54" class="return">&#35;</a> <strong id="book8-54">54.</strong> To join ourselves not just to the air surrounding us, through breath, but to the reason that embraces all things, through thought. Reason is just as omnipresent, just as widely diffused in those who accept it as air is in those who breathe.</p>
       <p><a href="#book8-55" class="return">&#35;</a> <strong id="book8-55">55.</strong> The existence of evil does not harm the world. And an individual act of evil does not harm the victim. Only one person is harmed by it&mdash;and he can stop being harmed as soon as he decides to.</p>
@@ -2273,10 +2293,10 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
       <p>Or perhaps you need some tidy aphorism to tuck away in the back of your mind. Well, consider two things that should reconcile you to death: the nature of the things you’ll leave behind you, and the kind of people you’ll no longer be mixed up with. There’s no need to feel resentment toward them&mdash;in fact, you should look out for their well-being, and be gentle with them&mdash;but keep in mind that everything you believe is meaningless to those you leave behind. Because that’s all that could restrain us (if anything could)&mdash;the only thing that could make us want to stay here: the chance to live with those who share our vision. But now? Look how tiring it is&mdash;this cacophony we live in. Enough to make you say to death, “Come quickly. Before I start to forget myself, like them.”</p>
       <p><a href="#book9-4" class="return">&#35;</a> <strong id="book9-4">4.</strong> To do harm is to do yourself harm. To do an injustice is to do yourself an injustice&mdash;it degrades you.</p>
       <p><a href="#book9-5" class="return">&#35;</a> <strong id="book9-5">5.</strong> And you can also commit injustice by doing nothing.</p>
-      <p><a href="#book9-6" class="return">&#35;</a> <strong id="book9-6">6.</strong> Objective judgment, now, at this very moment.</p>
-      <p>Unselfish action, now, at this very moment.</p>
-      <p>Willing acceptance&mdash;now, at this very moment&mdash;of all external events.</p>
-      <p>That’s all you need.</p>
+      <p><a href="#book9-6" class="return">&#35;</a> <strong id="book9-6">6.</strong> <mark title="The Daily Stoic: January 4th">Objective judgment, now, at this very moment.</mark></p>
+      <p><mark title="The Daily Stoic: January 4th">Unselfish action, now, at this very moment.</mark></p>
+      <p><mark title="The Daily Stoic: January 4th">Willing acceptance&mdash;now, at this very moment&mdash;of all external events.</mark></p>
+      <p><mark title="The Daily Stoic: January 4th">That’s all you need.</mark></p>
       <p><a href="#book9-7" class="return">&#35;</a> <strong id="book9-7">7.</strong> Blot out your imagination. Turn your desire to stone. Quench your appetites. Keep your mind centered on itself.</p>
       <p><a href="#book9-8" class="return">&#35;</a> <strong id="book9-8">8.</strong> Animals without the <em>logos</em> are assigned the same soul, and those who have the <em>logos</em> share one too&mdash;a rational one. Just as all earthly creatures share one earth. Just as we all see by the same light, and breathe the same air&mdash;all of us who see and breathe.</p>
       <p><a href="#book9-9" class="return">&#35;</a> <strong id="book9-9">9.</strong> All things are drawn toward what is like them, if such a thing exists. All earthly things feel the earth’s tug. All wet things flow together. And airy things as well, so they have to be forcibly prevented from mixing. Fire is naturally drawn upward by that higher fire, but ready to ignite at the slightest touch of other, earthly flame. So that anything drier than usual makes good fuel, because less of what hinders combustion is mixed in with it.</p>
@@ -2679,9 +2699,9 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
         <li>purpose</li>
         <li>and the length of time it exists.</li>
       </ul>
-      <p><a href="#book12-19" class="return">&#35;</a> <strong id="book12-19">19.</strong> <mark>It’s time you realized that you have something in you more powerful and miraculous than the things that affect you and make you dance like a puppet.</mark></p>
-      <p>What’s in my thoughts at this moment? Fear? Jealousy?</p>
-      <p>Desire? Feelings like that?</p>
+      <p><a href="#book12-19" class="return">&#35;</a> <strong id="book12-19">19.</strong> <mark title="The Daily Stoic: January 14th">It’s time you realized that you have something in you more powerful and miraculous than the things that affect you and make you dance like a puppet.</mark></p>
+      <p><mark title="The Daily Stoic: January 14th">What’s in my thoughts at this moment? Fear? Jealousy?</mark></p>
+      <p><mark title="The Daily Stoic: January 14th">Desire? Feelings like that?</mark></p>
       <p><a href="#book12-20" class="return">&#35;</a> <strong id="book12-20">20.</strong> To undertake nothing:</p>
       <ol class="roman">
         <li>at random or without a purpose;</li>
@@ -3128,8 +3148,49 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
         <dd>Probably a contemporary doctor mentioned by Galen. (<a href="#book10-31">10.31</a>)</dd>
         <dt id="zeus">Zeus</dt>
         <dd>Sky god and head of the Greek pantheon; Marcus refers to him only rarely and normally prefers a vaguer formulation such as “God” or “the gods.” (<a href="#book4-23">4.23</a>, <a href="#book5-7">5.7</a>, <a href="#book5-8">5.8</a>, <a href="#book11-8">11.8</a>)</dd>
-      </dl>
+      </dl>      
     </main>
+    <aside>
+      <h2 id="daily-stoic"><a href="#daily-stoic" title="Chapter: Quoted in The Daily Stoic">&#35;</a> Quoted in The Daily Stoic <a href="#header" title="Back to top">&uarr;</a></h2>
+      <ul>
+        <li>January 4th: <a href="#book9-6">Book 9.6</a></li>
+        <li>January 6th: <a href="#book8-52">Book 8.52</a></li>
+        <li>January 14th: <a href="#book12-19">Book 12.19</a></li>
+        <li>January 18th: <a href="#book4-48">Book 4.48.2</a></li>
+        <li>January 20th: <a href="#book7-2">Book 7.2</a></li>
+        <li>January 24th: <a href="#book1-7">Book 1.7.3</a></li>
+        <li>January 25th: <a href="#book6-16">Book 6.16.2b-4a</a></li>
+        <li>January 26th: <a href="#book8-29">Book 8.29</a></li>
+        <li>January 28th: <a href="#book4-38">Book 4.38</a></li>
+        <li>January 29th: <a href="#book2-5">Book 2.5</a></li>
+        <li>January 31st: <a href="#book5-9">Book 5.9</a></li>
+        <li>February 1st: <a href="#book11-18">Book 11.18.5b</a></li>
+        <li>February 2nd: <a href="#book2-2">Book 2.2</a></li>
+        <li>February 5th: <a href="#book4-22">Book 4.22</a></li>
+        <li>February 9th: <a href="#book6-52">Book 6.52</a></li>
+        <li>February 15th: <a href="#book6-31">Book 6.31</a></li>
+        <li>February 16th: <a href="#book6-26">Book 6.26</a></li>
+        <li>February 20th: <a href="#book6-34">Book 6.34</a></li>
+        <li>February 23rd: <a href="#book7-38">Book 7.38</a></li>
+        <li>February 25th: <a href="#book12-27">Book 12.27</a></li>
+        <li>February 26th: <a href="#book5-25">Book 5.25</a></li>
+        <li>March 12th: <a href="#book7-26">Book 7.26</a></li>
+        <li>March 15th: <a href="#book2-14">Book 2.14</a></li>
+        <li>March 16th: <a href="#book3-9">Book 3.9</a></li>
+        <li>March 18th: <a href="#book9-13">Book 9.13</a></li>
+        <li>March 21st: <a href="#book4-3">Book 4.3.1</a></li>
+        <li>March 26th: <a href="#book12-33">Book 12.33</a></li>
+        <li>March 30th: <a href="#book9-22">Book 9.22</a></li>
+        <li>March 31th: <a href="#book5-17">Book 5.17</a></li>
+        <li>April 1st: <a href="#book5-16">Book 5.16</a></li>
+        <li>April 2nd: <a href="#book10-9">Book 10.9</a></li>
+        <li>April 4th: <a href="#book6-30">Book 6.30</a></li>
+        <li>April 6th: <a href="#book2-1">Book 2.1</a></li>
+        <li>April 13th: <a href="#book3-5">Book 3.5</a></li>
+        <li>April 16th: <a href="#book7-4">Book 7.4</a></li>
+        <li>April 17th: <a href="#book4-7">Book 4.7</a></li>
+      </ul>
+    </aside>
     <hr>
     <footer role="contentinfo">
       <ul>
