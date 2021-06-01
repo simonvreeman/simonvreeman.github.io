@@ -101,6 +101,8 @@
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/hypothesis.html">
+    <link rel="alternate" href="https://vreeman.com/hypothesis.html" hreflang="x-default">
+    <link rel="alternate" href="https://vreeman.com/hypothesis.html" hreflang="en">
     <meta name="description" content="This Experiment Hypothesis Builder can help you create solid hypothesis for your A/B tests. It is based on the Hypothesis Kit of CRO expert Craig Sullivan.">
     <meta property="og:title" content="Experiment Hypothesis Builder">
     <meta property="og:url" content="https://vreeman.com/hypothesis.html">
@@ -150,16 +152,21 @@
     <form onkeyup="getAdvancedHypothesis()" id="advancedForm" class="hidden">
       <fieldset>
         <legend>Build your own advanced hypothesis</legend>
-        <label for="a1">Because we saw (<code>quantitative &amp; qualitative data</code>)</label>
-        <textarea name="because" id="a1" placeholder="quantitative &amp; qualitative data"></textarea>
-        <label for="a2">We expect that (<code>change</code>)</label>
-        <textarea name="change" id="a2" placeholder="change"></textarea>
+        <label for="a1">Based on (<code>quantitative &amp; qualitative data and research</code>)</label>
+        <textarea name="because" id="a1" placeholder="The observation, insight, data or research that was the catalyst for this hypothesis."></textarea>
+
+        <label for="a2">We believe that (<code>change</code>)</label>
+        <textarea name="change" id="a2" placeholder="This is the specific change you are making"></textarea>
+        
         <label for="a3">For (<code>population</code>)</label>
-        <textarea name="population" id="a3" placeholder="population"></textarea>
+        <textarea name="population" id="a3" placeholder="The cohort, audience, group that are exposed to the experiment."></textarea>
+        
         <label for="a4">Will cause (<code>impact(s)</code>)</label>
-        <textarea name="impact" id="a4" placeholder="impact(s)"></textarea>
-        <label for="a5">We expect to see (<code>data metric(s) change</code>)</label>
-        <textarea name="metric" id="a5" placeholder="data metric(s) change"></textarea>
+        <textarea name="impact" id="a4" placeholder="The outcome you believe that (change) will cause."></textarea>
+        
+        <label for="a5">We will know this when we see (<code>metric(s) &amp; feedback change</code>)</label>
+        <textarea name="metric" id="a5" placeholder="primary or secondary metric(s) change"></textarea>
+        
         <label for="a6">Over a period of (<code>x business cycles</code>)</label>
         <textarea name="cycles" id="a6" placeholder="x business cycles"></textarea>
       </fieldset>
