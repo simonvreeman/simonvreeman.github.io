@@ -299,9 +299,17 @@ hr {
         "Τὰ εἰς ἑαυτὸν"
       ],
       "url": "https://vreeman.com/meditations/",
-      "image": {
-        "@id": "https://vreeman.com/meditations/#/schema/image"
-      },
+      "image": [
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/image/jpg"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/image/webp"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/image/avif"
+        }
+      ]
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/"
       },
@@ -1089,7 +1097,7 @@ hr {
       }
     },
     {
-      "@id": "https://vreeman.com/meditations/#/schema/image",
+      "@id": "https://vreeman.com/meditations/#/schema/image/jpg",
       "@type": "ImageObject",
       "contentUrl": "https://vreeman.com/meditations/meditations.jpg",
       "url": "https://vreeman.com/meditations/meditations.jpg",
@@ -1101,6 +1109,38 @@ hr {
       "height": "512",
       "width": "1024",
       "contentSize": "33.2 KB",
+      "uploadDate": "2021-03-25",
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/image/webp",
+      "@type": "ImageObject",
+      "contentUrl": "https://vreeman.com/meditations/meditations.webp",
+      "url": "https://vreeman.com/meditations/meditations.webp",
+      "thumbnail": "https://vreeman.com/meditations/meditations.webp",
+      "author": {
+        "@id": "https://vreeman.com/#/schema/simonvreeman"
+      },
+      "name": "Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+      "height": "512",
+      "width": "1024",
+      "contentSize": "25.1 KB",
+      "uploadDate": "2021-03-25",
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "@id": "https://vreeman.com/meditations/#/schema/image/avif",
+      "@type": "ImageObject",
+      "contentUrl": "https://vreeman.com/meditations/meditations.avif",
+      "url": "https://vreeman.com/meditations/meditations.avif",
+      "thumbnail": "https://vreeman.com/meditations/meditations.avif",
+      "author": {
+        "@id": "https://vreeman.com/#/schema/simonvreeman"
+      },
+      "name": "Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+      "height": "512",
+      "width": "1024",
+      "contentSize": "17.0 KB",
       "uploadDate": "2021-03-25",
       "license": "https://creativecommons.org/licenses/by/4.0/"
     },
