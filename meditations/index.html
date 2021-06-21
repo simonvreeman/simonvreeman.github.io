@@ -313,7 +313,7 @@ hr {
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/"
       },
-      "mainEntity": {
+      "mainEntityOfPage": {
         "@id": "https://vreeman.com/meditations/"
       },
       "about": "Meditations is a series of personal writings by Marcus Aurelius, Roman Emperor from 161 to 180 AD, recording his private notes to himself and ideas on Stoic philosophy.",
@@ -995,15 +995,23 @@ hr {
           "@id": "https://vreeman.com/meditations/#/schema/footer"
         }
       ],
-      "mainEntityOfPage": {
+      "mainEntity": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
       },
       "primaryImageOfPage": {
         "@id": "https://vreeman.com/meditations/#/schema/image/jpg"
       },
-      "image": {
-        "@id": "https://vreeman.com/meditations/#/schema/image/jpg"
-      },
+      "image": [
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/image/jpg"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/image/webp"
+        },
+        {
+          "@id": "https://vreeman.com/meditations/#/schema/image/avif"
+        }
+      ],
       "publisher": {
         "@id": "https://vreeman.com/#/schema/simonvreeman"
       },
