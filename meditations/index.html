@@ -351,7 +351,8 @@ hr {
             "https://www.wikidata.org/wiki/Q48235",
             "https://en.wikipedia.org/wiki/Stoicism",
             "https://g.co/kg/m/078k2",
-            "http://vocab.getty.edu/aat/300055977"
+            "http://vocab.getty.edu/aat/300055977",
+            "https://dbpedia.org/page/Stoicism"
           ]
         },
         {
@@ -883,14 +884,32 @@ hr {
       },
       "gender": "https://schema.org/Male",
       "jobTitle": "Emperor of Ancient Rome",
-      "parent": {
-        "@type": "Person",
-        "name": [
-          "Marcus Annius Verus",
-          "Titus Aelius Hadrianus Antoninus Augustus Pius",
-          "Domitia Lucilla Minor"
-        ]
-      },
+      "parent": [
+        {
+          "@type": "Person",
+          "name": "Marcus Annius Verus",
+          "sameAs": [
+            "https://www.wikidata.org/wiki/Q1292169",
+            "https://dbpedia.org/page/Marcus_Annius_Verus_(father_of_Marcus_Aurelius)"
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Titus Aelius Hadrianus Antoninus Augustus Pius",
+          "sameAs": [
+            "https://www.wikidata.org/wiki/Q1429",
+            "https://dbpedia.org/page/Antoninus_Pius"
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Domitia Lucilla Minor",
+          "sameAs": [
+            "https://www.wikidata.org/wiki/Q1815905",
+            "https://dbpedia.org/page/Domitia_Calvilla"
+          ]
+        }
+      ],
       "spouse": {
         "@type": "Person",
         "name": "Annia Galeria Faustina Minor",
@@ -902,7 +921,10 @@ hr {
       "sibling": {
         "@type": "Person",
         "name": "Annia Cornificia Faustina",
-        "sameAs": "https://www.wikidata.org/wiki/Q1284248"
+        "sameAs": [
+          "https://www.wikidata.org/wiki/Q1284248",
+          "https://dbpedia.org/page/Annia_Cornificia_Faustina"
+        ]
       }
     },
     {
