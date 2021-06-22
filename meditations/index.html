@@ -60,7 +60,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
 }
-h1, h2, h3, h4, h5, table {
+h1, h2, h3, h4, h5 {
   font-family: var(--sans-serif);
 }
 h1, h2, h3, h4, h5, li, p {
@@ -73,8 +73,6 @@ table, td, th {
 table {
   border-style: hidden;
   font-family: var(--monospace);
-  font-feature-settings: 'tnum' on;
-  font-variant-numeric: tabular-nums;
   width: 100%;
 }
 td, th {
@@ -125,7 +123,7 @@ sup {
   top: -.5rem;
 }
 sub::before, sup::before {
-  content: " [";
+  content: "[";
 }
 sub::after, sup::after {
   content: "]";
@@ -143,11 +141,10 @@ mark {
   padding: .25rem;
 }
 mark[title] {
-  color: var(--white);
   background-color: var(--blue-dark);
   padding: .25rem;
 }
-mark[title] > a {
+mark[title], mark[title] > a {
   color: var(--white);
 }
 hr {
@@ -158,48 +155,44 @@ hr {
   margin: 1em 0;
   padding: 0;
 }
-.roman {
-  list-style-type: lower-roman;
+.alpha, .roman, table {
   font-feature-settings: 'tnum' on;
   font-variant-numeric: tabular-nums;
+
 }
 .alpha {
   list-style-type: lower-alpha;
-  font-feature-settings: 'tnum' on;
-  font-variant-numeric: tabular-nums;
+}
+.roman {
+  list-style-type: lower-roman;
 }
 [id] {
   scroll-margin-top: 2ex;
   scroll-snap-margin-top: 2ex;
 }
 @media (prefers-reduced-motion: reduce) {
-  html {
+  *, ::after, ::before, html {
     scroll-behavior: auto !important;
   }
-  *,
-  *::after,
-  *::before {
+  *, ::after, ::before {
     animation: none !important;
     transition: none !important;
-    scroll-behavior: auto !important;
   }
 }
 @media (prefers-color-scheme: dark) {
   body {
     background-color: var(--eigengrau);
+  }
+  body, mark {
     color: var(--white);
   }
   a {
     color: var(--blue-lighter);
   }
-  a:active, a:focus, a:hover {
-    color: var(--blue-light);
-  }
-  li::marker {
+  a:active, a:focus, a:hover, li::marker {
     color: var(--blue-light);
   }
   mark {
-    color: var(--white);
     background-color: var(--blue-dark);
   }
   hr {
@@ -208,23 +201,20 @@ hr {
 }
 @media print {
   body {
-    color: #000;
     font-size: 1rem;
     line-height: 1.618;
   }
-  a {
+  a, body, mark, li::marker {
     color: #000;
+  }
+  a {
     text-decoration: none;
   }
   .return, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
     display: none;
   }
   mark {
-    color: #000;
     background-color: #fff;
-  }
-  li::marker {
-    color: #000;
   }
   main:after {
     content: "Thank you for printing Meditations by Marcus Aurelius from: https://vreeman.com/meditations/.";
