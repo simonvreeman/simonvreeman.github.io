@@ -513,11 +513,6 @@
       </dl>
     </footer>
     <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js');
-      }
-    </script>
-    <script>
       window.onload = function(){
         setTimeout(function(){
           window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
