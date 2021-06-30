@@ -1,6 +1,7 @@
-var cacheName = 'vreeman';
+var cacheName = 'meditations';
 var cacheFiles = [
-  '/'
+  '/meditations/',
+  '/meditations/index.html'
 ];
 
 self.addEventListener('install', function(event) {
@@ -30,7 +31,7 @@ self.addEventListener('fetch', function(event) {
 
 // Empty out any caches that don’t match the ones listed.
 self.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['vreeman'];
+  var cacheWhitelist = ['meditations'];
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
