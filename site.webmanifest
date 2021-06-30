@@ -9,6 +9,7 @@
   "orientation": "any",
   "background_color": "#06c",
   "theme_color": "#06c",
+  "related_applications": false,
   "prefer_related_applications": false,
   "categories": ["philosophy", "stoicism"],
   "icons": [
