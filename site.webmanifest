@@ -16,7 +16,8 @@
     {
       "src": "https://vreeman.com/apple-touch-icon.png",
       "sizes": "558x558",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "screenshots": [
