@@ -4,6 +4,13 @@
   "short_name": "Meditations",
   "name": "Meditations by Marcus Aurelius",
   "description": "Read for free Meditations, the book by Roman emperor and Stoic philosopher Marcus Aurelius in an English translation by Gregory Hays.",
+  "start_url": "https://vreeman.com/meditations/?ref=homescreen",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "none",
+  "theme_color": "none",
+  "prefer_related_applications": false,
+  "categories": ["philosophy", "stoicism"],
   "icons": [
     {
       "src": "https://vreeman.com/apple-touch-icon.png",
@@ -11,15 +18,14 @@
       "type": "image/png"
     }
   ],
-  "start_url": "https://vreeman.com/meditations/?ref=homescreen",
-  "display": "standalone",
-  "orientation": "any",
-  "background_color": "#000000cc",
-  "theme_color": "#000000cc",
-  "prefer_related_applications": false,
-  "categories": ["philosophy", "stoicism"],
+  "screenshots": [
+    {
+      "src": "https://vreeman.com/meditations/meditations.jpg",
+      "sizes": "1024x512",
+      "type": "image/jpeg"
+    }
   "serviceworker": {
-    "src": "serviceworker.js",
+    "src": "https://vreeman.com/serviceworker.js",
     "scope": "/",
     "update_via_cache": "none"
   }
