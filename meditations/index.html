@@ -3531,5 +3531,10 @@ window.onload = function(){
   }, 0); 
 }
 </script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('serviceworker.js');
+  }
+</script>
   </body>
 </html>
