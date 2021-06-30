@@ -8,22 +8,55 @@
     <link rel="dns-prefetch" href="https://gtm.vreeman.com">
     <style>
       :root {
-        color-scheme: light dark;
+        --eigengrau: #16161d;
+        --blue-dark: #06c;
+        --blue-light: #2997ff;
+        --blue-lighter: #6bf;
+        --gray: rgb(204, 204, 204);
+        --white: #f5f5f7;
+        --serif: Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        --sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        --monospace: SFMono-Regular, Menlo, Monaco, Consolas, Roboto Mono, "Liberation Mono", "Courier New", monospace;
       }
       *,::after,::before {
         margin: 0;
         padding: 0;
       }
       html {
-        color-scheme: light dark;
         font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         font-size: 1.125rem;
         line-height: 1.618;
         touch-action: manipulation;
       }
       body {
-        margin: 0 auto;
-        max-width: 32rem;
+        height: 100vh;  
+        display: grid;
+        place-items: center;
+        place-content: center;
+        margin: 0 1rem;
+        text-align: center;
+      }
+      h1 {
+        color: var(--eigengrau);
+        font-family: var(--sans-serif);
+        font-weight: 700;
+        font-size: calc(5.25rem + .25vw);
+        line-height: calc(1ex / 0.3236);
+        line-height: 1;
+        letter-spacing: 0.1618rem;
+        word-spacing: 0.1618rem;
+        text-rendering: geometricPrecision;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: subpixel-antialiased;
+        font-kerning: none;
+        text-decoration: none;
+
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-fill-color: transparent;
+        background-image: linear-gradient(110deg, var(--blue-dark) 0%, var(--blue-light) 80%, var(--blue-lighter) 100%);
+        background-position: 100% 50%;
       }
       a {
         color: inherit;
@@ -36,8 +69,6 @@
   </head>
   <body>
     <noscript><iframe src="https://gtm.vreeman.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <h1>Heading 1</h1>
-    <p>Paragraph</p>
-    <p><a href="#" onclick="ga('send', 'event', 'click', 'link', 'boilerplate', {nonInteraction: true});">Link</a></p>
+    <h1>Simon Vreeman</h1>
   </body>
 </html>
