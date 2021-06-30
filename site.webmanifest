@@ -7,8 +7,8 @@
   "start_url": "https://vreeman.com/meditations/?ref=homescreen",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "none",
-  "theme_color": "none",
+  "background_color": "#06c",
+  "theme_color": "#06c",
   "prefer_related_applications": false,
   "categories": ["philosophy", "stoicism"],
   "icons": [
