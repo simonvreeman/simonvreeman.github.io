@@ -1,9 +1,9 @@
 {
   "dir": "ltr",
   "lang": "en",
-  "short_name": "Vreeman",
-  "name": "Simon Vreeman",
-  "description": "The personal website of Simon Vreeman. Growth Marketing Manager at VanMoof.",
+  "short_name": "Meditations",
+  "name": "Meditations by Marcus Aurelius",
+  "description": "Read for free Meditations, the book by Roman emperor and Stoic philosopher Marcus Aurelius in an English translation by Gregory Hays.",
   "icons": [
     {
       "src": "https://vreeman.com/apple-touch-icon.png",
@@ -11,13 +11,13 @@
       "type": "image/png"
     }
   ],
-  "start_url": "https://vreeman.com/?ref=homescreen",
+  "start_url": "https://vreeman.com/meditations/?ref=homescreen",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#000000cc",
   "theme_color": "#000000cc",
   "prefer_related_applications": false,
-  "categories": ["marketing", "business", "technology"],
+  "categories": ["philosophy", "stoicism"],
   "serviceworker": {
     "src": "serviceworker.js",
     "scope": "/",
