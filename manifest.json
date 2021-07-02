@@ -17,10 +17,5 @@
   "background_color": "#000000cc",
   "theme_color": "#000000cc",
   "prefer_related_applications": false,
-  "categories": ["marketing", "business", "technology"],
-  // "serviceworker": {
-  //   "src": "serviceworker.js",
-  //   "scope": "/",
-  //   "update_via_cache": "none"
-  // }
+  "categories": ["marketing", "business", "technology"]
 }
