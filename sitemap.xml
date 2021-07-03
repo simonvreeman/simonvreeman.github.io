@@ -84,5 +84,20 @@
     <loc>https://vreeman.com/discourses/</loc>
     <priority>0.9</priority>
     <changefreq>daily</changefreq>
+    <image:image>
+      <image:loc>https://vreeman.com/discourses/discourses.avif</image:loc>
+      <image:title><![CDATA[Discourses and Enchiridion of Epictetus]]></image:title>
+      <image:caption><![CDATA[Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.]]></image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://vreeman.com/discourses/discourses.webp</image:loc>
+      <image:title><![CDATA[Discourses and Enchiridion of Epictetus]]></image:title>
+      <image:caption><![CDATA[Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.]]></image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://vreeman.com/discourses/discourses.jpg</image:loc>
+      <image:title><![CDATA[Discourses and Enchiridion of Epictetus]]></image:title>
+      <image:caption><![CDATA[Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.]]></image:caption>
+    </image:image>
   </url>
 </urlset>
