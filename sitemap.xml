@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vreeman.com/</loc>
-    <priority>1</priority>
+    <priority>1.0</priority>
     <changefreq>weekly</changefreq>
     <image:image>
       <image:loc>https://vreeman.com/img/simonvreeman.jpg</image:loc>
@@ -68,16 +68,19 @@
       <image:loc>https://vreeman.com/meditations/meditations.avif</image:loc>
       <image:title><![CDATA[Meditations by Marcus Aurelius]]></image:title>
       <image:caption><![CDATA[Meditations by Marcus Aurelius. Translation by Gregory Hays.]]></image:caption>
+      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
     </image:image>
     <image:image>
       <image:loc>https://vreeman.com/meditations/meditations.webp</image:loc>
       <image:title><![CDATA[Meditations by Marcus Aurelius]]></image:title>
       <image:caption><![CDATA[Meditations by Marcus Aurelius. Translation by Gregory Hays.]]></image:caption>
+      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
     </image:image>
     <image:image>
       <image:loc>https://vreeman.com/meditations/meditations.jpg</image:loc>
       <image:title><![CDATA[Meditations by Marcus Aurelius]]></image:title>
       <image:caption><![CDATA[Meditations by Marcus Aurelius. Translation by Gregory Hays.]]></image:caption>
+      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
     </image:image>
   </url>
   <url>
@@ -88,16 +91,19 @@
       <image:loc>https://vreeman.com/discourses/discourses.avif</image:loc>
       <image:title><![CDATA[Discourses and Enchiridion of Epictetus]]></image:title>
       <image:caption><![CDATA[Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.]]></image:caption>
+      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
     </image:image>
     <image:image>
       <image:loc>https://vreeman.com/discourses/discourses.webp</image:loc>
       <image:title><![CDATA[Discourses and Enchiridion of Epictetus]]></image:title>
       <image:caption><![CDATA[Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.]]></image:caption>
+      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
     </image:image>
     <image:image>
       <image:loc>https://vreeman.com/discourses/discourses.jpg</image:loc>
       <image:title><![CDATA[Discourses and Enchiridion of Epictetus]]></image:title>
       <image:caption><![CDATA[Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.]]></image:caption>
+      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
     </image:image>
   </url>
 </urlset>
