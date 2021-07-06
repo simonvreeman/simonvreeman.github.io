@@ -12,6 +12,9 @@
     <!-- <link rel="dns-prefetch" href="https://open.scdn.com"> -->
     <title>Experiment, a song by Cole Albert Porter</title>
     <style>
+      :root {
+        --eigengrau: #16161d;
+      }
       html {
         overflow-y: scroll;
         overflow-x: hidden;
@@ -19,7 +22,7 @@
         -ms-text-size-adjust: 100%;
       }
       body {
-        color: rgba(0, 0, 0, .8);
+        color: var(--eigengrau);
         font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         font-size: 1.125em;
         line-height: 1.618;
@@ -48,15 +51,25 @@
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
-  "@type": "MusicRecording",
+  "@type": [
+    "MusicRecording",
+    "MusicComposition"
+  ],
   "name": "Experiment",
   "byArtist": {
     "@type": "Person",
+    "@id": "#coleporter",
     "name": "Cole Porter",
     "sameAs": [
       "https://www.wikidata.org/wiki/Q215120",
       "https://en.wikipedia.org/wiki/Cole_Porter"
     ]
+  },
+  "composer": {
+    "@id": "#coleporter"
+  },
+  "lyricist": {
+    "@id": "#coleporter"
   },
   "inAlbum": {
     "@type": "MusicAlbum",
@@ -74,6 +87,7 @@
     "name": "English",
     "alternateName": "en"
   },
+  "lyrics": "Experiment. Make it your motto day and night. Experiment. And it will lead you to the light. The apple on the top of the tree. Is never too high to achieve, So take an example from Eve, Experiment. Be curious, Though interfering friends may frown. Get furious. At each attempt to hold you down.If this advice you'll only employ. The future can offer you infinite joy. And merriment, Experiment. And you'll see",
   "text": "Experiment. Make it your motto day and night. Experiment. And it will lead you to the light. The apple on the top of the tree. Is never too high to achieve, So take an example from Eve, Experiment. Be curious, Though interfering friends may frown. Get furious. At each attempt to hold you down.If this advice you'll only employ. The future can offer you infinite joy. And merriment, Experiment. And you'll see",
   "audio": "https://open.spotify.com/track/23i77phF1cMeJPETAxVo4s?si=f11a6ed29bfd4a22"
 }
