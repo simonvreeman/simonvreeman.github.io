@@ -22,6 +22,8 @@
       *, ::after, ::before {
         margin: 0;
         padding: 0;
+        color: var(--eigengrau);
+        text-decoration: none;
       }
       html {
         touch-action: manipulation;
@@ -31,45 +33,21 @@
         display: grid;
         place-items: center;
         place-content: center;
-        margin: 0 1rem;
-      }
-      h1, p, a {
-        color: var(--eigengrau);
-        font-family: var(--sans-serif);
-        font-weight: normal;
-        font-size: calc(5.25rem + .25vw);
-        line-height: calc(1ex / 0.3236);
+        /*margin: 0 1rem;*/
+        /*max-width: 40vw;*/
+        /*margin: 10% auto;*/
+
+        /*font: font-style font-variant font-weight font-size/line-height font-family;*/
+        font: 500 1.125rem/1.618 var(--sans-serif);
         letter-spacing: 0.1618rem;
         word-spacing: 0.1618rem;
         text-rendering: geometricPrecision;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: subpixel-antialiased;
         font-kerning: none;
-        text-decoration: none;
-        text-align: center;
       }
-      h1 {
-        font-weight: 700;
-        font-size: calc(1.5rem + .25vw);
-      }
-      small {
-        font-size: 50%;
-        color: var(--gray);
-        font-family: var(--monospace);
-      }
-      a:active, a:focus, a:hover {
-        text-decoration: underline;
-        text-decoration-color: var(--blue-light);
-        outline: none;
-      }
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: var(--eigengrau);
-          color: var(--white);
-        }
-        h1, p, a {
-          color: var(--white);
-        }
+      main {
+
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
@@ -78,10 +56,10 @@
   </head>
   <body>
     <main>
-      <h1><a href="mailto:simon@vreeman.com">Simon Vreeman</a></h1>
-      <!-- <p>Freelance Growth Marketing Consultant</p> -->
-      <!-- <p><a href="mailto:simon@vreeman.com">simon@vreeman.com</a></p> -->
-      <!-- <p><small>KVK: 82671087 &middot; BTW ID: NL003713414B18 &middot; IBAN: NL04BUNQ2060945607</small></p> -->
+      <h1>Simon Vreeman</h1>
+      <p>Freelance Growth Marketing Consultant</p>
+      <p><a href="mailto:simon@vreeman.com">simon@vreeman.com</a> &middot; <a href=" https://wa.me/31613367285">+31(0)613367285</a></p>
+      <p><small>KVK: 82671087 &middot; BTW ID: NL003713414B18 &middot; IBAN: NL04BUNQ2060945607</small></p>
     </main>
   </body>
 </html>
