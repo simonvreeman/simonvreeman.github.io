@@ -3572,6 +3572,13 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
       <p data-nosnippet><small>Another page by <a href="https://vreeman.com/" title="Simon Vreeman">Simon Vreeman</a> <span class="copy"></span></small></p>
     </footer>
 <script>
+window.addEventListener("load", () => {
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("https://vreeman.com/serviceworker.js");
+  }
+});
+</script>
+<script>
 window.onload = function(){
   setTimeout(function(){
     window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
@@ -3586,13 +3593,6 @@ window.onload = function(){
     copy[0].innerHTML += "loaded in " + loadTime + " seconds.";
   }, 0); 
 }
-</script>
-<script>
-window.addEventListener("load", () => {
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("https://vreeman.com/serviceworker.js");
-  }
-});
 </script>
   </body>
 </html>
