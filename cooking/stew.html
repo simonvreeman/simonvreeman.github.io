@@ -12,10 +12,9 @@
         --mono: SFMono-Regular, Menlo, Consolas, Roboto Mono, Liberation Mono, Monaco, Courier New, monospace, monospace, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
         --sans-serif: BlinkMacSystemFont, -apple-system, Segoe UI, system-ui, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
         --serif: Georgia, Times New Roman, Times, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-        color-scheme: light dark;
+        color-scheme: dark light;
       }
       html {
-        color-scheme: light dark;
         font-family: var(--sans-serif);
         font-size: 1.125rem;
         line-height: 1.618;
@@ -34,6 +33,12 @@
       hr {
         border: 0;
         border-top: 1px solid var(--eigengrau);
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: var(--eigengrau);
+          color: #fff;
+        }
       }
     </style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://gtm.vreeman.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
