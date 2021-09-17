@@ -1,0 +1,166 @@
+{
+  "@context": "https://schema.org/",
+  "@graph": [
+    {
+      "@id": "https://vreeman.com/#/schema/simonvreeman",
+      "@type": "Person",
+      "name": "Simon Vreeman",
+      "givenName": "Simon",
+      "familyName": "Vreeman",
+      "jobTitle": {
+        "@type": "DefinedTerm",
+        "name": "Freelance Growth Marketing Consultant"
+      },
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name":"Freelance Growth Marketing Consultant",
+        "skills": [
+          {"@id": "https://vreeman.com/#/schema/services/seo"},
+          {"@id": "https://vreeman.com/#/schema/services/cro"},
+          {"@id": "https://vreeman.com/#/schema/services/webanalytics"}
+        ]
+      },
+      "email": "simon@vreeman.com",
+      "url": "https://vreeman.com/",
+      "birthDate": "1990-09-01",
+      "birthPlace": {
+        "@type": "Place",
+        "name": "Deventer"
+      },
+      "gender": {
+        "@type": "GenderType",
+        "name": "male"
+      },
+      "address": {
+        "@id": "https://vreeman.com/#/schema/amsterdam"
+      },
+      "homeLocation": {
+        "@id": "https://vreeman.com/#/schema/amsterdam"
+      },
+      "workLocation": {
+        "@id": "https://vreeman.com/#/schema/amsterdam"
+      },
+      "nationality": {
+        "@id": "https://vreeman.com/#/schema/netherlands"
+      },
+      "knowsAbout": [
+        {"@id": "https://vreeman.com/#/schema/services/seo"},
+        {"@id": "https://vreeman.com/#/schema/services/cro"},
+        {"@id": "https://vreeman.com/#/schema/services/webanalytics"}
+      ],
+      "knowsLanguage": [
+        {
+          "@id": "https://vreeman.com/#/schema/english",
+          "@type": "Language",
+          "name": "English",
+          "alternateName": "en"
+        },
+        {
+          "@type": "Language",
+          "name": "Dutch",
+          "alternateName": "nl"
+        }
+      ],
+      "worksFor": {
+        "@id": "https://vreeman.com/#/schema/org/consultancy"
+      },
+      "alumniOf": [
+        {"@id": "https://vreeman.com/#/schema/org/vanmoof"},
+        {"@id": "https://vreeman.com/#/schema/org/tnw"},
+        {"@id": "https://vreeman.com/#/schema/org/vandervalk"}
+      ],
+      "sameAs": [
+        "https://g.co/kg/m/010rn7wd",
+        "https://twitter.com/vreeman",
+        "https://www.facebook.com/simonvreeman",
+        "https://www.linkedin.com/in/simonvreeman/",
+        "https://plus.google.com/+SimonVreeman?rel=author",
+        "https://www.instagram.com/simonvreeman/",
+        "https://github.com/simonvreeman",
+        "https://www.crunchbase.com/person/simon-vreeman",
+        "https://en.wikipedia.org/wiki/User:Simonvreeman"
+      ]
+    },
+    {
+      "@id": "https://vreeman.com/",
+      "@type": [
+        "AboutPage",
+        "ProfilePage"
+      ],
+      "url": "https://vreeman.com/",
+      "inLanguage": {
+        "@id": "https://vreeman.com/#/schema/english"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/#/schema/website",
+      "@type": "WebSite",
+      "url": "https://vreeman.com/",
+      "inLanguage": {
+        "@id": "https://vreeman.com/#/schema/english"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/#/schema/image",
+      "@type": "ImageObject",
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "@id": "https://vreeman.com/#/schema/amsterdam",
+      "@type": "PostalAddress",
+      "addressLocality": "Amsterdam",
+      "addressCountry": {
+        "@id": "https://vreeman.com/#/schema/netherlands",
+        "@type": "Country",
+        "name": "the Netherlands"
+      }
+    },
+    {
+      "@id": "https://vreeman.com/#/schema/org/consultancy",
+      "@type": "Organization",
+      "name": "Vreeman Consultancy"
+      // KVK
+      // BTW
+      // IBAN
+    },
+    {
+      "@id": "https://vreeman.com/#/schema/org/vanmoof",
+      "@type": "Organization",
+      "name": "VanMoof"
+    },
+    {
+      "@id": "https://vreeman.com/#/schema/org/tnw",
+      "@type": "Organization",
+      "name": "The Next Web"
+    },
+    {
+      "@id": "https://vreeman.com/#/schema/org/vandervalk",
+      "@type": "Organization",
+      "name": "Van der Valk"
+    },
+    {
+      "@id": "https://vreeman.com/#/schema/services/seo",
+      "@type": [
+        "Service",
+        "DefinedTerm"
+      ],
+      "name": "SEO"
+    },
+    {
+      "@id": "https://vreeman.com/#/schema/services/cro",
+      "@type": [
+        "Service",
+        "DefinedTerm"
+      ],
+      "name": "CRO"
+    },
+    {
+      "@id": "https://vreeman.com/#/schema/services/webanalytics",
+      "@type": [
+        "Service",
+        "DefinedTerm"
+      ],
+      "name": "Web Analytics"
+    }
+  ]
+}
