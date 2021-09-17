@@ -9,227 +9,228 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://gtm.vreeman.com" crossorigin>
     <link rel="dns-prefetch" href="https://gtm.vreeman.com">
-    <style>
-      :root {
-        color-scheme: dark light;
-        --eigengrau: #16161d;
-        --blue-dark: #06c;
-        --blue-light: #2997ff;
-        --blue-lighter: #6bf;
-        --gray: rgb(204, 204, 204);
-        --white: #f5f5f7;
-        --serif: Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        --sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        --monospace: SFMono-Regular, Menlo, Monaco, Consolas, Roboto Mono, "Liberation Mono", "Courier New", monospace;
-      }
-      ::-moz-selection {
-        color: var(--eigengrau);
-        background-color: var(--blue-lighter);
-      }
-      ::selection {
-        color: var(--eigengrau);
-        background-color: var(--blue-lighter);
-      }
-      ::target-text {
-        color: var(--eigengrau);
-        background-color: var(--blue-lighter);
-      }
-      :focus {
-        outline: 3px solid var(--blue-lighter);
-        outline-offset: 1px;
-      }
-      html {
-        overflow-x: hidden;
-        overflow-y: scroll;
-        scroll-behavior: smooth;
-        -webkit-text-size-adjust: 100%;
-        -moz-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: scrollbar;
-        -webkit-tap-highlight-color: transparent;
-      }
-      body {
-        margin: 0 auto;
-        max-width: 50rem;
-        padding: 0 3%;
-        color: var(--eigengrau);
-        font-family: var(--serif);
-        font-size: 1.25rem;
-        line-height: 1.618;
-        font-feature-settings: "onum" 1;
-        text-rendering: geometricPrecision;
-        -moz-font-feature-settings: "kern";
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        direction: ltr;
-      }
-      h1, h2, h3, h4, h5 {
-        font-family: var(--sans-serif);
-      }
-      h1, h2, h3, h4, h5, li, p {
-        word-break: break-word;
-      }
-      table, td, th {
-        border-collapse: collapse;
-      }
-      table {
-        border-style: hidden;
-        font-family: var(--monospace);
-        width: 100%;
-      }
-      td, th {
-        border: 1px solid var(--eigengrau);
-        padding: 3px;
-      }
-      tbody {
-        vertical-align: text-bottom;
-      }
-      a {
-        background-color: transparent;
-        color: var(--blue-dark);
-        text-decoration-skip: ink;
-        -ms-touch-action: manipulation;
-        touch-action: manipulation;
-      }
-      a:active, a:focus, a:hover {
-        color: var(--blue-light);
-      }
-      .return, abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
-        text-decoration: none;
-      }
-      dt, strong {
-        font-weight: 700;
-      }
-      cite, em {
-        font-style: italic;
-      }
-      cite::before {
-        content: "—";
-      }
-      blockquote > p::before {
-        content: open-quote;
-      }
-      blockquote > p::after {
-        content: close-quote;
-      }
-      sub, sup {
-        font-size: 75%;
-        line-height: 0;
-        position: relative;
-        vertical-align: baseline;
-      }
-      sub {
-        bottom: -.25rem;
-      }
-      sup {
-        top: -.5rem;
-      }
-      sub::before, sup::before {
-        content: "[";
-      }
-      sub::after, sup::after {
-        content: "]";
-      }
-      li::marker {
-        color: var(--blue-dark);
-        font-weight: 700;
-      }
-      ul ul, ul ul ul {
-          list-style: inherit;
-      }
-      mark {
-        color: var(--eigengrau);
-        background-color: var(--blue-lighter);
-        padding: .25rem;
-      }
-      mark[title] {
-        background-color: var(--blue-dark);
-      }
-      mark[title], mark[title] > a {
-        color: var(--white);
-      }
-      hr {
-        display: block;
-        height: 1px;
-        border: 0;
-        border-top: 1px solid var(--eigengrau);
-        margin: 1em 0;
-        padding: 0;
-      }
-      .alpha, .roman, table {
-        font-feature-settings: 'tnum' on;
-        font-variant-numeric: tabular-nums;
-      
-      }
-      .alpha {
-        list-style-type: lower-alpha;
-      }
-      .roman {
-        list-style-type: lower-roman;
-      }
-      [id] {
-        scroll-margin-top: 2ex;
-        scroll-snap-margin-top: 2ex;
-      }
-      @media (prefers-reduced-motion: reduce) {
-        *, ::after, ::before, html {
-          scroll-behavior: auto !important;
-        }
-        *, ::after, ::before {
-          animation: none !important;
-          transition: none !important;
-        }
-      }
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: var(--eigengrau);
-        }
-        body, mark {
-          color: var(--white);
-        }
-        a {
-          color: var(--blue-lighter);
-        }
-        a:active, a:focus, a:hover, li::marker {
-          color: var(--blue-light);
-        }
-        mark {
-          background-color: var(--blue-dark);
-        }
-        hr {
-          border-top: 1px solid var(--white);
-        }
-      }
-      @media print {
-        body {
-          font-size: 1rem;
-          line-height: 1.618;
-        }
-        a, body, mark, li::marker {
-          color: #000;
-        }
-        a {
-          text-decoration: none;
-        }
-        .return, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
-          display: none;
-        }
-        mark {
-          background-color: #fff;
-        }
-        main:after {
-          content: "Thank you for printing Meditations by Marcus Aurelius from: https://vreeman.com/meditations/.";
-        }
-        main table, nav ul {
-          font-size: 80%;
-        }
-        main h2 {
-          page-break-before: always;
-        }
-      }
-      </style>
+<style>
+:root {
+  color-scheme: dark light;
+  --eigengrau: #16161d;
+  --blue-dark: #06c;
+  --blue-light: #2997ff;
+  --blue-lighter: #6bf;
+  --gray: rgb(204, 204, 204);
+  --white: #f5f5f7;
+  --serif: Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --monospace: SFMono-Regular, Menlo, Monaco, Consolas, Roboto Mono, "Liberation Mono", "Courier New", monospace;
+}
+::-moz-selection {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+::selection {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+::target-text {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+:focus {
+  outline: 3px solid var(--blue-lighter);
+  outline-offset: 1px;
+}
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: 35em;
+  max-width: 95%;
+  color: var(--eigengrau);
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.618;
+  font-feature-settings: "onum" 1;
+  text-rendering: geometricPrecision;
+  -moz-font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+}
+h1, h2, h3, h4, h5 {
+  font-family: var(--sans-serif);
+}
+h1, h2, h3, h4, h5, li, p {
+  word-break: break-word;
+}
+table, td, th {
+  border-collapse: collapse;
+}
+table {
+  border-style: hidden;
+  font-family: var(--monospace);
+  width: 100%;
+}
+td, th {
+  border: 1px solid var(--eigengrau);
+  padding: 3px;
+}
+tbody {
+  vertical-align: text-bottom;
+}
+a {
+  background-color: transparent;
+  color: var(--blue-dark);
+  text-decoration-skip: ink;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+a:active, a:focus, a:hover {
+  color: var(--blue-light);
+}
+.return, abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
+  text-decoration: none;
+}
+dt, strong {
+  font-weight: 700;
+}
+cite, em {
+  font-style: italic;
+}
+cite::before {
+  content: "—";
+}
+blockquote > p::before {
+  content: open-quote;
+}
+blockquote > p::after {
+  content: close-quote;
+}
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -.25rem;
+}
+sup {
+  top: -.5rem;
+}
+sub::before, sup::before {
+  content: "[";
+}
+sub::after, sup::after {
+  content: "]";
+}
+li::marker {
+  color: var(--blue-dark);
+  font-weight: 700;
+}
+ul ul, ul ul ul {
+    list-style: inherit;
+}
+mark {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+  padding: .25rem;
+}
+mark[title] {
+  background-color: var(--blue-dark);
+}
+mark[title], mark[title] > a {
+  color: var(--white);
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid var(--eigengrau);
+  margin: 1em 0;
+  padding: 0;
+}
+.alpha, .roman, table {
+  font-feature-settings: 'tnum' on;
+  font-variant-numeric: tabular-nums;
+
+}
+.alpha {
+  list-style-type: lower-alpha;
+}
+.roman {
+  list-style-type: lower-roman;
+}
+[id] {
+  scroll-margin-top: 2ex;
+  scroll-snap-margin-top: 2ex;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, ::after, ::before, html {
+    scroll-behavior: auto !important;
+  }
+  *, ::after, ::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--eigengrau);
+  }
+  body, mark {
+    color: var(--white);
+  }
+  a {
+    color: var(--blue-lighter);
+  }
+  a:active, a:focus, a:hover, li::marker {
+    color: var(--blue-light);
+  }
+  mark {
+    background-color: var(--blue-dark);
+  }
+  hr {
+    border-top: 1px solid var(--white);
+  }
+}
+@media print {
+  body {
+    font-size: 1rem;
+    line-height: 1.618;
+  }
+  a, body, mark, li::marker {
+    color: #000;
+  }
+  a {
+    text-decoration: none;
+  }
+  .return, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
+    display: none;
+  }
+  mark {
+    background-color: #fff;
+  }
+  main:after {
+    content: "Thank you for printing Meditations by Marcus Aurelius from: https://vreeman.com/meditations/.";
+  }
+  main table, nav ul {
+    font-size: 80%;
+  }
+  main h2 {
+    page-break-before: always;
+  }
+}
+</style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://gtm.vreeman.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
     <link rel="canonical" href="https://vreeman.com/discourses/">
     <link rel="alternate" href="https://vreeman.com/discourses/" hreflang="x-default">
@@ -254,90 +255,90 @@
     <meta property="og:description" content="Read for free Discourses and Enchiridion, by the Stoic philosopher Epictetus written down by Arrian in an English translation by George Long.">
     <meta property="og:image" content="https://vreeman.com/discourses/discourses.png">
     <meta property="og:image:secure_url" content="https://vreeman.com/discourses/discourses.png">
-    <script type="application/ld+json">
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@graph": [
       {
-        "@context": "https://schema.org/",
-        "@graph": [
+        "@id": "https://vreeman.com/meditations/#/schema/discourses",
+        "@type": [
+          "CreativeWork",
+          "Book",
+          "Product"
+        ],
+        "name": "Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.",
+        "description": "Read for free Discourses and Enchiridion, by the Stoic philosopher Epictetus written down by Arrian in an English translation by George Long.",
+        "url": "https://vreeman.com/discourses/",
+        "sameAs": [
+          "https://www.wikidata.org/wiki/Q4357914",
+          "https://en.wikipedia.org/wiki/Discourses_of_Epictetus",
+          "https://en.wikipedia.org/wiki/Enchiridion_of_Epictetus",
+          "https://dbpedia.org/page/Discourses_of_Epictetus"
+        ],
+        "additionalType": "http://www.productontology.org/id/Discourses_of_Epictetus",
+        "image": [
           {
-            "@id": "https://vreeman.com/meditations/#/schema/discourses",
-            "@type": [
-              "CreativeWork",
-              "Book",
-              "Product"
-            ],
+            "@type": "ImageObject",
+            "contentUrl": "https://vreeman.com/discourses/discourses.jpg",
+            "url": "https://vreeman.com/discourses/discourses.jpg",
+            "thumbnail": "https://vreeman.com/discourses/discourses.jpg",
+            "author": {
+              "@id": "https://vreeman.com/meditations/#/schema/simonvreeman"
+            },
             "name": "Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.",
-            "description": "Read for free Discourses and Enchiridion, by the Stoic philosopher Epictetus written down by Arrian in an English translation by George Long.",
-            "url": "https://vreeman.com/discourses/",
-            "sameAs": [
-              "https://www.wikidata.org/wiki/Q4357914",
-              "https://en.wikipedia.org/wiki/Discourses_of_Epictetus",
-              "https://en.wikipedia.org/wiki/Enchiridion_of_Epictetus",
-              "https://dbpedia.org/page/Discourses_of_Epictetus"
-            ],
-            "additionalType": "http://www.productontology.org/id/Discourses_of_Epictetus",
-            "image": [
-              {
-                "@type": "ImageObject",
-                "contentUrl": "https://vreeman.com/discourses/discourses.jpg",
-                "url": "https://vreeman.com/discourses/discourses.jpg",
-                "thumbnail": "https://vreeman.com/discourses/discourses.jpg",
-                "author": {
-                  "@id": "https://vreeman.com/meditations/#/schema/simonvreeman"
-                },
-                "name": "Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.",
-                "height": "512",
-                "width": "1024",
-                "contentSize": "31.2 KB",
-                "uploadDate": "2021-07-07",
-                "license": "https://creativecommons.org/licenses/by/4.0/",
-                "acquireLicensePage": "https://vreeman.com/discourses/"
-              },
-              {
-                "@type": "ImageObject",
-                "contentUrl": "https://vreeman.com/discourses/discourses.webp",
-                "url": "https://vreeman.com/discourses/discourses.webp",
-                "thumbnail": "https://vreeman.com/discourses/discourses.webp",
-                "author": {
-                  "@id": "https://vreeman.com/meditations/#/schema/simonvreeman"
-                },
-                "name": "Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.",
-                "height": "512",
-                "width": "1024",
-                "contentSize": "19.1 KB",
-                "uploadDate": "2021-07-07",
-                "license": "https://creativecommons.org/licenses/by/4.0/",
-                "acquireLicensePage": "https://vreeman.com/discourses/"
-              },
-              {
-                "@type": "ImageObject",
-                "contentUrl": "https://vreeman.com/discourses/discourses.avif",
-                "url": "https://vreeman.com/discourses/discourses.avif",
-                "thumbnail": "https://vreeman.com/discourses/discourses.avif",
-                "author": {
-                  "@id": "https://vreeman.com/meditations/#/schema/simonvreeman"
-                },
-                "name": "Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.",
-                "height": "512",
-                "width": "1024",
-                "contentSize": "10.7 KB",
-                "uploadDate": "2021-07-07",
-                "license": "https://creativecommons.org/licenses/by/4.0/",
-                "acquireLicensePage": "https://vreeman.com/discourses/"
-              }
-            ],
-            "offers": {
-              "@type": "Offer",
-              "url": "https://vreeman.com/discourses/",
-              "priceCurrency": "EUR",
-              "price": "0",
-              "priceValidUntil": "2121-12-31",
-              "itemCondition": "https://schema.org/NewCondition",
-              "availability": "https://schema.org/InStock"
-            }
+            "height": "512",
+            "width": "1024",
+            "contentSize": "31.2 KB",
+            "uploadDate": "2021-07-07",
+            "license": "https://creativecommons.org/licenses/by/4.0/",
+            "acquireLicensePage": "https://vreeman.com/discourses/"
+          },
+          {
+            "@type": "ImageObject",
+            "contentUrl": "https://vreeman.com/discourses/discourses.webp",
+            "url": "https://vreeman.com/discourses/discourses.webp",
+            "thumbnail": "https://vreeman.com/discourses/discourses.webp",
+            "author": {
+              "@id": "https://vreeman.com/meditations/#/schema/simonvreeman"
+            },
+            "name": "Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.",
+            "height": "512",
+            "width": "1024",
+            "contentSize": "19.1 KB",
+            "uploadDate": "2021-07-07",
+            "license": "https://creativecommons.org/licenses/by/4.0/",
+            "acquireLicensePage": "https://vreeman.com/discourses/"
+          },
+          {
+            "@type": "ImageObject",
+            "contentUrl": "https://vreeman.com/discourses/discourses.avif",
+            "url": "https://vreeman.com/discourses/discourses.avif",
+            "thumbnail": "https://vreeman.com/discourses/discourses.avif",
+            "author": {
+              "@id": "https://vreeman.com/meditations/#/schema/simonvreeman"
+            },
+            "name": "Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.",
+            "height": "512",
+            "width": "1024",
+            "contentSize": "10.7 KB",
+            "uploadDate": "2021-07-07",
+            "license": "https://creativecommons.org/licenses/by/4.0/",
+            "acquireLicensePage": "https://vreeman.com/discourses/"
           }
-        ]
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vreeman.com/discourses/",
+          "priceCurrency": "EUR",
+          "price": "0",
+          "priceValidUntil": "2121-12-31",
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "https://schema.org/InStock"
+        }
       }
-    </script>
+    ]
+  }
+</script>
   </head>
   <body>
     <noscript><iframe src="https://gtm.vreeman.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
