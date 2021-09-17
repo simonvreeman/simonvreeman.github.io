@@ -11,6 +11,7 @@
     <link rel="dns-prefetch" href="https://gtm.vreeman.com">
     <style>
       :root {
+        color-scheme: dark light;
         --eigengrau: #16161d;
         --blue-dark: #06c;
         --blue-light: #2997ff;
@@ -19,7 +20,7 @@
         --white: #f5f5f7;
         --serif: Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         --sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        --monospace: SFMono-Regular, Menlo, Consolas, Roboto Mono, "Liberation Mono", Monaco, "Courier New", monospace;
+        --monospace: SFMono-Regular, Menlo, Monaco, Consolas, Roboto Mono, "Liberation Mono", "Courier New", monospace;
       }
       ::-moz-selection {
         color: var(--eigengrau);
@@ -32,6 +33,10 @@
       ::target-text {
         color: var(--eigengrau);
         background-color: var(--blue-lighter);
+      }
+      :focus {
+        outline: 3px solid var(--blue-lighter);
+        outline-offset: 1px;
       }
       html {
         overflow-x: hidden;
@@ -53,28 +58,29 @@
         font-family: var(--serif);
         font-size: 1.25rem;
         line-height: 1.618;
+        font-feature-settings: "onum" 1;
         text-rendering: geometricPrecision;
+        -moz-font-feature-settings: "kern";
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        direction: ltr;
       }
-      h1, h2, h3, h4, h5, table {
+      h1, h2, h3, h4, h5 {
         font-family: var(--sans-serif);
       }
       h1, h2, h3, h4, h5, li, p {
         word-break: break-word;
-        hyphens: auto;
       }
       table, td, th {
         border-collapse: collapse;
       }
       table {
         border-style: hidden;
-        font-feature-settings: 'tnum' on;
-        font-variant-numeric: tabular-nums;
+        font-family: var(--monospace);
         width: 100%;
       }
       td, th {
-        border: 1px solid #000;
+        border: 1px solid var(--eigengrau);
         padding: 3px;
       }
       tbody {
@@ -121,7 +127,7 @@
         top: -.5rem;
       }
       sub::before, sup::before {
-        content: " [";
+        content: "[";
       }
       sub::after, sup::after {
         content: "]";
@@ -130,10 +136,19 @@
         color: var(--blue-dark);
         font-weight: 700;
       }
+      ul ul, ul ul ul {
+          list-style: inherit;
+      }
       mark {
         color: var(--eigengrau);
         background-color: var(--blue-lighter);
         padding: .25rem;
+      }
+      mark[title] {
+        background-color: var(--blue-dark);
+      }
+      mark[title], mark[title] > a {
+        color: var(--white);
       }
       hr {
         display: block;
@@ -143,44 +158,44 @@
         margin: 1em 0;
         padding: 0;
       }
-      .roman {
-        list-style-type: lower-roman;
+      .alpha, .roman, table {
         font-feature-settings: 'tnum' on;
         font-variant-numeric: tabular-nums;
+      
       }
       .alpha {
         list-style-type: lower-alpha;
-        font-feature-settings: 'tnum' on;
-        font-variant-numeric: tabular-nums;
+      }
+      .roman {
+        list-style-type: lower-roman;
       }
       [id] {
         scroll-margin-top: 2ex;
         scroll-snap-margin-top: 2ex;
       }
       @media (prefers-reduced-motion: reduce) {
-        *,
-        *::after,
-        *::before {
-          animation: none;
-          transition: none;
+        *, ::after, ::before, html {
+          scroll-behavior: auto !important;
+        }
+        *, ::after, ::before {
+          animation: none !important;
+          transition: none !important;
         }
       }
       @media (prefers-color-scheme: dark) {
         body {
           background-color: var(--eigengrau);
+        }
+        body, mark {
           color: var(--white);
         }
         a {
           color: var(--blue-lighter);
         }
-        a:active, a:focus, a:hover {
-          color: var(--blue-light);
-        }
-        li::marker {
+        a:active, a:focus, a:hover, li::marker {
           color: var(--blue-light);
         }
         mark {
-          color: var(--white);
           background-color: var(--blue-dark);
         }
         hr {
@@ -189,23 +204,20 @@
       }
       @media print {
         body {
-          color: #000;
           font-size: 1rem;
           line-height: 1.618;
         }
-        a {
+        a, body, mark, li::marker {
           color: #000;
+        }
+        a {
           text-decoration: none;
         }
         .return, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
           display: none;
         }
         mark {
-          color: #000;
           background-color: #fff;
-        }
-        li::marker {
-          color: #000;
         }
         main:after {
           content: "Thank you for printing Meditations by Marcus Aurelius from: https://vreeman.com/meditations/.";
@@ -217,7 +229,7 @@
           page-break-before: always;
         }
       }
-    </style>
+      </style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://gtm.vreeman.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
     <link rel="canonical" href="https://vreeman.com/discourses/">
     <link rel="alternate" href="https://vreeman.com/discourses/" hreflang="x-default">
