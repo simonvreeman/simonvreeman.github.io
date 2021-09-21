@@ -1,13 +1,12 @@
 var cacheName = 'tools';
 var cacheFiles = [
   '/',
-  '/index.html',
-  '/tools.html',
-  '/calc.html',
-  '/growth.html',
-  '/hypothesis.html',
-  '/utm.html',
-  '/dencoder.html'
+  '/tools',
+  '/calc',
+  '/growth',
+  '/hypothesis',
+  '/utm',
+  '/dencoder'
 ];
 
 self.addEventListener('install', function(event) {
@@ -30,7 +29,7 @@ self.addEventListener('fetch', function(event) {
         return fetch(event.request);
     }).catch(function() {
       // Can't access the network return an offline page from the cache
-      return caches.match('/tools.html');
+      return caches.match('/tools');
     })
   );
 });
