@@ -11,42 +11,42 @@
     </image:image>
   </url>
   <url>
-    <loc>https://vreeman.com/f1.html</loc>
+    <loc>https://vreeman.com/f1</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://vreeman.com/cro.html</loc>
+    <loc>https://vreeman.com/cro</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://vreeman.com/gear.html</loc>
+    <loc>https://vreeman.com/gear</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://vreeman.com/experiment.html</loc>
+    <loc>https://vreeman.com/experiment</loc>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://vreeman.com/if.html</loc>
+    <loc>https://vreeman.com/if</loc>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://vreeman.com/mp.html</loc>
+    <loc>https://vreeman.com/mp</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://vreeman.com/utm.html</loc>
+    <loc>https://vreeman.com/utm</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://vreeman.com/hypothesis.html</loc>
+    <loc>https://vreeman.com/hypothesis</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
