@@ -9,3 +9,4 @@ With a list of [CRO tools](https://vreeman.com/cro):
 * [F1 2020, 2019 & 2018 Calendar, Teams & Drivers](https://vreeman.com/f1)
 * [Meditations by Marcus Aurelius.](https://vreeman.com/meditations/) A new Translation, with an Introduction, by Gregory Hays. Plus a overview of all the sections and paragraphs of Meditations quoted in the The Daily Stoic.
 * [Arrian’s Discourses of Epictetus. Translation by George Long.](https://vreeman.com/discourses/)
+* [Link from Google?](https://www.google.com/url?q=https%3A%2F%2Fvreeman.com%2F)
