@@ -22,6 +22,7 @@
       *, ::after, ::before {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
         color: var(--eigengrau);
         text-decoration: none;
       }
@@ -29,7 +30,8 @@
         touch-action: manipulation;
       }
       body {
-        height: 100vh;  
+        min-height: 100vh;
+        height: 100vh;
         display: grid;
         place-items: center;
         place-content: center;
@@ -48,6 +50,9 @@
       }
       main {
         padding: 1rem;
+      }
+      a {
+        text-decoration-skip-ink: auto;
       }
       hr {
         box-sizing: content-box;
