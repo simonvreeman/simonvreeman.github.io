@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemon IV Calculator</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+    <link rel="preconnect" href="https://gtm.vreeman.com" crossorigin>
+    <link rel="dns-prefetch" href="https://gtm.vreeman.com">
+    <style>
+      :root {
+        --eigengrau: #16161d;
+        --monospace: SFMono-Regular, Menlo, Monaco, Consolas, Roboto Mono, "Liberation Mono", "Courier New", monospace;
+      }
+      *, ::after, ::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: var(--eigengrau);
+        font-family: var(--monospace);
+        text-decoration: none;
+      }
+      html {
+        touch-action: manipulation;
+      }
+      body {
+        font: 500 1.125rem/1.618 var(--monospace);
+        letter-spacing: 0.1618rem;
+        word-spacing: 0.1618rem;
+        text-rendering: geometricPrecision;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: subpixel-antialiased;
+        font-kerning: none;
+      }
+
+    </style>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://gtm.vreeman.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
+    <link rel="canonical" href="https://vreeman.com">
+    <meta name="robots" content="noindex, nofollow">
+  </head>
+  <body oninput="calcIV()">
+    <noscript><iframe src="https://gtm.vreeman.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <table>
+      <tr>
+        <td>Attack</td>
+        <td><input type="number" name="attack" id="attack" min="0" max="15" autofocus required></td>
+      </tr>
+      <tr>
+        <td>Defense</td>
+        <td><input type="number" name="defense" id="defense" min="0" max="15"required></td>
+      </tr>
+      <tr>
+        <td>HP</td>
+        <td><input type="number" name="hp" id="hp" min="0" max="15" required></td>
+      </tr>
+      <tr>
+        <td>IV</td>
+        <td id="result"></td>
+      </tr>
+    </table>
+
+    <script type="text/javascript">
+      function calcIV() {
+        const attackValue = parseInt( document.getElementById("attack").value );
+        const defenseValue = parseInt( document.getElementById("defense").value );
+        const hpValue = parseInt( document.getElementById("hp").value );
+
+        const sum = (((attackValue + defenseValue + hpValue) / 45) * 100).toFixed(0);
+        
+        result.textContent = sum + "%";
+      }
+      
+    </script>
+  </body>
+</html>
