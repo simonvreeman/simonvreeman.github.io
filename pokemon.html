@@ -39,15 +39,15 @@
     <table>
       <tr>
         <td>Attack</td>
-        <td><input type="number" name="attack" id="attack" min="0" max="15" autofocus required></td>
+        <td><input type="number" inputmode="decimal" name="attack" id="attack" min="0" max="15" autofocus required></td>
       </tr>
       <tr>
         <td>Defense</td>
-        <td><input type="number" name="defense" id="defense" min="0" max="15"required></td>
+        <td><input type="number" inputmode="decimal" name="defense" id="defense" min="0" max="15"required></td>
       </tr>
       <tr>
         <td>HP</td>
-        <td><input type="number" name="hp" id="hp" min="0" max="15" required></td>
+        <td><input type="number" inputmode="decimal" name="hp" id="hp" min="0" max="15" required></td>
       </tr>
       <tr>
         <td>IV</td>
@@ -62,10 +62,10 @@
         const hpValue = parseInt( document.getElementById("hp").value );
 
         const sum = (((attackValue + defenseValue + hpValue) / 45) * 100).toFixed(0);
-        
+
         result.textContent = sum + "%";
       }
-      
+
     </script>
   </body>
 </html>
