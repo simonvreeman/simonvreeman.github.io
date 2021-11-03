@@ -26,7 +26,13 @@
         font-kerning: none;
       }
       input {
-        width: 5rem;
+        width: 80px;
+      }
+      input:valid {
+        border: 2px solid limegreen;
+      }
+      input:invalid {
+        border: 2px solid red;
       }
     </style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://gtm.vreeman.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
@@ -39,15 +45,15 @@
     <table>
       <tr>
         <td>Attack</td>
-        <td><input type="number" inputmode="decimal" name="attack" id="attack" min="0" max="15" autofocus required></td>
+        <td><input type="number" inputmode="decimal" step="1" min="0" max="15" pattern="[0-9][0-5]" name="attack" id="attack" autofocus required></td>
       </tr>
       <tr>
         <td>Defense</td>
-        <td><input type="number" inputmode="decimal" name="defense" id="defense" min="0" max="15"required></td>
+        <td><input type="number" inputmode="decimal" step="1" min="0" max="15" pattern="[0-9][0-5]" name="defense" id="defense" required></td>
       </tr>
       <tr>
         <td>HP</td>
-        <td><input type="number" inputmode="decimal" name="hp" id="hp" min="0" max="15" required></td>
+        <td><input type="number" inputmode="decimal" step="1" min="0" max="15" pattern="[0-9][0-5]" name="hp" id="hp" required></td>
       </tr>
       <tr>
         <td>IV</td>
