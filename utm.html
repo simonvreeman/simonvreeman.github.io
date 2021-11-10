@@ -193,6 +193,7 @@
       <li><a href="https://search.developer.apple.com/appsearch-validation-tool" target="_blank" rel="nofollow noopener noreferrer">Apple App Search API Validation Tool</a></li>
       <li><a id="googlesitemap" href="https://google.com/ping?sitemap=https://vreeman.com/sitemap.xml" target="_blank" rel="nofollow noopener noreferrer">Ping Google with XML Sitemap</a></li>
       <li><a id="bingsitemap" href="https://bing.com/ping?sitemap=https://vreeman.com/sitemap.xml" target="_blank" rel="nofollow noopener noreferrer">Ping Bing with XML Sitemap</a></li>
+      <!-- <li><a id="googleindexnow" href="https://google.com/indexnow?url=https://vreeman.com/&key=b81bd42374d64597b7c95ab04d59cfcd" target="_blank" rel="nofollow noopener noreferrer">Ping Google with IndexNow</a></li> -->
       <li><a id="bingindexnow" href="https://www.bing.com/indexnow?url=https://vreeman.com/&key=b81bd42374d64597b7c95ab04d59cfcd" target="_blank" rel="nofollow noopener noreferrer">Ping Bing with IndexNow</a></li>
       <li><a id="yandexindexnow" href="https://yandex.com/indexnow?url=https://vreeman.com/&key=b81bd42374d64597b7c95ab04d59cfcd" target="_blank" rel="nofollow noopener noreferrer">Ping Yandex with IndexNow</a></li>
     </ul>
@@ -289,6 +290,7 @@ function getUTM() {
   ssl.href = "https://www.ssllabs.com/ssltest/analyze.html?d=" + domain;
   googlesitemap.href = "https://google.com/ping?sitemap=" + domain;
   bingsitemap.href = "https://bing.com/ping?sitemap=" + domain;
+  googleindexnow.href = "https://google.com/indexnow?url=" + domain +"&key=b81bd42374d64597b7c95ab04d59cfcd";
   bingindexnow.href = "https://www.bing.com/indexnow?url=" + domain +"&key=b81bd42374d64597b7c95ab04d59cfcd";
   yandexindexnow.href = "https://yandex.com/indexnow?url=" + domain +"&key=b81bd42374d64597b7c95ab04d59cfcd";
 }
