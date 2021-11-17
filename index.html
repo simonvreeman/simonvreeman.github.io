@@ -50,11 +50,24 @@ aside, footer, header, main {
   padding: 0 3%;
 }
 header {
-  margin: 10% auto 0;
+  margin: 5% auto 0;
 }
 footer {
   margin: 0 auto 10%;
   font-size: 80%;
+}
+img {
+  border-radius: 50%;
+  margin:0 auto;
+  display: block;
+  width: 150px;
+  height: 150px;
+  filter: blur(3px);
+  transition: 0.3s;
+}
+img:hover {
+  filter: blur(0);
+  box-shadow: 0 1px 6px 1px hsl(0deg 0% 0% / 30%)
 }
 h1, h2, h3 {
   line-height: 1.2;
@@ -486,6 +499,11 @@ li::marker {
   <body class="h-card">
     <noscript><iframe src="https://gtm.vreeman.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header>
+      <picture>
+        <source src="https://vreeman.com/img/simon-vreeman-2-square.avif" type="image/avif" width="150" height="150">
+        <source src="https://vreeman.com/img/simon-vreeman-2-square.webp" type="image/webp" width="150" height="150">
+        <img src="https://vreeman.com/img/simon-vreeman-2-square.jpg" alt="Simon Vreeman" width="150" height="150">
+      </picture>
       <h1>Simon Vreeman</h1>
     </header>
     <main role="main">
@@ -518,7 +536,6 @@ li::marker {
         <dd>With this little tool, it is even easier to create a good and solid hypothesis for your next experiment. Which can help in creating better experiments, easier analysis and having better learnings. It is based on the Hypothesis Kit by Craig Sullivan.</dd>
       </dl>
       <h2 id="speaking">Speaking</h2>
-      <p></p>
       <ul>
         <li>Conversion Hotel Unconference 2021</li>
         <li>Amsterdam University of Applied Sciences (HvA)</li>
