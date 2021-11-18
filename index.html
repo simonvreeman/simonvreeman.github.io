@@ -67,7 +67,18 @@ img {
 }
 img:hover {
   filter: blur(0);
-  box-shadow: 0 1px 6px 1px hsl(0deg 0% 0% / 30%)
+  box-shadow: 0 1px 6px 1px hsl(0deg 0% 0% / 30%);
+}
+img:active {
+  box-shadow: 
+    -15px 0       12px 12px red,
+    -15px -15px   12px 12px yellow,
+    0 -15px       12px 12px lime,
+    15px -15px    12px 12px aqua,
+    15px 0        12px 12px blue,
+    15px 15px     12px 12px fuchsia,
+    0 15px       12px 12px yellow,
+    -15px 15px   12px 12px lime;
 }
 h1 {
   text-align: center;
