@@ -12,19 +12,10 @@
         --monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Roboto Mono, "Liberation Mono", "Courier New", monospace;
       }
       *, ::after, ::before {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+        margin: 2px;
+        padding: 3px;
         color: var(--eigengrau);
         font: 1.125rem/1.618 var(--monospace);
-        text-decoration: none;
-        letter-spacing: 0.1618rem;
-        word-spacing: 0.1618rem;
-        text-rendering: geometricPrecision;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: subpixel-antialiased;
-        font-kerning: none;
-        padding: 5px;
       }
       input {
         width: 80px;
@@ -40,7 +31,7 @@
     <link rel="canonical" href="https://vreeman.com">
     <meta name="robots" content="noindex, nofollow">
   </head>
-  <body oninput="calcIV()">
+  <body oninput="calcIV();">
     <noscript><iframe src="https://gtm.vreeman.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <table>
@@ -72,7 +63,6 @@
 
         result.textContent = sum + "%";
       }
-
     </script>
   </body>
 </html>
