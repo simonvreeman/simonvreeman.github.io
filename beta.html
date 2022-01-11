@@ -3,28 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Simon Vreeman &middot; Freelance Growth Marketing Consultant</title>
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
     <style>
       :root {
         --eigengrau: #16161d;
-        --blue-dark: #06c;
-        --blue-light: #2997ff;
-        --blue-lighter: #6bf;
-        --gray: rgb(204, 204, 204);
-        --red: #e30000;
-        --green: #008009;
-        --white: #f5f5f7;
-        --serif: Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        --sans-serif: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        --monospace: SFMono-Regular, Menlo, Monaco, Consolas, Roboto Mono, "Liberation Mono", "Courier New", monospace;
-        --emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        --racing-green: #004225;
+        --serif: ui-serif, Georgia, serif;
+        --sans-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        --monospace: ui-monospace, SFMono-Regular, monospace;
+        --rounded: ui-rounded;
       }
       *, ::after, ::before {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         color: var(--eigengrau);
-        text-decoration: none;
       }
       html {
         touch-action: manipulation;
@@ -35,27 +28,30 @@
         display: grid;
         place-items: center;
         place-content: center;
-        font: 500 1.125rem/1.618 var(--sans-serif);
-        letter-spacing: 0.1618rem;
-        word-spacing: 0.1618rem;
+        text-align: center;
+        font: 1rem/1.618 var(--sans-serif);
         text-rendering: geometricPrecision;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: subpixel-antialiased;
         font-kerning: none;
+        text-align: left;
       }
-      main {
-        padding: 1rem;
+      li {
+        list-style: none;
+        opacity: .5;
       }
       a {
         text-decoration-skip-ink: auto;
+        text-decoration: none;
       }
-      hr {
-        box-sizing: content-box;
-        height: 0;
-        overflow: visible;
-        border: 0;
-        border-top: 1px solid var(--gray);
-        margin: 0.25rem 0;
+      @media (prefers-color-scheme: dark) {
+        *, ::after, ::before {
+          background-color: var(--eigengrau);
+          color: #fff;
+        }
+        body {
+          
+        }
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
@@ -63,12 +59,14 @@
     <meta name="description" content="Hi, I am Simon Vreeman and I am a Freelance Growth Marketing Consultant. I optimize websites based on insights & data for users, search engines and profit.">
   </head>
   <body>
-    <main>
-      <h1>Simon Vreeman</h1>
-      <p>Freelance Growth Marketing Consultant</p>
-      <hr>
-      <p><a href="mailto:simon@vreeman.com">simon@vreeman.com</a> &middot; <a href=" https://wa.me/31613367285">+31(0)613367285</a></p>
-      <p><small>KVK: 82671087 &middot; BTW ID: NL003713414B18 &middot; IBAN: NL04BUNQ2060945607</small></p>
-    </main>
+    <h1>Simon Vreeman</h1>
+    <h2>Marketing Consultant</h2>
+    <ul>
+      <li>Email:&nbsp;&nbsp;simon@vreeman.com</li>
+      <li>KVK:&nbsp;&nbsp;&nbsp;&nbsp;82671087</li>
+      <li>BTW:&nbsp;&nbsp;&nbsp;NL003713414B18</li>
+      <li>IBAN:&nbsp;&nbsp;&nbsp;NL04BUNQ2060945607</li>
+      <li>Terms & Conditions</li>
+    </ul>
   </body>
 </html>
