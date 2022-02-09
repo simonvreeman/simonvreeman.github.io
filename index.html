@@ -10,14 +10,34 @@
 <style>
 :root {
   --eigengrau: #16161d;
-  --blue-dark: rgb(0, 112, 201);
-  --blue-light: rgb(102, 187, 255);
+  --blue-dark: #06c;
+  --blue-light: #2997ff;
+  --blue-lighter: #6bf;
   --gray: rgb(204, 204, 204);
   --red: Tomato;
   --orange: Orange;
   --blue: DodgerBlue;
   --green: MediumSeaGreen;
   --racing-green: #004225;
+  accent-color: var(--blue-lighter);
+}
+:focus-visible {
+  outline-color: var(--blue-lighter);
+}
+::selection {
+  color: var(--eigengrau);
+  background-color: var(--blue-light);
+}
+::marker {
+  color: var(--blue-dark);
+}
+::target-text {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+:focus {
+  outline: 3px solid var(--blue-lighter);
+  outline-offset: 1px;
 }
 html {
   overflow-x: hidden;
@@ -114,9 +134,6 @@ hr {
 }
 dt, summary {
   font-weight: 700;
-}
-li::marker {
-  color: var(--blue-dark);
 }
 .footer {
   font-family: Georgia, serif;
