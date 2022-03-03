@@ -140,7 +140,7 @@
       <h1>Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> Campaign <abbr title="Uniform Resource Locator">URL</abbr> Builder</h1>
       <p><a href="https://vreeman.com/" title="Simon Vreeman">Home</a> | <a href="https://vreeman.com/cro" title="CRO Tools"><abbr title="Conversion Rate Optimization">CRO</abbr> Tools</a></p>
     </header>
-    <p>A simple tool to create an <abbr title="Uniform Resource Locator">URL</abbr> with Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> campaign parameters. All input will be lowercase appended to the <abbr title="Uniform Resource Locator">URL</abbr>. The Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> Campaign <abbr title="Uniform Resource Locator">URL</abbr> Builder will also check if the <abbr title="Uniform Resource Locator">URL</abbr> already contains parameters and if it returns a successful <abbr title="Hypertext Transfer Protocol">HTTP</abbr> response status code. With one click you can add the <abbr title="Uniform Resource Locator">URL</abbr> to your clipboard.</p>
+    <p>A simple tool to create an <abbr title="Uniform Resource Locator">URL</abbr> with <a href="https://support.google.com/analytics/answer/11242870?hl=en" rel="nofollow noopener noreferrer" target="_blank">Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> campaign parameters</a>. All input will be lowercase appended to the <abbr title="Uniform Resource Locator">URL</abbr>. The Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> Campaign <abbr title="Uniform Resource Locator">URL</abbr> Builder will also check if the <abbr title="Uniform Resource Locator">URL</abbr> already contains parameters and if it returns a successful <abbr title="Hypertext Transfer Protocol">HTTP</abbr> response status code. With one click you can add the <abbr title="Uniform Resource Locator">URL</abbr> to your clipboard.</p>
     <p>Make sure you are strict in using <code>utm_source</code> and <code>utm_medium</code>. Otherwise, you will end up with a lot of traffic in the (other) Default Channel Grouping. Your email campaigns should be tagged as <code>email</code> for you <code>utm_medium</code>. Then they will match for the Email Default Channel Grouping. More information about the Default Channel Grouping definitions and rules can be found <a href="https://support.google.com/analytics/answer/3297892?hl=en" rel="nofollow noopener noreferrer" target="_blank">here</a>.</p>
     <form onkeyup="getUTM()">
       <fieldset>
@@ -163,6 +163,12 @@
         <input type="text" name="term" id="term" autocapitalize="none" placeholder="Optional">
         <label for="content">Campaign Content (<code>utm_content</code>)</label>
         <input type="text" name="content" id="content" autocapitalize="none" placeholder="Optional">
+        <label for="platform">Source platform (<code>utm_source_platform</code>)</label>
+        <input type="text" name="platform" id="platform" autocapitalize="none" placeholder="Optional">
+        <label for="format">Creative format (<code>utm_creative_format</code>)</label>
+        <input type="text" name="format" id="format" autocapitalize="none" placeholder="Optional">
+        <label for="tactic">Marketing tactic (<code>utm_marketing_tactic</code>)</label>
+        <input type="text" name="tactic" id="tactic" autocapitalize="none" placeholder="Optional">
       </fieldset>
     </form>
     <label for="url">The <abbr title="Uniform Resource Locator">URL</abbr> with <abbr title="Urchin Tracking Module">UTM</abbr> tags</label>
@@ -237,6 +243,11 @@ function getUTM() {
   var name = document.getElementById("name").value.toLowerCase();
   var term = document.getElementById("term").value.toLowerCase();
   var content = document.getElementById("content").value.toLowerCase();
+
+  var platform = document.getElementById("platform").value.toLowerCase();
+  var format = document.getElementById("format").value.toLowerCase();
+  var tactic = document.getElementById("tactic").value.toLowerCase();
+
   var url = document.getElementById("url");
   var statuscode = document.getElementById("statuscode");
   var html;
@@ -256,6 +267,15 @@ function getUTM() {
   }
   if (content) {
     html = html + '&utm_content='+encodeURIComponent(content);
+  }
+  if (platform) {
+    html = html + '&utm_source_platform='+encodeURIComponent(platform);
+  }
+  if (format) {
+    html = html + '&utm_creative_format='+encodeURIComponent(format);
+  }
+  if (tactic) {
+    html = html + '&utm_marketing_tactic='+encodeURIComponent(tactic);
   }
 
   url.textContent = html;
