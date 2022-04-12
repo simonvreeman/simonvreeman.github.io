@@ -5,68 +5,99 @@
     <title>Simon Vreeman &middot; Freelance Growth Marketing Consultant</title>
     <meta name="viewport" content="width=device-width">
     <style>
+      *, ::before, ::after {
+        margin: 0;
+        padding: 0;
+      }
+      @font-face {
+        font-family: "iAWriter";
+        src: url("font/iAWriterMonoS-Regular.woff2") format("woff2");
+        /*src: url("font/iAWriterDuoS-Regular.woff2") format("woff2");*/
+        /*src: url("font/iAWriterQuattroS-Regular.woff2") format("woff2");*/
+      }
       :root {
         --eigengrau: #16161d;
         --racing-green: #004225;
         --serif: ui-serif, Georgia, serif;
         --sans-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-        --monospace: ui-monospace, SFMono-Regular, monospace;
+        --monospace: "iAWriter", ui-monospace, SFMono-Regular, monospace;
         --rounded: ui-rounded;
-      }
-      *, ::after, ::before {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        color: var(--eigengrau);
+        color-scheme: dark light;
       }
       html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: scrollbar;
+        -webkit-tap-highlight-color: transparent;
         touch-action: manipulation;
       }
       body {
-        min-height: 100vh;
-        height: 100vh;
-        display: grid;
-        place-items: center;
-        place-content: center;
-        text-align: center;
-        font: 1rem/1.618 var(--sans-serif);
+        color: var(--eigengrau);
+        font: 500 1rem/1.5 var(--monospace);
         text-rendering: geometricPrecision;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: subpixel-antialiased;
         font-kerning: none;
-        text-align: left;
+        height:100dvh;
+        height:100vh;
+        display:grid;
+        place-items:center;
+        place-content:center;
       }
-      li {
-        list-style: none;
-        opacity: .5;
+      h1 {
+        font: bold 1.4rem/1.4 var(--monospace);
+        margin-bottom: 1rem;
+      }
+      h2, h3 {
+        font: bold 1.2rem/1.4 var(--monospace);
+        margin-bottom: 1rem;
+      }
+      p {
+        margin-bottom: 1rem; 
       }
       a {
+        color: var(--eigengrau);
         text-decoration-skip-ink: auto;
         text-decoration: none;
       }
+      ul {
+        padding-left: 0;
+        list-style-type: asterisks;
+        list-style-type: none;
+      }
       @media (prefers-color-scheme: dark) {
-        *, ::after, ::before {
+        * {
           background-color: var(--eigengrau);
-          color: #fff;
+          color: white;
         }
         body {
           
+        }
+        a {
+          color: white;
         }
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
     <meta name="robots" content="noindex, nofollow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
-    <meta name="description" content="Hi, I am Simon Vreeman and I am a Freelance Growth Marketing Consultant. I optimize websites based on insights & data for users, search engines and profit.">
+    <meta name="description" content="">
   </head>
   <body>
-    <h1>Simon Vreeman</h1>
-    <h2>Marketing Consultant</h2>
-    <ul>
-      <li>Email:&nbsp;&nbsp;simon@vreeman.com</li>
-      <li>KVK:&nbsp;&nbsp;&nbsp;&nbsp;82671087</li>
-      <li>BTW:&nbsp;&nbsp;&nbsp;NL003713414B18</li>
-      <li>IBAN:&nbsp;&nbsp;&nbsp;NL04BUNQ2060945607</li>
-      <li>Terms & Conditions</li>
-    </ul>
+    <main>
+      <h1>Simon Vreeman</h1>
+      <h2>Growth Marketing Consultant</h2>
+      <p>Email:&nbsp;<a href="#">simon@vreeman.com</a></p>
+      <ul>
+        <li>* KVK:&nbsp;&nbsp;&nbsp;82671087</li>
+        <li>* BTW:&nbsp;&nbsp;&nbsp;NL003713414B18</li>
+        <li>* IBAN:&nbsp;&nbsp;NL04BUNQ2060945607</li>
+      </ul>
+    </main>
   </body>
 </html>
