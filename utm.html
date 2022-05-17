@@ -272,7 +272,6 @@ function getUTM() {
   var name = document.getElementById("name").value.toLowerCase();
   var term = document.getElementById("term").value.toLowerCase();
   var content = document.getElementById("content").value.toLowerCase();
-
   var platform = document.getElementById("platform").value.toLowerCase();
   var format = document.getElementById("format").value.toLowerCase();
   var tactic = document.getElementById("tactic").value.toLowerCase();
@@ -286,11 +285,14 @@ function getUTM() {
   }
 
   if (domain.indexOf("?") != -1) {
-    html = domain+'&utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
+    html = domain + '&utm_source=' + encodeURIComponent(source) + '&utm_medium=' + encodeURIComponent(medium);
   } else {
-    html = domain+'?utm_source='+encodeURIComponent(source)+'&utm_medium='+encodeURIComponent(medium)+'&utm_campaign='+encodeURIComponent(name);
+    html = domain + '?utm_source=' + encodeURIComponent(source) + '&utm_medium=' + encodeURIComponent(medium);
   }
 
+  if (name) {
+    html = html + '&utm_campaign='+encodeURIComponent(name);
+  }
   if (term) {
     html = html + '&utm_term='+encodeURIComponent(term);
   }
