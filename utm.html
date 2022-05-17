@@ -67,6 +67,9 @@
       fieldset, input, textarea {
         margin-bottom: 1.5em;
       }
+      label > p {
+        margin: 0;
+      }
       hr {
         border: 0;
         border-top: 1px solid var(--gray);
@@ -140,11 +143,11 @@
       <h1>Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> Campaign <abbr title="Uniform Resource Locator">URL</abbr> Builder</h1>
       <p><a href="https://vreeman.com/" title="Simon Vreeman">Home</a> | <a href="https://vreeman.com/cro" title="CRO Tools"><abbr title="Conversion Rate Optimization">CRO</abbr> Tools</a></p>
     </header>
-    <p>A simple tool to create an <abbr title="Uniform Resource Locator">URL</abbr> with <a href="https://support.google.com/analytics/answer/11242870?hl=en" rel="nofollow noopener noreferrer" target="_blank">Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> campaign parameters</a>. All input will be lowercase appended to the <abbr title="Uniform Resource Locator">URL</abbr>. The Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> Campaign <abbr title="Uniform Resource Locator">URL</abbr> Builder will also check if the <abbr title="Uniform Resource Locator">URL</abbr> already contains parameters and if it returns a successful <abbr title="Hypertext Transfer Protocol">HTTP</abbr> response status code. With one click you can add the <abbr title="Uniform Resource Locator">URL</abbr> to your clipboard.</p>
-    <p>Make sure you are strict in using <code>utm_source</code> and <code>utm_medium</code>. Otherwise, you will end up with a lot of traffic in the (other) Default Channel Grouping. Your email campaigns should be tagged as <code>email</code> for you <code>utm_medium</code>. Then they will match for the Email Default Channel Grouping. More information about the Default Channel Grouping definitions and rules can be found <a href="https://support.google.com/analytics/answer/3297892?hl=en" rel="nofollow noopener noreferrer" target="_blank">here</a>.</p>
+    <p>A simple tool to create an <abbr title="Uniform Resource Locator">URL</abbr> with <a href="https://support.google.com/analytics/answer/11242870?hl=en" rel="nofollow noopener noreferrer" target="_blank">Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> campaign parameters</a> for your manual tagging marketing campaigns. A couple of features; All input will be lowercase appended to the <abbr title="Uniform Resource Locator">URL</abbr>. The Google Analytics <abbr title="Urchin Tracking Module">UTM</abbr> Campaign <abbr title="Uniform Resource Locator">URL</abbr> Builder will check if the <abbr title="Uniform Resource Locator">URL</abbr> already contains parameters and if it returns a successful <abbr title="Hypertext Transfer Protocol">HTTP</abbr> response status code <code>[200]</code>. With one click you can add the <abbr title="Uniform Resource Locator">URL</abbr> to your clipboard.</p>
+    <p>Make sure you are strict in using <code>utm_source</code> and <code>utm_medium</code>. Otherwise, you will end up with a lot of traffic in the (other) or unassigned Default Channel Groupings. More information about the Default Channel Grouping definitions and rules can be found <a href="https://support.google.com/analytics/answer/3297892?hl=en" rel="nofollow noopener noreferrer" target="_blank">here for Universal</a> and <a href="https://support.google.com/analytics/answer/9756891?hl=en">here for GA4</a>.</p>
     <form onkeyup="getUTM()">
       <fieldset>
-        <legend><abbr title="Uniform Resource Locator">URL</abbr>, Source, Medium, and Name are required</legend>
+        <legend><abbr title="Uniform Resource Locator">URL</abbr>, Source and Medium are required</legend>
         <label for="campaigns">Predefined campaigns</label>
         <select id="campaigns">
           <option value="optional" selected>Optional</option>
@@ -153,21 +156,46 @@
         <br>
         <label for="domain"><abbr title="Uniform Resource Locator">URL</abbr> without <abbr title="Urchin Tracking Module">UTM</abbr> tags</label>
         <input type="url" inputmode="url" name="domain" id="domain" autocapitalize="none" autocomplete="off" enterkeyhint="next" placeholder="Required" value="https://vreeman.com" autofocus required>
-        <label for="source">Campaign Source (<code>utm_source</code>)</label>
+        <label for="source">
+          <p>Campaign Source <code>[utm_source]</code></p>
+          <p><small>Dimensions in GA4: Source, First user source, Session source</small></p>
+        </label>
         <input type="text" name="source" id="source" autocapitalize="none" enterkeyhint="next" placeholder="Required" required>
-        <label for="medium">Campaign Medium (<code>utm_medium</code>)</label>
+        
+        <label for="medium">
+          <p>Campaign Medium <code>[utm_medium]</code></p>
+          <p><small>Dimensions in GA4: Medium, First user medium, Session medium</small></p>
+        </label>
         <input type="text" name="medium" id="medium" autocapitalize="none" enterkeyhint="next" placeholder="Required" required>
-        <label for="name">Campaign Name (<code>utm_campaign</code>)</label>
-        <input type="text" name="name" id="name" autocapitalize="none" enterkeyhint="next" placeholder="Required" required>
-        <label for="term">Campaign Term (<code>utm_term</code>)</label>
+        <label for="name">
+          <p>Campaign Name <code>[utm_campaign]</code> (required for Universal)</p>
+          <p><small>Dimensions in GA4: Campaign, First user campaign, Session campaign</small></p>
+        </label>
+        <input type="text" name="name" id="name" autocapitalize="none" enterkeyhint="next" placeholder="Optional">
+        <label for="term">
+          <p>Campaign Term <code>[utm_term]</code></p>
+          <p><small>Dimensions in GA4: Manual term, Session manual term, First user manual term</small></p>
+        </label>
         <input type="text" name="term" id="term" autocapitalize="none" enterkeyhint="next" placeholder="Optional">
-        <label for="content">Campaign Content (<code>utm_content</code>)</label>
+        <label for="content">
+          <p>Campaign Content <code>[utm_content]</code></p>
+          <p><small>Dimensions in GA4: Manual ad content, Session manual ad content, First user manual ad content</small></p>
+        </label>
         <input type="text" name="content" id="content" autocapitalize="none" enterkeyhint="next" placeholder="Optional">
-        <label for="platform">Source platform (<code>utm_source_platform</code>)</label>
+        <label for="platform">
+          <p>Source platform <code>[utm_source_platform]</code></p>
+          <p><small>Dimensions in GA4: Source platform, Session source platform, First user source platform</small></p>
+        </label>
         <input type="text" name="platform" id="platform" autocapitalize="none" enterkeyhint="next" placeholder="Optional">
-        <label for="format">Creative format (<code>utm_creative_format</code>)</label>
+        <label for="format">
+          <p>Creative format <code>[utm_creative_format]</code></p>
+          <p><small>Dimensions in GA4: Creative format, Session creative format, First user creative format</small></p>
+        </label>
         <input type="text" name="format" id="format" autocapitalize="none" enterkeyhint="next" placeholder="Optional">
-        <label for="tactic">Marketing tactic (<code>utm_marketing_tactic</code>)</label>
+        <label for="tactic">
+          <p>Marketing tactic <code>[utm_marketing_tactic]</code></p>
+          <p><small>Dimensions in GA4: Marketing tactic, Session marketing tactic, First user marketing tactic</small></p>
+        </label>
         <input type="text" name="tactic" id="tactic" autocapitalize="none" enterkeyhint="done" placeholder="Optional">
       </fieldset>
     </form>
