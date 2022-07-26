@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Percentage Calc</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+      :root {
+        --eigengrau: #16161d;
+        --racing-green: #004225;
+        --serif: ui-serif, Georgia, serif;
+        --sans-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        --monospace: ui-monospace, SFMono-Regular, monospace;
+        --rounded: ui-rounded;
+        color-scheme: dark light;
+      }
+      body {
+        color: var(--eigengrau);
+        font: 1rem/1.2 var(--monospace);
+      }
+    </style>
+    <link rel="canonical" href="https://vreeman.com/">
+    <meta name="robots" content="noindex, nofollow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+    <meta name="description" content="">
+  </head>
+  <body>
+
+<h1 class="logo">Percentage Calculator</h1>
+<p class="intro">Percentage Calculator is a free online tool to calculate percentages.</p>
+<form id="f1">
+  <fieldset class="values">
+    What is <input type="text" size="3" autofocus="autofocus"/> %
+    <nobr>of <input type="text" size="7"/>?</nobr>
+  </fieldset>
+  <fieldset class="results">
+    <input type="submit" value="Calculate"/>
+    <input type="text" size="6" readonly="readonly"/><span class="hide"> %</span>
+  </fieldset>
+</form>
+<form id="f2">
+  <fieldset class="values">
+    <input type="text" size="5"/> is what percent
+    <nobr>of <input type="text" size="5"/>?</nobr>
+  </fieldset>
+  <fieldset class="results">
+    <input type="submit" value="Calculate"/>
+    <input type="text" size="6" readonly="readonly"/><span> %</span>
+  </fieldset>
+</form>
+<form id="f3">
+  <fieldset class="values">
+    What is the percentage increase/decrease<br/>
+    <nobr>from <input type="text" size="5"/></nobr>
+    <nobr>to <input type="text" size="5"/>?</nobr>
+  </fieldset>
+  <fieldset class="results"><br class="remove"/>
+    <input type="submit" value="Calculate"/>
+    <input type="text" size="6" readonly="readonly"/><span> %</span>
+  </fieldset>
+</form>
+
+
+
+<script type="text/javascript">
+"use strict";
+function calculate(e) {
+    var t = e.querySelectorAll("input[type=text]")
+      , a = t[0].value.replace(",", ".")
+      , c = t[1].value.replace(",", ".")
+      , n = 0
+      , r = !1;
+    if (t[0].style.background = "#fff",
+    t[1].style.background = "#fff",
+    t[2].value = "",
+    isNumber(a) || (t[0].style.background = "#fee",
+    r = !0),
+    isNumber(c) || (t[1].style.background = "#fee",
+    r = !0),
+    r)
+        return !1;
+    switch (e.getAttribute("id")) {
+    case "f1":
+        n = a / 100 * c;
+        break;
+    case "f2":
+        n = a / c * 100;
+        break;
+    case "f3":
+        n = (c - a) / a * 100
+    }
+    t[2].value = n
+}
+function isNumber(e) {
+    return !isNaN(parseFloat(e)) && isFinite(e)
+}
+(function() {
+    document.addEventListener("DOMContentLoaded", function() {
+        Array.prototype.slice.call(document.querySelectorAll("input[type=submit]")).forEach(function(e) {
+            e.onclick = function(e) {
+                e.preventDefault(),
+                calculate(this.parentNode.parentNode)
+            }
+        })
+    }, !1)
+}
+).call(void 0);
+</script>
+  </body>
+</html>
