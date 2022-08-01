@@ -20,9 +20,10 @@
   --blue: DodgerBlue;
   --green: MediumSeaGreen;
   --racing-green: #004225;
-  --sans-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --sans-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,  "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --serif: ui-serif, -apple-system-ui-serif, Palatino, Georgia, Cambria, "Times New Roman", Times, serif;
-  --monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Monaco, Consolas, Roboto Mono, "Liberation Mono", "Courier New", monospace;
+  --monospace: ui-monospace,  SFMono-Regular, SF Mono, Menlo, Monaco, Consolas, Roboto Mono, "Liberation Mono", "Courier New", monospace;
+  --cursive: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;
   accent-color: var(--blue-lighter);
 }
 :focus-visible {
@@ -59,7 +60,7 @@ html {
 body {
   background-color: rgba(0, 0, 0, 0);
   color: var(--eigengrau);
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: var(--sans-serif);
   font-size: 1.125rem;
   line-height: 1.618;
   letter-spacing: .01618em;
@@ -121,7 +122,7 @@ abbr[title] {
   text-decoration: none;
 }
 code {
-  font-family: SFMono-Regular, Menlo, Consolas, Roboto Mono, "Liberation Mono", Monaco, "Courier New", monospace;
+  font-family: var(--monospace);
   font-size: 1rem;
 }
 hr {
@@ -134,7 +135,7 @@ dt, summary {
   font-weight: 700;
 }
 .footer {
-  font-family: Georgia, serif;
+  font-family: var(--serif);
   font-style: italic;
   font-weight: 100;
   letter-spacing: 1px;
@@ -143,7 +144,7 @@ dt, summary {
 .footer:hover {
   background: linear-gradient(to right, red, yellow, lime, aqua, blue, fuchsia, red);
   background-size: 1000% 1000%;
-  font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;
+  font-family: var(--cursive);
   font-weight: 700;
   -webkit-background-clip: text;
   background-clip: text;
@@ -160,7 +161,7 @@ dt, summary {
   }
   .footer:hover {
     background: none;
-    font-family: Georgia, serif;
+    font-family: var(--serif);
     font-style: italic;
     font-weight: 100;
     letter-spacing: 1px;
