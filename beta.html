@@ -2,25 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Simon Vreeman &middot; Freelance Growth Marketing Consultant</title>
+    <title>Simon Vreeman &middot; Freelance Growth & Technical Marketing Consultant</title>
     <meta name="viewport" content="width=device-width">
     <style>
       *, ::before, ::after {
         margin: 0;
         padding: 0;
       }
-      @font-face {
-        font-family: "iAWriter";
-        src: url("font/iAWriterMonoS-Regular.woff2") format("woff2");
-        /*src: url("font/iAWriterDuoS-Regular.woff2") format("woff2");*/
-        /*src: url("font/iAWriterQuattroS-Regular.woff2") format("woff2");*/
-      }
+      /**, *::after, *::before {
+        all: initial !important;
+      }*/
       :root {
         --eigengrau: #16161d;
         --racing-green: #004225;
+        --white: #cecece;
+        --lightblue: #06c;
+        --darkblue: #2997ff;
         --serif: ui-serif, Georgia, serif;
         --sans-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-        --monospace: "iAWriter", ui-monospace, SFMono-Regular, monospace;
+        --monospace: ui-monospace, SFMono-Regular, "SF Mono" ,Menlo, Monaco, Consolas, "Roboto Mono", "Liberation Mono", "Courier New", monospace;
         --rounded: ui-rounded;
         color-scheme: dark light;
       }
@@ -50,15 +50,20 @@
         place-items:center;
         place-content:center;
       }
+      main {
+        max-width: 45ch;
+        padding: 0 1rem;
+      }
       h1 {
         font: bold 1.4rem/1.4 var(--monospace);
-        margin-bottom: 1rem;
       }
       h2, h3 {
         font: bold 1.2rem/1.4 var(--monospace);
-        margin-bottom: 1rem;
       }
-      p {
+      h1, h2, h3 {
+        margin-top: 2rem;
+      }
+      h1, h2, h3, p, ul {
         margin-bottom: 1rem; 
       }
       a {
@@ -66,21 +71,44 @@
         text-decoration-skip-ink: auto;
         text-decoration: none;
       }
+      a:hover {
+        text-decoration: underline;
+        text-decoration-color: var(--lightblue);
+      }
+      abbr {
+        text-decoration-color: var(--lightblue); 
+      }
       ul {
         padding-left: 0;
-        list-style-type: asterisks;
         list-style-type: none;
+      }
+      ul > li > ul {
+        padding-left: 1rem;
+      }
+      li::before {
+        content: "*";
+        padding-right: .5rem;
+        color: var(--lightblue);
       }
       @media (prefers-color-scheme: dark) {
         * {
           background-color: var(--eigengrau);
-          color: white;
+          color: var(--white);
         }
         body {
           
         }
         a {
-          color: white;
+          color: var(--white);
+        }
+        a:hover {
+          text-decoration-color: var(--darkblue);
+        }
+        abbr {
+          text-decoration-color: var(--darkblue); 
+        }
+        li::before {
+          color: var(--darkblue);
         }
       }
     </style>
@@ -91,12 +119,13 @@
   <body>
     <main>
       <h1>Simon Vreeman</h1>
-      <h2>Growth Marketing Consultant</h2>
+      <h2>Freelance Growth & Technical Marketing Consultant</h2>
+      <p>I am a Freelance Growth & Technical Marketing Consultant helping brands turn brand awareness into incremental profit. By optimizing their advertising and websites based on insights and data for conversions, users, and search engines. My main focus is on Technical Marketing (<abbr title="Conversion Rate Optimization">CRO</abbr>, <abbr title="Search Engine Optimization">SEO</abbr>, and Web Analytics).</p>
       <p>Email:&nbsp;<a href="#">simon@vreeman.com</a></p>
       <ul>
-        <li>* KVK:&nbsp;&nbsp;&nbsp;82671087</li>
-        <li>* BTW:&nbsp;&nbsp;&nbsp;NL003713414B18</li>
-        <li>* IBAN:&nbsp;&nbsp;NL04BUNQ2060945607</li>
+        <li>KVK:&nbsp;&nbsp;&nbsp;82671087</li>
+        <li>BTW:&nbsp;&nbsp;&nbsp;NL003713414B18</li>
+        <li>IBAN:&nbsp;&nbsp;NL04BUNQ2060945607</li>
       </ul>
     </main>
   </body>
