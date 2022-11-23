@@ -3,6 +3,7 @@
 	X-Frame-Options: SAMEORIGIN
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
   Content-Security-Policy: upgrade-insecure-requests
+  X-Xss-Protection: 1; mode=block
 
 # Prevent your pages.dev deployments showing in search results
 https://:vreeman.pages.dev/*
