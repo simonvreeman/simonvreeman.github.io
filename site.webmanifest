@@ -25,10 +25,5 @@
       "sizes": "1024x512",
       "type": "image/jpeg"
     }
-  ],
-  "serviceworker": {
-    "src": "https://vreeman.com/serviceworker.js",
-    "scope": "/",
-    "update_via_cache": "none"
-  }
+  ]
 }
