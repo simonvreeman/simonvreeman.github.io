@@ -51,11 +51,6 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://vreeman.com/ip/</loc>
-    <priority>0.1</priority>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
     <loc>https://vreeman.com/meditations/quotes</loc>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
