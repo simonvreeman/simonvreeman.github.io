@@ -93,7 +93,7 @@ a {
 a:active, a:focus, a:hover {
   color: var(--blue-light);
 }
-.return, abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
+.return, .fixed, abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
   text-decoration: none;
 }
 dt, strong {
@@ -165,6 +165,12 @@ hr {
 }
 .roman {
   list-style-type: lower-roman;
+}
+.fixed {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 1em;
+  font-family: var(--monospace);
 }
 [id] {
   scroll-margin-top: 2ex;
@@ -3041,7 +3047,7 @@ be the same in all circumstances&mdash;intense pain, the loss of a child, chroni
       </ul>
       <p data-nosnippet><small><span class="copy"></span></small></p>
     </footer>
-    <p style="position:fixed;bottom:0;right:1em;"><a href="#header" title="Back to top" style="text-decoration:none;font-family:var(--monospace);">↑</a></p>
+    <a class="fixed" href="#header" title="Back to top">↑</a>
 <script>
 window.onload = function(){
   setTimeout(function(){
