@@ -1,10 +1,5 @@
 # This is a comment
 /*
-    X-Frame-Options: SAMEORIGIN
-    Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
-    Content-Security-Policy: upgrade-insecure-requests
-    X-Xss-Protection: 1; mode=block
-    X-DNS-Prefetch-Control: on
     X-John-Deere: 6320
     Link: <https://gtm.vreeman.com>; rel="preconnect"; crossorigin, <https://gtm.vreeman.com>; rel="dns-prefetch"
 
