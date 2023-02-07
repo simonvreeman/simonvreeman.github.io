@@ -1,8 +1,11 @@
 # This is a comment
 /*
+    Content-Security-Policy: upgrade-insecure-requests
+    Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+    X-DNS-Prefetch-Control: on
     X-John-Deere: 6320
     Link: <https://gtm.vreeman.com>; rel="preconnect"; crossorigin, <https://gtm.vreeman.com>; rel="dns-prefetch"
 
 # Prevent your pages.dev deployments showing in search results
 https://:vreeman.pages.dev/*
-	X-Robots-Tag: noindex
+    X-Robots-Tag: noindex
