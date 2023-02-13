@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>The Murph Challenge</title>
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: grid;
+  place-content: center;
+  padding: 1rem;
+  font: 1rem/1.6 ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Roboto Mono", "Liberation Mono", "Courier New", monospace;
+}
+h1, hr, ul {
+  margin-bottom: 1rem;
+}
+h1 {
+  font-size: 1.75rem;
+}
+ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+input {
+  margin-right: 1rem;
+}
+  </style>
+</head>
+<body>
+  <h1>The Murph Challenge</h1>
+  <hr>
+  <ul>
+    <!-- <li>1 Mile run</li> -->
+    <li>100 pull-ups</li>
+    <li>200 push-ups</li>
+    <li>300 squats</li>
+    <!-- <li>1 Mile run</li> -->
+  </ul>
+  <hr>
+  <ul>
+    <li><input type="checkbox" id="pull1" class="box"><label for="pull1">10 Pull-ups</label></li>
+    <li><input type="checkbox" id="push1" class="box"><label for="push1">20 Push-ups</label></li>
+    <li><input type="checkbox" id="squat1" class="box"><label for="squat1">30 Squats</label></li>
+  </ul>
+  <ul>
+    <li><input type="checkbox" id="pull2" class="box"><label for="pull2">10 Pull-ups</label></li>
+    <li><input type="checkbox" id="push2" class="box"><label for="push2">20 Push-ups</label></li>
+    <li><input type="checkbox" id="squat2" class="box"><label for="squat2">30 Squats</label></li>
+  </ul>
+  <ul>
+    <li><input type="checkbox" id="pull3" class="box"><label for="pull3">10 Pull-ups</label></li>
+    <li><input type="checkbox" id="push3" class="box"><label for="push3">20 Push-ups</label></li>
+    <li><input type="checkbox" id="squat3" class="box"><label for="squat3">30 Squats</label></li>
+  </ul>
+  <ul>
+    <li><input type="checkbox" id="pull4" class="box"><label for="pull4">10 Pull-ups</label></li>
+    <li><input type="checkbox" id="push4" class="box"><label for="push4">20 Push-ups</label></li>
+    <li><input type="checkbox" id="squat4" class="box"><label for="squat4">30 Squats</label></li>
+  </ul>
+  <ul>
+    <li><input type="checkbox" id="pull5" class="box"><label for="pull5">10 Pull-ups</label></li>
+    <li><input type="checkbox" id="push5" class="box"><label for="push5">20 Push-ups</label></li>
+    <li><input type="checkbox" id="squat5" class="box"><label for="squat5">30 Squats</label></li>
+  </ul>
+  <ul>
+    <li><input type="checkbox" id="pull6" class="box"><label for="pull6">10 Pull-ups</label></li>
+    <li><input type="checkbox" id="push6" class="box"><label for="push6">20 Push-ups</label></li>
+    <li><input type="checkbox" id="squat6" class="box"><label for="squat6">30 Squats</label></li>
+  </ul>
+  <ul>
+    <li><input type="checkbox" id="pull7" class="box"><label for="pull7">10 Pull-ups</label></li>
+    <li><input type="checkbox" id="push7" class="box"><label for="push7">20 Push-ups</label></li>
+    <li><input type="checkbox" id="squat7" class="box"><label for="squat7">30 Squats</label></li>
+  </ul>
+  <ul>
+    <li><input type="checkbox" id="pull8" class="box"><label for="pull8">10 Pull-ups</label></li>
+    <li><input type="checkbox" id="push8" class="box"><label for="push8">20 Push-ups</label></li>
+    <li><input type="checkbox" id="squat8" class="box"><label for="squat8">30 Squats</label></li>
+  </ul>
+  <ul>
+    <li><input type="checkbox" id="pull9" class="box"><label for="pull9">10 Pull-ups</label></li>
+    <li><input type="checkbox" id="push9" class="box"><label for="push9">20 Push-ups</label></li>
+    <li><input type="checkbox" id="squat9" class="box"><label for="squat9">30 Squats</label></li>
+  </ul>
+  <ul>
+    <li><input type="checkbox" id="pull10" class="box"><label for="pull10">10 Pull-ups</label></li>
+    <li><input type="checkbox" id="push10" class="box"><label for="push10">20 Push-ups</label></li>
+    <li><input type="checkbox" id="squat10" class="box"><label for="squat10">30 Squats</label></li>
+  </ul>
+
+<script>
+let boxes = document.getElementsByClassName('box').length;
+
+function save() { 
+  for(let i = 1; i <= boxes; i++){
+    var checkbox = document.getElementById(String(i));
+    localStorage.setItem("checkbox" + String(i), checkbox.checked); 
+  }
+}
+
+//for loading
+for(let i = 1; i <= boxes; i++){
+  if(localStorage.length > 0){
+    var checked = JSON.parse(localStorage.getItem("checkbox" + String(i)));
+    document.getElementById(String(i)).checked = checked;
+  }
+}
+window.addEventListener('change', save);
+</script>
+</body>
+</html>
