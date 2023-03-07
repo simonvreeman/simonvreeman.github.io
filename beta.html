@@ -5,112 +5,55 @@
     <title>Simon Vreeman &middot; Freelance Growth & Technical Marketing Consultant</title>
     <meta name="viewport" content="width=device-width">
     <style>
+      @font-face {
+        font-family: "Quattro";
+        src: url('font/iAWriterQuattroS-Regular.eot');
+        src: url('font/iAWriterQuattroS-Regular.eot') format('embedded-opentype'),
+             url('font/iAWriterQuattroS-Regular.woff2') format('woff2'),
+             url('font/iAWriterQuattroS-Regular.woff') format('woff');
+      }
+      :root {
+        --eigengrau: #16161d;
+      }
       *, ::before, ::after {
         margin: 0;
         padding: 0;
       }
-      /**, *::after, *::before {
-        all: initial !important;
-      }*/
-      :root {
-        --eigengrau: #16161d;
-        --racing-green: #004225;
-        --white: #cecece;
-        --lightblue: #06c;
-        --darkblue: #2997ff;
-        --serif: ui-serif, Georgia, serif;
-        --sans-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-        --monospace: ui-monospace, SFMono-Regular, "SF Mono" ,Menlo, Monaco, Consolas, "Roboto Mono", "Liberation Mono", "Courier New", monospace;
-        --rounded: ui-rounded;
-        color-scheme: dark light;
-      }
-      html {
-        overflow-x: hidden;
-        overflow-y: scroll;
-        scroll-behavior: smooth;
-        -webkit-text-size-adjust: 100%;
-        -moz-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: scrollbar;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
+      * {
+        color: var(--eigengrau);
+        font-family: "Quattro", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Roboto Mono", "Liberation Mono", "Courier New", monospace;
+        line-height: 1.6;
       }
       body {
-        color: var(--eigengrau);
-        font: 400 1rem/1.5 var(--monospace);
-        text-rendering: geometricPrecision;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: subpixel-antialiased;
-        font-kerning: none;
+        max-width: fit-content;
+        margin: 0 auto;
         height:100dvh;
-        height:100svh;
-        height:100vh;
+        /*height:100svh;*/
+        /*height:100vh;*/
         display:grid;
-        place-items:center;
-        place-content:center;
-      }
-      main {
-        max-width: 45ch;
-        padding: 0 1rem;
+        /*place-items:center;*/
+        /*place-content:center;*/
+        align-content: center;
       }
       h1 {
-        font: 600 1.4rem/1.4 var(--monospace);
+        font-size: 2rem;
+        font-weight: 600;
       }
-      h2, h3 {
-        font: 500 1.2rem/1.4 var(--monospace);
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 400;
+        max-width: 20ch;
       }
-      h1, h2, h3 {
-        margin-top: 2rem;
-      }
-      h1, h2, h3, p, ul {
-        margin-bottom: 1rem; 
+      h3 {
+        font-size: 1rem;
+        font-weight: 400;
       }
       a {
-        color: var(--eigengrau);
-        text-decoration-skip-ink: auto;
+        color: inherit;
         text-decoration: none;
       }
-      a:hover {
-        text-decoration: underline;
-        text-decoration-color: var(--lightblue);
-      }
-      abbr {
-        text-decoration-color: var(--lightblue); 
-      }
-      ul {
-        padding-left: 0;
-        list-style-type: none;
-      }
-      ul > li > ul {
-        padding-left: 1rem;
-      }
-      li::before {
-        content: "*";
-        padding-right: .5rem;
-        color: var(--lightblue);
-      }
-      @media (prefers-color-scheme: dark) {
-        * {
-          background-color: var(--eigengrau);
-          color: var(--white);
-        }
-        body {
-          
-        }
-        a {
-          color: var(--white);
-        }
-        a:hover {
-          text-decoration-color: var(--darkblue);
-        }
-        abbr {
-          text-decoration-color: var(--darkblue); 
-        }
-        li::before {
-          color: var(--darkblue);
-        }
+      a:focus, a:hover {
+        text-decoration: underline #08C;
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
@@ -118,16 +61,8 @@
     <meta name="description" content="">
   </head>
   <body>
-    <main>
       <h1>Simon Vreeman</h1>
-      <h2>Freelance Growth & Technical Marketing Consultant</h2>
-      <p>I am a Freelance Growth & Technical Marketing Consultant helping brands turn brand awareness into incremental profit. By optimizing their advertising and websites based on insights and data for conversions, users, and search engines. My main focus is on Technical Marketing (<abbr title="Conversion Rate Optimization">CRO</abbr>, <abbr title="Search Engine Optimization">SEO</abbr>, and Web Analytics).</p>
-      <p>Email:&nbsp;<a href="#">simon@vreeman.com</a></p>
-      <ul>
-        <li>KVK:&nbsp;&nbsp;&nbsp;82671087</li>
-        <li>BTW:&nbsp;&nbsp;&nbsp;NL003713414B18</li>
-        <li>IBAN:&nbsp;&nbsp;NL04BUNQ2060945607</li>
-      </ul>
-    </main>
+      <h2>Freelance Technical Marketing Consultant</h2>
+      <h3><a href="#">simon@vreeman.com</a></h3>
   </body>
 </html>
