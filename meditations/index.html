@@ -279,12 +279,6 @@ hr {
         "Book",
         "Product"
       ],
-      "author": {
-        "@id": "https://vreeman.com/meditations/#/schema/author"
-      },
-      "translator": {
-        "@id": "https://vreeman.com/meditations/#/schema/translator"
-      },
       "name": "Meditations by Marcus Aurelius. Translation by Gregory Hays.",
       "headline": "Meditations by Marcus Aurelius. A new Translation, with an Introduction, by Gregory Hays.",
       "alternateName": [
@@ -296,6 +290,12 @@ hr {
         "Τὰ εἰς ἑαυτὸν"
       ],
       "url": "https://vreeman.com/meditations/",
+      "author": {
+        "@id": "https://vreeman.com/meditations/#/schema/author"
+      },
+      "translator": {
+        "@id": "https://vreeman.com/meditations/#/schema/translator"
+      },
       "image": [
         {
           "@id": "https://vreeman.com/meditations/#/schema/image/jpg"
@@ -307,12 +307,6 @@ hr {
           "@id": "https://vreeman.com/meditations/#/schema/image/avif"
         }
       ],
-      "isPartOf": {
-        "@id": "https://vreeman.com/meditations/"
-      },
-      "mainEntityOfPage": {
-        "@id": "https://vreeman.com/meditations/"
-      },
       "about": "Meditations is a series of personal writings by Marcus Aurelius, Roman Emperor from 161 to 180 AD, recording his private notes to himself and ideas on Stoic philosophy.",
       "description": "Read for free Meditations, the book by Roman emperor and Stoic philosopher Marcus Aurelius in an English translation by Gregory Hays.",
       "workExample": {
@@ -333,6 +327,20 @@ hr {
       "citation": {
         "@id": "https://vreeman.com/discourses/"
       },
+      "isbn": [
+        "9780812968255",
+        "9781588361738"
+      ],
+      "identifier": [{
+        "@type": "PropertyValue",
+        "propertyID": "OCLC_NUMBER",
+        "value": "680050248"
+      },
+      {
+        "@type": "PropertyValue",
+        "propertyID": "LCCN",
+        "value": "2001057947"
+      }],
       "sameAs": [
         "https://www.wikidata.org/entity/Q1152283",
         "https://www.wikidata.org/wiki/Q1152283",
@@ -354,6 +362,8 @@ hr {
         "https://doi.org/10.1093/acrefore/9780199381135.013.7164"
       ],
       "additionalType": "http://www.productontology.org/id/Meditations",
+      "genre": "http://vocab.getty.edu/aat/300055977",
+      "category": "http://vocab.getty.edu/aat/300055977",
       "keywords": [
         {
           "@type": "DefinedTerm",
@@ -377,8 +387,6 @@ hr {
           ]
         }
       ],
-      "genre": "http://vocab.getty.edu/aat/300055977",
-      "category": "http://vocab.getty.edu/aat/300055977",
       "brand": {
         "@id": "https://vreeman.com/meditations/#/schema/modern-library"
       },
@@ -396,20 +404,6 @@ hr {
         "name": "English",
         "alternateName": "en"
       },
-      "isbn": [
-        "9780812968255",
-        "9781588361738"
-      ],
-      "identifier": [{
-        "@type": "PropertyValue",
-        "propertyID": "OCLC_NUMBER",
-        "value": "680050248"
-      },
-      {
-        "@type": "PropertyValue",
-        "propertyID": "LCCN",
-        "value": "2001057947"
-      }],
       "bookEdition": "Webpage",
       "datePublished": "2002-05-14",
       "numberOfPages": "1",
@@ -481,6 +475,12 @@ hr {
         "name": "People interested in philosophy and specifically stoicism",
         "suggestedMinAge": "12"
       },
+      "isPartOf": {
+        "@id": "https://vreeman.com/meditations/"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://vreeman.com/meditations/"
+      },
       "hasPart": [
         {
           "@id": "https://vreeman.com/meditations/#introduction"
@@ -535,11 +535,11 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Introduction by Gregory Hays",
+      "url": "https://vreeman.com/meditations/#introduction",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
-      },
-      "name": "Introduction by Gregory Hays",
-      "url": "https://vreeman.com/meditations/#introduction"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#book1",
@@ -547,11 +547,11 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Book 1: Debts and Lessons",
+      "url": "https://vreeman.com/meditations/#book1",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
-      },
-      "name": "Book 1: Debts and Lessons",
-      "url": "https://vreeman.com/meditations/#book1"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#book2",
@@ -559,14 +559,14 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Book 2: On the River Gran, Among the Quadi",
+      "url": "https://vreeman.com/meditations/#book2",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
       },
       "hasPart": {
         "@id": "https://vreeman.com/meditations/#book2-11"
-      },
-      "name": "Book 2: On the River Gran, Among the Quadi",
-      "url": "https://vreeman.com/meditations/#book2"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#book3",
@@ -574,11 +574,11 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Book 3: In Carnuntum",
+      "url": "https://vreeman.com/meditations/#book3",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
-      },
-      "name": "Book 3: In Carnuntum",
-      "url": "https://vreeman.com/meditations/#book3"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#book4",
@@ -586,11 +586,11 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Book 4",
+      "url": "https://vreeman.com/meditations/#book4",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
-      },
-      "name": "Book 4",
-      "url": "https://vreeman.com/meditations/#book4"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#book5",
@@ -598,14 +598,14 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Book 5",
+      "url": "https://vreeman.com/meditations/#book5",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
       },
       "hasPart": {
         "@id": "https://vreeman.com/meditations/#book5-20"
-      },
-      "name": "Book 5",
-      "url": "https://vreeman.com/meditations/#book5"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#book6",
@@ -613,11 +613,11 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Book 6",
+      "url": "https://vreeman.com/meditations/#book6",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
-      },
-      "name": "Book 6",
-      "url": "https://vreeman.com/meditations/#book6"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#book7",
@@ -625,14 +625,14 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Book 7",
+      "url": "https://vreeman.com/meditations/#book7",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
       },
       "hasPart": {
         "@id": "https://vreeman.com/meditations/#book7-56"
-      },
-      "name": "Book 7",
-      "url": "https://vreeman.com/meditations/#book7"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#book8",
@@ -640,11 +640,11 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Book 8",
+      "url": "https://vreeman.com/meditations/#book8",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
       },
-      "name": "Book 8",
-      "url": "https://vreeman.com/meditations/#book8"
     },
     {
       "@id": "https://vreeman.com/meditations/#book9",
@@ -652,11 +652,11 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Book 9",
+      "url": "https://vreeman.com/meditations/#book9",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
-      },
-      "name": "Book 9",
-      "url": "https://vreeman.com/meditations/#book9"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#book10",
@@ -664,14 +664,14 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Book 10",
+      "url": "https://vreeman.com/meditations/#book10",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
       },
       "hasPart": {
         "@id": "https://vreeman.com/meditations/#book10-16"
-      },
-      "name": "Book 10",
-      "url": "https://vreeman.com/meditations/#book10"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#book11",
@@ -679,11 +679,11 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Book 11",
+      "url": "https://vreeman.com/meditations/#book11",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
-      },
-      "name": "Book 11",
-      "url": "https://vreeman.com/meditations/#book11"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#book12",
@@ -691,11 +691,11 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Book 12",
+      "url": "https://vreeman.com/meditations/#book12",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
-      },
-      "name": "Book 12",
-      "url": "https://vreeman.com/meditations/#book12"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#notes",
@@ -703,11 +703,11 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Notes",
+      "url": "https://vreeman.com/meditations/#notes",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
-      },
-      "name": "Notes",
-      "url": "https://vreeman.com/meditations/#notes"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#persons",
@@ -715,11 +715,11 @@ hr {
         "CreativeWork",
         "Chapter"
       ],
+      "name": "Index of Persons in Meditations",
+      "url": "https://vreeman.com/meditations/#persons",
       "isPartOf": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
-      },
-      "name": "Index of Persons in Meditations",
-      "url": "https://vreeman.com/meditations/#persons"
+      }
     },
     {
       "@id": "https://vreeman.com/meditations/#/schema/author",
