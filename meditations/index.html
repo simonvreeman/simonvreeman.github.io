@@ -211,7 +211,7 @@ hr {
     font-size: 1rem;
     line-height: 1.618;
   }
-  a, body, mark, li::marker {
+  a, body, li::marker {
     color: #000;
   }
   a {
@@ -220,10 +220,11 @@ hr {
   .return, .fixed, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
     display: none;
   }
-  mark {
+  mark, mark[title], mark[title] > a {
     background-color: #fff;
+    color: #000;
   }
-  main table, nav ul {
+  main table, nav ul, ul ul, ul ul ul {
     font-size: 80%;
   }
   main h2 {
