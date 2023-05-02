@@ -13,6 +13,27 @@
              url('font/iAWriterQuattroS-Regular.woff2') format('woff2'),
              url('font/iAWriterQuattroS-Regular.woff') format('woff');
       }
+      @font-face {
+        font-family: "QuattroBold";
+        src: url('font/iAWriterQuattroS-Bold.eot');
+        src: url('font/iAWriterQuattroS-Bold.eot') format('embedded-opentype'),
+             url('font/iAWriterQuattroS-Bold.woff2') format('woff2'),
+             url('font/iAWriterQuattroS-Bold.woff') format('woff');
+      }
+      @font-face {
+        font-family: "QuattroItalic";
+        src: url('font/iAWriterQuattroS-Italic.eot');
+        src: url('font/iAWriterQuattroS-Italic.eot') format('embedded-opentype'),
+             url('font/iAWriterQuattroS-Italic.woff2') format('woff2'),
+             url('font/iAWriterQuattroS-Italic.woff') format('woff');
+      }
+      @font-face {
+        font-family: "QuattroBoldItalic";
+        src: url('font/iAWriterQuattroS-BoldItalic.eot');
+        src: url('font/iAWriterQuattroS-BoldItalic.eot') format('embedded-opentype'),
+             url('font/iAWriterQuattroS-BoldItalic.woff2') format('woff2'),
+             url('font/iAWriterQuattroS-BoldItalic.woff') format('woff');
+      }
       *, ::before, ::after {
         margin: 0;
         padding: 0;
@@ -26,10 +47,10 @@
       body {
         max-width: fit-content;
         margin: 0 auto;
-        height:100dvh;
-        display:grid;
+        height: 100dvh;
+        display: grid;
         align-content: center;
-        text-wrap:balance;
+        text-wrap: balance;
       }
       a {
         color: inherit;
@@ -39,6 +60,23 @@
         outline: 0;
         text-decoration: underline #08C;
       }
+      svg {
+        width: 504px;
+        height: 504px;
+        /*viewBox="0 0 500 500"*/
+      }
+      circle {
+        fill: transparent;
+        stroke: black;
+        stroke-width: 2;
+        r: 25%;
+      }
+      text {
+        text-anchor: middle;
+        alignment-baseline: middle;
+        fill: #16161d;
+      }
+      
     </style>
     <link rel="canonical" href="https://vreeman.com/">
     <meta name="robots" content="noindex, nofollow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
@@ -48,5 +86,23 @@
       <h1>Simon Vreeman</h1>
       <h2>Freelance Technical Marketing Consultant</h2>
       <h3><a href="mailto:simon@vreeman.com">simon@vreeman.com</a></h3>
+      <svg>
+        <g>
+          <g style="transform: translate(50%, 50%);">
+            <g>
+              <circle cx="-62.5" cy="-125"></circle>
+              <text x="-62.5" y="-125">SEO</text>
+            </g>
+            <g>
+              <circle cx="-50" cy="50"></circle>
+              <text x="-50" y="50">CRO</text>
+            </g>
+            <g>
+              <circle cx="83.33333333" cy="-62.5"></circle>
+              <text x="83.33333333" y="-62.5">Data</text>
+            </g>
+          </g>
+        </g>
+      </svg>
   </body>
 </html>
