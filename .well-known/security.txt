@@ -1,2 +1,5 @@
-Contact: https://twitter.com/vreeman
-Contact: simon@vreeman.com
+Contact: mailto:simon@vreeman.com
+Contact: https://www.twitter.com/vreeman
+Expires: 2030-12-31T23:59:00.000Z
+Preferred-Languages: nl, en
+Canonical: https://vreeman.com/.well-known/security.txt
