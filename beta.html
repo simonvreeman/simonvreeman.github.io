@@ -34,6 +34,10 @@
              url('font/iAWriterQuattroS-BoldItalic.woff2') format('woff2'),
              url('font/iAWriterQuattroS-BoldItalic.woff') format('woff');
       }
+      :root {
+        --eigengrau: #16161d;
+        --blue: #06c;
+      }
       *, ::before, ::after {
         margin: 0;
         padding: 0;
@@ -43,6 +47,7 @@
         line-height: 1.6;
         font-size: 1rem;
         font-weight: 400;
+        color: var(--eigengrau);
       }
       body {
         max-width: fit-content;
@@ -70,17 +75,58 @@
       }
       circle {
         fill: transparent;
-        stroke: black;
+        stroke: var(--eigengrau);
         stroke-width: 2;
         r: 25%;
+        transition: r 2s ease-out 100ms
       }
       circle:hover {
-        
+        stroke: var(--blue);
+        r: 26%;
       }
       text {
         text-anchor: middle;
         alignment-baseline: middle;
-        fill: #16161d;
+        fill: var(--eigengrau);
+      }
+      image {
+        border-radius: 50%;
+      }
+      img {
+        border-radius: 50%;
+        margin:0 auto;
+        display: block;
+/*        background-color: hsl(0, 0%, 80%);*/
+        aspect-ratio: 1 / 1;
+        width: 150px;
+        height: 150px;
+/*        filter: blur(3px) grayscale(1);*/
+/*        transition: 0.3s;*/
+      }
+      /*img:hover {
+        filter: blur(0);
+        box-shadow: 0 1px 6px 1px hsl(0deg 0% 0% / 30%);
+      }
+      img:active {
+        box-shadow: 0 1px 24px 1px hsl(0deg 0% 0% / 30%);
+      }*/
+      @media (prefers-color-scheme: dark) {
+        * {
+          background-color: var(--eigengrau);
+          color: white;
+        }
+        circle {
+          stroke: white;
+          stroke-width: 1;
+        }
+        text {
+          fill: white;
+          stroke: white;
+          stroke-width: 1;
+        }
+        a {
+          color: white;
+        }
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
@@ -92,22 +138,28 @@
       <h2>Freelance Technical Marketing Consultant</h2>
       <!-- <h3><a href="mailto:simon@vreeman.com">simon@vreeman.com</a></h3> -->
       <br>
+      <!-- <picture>
+        <source srcset="https://vreeman.com/img/simon-vreeman-2-square.avif" type="image/avif" width="150" height="150">
+        <source srcset="https://vreeman.com/img/simon-vreeman-2-square.webp" type="image/webp" width="150" height="150">
+        <img src="https://vreeman.com/img/simon-vreeman-2-square.jpg" alt="Simon Vreeman" width="150" height="150">
+      </picture> -->
       <svg>
         <g>
           <g style="transform: translate(50%, 50%);">
             <g>
-              <circle cx="-82.5" cy="-105"></circle>
+              <circle cx="-82.5" cy="-105" id="seo"></circle>
               <text x="-92.5" y="-115"><a href="#" title="Search Engine Optimization">SEO</a></text>
             </g>
             <g>
-              <circle cx="-30" cy="30"></circle>
+              <circle cx="-30" cy="30" id="cro"></circle>
               <text x="-40" y="50"><a href="#" title="Conversion Rate Optimization">CRO</a></text>
             </g>
             <g>
-              <circle cx="63.33333333" cy="-82.5"></circle>
+              <circle cx="63.33333333" cy="-82.5" id="data"></circle>
               <text x="83.33333333" y="-92.5"><a href="#" title="Web Analytics">Data</a></text>
             </g>
-            <text x="-15" y="-45"><a href="#" title="Simon Vreeman">Simon</a></text>
+            <text x="-15" y="-45"><a href="#" title="Simon Vreeman">👨‍💻</a></text>
+            <!-- <image href="https://vreeman.com/img/simon-vreeman-2-square.jpg" width="150" height="150" x="-15" y="-45"> -->
           </g>
         </g>
       </svg>
