@@ -106,4 +106,9 @@
       <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
     </image:image>
   </url>
+  <url>
+    <loc>https://vreeman.com/discourses/enchiridion</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
