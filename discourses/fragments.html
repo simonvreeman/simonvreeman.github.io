@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>📕 Arrian’s Fragments of Epictetus. Translated and edited by Robert Dobbin.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://gtm.vreeman.com" crossorigin>
+    <link rel="dns-prefetch" href="https://gtm.vreeman.com">
+<style>
+:root {
+  color-scheme: dark light;
+  --eigengrau: #16161d;
+  --blue-dark: #06c;
+  --blue-dark-rgb: 0, 102, 204;
+  --blue-light: #2997ff;
+  --blue-light-rgb: 41, 151, 255;
+  --blue-lighter: #6bf;
+  --blue-lighter-rgb: 102,187,255;
+  --gray: rgb(204, 204, 204);
+  --white: #f5f5f7;
+  --sans-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+  --serif: ui-serif, -apple-system-ui-serif, Palatino, Georgia, Cambria, "Times New Roman", Times, serif;
+  --monospace: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Roboto Mono", "Liberation Mono", "Courier New", monospace;
+  --cursive: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;
+}
+::-moz-selection {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+::selection {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+::target-text {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+:focus {
+  outline: 3px solid var(--blue-lighter);
+  outline-offset: 1px;
+}
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: 35em;
+  max-width: 95%;
+  color: var(--eigengrau);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.618;
+  font-feature-settings: "onum" 1;
+  text-rendering: geometricPrecision;
+  -moz-font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+h1, h2, h3, h4, h5 {
+  font-family: var(--sans-serif);
+}
+table, td, th {
+  border-collapse: collapse;
+}
+table {
+  border-style: hidden;
+  font-family: var(--monospace);
+  width: 100%;
+}
+td, th {
+  border: 1px solid var(--eigengrau);
+  padding: 3px;
+}
+tbody {
+  vertical-align: text-bottom;
+}
+a {
+  background-color: transparent;
+  color: var(--blue-dark);
+  text-decoration-skip: ink;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+a:active, a:focus, a:hover {
+  color: var(--blue-light);
+}
+.return, .fixed, abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
+  text-decoration: none;
+}
+dt, strong {
+  font-weight: 700;
+}
+cite, em {
+  font-style: italic;
+}
+cite::before {
+  content: "—";
+}
+blockquote > p::before {
+  content: open-quote;
+}
+blockquote > p::after {
+  content: close-quote;
+}
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -.25rem;
+}
+sup {
+  top: -.5rem;
+}
+sub::before, sup::before {
+  content: "[";
+}
+sub::after, sup::after {
+  content: "]";
+}
+li::marker {
+  color: var(--blue-dark);
+  font-weight: 700;
+}
+ul ul, ul ul ul {
+  font-size: 1rem;
+  list-style: inherit;
+}
+mark {
+  color: var(--eigengrau);
+  background-color: rgba( var(--blue-lighter-rgb), 0.2);
+  padding: .25rem;
+  white-space: pre-wrap;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid var(--eigengrau);
+  margin: 1em 0;
+  padding: 0;
+}
+.alpha, .roman, table {
+  font-feature-settings: 'tnum' on;
+  font-variant-numeric: tabular-nums;
+
+}
+.alpha {
+  list-style-type: lower-alpha;
+}
+.roman {
+  list-style-type: lower-roman;
+}
+.fixed {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 1em;
+  font-family: var(--monospace);
+}
+[id] {
+  scroll-margin-top: 2ex;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, ::after, ::before, html {
+    scroll-behavior: auto !important;
+  }
+  *, ::after, ::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--eigengrau);
+  }
+  body, mark {
+    color: var(--white);
+  }
+  a {
+    color: var(--blue-lighter);
+  }
+  a:active, a:focus, a:hover, li::marker {
+    color: var(--blue-light);
+  }
+  mark {
+    background-color: var(--blue-dark);
+  }
+  hr {
+    border-top: 1px solid var(--white);
+  }
+}
+@media print {
+  body {
+    font-size: 1rem;
+    line-height: 1.618;
+  }
+  a, body, li::marker {
+    color: #000;
+  }
+  a {
+    text-decoration: none;
+  }
+  .return, .fixed, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
+    display: none;
+  }
+  mark, mark[title], mark[title] > a {
+    background-color: #fff;
+    color: #000;
+  }
+  main table, nav ul, ul ul, ul ul ul {
+    font-size: 80%;
+  }
+  main h2 {
+    page-break-before: always;
+  }
+}
+</style>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://gtm.vreeman.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
+    <link rel="canonical" href="https://vreeman.com/discourses/fragments">
+    <link rel="alternate" href="https://vreeman.com/discourses/fragments" hreflang="x-default">
+    <link rel="alternate" href="https://vreeman.com/discourses/fragments" hreflang="en">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+    <meta name="description" content="Read for free the Fragments, by the Stoic philosopher Epictetus written down by Arrian in an English translation and editing by Robert Dobbin.">
+    <meta name="keywords" content="Epictetus, Fragments, Discourses, Enchiridion, stoicism, philosophy">
+    <link rel="webmention" href="https://webmention.io/vreeman.com/webmention">
+    <link rel="pingback" href="https://webmention.io/vreeman.com/xmlrpc">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@vreeman">
+    <meta name="twitter:creator" content="@vreeman">
+    <meta name="twitter:title" content="Discourses and Enchiridion of Epictetus">
+    <meta name="twitter:description" content="Read for free the Fragments, by the Stoic philosopher Epictetus written down by Arrian in an English translation and editing by Robert Dobbin.">
+    <meta name="twitter:image" content="https://vreeman.com/discourses/discourses.png">
+    <meta property="og:type" content="books.book">
+    <meta property="books:isbn" content="9781588361738">
+    <meta property="books:author" content="Epictetus">
+    <meta property="og:site_name" content="Vreeman.com">
+    <meta property="og:title" content="Fragments of Epictetus">
+    <meta property="og:url" content="https://vreeman.com/discourses/fragments?utm_source=social&utm_medium=organic&utm_campaign=share">
+    <meta property="og:description" content="Read for free the Fragments, by the Stoic philosopher Epictetus written down by Arrian in an English translation and editing by Robert Dobbin.">
+    <meta property="og:image" content="https://vreeman.com/discourses/discourses.png">
+    <meta property="og:image:secure_url" content="https://vreeman.com/discourses/discourses.png">
+  </head>
+  <body>
+    <noscript><iframe src="https://gtm.vreeman.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header id="header">
+      <h1>Arrian’s Fragments of Epictetus</h1>
+      <h2>Translated and edited by Robert Dobbin</h2>
+    </header>
+    <hr>
+    <nav id="nav">
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#fragments">Fragments</a></li>
+      </ul>
+    </nav>
+    <hr>
+    <main>
+      <h2 id="introduction">Introduction</h2>
+      <p>The ‘fragments’ are mostly brief quotations of passages not found elsewhere in Epictetus’ extant writings. Fragment 9 purports to be taken from ‘the fifth book of Discourses’, which indicates that at least one whole book has been lost, since only four survive. It is likely that some of the other fragments also derive from this source – or perhaps from other books of Discourses that have disappeared. Most of these fragments (‘excerpts’ might be a better word) are preserved in an anthology of writings, mainly on ethical topics, compiled in the fifth century ad by Johannes Stobaeus for the education of his son. Those with a different provenance are indicated below by naming the alternative source.</p>
+      <p>For the text (and selection of fragments) I follow the Loeb edition (Epictetus: The Discourses as Reported by Arrian, the Manual, and Fragments, ed. W. A. Oldfather, 2 vols., London and Cambridge, Mass., 1925–8), which is based in turn on the edition of Schenkl (Epicteti: Dissertationes ab Arriano Digestae, ed. H. Schenkl, 2nd edn, Leipzig, 1916) with an additional fragment (28b).</p>
+      
+      <h2 id="fragments">Fragments</h2>
+      <p>1. What do I care whether matter is made up of atoms, indivisibles, or fire and earth? Isn’t it enough to know the nature of good and evil, the limits of desire and aversion, and of choice and refusal, and to use these as virtual guidelines for how to live? Questions beyond our ken we should ignore, since the human mind may be unable to grasp them. However easily one assumes they can be understood, what’s to be gained by understanding them in any case? It must be said, I think, that those who make such matters an essential part of a philosopher’s knowledge are creating unwanted difficulties.</p>
+      <p>And what of the commandment at Delphi, to ‘know yourself’ – is that redundant too? No, not that, certainly. Well, what does it mean? If someone said to a chorus member ‘Know yourself,’ the command would mean that he should give attention to the other chorus members and their collective harmony. Similarly with a soldier or sailor. So do you infer that man is an animal created to live on his own, or in a community?</p>
+      <p>‘A community.’</p>
+      <p>Created by whom?</p>
+      <p>‘By nature.’</p>
+      <p>What nature is and how it governs everything, whether it is knowable or not – are these additional questions superfluous?</p>
+
+      <p>2. Whoever chafes at the conditions dealt by fate is unskilled in the art of life; whoever bears with them nobly and makes wise use of the results is a man who deserves to be considered good.</p>
+
+      <p>3. Everything obeys and serves the universe<sup><a href="#fn-1" id="fn-1-ref">1</a></sup> – the land and sea, the sun and other stars, as well as the world’s plants and animals. Our body also obeys it in both sickness and health (whichever it dictates), in youth and old age, and in the course of the body’s other changes. So it is unreasonable that our will, which is in our power, be the only thing to try to resist it. It is stronger than we are and very powerful indeed; besides, it has planned for us better than we could ourselves by including us in its grand design. Resistance is vain in any case; it only leads to useless struggle while inviting grief and sorrow.</p>
+
+      <p>4. Of things that are, God has put some under our control, some not. The best and most important thing is under our control and the basis of God’s own well-being – the use of external impressions. Rightly used, this leads to freedom, serenity, happiness and satisfaction; it is also the source of justice, law, restraint and virtue in general. He did not put anything else under our control. So we should support God by making the same distinction and doing everything to lay claim to what is in our control, while surrendering what is not to the care of the universe. Whether it asks for our children, our homeland, our body or anything else, resign it gracefully.</p>
+
+      <p>5. Which one of you does not admire what Lycurgus the Spartan<sup><a href="#fn-2" id="fn-2-ref">2</a></sup> said? He was blinded in one eye by a young citizen of Sparta, who was then handed over to Lycurgus to punish as he saw fit. Lycurgus not only declined to exact revenge, he gave the youth an education and made a good man of him. He then publicly introduced him at the theatre. The Spartans were indignant, but Lycurgus said, ‘The person you gave me was violent and aggressive; I’m returning him to you civilized and refined.’</p>
+
+      <p>6. Above all, nature demands that we conform and adapt our will to our idea of what’s right and useful.</p>
+
+      <p>7. To imagine that we will be despised by others unless we use every means to inflict harm, especially on our enemies, is typical of very mean and ignorant people. We say that worthless people are recognized by, among other things, their inability to do harm; it would be much better to say that they’re recognized by their inability to do anyone good.</p>
+
+      <p>8. The nature of the universe was, is and always will be the same, and things cannot happen any differently than they do now. It’s not just mankind and the other animals on earth that share in the cycle of change, but also the heavens and even the four basic elements: up and down they change and alternate, earth becoming water, water air, and air in turn becoming fire – with an analogous change from above downwards.<sup><a href="#fn-3" id="fn-3-ref">3</a></sup> If we try to adapt our mind to the regular sequence of changes and accept the inevitable with good grace, our life will proceed quite smoothly and harmoniously.</p>
+
+      <p>9. [<em>from Aulus Gellius, Attic Nights</em><sup><a href="#fn-4" id="fn-4-ref">4</a></sup> XIX 1, 14-21] A renowned Stoic philosopher drew from his satchel Book Five of the Discourses of Epictetus, edited by Arrian, writings that undoubtedly agree with those of Zeno and Chrysippus. There (translated from the Greek) we find a passage to this effect:</p>
+      <p>Impressions (which philosophers call), striking a person’s mind as soon as he perceives something within range of his senses, are not voluntary or subject to his will, they impose themselves on people’s attention almost with a will of their own. But the act of assent (which they call) which endorses these impressions <em>is</em> voluntary and a function of the human will. Consequently, when a frightening noise comes from heaven or in consequence of some accident, if an abrupt alarm threatens danger, or if anything else of the kind happens, the mind even of a wise man is inevitably shaken a little, blanches and recoils – not from any preconceived idea that something bad is about to happen, but because certain irrational reflexes forestall the action of the rational mind.</p>
+      <p>Instead of automatically assenting to these impressions (i.e. these frightening mental images), however (that is), our wise man spurns and rejects them, because there is nothing there that need cause <em>him</em> any fear.<sup><a href="#fn-5" id="fn-5-ref">5</a></sup> And this, they say, is how the mind of the wise man di ers from the fool’s: the latter believes that impressions apparently portending pain and hardship when they strike his mind really are as they seem, so he approves (the word the Stoics use when discussing this matter) them and accepts that he should fear them as if this were self-evident. But the wise man, soon regaining his colour and composure, (does not assent), reaffirms his support of the view he’s always had about such impressions – that they are not in the least to be feared, but are only superficially and speciously frightening.</p>
+
+      <p>10. [<em>from Aulus Gellius, Attic Nights</em> XVII 19] According to Favorinus,<sup><a href="#fn-6" id="fn-6-ref">6</a></sup> Epictetus said that most apparent philosophers were philosophers ‘not in their actions, only their words’. A more incisive form of the idea was committed to writing in the books that Arrian composed based on Epictetus’ lectures: ‘Whenever,’ Arrian writes, ‘Epictetus noticed a person with no sense of shame but plenty of misplaced energy, vicious in character but possessed of a ready tongue, concerned with everything to the exclusion of his soul, whenever (he says) he saw such a character apply himself to any of various philosophical disciplines – taking up physics, studying logic, exploring various abstract topics of this sort – he’d be moved to cry out, invoking both gods and men, and in the course of his appeal would address these remarks to the person: “Friend, where are you storing all this erudition? Consider whether the receptacle is clean. If it’s being added to the vessel of vague opinion, it’s as good as lost. And if it spoils, it will turn into urine, vinegar or something even worse.” ’</p>
+      <p>There is absolutely nothing truer than these words, or more important; the greatest of philosophers thus implies that the writings and teachings of philosophy, when emptied into someone vicious and a fake – as into a foul and filthy vessel – become spoiled, degraded, and debased, turning into urine (as he says, in rather Cynic style) or, if it’s possible, something even more disgusting.</p>
+      <p>According to Favorinus, Epictetus would also say that there were two vices much blacker and more serious than the rest: lack of persistence and lack of self-control. The former means we cannot bear or endure hardships that we have to endure, the latter means that we cannot resist pleasures or other things we ought to resist. ‘Two words,’ he says, ‘should be committed to memory and obeyed by alternately exhorting and restraining ourselves, words that will ensure we lead a mainly blameless and untroubled life.’ These two words, he used to say, were ‘persist <em>and</em> resist’.</p>
+      <p>10a. [<em>from Arnobius, Against the Pagans</em><sup><a href="#fn-7" id="fn-7-ref">7</a></sup> II 78] When the health of our soul and our self-respect is at stake, even irrational measures are justi ed, as Arrian quotes Epictetus saying, with approval.</p>
+
+      <p>11. Archelaus<sup><a href="#fn-8" id="fn-8-ref">8</a></sup> invited Socrates to his court with the promise of wealth. But Socrates reported back that ‘In Athens four quarts of barley meal can be bought for a penny, and there are plenty of springs of fresh water. If my means are slight, still I can manage on them, which makes them adequate for my purposes.’ Can’t you see that Polus performed Oedipus as a king no more pleasingly or eloquently than he played Oedipus as a beggar and wanderer?<sup><a href="#fn-9" id="fn-9-ref">9</a></sup> Then won’t the good man make as fine a showing as Polus by performing well in every costume in which destiny dresses him? Shouldn’t he imitate Odysseus, who was no less dignified wearing rags than in his royal purple robe?<sup><a href="#fn-10" id="fn-10-ref">10</a></sup></p>
+
+      <p>12. There are some quietly temperamental people who coldly and calmly act the same way as people wholly carried away by anger. Their vice should be avoided too as it is much worse than being boiling mad; people of the latter sort soon get their satisfaction, whereas the former hold on to their anger like patients with a low- grade fever.</p>
+
+      <p>13. ‘But,’ someone objects, ‘I see good people dying of cold and hunger.’</p>
+      <p>Well, don’t you see wicked people dying of luxury, pride and excess?</p>
+      <p>‘Yes, but it’s demeaning to depend on others for one’s living.’<sup><a href="#fn-11" id="fn-11-ref">11</a></sup></p>
+      <p>Who is really self-sufficient, fool – apart from the universe itself? In any case, to object to providence on the grounds that the wicked go unpunished since they are rich and powerful is like saying that, if they lost their sight, they escaped punishment since they still had their fingernails intact. Personally, I say that virtue is more valuable than wealth to the same degree that eyes are more valuable than fingernails.</p>
+
+      <p>14. Let’s question those gloomy philosophers<sup><a href="#fn-12" id="fn-12-ref">12</a></sup> who say that pleasure is not itself in agreement with nature but a mere byproduct of the things in agreement with nature, like justice, self-control and freedom. Why, then, does the soul delight and ‘find content’, as Epicurus says, in the goods of the body, fragments which are supposed to be inferior, but not take pleasure in its own (supposedly superior) goods? Well, nature has also endowed mewith a sense of shame, and I blush deeply whenever I catch myself saying anything disgraceful. It’s this reflex that will not allow me to propose pleasure as the good and the goal of life.</p>
+
+      <p>15. Women in Rome thumb Plato’s Republic because it advocates for the community of women. They attend only to the letter, not the spirit, which was not to encourage one man and one woman to marry and move in together – with the idea that women would then be shared – but to do away with that sort of marriage and introduce a different kind. People in general love to cite authority as a pretext to indulge their vices – when we know that philosophy says we should not even extend a finger without good reason.<sup><a href="#fn-13" id="fn-13-ref">13</a></sup></p>
+
+      <p>16. We should realize that an opinion is not easily formed unless a person says and hears the same things every day and practises them in real life.</p>
+
+      <p>17. When we are guests at a dinner party, we content ourselves with the food on offer; if anyone were to tell the host to put out fish or cake, he would seem rude. In real life, however, we ask the gods for what they do not give, and this though they have provided us with plenty.</p>
+
+      <p>18. It is just charming how people boast about qualities beyond their control. For instance, ‘I am better than you because I have many estates, while you are practically starving’; or, ‘I’m a consul,’ ‘I’m a governor,’ or ‘I have fine curly hair.’ One horse doesn’t say to another, ‘I’m better than you because I have lots of hay and barley, my reins are of gold, and my saddle is embroidered,’ but ‘I’m better because I’m faster than you.’ Every animal is judged better or worse based on its particular virtue or defect. Is man the only creature lacking a virtue, that we have to take account of his hair, his clothes, or his ancestry?</p>
+
+      <p>19. People who are physically ill are unhappy with a doctor who doesn’t give them advice, because they think he has given up on them. Shouldn’t we feel the same towards a philosopher – and assume that he has given up hope of our ever becoming rational – if he will no longer tell us what we need (but may not like) to hear?</p>
+
+      <p>20. People with a strong physical constitution can tolerate extremes of hot and cold; people of strong mental health can handle anger, grief, joy and the other emotions.</p>
+
+      <p>21. It is only right to praise Agrippinus, who never praised himself, although he was a man of the highest character. If he was praised by anyone else, he only became embarrassed. He was more inclined to praise every difficulty he faced: if he had a fever, he composed a paean to fever, if he faced exile or disgrace he would celebrate those. Once, when he was preparing for lunch, a messenger arrived from Rome announcing that Nero had sentenced him to exile. Unflustered he replied, ‘Then why don’t we just move our lunch to Aricia.’<sup><a href="#fn-14" id="fn-14-ref">14</a></sup></p>
+
+      <p>22. When he was governor, Agrippinus tried to convince the people whom he sentenced that it was for their own good to be sentenced. ‘I don’t at all condemn them in a spirit of malice,’ he said, ‘much less with an eye to seizing their property. I act in a spirit of concern and good will, like a doctor who comforts the patient whom he plans to cut open, and cajoles him into submitting to the operation.’</p>
+
+      <p>23. Nature is amazing and ‘on the side of life’, as Xenophon says.<sup><a href="#fn-15" id="fn-15-ref">15</a></sup> Take the body – the nastiest and least pleasant thing of all – which we nevertheless love and look after. If we had to look after our neighbour’s body, we’d be sick of it inside of a week. Imagine what it would be like to rise at dawn and brush someone else’s teeth, or wipe their private parts after they’ve answered nature’s call. Really, it’s amazing that we can love something that on a daily basis requires so much of our attention.</p>
+      <p>I stuff this paunch, then empty it; and what could be more tedious? But God must be obeyed, and so I live on and put up with washing, feeding and housing my miserable body. When I was younger it asked something else of me, and I put up with that too. So why can’t you tolerate it, when nature, which gave you this body, asks for it back?</p>
+      <p>‘But I love it.’</p>
+      <p>Wasn’t it nature, as I just finished saying, that made you love it? It’s nature, too, that tells you it’s time to let it go, so that you won’t have to fuss over it any more.</p>
+
+      <p>24. Whenever someone dies young, they blame the gods <em>because they are being taken before their time; an old man who does not die also blames the gods</em> for his ailments, because by now he ought to have reached his resting place. Nevertheless, when death approaches he wants to live and sends for the doctor, begging him to spare nothing of his skill and energy. People are strange, Epictetus said: they neither wish to live nor die.</p>
+
+      <p>25. Whenever you set about attacking someone with violent threats, remember to give them fair warning, because you are not a savage animal. And if you refrain from savage behaviour, in the end you will have nothing to regret or explain.</p>
+
+      <p>26. [<em>from Marcus Aurelius, The Meditations</em><sup><a href="#fn-16" id="fn-16-ref">16</a></sup> IV 41] You are a bit of soul carrying around a dead body, as Epictetus used to say.</p>
+
+      <p>27. [<em>from Marcus Aurelius, The Meditations</em> XI 37] Epictetus said that we must find a method for managing assent. In the field of assent we have to be careful to use it with reservation, with restraint and in the service of society. Drop desire altogether and apply aversion to nothing that is not under our control.</p>
+
+      <p>28. [<em>from Marcus Aurelius, The Meditations</em> XI 38] It is nothing trivial at stake here, Epictetus said, but a question of sanity or insanity.</p>
+
+      <p>28a. [<em>from Marcus Aurelius, The Meditations</em> XI 39] Socrates would say, ‘What do you want? To have the souls of rational or irrational animals?’</p>
+      <p>‘Rational.’</p>
+      <p>‘Healthy or unhealthy rational animals?’</p>
+      <p>‘Healthy’</p>
+      <p>‘Then why don’t you work at it?’</p>
+      <p>‘Because we have them already.’</p>
+      <p>‘Then why are you fighting and quarrelling with one another?’</p>
+
+      <p>28b. [from Marcus Aurelius, The Meditations IV 49, 2-6] ‘Poor me, because this happened to me.’ No, say rather, ‘Lucky me, because though this happened to me I’m still happy, neither broken by present circumstance nor afraid for the future.’ Because the same thing could have happened to anyone, but not everyone could have remained content. So why is the former a misfortune any more than the latter is a blessing? Do you actually call anything a human misfortune that isn’t a perversion of human nature? And don’t you think a perversion of human nature must run counter to nature’s will? Well, you understand its will. So does this misfortune prevent you in any way from being just, generous, sober, reasonable, careful, free from error, courteous, free, etc. – all of which together make human nature complete?</p>
+      <p>Remember from now on whenever something tends to make you unhappy, draw on this principle: ‘This is no misfortune; but bearing with it bravely is a blessing.’</p>
+
+      <h2>Footnotes</h2>
+      <h3>Book 1</h3>
+      <ol>
+        <li id="fn-1"><em>the universe</em>: ‘The universe’ is equivalent to God in the Stoics’ pantheistic scheme; the general idea is paralleled at I 14, 1-5.  <a href="#fn-1-ref" class="return">↩</a></li>
+        <li id="fn-2"><em>Lycurgus the Spartan</em>: Lycurgus was the semi-legendary author of the Spartan constitution. <a href="#fn-2-ref" class="return">↩</a></li>
+        <li id="fn-3"><em> the four basic elements... above downwards</em>: The Greek word translated here as ‘fire’ is <em>aitheˆr</em>, recognized as a fifth element by Aristotle and other ancient writers. But Epictetus only mentions four elements, and in Stoic physics <em>aitheˆr</em> was identified with fire. The sequence of change – earth to water to air to fire – was supposed to correspond to the order of the elements in the physical universe, one positioned above the other – fire, on top, being the substance of the sun and other stars. Thus Epictetus speaks of change ‘up’ and ‘down’, or (in the latter case) ‘from above downwards’. <a href="#fn-3-ref" class="return">↩</a></li>
+        <li id="fn-4"><em>Attic Nights</em>: The <em>Attic Nights</em> of Aulus Gellius (c.130–80 AD) is an anthology of learning that, fortunately for us, includes the following
+passage featuring Epictetus. Besides developing one of his best- known themes, it incidentally tells us that there were originally at least  ve (not four) books of Discourses. <a href="#fn-4-ref" class="return">↩</a></li>
+        <li id="fn-5"><em>our wise man... any fear</em>: The ‘wise man’ is the Stoic sage who, by definition, believes that only vice is to be feared because it alone is bad (as virtue alone is good); second-order evils such as natural disasters are indifferent for him. <a href="#fn-5-ref" class="return">↩</a></li>
+        <li id="fn-6"><em>Favorinus</em>: A Greek writer and orator of the second century AD. <a href="#fn-6-ref" class="return">↩</a></li>
+        <li id="fn-7"><em>Against the Pagans</em>: Arnobius (died c.330 AD) was a Church Father who argues in his sole surviving work, <em>Against the Pagans</em>, that Christianity is consistent with the best of Greek philosophy. <a href="#fn-7-ref" class="return">↩</a></li>
+        <li id="fn-8"><em>Archelaus</em>: King of Macedon c.413–399 BC. <a href="#fn-8-ref" class="return">↩</a></li>
+        <li id="fn-9"><em>Polus performed Oedipus... wanderer</em>: Polus was a fourth-century BC Athenian actor; the reference in all probability is to the lead roles in Sophocles’ <em>Oedipus the King</em> and <em>Oedipus at Colonus</em>. <a href="#fn-9-ref" class="return">↩</a></li>
+        <li id="fn-10"><em>Odysseus... robe</em>: Odysseus goes disguised in rags in the central books of the <em>Odyssey</em>. <a href="#fn-10-ref" class="return">↩</a></li>
+        <li id="fn-11"><em>it’s demeaning... one’s living</em>: The implication being that only the rich are of independent means. <a href="#fn-11-ref" class="return">↩</a></li>
+        <li id="fn-12"><em>those gloomy philosophers</em>: A wry reference to the Stoics themselves. <a href="#fn-12-ref" class="return">↩</a></li>
+        <li id="fn-13"><em>Women in Rome... without good reason</em>: I.e. it is hypocritical to try to enlist philosophers indefence of the most egregious vice (like adultery) when they actually advise against the least unconsidered act. Epictetus is in general right that Plato in his <em>Republic</em> eliminates traditional marriage, at least for the ruling class. <a href="#fn-13-ref" class="return">↩</a></li>
+        <li id="fn-14"><em>Once, when he was preparing for lunch... Aricia</em>: The same anecdote, in a slightly different form, appears at I 1, 28-30; the town of Aricia, where Agrippinus had an estate, lay on his way to exile. <a href="#fn-14-ref" class="return">↩</a></li>
+        <li id="fn-15"><em>as Xenophon says</em>: Xenophon, <em>Memorabilia</em> I 4, 7. <a href="#fn-15-ref" class="return">↩</a></li>
+        <li id="fn-16"><em>The Meditations</em>: A work grounded in Stoicism and much indebted to Epictetus in particular, by the philosopher who also happened to be emperor of Rome (ruled 161-80 AD). <a href="#fn-16-ref" class="return">↩</a></li>
+      </ol>
+    </main>
+    <hr>
+    <footer>
+      <ul>
+        <li><small><a href="https://vreeman.com/experiment" title="Experiment, a song by Cole Albert Porter">Experiment, a song by Cole Albert Porter</a></small></li>
+        <li><small><a href="https://vreeman.com/if" title="If–, a poem by Joseph Rudyard Kipling">If–, a poem by Joseph Rudyard Kipling</a></small></li>
+        <li><small><a href="https://vreeman.com/roosevelt/" title="Citizenship in a Republic - The Man in the Arena - Theodore Roosevelt">The Man in the Arena - Theodore Roosevelt</a></small></li>
+        <li><small><a href="https://vreeman.com/stockdale/" title="Courage Under Fire: Testing Epictetus's Doctrines in a Laboratory of Human Behavior by James Bond Stockdale">Courage Under Fire by James Stockdale</a></small></li>
+        <li><small><a href="https://vreeman.com/meditations/" title="Meditations by Marcus Aurelius. Translation by Gregory Hays.">Meditations by Marcus Aurelius. Translation by Gregory Hays.</a></small></li>
+        <li>
+          <small><a href="https://vreeman.com/discourses/" title="Arrian’s Discourses of Epictetus. Translation by George Long.">Arrian’s Discourses of Epictetus. Translation by George Long.</a></small>
+          <ul>
+            <li><a href="https://vreeman.com/discourses/enchiridion" title="Enchiridion of Epictetus">Enchiridion</a></li>
+            <li><a href="https://vreeman.com/discourses/fragments" title="Fragments of Epictetus">Fragments</a></li>
+            <!-- <li><a href="" title="">Translations by George Long</a></li> -->
+          </ul>
+        </li>
+      </ul>
+      <p><small><span class="copy"></span></small></p>
+    </footer>
+    <a class="fixed" href="#header" title="Back to top">↑</a>
+    <script>
+    window.onload = function(){
+      setTimeout(function(){
+        window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+        var t = performance.timing || {};
+        if (!t) {
+          return;
+        }
+        var start = t.navigationStart,
+            end = t.loadEventEnd
+            loadTime = (end - start) / 1000;
+        var copy = document.querySelectorAll('.copy');
+        copy[0].innerHTML += "Page loaded in " + loadTime + " seconds.";
+      }, 0); 
+    }
+    </script>
+  </body>
+</html>
