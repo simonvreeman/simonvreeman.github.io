@@ -51,6 +51,11 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://vreeman.com/invictus</loc>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://vreeman.com/roosevelt/</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
