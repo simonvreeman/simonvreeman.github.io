@@ -2,8 +2,6 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vreeman.com/</loc>
-    <priority>1.0</priority>
-    <changefreq>weekly</changefreq>
     <image:image>
       <image:loc>https://vreeman.com/img/simon-vreeman-2.jpg</image:loc>
       <image:title><![CDATA[Simon Vreeman]]></image:title>
@@ -12,63 +10,39 @@
   </url>
   <url>
     <loc>https://vreeman.com/f1</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://vreeman.com/cro</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://vreeman.com/gear</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://vreeman.com/mp</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://vreeman.com/utm</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://vreeman.com/hypothesis</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
   </url>
 <url>
     <loc>https://vreeman.com/experiment</loc>
-    <priority>0.5</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://vreeman.com/if</loc>
-    <priority>0.5</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://vreeman.com/invictus</loc>
-    <priority>0.5</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://vreeman.com/roosevelt/</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://vreeman.com/stockdale/</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://vreeman.com/meditations/</loc>
-    <priority>0.9</priority>
-    <changefreq>daily</changefreq>
     <image:image>
       <image:loc>https://vreeman.com/meditations/meditations.avif</image:loc>
       <image:title><![CDATA[Meditations by Marcus Aurelius]]></image:title>
@@ -113,12 +87,8 @@
   </url>
   <url>
     <loc>https://vreeman.com/discourses/enchiridion</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://vreeman.com/discourses/fragments</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
   </url>
 </urlset>
