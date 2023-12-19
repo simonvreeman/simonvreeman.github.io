@@ -69,9 +69,11 @@ body {
   direction: ltr;
   word-break: break-word;
   overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 h1, h2, h3, h4, h5 {
   font-family: var(--sans-serif);
+  text-wrap: balance;
 }
 table, td, th {
   border-collapse: collapse;
@@ -109,6 +111,9 @@ cite, em {
 }
 cite::before {
   content: "—";
+}
+blockquote {
+  text-wrap: balance;
 }
 blockquote > p::before {
   content: open-quote;
