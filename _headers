@@ -4,7 +4,7 @@
     Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
     X-DNS-Prefetch-Control: on
     X-John-Deere: 6320
-    Link: <https://gtm.vreeman.com>; rel="preconnect"; crossorigin, <https://gtm.vreeman.com>; rel="dns-prefetch"
+    Link: <https://gtm.vreeman.com>; rel="preconnect"; crossorigin, <https://gtm.vreeman.com>; rel="dns-prefetch", <https://vreeman.com/schema.json>; rel="alternate"; type="application/ld+json"
 
 # Prevent your pages.dev deployments showing in search results
 https://:vreeman.pages.dev/*

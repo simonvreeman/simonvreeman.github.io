@@ -1,0 +1,296 @@
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "@id": "#website",
+  "url": "https://vreeman.com/",
+  "name": "Vreeman.com",
+  "alternateName": "Simon Vreeman",
+  "headline": "Simon Vreeman - Freelance Growth & Technical Marketing Consultant",
+  "about": "The personal website of Simon Vreeman. Freelance Growth & Technical Marketing Consultant.",
+  "author": {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "@id": "#person",
+    "name": "Simon Vreeman",
+    "givenName": "Simon",
+    "familyName": "Vreeman",
+    "jobTitle": {
+      "@type": "DefinedTerm",
+      "name": "Freelance Growth & Technical Marketing Consultant",
+      "termCode": "2431.10.4",
+      "inDefinedTermSet": "http://data.europa.eu/esco/occupation/356227b9-2263-4dbd-81e9-7dfc6d3f3af7"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "@id": "#homeLocation",
+      "addressLocality": "Amsterdam",
+      "addressCountry": "the Netherlands"
+    },
+    "birthDate": "1990-09-01",
+    "birthPlace": {
+      "@type": "Place",
+      "name": "Deventer"
+    },
+    "homeLocation": {
+      "@id": "#homeLocation"
+    },
+    "image": {
+      "@context": "http://schema.org",
+      "@type": "ImageObject",
+      "@id": "#image",
+      "author": {
+        "@id": "#person"
+      },
+      "contentUrl": "https://vreeman.com/img/simon-vreeman-2.jpg",
+      "name": "A profile picture of Simon Vreeman"
+    },
+    "gender": {
+      "@type": "GenderType",
+      "name": "male"
+    },
+    "nationality": {
+      "@type": "Country",
+      "name": "the Netherlands"
+    },
+    "email": "simon@vreeman.com",
+    "url": "https://vreeman.com/",
+    "knowsAbout": [
+      {
+        "@type": "Service",
+        "name": "Digital Marketing",
+        "alternateName": "Online Marketing",
+        "sameAs": "https://www.wikidata.org/wiki/Q1323528"
+      },
+      {
+        "@type": "Service",
+        "name": "CRO",
+        "alternateName": "Conversion Rate Optimization",
+        "sameAs": "https://www.wikidata.org/wiki/Q52083677"
+      },
+      {
+        "@type": "Service",
+        "name": "SEO",
+        "alternateName": "Search Engine Optimization",
+        "sameAs": "https://www.wikidata.org/wiki/Q180711"
+      },
+      {
+        "@type": "Service",
+        "name": "Web Analytics",
+        "sameAs": "https://www.wikidata.org/wiki/Q10719477",
+        "isRelatedTo": [{
+          "@id": "#google-analytics"
+        },
+        {
+          "@id": "#google-tag-manager"
+        }]
+      },
+      {
+        "@type": "Product",
+        "@id": "#google-analytics",
+        "name": "Google Analytics",
+        "alternateName": "GA4",
+        "sameAs": "https://www.wikidata.org/wiki/Q220577"
+      },
+      {
+        "@type": "Product",
+        "@id": "#google-tag-manager",
+        "name": "Google Tag Manager",
+        "alternateName": "GTM",
+        "sameAs": "https://www.wikidata.org/wiki/Q11775280"
+      }
+
+    ],
+    "makesOffer": {
+      "@type": "Offer",
+      "itemOffered": [
+        {
+          "@type": "Service",
+          "name": "Digital Marketing",
+          "alternateName": "Online Marketing",
+          "sameAs": "https://www.wikidata.org/wiki/Q1323528"
+        },
+        {
+          "@type": "Service",
+          "name": "CRO",
+          "alternateName": "Conversion Rate Optimization",
+          "sameAs": "https://www.wikidata.org/wiki/Q52083677"
+        },
+        {
+          "@type": "Service",
+          "name": "SEO",
+          "alternateName": "Search Engine Optimization",
+          "sameAs": "https://www.wikidata.org/wiki/Q180711"
+        },
+        {
+          "@type": "Service",
+          "name": "Web Analytics",
+          "sameAs": "https://www.wikidata.org/wiki/Q10719477"
+        }
+      ]
+    },
+    "knowsLanguage": [
+      "en",
+      "nl"
+    ],
+    "knows": {
+      "@id": "http://data.wordlift.io/wl02026/entity/arnout_hellemans"
+    },
+    "sameAs": [
+      "https://www.facebook.com/simonvreeman",
+      "https://www.linkedin.com/in/simonvreeman/",
+      "https://twitter.com/vreeman",
+      "https://twitter.com/i/user/12473092",
+      "https://plus.google.com/+SimonVreeman?rel=author",
+      "https://www.instagram.com/simonvreeman/",
+      "https://github.com/simonvreeman",
+      "https://www.crunchbase.com/person/simon-vreeman",
+      "https://www.wikidata.org/wiki/Q56708228",
+      "https://en.wikipedia.org/wiki/User:Simonvreeman",
+      "https://g.co/kg/m/010rn7wd"
+    ],
+    "alumniOf": [
+      {
+        "@type": "Organization",
+        "additionalType": "BikeStore",
+        "@id": "#vanmoof",
+        "name": "VanMoof",
+        "url": "https://www.vanmoof.com",
+        "email": "info@vanmoof.com",
+        "sameAs": [
+          "https://nl.wikipedia.org/wiki/VanMoof",
+          "https://www.wikidata.org/wiki/Q5881409",
+          "https://www.gleif.org/lei/724500QSAA892GYJSK06",
+          "https://www.facebook.com/VANMOOF/",
+          "https://twitter.com/vanmoof",
+          "https://www.instagram.com/vanmoof/",
+          "https://www.youtube.com/user/vanmoof",
+          "https://www.crunchbase.com/organization/vanmoof"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "name": "Fietsenwinkel.nl",
+        "alternateName": "International Bike Group",
+        "url": "https://www.fietsenwinkel.nl/",
+        "sameAs": [
+          "https://internationalbikegroup.com/",
+          "https://www.facebook.com/Fietsenwinkel.nl/",
+          "https://twitter.com/fietsenwinkel",
+          "https://www.instagram.com/fietsenwinkel.nl/",
+          "https://www.youtube.com/user/Fietsenwinkelnl"
+        ],
+        "logo": "https://vreeman.com/img/fietsenwinkel.png"
+      },
+      {
+        "@type": "Organization",
+        "name": "The Next Web",
+        "alternateName": "TNW",
+        "url": "https://thenextweb.com",
+        "sameAs": [
+          "https://www.facebook.com/thenextweb",
+          "https://twitter.com/TheNextWeb",
+          "https://plus.google.com/+thenextweb",
+          "https://www.wikidata.org/wiki/Q2913725"
+        ],
+        "logo": "https://vreeman.com/img/tnw.png"
+      },
+      {
+        "@type": "Organization",
+        "url": "https://www.valkexclusief.nl",
+        "name": "Valk Exclusief",
+        "alternateName": "Van der Valk",
+        "sameAs": [
+          "https://nl.wikipedia.org/wiki/Van_der_Valk_(bedrijf)",
+          "https://en.wikipedia.org/wiki/Van_der_Valk_(company)",
+          "https://www.wikidata.org/wiki/Q2802214",
+          "https://g.co/kg/m/0gkxmnj",
+          "https://www.valk.com/"
+        ]
+      }
+    ]
+  },
+  "creator": {
+    "@id": "#person"
+  },
+  "publisher": {
+    "@id": "#person"
+  },
+  "license": "https://opensource.org/licenses/MIT",
+  "mainEntityOfPage": {
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "additionalType": "AboutPage",
+    "description": "The personal website of Simon Vreeman. Freelance Growth & Technical Marketing Consultant.",
+    "headline": "Simon Vreeman - Freelance Growth & Technical Marketing Consultant",
+    "inLanguage": "en",
+    "name": "Simon Vreeman",
+    "url": "https://vreeman.com/",
+    "keywords": "Simon Vreeman, Simon, Vreeman, Marketing, Growth Marketing, Technical Marketing, CRO, SEO, Analytics, VanMoof, Fietsenwinkel.nl, The Next Web, Valk Exclusief",
+    "isPartOf":{
+      "@id": "#website"
+    },
+    "mainEntity": {
+      "@id": "#person"
+    },
+    "author": {
+      "@id": "#person"
+    },
+    "reviewedBy": {
+      "@id": "#person"
+    },
+    "creator": {
+      "@id": "#person"
+    },
+    "primaryImageOfPage": {
+      "@id": "#image"
+    },
+    "license": "https://opensource.org/licenses/MIT",
+    "breadcrumb": {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "name": "Breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@id": "https://vreeman.com/",
+            "name": "🚀 Simon Vreeman 🚀"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@id": "https://vreeman.com/#cro",
+            "name": "🆎 A/B Testing with GTM 📈"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@id": "https://vreeman.com/#speaking",
+            "name": "🎤 Speaking at conferences and events"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@id": "https://vreeman.com/#contact",
+            "name": "📧 Contact Simon Vreeman"
+          }
+        }
+      ]
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "xpath": [
+        "/html/body/header/h1",
+        "/html/body/main/p[1]",
+        "/html/body/main/p[2]"
+      ]
+    }
+  }
+}
