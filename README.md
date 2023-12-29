@@ -8,4 +8,4 @@ With a list of [CRO tools](https://vreeman.com/cro):
 * [Experiment Hypothesis Builder](https://vreeman.com/hypothesis)
 * [F1 2023 Calendar, Teams & Drivers](https://vreeman.com/f1)
 * [Meditations by Marcus Aurelius.](https://vreeman.com/meditations/) A new Translation, with an Introduction, by Gregory Hays. Plus a overview of all the sections and paragraphs of Meditations quoted in the The Daily Stoic.
-* [Arrian’s Discourses of Epictetus.](https://vreeman.com/discourses/) Translation by George Long.
+* [Arrian’s Discourses of Epictetus.](https://vreeman.com/discourses/) Including the Enchiridion and Fragments. Translated and edited by Robert Dobbin.
