@@ -42,9 +42,6 @@
     <loc>https://vreeman.com/stockdale/</loc>
   </url>
   <url>
-    <loc>https://vreeman.com/seneca/</loc>
-  </url>
-  <url>
     <loc>https://vreeman.com/meditations/</loc>
     <image:image>
       <image:loc>https://vreeman.com/meditations/meditations.avif</image:loc>
@@ -93,5 +90,11 @@
   </url>
   <url>
     <loc>https://vreeman.com/discourses/fragments</loc>
+  </url>
+  <url>
+    <loc>https://vreeman.com/seneca/</loc>
+  </url>
+  <url>
+    <loc>https://vreeman.com/seneca/letter-13</loc>
   </url>
 </urlset>
