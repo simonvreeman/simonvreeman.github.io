@@ -50,6 +50,7 @@ html {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent;
+  hanging-punctuation: first allow-end last;
 }
 body {
   margin: 0 auto;
@@ -68,9 +69,11 @@ body {
   direction: ltr;
   word-break: break-word;
   overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 h1, h2, h3, h4, h5 {
   font-family: var(--sans-serif);
+  text-wrap: balance;
 }
 table, td, th {
   border-collapse: collapse;
@@ -108,6 +111,9 @@ cite, em {
 }
 cite::before {
   content: "—";
+}
+blockquote {
+  text-wrap: balance;
 }
 blockquote > p::before {
   content: open-quote;
@@ -258,7 +264,7 @@ hr {
   <body>
     <noscript><iframe src="https://gtm.vreeman.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header id="header">
-      <h1>On the shortness of life (De Brevitate Vitae)</h1>
+      <h1>On the shortness of life <br>(De Brevitate Vitae)</h1>
       <h2>Seneca the Younger</h2>
     </header>
     <hr>
