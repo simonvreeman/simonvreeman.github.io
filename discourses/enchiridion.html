@@ -155,6 +155,23 @@ hr {
   margin: 1em 0;
   padding: 0;
 }
+details summary {
+  cursor: pointer;
+  list-style-type: "\2192";
+}
+details[open] summary {
+  list-style-type: "\2193";
+}
+details summary::marker {
+  color: var(--blue-dark);
+  font-family: var(--sans-serif);
+  font-size: 1.5rem;
+  line-height: 1.618;
+  font-weight: bold;
+}
+details summary h2 {
+  display: inline-block;
+}
 .alpha, .roman, table {
   font-feature-settings: 'tnum' on;
   font-variant-numeric: tabular-nums;
@@ -263,7 +280,10 @@ hr {
     </header>
     <hr>
     <nav id="nav">
-      <h2><a href="#nav" title="Table of Contents of Meditations">&#35;</a> Table of Contents <a href="#header" title="Back to top">↑</a></h2>
+      <details>
+      <summary>
+        <h2><a href="#nav" title="Table of Contents of Meditations">&#35;</a> Table of Contents <a href="#header" title="Back to top">↑</a></h2>
+      </summary>  
       <ul>
         <li><a href="#chapter1">Chapter 1</a></li>
         <li><a href="#chapter2">Chapter 2</a></li>
@@ -319,6 +339,7 @@ hr {
         <li><a href="#chapter52">Chapter 52</a></li>
         <li><a href="#chapter53">Chapter 53</a></li>
       </ul>
+      </details>
     </nav>
     <hr>
     <main>
