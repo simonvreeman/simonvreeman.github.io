@@ -26,7 +26,7 @@
   <url>
     <loc>https://vreeman.com/hypothesis</loc>
   </url>
-<url>
+  <url>
     <loc>https://vreeman.com/experiment</loc>
   </url>
   <url>
@@ -90,6 +90,9 @@
   </url>
   <url>
     <loc>https://vreeman.com/discourses/fragments</loc>
+  </url>
+  <url>
+    <loc>https://vreeman.com/discourses/george-long</loc>
   </url>
   <url>
     <loc>https://vreeman.com/seneca/</loc>
