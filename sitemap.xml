@@ -4,8 +4,6 @@
     <loc>https://vreeman.com/</loc>
     <image:image>
       <image:loc>https://vreeman.com/img/simon-vreeman-2.jpg</image:loc>
-      <image:title><![CDATA[Simon Vreeman]]></image:title>
-      <image:caption><![CDATA[A photo of Simon Vreeman]]></image:caption>
     </image:image>
   </url>
   <url>
@@ -45,48 +43,28 @@
     <loc>https://vreeman.com/meditations/</loc>
     <image:image>
       <image:loc>https://vreeman.com/meditations/meditations.avif</image:loc>
-      <image:title><![CDATA[Meditations by Marcus Aurelius]]></image:title>
-      <image:caption><![CDATA[Meditations by Marcus Aurelius. Translation by Gregory Hays.]]></image:caption>
-      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
     </image:image>
     <image:image>
       <image:loc>https://vreeman.com/meditations/meditations.webp</image:loc>
-      <image:title><![CDATA[Meditations by Marcus Aurelius]]></image:title>
-      <image:caption><![CDATA[Meditations by Marcus Aurelius. Translation by Gregory Hays.]]></image:caption>
-      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
     </image:image>
     <image:image>
       <image:loc>https://vreeman.com/meditations/meditations.jpg</image:loc>
-      <image:title><![CDATA[Meditations by Marcus Aurelius]]></image:title>
-      <image:caption><![CDATA[Meditations by Marcus Aurelius. Translation by Gregory Hays.]]></image:caption>
-      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
     </image:image>
   </url>
   <url>
     <loc>https://vreeman.com/discourses/</loc>
-    <priority>0.9</priority>
-    <changefreq>daily</changefreq>
-    <image:image>
-      <image:loc>https://vreeman.com/discourses/discourses.avif</image:loc>
-      <image:title><![CDATA[Discourses and Enchiridion of Epictetus]]></image:title>
-      <image:caption><![CDATA[Arrian’s Discourses and Enchiridion of Epictetus. Translated and edited by Robert Dobbin.]]></image:caption>
-      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
-    </image:image>
-    <image:image>
-      <image:loc>https://vreeman.com/discourses/discourses.webp</image:loc>
-      <image:title><![CDATA[Discourses and Enchiridion of Epictetus]]></image:title>
-      <image:caption><![CDATA[Arrian’s Discourses and Enchiridion of Epictetus. Translated and edited by Robert Dobbin.]]></image:caption>
-      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
-    </image:image>
-    <image:image>
-      <image:loc>https://vreeman.com/discourses/discourses.jpg</image:loc>
-      <image:title><![CDATA[Discourses and Enchiridion of Epictetus]]></image:title>
-      <image:caption><![CDATA[Arrian’s Discourses and Enchiridion of Epictetus. Translated and edited by Robert Dobbin.]]></image:caption>
-      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
-    </image:image>
   </url>
   <url>
     <loc>https://vreeman.com/discourses/enchiridion</loc>
+    <image:image>
+      <image:loc>https://vreeman.com/discourses/discourses.avif</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://vreeman.com/discourses/discourses.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://vreeman.com/discourses/discourses.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://vreeman.com/discourses/fragments</loc>
@@ -169,8 +147,6 @@
   <url>
     <loc>https://vreeman.com/seneca/letter-24</loc>
   </url>
-
-
   <url>
     <loc>https://vreeman.com/seneca/letter-90</loc>
   </url>
@@ -178,6 +154,6 @@
     <loc>https://vreeman.com/seneca/on-the-shortness-of-life</loc>
   </url>
   <url>
-      <loc>https://vreeman.com/stoic</loc>
+    <loc>https://vreeman.com/stoic</loc>
   </url>
 </urlset>
