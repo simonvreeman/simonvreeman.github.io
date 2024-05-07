@@ -56,6 +56,15 @@
     <meta name="apple-mobile-web-app-title" content="Search">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="theme-color" content="#000">
+
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/knowledge/kgsearch/widget/1.0/widget.min.css">
+    <style>
+      .kge-search-picker {
+        width: 490px;
+      }
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/knowledge/kgsearch/widget/1.0/widget.min.js"></script>
+
   </head>
   <body>
     <noscript><iframe src="https://gtm.vreeman.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -111,6 +120,11 @@
         <dd>Text is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" title="Creative Commons Attribution 4.0 International License" data-vars-outbound-text="Creative Commons License" data-vars-outbound-link="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. <code>&lt;/&gt;</code> is licensed under <a href="https://opensource.org/licenses/MIT" rel="license" title="MIT License" data-vars-outbound-text="MIT License" data-vars-outbound-link="https://opensource.org/licenses/MIT">MIT License</a>.</dd>
       </dl>
     </footer>
+
+    <script type="text/javascript">
+      KGSearchWidget("AIzaSyBKe-MZ1XRYhs5jVP64QUiMH1dJukDbW6s", document.getElementById("query"), {});
+    </script>
+
     <script>
       function getCountry() {
         var country = document.getElementById("selectcountry").options[document.getElementById("selectcountry").selectedIndex].value;
