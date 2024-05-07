@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Knowledge Graph API Search</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://gtm.vreeman.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
+    <style>
+      html {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      body {
+        margin: 1% auto;
+        padding: 0 3%;
+        max-width: 30em;
+        font: 1.125em/1.6 BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+      footer, small {
+        font-size: 80%;
+      }
+      b, dt, strong {
+        font-weight: 700;
+      }
+      h1, h2, h3 {
+        line-height: 1.2;
+      }
+      a {
+        background-color: transparent;
+      }
+      code {
+        font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+        font-size: 1em;
+      }
+      input, textarea, select {
+        width: 95%;
+        display: block;
+        padding: .5em 1%;
+        font-size: 1em;
+      }
+      fieldset, input, textarea, select {
+        margin-bottom: 1.5em;
+      }
+      textarea {
+        margin-top: 1.5em;
+        resize: vertical;
+      }
+    </style>
+    <link rel="canonical" href="https://vreeman.com/">
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex,follow">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Search">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#000">
+
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/knowledge/kgsearch/widget/1.0/widget.min.css">
+    <style>
+      .kge-search-picker {
+        width: <DROPDOWN_MENU_WIDTH>;
+      }
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/knowledge/kgsearch/widget/1.0/widget.min.js"></script>
+
+  </head>
+  <body>
+    <noscript><iframe src="https://gtm.vreeman.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header>
+      <h1>Knowledge Graph API Search</h1>
+      <p><a href="https://vreeman.com/">Home</a> | <a href="https://vreeman.com/tools">Tools</a></p>
+    </header>
+
+    <input type="text" id="myInput">
+    <script type="text/javascript">
+      KGSearchWidget(AIzaSyBKe-MZ1XRYhs5jVP64QUiMH1dJukDbW6s, document.getElementById("myInput"), {});
+    </script>
+    
+    <hr>
+    <footer>
+      <p>Vreeman.com is the personal website of Simon Vreeman.</p>
+      <dl>
+        <dt>Privacy &amp; Cookie Policy</dt>
+        <dd>Vreeman.com uses Google Analytics (<code>_ga</code>, <code>FPID</code>, & <code>FPLC</code>), and Google Tag Manager Server-side to measure and analyze anonymous user behavior data to improve the website in an ethical manner.</dd>
+        <dt>Colophon</dt>
+        <dd>Vreeman.com uses Cloudflare Pages to ensure it loads fast and the source code is hosted on Github.</dd>
+        <dt>Licenses</dt>
+        <dd>Text is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" title="Creative Commons Attribution 4.0 International License" data-vars-outbound-text="Creative Commons License" data-vars-outbound-link="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. <code>&lt;/&gt;</code> is licensed under <a href="https://opensource.org/licenses/MIT" rel="license" title="MIT License" data-vars-outbound-text="MIT License" data-vars-outbound-link="https://opensource.org/licenses/MIT">MIT License</a>.</dd>
+      </dl>
+    </footer>
+    <script>
+      function getCountry() {
+        var country = document.getElementById("selectcountry").options[document.getElementById("selectcountry").selectedIndex].value;
+        "us" == country && (document.getElementById("country").value = "us", document.getElementById("language").value = "en", document.searchForm.action = "https://encrypted.google.com/search"),
+        "uk" == country && (document.getElementById("country").value = "uk", document.getElementById("language").value = "en", document.searchForm.action = "https://www.google.co.uk/search"),
+        "nl" == country && (document.getElementById("country").value = "nl", document.getElementById("language").value = "nl", document.searchForm.action = "https://www.google.nl/search"),
+        "de" == country && (document.getElementById("country").value = "de", document.getElementById("language").value = "de", document.searchForm.action = "https://www.google.de/search"),
+        "fr" == country && (document.getElementById("country").value = "fr", document.getElementById("language").value = "fr", document.searchForm.action = "https://www.google.fr/search");
+      }
+      function getNumberResults() {
+        var numberResults = document.getElementById("selectresults").options[document.getElementById("selectresults").selectedIndex].value;
+        document.getElementById("numberresults").value = numberResults;
+      }
+    </script>
+  </body>
+</html>
