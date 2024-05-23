@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Simon Vreeman &middot; Freelance Growth & Technical Marketing Consultant</title>
+    <title>Simon Vreeman &middot; Growth & Technical Marketing Consultant</title>
     <meta name="viewport" content="width=device-width">
     <meta name="color-scheme" content="dark light">
     <style>
@@ -37,6 +37,7 @@
       :root {
         --eigengrau: #16161d;
         --blue: #06c;
+        --white: #cecece;
       }
       *, ::before, ::after {
         margin: 0;
@@ -47,7 +48,8 @@
         line-height: 1.6;
         font-size: 1rem;
         font-weight: 400;
-        color: var(--eigengrau);
+        background-color: var(--eigengrau);
+        color: var(--white);
       }
       body {
         max-width: fit-content;
@@ -56,77 +58,44 @@
         display: grid;
         align-content: center;
         text-wrap: balance;
+        align-items: center;
+        text-align: center;
       }
       h1 {
-        font-family: "QuattroBold";
+        font-family: "Quattro";
+        font-size: 3rem;
+        font-weight: 500;
       }
       a {
         color: inherit;
-        text-decoration: none;
+        /*text-decoration: none;*/
+        text-decoration-thickness: from-font;
       }
       a:focus, a:hover {
         outline: 0;
         text-decoration: underline #08C;
+        text-decoration-thickness: from-font;
       }
       svg {
         width: 504px;
         height: 504px;
-        /*viewBox="0 0 500 500"*/
+        /* viewBox="0 0 500 500" */
       }
       circle {
         fill: transparent;
-        stroke: var(--eigengrau);
+        stroke: var(--white);
         stroke-width: 2;
         r: 25%;
         transition: r 1s ease-in-out 100ms
       }
       circle:hover {
-/*        stroke: var(--blue);*/
-        r: 27.5%;
+        /* stroke: var(--blue); */
+        r: 26.5%;
       }
       text {
         text-anchor: middle;
         alignment-baseline: middle;
-        fill: var(--eigengrau);
-      }
-      image {
-        border-radius: 50%;
-      }
-      img {
-        border-radius: 50%;
-        margin:0 auto;
-        display: block;
-/*        background-color: hsl(0, 0%, 80%);*/
-        aspect-ratio: 1 / 1;
-        width: 150px;
-        height: 150px;
-/*        filter: blur(3px) grayscale(1);*/
-/*        transition: 0.3s;*/
-      }
-      /*img:hover {
-        filter: blur(0);
-        box-shadow: 0 1px 6px 1px hsl(0deg 0% 0% / 30%);
-      }
-      img:active {
-        box-shadow: 0 1px 24px 1px hsl(0deg 0% 0% / 30%);
-      }*/
-      @media (prefers-color-scheme: dark) {
-        * {
-          background-color: var(--eigengrau);
-          color: white;
-        }
-        circle {
-          stroke: white;
-          stroke-width: 1;
-        }
-        text {
-          fill: white;
-          stroke: white;
-          stroke-width: 1;
-        }
-        a {
-          color: white;
-        }
+        fill: var(--white);
       }
     </style>
     <link rel="canonical" href="https://vreeman.com/">
@@ -136,8 +105,8 @@
   <body>
       
       <h1>Simon Vreeman</h1>
-      <h2>Independent Technical Marketing Consultant</h2>
-      <!-- <h3><a href="mailto:simon@vreeman.com">simon@vreeman.com</a></h3> -->
+      <h2>Growth & Technical Marketing Consultant</h2>
+      <h3><a href="mailto:simon@vreeman.com">simon@vreeman.com</a></h3>
       <br>
       <!-- <picture>
         <source srcset="https://vreeman.com/img/simon-vreeman-2-square.avif" type="image/avif" width="150" height="150">
@@ -149,11 +118,11 @@
           <g style="transform: translate(50%, 50%);">
             <g>
               <circle cx="-82.5" cy="-105" id="seo"></circle>
-              <text x="-92.5" y="-115"><a href="#" title="Search Engine Optimization">SEO</a></text>
+              <text x="-92.5" y="-115"><a href="#" title="Search Engine Optimization">Traffic</a></text>
             </g>
             <g>
               <circle cx="-30" cy="30" id="cro"></circle>
-              <text x="-40" y="50"><a href="#" title="Conversion Rate Optimization">CRO</a></text>
+              <text x="-40" y="50"><a href="#" title="Conversion Rate Optimization">Conversion</a></text>
             </g>
             <g>
               <circle cx="63.33333333" cy="-82.5" id="data"></circle>
