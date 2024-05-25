@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>📗 Letter 32: On Progress - Seneca</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://gtm.vreeman.com" crossorigin>
+    <link rel="dns-prefetch" href="https://gtm.vreeman.com">
+<style>
+:root {
+  color-scheme: dark light;
+  --eigengrau: #16161d;
+  --blue-dark: #06c;
+  --blue-dark-rgb: 0, 102, 204;
+  --blue-light: #2997ff;
+  --blue-light-rgb: 41, 151, 255;
+  --blue-lighter: #6bf;
+  --blue-lighter-rgb: 102,187,255;
+  --gray: rgb(204, 204, 204);
+  --white: #f5f5f7;
+  --sans-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+  --serif: ui-serif, -apple-system-ui-serif, Palatino, Georgia, Cambria, "Times New Roman", Times, serif;
+  --monospace: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Roboto Mono", "Liberation Mono", "Courier New", monospace;
+  --cursive: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;
+}
+::-moz-selection {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+::selection {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+::target-text {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+:focus {
+  outline: 3px solid var(--blue-lighter);
+  outline-offset: 1px;
+}
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: 35em;
+  max-width: 95%;
+  color: var(--eigengrau);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.618;
+  font-feature-settings: "onum" 1;
+  text-rendering: geometricPrecision;
+  -moz-font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+h1, h2, h3, h4, h5 {
+  font-family: var(--sans-serif);
+}
+table, td, th {
+  border-collapse: collapse;
+}
+table {
+  border-style: hidden;
+  font-family: var(--monospace);
+  width: 100%;
+}
+td, th {
+  border: 1px solid var(--eigengrau);
+  padding: 3px;
+}
+tbody {
+  vertical-align: text-bottom;
+}
+a {
+  background-color: transparent;
+  color: var(--blue-dark);
+  text-decoration-skip: ink;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+a:active, a:focus, a:hover {
+  color: var(--blue-light);
+}
+.return, .fixed, abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
+  text-decoration: none;
+}
+dt, strong {
+  font-weight: 700;
+}
+cite, em {
+  font-style: italic;
+}
+cite::before {
+  content: "—";
+}
+blockquote > p::before {
+  content: open-quote;
+}
+blockquote > p::after {
+  content: close-quote;
+}
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -.25rem;
+}
+sup {
+  top: -.5rem;
+}
+sub::before, sup::before {
+  content: "[";
+}
+sub::after, sup::after {
+  content: "]";
+}
+li::marker {
+  color: var(--blue-dark);
+  font-weight: 700;
+}
+ul ul, ul ul ul {
+  font-size: 1rem;
+  list-style: inherit;
+}
+mark {
+  color: var(--eigengrau);
+  background-color: rgba( var(--blue-lighter-rgb), 0.2);
+  padding: .25rem;
+  white-space: pre-wrap;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid var(--eigengrau);
+  margin: 1em 0;
+  padding: 0;
+}
+footer {
+  font-size: 1rem;
+}
+.alpha, .roman, table {
+  font-feature-settings: 'tnum' on;
+  font-variant-numeric: tabular-nums;
+
+}
+.alpha {
+  list-style-type: lower-alpha;
+}
+.roman {
+  list-style-type: lower-roman;
+}
+.fixed {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 1em;
+  font-family: var(--monospace);
+}
+[id] {
+  scroll-margin-top: 2ex;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, ::after, ::before, html {
+    scroll-behavior: auto !important;
+  }
+  *, ::after, ::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--eigengrau);
+  }
+  body, mark {
+    color: var(--white);
+  }
+  a {
+    color: var(--blue-lighter);
+  }
+  a:active, a:focus, a:hover, li::marker {
+    color: var(--blue-light);
+  }
+  mark {
+    background-color: var(--blue-dark);
+  }
+  hr {
+    border-top: 1px solid var(--white);
+  }
+}
+@media print {
+  body {
+    font-size: 1rem;
+    line-height: 1.618;
+  }
+  a, body, li::marker {
+    color: #000;
+  }
+  a {
+    text-decoration: none;
+  }
+  .return, .fixed, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
+    display: none;
+  }
+  mark, mark[title], mark[title] > a {
+    background-color: #fff;
+    color: #000;
+  }
+  main table, nav ul, ul ul, ul ul ul {
+    font-size: 80%;
+  }
+  main h2 {
+    page-break-before: always;
+  }
+}
+</style>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://gtm.vreeman.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
+    <link rel="canonical" href="https://vreeman.com/seneca/letter-32">
+    <link rel="alternate" href="https://vreeman.com/seneca/letter-32" hreflang="x-default">
+    <link rel="alternate" href="https://vreeman.com/seneca/letter-32" hreflang="en">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+    <meta name="description" content="">
+    <meta name="keywords" content="seneca, stoicism, philosophy">
+    <link rel="webmention" href="https://webmention.io/vreeman.com/webmention">
+    <link rel="pingback" href="https://webmention.io/vreeman.com/xmlrpc">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@vreeman">
+    <meta name="twitter:creator" content="@vreeman">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+    <meta property="og:type" content="books.book">
+    <meta property="books:isbn" content="">
+    <meta property="books:author" content="">
+    <meta property="og:site_name" content="Vreeman.com">
+    <meta property="og:title" content="">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:image:secure_url" content="">
+  </head>
+  <body>
+    <noscript><iframe src="https://gtm.vreeman.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header id="header">
+      <h1>Letter 32: On Progress</h1>
+      <h2>Seneca the Younger</h2>
+    </header>
+    <hr>
+    <main>
+      <p>I have been asking about you, and inquiring of everyone who comes from your part of the country, what you are doing, and where you are spending your time, and with whom. You cannot deceive me; for I am with you. Live just as if I were sure to get news of your doings, nay, as if I were sure to behold them. And if you wonder what particularly pleases me that I hear concerning you, it is that I hear nothing, that most of those whom I ask do not know what you are doing.</p>
+      <p>This is sound practice—to refrain from associating with men of different stamp and different aims. And I am indeed confident that you cannot be warped, that you will stick to your purpose, even though the crowd may surround and seek to distract you. What, then, is on my mind? I am not afraid lest they work a change in you; but I am afraid lest they may hinder your progress. And much harm is done even by one who holds you back, especially since life is so short; and we make it still shorter by our unsteadiness, by making ever fresh beginnings at life, now one and immediately another. We break up life into little bits, and fritter it away.</p>
+      <p>Hasten ahead, then, dearest Lucilius, and reflect how greatly you would quicken your speed if an enemy were at your back, or if you suspected the cavalry were approaching and pressing hard upon your steps as you fled. It is true; the enemy is indeed pressing upon you; you should therefore increase your speed and escape away and reach a safe position, remembering continually what a noble thing it is to round out your life before death comes, and then await in peace the remaining portion of your time, claiming<sup><a href="#fn-1" id="fn-1-ref">1</a></sup> nothing for yourself, since you are in possession of the happy life; for such a life is not made happier for being longer.</p>
+      <p>O when shall you see the time when you shall know that time means nothing to you, when you shall be peaceful and calm, careless of the morrow, because you are enjoying your life to the full?</p>
+      <p>Would you know what makes men greedy for the future? It is because no one has yet found himself. Your parents, to be sure, asked other blessings for you; but I myself pray rather that you may despise all those things which your parents wished for you in abundance. Their prayers plunder many another person, simply that you may be enriched. Whatever they make over to you must be removed from someone else.</p>
+      <p>I pray that you may get such control over yourself that your mind, now shaken by wandering thoughts, may at last come to rest and be steadfast, that it may be content with itself and, having attained an understanding of what things are truly good—and they are in our possession as soon as we have this knowledge—that it may have no need of added years. He has at length passed beyond all necessities—he has won his honourable discharge and is free—who still lives after his life has been completed.</p>      
+      <p>Farewell.</p>
+      <h2 id="fn"><a href="#fn">&#35;</a> Footnotes <a href="#header" title="Back to top">↑</a></h2>
+      <ol>
+        <li id="fn-1">The text seems to be corrupt. Hense thinks that <em>expectare</em> is to be supplied with <em>nihil sibi</em>—“To expect nothing for oneself ”; but the use of the verb in two meanings would be harsh. The thought seems to be “asking for no added years”; and one suspects that the loss of a word like <em>adrogantem</em> before <em>nihil</em>. <a href="#fn-1-ref" class="return">↩</a></li>
+      </ol>
+    </main>
+    <hr>
+    <footer>
+      <ul>
+        <li><a href="https://vreeman.com/meditations/" title="Meditations by Marcus Aurelius. Translation and Introduction by Gregory Hays.">Meditations by Marcus Aurelius</a></li>
+        <li><a href="https://vreeman.com/discourses/" title="Arrian’s Discourses of Epictetus. Translated and edited by Robert Dobbin.">Discourses of Epictetus</a>
+          <ul>
+            <li><a href="https://vreeman.com/discourses/enchiridion" title="Arrian’s Enchiridion of Epictetus. Translated and edited by Robert Dobbin.">Enchiridion of Epictetus</a></li>
+            <li><a href="https://vreeman.com/discourses/fragments" title="Arrian’s Fragments of Epictetus. Translated and edited by Robert Dobbin.">Fragments of Epictetus</a></li>
+          </ul>
+        </li>
+        <li><a href="https://vreeman.com/seneca/" title="Moral Letters and Essays from Roman Stoic philosopher Seneca the Younger">Letters and Essays by Seneca</a>
+          <ul>
+            <li><a href="https://vreeman.com/seneca/letter-31">Letter 31</a></li>
+            <li><a href="https://vreeman.com/seneca/letter-33">Letter 33</a></li>
+          </ul>
+        </li>
+        <li><a href="https://vreeman.com/stockdale/" title="Courage Under Fire: Testing Epictetus's Doctrines in a Laboratory of Human Behavior by James Stockdale">Courage Under Fire by James Stockdale</a></li>
+        <li><a href="https://vreeman.com/roosevelt/" title="Citizenship in a Republic - The Man in the Arena. A speech by Theodore Roosevelt">The Man in the Arena by Theodore Roosevelt</a></li>
+        <li><a href="https://vreeman.com/invictus" title="Invictus, a poem by William Ernest Henley">Invictus by William Ernest Henley</a></li>
+        <li><a href="https://vreeman.com/if" title="If–, a poem by Joseph Rudyard Kipling">If– by Joseph Rudyard Kipling</a></li>
+        <li><a href="https://vreeman.com/experiment" title="Experiment, a song by Cole Albert Porter">Experiment by Cole Porter</a></li>
+      </ul>
+      <p><small><span class="copy"></span></small></p>
+    </footer>
+    <script>
+    window.onload = function(){
+      setTimeout(function(){
+        window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+        var t = performance.timing || {};
+        if (!t) {
+          return;
+        }
+        var start = t.navigationStart,
+            end = t.loadEventEnd
+            loadTime = (end - start) / 1000;
+        var copy = document.querySelectorAll('.copy');
+        copy[0].innerHTML += "Page loaded in " + loadTime + " seconds.";
+      }, 0); 
+    }
+    </script>
+  </body>
+</html>
