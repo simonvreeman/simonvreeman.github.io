@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>📗 Letter 42: On Values - Seneca</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://gtm.vreeman.com" crossorigin>
+    <link rel="dns-prefetch" href="https://gtm.vreeman.com">
+<style>
+:root {
+  color-scheme: dark light;
+  --eigengrau: #16161d;
+  --blue-dark: #06c;
+  --blue-dark-rgb: 0, 102, 204;
+  --blue-light: #2997ff;
+  --blue-light-rgb: 41, 151, 255;
+  --blue-lighter: #6bf;
+  --blue-lighter-rgb: 102,187,255;
+  --gray: rgb(204, 204, 204);
+  --white: #f5f5f7;
+  --sans-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+  --serif: ui-serif, -apple-system-ui-serif, Palatino, Georgia, Cambria, "Times New Roman", Times, serif;
+  --monospace: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Roboto Mono", "Liberation Mono", "Courier New", monospace;
+  --cursive: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;
+}
+::-moz-selection {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+::selection {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+::target-text {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+:focus {
+  outline: 3px solid var(--blue-lighter);
+  outline-offset: 1px;
+}
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: 35em;
+  max-width: 95%;
+  color: var(--eigengrau);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.618;
+  font-feature-settings: "onum" 1;
+  text-rendering: geometricPrecision;
+  -moz-font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+h1, h2, h3, h4, h5 {
+  font-family: var(--sans-serif);
+}
+table, td, th {
+  border-collapse: collapse;
+}
+table {
+  border-style: hidden;
+  font-family: var(--monospace);
+  width: 100%;
+}
+td, th {
+  border: 1px solid var(--eigengrau);
+  padding: 3px;
+}
+tbody {
+  vertical-align: text-bottom;
+}
+a {
+  background-color: transparent;
+  color: var(--blue-dark);
+  text-decoration-skip: ink;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+a:active, a:focus, a:hover {
+  color: var(--blue-light);
+}
+.return, .fixed, abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
+  text-decoration: none;
+}
+dt, strong {
+  font-weight: 700;
+}
+cite, em {
+  font-style: italic;
+}
+cite::before {
+  content: "—";
+}
+blockquote > p::before {
+  content: open-quote;
+}
+blockquote > p::after {
+  content: close-quote;
+}
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -.25rem;
+}
+sup {
+  top: -.5rem;
+}
+sub::before, sup::before {
+  content: "[";
+}
+sub::after, sup::after {
+  content: "]";
+}
+li::marker {
+  color: var(--blue-dark);
+  font-weight: 700;
+}
+ul ul, ul ul ul {
+  font-size: 1rem;
+  list-style: inherit;
+}
+mark {
+  color: var(--eigengrau);
+  background-color: rgba( var(--blue-lighter-rgb), 0.2);
+  padding: .25rem;
+  white-space: pre-wrap;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid var(--eigengrau);
+  margin: 1em 0;
+  padding: 0;
+}
+footer {
+  font-size: 1rem;
+}
+.alpha, .roman, table {
+  font-feature-settings: 'tnum' on;
+  font-variant-numeric: tabular-nums;
+
+}
+.alpha {
+  list-style-type: lower-alpha;
+}
+.roman {
+  list-style-type: lower-roman;
+}
+.fixed {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 1em;
+  font-family: var(--monospace);
+}
+[id] {
+  scroll-margin-top: 2ex;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, ::after, ::before, html {
+    scroll-behavior: auto !important;
+  }
+  *, ::after, ::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--eigengrau);
+  }
+  body, mark {
+    color: var(--white);
+  }
+  a {
+    color: var(--blue-lighter);
+  }
+  a:active, a:focus, a:hover, li::marker {
+    color: var(--blue-light);
+  }
+  mark {
+    background-color: var(--blue-dark);
+  }
+  hr {
+    border-top: 1px solid var(--white);
+  }
+}
+@media print {
+  body {
+    font-size: 1rem;
+    line-height: 1.618;
+  }
+  a, body, li::marker {
+    color: #000;
+  }
+  a {
+    text-decoration: none;
+  }
+  .return, .fixed, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
+    display: none;
+  }
+  mark, mark[title], mark[title] > a {
+    background-color: #fff;
+    color: #000;
+  }
+  main table, nav ul, ul ul, ul ul ul {
+    font-size: 80%;
+  }
+  main h2 {
+    page-break-before: always;
+  }
+}
+</style>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://gtm.vreeman.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>
+    <link rel="canonical" href="https://vreeman.com/seneca/letter-42">
+    <link rel="alternate" href="https://vreeman.com/seneca/letter-42" hreflang="x-default">
+    <link rel="alternate" href="https://vreeman.com/seneca/letter-42" hreflang="en">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+    <meta name="description" content="">
+    <meta name="keywords" content="seneca, stoicism, philosophy">
+    <link rel="webmention" href="https://webmention.io/vreeman.com/webmention">
+    <link rel="pingback" href="https://webmention.io/vreeman.com/xmlrpc">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@vreeman">
+    <meta name="twitter:creator" content="@vreeman">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+    <meta property="og:type" content="books.book">
+    <meta property="books:isbn" content="">
+    <meta property="books:author" content="">
+    <meta property="og:site_name" content="Vreeman.com">
+    <meta property="og:title" content="">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:image:secure_url" content="">
+  </head>
+  <body>
+    <noscript><iframe src="https://gtm.vreeman.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header id="header">
+      <h1>Letter 42: On Values</h1>
+      <h2>Seneca the Younger</h2>
+    </header>
+    <hr>
+    <main>
+      <p>Has that friend of yours already made you believe that he is a good man? And yet it is impossible in so short a time for one either to become good or be known as such.<sup><a href="#fn-1" id="fn-1-ref">1</a></sup> Do you know what kind of man I now mean when I speak of “a good man”? I mean one of the second grade, like your friend. For one of the first class perhaps springs into existence, like the phoenix, only once in five hundred years. And it is not surprising, either, that greatness develops only at long intervals; Fortune often brings into being commonplace powers, which are born to please the mob; but she holds up for our approval that which is extraordinary by the very fact that she makes it rare.</p>
+      <p>This man, however, of whom you spoke, is still far from the state which he professes to have reached. And if he knew what it meant to be “a good man,” he would not yet believe himself such; perhaps he would even despair of his ability to become good. “But,” you say, “he thinks ill of evil men.” Well, so do evil men themselves; and there is no worse penalty for vice than the fact that it is dissatisfied with itself and all its fellows.</p>
+      <p>“But he hates those who make an ungoverned use of great power suddenly acquired.” I retort that he will do the same thing as soon as he acquires the same powers. In the case of many men, their vices, being powerless, escape notice; although, as soon as the persons in question have become satisfied with their own strength, the vices will be no less daring than those which prosperity has already disclosed.</p>
+      <p>These men simply lack the means whereby they may unfold their wickedness. Similarly, one can handle even a poisonous snake while it is stiff with cold; the poison is not lacking; it is merely numbed into inaction. In the case of many men, their cruelty, ambition, and indulgence only lack the favour of Fortune to make them dare crimes that would match the worst. That their wishes are the same you will in a moment discover, in this way: give them the power equal to their wishes.</p>
+      <p>Do you remember how, when you declared that a certain person was under your influence, I pronounced him fickle and a bird of passage, and said that you held him not by the foot but merely by a wing? Was I mistaken? You grasped him only by a feather; he left it in your hands and escaped. You know what an exhibition he afterwards made of himself before you, how many of the things he attempted were to recoil upon his own head. He did not see that in endangering others he was tottering to his own downfall. He did not reflect how burdensome were the objects which he was bent upon attaining, even if they were not superfluous.</p>
+      <p>Therefore, with regard to the objects which we pursue, and for which we strive with great effort, we should note this truth; either there is nothing desirable in them, or the undesirable is preponderant. Some objects are superfluous; others are not worth the price we pay for them. But we do not see this clearly, and we regard things as free gifts when they really cost us very dear.</p>
+      <p>Our stupidity may be clearly proved by the fact that we hold that “buying” refers only to the objects for which we pay cash, and we regard as free gifts the things for which we spend our very selves. These we should refuse to buy, if we were compelled to give in payment for them our houses or some attractive and profitable estate; but we are eager to attain them at the cost of anxiety, of danger, and of lost honour, personal freedom, and time; so true it is that each man regards nothing as cheaper than himself.</p>
+      <p>Let us therefore act, in all our plans and conduct, just as we are accustomed to act whenever we approach a huckster who has certain wares for sale; let us see how much we must pay for that which we crave. Very often the things that cost nothing cost us the most heavily; I can show you many objects the quest and acquisition of which have wrested freedom from our hands. We should belong to ourselves, if only these things did not belong to us.</p>
+      <p>I would therefore have you reflect thus, not only when it is a question of gain, but also when it is a question of loss. “This object is bound to perish.” Yes, it was a mere extra; you will live without it just as easily as you have lived before. If you have possessed it for a long time, you lose it after you have had your fill of it; if you have not possessed it long, then you lose it before you have become wedded to it. “You will have less money.” Yes, and less trouble.</p>
+      <p>“Less influence.” Yes, and less envy. Look about you and note the things that drive us mad, which we lose with a flood of tears; you will perceive that it is not the loss that troubles us with reference to these things, but a notion of loss. No one feels that they have been lost, but his mind tells him that it has been so. He that owns himself has lost nothing. But how few men are blessed with ownership of self!</p>      
+      <p>Farewell.</p>
+      <h2 id="fn"><a href="#fn">&#35;</a> Footnotes <a href="#header" title="Back to top">↑</a></h2>
+      <ol>
+        <li id="fn-1">Seneca doubtless has in mind the famous passage of Simonides, ἄνδρ᾽ ἀγαθὸν μὲν ἀληθῶς γενέσθαι χαλεπόν, discussed by Plato, <em>Protagoras</em>, 339 A. <a href="#fn-1-ref" class="return">↩</a></li>
+      </ol>
+    </main>
+    <hr>
+    <footer>
+      <ul>
+        <li><a href="https://vreeman.com/meditations/" title="Meditations by Marcus Aurelius. Translation and Introduction by Gregory Hays.">Meditations by Marcus Aurelius</a></li>
+        <li><a href="https://vreeman.com/discourses/" title="Arrian’s Discourses of Epictetus. Translated and edited by Robert Dobbin.">Discourses of Epictetus</a>
+          <ul>
+            <li><a href="https://vreeman.com/discourses/enchiridion" title="Arrian’s Enchiridion of Epictetus. Translated and edited by Robert Dobbin.">Enchiridion of Epictetus</a></li>
+            <li><a href="https://vreeman.com/discourses/fragments" title="Arrian’s Fragments of Epictetus. Translated and edited by Robert Dobbin.">Fragments of Epictetus</a></li>
+          </ul>
+        </li>
+        <li><a href="https://vreeman.com/seneca/" title="Moral Letters and Essays from Roman Stoic philosopher Seneca the Younger">Letters and Essays by Seneca</a>
+          <ul>
+            <li><a href="https://vreeman.com/seneca/letter-41">Letter 41</a></li>
+            <li><a href="https://vreeman.com/seneca/letter-43">Letter 43</a></li>
+          </ul>
+        </li>
+        <li><a href="https://vreeman.com/stockdale/" title="Courage Under Fire: Testing Epictetus's Doctrines in a Laboratory of Human Behavior by James Stockdale">Courage Under Fire by James Stockdale</a></li>
+        <li><a href="https://vreeman.com/roosevelt/" title="Citizenship in a Republic - The Man in the Arena. A speech by Theodore Roosevelt">The Man in the Arena by Theodore Roosevelt</a></li>
+        <li><a href="https://vreeman.com/invictus" title="Invictus, a poem by William Ernest Henley">Invictus by William Ernest Henley</a></li>
+        <li><a href="https://vreeman.com/if" title="If–, a poem by Joseph Rudyard Kipling">If– by Joseph Rudyard Kipling</a></li>
+        <li><a href="https://vreeman.com/experiment" title="Experiment, a song by Cole Albert Porter">Experiment by Cole Porter</a></li>
+      </ul>
+      <p><small><span class="copy"></span></small></p>
+    </footer>
+    <script>
+    window.onload = function(){
+      setTimeout(function(){
+        window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+        var t = performance.timing || {};
+        if (!t) {
+          return;
+        }
+        var start = t.navigationStart,
+            end = t.loadEventEnd
+            loadTime = (end - start) / 1000;
+        var copy = document.querySelectorAll('.copy');
+        copy[0].innerHTML += "Page loaded in " + loadTime + " seconds.";
+      }, 0); 
+    }
+    </script>
+  </body>
+</html>
