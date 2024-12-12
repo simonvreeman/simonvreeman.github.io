@@ -130,7 +130,6 @@
     <meta name="twitter:title" content="Google Analytics 4 UTM Campaign URL Builder">
     <meta name="twitter:description" content="A simple tool to easily add UTM tags for Google Analytics 4 to your URL. And you can check the URL for Pagespeed, Structured Data or Facebook Open Graph.">
     <meta name="twitter:image" content="https://vreeman.com/img/tile-wide.png">
-    <meta name="twitter:creator" content="@vreeman">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="URL Builder">
@@ -202,7 +201,7 @@
     <label for="url">The <abbr title="Uniform Resource Locator">URL</abbr> with <abbr title="Urchin Tracking Module">UTM</abbr> tags</label>
     <textarea id="url" readonly="readonly" wrap="off" onclick="this.focus();this.select()" rows="3">https://vreeman.com</textarea>
     <p><abbr title="Hypertext Transfer Protocol">HTTP</abbr> response status code: <b><span id="statuscode"></span></b></p>
-    <button onclick="copyURL()">Copy URL with <abbr title="Urchin Tracking Module">UTM</abbr></button> <!-- <button onclick="indexThis()">Google Indexing API</button> -->
+    <button onclick="copyURL()">Copy URL with <abbr title="Urchin Tracking Module">UTM</abbr></button>
     <h2>Check the URL with more tools</h2>
     <ul>
       <li><a id="pagespeed" href="https://developers.google.com/speed/pagespeed/insights/?url=https://vreeman.com" rel="nofollow noopener noreferrer" target="_blank">Check Pagespeed Insights</a></li>
@@ -306,10 +305,10 @@ function getUTM() {
     statuscode.textContent = response.status;
   });
 
-  // if (source == null || source == "", medium == null || medium == "", name == null || name == "") {
-  //   console.log("Please Fill All Required Field");
-  //   return false;
-  // }
+  if (!domain || !source || !medium) {
+    console.log("Domain, Source, and Medium are required fields.");
+    return;
+  }
 
   pagespeed.href = "https://developers.google.com/speed/pagespeed/insights/?url=" + domain;
   richresults.href = "https://search.google.com/test/rich-results?url=" + domain;
@@ -331,35 +330,11 @@ function getUTM() {
     </script>
     <script>
       function copyURL() {
-        var url = document.getElementById("url");
-        url.select();
-        document.execCommand("Copy");
-      }
-    </script>
-    <script>
-      function indexThis() {
-        var payloadURL = document.getElementById("domain").value;
-        var url = "http://www.google.com/";
-        var method = "POST";
-        var postData = "Some-Data";
-        var shouldBeAsync = true;
-        var request = new XMLHttpRequest();
-
-        request.onload = function () {
-          var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
-          var data = request.responseText; // Returned data, e.g., an HTML document.
-        }
-
-        request.open(method, url, shouldBeAsync);
-
-        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        // Or... request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-        // Or... whatever
-
-        // Actually sends the request to the server.
-        request.send(postData);
-        
-        console.log("Domain: " + url);
+        navigator.clipboard.writeText(document.getElementById("url").value).then(() => {
+          alert("URL copied to clipboard!");
+        }).catch(err => {
+          console.error("Could not copy text: ", err);
+        });
       }
     </script>
   </body>
