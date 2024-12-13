@@ -187,6 +187,21 @@ footer {
 [id] {
   scroll-margin-top: 2ex;
 }
+#progress {
+  background-color: var(--blue-light);
+  height: .125rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform-origin: left center;
+  width: 100%;
+  animation: progress linear;
+  animation-timeline: scroll();
+}
+
+@keyframes progress {
+  from { transform: scaleX(0); }
+}
 @media (prefers-reduced-motion: reduce) {
   *, ::after, ::before, html {
     scroll-behavior: auto !important;
@@ -1160,6 +1175,7 @@ footer {
   </head>
   <body>
     <noscript><iframe src="https://gtm.vreeman.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div id="progress" role="progressbar" aria-label="progress"></div>  
     <header id="header">
       <h1>Meditations &middot; <em><abbr title="Things to one's self">Ta eis heauton</abbr></em> &middot; by Marcus Aurelius</h1>
       <h2>A new translation, with an introduction, by Gregory Hays</h2>
