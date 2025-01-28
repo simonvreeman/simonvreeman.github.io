@@ -178,6 +178,20 @@ footer {
 [id] {
   scroll-margin-top: 2ex;
 }
+#progress {
+  background-color: var(--blue-light);
+  height: .125rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform-origin: left center;
+  width: 100%;
+  animation: progress linear;
+  animation-timeline: scroll();
+}
+@keyframes progress {
+  from { transform: scaleX(0); }
+}
 @media (prefers-reduced-motion: reduce) {
   *, ::after, ::before, html {
     scroll-behavior: auto !important;
@@ -260,6 +274,7 @@ footer {
   </head>
   <body>
     <noscript><iframe src="https://gtm.vreeman.com/ns.html?id=GTM-WKSDWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div id="progress" role="progressbar" aria-label="progress"></div>
     <header id="header">
       <h1>Fragments of Epictetus</h1>
       <h2>Translated and edited by Robert Dobbin</h2>
