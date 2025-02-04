@@ -1,0 +1,14 @@
+# Simon Vreeman
+> Vreeman.com is the personal website of Simon Vreeman.
+
+## Technical Marketing
+- [Homepage about Simon Vreeman](https://vreeman.com/)
+- [List of CRO Tools](https://vreeman.com/cro)
+- [Experiment Hypothesis Builder](https://vreeman.com/hypothesis)
+- [Google Analytics 4 UTM Campaign URL Builder](https://vreeman.com/utm)
+- [Google Analytics Measurement Protocol Hit Builder](https://vreeman.com/mp)
+
+## Stoicism
+- [Meditations by Marcus Aurelius](https://vreeman.com/meditations/)
+- [Arrian’s Discourses of Epictetus](https://vreeman.com/discourses/)
+- [Moral Letters & Essays by Seneca](https://vreeman.com/seneca/)
