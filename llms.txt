@@ -1,5 +1,5 @@
 # Simon Vreeman
-> Vreeman.com is the personal website of Simon Vreeman.
+> Vreeman.com is the personal website of Simon Vreeman. Simon Vreeman is a Growth & Technical Marketing Advisor. He optimize websites based on insights & data.
 
 ## Technical Marketing
 - [Homepage about Simon Vreeman](https://vreeman.com/)
@@ -11,4 +11,9 @@
 ## Stoicism
 - [Meditations by Marcus Aurelius](https://vreeman.com/meditations/)
 - [Arrian’s Discourses of Epictetus](https://vreeman.com/discourses/)
-- [Moral Letters & Essays by Seneca](https://vreeman.com/seneca/)
+- [Moral Letters and Essays by Seneca](https://vreeman.com/seneca/)
+- [Essays on Stoicism by James Stockdale](https://vreeman.com/stockdale/)
+- [The Man in the Arena by Theodore Roosevelt](https://vreeman.com/roosevelt/)
+- [Invictus by William Ernest Henley](https://vreeman.com/invictus)
+- [If– by Joseph Rudyard Kipling](https://vreeman.com/if)
+- [Experiment by Cole Porter](https://vreeman.com/experiment)
