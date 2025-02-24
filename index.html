@@ -152,6 +152,16 @@ dt, summary {
   color: transparent;
   animation: wow 1s ease-in-out infinite alternate;
 }
+@keyframes wow {
+  0% {
+    background-position: 0% 100%;
+    transform: skewX(5deg) skewY(5deg) scale(0.9);
+  }
+  100% {
+    background-position: 100% 0%;
+    transform: skewX(-5deg) skewY(-5deg) scale(1.1);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -168,16 +178,6 @@ dt, summary {
     animation: none;
     transition: none;
     -webkit-text-fill-color: inherit;
-  }
-}
-@keyframes wow {
-  0% {
-    background-position: 0% 100%;
-    transform: skewX(5deg) skewY(5deg) scale(0.9);
-  }
-  100% {
-    background-position: 100% 0%;
-    transform: skewX(-5deg) skewY(-5deg) scale(1.1);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -586,7 +586,7 @@ dt, summary {
       <p>I am a Growth Advisor at Curamando and Conversionista, part of Eidra, in the Netherlands.</p>
       <p>At Eidra, we help brands turn brand awareness into incremental profit by optimizing their websites based on insights and data for conversions, users, and search engines. My main focus is Growth & Technical Marketing, at the intersection of <abbr title="Conversion Rate Optimization">CRO</abbr>, <abbr title="Search Engine Optimization">SEO</abbr>, and Web Analytics.</p>
       <p>To make this less abstract. Together with you, I want to make your website better. Here are a few concrete examples of things I enjoy working on. I help businesses with their online marketing strategy, Google Tag Manager (Server-side) implementations, Google Analytics 4 implementations, <abbr title="Consent Management Platform">CMP</abbr> and advertising platforms implementations, domain migrations, technical <abbr title="Search Engine Optimization">SEO</abbr>, <abbr title="Conversion Rate Optimization">CRO</abbr>, and Cookie and Privacy website audits.</p>
-      <p>I have worked with multiple clients including OpenUp, TreeHouse (Huurwoningen.nl & Pararius.nl), Investment Officer, Moneybird, The Social Hub formerly The Student Hotel, TEDxAmsterdam, VST Fire Solutions, and others.</p>
+      <p>I have worked with multiple clients including Profotonet, Elektramat, Rijksmuseum, OpenUp, TreeHouse (Huurwoningen.nl & Pararius.nl), Investment Officer, Moneybird, The Social Hub formerly The Student Hotel, TEDxAmsterdam, VST Fire Solutions, and others.</p>
       <!-- multi-disciplined approach, holistic, contextual view is what drives growth -->
       <p>Before I started my freelance business I was a Growth Marketing Manager at VanMoof for 3 years. I optimized the websites based on insights and data for the user and VanMoof. To achieve the company’s ultimate goal of getting the next billion on bikes.</p>
       <p>Previously I worked as a Senior <abbr title="Conversion Rate Optimization">CRO</abbr> Analyst at Fietsenwinkel.nl, a Conversion Specialist and Web Analyst at The Next Web (TNW), an Online Marketeer (focus on <abbr title="Conversion Rate Optimization">CRO</abbr> &amp; <abbr title="Search Engine Optimization">SEO</abbr>) at Van der Valk Exclusief, and I was an Online Business Developer at Budeco.</p>
