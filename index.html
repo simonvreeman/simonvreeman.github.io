@@ -110,13 +110,21 @@ a {
   background-color: transparent;
   color: var(--blue-dark);
   text-decoration: none;
+  text-decoration: underline;
   text-decoration-skip: ink;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
 }
-a:active, a:focus, a:hover {
-  color: var(--blue-light);
+
+a:not(:is(:hover, :focus)) {
+  text-decoration-color: 
+    color-mix(in srgb, currentColor, transparent 75%);
 }
+
+/*a:active, a:focus, a:hover {
+  color: var(--blue-light);
+}*/
+
 abbr[title] {
   text-decoration: none;
 }
