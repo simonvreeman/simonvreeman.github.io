@@ -34,11 +34,22 @@
     #answer {
       display: none;
     }
+    .tada {
+      animation: tada 700ms ease-in-out both;
+    }
+    @keyframes tada {
+      0% { transform: scale(1); }
+      10%, 20% { transform: scale(0.9) rotate(-3deg); }
+      30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
+      40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
+      100% { transform: scale(1) rotate(0); }
+    }
   </style>
 </head>
 <body>
   <div>
-    <div>Is Yvette op vakantie? <span id="thinking" class="thinking">...</span></div>
+    <div>Is Yvette op vakantie?</div>
+    <div><span id="thinking" class="thinking">...</span></div>
     <div id="answer">Jup.</div>
   </div>
   <script>
@@ -46,8 +57,11 @@
       const thinking = document.getElementById("thinking");
       const answer = document.getElementById("answer");
       if (thinking) thinking.style.display = "none";
-      if (answer) answer.style.display = "block";
-    }, 3000);
+      if (answer) {
+        answer.style.display = "block";
+        answer.classList.add("tada");
+      }
+    }, 5000);
   </script>
 </body>
 </html>
