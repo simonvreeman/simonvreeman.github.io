@@ -21,12 +21,33 @@
       font-size: 5em;
       font-weight: bolder;
     }
+    .thinking {
+      display: inline-block;
+      width: 0;
+      overflow: hidden;
+      vertical-align: bottom;
+      animation: dots 1.2s steps(4, end) infinite;
+    }
+    @keyframes dots {
+      to { width: 1.2em; }
+    }
+    #answer {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <div>
-    <div>Is Yvette op vakantie?</div>
-    <div>Jup.</div>
+    <div>Is Yvette op vakantie? <span id="thinking" class="thinking">...</span></div>
+    <div id="answer">Jup.</div>
   </div>
+  <script>
+    setTimeout(() => {
+      const thinking = document.getElementById("thinking");
+      const answer = document.getElementById("answer");
+      if (thinking) thinking.style.display = "none";
+      if (answer) answer.style.display = "block";
+    }, 3000);
+  </script>
 </body>
 </html>
