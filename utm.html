@@ -8,11 +8,11 @@
     <title>Google Analytics 4 UTM Campaign URL Builder</title>
     <style>
       :root {
-        --black: rgba(0, 0, 0, .8);
-        --blue-dark: rgb(0, 112, 201);
-        --blue-light: rgb(102, 187, 255);
-        --gray: rgb(204, 204, 204);
-        --white: rgba(255, 255, 255, 1);
+        --black: oklch(0.00 0.00 none / 0.8);
+        --blue-dark: oklch(0.54 0.16 251.90);
+        --blue-light: oklch(0.77 0.13 244.77);
+        --gray: oklch(0.85 0.00 none);
+        --white: oklch(1.00 0.00 none);
       }
       html {
         overflow-y: scroll;
@@ -24,7 +24,7 @@
         margin: 1% auto;
         padding: 0 3%;
         max-width: 30em;
-        background-color: rgba(0, 0, 0, 0);
+        background-color: oklch(0 0 none / 0);
         color: var(--black);
         font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         font-size: 1.125rem;
@@ -91,7 +91,7 @@
           color: var(--white);
         }
         input:invalid {
-          border: 5px dashed red;
+          border: 5px dashed oklch(0.63 0.26 29.23);
         }
       }
       #wrapper {
@@ -106,13 +106,13 @@
         padding-bottom: 10px;
       }
       .box-good {
-        background-color: hsl(118, 41%, 49%);
+        background-color: oklch(0.68 0.17 142.96);
       }
       .box-needs-improvement {
-        background-color: hsl(31, 78%, 53%);
+        background-color: oklch(0.72 0.15 61.42);
       }
       .box-poor {
-        background-color: hsl(359, 80%, 50%);
+        background-color: oklch(0.59 0.23 27.73);
       }
     </style>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://gtm.vreeman.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WKSDWK');</script>

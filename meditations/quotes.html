@@ -9,12 +9,12 @@
 <style>
 :root {
   color-scheme: dark light;
-  --eigengrau: #16161d;
-  --blue-dark: #06c;
-  --blue-light: #2997ff;
-  --blue-lighter: #6bf;
-  --gray: rgb(204, 204, 204);
-  --white: #f5f5f7;
+  --eigengrau: oklch(0.20 0.01 285.06);
+  --blue-dark: oklch(0.52 0.18 255.84);
+  --blue-light: oklch(0.67 0.18 251.85);
+  --blue-lighter: oklch(0.77 0.13 244.77);
+  --gray: oklch(0.85 0.00 none);
+  --white: oklch(0.97 0.00 285.23);
   --serif: Palatino, Times, Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --monospace: SFMono-Regular, Menlo, Monaco, Consolas, Roboto Mono, "Liberation Mono", "Courier New", monospace;
@@ -209,7 +209,7 @@ hr {
     line-height: 1.618;
   }
   a, body, mark, li::marker {
-    color: #000;
+    color: oklch(0.00 0.00 none);
   }
   a {
     text-decoration: none;
@@ -218,7 +218,7 @@ hr {
     display: none;
   }
   mark {
-    background-color: #fff;
+    background-color: oklch(1.00 0.00 none);
   }
   main table, nav ul {
     font-size: 80%;

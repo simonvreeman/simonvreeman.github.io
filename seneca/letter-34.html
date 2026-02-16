@@ -9,15 +9,12 @@
 <style>
 :root {
   color-scheme: dark light;
-  --eigengrau: #16161d;
-  --blue-dark: #06c;
-  --blue-dark-rgb: 0, 102, 204;
-  --blue-light: #2997ff;
-  --blue-light-rgb: 41, 151, 255;
-  --blue-lighter: #6bf;
-  --blue-lighter-rgb: 102,187,255;
-  --gray: rgb(204, 204, 204);
-  --white: #f5f5f7;
+  --eigengrau: oklch(0.20 0.01 285.06);
+  --blue-dark: oklch(0.52 0.18 255.84);
+  --blue-light: oklch(0.67 0.18 251.85);
+  --blue-lighter: oklch(0.77 0.13 244.77);
+  --gray: oklch(0.85 0.00 none);
+  --white: oklch(0.97 0.00 285.23);
   --sans-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
   --serif: ui-serif, -apple-system-ui-serif, Palatino, Georgia, Cambria, "Times New Roman", Times, serif;
   --monospace: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Roboto Mono", "Liberation Mono", "Courier New", monospace;
@@ -146,7 +143,7 @@ ul ul, ul ul ul {
 }
 mark {
   color: var(--eigengrau);
-  background-color: rgba( var(--blue-lighter-rgb), 0.2);
+  background-color: oklch(0.77 0.13 244.77 / 0.2);
   padding: .25rem;
   white-space: pre-wrap;
 }
@@ -216,7 +213,7 @@ footer {
     line-height: 1.618;
   }
   a, body, li::marker {
-    color: #000;
+    color: oklch(0.00 0.00 none);
   }
   a {
     text-decoration: none;
@@ -225,8 +222,8 @@ footer {
     display: none;
   }
   mark, mark[title], mark[title] > a {
-    background-color: #fff;
-    color: #000;
+    background-color: oklch(1.00 0.00 none);
+    color: oklch(0.00 0.00 none);
   }
   main table, nav ul, ul ul, ul ul ul {
     font-size: 80%;
