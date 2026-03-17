@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffee & Wine</title>
+    <style>
+      :root {
+        --glyph-size: clamp(48px, 10vw, 96px);
+      }
+
+      body {
+        margin: 0;
+        display: flex;
+        min-height: 100dvh;
+      }
+
+      #coffee,
+      #wine {
+        flex: 1 0 0;
+        display: grid;
+        place-items: center;
+        transition: flex-grow 320ms ease;
+      }
+
+      #coffee { background: #f5e6d3; }
+      #wine { background: #2b0f2a; }
+
+      #coffee:hover,
+      #wine:hover {
+        flex-grow: 1.12;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: var(--glyph-size);
+        line-height: 1;
+      }
+
+      #amp {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+        font-style: italic;
+        font-weight: normal;
+        font-size: var(--glyph-size);
+        line-height: 1;
+        color: #fff;
+        mix-blend-mode: difference;
+        text-shadow: none;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          flex-direction: column;
+        }
+      }
+    </style>
+</head>
+
+<body>
+<div id="coffee"><h1>☕️</h1></div>
+<div id="amp">&amp;</div>
+<div id="wine"><h1>🍷</h1></div>
+</body>
+</html>
