@@ -748,5 +748,102 @@ dt, summary {
       <!-- <p class="footer">Always Be Reflecting</p> -->
       <!-- <p class="footer">Always Be Exploring</p> -->
     </footer>
+    <script>
+    // WebMCP — expose site tools to AI agents via navigator.modelContext.
+    // Spec: https://webmachinelearning.github.io/webmcp/
+    (function () {
+      "use strict";
+
+      // Pages on this site, searched by the tool below.
+      var CATALOG = [
+        { title: "Simon Vreeman — Growth & Technical Marketing Advisor", url: "https://vreeman.com/", tags: "home about growth conversion analytics marketing advisor" },
+        { title: "List of CRO Tools", url: "https://vreeman.com/cro", tags: "cro conversion rate optimization experimentation ab testing tools" },
+        { title: "Experiment Hypothesis Builder", url: "https://vreeman.com/hypothesis", tags: "cro experiment hypothesis ab test builder" },
+        { title: "GA4 UTM Campaign URL Builder", url: "https://vreeman.com/utm", tags: "utm campaign url google analytics ga4 tracking source medium" },
+        { title: "GA4 Measurement Protocol Hit Builder", url: "https://vreeman.com/mp", tags: "measurement protocol ga4 server side events hits" },
+        { title: "Meditations by Marcus Aurelius", url: "https://vreeman.com/meditations/", tags: "stoicism marcus aurelius meditations philosophy" },
+        { title: "Discourses of Epictetus (Arrian)", url: "https://vreeman.com/discourses/", tags: "stoicism epictetus discourses arrian philosophy" },
+        { title: "Enchiridion (Handbook) of Epictetus", url: "https://vreeman.com/discourses/enchiridion", tags: "stoicism epictetus enchiridion handbook" },
+        { title: "Fragments of Epictetus", url: "https://vreeman.com/discourses/fragments", tags: "stoicism epictetus fragments" },
+        { title: "Moral Letters of Seneca (124 letters)", url: "https://vreeman.com/seneca/", tags: "stoicism seneca letters lucilius philosophy death virtue" },
+        { title: "Seneca — On the Shortness of Life", url: "https://vreeman.com/seneca/on-the-shortness-of-life", tags: "stoicism seneca essay time life brevity" },
+        { title: "Seneca — On the Tranquillity of Mind", url: "https://vreeman.com/seneca/on-the-tranquillity-of-mind", tags: "stoicism seneca essay tranquillity peace mind" },
+        { title: "Essays on Stoicism by James Stockdale", url: "https://vreeman.com/stockdale/", tags: "stoicism stockdale epictetus vietnam navy" },
+        { title: "Stockdale — Courage Under Fire", url: "https://vreeman.com/stockdale/courage-under-fire", tags: "stoicism stockdale epictetus courage prisoner" },
+        { title: "Stockdale — The Stoic Warrior's Triad", url: "https://vreeman.com/stockdale/stoic-warriors-triad", tags: "stoicism stockdale tranquility fearlessness freedom" },
+        { title: "Stockdale — Master of My Fate", url: "https://vreeman.com/stockdale/master-of-my-fate", tags: "stoicism stockdale hanoi prison fate" },
+        { title: "The Man in the Arena — Theodore Roosevelt", url: "https://vreeman.com/roosevelt/", tags: "roosevelt man arena speech courage critic" },
+        { title: "Invictus — William Ernest Henley", url: "https://vreeman.com/invictus", tags: "poem invictus henley unconquerable soul" },
+        { title: "If— — Rudyard Kipling", url: "https://vreeman.com/if", tags: "poem if kipling" },
+        { title: "Experiment — Cole Porter", url: "https://vreeman.com/experiment", tags: "song cole porter experiment" },
+        { title: "Get Drunk — Charles Baudelaire", url: "https://vreeman.com/drunk", tags: "poem baudelaire enivrez-vous get drunk" }
+      ];
+
+      // The tool exposed to agents.
+      var searchTool = {
+        name: "search_content",
+        description: "Search Simon Vreeman's site and return matching pages (title + URL). Covers technical-marketing tools (GA4 UTM builder, Measurement Protocol hit builder, CRO tools, experiment hypothesis builder) and a Stoic philosophy library (Seneca's letters, Marcus Aurelius' Meditations, Epictetus' Discourses, Stockdale's essays, classic poems).",
+        inputSchema: {
+          type: "object",
+          properties: {
+            query: {
+              type: "string",
+              description: "Search terms, e.g. 'utm', 'measurement protocol', 'cro', 'seneca death', 'epictetus', 'meditations'."
+            }
+          },
+          required: ["query"]
+        },
+        annotations: { readOnlyHint: true },
+        execute: async function (input) {
+          var q = ((input && input.query) || "").toString().trim().toLowerCase();
+          var hits = q
+            ? CATALOG.filter(function (e) {
+                return (e.title + " " + e.url + " " + e.tags).toLowerCase().indexOf(q) !== -1;
+              })
+            : CATALOG.slice();
+          var text;
+          if (!hits.length) {
+            text = 'No results for "' + q + '". Try: utm, measurement protocol, cro, hypothesis, seneca, meditations, epictetus, stockdale.';
+          } else {
+            text = hits.length + " result" + (hits.length === 1 ? "" : "s") +
+              (q ? ' for "' + q + '"' : "") + ":\n" +
+              hits.map(function (e) { return "• " + e.title + " — " + e.url; }).join("\n");
+          }
+          return { content: [{ type: "text", text: text }] };
+        }
+      };
+
+      // Register the tool. Prefer the imperative registerTool(); fall back to the
+      // declarative provideContext({tools}). When no native API exists, install a
+      // minimal shim (never overwriting a native one) so the tool stays detectable.
+      function register(mc) {
+        if (typeof mc.registerTool === "function") {
+          try { mc.registerTool(searchTool); return; } catch (e) {}
+        }
+        if (typeof mc.provideContext === "function") {
+          try { mc.provideContext({ tools: [searchTool] }); } catch (e) {}
+        }
+      }
+
+      if (navigator.modelContext) {
+        register(navigator.modelContext);
+      } else {
+        try {
+          var tools = [];
+          navigator.modelContext = {
+            tools: tools,
+            registerTool: function (tool) { tools.push(tool); return { name: tool && tool.name }; },
+            provideContext: function (ctx) {
+              tools.length = 0;
+              if (ctx && Array.isArray(ctx.tools)) {
+                ctx.tools.forEach(function (t) { tools.push(t); });
+              }
+            }
+          };
+          register(navigator.modelContext);
+        } catch (e) {}
+      }
+    })();
+    </script>
   </body>
 </html>
