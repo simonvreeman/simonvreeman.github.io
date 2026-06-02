@@ -1,0 +1,48 @@
+{
+  "name": "com.vreeman/site-search",
+  "title": "Vreeman Site Search",
+  "description": "MCP server for vreeman.com — search Simon Vreeman's technical-marketing tools (GA4 UTM builder, Measurement Protocol hit builder, CRO tools, experiment hypothesis builder) and Stoic philosophy library (Seneca's letters, Marcus Aurelius' Meditations, Epictetus' Discourses, Stockdale's essays, classic poems).",
+  "version": "1.0.0",
+  "websiteUrl": "https://vreeman.com/",
+  "repository": {
+    "url": "https://github.com/simonvreeman/simonvreeman.github.io",
+    "source": "github"
+  },
+  "serverInfo": {
+    "name": "com.vreeman/site-search",
+    "title": "Vreeman Site Search",
+    "version": "1.0.0"
+  },
+  "protocolVersion": "2025-06-18",
+  "supportedProtocolVersions": ["2025-06-18", "2025-03-26", "2024-11-05"],
+  "endpoint": "https://vreeman.com/mcp",
+  "remotes": [
+    {
+      "url": "https://vreeman.com/mcp",
+      "transport": "streamable-http",
+      "supportedProtocolVersions": ["2025-06-18", "2025-03-26", "2024-11-05"]
+    }
+  ],
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    }
+  },
+  "tools": [
+    {
+      "name": "search_content",
+      "title": "Search Simon Vreeman's site",
+      "description": "Search Simon Vreeman's site and return matching pages (title + URL). Covers technical-marketing tools (GA4 UTM builder, Measurement Protocol hit builder, CRO tools, experiment hypothesis builder) and a Stoic philosophy library (Seneca, Marcus Aurelius, Epictetus, Stockdale, classic poems).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search terms, e.g. 'utm', 'measurement protocol', 'cro', 'seneca death', 'epictetus', 'meditations'."
+          }
+        },
+        "required": ["query"]
+      }
+    }
+  ]
+}
