@@ -205,7 +205,7 @@ export const concepts = [
     hasChunks: [
       {
         chunkId: 'concept-stockdale-triad-c1',
-        text: 'Somebody asked Epictetus: "What is the fruit of an these doctrines?" He answered with three sharp words: "Tranquility, Fearlessness, and Freedom."',
+        text: 'Somebody asked Epictetus: "What is the fruit of all these doctrines?" He answered with three sharp words: "Tranquility, Fearlessness, and Freedom."',
         sourceUrl: 'https://vreeman.com/stockdale/stoic-warriors-triad',
         pageTitle: "The Stoic Warrior's Triad: Tranquility, Fearlessness and Freedom - James Stockdale",
         publisher: 'Vreeman.com',
