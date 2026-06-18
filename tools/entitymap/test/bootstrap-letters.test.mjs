@@ -29,3 +29,14 @@ test('bootstrapLetters reads real letter files and yields conformant entities', 
   }
   assert.equal(letters.some((e) => e.entityId === 'seneca-letter-'), false);
 });
+
+test('letter names are cleaned (no emoji prefix or " - Seneca" suffix)', () => {
+  const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
+  const letters = bootstrapLetters(path.join(repoRoot, 'seneca'));
+  const l1 = letters.find((e) => e.entityId === 'seneca-letter-1');
+  assert.ok(l1, 'letter 1 should exist');
+  assert.match(l1.name, /^Letter 1: On Saving Time/);
+  assert.doesNotMatch(l1.name, /[-–—]\s*Seneca\s*$/);
+  assert.doesNotMatch(l1.name, /^[^\p{L}\p{N}]/u); // no leading emoji/symbol
+  assert.match(l1.description, /"On Saving Time"/);
+});

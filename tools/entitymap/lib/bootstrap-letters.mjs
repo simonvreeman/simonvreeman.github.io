@@ -19,6 +19,15 @@ function firstParagraph(html) {
   return '';
 }
 
+// Page <title>s carry an emoji prefix and a " - Seneca" suffix; strip them for the entity name
+// (the raw title is kept verbatim as the chunk's pageTitle for provenance).
+function cleanTitle(raw) {
+  return raw
+    .replace(/^[^\p{L}\p{N}]+/u, '')
+    .replace(/\s*[-–—]\s*Seneca\s*$/i, '')
+    .trim();
+}
+
 export function bootstrapLetters(senecaDir) {
   const out = [];
   for (const file of fs.readdirSync(senecaDir).sort()) {
@@ -26,15 +35,17 @@ export function bootstrapLetters(senecaDir) {
     if (!match) continue;
     const n = Number(match[1]);
     const html = fs.readFileSync(path.join(senecaDir, file), 'utf8');
-    const title = extractTitle(html) || `Letter ${n}`;
+    const rawTitle = extractTitle(html) || `Letter ${n}`;
+    const name = cleanTitle(rawTitle) || `Letter ${n}`;
+    const subject = name.replace(/^Letter\s+\d+:\s*/i, '');
     const para = firstParagraph(html);
     if (!para) continue; // skip empty/odd pages rather than emit an invalid chunk
     const text = firstSentencesWithin(para, 600);
     out.push({
       entityId: `seneca-letter-${n}`,
       '@type': WORK_TYPE,
-      name: title,
-      description: `Letter ${n} of Seneca's Moral Letters to Lucilius: "${title.replace(/^Letter\s+\d+:\s*/i, '')}".`,
+      name,
+      description: `Letter ${n} of Seneca's Moral Letters to Lucilius: "${subject}".`,
       relations: [
         { predicate: 'PART_OF', targetId: 'work-moral-letters', targetName: 'Moral Letters to Lucilius' },
         { predicate: 'AUTHORED_BY', targetId: 'person-seneca', targetName: 'Seneca the Younger' },
@@ -43,7 +54,7 @@ export function bootstrapLetters(senecaDir) {
         chunkId: `seneca-letter-${n}-c1`,
         text,
         sourceUrl: `https://vreeman.com/seneca/letter-${n}`,
-        pageTitle: title,
+        pageTitle: rawTitle,
         publisher: publisher.name,
         contentType: 'evidence',
         relevanceScore: 0.7,

@@ -5,7 +5,7 @@
     "name": "Vreeman.com",
     "url": "https://vreeman.com/"
   },
-  "generated": "2026-06-18T10:33:02.064Z",
+  "generated": "2026-06-18T10:35:32.314Z",
   "profile": "core",
   "verificationStatus": "self-declared",
   "vocabulary": {
@@ -1076,8 +1076,8 @@
     {
       "entityId": "seneca-letter-1",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 1: On Saving Time - Seneca",
-      "description": "Letter 1 of Seneca's Moral Letters to Lucilius: \"📗 Letter 1: On Saving Time - Seneca\".",
+      "name": "Letter 1: On Saving Time",
+      "description": "Letter 1 of Seneca's Moral Letters to Lucilius: \"On Saving Time\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1105,8 +1105,8 @@
     {
       "entityId": "seneca-letter-10",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 10: On Living to Oneself - Seneca",
-      "description": "Letter 10 of Seneca's Moral Letters to Lucilius: \"📗 Letter 10: On Living to Oneself - Seneca\".",
+      "name": "Letter 10: On Living to Oneself",
+      "description": "Letter 10 of Seneca's Moral Letters to Lucilius: \"On Living to Oneself\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1134,8 +1134,8 @@
     {
       "entityId": "seneca-letter-11",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 11: On the Blush of Modesty - Seneca",
-      "description": "Letter 11 of Seneca's Moral Letters to Lucilius: \"📗 Letter 11: On the Blush of Modesty - Seneca\".",
+      "name": "Letter 11: On the Blush of Modesty",
+      "description": "Letter 11 of Seneca's Moral Letters to Lucilius: \"On the Blush of Modesty\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1163,8 +1163,8 @@
     {
       "entityId": "seneca-letter-12",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 12: On Old Age - Seneca",
-      "description": "Letter 12 of Seneca's Moral Letters to Lucilius: \"📗 Letter 12: On Old Age - Seneca\".",
+      "name": "Letter 12: On Old Age",
+      "description": "Letter 12 of Seneca's Moral Letters to Lucilius: \"On Old Age\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1192,8 +1192,8 @@
     {
       "entityId": "seneca-letter-13",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 13: On Groundless Fears - Seneca",
-      "description": "Letter 13 of Seneca's Moral Letters to Lucilius: \"📗 Letter 13: On Groundless Fears - Seneca\".",
+      "name": "Letter 13: On Groundless Fears",
+      "description": "Letter 13 of Seneca's Moral Letters to Lucilius: \"On Groundless Fears\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1221,8 +1221,8 @@
     {
       "entityId": "seneca-letter-14",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 14: On the Reasons for Withdrawing From the World - Seneca",
-      "description": "Letter 14 of Seneca's Moral Letters to Lucilius: \"📗 Letter 14: On the Reasons for Withdrawing From the World - Seneca\".",
+      "name": "Letter 14: On the Reasons for Withdrawing From the World",
+      "description": "Letter 14 of Seneca's Moral Letters to Lucilius: \"On the Reasons for Withdrawing From the World\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1250,8 +1250,8 @@
     {
       "entityId": "seneca-letter-15",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 15: On Brawn and Brains - Seneca",
-      "description": "Letter 15 of Seneca's Moral Letters to Lucilius: \"📗 Letter 15: On Brawn and Brains - Seneca\".",
+      "name": "Letter 15: On Brawn and Brains",
+      "description": "Letter 15 of Seneca's Moral Letters to Lucilius: \"On Brawn and Brains\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1279,8 +1279,8 @@
     {
       "entityId": "seneca-letter-16",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 16: On Philosophy, the Guide of Life - Seneca",
-      "description": "Letter 16 of Seneca's Moral Letters to Lucilius: \"📗 Letter 16: On Philosophy, the Guide of Life - Seneca\".",
+      "name": "Letter 16: On Philosophy, the Guide of Life",
+      "description": "Letter 16 of Seneca's Moral Letters to Lucilius: \"On Philosophy, the Guide of Life\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1308,8 +1308,8 @@
     {
       "entityId": "seneca-letter-17",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 17: On Philosophy and Riches - Seneca",
-      "description": "Letter 17 of Seneca's Moral Letters to Lucilius: \"📗 Letter 17: On Philosophy and Riches - Seneca\".",
+      "name": "Letter 17: On Philosophy and Riches",
+      "description": "Letter 17 of Seneca's Moral Letters to Lucilius: \"On Philosophy and Riches\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1337,8 +1337,8 @@
     {
       "entityId": "seneca-letter-18",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 18: On Festivals and Fasting - Seneca",
-      "description": "Letter 18 of Seneca's Moral Letters to Lucilius: \"📗 Letter 18: On Festivals and Fasting - Seneca\".",
+      "name": "Letter 18: On Festivals and Fasting",
+      "description": "Letter 18 of Seneca's Moral Letters to Lucilius: \"On Festivals and Fasting\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1366,8 +1366,8 @@
     {
       "entityId": "seneca-letter-19",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 19: On Worldliness and Retirement - Seneca",
-      "description": "Letter 19 of Seneca's Moral Letters to Lucilius: \"📗 Letter 19: On Worldliness and Retirement - Seneca\".",
+      "name": "Letter 19: On Worldliness and Retirement",
+      "description": "Letter 19 of Seneca's Moral Letters to Lucilius: \"On Worldliness and Retirement\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1395,8 +1395,8 @@
     {
       "entityId": "seneca-letter-2",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 2: On Discursiveness in Reading - Seneca",
-      "description": "Letter 2 of Seneca's Moral Letters to Lucilius: \"📗 Letter 2: On Discursiveness in Reading - Seneca\".",
+      "name": "Letter 2: On Discursiveness in Reading",
+      "description": "Letter 2 of Seneca's Moral Letters to Lucilius: \"On Discursiveness in Reading\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1424,8 +1424,8 @@
     {
       "entityId": "seneca-letter-20",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 20: On Practicing What You Preach - Seneca",
-      "description": "Letter 20 of Seneca's Moral Letters to Lucilius: \"📗 Letter 20: On Practicing What You Preach - Seneca\".",
+      "name": "Letter 20: On Practicing What You Preach",
+      "description": "Letter 20 of Seneca's Moral Letters to Lucilius: \"On Practicing What You Preach\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1453,8 +1453,8 @@
     {
       "entityId": "seneca-letter-21",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 21: On the Renown Which My Writings Will Bring You - Seneca",
-      "description": "Letter 21 of Seneca's Moral Letters to Lucilius: \"📗 Letter 21: On the Renown Which My Writings Will Bring You - Seneca\".",
+      "name": "Letter 21: On the Renown Which My Writings Will Bring You",
+      "description": "Letter 21 of Seneca's Moral Letters to Lucilius: \"On the Renown Which My Writings Will Bring You\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1482,8 +1482,8 @@
     {
       "entityId": "seneca-letter-22",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 22: On the Futility of Half-Way Measures - Seneca",
-      "description": "Letter 22 of Seneca's Moral Letters to Lucilius: \"📗 Letter 22: On the Futility of Half-Way Measures - Seneca\".",
+      "name": "Letter 22: On the Futility of Half-Way Measures",
+      "description": "Letter 22 of Seneca's Moral Letters to Lucilius: \"On the Futility of Half-Way Measures\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1511,8 +1511,8 @@
     {
       "entityId": "seneca-letter-23",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 23: On the True Joy Which Comes from Philosophy - Seneca",
-      "description": "Letter 23 of Seneca's Moral Letters to Lucilius: \"📗 Letter 23: On the True Joy Which Comes from Philosophy - Seneca\".",
+      "name": "Letter 23: On the True Joy Which Comes from Philosophy",
+      "description": "Letter 23 of Seneca's Moral Letters to Lucilius: \"On the True Joy Which Comes from Philosophy\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1540,8 +1540,8 @@
     {
       "entityId": "seneca-letter-24",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 24: On Despising Death - Seneca",
-      "description": "Letter 24 of Seneca's Moral Letters to Lucilius: \"📗 Letter 24: On Despising Death - Seneca\".",
+      "name": "Letter 24: On Despising Death",
+      "description": "Letter 24 of Seneca's Moral Letters to Lucilius: \"On Despising Death\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1569,8 +1569,8 @@
     {
       "entityId": "seneca-letter-25",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 25: On Reformation - Seneca",
-      "description": "Letter 25 of Seneca's Moral Letters to Lucilius: \"📗 Letter 25: On Reformation - Seneca\".",
+      "name": "Letter 25: On Reformation",
+      "description": "Letter 25 of Seneca's Moral Letters to Lucilius: \"On Reformation\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1598,8 +1598,8 @@
     {
       "entityId": "seneca-letter-26",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 26: On Old Age and Death - Seneca",
-      "description": "Letter 26 of Seneca's Moral Letters to Lucilius: \"📗 Letter 26: On Old Age and Death - Seneca\".",
+      "name": "Letter 26: On Old Age and Death",
+      "description": "Letter 26 of Seneca's Moral Letters to Lucilius: \"On Old Age and Death\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1627,8 +1627,8 @@
     {
       "entityId": "seneca-letter-27",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 27: On the Good Which Abides - Seneca",
-      "description": "Letter 27 of Seneca's Moral Letters to Lucilius: \"📗 Letter 27: On the Good Which Abides - Seneca\".",
+      "name": "Letter 27: On the Good Which Abides",
+      "description": "Letter 27 of Seneca's Moral Letters to Lucilius: \"On the Good Which Abides\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1656,8 +1656,8 @@
     {
       "entityId": "seneca-letter-28",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 28: On Travel as a Cure for Discontent - Seneca",
-      "description": "Letter 28 of Seneca's Moral Letters to Lucilius: \"📗 Letter 28: On Travel as a Cure for Discontent - Seneca\".",
+      "name": "Letter 28: On Travel as a Cure for Discontent",
+      "description": "Letter 28 of Seneca's Moral Letters to Lucilius: \"On Travel as a Cure for Discontent\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1685,8 +1685,8 @@
     {
       "entityId": "seneca-letter-29",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 29: On the Critical Condition of Marcellinus - Seneca",
-      "description": "Letter 29 of Seneca's Moral Letters to Lucilius: \"📗 Letter 29: On the Critical Condition of Marcellinus - Seneca\".",
+      "name": "Letter 29: On the Critical Condition of Marcellinus",
+      "description": "Letter 29 of Seneca's Moral Letters to Lucilius: \"On the Critical Condition of Marcellinus\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1714,8 +1714,8 @@
     {
       "entityId": "seneca-letter-3",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 3: On True and False Friendship - Seneca",
-      "description": "Letter 3 of Seneca's Moral Letters to Lucilius: \"📗 Letter 3: On True and False Friendship - Seneca\".",
+      "name": "Letter 3: On True and False Friendship",
+      "description": "Letter 3 of Seneca's Moral Letters to Lucilius: \"On True and False Friendship\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1743,8 +1743,8 @@
     {
       "entityId": "seneca-letter-30",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 30: On Conquering the Conqueror - Seneca",
-      "description": "Letter 30 of Seneca's Moral Letters to Lucilius: \"📗 Letter 30: On Conquering the Conqueror - Seneca\".",
+      "name": "Letter 30: On Conquering the Conqueror",
+      "description": "Letter 30 of Seneca's Moral Letters to Lucilius: \"On Conquering the Conqueror\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1772,8 +1772,8 @@
     {
       "entityId": "seneca-letter-31",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 31: On Siren Songs - Seneca",
-      "description": "Letter 31 of Seneca's Moral Letters to Lucilius: \"📗 Letter 31: On Siren Songs - Seneca\".",
+      "name": "Letter 31: On Siren Songs",
+      "description": "Letter 31 of Seneca's Moral Letters to Lucilius: \"On Siren Songs\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1801,8 +1801,8 @@
     {
       "entityId": "seneca-letter-32",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 32: On Progress - Seneca",
-      "description": "Letter 32 of Seneca's Moral Letters to Lucilius: \"📗 Letter 32: On Progress - Seneca\".",
+      "name": "Letter 32: On Progress",
+      "description": "Letter 32 of Seneca's Moral Letters to Lucilius: \"On Progress\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1830,8 +1830,8 @@
     {
       "entityId": "seneca-letter-33",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 33: On the Futility of Learning Maxims - Seneca",
-      "description": "Letter 33 of Seneca's Moral Letters to Lucilius: \"📗 Letter 33: On the Futility of Learning Maxims - Seneca\".",
+      "name": "Letter 33: On the Futility of Learning Maxims",
+      "description": "Letter 33 of Seneca's Moral Letters to Lucilius: \"On the Futility of Learning Maxims\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1859,8 +1859,8 @@
     {
       "entityId": "seneca-letter-34",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 34: On a Promising Pupil - Seneca",
-      "description": "Letter 34 of Seneca's Moral Letters to Lucilius: \"📗 Letter 34: On a Promising Pupil - Seneca\".",
+      "name": "Letter 34: On a Promising Pupil",
+      "description": "Letter 34 of Seneca's Moral Letters to Lucilius: \"On a Promising Pupil\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1888,8 +1888,8 @@
     {
       "entityId": "seneca-letter-35",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 35: On the Friendship of Kindred Minds - Seneca",
-      "description": "Letter 35 of Seneca's Moral Letters to Lucilius: \"📗 Letter 35: On the Friendship of Kindred Minds - Seneca\".",
+      "name": "Letter 35: On the Friendship of Kindred Minds",
+      "description": "Letter 35 of Seneca's Moral Letters to Lucilius: \"On the Friendship of Kindred Minds\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1917,8 +1917,8 @@
     {
       "entityId": "seneca-letter-36",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 36: On the Value of Retirement - Seneca",
-      "description": "Letter 36 of Seneca's Moral Letters to Lucilius: \"📗 Letter 36: On the Value of Retirement - Seneca\".",
+      "name": "Letter 36: On the Value of Retirement",
+      "description": "Letter 36 of Seneca's Moral Letters to Lucilius: \"On the Value of Retirement\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1946,8 +1946,8 @@
     {
       "entityId": "seneca-letter-37",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 37: On Allegiance to Virtue - Seneca",
-      "description": "Letter 37 of Seneca's Moral Letters to Lucilius: \"📗 Letter 37: On Allegiance to Virtue - Seneca\".",
+      "name": "Letter 37: On Allegiance to Virtue",
+      "description": "Letter 37 of Seneca's Moral Letters to Lucilius: \"On Allegiance to Virtue\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -1975,8 +1975,8 @@
     {
       "entityId": "seneca-letter-38",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 38: On Quiet Conversation - Seneca",
-      "description": "Letter 38 of Seneca's Moral Letters to Lucilius: \"📗 Letter 38: On Quiet Conversation - Seneca\".",
+      "name": "Letter 38: On Quiet Conversation",
+      "description": "Letter 38 of Seneca's Moral Letters to Lucilius: \"On Quiet Conversation\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2004,8 +2004,8 @@
     {
       "entityId": "seneca-letter-39",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 39: On Noble Aspirations - Seneca",
-      "description": "Letter 39 of Seneca's Moral Letters to Lucilius: \"📗 Letter 39: On Noble Aspirations - Seneca\".",
+      "name": "Letter 39: On Noble Aspirations",
+      "description": "Letter 39 of Seneca's Moral Letters to Lucilius: \"On Noble Aspirations\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2033,8 +2033,8 @@
     {
       "entityId": "seneca-letter-4",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 4: On the Terrors of Death - Seneca",
-      "description": "Letter 4 of Seneca's Moral Letters to Lucilius: \"📗 Letter 4: On the Terrors of Death - Seneca\".",
+      "name": "Letter 4: On the Terrors of Death",
+      "description": "Letter 4 of Seneca's Moral Letters to Lucilius: \"On the Terrors of Death\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2062,8 +2062,8 @@
     {
       "entityId": "seneca-letter-40",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 40: On the Proper Style for a Philosopher’s Discourse - Seneca",
-      "description": "Letter 40 of Seneca's Moral Letters to Lucilius: \"📗 Letter 40: On the Proper Style for a Philosopher’s Discourse - Seneca\".",
+      "name": "Letter 40: On the Proper Style for a Philosopher’s Discourse",
+      "description": "Letter 40 of Seneca's Moral Letters to Lucilius: \"On the Proper Style for a Philosopher’s Discourse\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2091,8 +2091,8 @@
     {
       "entityId": "seneca-letter-41",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 41: On the God Within Us - Seneca",
-      "description": "Letter 41 of Seneca's Moral Letters to Lucilius: \"📗 Letter 41: On the God Within Us - Seneca\".",
+      "name": "Letter 41: On the God Within Us",
+      "description": "Letter 41 of Seneca's Moral Letters to Lucilius: \"On the God Within Us\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2120,8 +2120,8 @@
     {
       "entityId": "seneca-letter-42",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 42: On Values - Seneca",
-      "description": "Letter 42 of Seneca's Moral Letters to Lucilius: \"📗 Letter 42: On Values - Seneca\".",
+      "name": "Letter 42: On Values",
+      "description": "Letter 42 of Seneca's Moral Letters to Lucilius: \"On Values\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2149,8 +2149,8 @@
     {
       "entityId": "seneca-letter-43",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 43: On the Relativity of Fame - Seneca",
-      "description": "Letter 43 of Seneca's Moral Letters to Lucilius: \"📗 Letter 43: On the Relativity of Fame - Seneca\".",
+      "name": "Letter 43: On the Relativity of Fame",
+      "description": "Letter 43 of Seneca's Moral Letters to Lucilius: \"On the Relativity of Fame\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2178,8 +2178,8 @@
     {
       "entityId": "seneca-letter-44",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 44: On Philosophy and Pedigrees - Seneca",
-      "description": "Letter 44 of Seneca's Moral Letters to Lucilius: \"📗 Letter 44: On Philosophy and Pedigrees - Seneca\".",
+      "name": "Letter 44: On Philosophy and Pedigrees",
+      "description": "Letter 44 of Seneca's Moral Letters to Lucilius: \"On Philosophy and Pedigrees\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2207,8 +2207,8 @@
     {
       "entityId": "seneca-letter-45",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 45: On Sophistical Argumentation - Seneca",
-      "description": "Letter 45 of Seneca's Moral Letters to Lucilius: \"📗 Letter 45: On Sophistical Argumentation - Seneca\".",
+      "name": "Letter 45: On Sophistical Argumentation",
+      "description": "Letter 45 of Seneca's Moral Letters to Lucilius: \"On Sophistical Argumentation\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2236,8 +2236,8 @@
     {
       "entityId": "seneca-letter-46",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 46: On a New Book by Lucilius - Seneca",
-      "description": "Letter 46 of Seneca's Moral Letters to Lucilius: \"📗 Letter 46: On a New Book by Lucilius - Seneca\".",
+      "name": "Letter 46: On a New Book by Lucilius",
+      "description": "Letter 46 of Seneca's Moral Letters to Lucilius: \"On a New Book by Lucilius\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2265,8 +2265,8 @@
     {
       "entityId": "seneca-letter-47",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 47: On Master and Slave - Seneca",
-      "description": "Letter 47 of Seneca's Moral Letters to Lucilius: \"📗 Letter 47: On Master and Slave - Seneca\".",
+      "name": "Letter 47: On Master and Slave",
+      "description": "Letter 47 of Seneca's Moral Letters to Lucilius: \"On Master and Slave\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2294,8 +2294,8 @@
     {
       "entityId": "seneca-letter-48",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 48: On Quibbling as Unworthy of the Philosopher - Seneca",
-      "description": "Letter 48 of Seneca's Moral Letters to Lucilius: \"📗 Letter 48: On Quibbling as Unworthy of the Philosopher - Seneca\".",
+      "name": "Letter 48: On Quibbling as Unworthy of the Philosopher",
+      "description": "Letter 48 of Seneca's Moral Letters to Lucilius: \"On Quibbling as Unworthy of the Philosopher\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2323,8 +2323,8 @@
     {
       "entityId": "seneca-letter-49",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 49: On the Shortness of Life - Seneca",
-      "description": "Letter 49 of Seneca's Moral Letters to Lucilius: \"📗 Letter 49: On the Shortness of Life - Seneca\".",
+      "name": "Letter 49: On the Shortness of Life",
+      "description": "Letter 49 of Seneca's Moral Letters to Lucilius: \"On the Shortness of Life\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2352,8 +2352,8 @@
     {
       "entityId": "seneca-letter-5",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 5: On the Philosopher’s Mean - Seneca",
-      "description": "Letter 5 of Seneca's Moral Letters to Lucilius: \"📗 Letter 5: On the Philosopher’s Mean - Seneca\".",
+      "name": "Letter 5: On the Philosopher’s Mean",
+      "description": "Letter 5 of Seneca's Moral Letters to Lucilius: \"On the Philosopher’s Mean\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2381,8 +2381,8 @@
     {
       "entityId": "seneca-letter-50",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 50: On Our Blindness and Its Cure - Seneca",
-      "description": "Letter 50 of Seneca's Moral Letters to Lucilius: \"📗 Letter 50: On Our Blindness and Its Cure - Seneca\".",
+      "name": "Letter 50: On Our Blindness and Its Cure",
+      "description": "Letter 50 of Seneca's Moral Letters to Lucilius: \"On Our Blindness and Its Cure\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2410,8 +2410,8 @@
     {
       "entityId": "seneca-letter-51",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 51: On Baiae and Morals - Seneca",
-      "description": "Letter 51 of Seneca's Moral Letters to Lucilius: \"📗 Letter 51: On Baiae and Morals - Seneca\".",
+      "name": "Letter 51: On Baiae and Morals",
+      "description": "Letter 51 of Seneca's Moral Letters to Lucilius: \"On Baiae and Morals\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2439,8 +2439,8 @@
     {
       "entityId": "seneca-letter-52",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 52: On Choosing Our Teachers - Seneca",
-      "description": "Letter 52 of Seneca's Moral Letters to Lucilius: \"📗 Letter 52: On Choosing Our Teachers - Seneca\".",
+      "name": "Letter 52: On Choosing Our Teachers",
+      "description": "Letter 52 of Seneca's Moral Letters to Lucilius: \"On Choosing Our Teachers\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2468,8 +2468,8 @@
     {
       "entityId": "seneca-letter-53",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 53: On the Faults of the Spirit - Seneca",
-      "description": "Letter 53 of Seneca's Moral Letters to Lucilius: \"📗 Letter 53: On the Faults of the Spirit - Seneca\".",
+      "name": "Letter 53: On the Faults of the Spirit",
+      "description": "Letter 53 of Seneca's Moral Letters to Lucilius: \"On the Faults of the Spirit\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2497,8 +2497,8 @@
     {
       "entityId": "seneca-letter-54",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 54: On Asthma and Death - Seneca",
-      "description": "Letter 54 of Seneca's Moral Letters to Lucilius: \"📗 Letter 54: On Asthma and Death - Seneca\".",
+      "name": "Letter 54: On Asthma and Death",
+      "description": "Letter 54 of Seneca's Moral Letters to Lucilius: \"On Asthma and Death\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2526,8 +2526,8 @@
     {
       "entityId": "seneca-letter-55",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 55: On Vatia’s Villa - Seneca",
-      "description": "Letter 55 of Seneca's Moral Letters to Lucilius: \"📗 Letter 55: On Vatia’s Villa - Seneca\".",
+      "name": "Letter 55: On Vatia’s Villa",
+      "description": "Letter 55 of Seneca's Moral Letters to Lucilius: \"On Vatia’s Villa\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2555,8 +2555,8 @@
     {
       "entityId": "seneca-letter-56",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 56: On Quiet and Study - Seneca",
-      "description": "Letter 56 of Seneca's Moral Letters to Lucilius: \"📗 Letter 56: On Quiet and Study - Seneca\".",
+      "name": "Letter 56: On Quiet and Study",
+      "description": "Letter 56 of Seneca's Moral Letters to Lucilius: \"On Quiet and Study\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2584,8 +2584,8 @@
     {
       "entityId": "seneca-letter-57",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 57: On the Trials of Travel - Seneca",
-      "description": "Letter 57 of Seneca's Moral Letters to Lucilius: \"📗 Letter 57: On the Trials of Travel - Seneca\".",
+      "name": "Letter 57: On the Trials of Travel",
+      "description": "Letter 57 of Seneca's Moral Letters to Lucilius: \"On the Trials of Travel\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2613,8 +2613,8 @@
     {
       "entityId": "seneca-letter-58",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 58: On Being - Seneca",
-      "description": "Letter 58 of Seneca's Moral Letters to Lucilius: \"📗 Letter 58: On Being - Seneca\".",
+      "name": "Letter 58: On Being",
+      "description": "Letter 58 of Seneca's Moral Letters to Lucilius: \"On Being\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2642,8 +2642,8 @@
     {
       "entityId": "seneca-letter-59",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 59: On Pleasure and Joy - Seneca",
-      "description": "Letter 59 of Seneca's Moral Letters to Lucilius: \"📗 Letter 59: On Pleasure and Joy - Seneca\".",
+      "name": "Letter 59: On Pleasure and Joy",
+      "description": "Letter 59 of Seneca's Moral Letters to Lucilius: \"On Pleasure and Joy\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2671,8 +2671,8 @@
     {
       "entityId": "seneca-letter-6",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 6: On Sharing Knowledge - Seneca",
-      "description": "Letter 6 of Seneca's Moral Letters to Lucilius: \"📗 Letter 6: On Sharing Knowledge - Seneca\".",
+      "name": "Letter 6: On Sharing Knowledge",
+      "description": "Letter 6 of Seneca's Moral Letters to Lucilius: \"On Sharing Knowledge\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2700,8 +2700,8 @@
     {
       "entityId": "seneca-letter-60",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 60: On Harmful Prayers - Seneca",
-      "description": "Letter 60 of Seneca's Moral Letters to Lucilius: \"📗 Letter 60: On Harmful Prayers - Seneca\".",
+      "name": "Letter 60: On Harmful Prayers",
+      "description": "Letter 60 of Seneca's Moral Letters to Lucilius: \"On Harmful Prayers\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2729,8 +2729,8 @@
     {
       "entityId": "seneca-letter-61",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 61: On Meeting Death Cheerfully - Seneca",
-      "description": "Letter 61 of Seneca's Moral Letters to Lucilius: \"📗 Letter 61: On Meeting Death Cheerfully - Seneca\".",
+      "name": "Letter 61: On Meeting Death Cheerfully",
+      "description": "Letter 61 of Seneca's Moral Letters to Lucilius: \"On Meeting Death Cheerfully\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2758,8 +2758,8 @@
     {
       "entityId": "seneca-letter-62",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 62: On Good Company - Seneca",
-      "description": "Letter 62 of Seneca's Moral Letters to Lucilius: \"📗 Letter 62: On Good Company - Seneca\".",
+      "name": "Letter 62: On Good Company",
+      "description": "Letter 62 of Seneca's Moral Letters to Lucilius: \"On Good Company\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2787,8 +2787,8 @@
     {
       "entityId": "seneca-letter-63",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 63: On Grief for Lost Friends - Seneca",
-      "description": "Letter 63 of Seneca's Moral Letters to Lucilius: \"📗 Letter 63: On Grief for Lost Friends - Seneca\".",
+      "name": "Letter 63: On Grief for Lost Friends",
+      "description": "Letter 63 of Seneca's Moral Letters to Lucilius: \"On Grief for Lost Friends\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2816,8 +2816,8 @@
     {
       "entityId": "seneca-letter-64",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 64: On the Philosopher’s Task - Seneca",
-      "description": "Letter 64 of Seneca's Moral Letters to Lucilius: \"📗 Letter 64: On the Philosopher’s Task - Seneca\".",
+      "name": "Letter 64: On the Philosopher’s Task",
+      "description": "Letter 64 of Seneca's Moral Letters to Lucilius: \"On the Philosopher’s Task\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2845,8 +2845,8 @@
     {
       "entityId": "seneca-letter-65",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 65: On the First Cause - Seneca",
-      "description": "Letter 65 of Seneca's Moral Letters to Lucilius: \"📗 Letter 65: On the First Cause - Seneca\".",
+      "name": "Letter 65: On the First Cause",
+      "description": "Letter 65 of Seneca's Moral Letters to Lucilius: \"On the First Cause\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2874,8 +2874,8 @@
     {
       "entityId": "seneca-letter-66",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 66: On Various Aspects of Virtue - Seneca",
-      "description": "Letter 66 of Seneca's Moral Letters to Lucilius: \"📗 Letter 66: On Various Aspects of Virtue - Seneca\".",
+      "name": "Letter 66: On Various Aspects of Virtue",
+      "description": "Letter 66 of Seneca's Moral Letters to Lucilius: \"On Various Aspects of Virtue\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2903,8 +2903,8 @@
     {
       "entityId": "seneca-letter-7",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 7: On Crowds - Seneca",
-      "description": "Letter 7 of Seneca's Moral Letters to Lucilius: \"📗 Letter 7: On Crowds - Seneca\".",
+      "name": "Letter 7: On Crowds",
+      "description": "Letter 7 of Seneca's Moral Letters to Lucilius: \"On Crowds\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2932,8 +2932,8 @@
     {
       "entityId": "seneca-letter-8",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 8: On the Philosopher’s Seclusion - Seneca",
-      "description": "Letter 8 of Seneca's Moral Letters to Lucilius: \"📗 Letter 8: On the Philosopher’s Seclusion - Seneca\".",
+      "name": "Letter 8: On the Philosopher’s Seclusion",
+      "description": "Letter 8 of Seneca's Moral Letters to Lucilius: \"On the Philosopher’s Seclusion\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2961,8 +2961,8 @@
     {
       "entityId": "seneca-letter-9",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 9: On Philosophy and Friendship - Seneca",
-      "description": "Letter 9 of Seneca's Moral Letters to Lucilius: \"📗 Letter 9: On Philosophy and Friendship - Seneca\".",
+      "name": "Letter 9: On Philosophy and Friendship",
+      "description": "Letter 9 of Seneca's Moral Letters to Lucilius: \"On Philosophy and Friendship\".",
       "relations": [
         {
           "predicate": "PART_OF",
@@ -2990,8 +2990,8 @@
     {
       "entityId": "seneca-letter-90",
       "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
-      "name": "📗 Letter 90: On the Part Played by Philosophy in the Progress of Man - Seneca",
-      "description": "Letter 90 of Seneca's Moral Letters to Lucilius: \"📗 Letter 90: On the Part Played by Philosophy in the Progress of Man - Seneca\".",
+      "name": "Letter 90: On the Part Played by Philosophy in the Progress of Man",
+      "description": "Letter 90 of Seneca's Moral Letters to Lucilius: \"On the Part Played by Philosophy in the Progress of Man\".",
       "relations": [
         {
           "predicate": "PART_OF",
