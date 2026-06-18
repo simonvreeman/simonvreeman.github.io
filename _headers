@@ -9,3 +9,9 @@
 # Prevent your pages.dev deployments showing in search results
 https://:vreeman.pages.dev/*
     X-Robots-Tag: noindex
+
+# EntityMap: served as application/json / text/html by default; just add caching
+/entitymap.json
+    Cache-Control: public, max-age=3600
+/entitymap.html
+    Cache-Control: public, max-age=3600

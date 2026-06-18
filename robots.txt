@@ -1,5 +1,7 @@
 User-agent: *
 Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Disallow: /tools.html
+Disallow: /tools/
 Sitemap: https://vreeman.com/sitemap.xml
+EntityMap: https://vreeman.com/entitymap.json
 host: https://vreeman.com
