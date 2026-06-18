@@ -10,14 +10,34 @@
 //      pattern "[page title] — published by [publisher name]".
 //   6. Not carry a noindex directive.
 //
-// Item 2 (JSON-LD <script> blocks) is intentionally NOT emitted: the mandated test
-// asserts the output contains no <script> tags, and this unit is required to stay
-// script-free. The machine-readable structured data lives in entitymap.json, which
-// item 1 links to via rel="alternate". See the report for this deviation.
+// Item 2 (per-entity JSON-LD) is emitted via <script type="application/ld+json"> blocks.
+// These are data blocks, not executable scripts: the test forbids EXECUTABLE <script>
+// while requiring the JSON-LD data blocks the spec mandates.
 
 function esc(s) {
   return String(s)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+const SCHEMA_TYPE = { Person: 'Person', Concept: 'DefinedTerm', Organization: 'Organization', Place: 'Place' };
+function schemaType(emType) {
+  if (typeof emType === 'string' && emType.includes('#Work')) return 'CreativeWork';
+  return SCHEMA_TYPE[emType] || 'Thing';
+}
+// Serialize JSON safely for embedding inside <script>: escape "<" so "</script>" can't break out.
+function jsonLdScript(entity) {
+  const sameAs = Array.isArray(entity.sameAs) ? entity.sameAs : (entity.sameAs ? [entity.sameAs] : []);
+  const url = entity.hasChunks && entity.hasChunks[0] ? entity.hasChunks[0].sourceUrl : undefined;
+  const obj = {
+    '@context': 'https://schema.org',
+    '@type': schemaType(entity['@type']),
+    name: entity.name,
+    description: entity.description,
+    ...(url ? { url } : {}),
+    ...(sameAs.length ? { sameAs } : {}),
+  };
+  const json = JSON.stringify(obj).replace(/</g, '\\u003c');
+  return `<script type="application/ld+json">${json}</script>`;
 }
 
 export function renderHtml(doc) {
@@ -49,6 +69,8 @@ export function renderHtml(doc) {
   for (const e of entities) {
     out.push(e.entityId ? `<section id="${anchor(e.entityId)}">` : '<section>');
     out.push(`<h2>${esc(e.name)}</h2>`);
+    // Spec §9.2: embed per-entity JSON-LD (data block, not an executable script).
+    out.push(jsonLdScript(e));
     out.push(`<p class="type">${esc(e['@type'])}${e.entityId ? ` · ${esc(e.entityId)}` : ''}</p>`);
     if (e.description) out.push(`<p>${esc(e.description)}</p>`);
     const sameAs = Array.isArray(e.sameAs) ? e.sameAs : (e.sameAs ? [e.sameAs] : []);

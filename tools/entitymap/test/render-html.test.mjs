@@ -16,7 +16,15 @@ test('renders valid standalone HTML with plain-text attribution', () => {
   assert.match(html, /Vreeman\.com/);
   assert.match(html, /Stoicism/);
   assert.match(html, /https:\/\/vreeman\.com\/meditations\//);
-  assert.doesNotMatch(html, /<script/i);
+  assert.match(html, /<script type="application\/ld\+json">/);            // spec §9 item #2
+  assert.doesNotMatch(html, /<script(?![^>]*type="application\/ld\+json")/i); // no executable scripts
+});
+
+test('embeds per-entity JSON-LD mapped to schema.org', () => {
+  const html = renderHtml(doc);
+  assert.match(html, /"@context":"https:\/\/schema\.org"/);
+  assert.match(html, /"@type":"DefinedTerm"/); // Concept -> DefinedTerm
+  assert.doesNotMatch(html, /<\/script>\s*<\/script>/); // no broken/empty doubled tags
 });
 
 test('escapes HTML special characters in entity text', () => {
