@@ -112,3 +112,54 @@ test('declaring both PART_OF and INCLUDES between same pair errors', () => {
   d.entities[0].relations = [{ predicate: 'PART_OF', targetId: 'work-discourses', targetName: 'Discourses' }];
   assert.ok(validate(d).errors.some((e) => /inverse/i.test(e)));
 });
+test('relation missing targetName errors', () => {
+  const d = validDoc();
+  d.entities[0].relations = [{ predicate: 'RELATES_TO' }];
+  assert.ok(validate(d).errors.some((e) => /targetName/.test(e)));
+});
+test('MEASURES from a non-Metric source errors', () => {
+  const d = validDoc();
+  d.entities[0].relations = [{ predicate: 'MEASURES', targetName: 'X' }];
+  assert.ok(validate(d).errors.some((e) => /MEASURES/.test(e)));
+});
+test('AFFILIATED_WITH from a non-Person source errors', () => {
+  const d = validDoc(); // concept-stoicism is a Concept, not a Person
+  d.entities[0].relations = [{ predicate: 'AFFILIATED_WITH', targetName: 'X' }];
+  assert.ok(validate(d).errors.some((e) => /AFFILIATED_WITH/.test(e)));
+});
+test('OFFERS from a non-Organization source errors', () => {
+  const d = validDoc();
+  d.entities[0].relations = [{ predicate: 'OFFERS', targetName: 'X' }];
+  assert.ok(validate(d).errors.some((e) => /OFFERS/.test(e)));
+});
+test('OFFERS to a non-product target errors', () => {
+  const d = validDoc();
+  d.entities[0]['@type'] = 'Organization';
+  d.entities.push({ entityId: 'concept-x', '@type': 'Concept', name: 'X', description: 'x',
+    hasChunks: [{ chunkId: 'cx', text: 'x', sourceUrl: 'https://vreeman.com/x', pageTitle: 'X', publisher: 'Vreeman.com' }] });
+  d.entities[0].relations = [{ predicate: 'OFFERS', targetId: 'concept-x', targetName: 'X' }];
+  assert.ok(validate(d).errors.some((e) => /OFFERS/.test(e)));
+});
+test('relative sourceUrl errors', () => {
+  const d = validDoc(); d.entities[0].hasChunks[0].sourceUrl = '/meditations/';
+  assert.ok(validate(d).errors.some((e) => /sourceUrl/.test(e)));
+});
+test('relevanceScore out of range errors', () => {
+  const d = validDoc(); d.entities[0].hasChunks[0].relevanceScore = 1.5;
+  assert.ok(validate(d).errors.some((e) => /relevanceScore/.test(e)));
+});
+test('non-numeric relevanceScore errors', () => {
+  const d = validDoc(); d.entities[0].hasChunks[0].relevanceScore = 'high';
+  assert.ok(validate(d).errors.some((e) => /relevanceScore/.test(e)));
+});
+test('invalid generated timestamp errors', () => {
+  assert.ok(validate(validDoc({ generated: 'June 18, 2026' })).errors.some((e) => /generated/.test(e)));
+});
+test('lowercase custom predicate errors', () => {
+  const d = validDoc({ vocabulary: { predicates: ['translated_by'], namespace: 'https://vreeman.com/entitymap/vocab/v1' } });
+  assert.ok(validate(d).errors.some((e) => /uppercase/.test(e)));
+});
+test('custom predicate colliding with a standard name errors', () => {
+  const d = validDoc({ vocabulary: { predicates: ['COVERS'], namespace: 'https://vreeman.com/entitymap/vocab/v1' } });
+  assert.ok(validate(d).errors.some((e) => /collides/.test(e)));
+});

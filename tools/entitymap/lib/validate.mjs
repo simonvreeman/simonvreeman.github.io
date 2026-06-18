@@ -8,20 +8,26 @@ import {
 export function validate(doc) {
   const errors = [];
   const warnings = [];
-  const customTypes = new Set();
   const customPredicates = new Set((doc.vocabulary?.predicates) || []);
   const namespace = doc.vocabulary?.namespace;
-  if (namespace) customTypes.add(`${namespace}#Work`);
+
+  // Custom predicates must be uppercase and must not collide with standard names.
+  for (const p of customPredicates) {
+    if (typeof p !== 'string' || p !== p.toUpperCase()) errors.push(`vocabulary: custom predicate "${p}" must be uppercase`);
+    if (STANDARD_PREDICATES.has(p)) errors.push(`vocabulary: custom predicate "${p}" collides with a standard predicate`);
+  }
 
   // --- Root ---
-  if (doc.version !== VERSION) errors.push(`root.version must be "${VERSION}"`);
-  if (doc.schema !== SCHEMA_URI) errors.push(`root.schema must be "${SCHEMA_URI}"`);
+  if (doc.version !== VERSION) errors.push(`root.version must be "${VERSION}" (got "${doc.version}")`);
+  if (doc.schema !== SCHEMA_URI) errors.push(`root.schema must be "${SCHEMA_URI}" (got "${doc.schema}")`);
   if (!doc.publisher || typeof doc.publisher.name !== 'string' || typeof doc.publisher.url !== 'string') {
     errors.push('root.publisher must be an object with name and url');
   } else if (/^[a-z0-9-]+\.[a-z]{2,}$/i.test(doc.publisher.name)) {
     warnings.push(`root.publisher.name "${doc.publisher.name}" looks like a domain; spec wants a brand name`);
   }
-  if (!doc.generated || Number.isNaN(Date.parse(doc.generated))) errors.push('root.generated must be an ISO 8601 timestamp');
+  if (!doc.generated || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/.test(doc.generated) || Number.isNaN(Date.parse(doc.generated))) {
+    errors.push('root.generated must be an ISO 8601 timestamp');
+  }
   if (doc.verificationStatus && !VERIFICATION_STATUSES.has(doc.verificationStatus)) {
     errors.push(`root.verificationStatus invalid: ${doc.verificationStatus}`);
   }
@@ -34,7 +40,7 @@ export function validate(doc) {
   const ids = new Set();
   const chunkIds = new Set();
   const byId = new Map(doc.entities.map((e) => [e.entityId, e]));
-  const ctx = { errors, warnings, ids, chunkIds, pubName, customTypes, customPredicates, byId };
+  const ctx = { errors, warnings, ids, chunkIds, pubName, namespace, customPredicates, byId };
 
   for (const e of doc.entities) validateEntity(e, ctx);
   validateInversePairs(doc.entities, errors);
@@ -42,14 +48,16 @@ export function validate(doc) {
 }
 
 function validateEntity(e, ctx) {
-  const { errors, ids, customTypes } = ctx;
+  const { errors, ids } = ctx;
   const id = e.entityId;
   if (!id || typeof id !== 'string') { errors.push('entity.entityId required'); return; }
   if (ids.has(id)) errors.push(`duplicate entityId: ${id}`);
   ids.add(id);
 
   const type = e['@type'];
-  const typeOk = CORE_TYPES.has(type) || customTypes.has(type);
+  // Custom types are accepted when namespaced under the declared vocabulary namespace.
+  const typeOk = CORE_TYPES.has(type) ||
+    (ctx.namespace && typeof type === 'string' && type.startsWith(`${ctx.namespace}#`));
   if (!typeOk) errors.push(`entity ${id}: invalid @type "${type}" (not a core type or declared custom type)`);
 
   if (!e.name) errors.push(`entity ${id}: name required`);
@@ -85,7 +93,9 @@ function validateChunk(c, entId, ctx) {
   if (!c.pageTitle) errors.push(`chunk ${c.chunkId}: pageTitle required`);
   if (c.publisher !== pubName) errors.push(`chunk ${c.chunkId}: publisher "${c.publisher}" must exactly match root publisher.name "${pubName}"`);
   if (c.contentType && !CHUNK_CONTENT_TYPES.has(c.contentType)) errors.push(`chunk ${c.chunkId}: invalid contentType "${c.contentType}"`);
-  if (c.relevanceScore != null && (c.relevanceScore < 0 || c.relevanceScore > 1)) errors.push(`chunk ${c.chunkId}: relevanceScore must be 0.0-1.0`);
+  if (c.relevanceScore != null && (typeof c.relevanceScore !== 'number' || c.relevanceScore < 0 || c.relevanceScore > 1)) {
+    errors.push(`chunk ${c.chunkId}: relevanceScore must be a number 0.0-1.0`);
+  }
 }
 
 function validateRelation(r, srcEntity, ctx) {
