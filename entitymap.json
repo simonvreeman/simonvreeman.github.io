@@ -1,0 +1,3020 @@
+{
+  "version": "1.0",
+  "schema": "https://entitymap.org/spec/v1.0",
+  "publisher": {
+    "name": "Vreeman.com",
+    "url": "https://vreeman.com/"
+  },
+  "generated": "2026-06-18T10:33:02.064Z",
+  "profile": "core",
+  "verificationStatus": "self-declared",
+  "vocabulary": {
+    "predicates": [
+      "TRANSLATED_BY"
+    ],
+    "namespace": "https://vreeman.com/entitymap/vocab/v1"
+  },
+  "entities": [
+    {
+      "entityId": "concept-stoicism",
+      "@type": "Concept",
+      "name": "Stoicism",
+      "description": "The Hellenistic school of philosophy founded in Athens by Zeno of Citium, treated across this library as both a theoretical system (logic, physics, ethics) and a practical discipline of virtue, fate, and what is within one's control.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q48235"
+      ],
+      "relations": [
+        {
+          "predicate": "INSTANCE_OF",
+          "targetId": "concept-philosophy",
+          "targetName": "Philosophy"
+        },
+        {
+          "predicate": "DESCRIBED_BY",
+          "targetId": "work-meditations",
+          "targetName": "Meditations"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "concept-stoicism-c1",
+          "text": "Of these Hellenistic systems the most important, both for Romans in general and for Marcus in particular, was the Stoic school. The movement takes its name from the stoa (“porch” or “portico”) in downtown Athens where its founder, Zeno of Citium (332/3–262 B.C.), taught and lectured.",
+          "sourceUrl": "https://vreeman.com/meditations/",
+          "pageTitle": "📘 Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "concept-philosophy",
+      "@type": "Concept",
+      "name": "Philosophy",
+      "description": "The broader discipline of which Stoicism is one school; in the Hays introduction, traced largely to the fifth-century BC Athenian thinker Socrates.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q5891"
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "concept-philosophy-c1",
+          "text": "Philosophy in the modern sense is largely the creation of one man, the fifth-century B.C. Athenian thinker Socrates. But it is primarily in the Hellenistic period that we see the rise of philosophical sects, promulgating coherent “belief systems” that an individual could accept as a whole and which were designed to explain the world in its totality.",
+          "sourceUrl": "https://vreeman.com/meditations/",
+          "pageTitle": "📘 Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.9
+        }
+      ]
+    },
+    {
+      "entityId": "concept-logos",
+      "@type": "Concept",
+      "name": "Logos",
+      "description": "In Stoicism, the all-pervading rational principle that orders and directs the universe—synonymous with nature, Providence, or God—and present in each person as the faculty of reason.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q379825"
+      ],
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        },
+        {
+          "predicate": "DESCRIBED_BY",
+          "targetId": "work-meditations",
+          "targetName": "Meditations"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "concept-logos-c1",
+          "text": "Logos operates both in individuals and in the universe as a whole. In individuals it is the faculty of reason. On a cosmic level it is the rational principle that governs the organization of the universe.",
+          "sourceUrl": "https://vreeman.com/meditations/",
+          "pageTitle": "📘 Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "concept-dichotomy-of-control",
+      "@type": "Concept",
+      "name": "Dichotomy of control",
+      "description": "Epictetus's foundational distinction, opening the Enchiridion: some things are within our power (judgement, impulse, desire, aversion) and some are not (the body, property, reputation, office).",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        },
+        {
+          "predicate": "DESCRIBED_BY",
+          "targetId": "work-enchiridion",
+          "targetName": "Enchiridion of Epictetus"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "concept-dichotomy-of-control-c1",
+          "text": "We are responsible for some things, while there are others for which we cannot be held responsible. The former include our judgement, our impulse, our desire, aversion and our mental faculties in general; the latter include the body, material possessions, our reputation, status – in a word, anything not in our power to control.",
+          "sourceUrl": "https://vreeman.com/discourses/enchiridion",
+          "pageTitle": "📕 Arrian’s Enchiridion or Handbook of Epictetus. Translated and edited by Robert Dobbin.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "concept-three-disciplines",
+      "@type": "Concept",
+      "name": "The three disciplines",
+      "description": "The framework in the Hays introduction (and Meditations 7.54): the disciplines of perception, action, and will—seeing objectively, acting justly, and accepting what is outside our control.",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        },
+        {
+          "predicate": "DESCRIBED_BY",
+          "targetId": "work-meditations",
+          "targetName": "Meditations"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "concept-three-disciplines-c1",
+          "text": "It may be worthwhile, however, to draw attention to one pattern of thought that is central to the philosophy of the Meditations (as well as to Epictetus), and that has been identified and documented in detail by Pierre Hadot. This is the doctrine of the three “disciplines”: the disciplines of perception, of action and of the will.",
+          "sourceUrl": "https://vreeman.com/meditations/",
+          "pageTitle": "📘 Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "concept-four-cardinal-virtues",
+      "@type": "Concept",
+      "name": "The four cardinal virtues",
+      "description": "The Stoic virtues Marcus highlights (Meditations 3.6): wisdom, justice, courage, and self-control (temperance), held as the highest goods.",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        },
+        {
+          "predicate": "DESCRIBED_BY",
+          "targetId": "work-meditations",
+          "targetName": "Meditations"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "concept-four-cardinal-virtues-c1",
+          "text": "If, at some point in your life, you should come across anything better than justice, honesty, self-control, courage—it must be an extraordinary thing indeed—and enjoy it to the full.",
+          "sourceUrl": "https://vreeman.com/meditations/quotes",
+          "pageTitle": "📘 Meditations by Marcus Aurelius: Quotes in books",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.85
+        }
+      ]
+    },
+    {
+      "entityId": "concept-amor-fati",
+      "@type": "Concept",
+      "name": "Amor fati",
+      "description": "The acceptance and love of one's fate, aligned with the Stoic discipline of will and willing acquiescence to whatever the logos has ordained.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q331009"
+      ],
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "concept-amor-fati-c1",
+          "text": "November: Acceptance / Amor Fati",
+          "sourceUrl": "https://vreeman.com/meditations/quotes",
+          "pageTitle": "📘 Meditations by Marcus Aurelius: Quotes in books",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.8
+        }
+      ]
+    },
+    {
+      "entityId": "concept-memento-mori",
+      "@type": "Concept",
+      "name": "Memento mori",
+      "description": "Remembrance of death as a guide to action, as in Marcus's 'You could leave life right now—let that determine what you do and say and think' (Meditations 2.11).",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q1411059"
+      ],
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        },
+        {
+          "predicate": "DESCRIBED_BY",
+          "targetId": "work-meditations",
+          "targetName": "Meditations"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "concept-memento-mori-c1",
+          "text": "You could leave life right now. Let that determine what you do and say and think.",
+          "sourceUrl": "https://vreeman.com/meditations/quotes",
+          "pageTitle": "📘 Meditations by Marcus Aurelius: Quotes in books",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.9
+        }
+      ]
+    },
+    {
+      "entityId": "concept-providence",
+      "@type": "Concept",
+      "name": "Providence",
+      "description": "The Stoic conviction that the universe is benevolently ordered by the logos, contrasted in the Hays introduction with the random Epicurean universe.",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        },
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "concept-logos",
+          "targetName": "Logos"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "concept-providence-c1",
+          "text": "The Stoic world is ordered to the nth degree; the Epicurean universe is random, the product of the haphazard conjunctions of billions of atoms. To speak of Providence in such a world is transparently absurd, and while Epicurus acknowledged the existence of gods, he denied that they took any interest in human life.",
+          "sourceUrl": "https://vreeman.com/meditations/",
+          "pageTitle": "📘 Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.9
+        }
+      ]
+    },
+    {
+      "entityId": "concept-stockdale-triad",
+      "@type": "Concept",
+      "name": "Tranquility, fearlessness and freedom",
+      "description": "Stockdale's distilled Stoic triad—tranquility, fearlessness, and freedom—achieved by mastering one's moral purpose and accepting what lies outside one's control.",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        },
+        {
+          "predicate": "DESCRIBED_BY",
+          "targetId": "work-stoic-warriors-triad",
+          "targetName": "The Stoic Warrior's Triad"
+        },
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "concept-dichotomy-of-control",
+          "targetName": "Dichotomy of control"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "concept-stockdale-triad-c1",
+          "text": "Somebody asked Epictetus: \"What is the fruit of an these doctrines?\" He answered with three sharp words: \"Tranquility, Fearlessness, and Freedom.\"",
+          "sourceUrl": "https://vreeman.com/stockdale/stoic-warriors-triad",
+          "pageTitle": "The Stoic Warrior's Triad: Tranquility, Fearlessness and Freedom - James Stockdale",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "person-marcus-aurelius",
+      "@type": "Person",
+      "name": "Marcus Aurelius",
+      "description": "Roman emperor (161-180 AD) and Stoic philosopher, last of the Five Good Emperors and author of the Meditations.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q1430"
+      ],
+      "relations": [
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        },
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "person-epictetus",
+          "targetName": "Epictetus"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "person-marcus-aurelius-c1",
+          "text": "Marcus Aurelius was a Roman emperor from 161 to 180. He was the last of the Five Good Emperors.",
+          "sourceUrl": "https://vreeman.com/meditations/",
+          "pageTitle": "📘 Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.9
+        }
+      ]
+    },
+    {
+      "entityId": "person-epictetus",
+      "@type": "Person",
+      "name": "Epictetus",
+      "description": "Greek Stoic philosopher (c. 55-135 AD), born a slave, later freed, who founded a school at Nicopolis; his lectures were recorded by Arrian as the Discourses and Enchiridion.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q5780"
+      ],
+      "relations": [
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        },
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "person-arrian",
+          "targetName": "Arrian"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "person-epictetus-c1",
+          "text": "We can only make an educated guess as to the year he was born and the year he died, but are not likely to be far wrong in giving his dates as c.AD 55–135. We know that he was born into slavery because he tells us so, and from an ancient inscription we learn that his mother had been a slave. The place of his birth was Hierapolis, a major Graeco-Roman city in what today is south-western Turkey.",
+          "sourceUrl": "https://vreeman.com/discourses/",
+          "pageTitle": "📕 Arrian’s Discourses of Epictetus.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "person-seneca",
+      "@type": "Person",
+      "name": "Seneca the Younger",
+      "description": "Lucius Annaeus Seneca, Roman Stoic philosopher and statesman; author of the Moral Letters to Lucilius and moral essays such as On the Shortness of Life.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q2054"
+      ],
+      "relations": [
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "person-seneca-c1",
+          "text": "Lucius Annaeus Seneca (c. 4 BC - AD 65), known as Seneca the Younger, was a Roman Stoic philosopher, statesman, and dramatist. Born in Corduba (modern Cordoba, Spain), he was educated in Rome and rose to prominence as an orator and writer.",
+          "sourceUrl": "https://vreeman.com/seneca/",
+          "pageTitle": "📗 Letters and Essays from Roman Stoic philosopher Seneca the Younger",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "person-james-stockdale",
+      "@type": "Person",
+      "name": "James Bond Stockdale",
+      "description": "U.S. Navy vice admiral and Vietnam POW who applied Epictetus's Stoicism through years of captivity in Hanoi, later writing and lecturing on it.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q496264"
+      ],
+      "relations": [
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        },
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "person-epictetus",
+          "targetName": "Epictetus"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "person-james-stockdale-c1",
+          "text": "James B. Stockdale (James Bond Stockdale) was a U.S. Navy vice admiral and Vietnam War prisoner of war who drew on Epictetus and Stoic philosophy to endure captivity and lead others.",
+          "sourceUrl": "https://vreeman.com/stockdale/",
+          "pageTitle": "James B. Stockdale on Stoicism - Essays and Lectures",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "person-gregory-hays",
+      "@type": "Person",
+      "name": "Gregory Hays",
+      "description": "Classicist (University of Virginia) and translator of the Modern Library edition of the Meditations hosted on this site.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q108127947"
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "person-gregory-hays-c1",
+          "text": "Gregory Hays is an assistant professor of classics at the University of Virginia. He has published articles and reviews on various ancient writers and is currently completing a translation and critical study of the mythographer Fulgentius.",
+          "sourceUrl": "https://vreeman.com/meditations/",
+          "pageTitle": "📘 Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.9
+        }
+      ]
+    },
+    {
+      "entityId": "person-george-long",
+      "@type": "Person",
+      "name": "George Long",
+      "description": "19th-century English classical scholar whose public-domain translation of Epictetus's Discourses and Enchiridion is hosted on this site.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q1506004"
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "person-george-long-c1",
+          "text": "Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.",
+          "sourceUrl": "https://vreeman.com/discourses/george-long",
+          "pageTitle": "📕 Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.85
+        }
+      ]
+    },
+    {
+      "entityId": "person-robert-dobbin",
+      "@type": "Person",
+      "name": "Robert Dobbin",
+      "description": "Translator and editor of the modern Penguin edition of Epictetus's Discourses, Enchiridion, and Fragments hosted on this site.",
+      "hasChunks": [
+        {
+          "chunkId": "person-robert-dobbin-c1",
+          "text": "Arrian’s Enchiridion or Handbook of Epictetus. Translated and edited by Robert Dobbin.",
+          "sourceUrl": "https://vreeman.com/discourses/enchiridion",
+          "pageTitle": "📕 Arrian’s Enchiridion or Handbook of Epictetus. Translated and edited by Robert Dobbin.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.85
+        }
+      ]
+    },
+    {
+      "entityId": "person-arrian",
+      "@type": "Person",
+      "name": "Arrian",
+      "description": "Flavius Arrianus (c. 86-160 AD), Greek-born Roman consul and historian, pupil of Epictetus who transcribed his teacher's lectures into the Discourses and Enchiridion.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q179293"
+      ],
+      "relations": [
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "work-discourses",
+          "targetName": "Discourses of Epictetus"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "person-arrian-c1",
+          "text": "In a prefatory letter one such pupil, Arrian by name (c. AD 86-160), takes credit for committing a sizeable number of Epictetus’ lessons to print, thereby ensuring their survival. These are the Discourses. Arrian is also credited with preparing a digest of his master’s thought: the Manual or (in Greek) Enchiridion.",
+          "sourceUrl": "https://vreeman.com/discourses/",
+          "pageTitle": "📕 Arrian’s Discourses of Epictetus.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "person-zeno",
+      "@type": "Person",
+      "name": "Zeno of Citium",
+      "description": "Founder of Stoicism (c. 334-262 BC), who taught at the painted porch (stoa) in Athens from which the school takes its name.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q170588"
+      ],
+      "relations": [
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        },
+        {
+          "predicate": "PRECEDES",
+          "targetId": "person-cleanthes",
+          "targetName": "Cleanthes"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "person-zeno-c1",
+          "text": "The movement takes its name from the stoa (“porch” or “portico”) in downtown Athens where its founder, Zeno of Citium (332/3–262 B.C.), taught and lectured. Zeno’s doctrines were reformulated and developed by his successors, Cleanthes (331–232 B.C.) and Chrysippus (280–c. 206 B.C.).",
+          "sourceUrl": "https://vreeman.com/meditations/",
+          "pageTitle": "📘 Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "person-cleanthes",
+      "@type": "Person",
+      "name": "Cleanthes",
+      "description": "Second head of the Stoic school (331-232 BC), successor to Zeno, who developed and reformulated his doctrines.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q318767"
+      ],
+      "relations": [
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        },
+        {
+          "predicate": "PRECEDES",
+          "targetId": "person-chrysippus",
+          "targetName": "Chrysippus of Soli"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "person-cleanthes-c1",
+          "text": "Zeno’s doctrines were reformulated and developed by his successors, Cleanthes (331–232 B.C.) and Chrysippus (280–c. 206 B.C.). Chrysippus in particular was a voluminous writer, and it was he who laid the foundations for systematic Stoicism.",
+          "sourceUrl": "https://vreeman.com/meditations/",
+          "pageTitle": "📘 Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.85
+        }
+      ]
+    },
+    {
+      "entityId": "person-chrysippus",
+      "@type": "Person",
+      "name": "Chrysippus of Soli",
+      "description": "Third head of the Stoa (c. 279-206 BC), the systematizer who divided philosophy into logic, physics, and ethics and refined the doctrine of pneuma.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q170581"
+      ],
+      "relations": [
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "person-chrysippus-c1",
+          "text": "Chrysippus and his followers had divided knowledge into three areas: logic, physics and ethics, concerned, respectively, with the nature of knowledge, the structure of the physical world and the proper role of human beings in that world.",
+          "sourceUrl": "https://vreeman.com/meditations/",
+          "pageTitle": "📘 Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.9
+        }
+      ]
+    },
+    {
+      "entityId": "person-musonius-rufus",
+      "@type": "Person",
+      "name": "Musonius Rufus",
+      "description": "Roman Stoic philosopher who taught and trained Epictetus, launching his career while Epictetus was still a slave.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q350937"
+      ],
+      "relations": [
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        },
+        {
+          "predicate": "PRECEDES",
+          "targetId": "person-epictetus",
+          "targetName": "Epictetus"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "person-musonius-rufus-c1",
+          "text": "The turning point in his life was his adoption by Musonius Rufus, the very best teacher of philosophy in first-century Rome. Though Epictetus was still technically a slave, Rufus, an Etruscan knight, took him as a student.",
+          "sourceUrl": "https://vreeman.com/stockdale/stoic-warriors-triad",
+          "pageTitle": "The Stoic Warrior's Triad: Tranquility, Fearlessness and Freedom - James Stockdale",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.9
+        }
+      ]
+    },
+    {
+      "entityId": "work-meditations",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "Meditations",
+      "description": "The private Stoic notebook of Marcus Aurelius (Greek: Ta eis heauton, 'to himself'), here in Gregory Hays's Modern Library translation.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q1152283"
+      ],
+      "relations": [
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-marcus-aurelius",
+          "targetName": "Marcus Aurelius"
+        },
+        {
+          "predicate": "TRANSLATED_BY",
+          "targetId": "person-gregory-hays",
+          "targetName": "Gregory Hays"
+        },
+        {
+          "predicate": "INSTANCE_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "work-meditations-c1",
+          "text": "Meditations is a series of personal writings by Marcus Aurelius, Roman Emperor from 161 to 180 AD, recording his private notes to himself and ideas on Stoic philosophy.",
+          "sourceUrl": "https://vreeman.com/meditations/",
+          "pageTitle": "📘 Meditations by Marcus Aurelius. Translation by Gregory Hays.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "work-meditations-quotes",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "Meditations: Selected Quotes",
+      "description": "A companion page collecting thematic quotations from the Meditations (memento mori, the four virtues, amor fati), arranged as a month-by-month reading.",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-meditations",
+          "targetName": "Meditations"
+        },
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "concept-memento-mori",
+          "targetName": "Memento mori"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "work-meditations-quotes-c1",
+          "text": "The Daily Stoic is a book by Ryan Holiday and Stephen Hanselman. It has 366 Meditations on Wisdom, Perseverance, and the Art of Living. For 143 of the 366 the days they have taken sections from Meditations by Marcus Aurelius.",
+          "sourceUrl": "https://vreeman.com/meditations/quotes",
+          "pageTitle": "📘 Meditations by Marcus Aurelius: Quotes in books",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.85
+        }
+      ]
+    },
+    {
+      "entityId": "work-discourses",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "Discourses of Epictetus",
+      "description": "The surviving lectures of Epictetus as recorded by his pupil Arrian, hosted in Robert Dobbin's modern translation.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q4357914"
+      ],
+      "relations": [
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-epictetus",
+          "targetName": "Epictetus"
+        },
+        {
+          "predicate": "TRANSLATED_BY",
+          "targetId": "person-robert-dobbin",
+          "targetName": "Robert Dobbin"
+        },
+        {
+          "predicate": "INSTANCE_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "work-discourses-c1",
+          "text": "They were students of Epictetus. In a prefatory letter one such pupil, Arrian by name (c. AD 86-160), takes credit for committing a sizeable number of Epictetus’ lessons to print, thereby ensuring their survival. These are the Discourses.",
+          "sourceUrl": "https://vreeman.com/discourses/",
+          "pageTitle": "📕 Arrian’s Discourses of Epictetus.",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "work-enchiridion",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "Enchiridion of Epictetus",
+      "description": "The 'Handbook' of Epictetus, a short manual of selected teachings compiled by Arrian that opens with the dichotomy of control.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q2137133"
+      ],
+      "relations": [
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-epictetus",
+          "targetName": "Epictetus"
+        },
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-discourses",
+          "targetName": "Discourses of Epictetus"
+        },
+        {
+          "predicate": "TRANSLATED_BY",
+          "targetId": "person-robert-dobbin",
+          "targetName": "Robert Dobbin"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "work-enchiridion-c1",
+          "text": "We are responsible for some things, while there are others for which we cannot be held responsible. The former include our judgement, our impulse, our desire, aversion and our mental faculties in general; the latter include the body, material possessions, our reputation, status – in a word, anything not in our power to control.",
+          "sourceUrl": "https://vreeman.com/discourses/enchiridion",
+          "pageTitle": "📕 Arrian’s Enchiridion or Handbook of Epictetus. Translated and edited by Robert Dobbin.",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.9
+        }
+      ]
+    },
+    {
+      "entityId": "work-fragments",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "Fragments of Epictetus",
+      "description": "Brief quotations of Epictetus not found in the surviving Discourses, mostly preserved in the anthology of Stobaeus.",
+      "relations": [
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-epictetus",
+          "targetName": "Epictetus"
+        },
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-discourses",
+          "targetName": "Discourses of Epictetus"
+        },
+        {
+          "predicate": "TRANSLATED_BY",
+          "targetId": "person-robert-dobbin",
+          "targetName": "Robert Dobbin"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "work-fragments-c1",
+          "text": "Epictetus said that we must find a method for managing assent. In the field of assent we have to be careful to use it with reservation, with restraint and in the service of society. Drop desire altogether and apply aversion to nothing that is not under our control.",
+          "sourceUrl": "https://vreeman.com/discourses/fragments",
+          "pageTitle": "📕 Arrian’s Fragments of Epictetus. Translated and edited by Robert Dobbin.",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.85
+        }
+      ]
+    },
+    {
+      "entityId": "work-discourses-george-long",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "Discourses and Enchiridion (George Long translation)",
+      "description": "George Long's public-domain English translation of Epictetus's Discourses and Enchiridion, hosted as a single page.",
+      "relations": [
+        {
+          "predicate": "INSTANCE_OF",
+          "targetId": "work-discourses",
+          "targetName": "Discourses of Epictetus"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-epictetus",
+          "targetName": "Epictetus"
+        },
+        {
+          "predicate": "TRANSLATED_BY",
+          "targetId": "person-george-long",
+          "targetName": "George Long"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "work-discourses-george-long-c1",
+          "text": "We must make the best use that we can of the things which are in our power, and use the rest according to their nature. What is their nature then? As God may please.",
+          "sourceUrl": "https://vreeman.com/discourses/george-long",
+          "pageTitle": "📕 Arrian’s Discourses and Enchiridion of Epictetus. Translation by George Long.",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.85
+        }
+      ]
+    },
+    {
+      "entityId": "work-moral-letters",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "Moral Letters to Lucilius",
+      "description": "Seneca's collection of letters to his friend Lucilius (Epistulae Morales ad Lucilium), the section's core Seneca work, presented as individual letters.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q1378660"
+      ],
+      "relations": [
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        },
+        {
+          "predicate": "INSTANCE_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "work-moral-letters-c1",
+          "text": "Seneca's essays and the Letters to Lucilius shaped Stoicism into a practical philosophy for daily life. He wrote about anger, grief, time, wealth, and the cultivation of virtue, urging readers to align reason with nature and to meet adversity with steadiness.",
+          "sourceUrl": "https://vreeman.com/seneca/",
+          "pageTitle": "📗 Letters and Essays from Roman Stoic philosopher Seneca the Younger",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.9
+        }
+      ]
+    },
+    {
+      "entityId": "work-on-the-shortness-of-life",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "On the Shortness of Life",
+      "description": "Seneca's essay De Brevitate Vitae, arguing that life is not short but largely wasted, and urging it be lived wisely.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q1539277"
+      ],
+      "relations": [
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        },
+        {
+          "predicate": "INSTANCE_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "work-on-the-shortness-of-life-c1",
+          "text": "It is not that we have a short space of time, but that we waste much of it. Life is long enough, and it has been given in sufficiently generous measure to allow the accomplishment of the very greatest things if the whole of it is well invested.",
+          "sourceUrl": "https://vreeman.com/seneca/on-the-shortness-of-life",
+          "pageTitle": "📗 On the shortness of life (De Brevitate Vitae) - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "work-on-the-tranquillity-of-mind",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "On Tranquillity of Mind",
+      "description": "Seneca's essay De Tranquillitate Animi on achieving peace of mind.",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q3704175"
+      ],
+      "relations": [
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        },
+        {
+          "predicate": "INSTANCE_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "work-on-the-tranquillity-of-mind-c1",
+          "text": "When I made examination of myself, it became evident, Seneca, that some of my vices are uncovered and displayed so openly that I can put my hand upon them, some are more hidden and lurk in a corner, some are not always present but recur at intervals; and I should say that the last are by far the most troublesome, being like roving enemies that spring upon one when the opportunity offers, and allow one neither to be ready as in war, nor to be off guard as in peace.",
+          "sourceUrl": "https://vreeman.com/seneca/on-the-tranquillity-of-mind",
+          "pageTitle": "📗 On the tranquillity of mind (De Tranquillitate Animi) - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.9
+        }
+      ]
+    },
+    {
+      "entityId": "work-courage-under-fire",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "Courage Under Fire: Testing Epictetus's Doctrines in a Laboratory of Human Behavior",
+      "description": "Stockdale's lecture recounting how Epictetus's Stoic doctrines sustained him as a POW.",
+      "relations": [
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-james-stockdale",
+          "targetName": "James Bond Stockdale"
+        },
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-stockdale-collection",
+          "targetName": "James B. Stockdale on Stoicism"
+        },
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "person-epictetus",
+          "targetName": "Epictetus"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "work-courage-under-fire-c1",
+          "text": "I came to the philosophic life as a thirty-eight-year-old naval pilot in grad school at Stanford University. I had been in the Navy for twenty years and scarcely ever out of a cockpit.",
+          "sourceUrl": "https://vreeman.com/stockdale/courage-under-fire",
+          "pageTitle": "Courage Under Fire: Testing Epictetus's Doctrines in a Laboratory of Human Behavior - James Stockdale",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.9
+        }
+      ]
+    },
+    {
+      "entityId": "work-master-of-my-fate",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "Master of My Fate: A Stoic Philosopher in a Hanoi Prison",
+      "description": "Stockdale's essay on applying Epictetus's Stoicism during his captivity in Hanoi.",
+      "relations": [
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-james-stockdale",
+          "targetName": "James Bond Stockdale"
+        },
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-stockdale-collection",
+          "targetName": "James B. Stockdale on Stoicism"
+        },
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "person-epictetus",
+          "targetName": "Epictetus"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "work-master-of-my-fate-c1",
+          "text": "When I debated Al Gore and Dan Quayle on television in October 1992, as candidates for vice president, I began my remarks with two questions that are perennially debated by every thinking human being: Who am I? Why am I here?",
+          "sourceUrl": "https://vreeman.com/stockdale/master-of-my-fate",
+          "pageTitle": "Master of My Fate: A Stoic Philosopher in a Hanoi Prison - James Stockdale",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.9
+        }
+      ]
+    },
+    {
+      "entityId": "work-stoic-warriors-triad",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "The Stoic Warrior's Triad: Tranquility, Fearlessness and Freedom",
+      "description": "Stockdale's lecture presenting Epictetus's code of conduct and the Stoic triad of tranquility, fearlessness, and freedom.",
+      "relations": [
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-james-stockdale",
+          "targetName": "James Bond Stockdale"
+        },
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-stockdale-collection",
+          "targetName": "James B. Stockdale on Stoicism"
+        },
+        {
+          "predicate": "RELATES_TO",
+          "targetId": "person-epictetus",
+          "targetName": "Epictetus"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "work-stoic-warriors-triad-c1",
+          "text": "Somebody asked Epictetus: \"What is the fruit of an these doctrines?\" He answered with three sharp words: \"Tranquility, Fearlessness, and Freedom.\"",
+          "sourceUrl": "https://vreeman.com/stockdale/stoic-warriors-triad",
+          "pageTitle": "The Stoic Warrior's Triad: Tranquility, Fearlessness and Freedom - James Stockdale",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.95
+        }
+      ]
+    },
+    {
+      "entityId": "work-stockdale-collection",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "James B. Stockdale on Stoicism",
+      "description": "The Stockdale section: a collection of his essays and lectures on applying Stoicism (Courage Under Fire, The Stoic Warrior's Triad, Master of My Fate).",
+      "relations": [
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-james-stockdale",
+          "targetName": "James Bond Stockdale"
+        },
+        {
+          "predicate": "INSTANCE_OF",
+          "targetId": "concept-stoicism",
+          "targetName": "Stoicism"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "work-stockdale-collection-c1",
+          "text": "This collection, often referred to as Stockdale on Stoicism, presents essays and lectures that connect ancient Stoic ethics to modern leadership and resilience.",
+          "sourceUrl": "https://vreeman.com/stockdale/",
+          "pageTitle": "James B. Stockdale on Stoicism - Essays and Lectures",
+          "publisher": "Vreeman.com",
+          "contentType": "definition",
+          "relevanceScore": 0.9
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-1",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 1: On Saving Time - Seneca",
+      "description": "Letter 1 of Seneca's Moral Letters to Lucilius: \"📗 Letter 1: On Saving Time - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-1-c1",
+          "text": "Continue to act thus, my dear Lucilius—set yourself free for your own sake; gather and save your time, which till lately has been forced from you, or filched away, or has merely slipped from your hands. Make yourself believe the truth of my words—that certain moments are torn from us, that some are gently removed, and that others glide beyond our reach. The most disgraceful kind of loss, however, is that due to carelessness.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-1",
+          "pageTitle": "📗 Letter 1: On Saving Time - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-10",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 10: On Living to Oneself - Seneca",
+      "description": "Letter 10 of Seneca's Moral Letters to Lucilius: \"📗 Letter 10: On Living to Oneself - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-10-c1",
+          "text": "Yes, I do not change my opinion: avoid the many, avoid the few, avoid even the individual. I know of no one with whom I should be willing to have you shared. And see what an opinion of you I have; for I dare to trust you with your own self. Crates, they say, the disciple of the very Stilbo whom I mentioned in a former letter, noticed a young man walking by himself, and asked him what he was doing all alone. “I am communing with myself,” replied the youth. “Pray be careful, then,” said Crates, “and take good heed; you are communing with a bad man!”",
+          "sourceUrl": "https://vreeman.com/seneca/letter-10",
+          "pageTitle": "📗 Letter 10: On Living to Oneself - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-11",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 11: On the Blush of Modesty - Seneca",
+      "description": "Letter 11 of Seneca's Moral Letters to Lucilius: \"📗 Letter 11: On the Blush of Modesty - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-11-c1",
+          "text": "Your friend and I have had a conversation. He is a man of ability; his very first words showed what spirit and understanding he possesses, and what progress he has already made. He gave me a foretaste, and he will not fail to answer thereto. For he spoke not from forethought, but was suddenly caught off his guard. When he tried to collect himself, he could scarcely banish that hue of modesty, which is a good sign in a young man; the blush that spread over his face seemed so to rise from the depths.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-11",
+          "pageTitle": "📗 Letter 11: On the Blush of Modesty - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-12",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 12: On Old Age - Seneca",
+      "description": "Letter 12 of Seneca's Moral Letters to Lucilius: \"📗 Letter 12: On Old Age - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-12-c1",
+          "text": "Wherever I turn, I see evidences of my advancing years. I visited lately my country-place, and protested against the money which was spent on the tumble-down building. My bailiff maintained that the flaws were not due to his own carelessness; “he was doing everything possible, but the house was old.” And this was the house which grew under my own hands! What has the future in store for me, if stones of my own age are already crumbling?",
+          "sourceUrl": "https://vreeman.com/seneca/letter-12",
+          "pageTitle": "📗 Letter 12: On Old Age - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-13",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 13: On Groundless Fears - Seneca",
+      "description": "Letter 13 of Seneca's Moral Letters to Lucilius: \"📗 Letter 13: On Groundless Fears - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-13-c1",
+          "text": "I know that you have plenty of spirit; for even before you began to equip yourself with maxims which were wholesome and potent to overcome obstacles, you were taking pride in your contest with Fortune; and this is all the more true, now that you have grappled with Fortune and tested your powers. For our powers can never inspire in us implicit faith in ourselves except when many difficulties have confronted us on this side and on that, and have occasionally even come to close quarters with us.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-13",
+          "pageTitle": "📗 Letter 13: On Groundless Fears - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-14",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 14: On the Reasons for Withdrawing From the World - Seneca",
+      "description": "Letter 14 of Seneca's Moral Letters to Lucilius: \"📗 Letter 14: On the Reasons for Withdrawing From the World - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-14-c1",
+          "text": "I confess that we all have an inborn affection for our body; I confess that we are entrusted with its guardianship. I do not maintain that the body is not to be indulged at all; but I maintain that we must not be slaves to it. He will have many masters who makes his body his master, who is over-fearful in its behalf, who judges everything according to the body.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-14",
+          "pageTitle": "📗 Letter 14: On the Reasons for Withdrawing From the World - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-15",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 15: On Brawn and Brains - Seneca",
+      "description": "Letter 15 of Seneca's Moral Letters to Lucilius: \"📗 Letter 15: On Brawn and Brains - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-15-c1",
+          "text": "The old Romans had a custom which survived even into my lifetime. They would add to the opening words of a letter: “If you are well, it is well; I also am well.” Persons like ourselves would do well to say. “If you are studying philosophy, it is well.” For this is just what “being well” means. Without philosophy the mind is sickly, and the body, too, though it may be very powerful, is strong only as that of a madman or a lunatic is strong.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-15",
+          "pageTitle": "📗 Letter 15: On Brawn and Brains - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-16",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 16: On Philosophy, the Guide of Life - Seneca",
+      "description": "Letter 16 of Seneca's Moral Letters to Lucilius: \"📗 Letter 16: On Philosophy, the Guide of Life - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-16-c1",
+          "text": "It is clear to you, I am sure, Lucilius, that no man can live a happy life, or even a supportable life, without the study of wisdom; you know also that a happy life is reached when our wisdom is brought to completion, but that life is at least endurable even when our wisdom is only begun. This idea, however, clear though it is, must be strengthened and implanted more deeply by daily reflection; it is more important for you to keep the resolutions you have already made than to go on and make noble ones.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-16",
+          "pageTitle": "📗 Letter 16: On Philosophy, the Guide of Life - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-17",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 17: On Philosophy and Riches - Seneca",
+      "description": "Letter 17 of Seneca's Moral Letters to Lucilius: \"📗 Letter 17: On Philosophy and Riches - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-17-c1",
+          "text": "Cast away everything of that sort, if you are wise; nay, rather that you may be wise; strive toward a sound mind at top speed and with your whole strength. If any bond holds you back, untie it, or sever it. “But,” you say, “my estate delays me; I wish to make such disposition of it that it may suffice for me when I have nothing to do, lest either poverty be a burden to me, or I myself a burden to others.”",
+          "sourceUrl": "https://vreeman.com/seneca/letter-17",
+          "pageTitle": "📗 Letter 17: On Philosophy and Riches - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-18",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 18: On Festivals and Fasting - Seneca",
+      "description": "Letter 18 of Seneca's Moral Letters to Lucilius: \"📗 Letter 18: On Festivals and Fasting - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-18-c1",
+          "text": "It is the month of December, and yet the city is at this very moment in a sweat. License is given to the general merrymaking. Everything resounds with mighty preparations—as if the Saturnalia differed at all from the usual business day! So true it is that the difference is nil, that I regard as correct the remark of the man who said: “Once December was a month; now it is a year.”1",
+          "sourceUrl": "https://vreeman.com/seneca/letter-18",
+          "pageTitle": "📗 Letter 18: On Festivals and Fasting - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-19",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 19: On Worldliness and Retirement - Seneca",
+      "description": "Letter 19 of Seneca's Moral Letters to Lucilius: \"📗 Letter 19: On Worldliness and Retirement - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-19-c1",
+          "text": "I leap for joy whenever I receive letters from you. For they fill me with hope; they are now not mere assurances concerning you, but guarantees. And I beg and pray you to proceed in this course; for what better request could I make of a friend than one which is to be made for his own sake? If possible, withdraw yourself from all the business of which you speak; and if you cannot do this, tear yourself away. We have dissipated enough of our time already—let us in old age begin to pack up our baggage.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-19",
+          "pageTitle": "📗 Letter 19: On Worldliness and Retirement - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-2",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 2: On Discursiveness in Reading - Seneca",
+      "description": "Letter 2 of Seneca's Moral Letters to Lucilius: \"📗 Letter 2: On Discursiveness in Reading - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-2-c1",
+          "text": "Judging by what you write me, and by what I hear, I am forming a good opinion regarding your future. You do not run hither and thither and distract yourself by changing your abode; for such restlessness is the sign of a disordered spirit. The primary indication, to my thinking, of a well-ordered mind is a man’s ability to remain in one place and linger in his own company.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-2",
+          "pageTitle": "📗 Letter 2: On Discursiveness in Reading - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-20",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 20: On Practicing What You Preach - Seneca",
+      "description": "Letter 20 of Seneca's Moral Letters to Lucilius: \"📗 Letter 20: On Practicing What You Preach - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-20-c1",
+          "text": "If you are in good health and if you think yourself worthy of becoming at last your own master, I am glad. For the credit will be mine, if I can drag you from the floods in which you are being buffeted without hope of emerging. This, however, my dear Lucilius, I ask and beg of you, on your part, that you let wisdom sink into your soul, and test your progress, not by mere speech or writings, but by stoutness of heart and decrease of desire. Prove your words by your deeds.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-20",
+          "pageTitle": "📗 Letter 20: On Practicing What You Preach - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-21",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 21: On the Renown Which My Writings Will Bring You - Seneca",
+      "description": "Letter 21 of Seneca's Moral Letters to Lucilius: \"📗 Letter 21: On the Renown Which My Writings Will Bring You - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-21-c1",
+          "text": "Do you conclude that you are having difficulties with those men about whom you wrote to me? Your greatest difficulty is with yourself; for you are your own stumbling-block. You do not know what you want. You are better at approving the right course than at following it out. You see where the true happiness lies, but you have not the courage to attain it. Let me tell you what it is that hinders you, inasmuch as you do not of yourself discern it.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-21",
+          "pageTitle": "📗 Letter 21: On the Renown Which My Writings Will Bring You - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-22",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 22: On the Futility of Half-Way Measures - Seneca",
+      "description": "Letter 22 of Seneca's Moral Letters to Lucilius: \"📗 Letter 22: On the Futility of Half-Way Measures - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-22-c1",
+          "text": "You understand by this time that you must withdraw yourself from those showy and depraved pursuits; but you still wish to know how this may be accomplished. There are certain things which can be pointed out only by someone who is present. The physician cannot prescribe by letter the proper time for eating or bathing; he must feel the pulse. There is an old adage about gladiators—that they plan their fight in the ring; as they intently watch, something in the adversary’s glance, some movement of his hand, even some slight bending of his body, gives a warning.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-22",
+          "pageTitle": "📗 Letter 22: On the Futility of Half-Way Measures - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-23",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 23: On the True Joy Which Comes from Philosophy - Seneca",
+      "description": "Letter 23 of Seneca's Moral Letters to Lucilius: \"📗 Letter 23: On the True Joy Which Comes from Philosophy - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-23-c1",
+          "text": "Do you suppose that I shall write you how kindly the winter season has dealt with us—a short season and a mild one—or what a nasty spring we are having—cold weather out of season—and all the other trivialities which people write when they are at a loss for topics of conversation? No; I shall communicate something which may help both you and myself. And what shall this “something” be, if not an exhortation to soundness of mind? Do you ask what is the foundation of a sound mind? It is, not to find joy in useless things. I said that it was the foundation; it is really the pinnacle.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-23",
+          "pageTitle": "📗 Letter 23: On the True Joy Which Comes from Philosophy - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-24",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 24: On Despising Death - Seneca",
+      "description": "Letter 24 of Seneca's Moral Letters to Lucilius: \"📗 Letter 24: On Despising Death - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-24-c1",
+          "text": "You write me that you are anxious about the result of a lawsuit, with which an angry opponent is threatening you; and you expect me to advise you to picture to yourself a happier issue, and to rest in the allurements of hope. Why, indeed, is it necessary to summon trouble—which must be endured soon enough when it has once arrived, or to anticipate trouble and ruin the present through fear of the future? It is indeed foolish to be unhappy now because you may be unhappy at some future time.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-24",
+          "pageTitle": "📗 Letter 24: On Despising Death - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-25",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 25: On Reformation - Seneca",
+      "description": "Letter 25 of Seneca's Moral Letters to Lucilius: \"📗 Letter 25: On Reformation - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-25-c1",
+          "text": "With regard to these two friends of ours, we must proceed along different lines; the faults of the one are to be corrected, the other’s are to be crushed out. I shall take every liberty; for I do not love this one1 if I am unwilling to hurt his feelings. “What,” you say, “do you expect to keep a forty-year-old ward under your tutelage? Consider his age, how hardened it now is, and past handling!",
+          "sourceUrl": "https://vreeman.com/seneca/letter-25",
+          "pageTitle": "📗 Letter 25: On Reformation - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-26",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 26: On Old Age and Death - Seneca",
+      "description": "Letter 26 of Seneca's Moral Letters to Lucilius: \"📗 Letter 26: On Old Age and Death - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-26-c1",
+          "text": "I was just lately telling you that I was within sight of old age.1 I am now afraid that I have left old age behind me. For some other word would now apply to my years, or at any rate to my body; since old age means a time of life that is weary rather than crushed. You may rate me in the worn-out class—of those who are nearing the end.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-26",
+          "pageTitle": "📗 Letter 26: On Old Age and Death - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-27",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 27: On the Good Which Abides - Seneca",
+      "description": "Letter 27 of Seneca's Moral Letters to Lucilius: \"📗 Letter 27: On the Good Which Abides - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-27-c1",
+          "text": "“What,” say you, “are you giving me advice? Indeed, have you already advised yourself, already corrected your own faults? Is this the reason why you have leisure to reform other men?” No, I am not so shameless as to undertake to cure my fellow-men when I am ill myself. I am, however, discussing with you troubles which concern us both, and sharing the remedy with you, just as if we were lying ill in the same hospital. Listen to me, therefore, as you would if I were talking to myself.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-27",
+          "pageTitle": "📗 Letter 27: On the Good Which Abides - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-28",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 28: On Travel as a Cure for Discontent - Seneca",
+      "description": "Letter 28 of Seneca's Moral Letters to Lucilius: \"📗 Letter 28: On Travel as a Cure for Discontent - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-28-c1",
+          "text": "Do you suppose that you alone have had this experience? Are you surprised, as if it were a novelty, that after such long travel and so many changes of scene you have not been able to shake off the gloom and heaviness of your mind? You need a change of soul rather than a change of climate.1 Though you may cross vast spaces of sea, and though, as our Vergil2 remarks,",
+          "sourceUrl": "https://vreeman.com/seneca/letter-28",
+          "pageTitle": "📗 Letter 28: On Travel as a Cure for Discontent - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-29",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 29: On the Critical Condition of Marcellinus - Seneca",
+      "description": "Letter 29 of Seneca's Moral Letters to Lucilius: \"📗 Letter 29: On the Critical Condition of Marcellinus - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-29-c1",
+          "text": "Y ou have been inquiring about our friend Marcellinus and you desire to know how he is getting along. He seldom comes to see me, for no other reason than that he is afraid to hear the truth, and at present he is removed from my danger of hearing it; for one must not talk to a man unless he is willing to listen. That is why it is often doubted whether Diogenes and the other Cynics, who employed an undiscriminating freedom of speech and offered advice to any who came in their way, ought to have pursued such a plan.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-29",
+          "pageTitle": "📗 Letter 29: On the Critical Condition of Marcellinus - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-3",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 3: On True and False Friendship - Seneca",
+      "description": "Letter 3 of Seneca's Moral Letters to Lucilius: \"📗 Letter 3: On True and False Friendship - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-3-c1",
+          "text": "You have sent a letter to me through the hand of a “friend” of yours, as you call him. And in your very next sentence you warn me not to discuss with him all the matters that concern you, saying that even you yourself are not accustomed to do this; in other words, you have in the same letter affirmed and denied that he is your friend.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-3",
+          "pageTitle": "📗 Letter 3: On True and False Friendship - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-30",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 30: On Conquering the Conqueror - Seneca",
+      "description": "Letter 30 of Seneca's Moral Letters to Lucilius: \"📗 Letter 30: On Conquering the Conqueror - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-30-c1",
+          "text": "I have beheld Aufidius Bassus, that noble man, shattered in health and wrestling with his years. But they already bear upon him so heavily that he cannot be raised up; old age has settled down upon him with great—yes, with its entire, weight. You know that his body was always delicate and sapless. For a long time he has kept it in hand, or, to speak more correctly, has kept it together; of a sudden it has collapsed.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-30",
+          "pageTitle": "📗 Letter 30: On Conquering the Conqueror - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-31",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 31: On Siren Songs - Seneca",
+      "description": "Letter 31 of Seneca's Moral Letters to Lucilius: \"📗 Letter 31: On Siren Songs - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-31-c1",
+          "text": "Now I recognize my Lucilius! He is beginning to reveal the character of which he gave promise. Follow up the impulse which prompted you to make for all that is best, treading under your feet that which is approved by the crowd. I would not have you greater or better than you planned; for in your case the mere foundations have covered a large extent of ground; only finish all that you have laid out, and take in hand the plans which you have had in mind.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-31",
+          "pageTitle": "📗 Letter 31: On Siren Songs - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-32",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 32: On Progress - Seneca",
+      "description": "Letter 32 of Seneca's Moral Letters to Lucilius: \"📗 Letter 32: On Progress - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-32-c1",
+          "text": "I have been asking about you, and inquiring of everyone who comes from your part of the country, what you are doing, and where you are spending your time, and with whom. You cannot deceive me; for I am with you. Live just as if I were sure to get news of your doings, nay, as if I were sure to behold them. And if you wonder what particularly pleases me that I hear concerning you, it is that I hear nothing, that most of those whom I ask do not know what you are doing.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-32",
+          "pageTitle": "📗 Letter 32: On Progress - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-33",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 33: On the Futility of Learning Maxims - Seneca",
+      "description": "Letter 33 of Seneca's Moral Letters to Lucilius: \"📗 Letter 33: On the Futility of Learning Maxims - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-33-c1",
+          "text": "You wish me to close these letters also, as I closed my former letters, with certain utterances taken from the chiefs of our school. But they did not interest themselves in choice extracts; the whole texture of their work is full of strength. There is unevenness, you know, when some objects rise conspicuous above others. A single tree is not remarkable if the whole forest rises to the same height.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-33",
+          "pageTitle": "📗 Letter 33: On the Futility of Learning Maxims - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-34",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 34: On a Promising Pupil - Seneca",
+      "description": "Letter 34 of Seneca's Moral Letters to Lucilius: \"📗 Letter 34: On a Promising Pupil - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-34-c1",
+          "text": "I grow in spirit and leap for joy and shake off my years and my blood runs warm again, whenever I understand, from your actions and your letters, how far you have outdone yourself; for as to the ordinary man, you left him in the rear long ago.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-34",
+          "pageTitle": "📗 Letter 34: On a Promising Pupil - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-35",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 35: On the Friendship of Kindred Minds - Seneca",
+      "description": "Letter 35 of Seneca's Moral Letters to Lucilius: \"📗 Letter 35: On the Friendship of Kindred Minds - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-35-c1",
+          "text": "When I urge you so strongly to your studies, it is my own interest which I am consulting; I want your friendship, and it cannot fall to my lot unless you proceed, as you have begun, with the task of developing yourself. For now, although you love me, you are not yet my friend. “But,” you reply, “are these words of different meaning?” Nay, more, they are totally unlike in meaning.1 A friend loves you, of course; but one who loves you is not in every case your friend. Friendship, accordingly, is always helpful, but love sometimes even does harm.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-35",
+          "pageTitle": "📗 Letter 35: On the Friendship of Kindred Minds - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-36",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 36: On the Value of Retirement - Seneca",
+      "description": "Letter 36 of Seneca's Moral Letters to Lucilius: \"📗 Letter 36: On the Value of Retirement - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-36-c1",
+          "text": "Encourage your friend to despise stout-heartedly those who upbraid him because he has sought the shade of retirement and has abdicated his career of honours, and, though he might have attained more, has preferred tranquillity to them all. Let him prove daily to these detractors how wisely he has looked out for his own interests. Those whom men envy will continue to march past him; some will be pushed out of the ranks, and others will fall. Prosperity is a turbulent thing; it torments itself.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-36",
+          "pageTitle": "📗 Letter 36: On the Value of Retirement - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-37",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 37: On Allegiance to Virtue - Seneca",
+      "description": "Letter 37 of Seneca's Moral Letters to Lucilius: \"📗 Letter 37: On Allegiance to Virtue - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-37-c1",
+          "text": "You have promised to be a good man; you have enlisted under oath; that is the strongest chain which will hold you to a sound understanding. Any man will be but mocking you, if he declares that this is an effeminate and easy kind of soldiering. I will not have you deceived. The word of this most honourable compact are the same as the words of that most disgraceful one, to wit:1 “Through burning, imprisonment, or death by the sword.”",
+          "sourceUrl": "https://vreeman.com/seneca/letter-37",
+          "pageTitle": "📗 Letter 37: On Allegiance to Virtue - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-38",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 38: On Quiet Conversation - Seneca",
+      "description": "Letter 38 of Seneca's Moral Letters to Lucilius: \"📗 Letter 38: On Quiet Conversation - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-38-c1",
+          "text": "You are right when you urge that we increase our mutual traffic in letters. But the greatest benefit is to be derived from conversation, because it creeps by degrees into the soul. Lectures prepared beforehand and spouted in the presence of a throng have in them more noise but less intimacy. Philosophy is good advice; and no one can give advice at the top of his lungs.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-38",
+          "pageTitle": "📗 Letter 38: On Quiet Conversation - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-39",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 39: On Noble Aspirations - Seneca",
+      "description": "Letter 39 of Seneca's Moral Letters to Lucilius: \"📗 Letter 39: On Noble Aspirations - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-39-c1",
+          "text": "I shall indeed arrange for you, in careful order and narrow compass, the notes which you request. But consider whether you may not get more help from the customary method1 than from that which is now commonly called a “breviary,” though in the good old days, when real Latin was spoken, it was called a “summary.”2 The former is more necessary to one who is learning a subject, the latter to one who knows it. For the one teaches, the other stirs the memory.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-39",
+          "pageTitle": "📗 Letter 39: On Noble Aspirations - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-4",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 4: On the Terrors of Death - Seneca",
+      "description": "Letter 4 of Seneca's Moral Letters to Lucilius: \"📗 Letter 4: On the Terrors of Death - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-4-c1",
+          "text": "Keep on as you have begun, and make all possible haste, so that you may have longer enjoyment of an improved mind, one that is at peace with itself. Doubtless you will derive enjoyment during the time when you are improving your mind and setting it at peace with itself; but quite different is the pleasure which comes from contemplation when one’s mind is so cleansed from every stain that it shines.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-4",
+          "pageTitle": "📗 Letter 4: On the Terrors of Death - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-40",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 40: On the Proper Style for a Philosopher’s Discourse - Seneca",
+      "description": "Letter 40 of Seneca's Moral Letters to Lucilius: \"📗 Letter 40: On the Proper Style for a Philosopher’s Discourse - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-40-c1",
+          "text": "I thank you for writing to me so often; for you are revealing your real self to me in the only way you can. I never receive a letter from you without being in your company forthwith. If the pictures of our absent friends are pleasing to us, though they only refresh the memory and lighten our longing by a solace that is unreal and unsubstantial, how much more pleasant is a letter, which brings us real traces, real evidences, of an absent friend! For that which is sweetest when we meet face to face is afforded by the impress of a friend’s hand upon his letter—recognition.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-40",
+          "pageTitle": "📗 Letter 40: On the Proper Style for a Philosopher’s Discourse - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-41",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 41: On the God Within Us - Seneca",
+      "description": "Letter 41 of Seneca's Moral Letters to Lucilius: \"📗 Letter 41: On the God Within Us - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-41-c1",
+          "text": "You are doing an excellent thing, one which will be wholesome for you, if, as you write me, you are persisting in your effort to attain sound understanding; it is foolish to pray for this when you can acquire it from yourself. We do not need to uplift our hands towards heaven, or to beg the keeper of a temple to let us approach his idol’s ear, as if in this way our prayers were more likely to be heard. God is near you, he is with you, he is within you.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-41",
+          "pageTitle": "📗 Letter 41: On the God Within Us - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-42",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 42: On Values - Seneca",
+      "description": "Letter 42 of Seneca's Moral Letters to Lucilius: \"📗 Letter 42: On Values - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-42-c1",
+          "text": "Has that friend of yours already made you believe that he is a good man? And yet it is impossible in so short a time for one either to become good or be known as such.1 Do you know what kind of man I now mean when I speak of “a good man”? I mean one of the second grade, like your friend. For one of the first class perhaps springs into existence, like the phoenix, only once in five hundred years.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-42",
+          "pageTitle": "📗 Letter 42: On Values - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-43",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 43: On the Relativity of Fame - Seneca",
+      "description": "Letter 43 of Seneca's Moral Letters to Lucilius: \"📗 Letter 43: On the Relativity of Fame - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-43-c1",
+          "text": "Do you ask how the news reached me, and who informed me, that you were entertaining this idea, of which you had said nothing to a single soul? It was that most knowing of persons—gossip. “What,” you say, “am I such a great personage that I can stir up gossip?” Now there is no reason why you should measure yourself according to this part of the world;1 have regard only to the place where you are dwelling.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-43",
+          "pageTitle": "📗 Letter 43: On the Relativity of Fame - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-44",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 44: On Philosophy and Pedigrees - Seneca",
+      "description": "Letter 44 of Seneca's Moral Letters to Lucilius: \"📗 Letter 44: On Philosophy and Pedigrees - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-44-c1",
+          "text": "You are again insisting to me that you are a nobody, and saying that nature in the first place, and fortune in the second, have treated you too scurvily, and this in spite of the fact that you have it in your power to separate yourself from the crowd and rise to the highest human happiness! If there is any good in philosophy, it is this—that it never looks into pedigrees. All men, if traced back to their original source, spring from the gods.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-44",
+          "pageTitle": "📗 Letter 44: On Philosophy and Pedigrees - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-45",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 45: On Sophistical Argumentation - Seneca",
+      "description": "Letter 45 of Seneca's Moral Letters to Lucilius: \"📗 Letter 45: On Sophistical Argumentation - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-45-c1",
+          "text": "You complain that in your part of the world there is a scant supply of books. But it is quality, rather than quantity, that matters; a limited list of reading benefits; a varied assortment serves only for delight. He who would arrive at the appointed end must follow a single road and not wander through many ways. What you suggest is not travelling; it is mere tramping.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-45",
+          "pageTitle": "📗 Letter 45: On Sophistical Argumentation - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-46",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 46: On a New Book by Lucilius - Seneca",
+      "description": "Letter 46 of Seneca's Moral Letters to Lucilius: \"📗 Letter 46: On a New Book by Lucilius - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-46-c1",
+          "text": "I received the book of yours which you promised me. I opened it hastily with the idea of glancing over it at leisure; for I meant only to taste the volume. But by its own charm the book coaxed me into traversing it more at length. You may understand from this fact how eloquent it was; for it seemed to be written in the smooth style,1 and yet did not resemble your handiwork or mine, but at first sight might have been ascribed to Titus Livius or to Epicurus. Moreover, I was so impressed and carried along by its charm that I finished it without any postponement.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-46",
+          "pageTitle": "📗 Letter 46: On a New Book by Lucilius - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-47",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 47: On Master and Slave - Seneca",
+      "description": "Letter 47 of Seneca's Moral Letters to Lucilius: \"📗 Letter 47: On Master and Slave - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-47-c1",
+          "text": "I am glad to learn, through those who come from you, that you live on friendly terms with your slaves. This befits a sensible and well-educated man like yourself. “They are slaves,” people declare.1 Nay, rather they are men. “Slaves!” No, comrades. “Slaves!” No, they are unpretentious friends. “Slaves!” No, they are our fellow-slaves, if one reflects that Fortune has equal rights over slaves and free men alike.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-47",
+          "pageTitle": "📗 Letter 47: On Master and Slave - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-48",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 48: On Quibbling as Unworthy of the Philosopher - Seneca",
+      "description": "Letter 48 of Seneca's Moral Letters to Lucilius: \"📗 Letter 48: On Quibbling as Unworthy of the Philosopher - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-48-c1",
+          "text": "In answer to the letter which you wrote me while travelling—a letter as long as the journey itself—I shall reply later. I ought to go into retirement, and consider what sort of advice I should give you. For you yourself, who consult me, also reflected for a long time whether to do so; how much more, then, should I myself reflect, since more deliberation is necessary in settling than in propounding a problem! And this is particularly true when one thing is advantageous to you and another to me. Am I speaking again in the guise of an Epicurean?1",
+          "sourceUrl": "https://vreeman.com/seneca/letter-48",
+          "pageTitle": "📗 Letter 48: On Quibbling as Unworthy of the Philosopher - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-49",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 49: On the Shortness of Life - Seneca",
+      "description": "Letter 49 of Seneca's Moral Letters to Lucilius: \"📗 Letter 49: On the Shortness of Life - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-49-c1",
+          "text": "A man is indeed lazy and careless, my dear Lucilius, if he is reminded of a friend only by seeing some landscape which stirs the memory; and yet there are times when the old familiar haunts stir up a sense of loss that has been stored away in the soul, not bringing back dead memories, but rousing them from their dormant state, just as the sight of a lost friend’s favourite slave, or his cloak, or his house, renews the mourner’s grief, even though it has been softened by time.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-49",
+          "pageTitle": "📗 Letter 49: On the Shortness of Life - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-5",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 5: On the Philosopher’s Mean - Seneca",
+      "description": "Letter 5 of Seneca's Moral Letters to Lucilius: \"📗 Letter 5: On the Philosopher’s Mean - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-5-c1",
+          "text": "I commend you and rejoice in the fact that you are persistent in your studies, and that, putting all else aside, you make it each day your endeavour to become a better man. I do not merely exhort you to keep at it; I actually beg you to do so. I warn you, however, not to act after the fashion of those who desire to be conspicuous rather than to improve, by doing things which will rouse comment as regards your dress or general way of living.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-5",
+          "pageTitle": "📗 Letter 5: On the Philosopher’s Mean - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-50",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 50: On Our Blindness and Its Cure - Seneca",
+      "description": "Letter 50 of Seneca's Moral Letters to Lucilius: \"📗 Letter 50: On Our Blindness and Its Cure - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-50-c1",
+          "text": "I received your letter many months after you had posted it; accordingly, I thought it useless to ask the carrier what you were busied with. He must have a particularly good memory if he can remember that! But I hope by this time you are living in such a way that I can be sure what it is you are busied with, no matter where you may be. For what else are you busied with except improving yourself every day, laying aside some error, and coming to understand that the faults which you attribute to circumstances are in yourself?",
+          "sourceUrl": "https://vreeman.com/seneca/letter-50",
+          "pageTitle": "📗 Letter 50: On Our Blindness and Its Cure - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-51",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 51: On Baiae and Morals - Seneca",
+      "description": "Letter 51 of Seneca's Moral Letters to Lucilius: \"📗 Letter 51: On Baiae and Morals - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-51-c1",
+          "text": "Every man does the best he can, my dear Lucilius! You over there have Etna,1 that lofty and most celebrated mountain of Sicily; (although I cannot make out why Messala—or was it Valgius?",
+          "sourceUrl": "https://vreeman.com/seneca/letter-51",
+          "pageTitle": "📗 Letter 51: On Baiae and Morals - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-52",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 52: On Choosing Our Teachers - Seneca",
+      "description": "Letter 52 of Seneca's Moral Letters to Lucilius: \"📗 Letter 52: On Choosing Our Teachers - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-52-c1",
+          "text": "What is this force, Lucilius, that drags us in one direction when we are aiming in another, urging us on to the exact place from which we long to withdraw? What is it that wrestles with our spirit, and does not allow us to desire anything once for all? We veer from plan to plan. None of our wishes is free, none is unqualified, none is lasting.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-52",
+          "pageTitle": "📗 Letter 52: On Choosing Our Teachers - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-53",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 53: On the Faults of the Spirit - Seneca",
+      "description": "Letter 53 of Seneca's Moral Letters to Lucilius: \"📗 Letter 53: On the Faults of the Spirit - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-53-c1",
+          "text": "You can persuade me into almost anything now, for I was recently persuaded to travel by water. We cast off when the sea was lazily smooth; the sky, to be sure, was heavy with nasty clouds, such as usually break into rain or squalls. Still, I thought that the few miles between Puteoli and your dear Parthenope1 might be run off in quick time, despite the uncertain and lowering sky. So, in order to get away more quickly, I made straight out to sea for Nesis,2 with the purpose of cutting across all the inlets.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-53",
+          "pageTitle": "📗 Letter 53: On the Faults of the Spirit - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-54",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 54: On Asthma and Death - Seneca",
+      "description": "Letter 54 of Seneca's Moral Letters to Lucilius: \"📗 Letter 54: On Asthma and Death - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-54-c1",
+          "text": "My ill-health had allowed me a long furlough, when suddenly it resumed the attack. “What kind of ill-health?” you say. And you surely have a right to ask; for it is true that no kind is unknown to me. But I have been consigned, so to speak, to one special ailment. I do not know why I should call it by its Greek name;1 for it is well enough described as “shortness of breath.” Its attack is of very brief duration, like that of a squall at sea; it usually ends within an hour. Who indeed could breathe his last for long?",
+          "sourceUrl": "https://vreeman.com/seneca/letter-54",
+          "pageTitle": "📗 Letter 54: On Asthma and Death - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-55",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 55: On Vatia’s Villa - Seneca",
+      "description": "Letter 55 of Seneca's Moral Letters to Lucilius: \"📗 Letter 55: On Vatia’s Villa - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-55-c1",
+          "text": "I have just returned from a ride in my litter; and I am as weary as if I had walked the distance, instead of being seated. Even to be carried for any length of time is hard work, perhaps all the more so because it is an unnatural exercise; for Nature gave us legs with which to do our own walking, and eyes with which to do our own seeing. Our luxuries have condemned us to weakness; we have ceased to be able to do that which we have long declined to do.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-55",
+          "pageTitle": "📗 Letter 55: On Vatia’s Villa - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-56",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 56: On Quiet and Study - Seneca",
+      "description": "Letter 56 of Seneca's Moral Letters to Lucilius: \"📗 Letter 56: On Quiet and Study - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-56-c1",
+          "text": "Beshrew me if I think anything more requisite than silence for a man who secludes himself in order to study! Imagine what a variety of noises reverberates about my ears! I have lodgings right over a bathing establishment. So picture to yourself the assortment of sounds, which are strong enough to make me hate my very powers of hearing!",
+          "sourceUrl": "https://vreeman.com/seneca/letter-56",
+          "pageTitle": "📗 Letter 56: On Quiet and Study - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-57",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 57: On the Trials of Travel - Seneca",
+      "description": "Letter 57 of Seneca's Moral Letters to Lucilius: \"📗 Letter 57: On the Trials of Travel - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-57-c1",
+          "text": "When it was time for me to return to Naples from Baiae, I easily persuaded myself that a storm was raging, that I might avoid another trip by sea; and yet the road was so deep in mud, all the way, that I may be thought none the less to have made a voyage. On that day I had to endure the full fate of an athlete; the anointing1 with which we began was followed by the sand-sprinkle in the Naples tunnel.2",
+          "sourceUrl": "https://vreeman.com/seneca/letter-57",
+          "pageTitle": "📗 Letter 57: On the Trials of Travel - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-58",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 58: On Being - Seneca",
+      "description": "Letter 58 of Seneca's Moral Letters to Lucilius: \"📗 Letter 58: On Being - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-58-c1",
+          "text": "How scant of words our language is, nay, how poverty-stricken, I have not fully understood until today. We happened to be speaking of Plato, and a thousand subjects came up for discussion, which needed names and yet possessed none; and there were certain others which once possessed, but have since lost, their words because we were too nice about their use. But who can endure to be nice in the midst of poverty?1",
+          "sourceUrl": "https://vreeman.com/seneca/letter-58",
+          "pageTitle": "📗 Letter 58: On Being - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-59",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 59: On Pleasure and Joy - Seneca",
+      "description": "Letter 59 of Seneca's Moral Letters to Lucilius: \"📗 Letter 59: On Pleasure and Joy - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-59-c1",
+          "text": "I received great pleasure from your letter; kindly allow me to use these words in their everyday meaning, without insisting upon their Stoic import. For we Stoics hold that pleasure is a vice. Very likely it is a vice; but we are accustomed to use the word when we wish to indicate a happy state of mind.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-59",
+          "pageTitle": "📗 Letter 59: On Pleasure and Joy - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-6",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 6: On Sharing Knowledge - Seneca",
+      "description": "Letter 6 of Seneca's Moral Letters to Lucilius: \"📗 Letter 6: On Sharing Knowledge - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-6-c1",
+          "text": "I feel, my dear Lucilius, that I am being not only reformed, but transformed. I do not yet, however, assure myself, or indulge the hope, that there are no elements left in me which need to be changed. Of course there are many that should be made more compact, or made thinner, or be brought into greater prominence. And indeed this very fact is proof that my spirit is altered into something better—that it can see its own faults, of which it was previously ignorant. In certain cases sick men are congratulated because they themselves have perceived that they are sick.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-6",
+          "pageTitle": "📗 Letter 6: On Sharing Knowledge - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-60",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 60: On Harmful Prayers - Seneca",
+      "description": "Letter 60 of Seneca's Moral Letters to Lucilius: \"📗 Letter 60: On Harmful Prayers - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-60-c1",
+          "text": "I file a complaint, I enter a suit, I am angry. Do you still desire what your nurse, your guardian, or your mother, have prayed for in your behalf? Do you not yet understand what evil they prayed for? Alas, how hostile to us are the wishes of our own folk! And they are all the more hostile in proportion as they are more completely fulfilled. It is no surprise to me, at my age, that nothing but evil attends us from our early youth; for we have grown up amid the curses invoked by our parents. And may the gods give ear to our cry also, uttered in our own behalf—one which asks no favours!",
+          "sourceUrl": "https://vreeman.com/seneca/letter-60",
+          "pageTitle": "📗 Letter 60: On Harmful Prayers - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-61",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 61: On Meeting Death Cheerfully - Seneca",
+      "description": "Letter 61 of Seneca's Moral Letters to Lucilius: \"📗 Letter 61: On Meeting Death Cheerfully - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-61-c1",
+          "text": "Let us cease to desire that which we have been desiring. I, at least, am doing this: in my old age I have ceased to desire what I desired when a boy. To this single end my days and my nights are passed; this is my task, this the object of my thoughts—to put an end to my chronic ills. I am endeavouring to live every day as if it were a complete life. I do not indeed snatch it up as if it were my last; I do regard it, however, as if it might even be my last.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-61",
+          "pageTitle": "📗 Letter 61: On Meeting Death Cheerfully - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-62",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 62: On Good Company - Seneca",
+      "description": "Letter 62 of Seneca's Moral Letters to Lucilius: \"📗 Letter 62: On Good Company - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-62-c1",
+          "text": "We are deceived by those who would have us believe that a multitude of affairs blocks their pursuit of liberal studies; they make a pretence of their engagements, and multiply them, when their engagements are merely with themselves. As for me, Lucilius, my time is free; it is indeed free, and wherever I am, I am master of myself. For I do not surrender myself to my affairs, but loan myself to them, and I do not hunt out excuses for wasting my time. And wherever I am situated, I carry on my own meditations and ponder in my mind some wholesome thought.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-62",
+          "pageTitle": "📗 Letter 62: On Good Company - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-63",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 63: On Grief for Lost Friends - Seneca",
+      "description": "Letter 63 of Seneca's Moral Letters to Lucilius: \"📗 Letter 63: On Grief for Lost Friends - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-63-c1",
+          "text": "I am grieved to hear that your friend Flaccus is dead, but I would not have you sorrow more than is fitting. That you should not mourn at all I shall hardly dare to insist; and yet I know that it is the better way. But what man will ever be so blessed with that ideal steadfastness of soul, unless he has already risen far above the reach of Fortune? Even such a man will be stung by an event like this, but it will be only a sting. We, however, may be forgiven for bursting into tears, if only our tears have not flowed to excess, and if we have checked them by our own efforts.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-63",
+          "pageTitle": "📗 Letter 63: On Grief for Lost Friends - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-64",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 64: On the Philosopher’s Task - Seneca",
+      "description": "Letter 64 of Seneca's Moral Letters to Lucilius: \"📗 Letter 64: On the Philosopher’s Task - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-64-c1",
+          "text": "Yesterday you were with us. You might complain if I said “yesterday” merely. This is why I have added “with us.” For, so far as I am concerned, you are always with me. Certain friends had happened in, on whose account a somewhat brighter fire was laid—not the kind that generally bursts from the kitchen chimneys of the rich and scares the watch, but the moderate blaze which means that guests have come.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-64",
+          "pageTitle": "📗 Letter 64: On the Philosopher’s Task - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-65",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 65: On the First Cause - Seneca",
+      "description": "Letter 65 of Seneca's Moral Letters to Lucilius: \"📗 Letter 65: On the First Cause - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-65-c1",
+          "text": "I shared my time yesterday with ill health;1 it claimed for itself all the period before noon; in the afternoon, however, it yielded to me. And so I first tested my spirit by reading; then, when reading was found to be possible, I dared to make more demands upon the spirit, or perhaps I should say, to make more concessions to it. I wrote a little, and indeed with more concentration than usual, for I am struggling with a difficult subject and do not wish to be downed.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-65",
+          "pageTitle": "📗 Letter 65: On the First Cause - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-66",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 66: On Various Aspects of Virtue - Seneca",
+      "description": "Letter 66 of Seneca's Moral Letters to Lucilius: \"📗 Letter 66: On Various Aspects of Virtue - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-66-c1",
+          "text": "I have just seen my former school-mate Claranus for the first time in many years. You need not wait for me to add that he is an old man; but I assure you that I found him hale in spirit and sturdy, although he is wrestling with a frail and feeble body. For Nature acted unfairly when she gave him a poor domicile for so rare a soul; or perhaps it was because she wished to prove to us that an absolutely strong and happy mind can lie hidden under any exterior.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-66",
+          "pageTitle": "📗 Letter 66: On Various Aspects of Virtue - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-7",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 7: On Crowds - Seneca",
+      "description": "Letter 7 of Seneca's Moral Letters to Lucilius: \"📗 Letter 7: On Crowds - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-7-c1",
+          "text": "Do you ask me what you should regard as especially to be avoided? I say, crowds; for as yet you cannot trust yourself to them with safety. I shall admit my own weakness, at any rate; for I never bring back home the same character that I took abroad with me. Something of that which I have forced to be calm within me is disturbed; some of the foes that I have routed return again.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-7",
+          "pageTitle": "📗 Letter 7: On Crowds - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-8",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 8: On the Philosopher’s Seclusion - Seneca",
+      "description": "Letter 8 of Seneca's Moral Letters to Lucilius: \"📗 Letter 8: On the Philosopher’s Seclusion - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-8-c1",
+          "text": "“Do you bid me,” you say, “shun the throng, and withdraw from men, and be content with my own conscience? Where are the counsels of your school, which order a man to die in the midst of active work?” As to the course1 which I seem to you to be urging on you now and then, my object in shutting myself up and locking the door is to be able to help a greater number. I never spend a day in idleness; I appropriate even a part of the night for study. I do not allow time for sleep but yield to it when I must, and when my eyes are wearied with waking and ready to fall shut, I keep them at their task.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-8",
+          "pageTitle": "📗 Letter 8: On the Philosopher’s Seclusion - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-9",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 9: On Philosophy and Friendship - Seneca",
+      "description": "Letter 9 of Seneca's Moral Letters to Lucilius: \"📗 Letter 9: On Philosophy and Friendship - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-9-c1",
+          "text": "You desire to know whether Epicurus is right when, in one of his letters,1 he rebukes those who hold that the wise man is selfsufficient and for that reason does not stand in need of friendships. This is the objection raised by Epicurus against Stilbo and those who believe2 that the Supreme Good is a soul which is insensible to feeling.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-9",
+          "pageTitle": "📗 Letter 9: On Philosophy and Friendship - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    },
+    {
+      "entityId": "seneca-letter-90",
+      "@type": "https://vreeman.com/entitymap/vocab/v1#Work",
+      "name": "📗 Letter 90: On the Part Played by Philosophy in the Progress of Man - Seneca",
+      "description": "Letter 90 of Seneca's Moral Letters to Lucilius: \"📗 Letter 90: On the Part Played by Philosophy in the Progress of Man - Seneca\".",
+      "relations": [
+        {
+          "predicate": "PART_OF",
+          "targetId": "work-moral-letters",
+          "targetName": "Moral Letters to Lucilius"
+        },
+        {
+          "predicate": "AUTHORED_BY",
+          "targetId": "person-seneca",
+          "targetName": "Seneca the Younger"
+        }
+      ],
+      "hasChunks": [
+        {
+          "chunkId": "seneca-letter-90-c1",
+          "text": "Who can doubt, my dear Lucilius, that life is the gift of the immortal gods, but that living well1 is the gift of philosophy? Hence the idea that our debt to philosophy is greater than our debt to the gods, in proportion as a good life is more of a benefit than mere life, would be regarded as correct, were not philosophy itself a boon which the gods have bestowed upon us. They have given the knowledge thereof to none, but the faculty of acquiring it they have given to all.",
+          "sourceUrl": "https://vreeman.com/seneca/letter-90",
+          "pageTitle": "📗 Letter 90: On the Part Played by Philosophy in the Progress of Man - Seneca",
+          "publisher": "Vreeman.com",
+          "contentType": "evidence",
+          "relevanceScore": 0.7
+        }
+      ]
+    }
+  ]
+}
