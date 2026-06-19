@@ -4,7 +4,7 @@ title: Robert Dobbin
 description: "Translator and editor of the modern Penguin edition of Epictetus's Discourses, Enchiridion, and Fragments hosted on this site."
 resource: https://vreeman.com/discourses/enchiridion
 tags: [stoicism, person]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Robert Dobbin
 

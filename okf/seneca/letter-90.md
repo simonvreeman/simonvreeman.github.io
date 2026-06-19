@@ -4,7 +4,7 @@ title: "Letter 90: On the Part Played by Philosophy in the Progress of Man"
 description: "Letter 90 of Seneca's Moral Letters to Lucilius: \"On the Part Played by Philosophy in the Progress of Man\"."
 resource: https://vreeman.com/seneca/letter-90
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 90: On the Part Played by Philosophy in the Progress of Man
 

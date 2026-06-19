@@ -4,7 +4,7 @@ title: Providence
 description: "The Stoic conviction that the universe is benevolently ordered by the logos, contrasted in the Hays introduction with the random Epicurean universe."
 resource: https://vreeman.com/meditations/
 tags: [stoicism, concept]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Providence
 

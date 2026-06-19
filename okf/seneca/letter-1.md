@@ -4,7 +4,7 @@ title: "Letter 1: On Saving Time"
 description: "Letter 1 of Seneca's Moral Letters to Lucilius: \"On Saving Time\"."
 resource: https://vreeman.com/seneca/letter-1
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 1: On Saving Time
 

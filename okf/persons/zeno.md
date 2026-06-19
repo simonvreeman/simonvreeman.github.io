@@ -4,7 +4,7 @@ title: Zeno of Citium
 description: "Founder of Stoicism (c. 334-262 BC), who taught at the painted porch (stoa) in Athens from which the school takes its name."
 resource: https://www.wikidata.org/wiki/Q170588
 tags: [stoicism, person]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 sameAs: https://www.wikidata.org/wiki/Q170588
 ---
 # Zeno of Citium

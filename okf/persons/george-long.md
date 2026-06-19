@@ -4,7 +4,7 @@ title: George Long
 description: 19th-century English classical scholar whose public-domain translation of Epictetus's Discourses and Enchiridion is hosted on this site.
 resource: https://www.wikidata.org/wiki/Q1506004
 tags: [stoicism, person]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 sameAs: https://www.wikidata.org/wiki/Q1506004
 ---
 # George Long

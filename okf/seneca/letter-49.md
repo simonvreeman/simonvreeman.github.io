@@ -4,7 +4,7 @@ title: "Letter 49: On the Shortness of Life"
 description: "Letter 49 of Seneca's Moral Letters to Lucilius: \"On the Shortness of Life\"."
 resource: https://vreeman.com/seneca/letter-49
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 49: On the Shortness of Life
 

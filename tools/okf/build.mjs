@@ -8,6 +8,7 @@ import { bootstrapLetters } from '../entitymap/lib/bootstrap-letters.mjs';
 import { entityPath, senecaLetterNumber } from './lib/paths.mjs';
 import { entityToMarkdown } from './lib/entity-to-markdown.mjs';
 import { renderDirIndex, renderRootIndex } from './lib/render-index.mjs';
+import { renderLanding } from './lib/render-landing.mjs';
 import { renderLog } from './lib/render-log.mjs';
 import { validateBundle } from './lib/validate.mjs';
 
@@ -31,19 +32,30 @@ export function buildBundle(now = new Date().toISOString()) {
   // one concept doc per entity
   for (const e of entities) files.set(entityPath(e.entityId), entityToMarkdown(e, now, entityPath));
 
-  // per-section index.md
+  // per-section index.md (+ collect ordered items for the human landing page)
+  const landingSections = [];
   for (const s of SECTIONS) {
     let items = entities.filter(e => entityPath(e.entityId).startsWith(`${s.dir}/`));
     if (s.dir === 'seneca') items = items.slice().sort((a, b) => senecaLetterNumber(a.entityId) - senecaLetterNumber(b.entityId));
-    const entriesList = items.map(e => ({
+    files.set(`${s.dir}/index.md`, renderDirIndex(s.title, items.map(e => ({
       file: entityPath(e.entityId).split('/').pop(),
       title: e.name,
       description: e.description,
-    }));
-    files.set(`${s.dir}/index.md`, renderDirIndex(s.title, entriesList));
+    }))));
+    landingSections.push({
+      dir: s.dir,
+      title: s.title,
+      description: s.description,
+      // Link humans to the canonical on-site page (chunk source), else Wikidata, else the .md.
+      items: items.map(e => ({
+        title: e.name,
+        href: e.hasChunks?.[0]?.sourceUrl || e.sameAs?.[0] || entityPath(e.entityId),
+      })),
+    });
   }
 
   files.set('index.md', renderRootIndex(SECTIONS));
+  files.set('index.html', renderLanding(landingSections, now));
   files.set('log.md', renderLog(now.slice(0, 10), entities.length));
   return files;
 }

@@ -4,7 +4,7 @@ title: Seneca the Younger
 description: "Lucius Annaeus Seneca, Roman Stoic philosopher and statesman; author of the Moral Letters to Lucilius and moral essays such as On the Shortness of Life."
 resource: https://www.wikidata.org/wiki/Q2054
 tags: [stoicism, person]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 sameAs: https://www.wikidata.org/wiki/Q2054
 ---
 # Seneca the Younger

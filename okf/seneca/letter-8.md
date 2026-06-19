@@ -4,7 +4,7 @@ title: "Letter 8: On the Philosopher’s Seclusion"
 description: "Letter 8 of Seneca's Moral Letters to Lucilius: \"On the Philosopher’s Seclusion\"."
 resource: https://vreeman.com/seneca/letter-8
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 8: On the Philosopher’s Seclusion
 

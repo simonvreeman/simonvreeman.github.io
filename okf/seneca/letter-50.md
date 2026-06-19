@@ -4,7 +4,7 @@ title: "Letter 50: On Our Blindness and Its Cure"
 description: "Letter 50 of Seneca's Moral Letters to Lucilius: \"On Our Blindness and Its Cure\"."
 resource: https://vreeman.com/seneca/letter-50
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 50: On Our Blindness and Its Cure
 

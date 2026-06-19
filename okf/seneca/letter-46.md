@@ -4,7 +4,7 @@ title: "Letter 46: On a New Book by Lucilius"
 description: "Letter 46 of Seneca's Moral Letters to Lucilius: \"On a New Book by Lucilius\"."
 resource: https://vreeman.com/seneca/letter-46
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 46: On a New Book by Lucilius
 

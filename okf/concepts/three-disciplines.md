@@ -4,7 +4,7 @@ title: The three disciplines
 description: "The framework in the Hays introduction (and Meditations 7.54): the disciplines of perception, action, and will—seeing objectively, acting justly, and accepting what is outside our control."
 resource: https://vreeman.com/meditations/
 tags: [stoicism, concept]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # The three disciplines
 

@@ -4,7 +4,7 @@ title: Philosophy
 description: "The broader discipline of which Stoicism is one school; in the Hays introduction, traced largely to the fifth-century BC Athenian thinker Socrates."
 resource: https://www.wikidata.org/wiki/Q5891
 tags: [stoicism, concept]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 sameAs: https://www.wikidata.org/wiki/Q5891
 ---
 # Philosophy

@@ -4,7 +4,7 @@ title: "Letter 53: On the Faults of the Spirit"
 description: "Letter 53 of Seneca's Moral Letters to Lucilius: \"On the Faults of the Spirit\"."
 resource: https://vreeman.com/seneca/letter-53
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 53: On the Faults of the Spirit
 

@@ -4,7 +4,7 @@ title: On Tranquillity of Mind
 description: Seneca's essay De Tranquillitate Animi on achieving peace of mind.
 resource: https://vreeman.com/seneca/on-the-tranquillity-of-mind
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 sameAs: https://www.wikidata.org/wiki/Q3704175
 ---
 # On Tranquillity of Mind

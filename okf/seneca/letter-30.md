@@ -4,7 +4,7 @@ title: "Letter 30: On Conquering the Conqueror"
 description: "Letter 30 of Seneca's Moral Letters to Lucilius: \"On Conquering the Conqueror\"."
 resource: https://vreeman.com/seneca/letter-30
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 30: On Conquering the Conqueror
 

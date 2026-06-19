@@ -4,7 +4,7 @@ title: Cleanthes
 description: "Second head of the Stoic school (331-232 BC), successor to Zeno, who developed and reformulated his doctrines."
 resource: https://www.wikidata.org/wiki/Q318767
 tags: [stoicism, person]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 sameAs: https://www.wikidata.org/wiki/Q318767
 ---
 # Cleanthes

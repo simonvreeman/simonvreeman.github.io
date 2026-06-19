@@ -4,7 +4,7 @@ title: "Letter 62: On Good Company"
 description: "Letter 62 of Seneca's Moral Letters to Lucilius: \"On Good Company\"."
 resource: https://vreeman.com/seneca/letter-62
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 62: On Good Company
 

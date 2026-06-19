@@ -4,7 +4,7 @@ title: On the Shortness of Life
 description: "Seneca's essay De Brevitate Vitae, arguing that life is not short but largely wasted, and urging it be lived wisely."
 resource: https://vreeman.com/seneca/on-the-shortness-of-life
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 sameAs: https://www.wikidata.org/wiki/Q1539277
 ---
 # On the Shortness of Life

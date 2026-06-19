@@ -4,7 +4,7 @@ title: "Letter 2: On Discursiveness in Reading"
 description: "Letter 2 of Seneca's Moral Letters to Lucilius: \"On Discursiveness in Reading\"."
 resource: https://vreeman.com/seneca/letter-2
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 2: On Discursiveness in Reading
 

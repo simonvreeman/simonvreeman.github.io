@@ -26,7 +26,8 @@ https://:vreeman.pages.dev/*
     Access-Control-Allow-Origin: *
     Cache-Control: public, max-age=3600
 
-# OKF bundle — serve markdown as text/markdown so agents read it inline; allow cross-origin fetch
-/okf/*
+# OKF bundle — serve the .md concept docs as text/markdown so agents read them inline; allow
+# cross-origin fetch. Scoped to *.md so the human landing index.html keeps its text/html type.
+/okf/*.md
     Content-Type: text/markdown; charset=utf-8
     Access-Control-Allow-Origin: *

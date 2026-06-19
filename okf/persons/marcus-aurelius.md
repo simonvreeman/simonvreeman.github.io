@@ -4,7 +4,7 @@ title: Marcus Aurelius
 description: "Roman emperor (161-180 AD) and Stoic philosopher, last of the Five Good Emperors and author of the Meditations."
 resource: https://www.wikidata.org/wiki/Q1430
 tags: [stoicism, person]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 sameAs: https://www.wikidata.org/wiki/Q1430
 ---
 # Marcus Aurelius

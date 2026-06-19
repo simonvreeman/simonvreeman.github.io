@@ -4,7 +4,7 @@ title: "Letter 22: On the Futility of Half-Way Measures"
 description: "Letter 22 of Seneca's Moral Letters to Lucilius: \"On the Futility of Half-Way Measures\"."
 resource: https://vreeman.com/seneca/letter-22
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 22: On the Futility of Half-Way Measures
 

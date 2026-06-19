@@ -4,7 +4,7 @@ title: "Letter 34: On a Promising Pupil"
 description: "Letter 34 of Seneca's Moral Letters to Lucilius: \"On a Promising Pupil\"."
 resource: https://vreeman.com/seneca/letter-34
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 34: On a Promising Pupil
 

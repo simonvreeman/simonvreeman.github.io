@@ -4,7 +4,7 @@ title: "Letter 48: On Quibbling as Unworthy of the Philosopher"
 description: "Letter 48 of Seneca's Moral Letters to Lucilius: \"On Quibbling as Unworthy of the Philosopher\"."
 resource: https://vreeman.com/seneca/letter-48
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 48: On Quibbling as Unworthy of the Philosopher
 

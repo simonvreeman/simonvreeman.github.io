@@ -4,6 +4,9 @@ import { parseFrontmatter } from './frontmatter.mjs';
 export function validateBundle(files) {
   const errors = [];
   for (const [rel, content] of files) {
+    // OKF conformance applies only to Markdown concept docs; non-.md files
+    // (e.g. the human landing index.html) are out-of-band host conveniences.
+    if (!rel.endsWith('.md')) continue;
     const base = rel.split('/').pop();
     if (base === 'index.md') {
       const fm = parseFrontmatter(content);

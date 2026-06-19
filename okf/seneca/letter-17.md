@@ -4,7 +4,7 @@ title: "Letter 17: On Philosophy and Riches"
 description: "Letter 17 of Seneca's Moral Letters to Lucilius: \"On Philosophy and Riches\"."
 resource: https://vreeman.com/seneca/letter-17
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 17: On Philosophy and Riches
 

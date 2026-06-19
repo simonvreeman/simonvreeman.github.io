@@ -4,7 +4,7 @@ title: Stoicism
 description: "The Hellenistic school of philosophy founded in Athens by Zeno of Citium, treated across this library as both a theoretical system (logic, physics, ethics) and a practical discipline of virtue, fate, and what is within one's control."
 resource: https://www.wikidata.org/wiki/Q48235
 tags: [stoicism, concept]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 sameAs: https://www.wikidata.org/wiki/Q48235
 ---
 # Stoicism

@@ -4,7 +4,7 @@ title: "Letter 3: On True and False Friendship"
 description: "Letter 3 of Seneca's Moral Letters to Lucilius: \"On True and False Friendship\"."
 resource: https://vreeman.com/seneca/letter-3
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 3: On True and False Friendship
 

@@ -4,7 +4,7 @@ title: "Letter 20: On Practicing What You Preach"
 description: "Letter 20 of Seneca's Moral Letters to Lucilius: \"On Practicing What You Preach\"."
 resource: https://vreeman.com/seneca/letter-20
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 20: On Practicing What You Preach
 

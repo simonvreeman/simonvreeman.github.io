@@ -4,7 +4,7 @@ title: Logos
 description: "In Stoicism, the all-pervading rational principle that orders and directs the universe—synonymous with nature, Providence, or God—and present in each person as the faculty of reason."
 resource: https://www.wikidata.org/wiki/Q379825
 tags: [stoicism, concept]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 sameAs: https://www.wikidata.org/wiki/Q379825
 ---
 # Logos

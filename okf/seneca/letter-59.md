@@ -4,7 +4,7 @@ title: "Letter 59: On Pleasure and Joy"
 description: "Letter 59 of Seneca's Moral Letters to Lucilius: \"On Pleasure and Joy\"."
 resource: https://vreeman.com/seneca/letter-59
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 59: On Pleasure and Joy
 

@@ -4,7 +4,7 @@ title: "Letter 65: On the First Cause"
 description: "Letter 65 of Seneca's Moral Letters to Lucilius: \"On the First Cause\"."
 resource: https://vreeman.com/seneca/letter-65
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 65: On the First Cause
 

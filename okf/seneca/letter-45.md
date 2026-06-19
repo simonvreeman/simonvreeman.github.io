@@ -4,7 +4,7 @@ title: "Letter 45: On Sophistical Argumentation"
 description: "Letter 45 of Seneca's Moral Letters to Lucilius: \"On Sophistical Argumentation\"."
 resource: https://vreeman.com/seneca/letter-45
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 45: On Sophistical Argumentation
 

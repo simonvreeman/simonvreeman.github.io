@@ -4,7 +4,7 @@ title: "Letter 16: On Philosophy, the Guide of Life"
 description: "Letter 16 of Seneca's Moral Letters to Lucilius: \"On Philosophy, the Guide of Life\"."
 resource: https://vreeman.com/seneca/letter-16
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:51:08.567Z
+timestamp: 2026-06-19T13:46:40.969Z
 ---
 # Letter 16: On Philosophy, the Guide of Life
 
