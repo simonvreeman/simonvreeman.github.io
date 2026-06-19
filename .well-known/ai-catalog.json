@@ -1,0 +1,31 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Vreeman.com",
+    "identifier": "did:web:vreeman.com",
+    "documentationUrl": "https://vreeman.com/",
+    "trustManifest": {
+      "identity": "did:web:vreeman.com",
+      "identityType": "did"
+    }
+  },
+  "entries": [
+    {
+      "identifier": "urn:ai:vreeman.com:mcp:site-search",
+      "displayName": "Vreeman Site Search",
+      "type": "application/mcp-server+json",
+      "url": "https://vreeman.com/.well-known/mcp/server-card.json",
+      "description": "MCP server for vreeman.com — search Simon Vreeman's technical-marketing tools (GA4 UTM builder, Measurement Protocol hit builder, CRO tools, experiment hypothesis builder) and Stoic philosophy library (Seneca's letters, Marcus Aurelius' Meditations, Epictetus' Discourses, Stockdale's essays, classic poems).",
+      "capabilities": [
+        "search_content"
+      ],
+      "representativeQueries": [
+        "seneca letters on the fear of death",
+        "epictetus dichotomy of control",
+        "GA4 UTM campaign URL builder"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-06-19T12:29:52.040Z"
+    }
+  ]
+}
