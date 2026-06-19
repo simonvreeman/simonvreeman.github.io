@@ -25,3 +25,8 @@ https://:vreeman.pages.dev/*
     Content-Type: application/did+json
     Access-Control-Allow-Origin: *
     Cache-Control: public, max-age=3600
+
+# OKF bundle — serve markdown as text/markdown so agents read it inline; allow cross-origin fetch
+/okf/*
+    Content-Type: text/markdown; charset=utf-8
+    Access-Control-Allow-Origin: *

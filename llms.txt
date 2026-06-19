@@ -149,3 +149,6 @@
 - [If– by Joseph Rudyard Kipling](https://vreeman.com/if)
 - [Experiment by Cole Porter](https://vreeman.com/experiment)
 - [Get Drunk by Charles Baudelaire](https://vreeman.com/drunk)
+
+## Open Knowledge Format
+- [OKF knowledge bundle (Stoic library, for AI agents)](https://vreeman.com/okf/)
