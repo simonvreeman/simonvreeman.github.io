@@ -1,5 +1,7 @@
 function needsQuote(s) {
-  return /[:#\[\]{}",&*?|<>=!%@`]/.test(s) || /^\s|\s$/.test(s) || s === '';
+  // A colon only breaks YAML when followed by whitespace/end (so `https://x` is safe,
+  // but `Letter 1: On Saving Time` is not). Other specials always force quoting.
+  return /:(\s|$)/.test(s) || /[#\[\]{}",&*?|<>=!%@`]/.test(s) || /^\s|\s$/.test(s) || s === '';
 }
 function yamlScalar(v) {
   const s = String(v);
