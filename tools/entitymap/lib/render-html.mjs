@@ -14,6 +14,8 @@
 // These are data blocks, not executable scripts: the test forbids EXECUTABLE <script>
 // while requiring the JSON-LD data blocks the spec mandates.
 
+import { SITE_STYLE } from '../../shared/site-style.mjs';
+
 function esc(s) {
   return String(s)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -58,9 +60,16 @@ export function renderHtml(doc) {
   out.push(`<title>EntityMap — ${esc(pub.name)}</title>`);
   // Spec §9.1: reference the machine-readable companion via rel="alternate".
   out.push(`<link rel="alternate" type="application/json" href="${esc(jsonUrl)}">`);
-  out.push('<style>body{font-family:system-ui,-apple-system,sans-serif;max-width:48rem;margin:2rem auto;padding:0 1rem;line-height:1.55}section{margin:1.5rem 0;border-top:1px solid #ddd;padding-top:1rem}blockquote{margin:.5rem 0;padding-left:1rem;border-left:3px solid #ccc;color:#333}.type{color:#666;font-size:.85em}ul{margin:.3rem 0}cite{color:#666;font-size:.85em}</style>');
+  out.push(`<style>${SITE_STYLE}
+section { margin: 1.5rem 0; padding-top: 1rem; border-top: 1px solid color-mix(in oklch, currentColor, transparent 80%); }
+blockquote { margin: .5rem 0; padding-left: 1rem; border-left: 3px solid color-mix(in oklch, currentColor, transparent 70%); }
+.type { color: color-mix(in oklch, currentColor, transparent 35%); font-size: .85em; }
+cite { color: color-mix(in oklch, currentColor, transparent 35%); font-size: .85em; }
+ul { margin: .3rem 0; }
+</style>`);
   out.push('</head>');
   out.push('<body>');
+  out.push('<main>');
   // Plain-text attribution: keep the publisher identity in readable text, not only in attributes.
   out.push(`<h1>EntityMap for ${esc(pub.name)}</h1>`);
   out.push(`<p>This EntityMap is published by ${esc(pub.name)} (${esc(pub.url)}). It declares the entities this site is authoritative about, how they relate, and where the supporting evidence lives. Machine-readable version: <a href="${esc(jsonUrl)}">entitymap.json</a>.</p>`);
@@ -93,6 +102,7 @@ export function renderHtml(doc) {
     }
     out.push('</section>');
   }
+  out.push('</main>');
   out.push('</body>');
   out.push('</html>');
   return out.join('\n') + '\n';
