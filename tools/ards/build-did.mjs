@@ -1,12 +1,12 @@
-import { DID } from './lib/constants.mjs';
+import { DID, SITE_ORIGIN } from './lib/constants.mjs';
 
 export function buildDid() {
   return {
     '@context': ['https://www.w3.org/ns/did/v1'],
     id: DID,
-    alsoKnownAs: ['https://vreeman.com/'],
+    alsoKnownAs: [`${SITE_ORIGIN}/`],
     service: [
-      { id: `${DID}#catalog`, type: 'AICatalog', serviceEndpoint: 'https://vreeman.com/.well-known/ai-catalog.json' },
+      { id: `${DID}#catalog`, type: 'AICatalog', serviceEndpoint: `${SITE_ORIGIN}/.well-known/ai-catalog.json` },
     ],
   };
 }

@@ -9,7 +9,13 @@ import { CATALOG_PATH, DID_PATH } from './lib/constants.mjs';
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
 function main() {
-  const card = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, '.well-known/mcp/server-card.json'), 'utf8'));
+  let card;
+  try {
+    card = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, '.well-known/mcp/server-card.json'), 'utf8'));
+  } catch (err) {
+    console.error(`ERROR could not read .well-known/mcp/server-card.json: ${err.message}`);
+    process.exit(1);
+  }
   const catalog = buildCatalog(card, new Date().toISOString());
   const { errors, warnings } = validate(catalog);
   for (const w of warnings) console.warn(`WARN  ${w}`);

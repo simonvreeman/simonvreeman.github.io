@@ -1,5 +1,7 @@
 export const SPEC_VERSION = '1.0';
 export const DID = 'did:web:vreeman.com';
+export const SITE_ORIGIN = 'https://vreeman.com';
+export const ENTRY_URN = 'urn:ai:vreeman.com:mcp:site-search';
 export const CATALOG_PATH = '.well-known/ai-catalog.json';
 export const DID_PATH = '.well-known/did.json';
 // urn:ai:<publisher>:<namespace>:<name> — RFC 8141 domain-anchored URN
