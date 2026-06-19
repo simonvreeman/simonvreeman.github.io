@@ -15,3 +15,13 @@ https://:vreeman.pages.dev/*
     Cache-Control: public, max-age=3600
 /entitymap.html
     Cache-Control: public, max-age=3600
+
+# ARDS capability catalog — needs the right Content-Type + CORS so agents can fetch cross-origin
+/.well-known/ai-catalog.json
+    Content-Type: application/ai-catalog+json
+    Access-Control-Allow-Origin: *
+    Cache-Control: public, max-age=3600
+/.well-known/did.json
+    Content-Type: application/did+json
+    Access-Control-Allow-Origin: *
+    Cache-Control: public, max-age=3600

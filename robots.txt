@@ -4,4 +4,5 @@ Disallow: /tools.html
 Disallow: /tools/
 Sitemap: https://vreeman.com/sitemap.xml
 EntityMap: https://vreeman.com/entitymap.json
+Agentmap: https://vreeman.com/.well-known/ai-catalog.json
 host: https://vreeman.com
