@@ -4,7 +4,7 @@ title: "Letter 43: On the Relativity of Fame"
 description: "Letter 43 of Seneca's Moral Letters to Lucilius: \"On the Relativity of Fame\"."
 resource: https://vreeman.com/seneca/letter-43
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 43: On the Relativity of Fame
 

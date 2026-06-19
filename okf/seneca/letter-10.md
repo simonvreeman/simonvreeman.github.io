@@ -4,7 +4,7 @@ title: "Letter 10: On Living to Oneself"
 description: "Letter 10 of Seneca's Moral Letters to Lucilius: \"On Living to Oneself\"."
 resource: https://vreeman.com/seneca/letter-10
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 10: On Living to Oneself
 

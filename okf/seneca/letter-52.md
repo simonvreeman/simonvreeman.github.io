@@ -4,7 +4,7 @@ title: "Letter 52: On Choosing Our Teachers"
 description: "Letter 52 of Seneca's Moral Letters to Lucilius: \"On Choosing Our Teachers\"."
 resource: https://vreeman.com/seneca/letter-52
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 52: On Choosing Our Teachers
 

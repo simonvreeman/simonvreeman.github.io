@@ -4,7 +4,7 @@ title: The four cardinal virtues
 description: "The Stoic virtues Marcus highlights (Meditations 3.6): wisdom, justice, courage, and self-control (temperance), held as the highest goods."
 resource: https://vreeman.com/meditations/quotes
 tags: [stoicism, concept]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # The four cardinal virtues
 

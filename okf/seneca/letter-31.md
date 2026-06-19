@@ -4,7 +4,7 @@ title: "Letter 31: On Siren Songs"
 description: "Letter 31 of Seneca's Moral Letters to Lucilius: \"On Siren Songs\"."
 resource: https://vreeman.com/seneca/letter-31
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 31: On Siren Songs
 

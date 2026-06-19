@@ -4,7 +4,7 @@ title: Fragments of Epictetus
 description: "Brief quotations of Epictetus not found in the surviving Discourses, mostly preserved in the anthology of Stobaeus."
 resource: https://vreeman.com/discourses/fragments
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Fragments of Epictetus
 

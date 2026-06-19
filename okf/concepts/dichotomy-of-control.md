@@ -4,7 +4,7 @@ title: Dichotomy of control
 description: "Epictetus's foundational distinction, opening the Enchiridion: some things are within our power (judgement, impulse, desire, aversion) and some are not (the body, property, reputation, office)."
 resource: https://vreeman.com/discourses/enchiridion
 tags: [stoicism, concept]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Dichotomy of control
 

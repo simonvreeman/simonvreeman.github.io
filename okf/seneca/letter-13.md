@@ -4,7 +4,7 @@ title: "Letter 13: On Groundless Fears"
 description: "Letter 13 of Seneca's Moral Letters to Lucilius: \"On Groundless Fears\"."
 resource: https://vreeman.com/seneca/letter-13
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 13: On Groundless Fears
 

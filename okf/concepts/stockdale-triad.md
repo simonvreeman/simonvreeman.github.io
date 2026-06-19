@@ -4,7 +4,7 @@ title: "Tranquility, fearlessness and freedom"
 description: "Stockdale's distilled Stoic triad—tranquility, fearlessness, and freedom—achieved by mastering one's moral purpose and accepting what lies outside one's control."
 resource: https://vreeman.com/stockdale/stoic-warriors-triad
 tags: [stoicism, concept]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Tranquility, fearlessness and freedom
 

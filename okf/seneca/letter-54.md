@@ -4,7 +4,7 @@ title: "Letter 54: On Asthma and Death"
 description: "Letter 54 of Seneca's Moral Letters to Lucilius: \"On Asthma and Death\"."
 resource: https://vreeman.com/seneca/letter-54
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 54: On Asthma and Death
 

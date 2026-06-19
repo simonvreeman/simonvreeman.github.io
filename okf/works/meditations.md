@@ -4,7 +4,7 @@ title: Meditations
 description: "The private Stoic notebook of Marcus Aurelius (Greek: Ta eis heauton, 'to himself'), here in Gregory Hays's Modern Library translation."
 resource: https://vreeman.com/meditations/
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 sameAs: https://www.wikidata.org/wiki/Q1152283
 ---
 # Meditations

@@ -4,7 +4,7 @@ title: "Letter 5: On the Philosopher’s Mean"
 description: "Letter 5 of Seneca's Moral Letters to Lucilius: \"On the Philosopher’s Mean\"."
 resource: https://vreeman.com/seneca/letter-5
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 5: On the Philosopher’s Mean
 

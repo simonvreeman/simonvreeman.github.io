@@ -4,7 +4,7 @@ title: Musonius Rufus
 description: "Roman Stoic philosopher who taught and trained Epictetus, launching his career while Epictetus was still a slave."
 resource: https://www.wikidata.org/wiki/Q350937
 tags: [stoicism, person]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 sameAs: https://www.wikidata.org/wiki/Q350937
 ---
 # Musonius Rufus

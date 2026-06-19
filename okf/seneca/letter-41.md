@@ -4,7 +4,7 @@ title: "Letter 41: On the God Within Us"
 description: "Letter 41 of Seneca's Moral Letters to Lucilius: \"On the God Within Us\"."
 resource: https://vreeman.com/seneca/letter-41
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 41: On the God Within Us
 

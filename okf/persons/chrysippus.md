@@ -4,7 +4,7 @@ title: Chrysippus of Soli
 description: "Third head of the Stoa (c. 279-206 BC), the systematizer who divided philosophy into logic, physics, and ethics and refined the doctrine of pneuma."
 resource: https://www.wikidata.org/wiki/Q170581
 tags: [stoicism, person]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 sameAs: https://www.wikidata.org/wiki/Q170581
 ---
 # Chrysippus of Soli

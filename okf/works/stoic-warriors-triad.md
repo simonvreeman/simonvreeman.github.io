@@ -4,7 +4,7 @@ title: "The Stoic Warrior's Triad: Tranquility, Fearlessness and Freedom"
 description: "Stockdale's lecture presenting Epictetus's code of conduct and the Stoic triad of tranquility, fearlessness, and freedom."
 resource: https://vreeman.com/stockdale/stoic-warriors-triad
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # The Stoic Warrior's Triad: Tranquility, Fearlessness and Freedom
 

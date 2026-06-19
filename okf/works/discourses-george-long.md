@@ -4,7 +4,7 @@ title: Discourses and Enchiridion (George Long translation)
 description: "George Long's public-domain English translation of Epictetus's Discourses and Enchiridion, hosted as a single page."
 resource: https://vreeman.com/discourses/george-long
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Discourses and Enchiridion (George Long translation)
 

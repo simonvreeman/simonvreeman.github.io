@@ -4,7 +4,7 @@ title: Gregory Hays
 description: Classicist (University of Virginia) and translator of the Modern Library edition of the Meditations hosted on this site.
 resource: https://www.wikidata.org/wiki/Q108127947
 tags: [stoicism, person]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 sameAs: https://www.wikidata.org/wiki/Q108127947
 ---
 # Gregory Hays

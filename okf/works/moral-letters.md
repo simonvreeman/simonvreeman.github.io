@@ -4,7 +4,7 @@ title: Moral Letters to Lucilius
 description: "Seneca's collection of letters to his friend Lucilius (Epistulae Morales ad Lucilium), the section's core Seneca work, presented as individual letters."
 resource: https://vreeman.com/seneca/
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 sameAs: https://www.wikidata.org/wiki/Q1378660
 ---
 # Moral Letters to Lucilius

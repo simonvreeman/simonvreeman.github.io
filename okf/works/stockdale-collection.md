@@ -4,7 +4,7 @@ title: James B. Stockdale on Stoicism
 description: "The Stockdale section: a collection of his essays and lectures on applying Stoicism (Courage Under Fire, The Stoic Warrior's Triad, Master of My Fate)."
 resource: https://vreeman.com/stockdale/
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # James B. Stockdale on Stoicism
 

@@ -4,7 +4,7 @@ title: "Letter 56: On Quiet and Study"
 description: "Letter 56 of Seneca's Moral Letters to Lucilius: \"On Quiet and Study\"."
 resource: https://vreeman.com/seneca/letter-56
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 56: On Quiet and Study
 

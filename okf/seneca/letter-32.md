@@ -4,7 +4,7 @@ title: "Letter 32: On Progress"
 description: "Letter 32 of Seneca's Moral Letters to Lucilius: \"On Progress\"."
 resource: https://vreeman.com/seneca/letter-32
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 32: On Progress
 

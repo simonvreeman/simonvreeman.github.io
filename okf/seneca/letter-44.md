@@ -4,7 +4,7 @@ title: "Letter 44: On Philosophy and Pedigrees"
 description: "Letter 44 of Seneca's Moral Letters to Lucilius: \"On Philosophy and Pedigrees\"."
 resource: https://vreeman.com/seneca/letter-44
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 44: On Philosophy and Pedigrees
 

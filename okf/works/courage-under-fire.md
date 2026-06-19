@@ -4,7 +4,7 @@ title: "Courage Under Fire: Testing Epictetus's Doctrines in a Laboratory of Hum
 description: Stockdale's lecture recounting how Epictetus's Stoic doctrines sustained him as a POW.
 resource: https://vreeman.com/stockdale/courage-under-fire
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Courage Under Fire: Testing Epictetus's Doctrines in a Laboratory of Human Behavior
 

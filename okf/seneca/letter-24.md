@@ -4,7 +4,7 @@ title: "Letter 24: On Despising Death"
 description: "Letter 24 of Seneca's Moral Letters to Lucilius: \"On Despising Death\"."
 resource: https://vreeman.com/seneca/letter-24
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 24: On Despising Death
 

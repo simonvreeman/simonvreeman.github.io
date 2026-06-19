@@ -4,7 +4,7 @@ title: "Letter 27: On the Good Which Abides"
 description: "Letter 27 of Seneca's Moral Letters to Lucilius: \"On the Good Which Abides\"."
 resource: https://vreeman.com/seneca/letter-27
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 27: On the Good Which Abides
 

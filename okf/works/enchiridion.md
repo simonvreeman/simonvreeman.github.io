@@ -4,7 +4,7 @@ title: Enchiridion of Epictetus
 description: "The 'Handbook' of Epictetus, a short manual of selected teachings compiled by Arrian that opens with the dichotomy of control."
 resource: https://vreeman.com/discourses/enchiridion
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 sameAs: https://www.wikidata.org/wiki/Q2137133
 ---
 # Enchiridion of Epictetus

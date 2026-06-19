@@ -4,7 +4,7 @@ title: "Letter 37: On Allegiance to Virtue"
 description: "Letter 37 of Seneca's Moral Letters to Lucilius: \"On Allegiance to Virtue\"."
 resource: https://vreeman.com/seneca/letter-37
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 37: On Allegiance to Virtue
 

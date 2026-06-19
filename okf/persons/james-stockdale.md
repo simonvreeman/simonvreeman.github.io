@@ -4,7 +4,7 @@ title: James Bond Stockdale
 description: "U.S. Navy vice admiral and Vietnam POW who applied Epictetus's Stoicism through years of captivity in Hanoi, later writing and lecturing on it."
 resource: https://www.wikidata.org/wiki/Q496264
 tags: [stoicism, person]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 sameAs: https://www.wikidata.org/wiki/Q496264
 ---
 # James Bond Stockdale

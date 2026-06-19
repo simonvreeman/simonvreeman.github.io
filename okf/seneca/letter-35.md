@@ -4,7 +4,7 @@ title: "Letter 35: On the Friendship of Kindred Minds"
 description: "Letter 35 of Seneca's Moral Letters to Lucilius: \"On the Friendship of Kindred Minds\"."
 resource: https://vreeman.com/seneca/letter-35
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 35: On the Friendship of Kindred Minds
 

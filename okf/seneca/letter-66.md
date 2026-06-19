@@ -4,7 +4,7 @@ title: "Letter 66: On Various Aspects of Virtue"
 description: "Letter 66 of Seneca's Moral Letters to Lucilius: \"On Various Aspects of Virtue\"."
 resource: https://vreeman.com/seneca/letter-66
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 66: On Various Aspects of Virtue
 

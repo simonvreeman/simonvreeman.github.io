@@ -4,7 +4,7 @@ title: "Master of My Fate: A Stoic Philosopher in a Hanoi Prison"
 description: Stockdale's essay on applying Epictetus's Stoicism during his captivity in Hanoi.
 resource: https://vreeman.com/stockdale/master-of-my-fate
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Master of My Fate: A Stoic Philosopher in a Hanoi Prison
 

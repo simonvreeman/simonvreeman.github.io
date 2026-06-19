@@ -4,7 +4,7 @@ title: "Letter 29: On the Critical Condition of Marcellinus"
 description: "Letter 29 of Seneca's Moral Letters to Lucilius: \"On the Critical Condition of Marcellinus\"."
 resource: https://vreeman.com/seneca/letter-29
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 29: On the Critical Condition of Marcellinus
 

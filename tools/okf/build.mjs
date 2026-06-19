@@ -5,7 +5,7 @@ import { concepts } from '../entitymap/data/concepts.mjs';
 import { persons } from '../entitymap/data/persons.mjs';
 import { works } from '../entitymap/data/works.mjs';
 import { bootstrapLetters } from '../entitymap/lib/bootstrap-letters.mjs';
-import { entityPath } from './lib/paths.mjs';
+import { entityPath, senecaLetterNumber } from './lib/paths.mjs';
 import { entityToMarkdown } from './lib/entity-to-markdown.mjs';
 import { renderDirIndex, renderRootIndex } from './lib/render-index.mjs';
 import { renderLog } from './lib/render-log.mjs';
@@ -21,11 +21,6 @@ const SECTIONS = [
   { dir: 'seneca', title: "Seneca's Letters", description: "Seneca's Moral Letters to Lucilius." },
 ];
 
-function letterNum(id) {
-  const m = id.match(/^seneca-letter-(\d+)$/);
-  return m ? Number(m[1]) : 0;
-}
-
 export function buildBundle(now = new Date().toISOString()) {
   const entities = [
     ...concepts, ...persons, ...works,
@@ -39,7 +34,7 @@ export function buildBundle(now = new Date().toISOString()) {
   // per-section index.md
   for (const s of SECTIONS) {
     let items = entities.filter(e => entityPath(e.entityId).startsWith(`${s.dir}/`));
-    if (s.dir === 'seneca') items = items.slice().sort((a, b) => letterNum(a.entityId) - letterNum(b.entityId));
+    if (s.dir === 'seneca') items = items.slice().sort((a, b) => senecaLetterNumber(a.entityId) - senecaLetterNumber(b.entityId));
     const entriesList = items.map(e => ({
       file: entityPath(e.entityId).split('/').pop(),
       title: e.name,

@@ -4,7 +4,7 @@ title: "Letter 4: On the Terrors of Death"
 description: "Letter 4 of Seneca's Moral Letters to Lucilius: \"On the Terrors of Death\"."
 resource: https://vreeman.com/seneca/letter-4
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 4: On the Terrors of Death
 

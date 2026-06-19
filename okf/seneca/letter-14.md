@@ -4,7 +4,7 @@ title: "Letter 14: On the Reasons for Withdrawing From the World"
 description: "Letter 14 of Seneca's Moral Letters to Lucilius: \"On the Reasons for Withdrawing From the World\"."
 resource: https://vreeman.com/seneca/letter-14
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 14: On the Reasons for Withdrawing From the World
 

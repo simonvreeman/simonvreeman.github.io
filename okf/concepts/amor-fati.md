@@ -4,7 +4,7 @@ title: Amor fati
 description: "The acceptance and love of one's fate, aligned with the Stoic discipline of will and willing acquiescence to whatever the logos has ordained."
 resource: https://www.wikidata.org/wiki/Q331009
 tags: [stoicism, concept]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 sameAs: https://www.wikidata.org/wiki/Q331009
 ---
 # Amor fati

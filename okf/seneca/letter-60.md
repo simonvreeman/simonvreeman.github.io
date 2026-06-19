@@ -4,7 +4,7 @@ title: "Letter 60: On Harmful Prayers"
 description: "Letter 60 of Seneca's Moral Letters to Lucilius: \"On Harmful Prayers\"."
 resource: https://vreeman.com/seneca/letter-60
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 60: On Harmful Prayers
 

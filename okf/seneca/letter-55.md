@@ -4,7 +4,7 @@ title: "Letter 55: On Vatia’s Villa"
 description: "Letter 55 of Seneca's Moral Letters to Lucilius: \"On Vatia’s Villa\"."
 resource: https://vreeman.com/seneca/letter-55
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 55: On Vatia’s Villa
 

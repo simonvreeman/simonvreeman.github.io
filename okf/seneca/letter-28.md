@@ -4,7 +4,7 @@ title: "Letter 28: On Travel as a Cure for Discontent"
 description: "Letter 28 of Seneca's Moral Letters to Lucilius: \"On Travel as a Cure for Discontent\"."
 resource: https://vreeman.com/seneca/letter-28
 tags: [stoicism, work]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 ---
 # Letter 28: On Travel as a Cure for Discontent
 

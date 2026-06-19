@@ -4,7 +4,7 @@ title: Arrian
 description: "Flavius Arrianus (c. 86-160 AD), Greek-born Roman consul and historian, pupil of Epictetus who transcribed his teacher's lectures into the Discourses and Enchiridion."
 resource: https://www.wikidata.org/wiki/Q179293
 tags: [stoicism, person]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 sameAs: https://www.wikidata.org/wiki/Q179293
 ---
 # Arrian

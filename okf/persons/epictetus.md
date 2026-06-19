@@ -4,7 +4,7 @@ title: Epictetus
 description: "Greek Stoic philosopher (c. 55-135 AD), born a slave, later freed, who founded a school at Nicopolis; his lectures were recorded by Arrian as the Discourses and Enchiridion."
 resource: https://www.wikidata.org/wiki/Q5780
 tags: [stoicism, person]
-timestamp: 2026-06-19T12:42:41.992Z
+timestamp: 2026-06-19T12:51:08.567Z
 sameAs: https://www.wikidata.org/wiki/Q5780
 ---
 # Epictetus

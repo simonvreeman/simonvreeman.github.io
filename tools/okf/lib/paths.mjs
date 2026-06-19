@@ -9,6 +9,12 @@ export function entityPath(entityId) {
   throw new Error(`Unknown entityId prefix: ${entityId}`);
 }
 
+// Numeric letter index for ordering (0 for non-letter ids).
+export function senecaLetterNumber(entityId) {
+  const m = entityId.match(/^seneca-letter-(\d+)$/);
+  return m ? Number(m[1]) : 0;
+}
+
 export function relLink(fromPath, toPath) {
   let rel = path.posix.relative(path.posix.dirname(fromPath), toPath);
   if (!rel.startsWith('.')) rel = `./${rel}`;
