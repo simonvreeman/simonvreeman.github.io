@@ -26,7 +26,8 @@ function main() {
   }
   fs.writeFileSync(path.join(REPO_ROOT, CATALOG_PATH), JSON.stringify(catalog, null, 2) + '\n');
   fs.writeFileSync(path.join(REPO_ROOT, DID_PATH), JSON.stringify(buildDid(), null, 2) + '\n');
-  console.log(`OK  ${catalog.entries.length} entry → ${CATALOG_PATH} + ${DID_PATH}`);
+  const n = catalog.entries.length;
+  console.log(`OK  ${n} ${n === 1 ? 'entry' : 'entries'} → ${CATALOG_PATH} + ${DID_PATH}`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) main();

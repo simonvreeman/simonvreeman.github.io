@@ -31,3 +31,9 @@ https://:vreeman.pages.dev/*
 /okf/*.md
     Content-Type: text/markdown; charset=utf-8
     Access-Control-Allow-Origin: *
+
+# OKF bundle download (advertised as an ARD catalog entry). Custom media type matches ai-catalog.json.
+/okf.tar.gz
+    Content-Type: application/okf-bundle+gzip
+    Access-Control-Allow-Origin: *
+    Cache-Control: public, max-age=3600

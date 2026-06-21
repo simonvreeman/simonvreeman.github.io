@@ -9,7 +9,9 @@ v0.1 bundle at `/okf/` — a directory of Markdown concept files mirroring the E
 
 Reads the SAME source data as the EntityMap (`tools/entitymap/data/*.mjs` + `bootstrap-letters.mjs`),
 maps each entity to one `.md` file, validates OKF v0.1 conformance, then **wipes and rewrites** `/okf/`.
-**The entire `/okf/` tree is GENERATED — never hand-edit it.** Edit the EntityMap data and rebuild.
+It also writes `/okf.tar.gz` — a portable, deterministic archive of the Markdown bundle (the `index.html`
+landing page is excluded) for off-domain distribution and ARD discovery. **The entire `/okf/` tree and
+`okf.tar.gz` are GENERATED — never hand-edit them.** Edit the EntityMap data and rebuild.
 
 ## Mapping
 

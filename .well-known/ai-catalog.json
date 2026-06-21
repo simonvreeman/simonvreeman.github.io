@@ -14,6 +14,7 @@
       "identifier": "urn:ai:vreeman.com:mcp:site-search",
       "displayName": "Vreeman Site Search",
       "type": "application/mcp-server+json",
+      "mediaType": "application/mcp-server+json",
       "url": "https://vreeman.com/.well-known/mcp/server-card.json",
       "description": "MCP server for vreeman.com — search Simon Vreeman's technical-marketing tools (GA4 UTM builder, Measurement Protocol hit builder, CRO tools, experiment hypothesis builder) and Stoic philosophy library (Seneca's letters, Marcus Aurelius' Meditations, Epictetus' Discourses, Stockdale's essays, classic poems).",
       "capabilities": [
@@ -25,7 +26,28 @@
         "GA4 UTM campaign URL builder"
       ],
       "version": "1.0.0",
-      "updatedAt": "2026-06-19T12:35:19.206Z"
+      "updatedAt": "2026-06-21T19:01:55.606Z"
+    },
+    {
+      "identifier": "urn:ai:vreeman.com:okf:stoicism",
+      "displayName": "Stoicism knowledge bundle (OKF)",
+      "type": "application/okf-bundle+gzip",
+      "mediaType": "application/okf-bundle+gzip",
+      "url": "https://vreeman.com/okf.tar.gz",
+      "description": "An Open Knowledge Format v0.1 bundle of this site's Stoic library — concepts, persons, works, and Seneca's letters as cross-linked Markdown — generated from the same data as the EntityMap.",
+      "tags": [
+        "stoicism",
+        "philosophy",
+        "okf",
+        "knowledge"
+      ],
+      "representativeQueries": [
+        "stoic dichotomy of control",
+        "seneca on the shortness of life",
+        "marcus aurelius on memento mori"
+      ],
+      "version": "0.1",
+      "updatedAt": "2026-06-21T19:01:55.606Z"
     }
   ]
 }

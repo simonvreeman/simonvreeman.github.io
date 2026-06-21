@@ -10,6 +10,7 @@ import { entityToMarkdown } from './lib/entity-to-markdown.mjs';
 import { renderDirIndex, renderRootIndex } from './lib/render-index.mjs';
 import { renderLanding } from './lib/render-landing.mjs';
 import { renderLog } from './lib/render-log.mjs';
+import { makeTarGz } from './lib/targz.mjs';
 import { validateBundle } from './lib/validate.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -74,7 +75,13 @@ function main() {
     fs.mkdirSync(path.dirname(abs), { recursive: true });
     fs.writeFileSync(abs, content.endsWith('\n') ? content : `${content}\n`);
   }
-  console.log(`OK  ${files.size} files → okf/`);
+  // Portable bundle download for off-domain distribution + ARD discovery: just the OKF
+  // Markdown (the index.html landing is a web convenience, not part of the OKF bundle).
+  const tarFiles = [...files]
+    .filter(([rel]) => rel.endsWith('.md'))
+    .map(([rel, content]) => ({ name: `okf/${rel}`, content: content.endsWith('\n') ? content : `${content}\n` }));
+  fs.writeFileSync(path.join(REPO_ROOT, 'okf.tar.gz'), makeTarGz(tarFiles));
+  console.log(`OK  ${files.size} files → okf/ (+ okf.tar.gz, ${tarFiles.length} docs)`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) main();
