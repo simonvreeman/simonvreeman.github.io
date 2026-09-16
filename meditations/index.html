@@ -229,8 +229,8 @@ footer {
 #search-toggle {
   display: grid;
   place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   margin: 0 0 0 auto;
   padding: 0;
   border: none;
@@ -239,54 +239,80 @@ footer {
   color: inherit;
   cursor: pointer;
 }
+#search-toggle:hover, #search-toggle[aria-expanded="true"] {
+  color: var(--blue-dark);
+}
 #search-panel {
   box-sizing: border-box;
   width: min(28em, calc(100vw - 2em));
   max-height: 70vh;
   max-height: 70dvh;
   margin-top: .5rem;
-  padding: .75rem;
-  overflow: auto;
-  border: 1px solid currentColor;
+  padding: 1rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklch, currentColor 25%, transparent);
   background-color: var(--white);
   color: inherit;
+}
+#search-panel:not([hidden]) {
+  display: flex;
+  flex-direction: column;
 }
 #search-input {
   appearance: none;
   -webkit-appearance: none;
   box-sizing: border-box;
   width: 100%;
-  padding: .5rem;
-  border: 1px solid var(--gray);
+  min-height: 44px;
+  flex-shrink: 0;
+  padding: .625rem .75rem;
+  border: 1px solid color-mix(in oklch, currentColor 35%, transparent);
   border-radius: 0;
   background-color: transparent;
   color: inherit;
   font: inherit;
 }
 #search-status {
-  margin: .5rem 0;
+  flex-shrink: 0;
+  margin: .75rem 0;
   font-size: .875rem;
+}
+#search-status:empty {
+  margin: 0;
 }
 #search-results {
   margin: 0;
   padding: 0;
   list-style: none;
   text-wrap: wrap;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
 }
-#search-results li {
-  border-top: 1px solid oklch(0.85 0.00 none / .6);
+#search-results li + li {
+  border-top: 1px solid color-mix(in oklch, currentColor 15%, transparent);
 }
 #search-results a {
   display: block;
   box-sizing: border-box;
   min-height: 44px;
-  padding: .5rem 0;
+  padding: .75rem .25rem;
   text-decoration: none;
+}
+#search-results a:focus {
+  outline-offset: -3px;
+}
+#search-results a:hover strong, #search-results a:focus strong {
+  text-decoration: underline;
+  text-underline-offset: .15em;
 }
 #search-results a strong {
   margin-right: .25em;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 #search-results .search-snippet {
+  font-family: var(--serif);
+  line-height: 1.618;
   color: var(--eigengrau);
 }
 #search-results mark {
@@ -326,6 +352,9 @@ footer {
   }
   #search-toggle, #search-panel {
     background-color: var(--eigengrau);
+  }
+  #search-toggle:hover, #search-toggle[aria-expanded="true"] {
+    color: var(--blue-lighter);
   }
   #search-results .search-snippet {
     color: var(--white);
