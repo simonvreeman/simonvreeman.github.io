@@ -77,11 +77,11 @@ test('statusText pluralises', () => {
 });
 
 test('snippet centres on the first hit and marks ellipses only where text was cut', () => {
-  const entry = groupEntries([{ marker: 'book9-9', text: '9.9 ' + 'a'.repeat(100) + ' tranquillity ' + 'b'.repeat(100) }])[0];
+  const entry = groupEntries([{ marker: 'book9-9', text: '9.9 Omitted beforehand tranquillity afterwards omitted' }])[0];
   const s = snippet(entry, 'tranquillity', 10);
-  assert.equal(s.before, 'aaaaaaaaa ');           // 10 chars before the hit
+  assert.equal(s.before, 'beforehand ');
   assert.equal(s.hit, 'tranquillity');
-  assert.equal(s.after, ' bbbbbbbbb');            // 10 chars after
+  assert.equal(s.after, ' afterwards');
   assert.equal(s.leading, true);
   assert.equal(s.trailing, true);
 });
@@ -97,11 +97,31 @@ test('snippet preserves original casing of the hit', () => {
 });
 
 test('snippet for a label-only match shows the opening of the entry with no hit', () => {
-  const entry = groupEntries([{ marker: 'book4-3', text: '4.3 ' + 'x'.repeat(300) }])[0];
+  const prefix = 'word '.repeat(27);
+  const entry = groupEntries([{ marker: 'book4-3', text: '4.3 ' + prefix + 'tranquillity continues' }])[0];
   const s = snippet(entry, '4.3');
   assert.equal(s.hit, '');
-  assert.equal(s.before.length, SNIPPET_RADIUS * 2);
+  assert.equal(s.before, prefix + 'tranquillity');
   assert.equal(s.leading, false);
+  assert.equal(s.trailing, true);
+});
+
+test('snippet expands to entry edges without ellipses and preserves a substring hit', () => {
+  const entry = groupEntries([{ marker: 'book1-1', text: '1.1 beforehand tranquillity afterwards' }])[0];
+  const s = snippet(entry, 'quill', 7);
+  assert.equal(s.before, 'beforehand tran');
+  assert.equal(s.hit, 'quill');
+  assert.equal(s.after, 'ity afterwards');
+  assert.equal(s.leading, false);
+  assert.equal(s.trailing, false);
+});
+
+test('snippet keeps cuts already at word boundaries', () => {
+  const entry = groupEntries([{ marker: 'book1-1', text: '1.1 omit calm hit calm omit' }])[0];
+  const s = snippet(entry, 'hit', 5);
+  assert.equal(s.before, 'calm ');
+  assert.equal(s.after, ' calm');
+  assert.equal(s.leading, true);
   assert.equal(s.trailing, true);
 });
 

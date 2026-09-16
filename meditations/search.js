@@ -51,20 +51,28 @@ export function statusText(n) {
 
 export const SNIPPET_RADIUS = 70;
 
+// Text is whitespace-normalised; extend a cut to the end of its word.
+function wordEnd(text, offset) {
+  let end = Math.min(text.length, offset);
+  while (end < text.length && text[end] !== ' ' && text[end - 1] !== ' ') end++;
+  return end;
+}
+
 // Pieces of entry.text around the first occurrence of query (already lower-cased).
 export function snippet(entry, query, radius = SNIPPET_RADIUS) {
   const text = entry.text;
   const i = query ? entry.lower.indexOf(query) : -1;
   if (i < 0) {
-    const cut = radius * 2;
-    return { before: text.slice(0, cut), hit: '', after: '', leading: false, trailing: text.length > cut };
+    const cut = wordEnd(text, radius * 2);
+    return { before: text.slice(0, cut).trimEnd(), hit: '', after: '', leading: false, trailing: text.length > cut };
   }
-  const start = Math.max(0, i - radius);
-  const end = Math.min(text.length, i + query.length + radius);
+  let start = Math.max(0, i - radius);
+  while (start > 0 && text[start] !== ' ' && text[start - 1] !== ' ') start--;
+  const end = wordEnd(text, i + query.length + radius);
   return {
-    before: text.slice(start, i),
+    before: text.slice(start, i).trimStart(),
     hit: text.slice(i, i + query.length),
-    after: text.slice(i + query.length, end),
+    after: text.slice(i + query.length, end).trimEnd(),
     leading: start > 0,
     trailing: end < text.length,
   };
