@@ -168,7 +168,7 @@ export function mountSearch(doc) {
         span.appendChild(mark);
       }
       span.append(s.after + (s.trailing ? '…' : ''));
-      li.appendChild(span);
+      a.append(' ', span);
       frag.appendChild(li);
     }
     results.appendChild(frag);

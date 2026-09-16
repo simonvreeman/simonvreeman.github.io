@@ -274,12 +274,20 @@ footer {
   text-wrap: wrap;
 }
 #search-results li {
-  padding: .5rem 0;
   border-top: 1px solid oklch(0.85 0.00 none / .6);
 }
 #search-results a {
-  margin-right: .5em;
+  display: block;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: .5rem 0;
   text-decoration: none;
+}
+#search-results a strong {
+  margin-right: .25em;
+}
+#search-results .search-snippet {
+  color: var(--eigengrau);
 }
 #search-results mark {
   padding: 0 .125rem;
@@ -318,6 +326,9 @@ footer {
   }
   #search-toggle, #search-panel {
     background-color: var(--eigengrau);
+  }
+  #search-results .search-snippet {
+    color: var(--white);
   }
 }
 @media print {
