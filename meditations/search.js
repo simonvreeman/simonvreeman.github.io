@@ -69,3 +69,37 @@ export function snippet(entry, query, radius = SNIPPET_RADIUS) {
     trailing: end < text.length,
   };
 }
+
+const BOOK_ID = /^book\d+$/;
+const STRIP_SELECTOR = 'sup, .return'; // footnote markers and § return links
+
+export function visibleText(el) {
+  const clone = el.cloneNode(true);
+  clone.querySelectorAll(STRIP_SELECTOR).forEach(n => n.remove());
+  return normalizeText(clone.textContent || '');
+}
+
+// One item per direct child of a Book section.
+export function itemFromElement(el) {
+  let marker = null;
+  if (el.tagName === 'H3' && ENTRY_ID.test(el.id)) {
+    marker = el.id;
+  } else {
+    const strong = el.querySelector('strong[id]');
+    if (strong && ENTRY_ID.test(strong.id)) marker = strong.id;
+  }
+  return { marker, text: visibleText(el) };
+}
+
+// Index only <section id="bookN"> inside <main>; everything else on the page is ignored.
+export function buildIndex(doc) {
+  const items = [];
+  for (const section of doc.querySelectorAll('main section[id]')) {
+    if (!BOOK_ID.test(section.id)) continue;
+    for (const child of section.children) {
+      if (child.tagName === 'H2') continue;
+      items.push(itemFromElement(child));
+    }
+  }
+  return groupEntries(items);
+}
