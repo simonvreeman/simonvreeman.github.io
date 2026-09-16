@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { groupEntries, normalizeText, findMatches, statusText, MIN_QUERY } from '../../../meditations/search.js';
+import { groupEntries, normalizeText, findMatches, statusText, MIN_QUERY, snippet, SNIPPET_RADIUS } from '../../../meditations/search.js';
 
 test('normalizeText collapses whitespace and trims', () => {
   assert.equal(normalizeText('  a \n\t b  '), 'a b');
@@ -74,4 +74,33 @@ test('statusText pluralises', () => {
   assert.equal(statusText(0), 'No entries match');
   assert.equal(statusText(1), '1 entry matches');
   assert.equal(statusText(12), '12 entries match');
+});
+
+test('snippet centres on the first hit and marks ellipses only where text was cut', () => {
+  const entry = groupEntries([{ marker: 'book9-9', text: '9.9 ' + 'a'.repeat(100) + ' tranquillity ' + 'b'.repeat(100) }])[0];
+  const s = snippet(entry, 'tranquillity', 10);
+  assert.equal(s.before, 'aaaaaaaaa ');           // 10 chars before the hit
+  assert.equal(s.hit, 'tranquillity');
+  assert.equal(s.after, ' bbbbbbbbb');            // 10 chars after
+  assert.equal(s.leading, true);
+  assert.equal(s.trailing, true);
+});
+
+test('snippet preserves original casing of the hit', () => {
+  const entry = groupEntries([{ marker: 'book1-1', text: '1.1 My grandfather Verus' }])[0];
+  const s = snippet(entry, 'verus');
+  assert.equal(s.hit, 'Verus');
+  assert.equal(s.before, 'My grandfather ');
+  assert.equal(s.after, '');
+  assert.equal(s.leading, false);
+  assert.equal(s.trailing, false);
+});
+
+test('snippet for a label-only match shows the opening of the entry with no hit', () => {
+  const entry = groupEntries([{ marker: 'book4-3', text: '4.3 ' + 'x'.repeat(300) }])[0];
+  const s = snippet(entry, '4.3');
+  assert.equal(s.hit, '');
+  assert.equal(s.before.length, SNIPPET_RADIUS * 2);
+  assert.equal(s.leading, false);
+  assert.equal(s.trailing, true);
 });

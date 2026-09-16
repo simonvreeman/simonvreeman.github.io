@@ -43,3 +43,24 @@ export function statusText(n) {
   if (n === 0) return 'No entries match';
   return n === 1 ? '1 entry matches' : `${n} entries match`;
 }
+
+export const SNIPPET_RADIUS = 70;
+
+// Pieces of entry.text around the first occurrence of query (already lower-cased).
+export function snippet(entry, query, radius = SNIPPET_RADIUS) {
+  const text = entry.text;
+  const i = query ? entry.lower.indexOf(query) : -1;
+  if (i < 0) {
+    const cut = radius * 2;
+    return { before: text.slice(0, cut), hit: '', after: '', leading: false, trailing: text.length > cut };
+  }
+  const start = Math.max(0, i - radius);
+  const end = Math.min(text.length, i + query.length + radius);
+  return {
+    before: text.slice(start, i),
+    hit: text.slice(i, i + query.length),
+    after: text.slice(i + query.length, end),
+    leading: start > 0,
+    trailing: end < text.length,
+  };
+}
