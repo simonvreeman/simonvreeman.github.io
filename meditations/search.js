@@ -115,8 +115,8 @@ export function mountSearch(doc) {
     `<button id="search-toggle" type="button" aria-label="Search the Books" title="Search Books 1–12 (⌘K / Ctrl+K)" aria-expanded="false" aria-controls="search-panel" aria-keyshortcuts="Meta+K Control+K">${ICON}</button>` +
     '<div id="search-panel" role="search" hidden>' +
     '<input id="search-input" type="search" placeholder="Search Books 1–12" autocomplete="off" spellcheck="false" aria-label="Search Books 1–12">' +
-    '<p id="search-status" aria-live="polite"></p>' +
-    '<ol id="search-results"></ol>' +
+    '<p id="search-status" role="status"></p>' +
+    '<ol id="search-results" role="list"></ol>' +
     '</div>';
   doc.body.appendChild(root);
 
@@ -144,6 +144,7 @@ export function mountSearch(doc) {
   }
 
   function render() {
+    if (!index) index = buildIndex(doc);
     const { query, matches } = findMatches(index, input.value);
     results.replaceChildren();
     if (query.length < MIN_QUERY) { status.textContent = ''; return; }
@@ -182,7 +183,7 @@ export function mountSearch(doc) {
     if ((ev.metaKey || ev.ctrlKey) && !ev.altKey && !ev.shiftKey && k === 'k') {
       ev.preventDefault();
       open();
-    } else if (ev.key === 'Escape' && isOpen()) {
+    } else if (ev.key === 'Escape' && !ev.isComposing && isOpen()) {
       ev.preventDefault(); // also stops type=search from clearing the field
       close(true);
     }
