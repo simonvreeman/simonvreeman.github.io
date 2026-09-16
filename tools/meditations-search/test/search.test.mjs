@@ -104,3 +104,35 @@ test('snippet for a label-only match shows the opening of the entry with no hit'
   assert.equal(s.leading, false);
   assert.equal(s.trailing, true);
 });
+
+test('normalizeText treats undefined and null as empty', () => {
+  assert.equal(normalizeText(undefined), '');
+  assert.equal(normalizeText(null), '');
+});
+
+test('groupEntries indexes lettered sub-entries such as 4.49a as their own entry', () => {
+  const entries = groupEntries([{ marker: 'book4-49a', text: '4.49a—It’s unfortunate that this has happened.' }]);
+  assert.equal(entries.length, 1);
+  assert.equal(entries[0].id, 'book4-49a');
+  assert.equal(entries[0].label, '4.49a');
+  assert.equal(entries[0].text, '—It’s unfortunate that this has happened.');
+  assert.deepEqual(findMatches(entries, '4.49a').matches.map(e => e.id), ['book4-49a']);
+});
+
+test('groupEntries only strips the label when it is followed by a non-digit', () => {
+  const entries = groupEntries([{ marker: 'book4-3', text: '4.33 not this label' }]);
+  assert.equal(entries[0].text, '4.33 not this label');
+});
+
+test('findMatches folds typographic quotes while snippet keeps the original text', () => {
+  const entries = groupEntries([
+    { marker: 'book2-1', text: '2.1 I don’t know why.' },
+    { marker: 'book4-14', text: '4.14 The “logos” is common.' },
+  ]);
+  const r = findMatches(entries, "don't");
+  assert.deepEqual(r.matches.map(e => e.label), ['2.1']);
+  assert.equal(snippet(r.matches[0], r.query).hit, 'don’t');
+  const q = findMatches(entries, '"logos"');
+  assert.deepEqual(q.matches.map(e => e.label), ['4.14']);
+  assert.equal(snippet(q.matches[0], q.query).hit, '“logos”');
+});

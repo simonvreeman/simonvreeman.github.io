@@ -2,14 +2,19 @@
 // Pure helpers are exported for tests (tools/meditations-search/test/).
 // The DOM is only touched inside mountSearch(), which runs when a document exists.
 
-const ENTRY_ID = /^book(\d+)-(\d+)$/;
+// Entry ids are bookN-M, with an optional letter suffix for sub-entries (e.g. book4-49a).
+const ENTRY_ID = /^book(\d+)-(\d+[a-z]?)$/;
+
+// Fold curly quotes to straight ones for matching only. Each replacement is a single
+// UTF-16 code unit, so offsets found in the folded string stay valid in the original text.
+const foldQuotes = s => s.replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
 
 export function normalizeText(s) {
-  return String(s).replace(/\s+/g, ' ').trim();
+  return String(s ?? '').replace(/\s+/g, ' ').trim();
 }
 
-// items: [{ marker: 'book4-3' | null, text: '…' }] in document order.
-// Returns [{ id, label, text, lower }].
+// items: [{ marker: 'book4-3' | 'book4-49a' | null, text: '…' }] in document order.
+// Returns [{ id, label, text, lower }]; label is '4.3' or '4.49a'.
 export function groupEntries(items) {
   const entries = [];
   let current = null;
@@ -20,12 +25,12 @@ export function groupEntries(items) {
       current = { id: item.marker, label: `${m[1]}.${m[2]}`, text: '' };
       entries.push(current);
       // Drop the leading "§ 4.3" — the result list shows the label separately.
-      t = t.replace(new RegExp(`^[§\\s]*${m[1]}\\.${m[2]}\\s*`), '');
+      t = t.replace(new RegExp(`^[§\\s]*${m[1]}\\.${m[2]}(?!\\d)\\s*`), '');
     }
     if (!current || !t) continue;
     current.text = current.text ? `${current.text} ${t}` : t;
   }
-  for (const e of entries) e.lower = e.text.toLowerCase();
+  for (const e of entries) e.lower = foldQuotes(e.text).toLowerCase();
   return entries;
 }
 
@@ -33,7 +38,7 @@ export const MIN_QUERY = 2;
 
 // Returns { query, matches }. query is the normalised, lower-cased term.
 export function findMatches(entries, rawQuery) {
-  const query = normalizeText(rawQuery).toLowerCase();
+  const query = foldQuotes(normalizeText(rawQuery)).toLowerCase();
   if (query.length < MIN_QUERY) return { query, matches: [] };
   const matches = entries.filter(e => e.label === query || e.lower.includes(query));
   return { query, matches };
