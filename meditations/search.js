@@ -105,19 +105,16 @@ export function buildIndex(doc) {
   return groupEntries(items);
 }
 
-const ICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>';
+// The widget's markup lives in <template id="search-template"> in the page, so it can be
+// edited as HTML. A template's contents are inert, so readers without JavaScript still see
+// nothing rather than a search box that cannot search.
+const TEMPLATE_ID = 'search-template';
 
 export function mountSearch(doc) {
-  const root = doc.createElement('div');
-  root.id = 'search';
-  root.className = 'search';
-  root.innerHTML =
-    `<button id="search-toggle" type="button" aria-label="Search the Books" title="Search Books 1–12 (⌘K / Ctrl+K)" aria-expanded="false" aria-controls="search-panel" aria-keyshortcuts="Meta+K Control+K">${ICON}</button>` +
-    '<div id="search-panel" role="search" hidden>' +
-    '<input id="search-input" type="search" placeholder="Search Books 1–12" autocomplete="off" spellcheck="false" aria-label="Search Books 1–12">' +
-    '<p id="search-status" role="status"></p>' +
-    '<ol id="search-results" role="list"></ol>' +
-    '</div>';
+  const template = doc.getElementById(TEMPLATE_ID);
+  if (!template || !template.content) return null;
+  const root = template.content.firstElementChild?.cloneNode(true);
+  if (!root) return null;
   doc.body.appendChild(root);
 
   const toggle = root.querySelector('#search-toggle');

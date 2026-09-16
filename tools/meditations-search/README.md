@@ -2,7 +2,8 @@
 
 Client-side search for `meditations/index.html`, shipped as the ES module `meditations/search.js`
 (loaded at the end of `<body>` via `<script type="module" src="search.js">`). No dependencies; the
-markup is injected by the script, so no-JS visitors see nothing. The CSS lives in the page's inline `<style>`.
+markup lives in `<template id="search-template">` at the end of the page and is cloned on startup,
+so no-JS visitors see nothing. The CSS lives in the page's inline `<style>`.
 
 ## Scope
 
