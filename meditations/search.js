@@ -157,6 +157,8 @@ export function mountSearch(doc) {
       const strong = doc.createElement('strong');
       strong.textContent = entry.label;
       a.appendChild(strong);
+      // On narrow viewports the fixed panel would cover the entry just jumped to, so close it.
+      a.addEventListener('click', () => { if (doc.defaultView.matchMedia('(max-width: 60em)').matches) close(false); });
       li.appendChild(a);
 
       const s = snippet(entry, query);
@@ -175,12 +177,12 @@ export function mountSearch(doc) {
     results.appendChild(frag);
   }
 
-  toggle.addEventListener('click', () => (isOpen() ? close(false) : open()));
+  toggle.addEventListener('click', () => (isOpen() ? close(true) : open()));
   input.addEventListener('input', render);
 
   doc.addEventListener('keydown', (ev) => {
     const k = ev.key.toLowerCase();
-    if ((ev.metaKey || ev.ctrlKey) && !ev.altKey && !ev.shiftKey && k === 'k') {
+    if ((ev.metaKey || ev.ctrlKey) && !ev.altKey && !ev.shiftKey && (k === 'k' || ev.code === 'KeyK')) {
       ev.preventDefault();
       open();
     } else if (ev.key === 'Escape' && !ev.isComposing && isOpen()) {

@@ -112,3 +112,4 @@ Fuzzy or whole-word matching, multi-term AND/OR, searching the Introduction/Note
 6. §3.4's ":target styling applies" is inaccurate — the page has no `:target` rule; the entry is positioned via `scroll-margin-top` only.
 7. Results `<ol>` has `role="list"` and the status `<p>` has `role="status"`.
 8. No `.claude/launch.json` was committed: the preview launcher's child process is denied access to `~/Documents` on this Mac, so local testing uses a plain background `python3 -m http.server`.
+9. On viewports up to 60em wide, clicking a result also closes the panel, because the fixed panel would otherwise cover the entry the reader just jumped to. On wider viewports the panel stays open as designed.

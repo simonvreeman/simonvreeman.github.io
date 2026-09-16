@@ -23,3 +23,20 @@ test('entry markers: Book 1 uses h3 ids, Books 2–12 use strong ids, 499 in tot
 test('search module is loaded as a module script', () => {
   assert.match(html, /<script type="module" src="search\.js"><\/script>/);
 });
+
+test('page hooks the search CSS and JS rely on', () => {
+  // The print stylesheet hides the widget.
+  assert.match(html, /@media print \{[\s\S]*?\.search[\s\S]*?display: none/);
+
+  // Every Book section is a direct child of <main>: buildIndex() selects `main > section[id]`.
+  const main = html.slice(html.indexOf('<main>'), html.indexOf('</main>'));
+  const books = [...main.matchAll(/<section id="(book\d+)">/g)].map(m => m[1]);
+  assert.deepEqual(books, Array.from({ length: 12 }, (_, i) => `book${i + 1}`));
+  const tokens = main.match(/<section\b|<\/section>/g);
+  assert.equal(tokens.filter(t => t === '<section').length, tokens.filter(t => t === '</section>').length);
+  let depth = 0;
+  for (const t of tokens) {
+    depth += t === '<section' ? 1 : -1;
+    assert.ok(depth >= 0 && depth <= 1, 'sections are never nested');
+  }
+});
