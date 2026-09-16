@@ -24,6 +24,24 @@ test('search module is loaded as a module script', () => {
   assert.match(html, /<script type="module" src="search\.js"><\/script>/);
 });
 
+test('widget markup lives in the page, inside an inert template', () => {
+  const m = /<template id="search-template">([\s\S]*?)<\/template>/.exec(html);
+  assert.ok(m, 'the page carries <template id="search-template">');
+  const tpl = m[1];
+
+  // mountSearch() clones the first element child, so the widget needs a single root.
+  assert.match(tpl, /<div id="search" class="search">/);
+  assert.equal((tpl.match(/<div id="search"/g) || []).length, 1);
+
+  // Every element mountSearch() looks up, with the roles screen readers depend on.
+  assert.match(tpl, /<button id="search-toggle"[^>]*aria-expanded="false"[^>]*aria-controls="search-panel"/);
+  assert.match(tpl, /<div id="search-panel" role="search" hidden>/);
+  assert.match(tpl, /<input id="search-input" type="search"/);
+  assert.match(tpl, /<p id="search-status" role="status">/);
+  assert.match(tpl, /<ol id="search-results" role="list">/);
+  assert.match(tpl, /<svg[^>]*stroke="currentColor"/);
+});
+
 test('page hooks the search CSS and JS rely on', () => {
   // The print stylesheet hides the widget.
   assert.match(html, /@media print \{[\s\S]*?\.search[\s\S]*?display: none/);

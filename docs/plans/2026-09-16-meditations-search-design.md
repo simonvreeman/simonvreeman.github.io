@@ -30,7 +30,7 @@
 
 ## 3. Components
 
-### 3.1 Markup (injected by the script, so no-JS visitors see nothing)
+### 3.1 Markup (in the page, inside an inert `<template>`; see deviation 10)
 
 ```
 <div id="search" class="search">
@@ -113,3 +113,4 @@ Fuzzy or whole-word matching, multi-term AND/OR, searching the Introduction/Note
 7. Results `<ol>` has `role="list"` and the status `<p>` has `role="status"`.
 8. No `.claude/launch.json` was committed: the preview launcher's child process is denied access to `~/Documents` on this Mac, so local testing uses a plain background `python3 -m http.server`.
 9. On viewports up to 60em wide, clicking a result also closes the panel, because the fixed panel would otherwise cover the entry the reader just jumped to. On wider viewports the panel stays open as designed.
+10. The widget markup lives in the page, in `<template id="search-template">` at the end of `<body>`, and `mountSearch()` clones it. §3.1 originally built the markup from a string inside the module. Moving it keeps HTML and CSS together in the HTML file where both are editable as markup, while a template's inert contents preserve the original property that readers without JavaScript see nothing. As a side effect the module no longer uses `innerHTML` at all.
