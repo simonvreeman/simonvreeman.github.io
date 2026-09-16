@@ -1,6 +1,6 @@
 // Search within Books 1–12 of the Meditations.
 // Pure helpers are exported for tests (tools/meditations-search/test/).
-// The DOM is only touched inside mountSearch(), which runs when a document exists.
+// DOM access happens only in the adapter functions and mountSearch(); module top level is DOM-free.
 
 // Entry ids are bookN-M, with an optional letter suffix for sub-entries (e.g. book4-49a).
 const ENTRY_ID = /^book(\d+)-(\d+[a-z]?)$/;
@@ -71,11 +71,12 @@ export function snippet(entry, query, radius = SNIPPET_RADIUS) {
 }
 
 const BOOK_ID = /^book\d+$/;
-const STRIP_SELECTOR = 'sup, .return'; // footnote markers and § return links
+const STRIP_SELECTOR = 'sup, .return'; // footnote markers and § return links are dropped; line breaks become spaces
 
 export function visibleText(el) {
   const clone = el.cloneNode(true);
   clone.querySelectorAll(STRIP_SELECTOR).forEach(n => n.remove());
+  clone.querySelectorAll('br').forEach(n => n.replaceWith(' '));
   return normalizeText(clone.textContent || '');
 }
 
@@ -94,7 +95,7 @@ export function itemFromElement(el) {
 // Index only <section id="bookN"> inside <main>; everything else on the page is ignored.
 export function buildIndex(doc) {
   const items = [];
-  for (const section of doc.querySelectorAll('main section[id]')) {
+  for (const section of doc.querySelectorAll('main > section[id]')) {
     if (!BOOK_ID.test(section.id)) continue;
     for (const child of section.children) {
       if (child.tagName === 'H2') continue;

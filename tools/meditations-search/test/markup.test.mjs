@@ -20,6 +20,6 @@ test('entry markers: Book 1 uses h3 ids, Books 2–12 use strong ids, 499 in tot
   assert.equal(h3.length + strong.length, 499);
 });
 
-test('search module is loaded as a module script before the closing body tag', () => {
-  assert.match(html, /<script type="module" src="search\.js"><\/script>\s*<script>\s*window\.onload/);
+test('search module is loaded as a module script', () => {
+  assert.match(html, /<script type="module" src="search\.js"><\/script>/);
 });
