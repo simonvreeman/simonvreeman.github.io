@@ -28,3 +28,18 @@ export function groupEntries(items) {
   for (const e of entries) e.lower = e.text.toLowerCase();
   return entries;
 }
+
+export const MIN_QUERY = 2;
+
+// Returns { query, matches }. query is the normalised, lower-cased term.
+export function findMatches(entries, rawQuery) {
+  const query = normalizeText(rawQuery).toLowerCase();
+  if (query.length < MIN_QUERY) return { query, matches: [] };
+  const matches = entries.filter(e => e.label === query || e.lower.includes(query));
+  return { query, matches };
+}
+
+export function statusText(n) {
+  if (n === 0) return 'No entries match';
+  return n === 1 ? '1 entry matches' : `${n} entries match`;
+}
