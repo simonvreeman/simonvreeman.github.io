@@ -1,7 +1,7 @@
 # Meditations page: search within the twelve Books — Design
 
 - **Date:** 2026-09-16
-- **Status:** Approved (brainstorming complete; implementation plan to follow)
+- **Status:** Implemented 2026-09-16 (see [implementation plan](2026-09-16-meditations-search-implementation.md))
 - **Author:** Simon Vreeman (with Claude Code)
 - **Scope:** Add a client-side search to `meditations/index.html` that searches **only Books 1–12** of the *Meditations*. Chronology, Introduction, Notes, Index of Persons and the Table of Contents are never searched.
 
@@ -23,7 +23,7 @@
 ## 2. Page facts the design relies on
 
 - Single 500 KB file, `meditations/index.html`. Sections in order: `#chronology`, `#introduction`, `#book1` … `#book12`, `#notes`, `#persons`. A `<nav>` Table of Contents precedes `<main>`.
-- **Entry anchors.** Book 1 marks entries with `<h3 id="book1-N">`; Books 2–12 mark them with `<p><a class="return">§</a> <strong id="bookN-M">N.M</strong> …</p>`. Continuation `<p>`/`<ul>`/`<blockquote>` siblings follow until the next marker. Total: 488 entries.
+- **Entry anchors.** Book 1 marks entries with `<h3 id="book1-N">`; Books 2–12 mark them with `<p><a class="return">§</a> <strong id="bookN-M">N.M</strong> …</p>`. Continuation `<p>`/`<ul>`/`<blockquote>` siblings follow until the next marker. Total: 499 entries (11 are lettered sub-entries such as `book4-49a`).
 - Existing fixed elements: `#progress` (top, 2 px) and `.fixed` back-to-top arrow (bottom right). The icon goes top right, below the progress bar; no collision.
 - Styling: CSS variables in `:root` (`--eigengrau`, `--blue-*`, `--white`, `--sans-serif`, `--serif`), dark mode via `prefers-color-scheme`, `mark` already styled in both schemes, `[id] { scroll-margin-top: 2ex }`, print stylesheet hides `.fixed` and `.return`.
 - There is already one small inline script at the end of `<body>` (load-time footer). No external JS anywhere on the site.
@@ -51,7 +51,7 @@ Built lazily on the first open. For each `section[id^="book"]` whose id matches 
 
 1. Skip the `h2`.
 2. Iterate child elements in order. A child **starts a new entry** if it is `h3[id^="bookN-"]` or contains a `strong[id^="bookN-"]`. Otherwise it is appended to the current entry.
-3. Per entry, store `{ id, label, text, lower }` where `label` is `N.M` (taken from the marker text), `text` is the visible text with `sup` (footnote markers) and `.return` (§ links) removed and whitespace collapsed, and `lower` is `text.toLowerCase()`.
+3. Per entry, store `{ id, label, text, lower }` where `label` is `N.M` with an optional letter suffix (e.g. `4.49a`, taken from the marker text), `text` is the visible text with `sup` (footnote markers) and `.return` (§ links) removed and whitespace collapsed, and `lower` is `text.toLowerCase()`.
 
 ### 3.3 Matching
 
@@ -101,3 +101,14 @@ Manual, in the built-in browser against a local static server (`python3 -m http.
 ## 6. Out of scope (YAGNI)
 
 Fuzzy or whole-word matching, multi-term AND/OR, searching the Introduction/Notes/Index, persisting the last query, analytics events, a `/` shortcut, reuse on other pages.
+
+## 7. Deviations recorded during implementation
+
+1. Shipped as the external module `meditations/search.js` (deferred `<script type="module">`) rather than inline JS, for testability. CSS remains inline.
+2. Entry count is 499, not 488: 11 lettered sub-entries (`4.49a` etc.) are indexed as their own entries.
+3. Typographic quotes (`‘’“”`) are folded to straight quotes for matching.
+4. `<br>` is treated as a space when extracting text.
+5. Toggle and panel have opaque backgrounds (`--white` / `--eigengrau`) rather than transparent, so text scrolling underneath doesn't show through.
+6. §3.4's ":target styling applies" is inaccurate — the page has no `:target` rule; the entry is positioned via `scroll-margin-top` only.
+7. Results `<ol>` has `role="list"` and the status `<p>` has `role="status"`.
+8. No `.claude/launch.json` was committed: the preview launcher's child process is denied access to `~/Documents` on this Mac, so local testing uses a plain background `python3 -m http.server`.
