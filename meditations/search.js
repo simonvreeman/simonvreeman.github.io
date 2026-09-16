@@ -104,3 +104,96 @@ export function buildIndex(doc) {
   }
   return groupEntries(items);
 }
+
+const ICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>';
+
+export function mountSearch(doc) {
+  const root = doc.createElement('div');
+  root.id = 'search';
+  root.className = 'search';
+  root.innerHTML =
+    `<button id="search-toggle" type="button" aria-label="Search the Books" title="Search Books 1–12 (⌘K / Ctrl+K)" aria-expanded="false" aria-controls="search-panel" aria-keyshortcuts="Meta+K Control+K">${ICON}</button>` +
+    '<div id="search-panel" role="search" hidden>' +
+    '<input id="search-input" type="search" placeholder="Search Books 1–12" autocomplete="off" spellcheck="false" aria-label="Search Books 1–12">' +
+    '<p id="search-status" aria-live="polite"></p>' +
+    '<ol id="search-results"></ol>' +
+    '</div>';
+  doc.body.appendChild(root);
+
+  const toggle = root.querySelector('#search-toggle');
+  const panel = root.querySelector('#search-panel');
+  const input = root.querySelector('#search-input');
+  const status = root.querySelector('#search-status');
+  const results = root.querySelector('#search-results');
+  let index = null; // built lazily on first open
+
+  const isOpen = () => !panel.hidden;
+
+  function open() {
+    if (!index) index = buildIndex(doc);
+    panel.hidden = false;
+    toggle.setAttribute('aria-expanded', 'true');
+    input.focus();
+    input.select();
+  }
+
+  function close(refocus) {
+    panel.hidden = true;
+    toggle.setAttribute('aria-expanded', 'false');
+    if (refocus) toggle.focus();
+  }
+
+  function render() {
+    const { query, matches } = findMatches(index, input.value);
+    results.replaceChildren();
+    if (query.length < MIN_QUERY) { status.textContent = ''; return; }
+    status.textContent = statusText(matches.length);
+    const frag = doc.createDocumentFragment();
+    for (const entry of matches) {
+      const li = doc.createElement('li');
+      const a = doc.createElement('a');
+      a.href = `#${entry.id}`;
+      const strong = doc.createElement('strong');
+      strong.textContent = entry.label;
+      a.appendChild(strong);
+      li.appendChild(a);
+
+      const s = snippet(entry, query);
+      const span = doc.createElement('span');
+      span.className = 'search-snippet';
+      span.append((s.leading ? '…' : '') + s.before);
+      if (s.hit) {
+        const mark = doc.createElement('mark');
+        mark.textContent = s.hit;
+        span.appendChild(mark);
+      }
+      span.append(s.after + (s.trailing ? '…' : ''));
+      li.appendChild(span);
+      frag.appendChild(li);
+    }
+    results.appendChild(frag);
+  }
+
+  toggle.addEventListener('click', () => (isOpen() ? close(false) : open()));
+  input.addEventListener('input', render);
+
+  doc.addEventListener('keydown', (ev) => {
+    const k = ev.key.toLowerCase();
+    if ((ev.metaKey || ev.ctrlKey) && !ev.altKey && !ev.shiftKey && k === 'k') {
+      ev.preventDefault();
+      open();
+    } else if (ev.key === 'Escape' && isOpen()) {
+      ev.preventDefault(); // also stops type=search from clearing the field
+      close(true);
+    }
+  });
+
+  // Click/tap outside the widget closes it; clicking a result (inside) keeps it open.
+  doc.addEventListener('pointerdown', (ev) => {
+    if (isOpen() && !root.contains(ev.target)) close(false);
+  });
+
+  return root;
+}
+
+if (typeof document !== 'undefined') mountSearch(document);
