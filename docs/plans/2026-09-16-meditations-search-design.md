@@ -12,7 +12,7 @@
 | Decision | Choice |
 |---|---|
 | Scope of the index | The twelve `<section id="bookN">` elements only, by construction |
-| Engine | Prebuilt in-memory index of 488 entries, built on first open; substring filter per keystroke |
+| Engine | Prebuilt in-memory index of 499 entries, built on first open; substring filter per keystroke |
 | Trigger | A magnifying-glass **icon** fixed top right; click expands it into a search field. Also **Cmd/Ctrl+K** |
 | Results | List under the field: entry number (link) + ~140-char snippet with the hit in `<mark>` |
 | Click on a result | Jumps to the entry; the **panel stays open** so the reader can step through hits |
@@ -90,7 +90,7 @@ Built lazily on the first open. For each `section[id^="book"]` whose id matches 
 
 ## 5. Verification
 
-Manual, in the built-in browser against a local static server (`python3 -m http.server` from the repo root), plus a small Node script that re-derives the 488-entry index from the HTML so counts can be cross-checked.
+Manual, in the built-in browser against a local static server (`python3 -m http.server` from the repo root), plus a small Node script that re-derives the 499-entry index from the HTML so counts can be cross-checked.
 
 - **Positive probes:** `Verus` (Book 1.1 and 1.2 among others), `tranquillity` (4.3), `4.3` (exact label), `logos` (many).
 - **Negative probes:** words that appear only outside the Books must return **No entries match** — e.g. `Hays` (Introduction), `Haines` / `Loeb` (Notes/Further reading), a name that occurs only in the Index of Persons.
