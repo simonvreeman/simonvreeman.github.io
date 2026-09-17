@@ -59,6 +59,29 @@ exported from `meditations/search.js` and the same helper `groupEntries()` itsel
 rehydrate by re-running `groupEntries()` over its own output: it strips a leading `§ N.M`, so a second
 pass would truncate any entry whose text legitimately begins with its own number.
 
+## `search_meditations` — the same search as an agent tool
+
+The corpus and the matching in `search.js` are also what answers `search_meditations`, a tool this
+site publishes on two surfaces under **one name and one `inputSchema`**: on the HTTP MCP server
+(`functions/mcp.js`, <https://vreeman.com/mcp>) and via WebMCP in the page itself
+(`meditations/webmcp.js`). An agent that met either recognises the other — which makes a
+differently-shaped *answer* a trap rather than a nicety, so the answer has one implementation too:
+
+- **`meditations/tool-result.js`** — `searchMeditations(entries, rawQuery)`, imported by both
+  surfaces. It formats: the `N entries match "…" (trans. Hays)` head line, `MAX_RESULTS` = 20 with a
+  "refine the query" note when capped, one `• label — text — https://vreeman.com/meditations/#id`
+  line per hit, and the below-`MIN_QUERY` message that the page has no equivalent for. An exact entry
+  number returns the entry **in full** rather than a snippet, because over a tool call the snippet is
+  the whole answer rather than a link you click.
+- The matching itself stays in `search.js`. Quote folding, label matching and snippet windowing have
+  one definition for the reader's search box and the agent's tool call alike.
+
+The two surfaces differ only in where the entries come from: the server fetches `entries.json` and
+rehydrates it with `withLower()`; the browser calls `buildIndex(document)` over the rendered Books
+and needs no corpus and no fetch at all. `webmcp.js` is loaded only after an inline guard in
+`meditations/index.html` has found a `modelContext` to register with, so a reader whose browser has
+no WebMCP downloads nothing. See `tools/mcp/README.md` for the server side.
+
 ## Tests
 
     node --test tools/meditations-search/test/*.test.mjs
@@ -72,6 +95,12 @@ pass would truncate any entry whose text legitimately begins with its own number
 - `index.test.mjs` — the generated corpus: 499 entries in document order, byte-identical to what
   `build-index.mjs` produces from the current HTML, free of entities and § markers, and searchable
   (words inside the Books are found, words from the Introduction, Notes and Index of Persons are not).
+- `webmcp.test.mjs` — the browser tool in `meditations/webmcp.js`, against a fake DOM built from the
+  shipped corpus. Its output is compared against `dispatch()`'s own over the same entries rather than
+  against hand-written strings, so the two surfaces cannot answer the same query differently. Also
+  covers all three registration paths (`document.modelContext.registerTool`, the declarative
+  `provideContext` fallback, and installing nothing when neither exists), the shared empty-query
+  refusal, and that the index is built once and kept.
 - `markup.test.mjs` — guards the page-markup assumptions in `meditations/index.html`: 12 Book sections as
   direct, unnested children of `<main>` with all 17 + 482 = 499 entry markers inside them, the module `<script>`
   tag, the print rule that hides `.search`, `<template id="search-template">` with the five ids `mountSearch()`

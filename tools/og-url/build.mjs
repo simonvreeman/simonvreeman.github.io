@@ -2,9 +2,11 @@
 //
 //   node tools/og-url/build.mjs
 //
-// 81 pages shipped an og:url that disagreed with their own canonical: 76 with an empty string (the
-// Seneca letters and three Stockdale essays, all from the same template) and 5 still carrying the
-// utm_source=social tracking parameters. The empty ones are the worse half — a tagged URL at least
+// 81 pages shipped an og:url that disagreed with their own canonical. This tool repaired 80 of them
+// in one commit: 75 with an empty string (all 72 Seneca pages and 3 Stockdale essays, from the same
+// template) and 5 still carrying the utm_source=social tracking parameters. The 81st was
+// meditations/index.html, a sixth utm-tagged page, fixed by hand a commit earlier along with the
+// rest of that page's metadata. The empty ones are the worse half — a tagged URL at least
 // resolves, while an empty string leaves a platform nothing to canonicalise against, so a crawler
 // falls back to whatever URL it was handed, tracking parameters and all. Every share of a Seneca
 // letter was affected.

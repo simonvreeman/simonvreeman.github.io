@@ -1,7 +1,7 @@
 # Agent surfaces: entry-level Meditations search, MCP/WebMCP modernisation, discovery fixes — Design
 
 - **Date:** 2026-09-17
-- **Status:** Approved 2026-09-17; not yet implemented
+- **Status:** **Implemented 2026-09-17** on branch `agent-surfaces`, all 13 tasks of the [implementation plan](2026-09-17-agent-surfaces-implementation.md). 234 tests green across seven suites (`node --test tools/*/test/*.test.mjs`). Checks that need the live site are in [2026-09-17-post-deploy-checks.md](2026-09-17-post-deploy-checks.md) and are **not yet run**.
 - **Author:** Simon Vreeman (with Claude Code)
 - **Scope:** Expose the Books-only *Meditations* search (shipped 2026-09-16, see [that design](2026-09-16-meditations-search-design.md)) to AI agents; bring the site's two agent surfaces up to the specifications that moved in July–September 2026; close three discovery gaps.
 - **Source of the audit:** [The Website Specification](https://specification.website/), via its MCP server, 2026-09-17.
@@ -197,3 +197,122 @@ Recorded here so they are documented rather than forgotten.
 - **OKF v0.2** (finding 7) — v0.2 moves provenance and lifecycle into front matter. Touches `tools/okf/build.mjs`, the bundle, and the `version` in the ARD catalog. Its own piece of work.
 - **Per-page Markdown source endpoints** (finding 10) — a `.md` sibling for each Stoic-library page, advertised with `rel="alternate"; type="text/markdown"`. Sizeable; interacts with `llms.txt` v2's path scoping and with `Vary`.
 - **`No-Vary-Search`** — only relevant if `?q=` is ever added.
+
+### Found while implementing, 2026-09-17
+
+Everything below was verified against the working tree on 2026-09-17 and is recorded with enough
+detail to act on without the conversation that found it. None of it is a regression from this branch.
+
+#### B1 — Two unfilled Seneca template stubs, one of them advertised in `llms.txt`
+
+`seneca/letter-124.html` and `seneca/letter-.html` are both tracked, both unfilled copies of the
+letter template:
+
+- `letter-124.html`: `<title>📗 Letter X: - Seneca</title>`, `<h1>Letter X: </h1>`, an empty `<p>`,
+  empty `description`/`og:title`/`og:image`/`books:isbn`, one dangling `fn-1` footnote.
+- `letter-.html`: `<title>📗 Letter :  - Seneca</title>`, otherwise near-identical. It looks like a
+  stray — a template instantiated with no number at all.
+- **Both declare the same canonical**, `https://vreeman.com/seneca/letter-`, and the same `hreflang`
+  pair and `og:url`. Two pages claiming one identity, and that identity is not a real URL.
+- Neither is in `sitemap.xml`; neither is linked from `seneca/index.html` (which lists letters 1–66
+  and 90 — 67 letters).
+- **But `llms.txt:140` advertises `- [Letter 124: On the True Good as Attained by Reason - Seneca](https://vreeman.com/seneca/letter-124)`.**
+  The site's own agent index points an agent at a placeholder. That is exactly the failure the
+  llms.txt spec calls out: a stale `llms.txt` is worse than none, because it teaches models wrong
+  things rather than nothing.
+
+`tools/og-url/build.mjs` reports `letter-124.html` as its one `NOTE` and deliberately does not
+overrule the canonical; `letter-.html` draws no note, because its canonical happens to match what its
+filename implies. **Fix:** finish or delete both, and reconcile `llms.txt`.
+
+**The `llms.txt` problem is bigger than letter 124.** Cross-checking every `vreeman.com` link in
+`llms.txt` against `git ls-files` on 2026-09-17: **146 links, 56 with no tracked page** — Seneca
+letters 67–89 and 91–123. `llms.txt` was written against the full 124-letter corpus while only 66
+letters (plus 90, plus the 124 stub) have been published. The repo owner has `seneca/letter-67.html`
+in progress in the working tree, so this is being filled in letter by letter; the index is simply
+running ahead of the content. Decide which way to close the gap — publish, or trim `llms.txt` to what
+exists and re-add entries as letters ship — and consider a test that fails when `llms.txt` names a
+page `git ls-files` does not have, which would make this self-enforcing.
+
+#### B2 — 18 pages have a canonical and no `og:url` at all
+
+`tools/og-url/build.mjs` skips these without a word: inventing a tag is a different change from
+repairing one. Verified counts, 2026-09-17:
+
+- **11 canonicalise to `https://vreeman.com/`** and look deliberate — utility pages with no identity
+  of their own: `404.html`, `beta.html`, `bookmarklets.html`, `calc.html`, `dashboard.html`,
+  `dencoder.html`, `growth.html`, `percentage.html`, `realtime.html`, `search.html`, `tools.html`.
+  A self-referential `og:url` on these would be wrong; leaving the tag off is defensible. (`beta.html`
+  is the repo owner's uncommitted work — leave it alone.)
+- **`boilerplate.html`** canonicalises to **`https://vreeman.com`** — no trailing slash, the only page
+  that spells the homepage that way. See B4.
+- **6 are real content with a self-canonical and no `og:url`**, so they share naked — a platform has
+  nothing to canonicalise against and falls back to whatever URL the sharer handed it, tracking
+  parameters included. This is the same defect the 76 empty `og:url` pages had, in a different shape:
+  `meditations/quotes.html`, `okf/index.html`, `ithaca.html`, `cowboy-song.html`, `drunk.html`, and
+  `entitymap/vocab/v1/index.html` (the last is the hand-maintained vocabulary documentation page the
+  EntityMap spec requires to resolve at its namespace URI — lowest priority of the six, since nobody
+  shares it, but it is still a page with an identity and no statement of it).
+
+Adding `<meta property="og:url">` to those 6 is the actionable half. `tools/og-url/build.mjs` would
+then keep them correct forever, and `og-url.test.mjs` already checks any page that has both tags.
+
+#### B3 — 3 pages have no `<link rel="canonical">` at all
+
+`chi.html`, `entitymap.html`, `test.html`. `entitymap.html` is generated by
+`tools/entitymap/build.mjs`, so its fix belongs in `lib/render-html.mjs`, not in the file.
+
+#### B4 — `boilerplate.html`'s canonical is `https://vreeman.com`, with no trailing slash
+
+`boilerplate.html:67`. Every other page spells the homepage `https://vreeman.com/`. As a bare origin
+with an empty path the two are equivalent under RFC 3986 §6.2.3, but nothing downstream is obliged to
+normalise, and this is the template other pages get copied from — so the odd spelling propagates.
+Make it `https://vreeman.com/`.
+
+#### B5 — Dangling JSON-LD reference in the Meditations graph
+
+`meditations/index.html:837` — Book 7's node carries
+`"hasPart": { "@id": "https://vreeman.com/meditations/#book7-56" }`, and **no node in the graph
+defines `#book7-56`**. Its three siblings do: `#book2-11`, `#book5-20` and `#book10-16` are
+referenced at lines 756/804/885 and defined at 1215/1227/1239.
+
+This is a **missing node, not a bad href** — the HTML anchor `<strong id="book7-56">` exists at line
+2301 and resolves fine in a browser. A consumer merging the graph gets an `@id` reference to an
+entity with no type, name, `url` or text. **Fix:** add the fourth node beside the other three,
+modelled on them.
+
+#### B6 — Unescaped `&` in attributes, in the pages that used to carry UTM in `og:url`
+
+The 5 pages de-tagged in commit `47a54da` shipped `content="…?utm_source=social&utm_medium=organic…"`
+— a bare `&`, not `&amp;`. Moot for `og:url` now, but it pointed at a habit rather than one typo.
+
+Scanning every tracked page for a `&` inside a double-quoted attribute that does not begin a valid
+character reference, 2026-09-17:
+
+- **`index.html`** — 6 attributes: lines 247, 255 and 272 (`name="description"`,
+  `property="og:description"`, `name="twitter:description"`, all `Growth & Technical Marketing
+  Advisor … insights & data`), and lines 664, 669, 740 (`title=` attributes on outbound links).
+  Line 740 is instructive: the link's *text* is correctly `Coffee &amp; Wine` while its `title` is
+  `Coffee & Wine`, so the escaping was known and just not applied in the attribute.
+- **`utm.html`** — lines 218–220, three `href="…&num=1&hl=en&gl=en&strip=0&vwsrc=0"` Google Cache URLs.
+- **Nothing else.** The other four de-tagged pages (`discourses/index.html`,
+  `discourses/enchiridion.html`, `discourses/fragments.html`, `discourses/george-long.html`) and
+  `meditations/index.html` are clean, so the summary "the same bug likely exists on those pages" held
+  only for `index.html`.
+
+HTML5 parsers recover from all of these, so nothing is visibly broken; it matters because the site's
+own `description` and `og:description` are what an agent or a social card reads, and because a
+character reference that *does* parse — `&num;` is `#`, `&amp` is `&` — turns a tolerated mistake
+into a wrong value. Escape them.
+
+#### B7 — `meditations/entries.json` is discoverable only by reading a tool description
+
+The corpus is served correctly (`_headers` gives it `application/json`, `Access-Control-Allow-Origin: *`
+and `max-age=3600`), but it is **in no sitemap and advertised by no `Link` header**. An agent finds it
+only via the `search_meditations` tool description or `SKILL.md` — that is, only after it has already
+found one of the other surfaces. It was justified in §4.1 as satisfying `machine-readable-formats` on
+its own merits, and on its own merits it is currently unfindable.
+
+Cheapest fix: a `Link: </meditations/entries.json>; rel="alternate"; type="application/json"` scoped
+to `/meditations/*` in `_headers`, and/or a `<link rel="alternate">` in that page's head. Adding it to
+`sitemap.xml` is the weaker option — sitemaps are for pages.
