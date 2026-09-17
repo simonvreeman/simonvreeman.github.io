@@ -13,22 +13,44 @@ WebMCP catalog in `index.html`. Case-insensitive substring over title, URL and t
 `title — url` per hit.
 
 **`search_meditations`** — the 499 entries of Books 1–12 of the *Meditations*. Returns the entry
-label, a snippet around the hit and a deep link (`https://vreeman.com/meditations/#book4-3`), capped
-at `MAX_RESULTS` = 20 with the total still stated in the first line. Books only: the Introduction,
-Notes and Index of Persons are not in the corpus, so `Farquharson` finds nothing while `Verus` finds
-five entries. An exact label such as `4.3` or `4.49a` matches that entry directly.
+label, a ~140-character snippet around the hit and a deep link
+(`https://vreeman.com/meditations/#book4-3`), capped at `MAX_RESULTS` = 20 with the total still
+stated in the first line, which also says to refine the query. There is deliberately **no paging**:
+`offset` on a stateless endpoint means re-fetching and re-matching the corpus per page, and the
+honest answer to a 434-hit query is a better query. Books only: the Introduction, Notes and Index of
+Persons are not in the corpus, so `Farquharson` finds nothing while `Verus` finds five entries.
+
+The head line names the edition — `5 entries match "verus" (trans. Hays):`. That costs about eight
+tokens per call and is what makes the result citable; the translation is named in the tool
+description too, but an agent may not carry that into its answer.
+
+**An exact entry number returns the entry in full**, not a snippet. `findMatches()` matches `4.3` on
+its label, but the leading `§ 4.3` is stripped from the text at build time, so `snippet()` finds no
+occurrence of the query and falls back to the opening ~140 characters — 145 of 2,378 for 4.3. This
+is the one place the browser's semantics do not transfer: on the page a snippet is a link you click,
+over MCP it is the whole answer, and `instructions` promises the tool can quote a specific entry. The
+alternative was an agent fetching all 210 KB of `entries.json` to finish a quotation.
 
 Both tools take one required string argument, `query`, and share one guard: a missing or
 whitespace-only query is a tool error (`isError: true`), not a JSON-RPC error. An unknown tool name
-is a JSON-RPC `-32602`.
+is a JSON-RPC `-32602`. A query shorter than `MIN_QUERY` (2 characters) says so explicitly rather
+than reporting no matches: `findMatches()` returns empty below that without consulting the corpus, so
+`No entries match` would be a false negative the agent has no way to doubt. The browser renders an
+empty status line in that case and has no equivalent to state.
 
 ## The corpus
 
 `meditations/entries.json` — `{ id, label, text }` per entry, one entry per line, 210 KB, generated
 by `tools/meditations-search/build-index.mjs` and committed. The function fetches it once per isolate
 and caches the promise in module scope; `_headers` gives it `application/json`, open CORS and an hour
-of edge cache. A failed fetch clears that cache so the next request retries — a rejected promise left
+of edge cache. A failed load clears that cache so the next request retries — a rejected promise left
 in module scope would otherwise break the tool for the whole life of the isolate.
+
+Both the `r.ok` check and the "is it an array" check live **inside** that promise chain, so the
+`.catch` that clears the cache can see them. `fetch()` does not reject on a 404 — Pages answers one
+with its HTML error page — so validating after the fact would let a bad response resolve, get cached,
+and fail in `withLower()` on every later request, telling the client to try again when trying again
+could never work.
 
 ### Rehydration: `withLower()`, never a second `groupEntries()` pass
 
@@ -70,7 +92,10 @@ Compiles clean at about **33 KiB** against the 1 MB limit, with every imported s
 unresolved import left in the output. The module's trailing `mountSearch(document)` is guarded on
 `typeof document !== 'undefined'`, so it bundles in as a no-op — `document` does not exist in
 workerd. The DOM adapters ride along as dead code; at 33 KB, splitting the module to shed them would
-buy nothing (YAGNI).
+buy nothing (YAGNI). The risk worth guarding is the other one — someone adding an *unguarded*
+top-level `window`/`document` reference to `search.js` and breaking the import here. The existing
+suite already catches it: `tools/meditations-search/test/dom.test.mjs` imports `search.js` in bare
+Node, where neither global exists, so such an edit fails the tests long before it reaches a deploy.
 
 The consequence is the point, not a cost: **editing `meditations/search.js` redeploys the function.**
 The two surfaces cannot fall out of step.
@@ -84,8 +109,9 @@ corpus can be injected and the tool tested without a network fetch. That injecti
 reason `dispatch()` is async and exported.
 
 `dispatch.test.mjs` covers both tools end to end, the shared empty-query guard, the unknown-tool
-error, and that `initialize`/`ping` are unchanged. Four of its cases exist to pin things that a small
-fixture cannot reach or that only a test can keep true:
+error, and that `initialize` negotiates the version and advertises both tools (its `instructions`
+changed with this tool, so the field is asserted rather than assumed). Several cases exist to pin
+things a small fixture cannot reach, or that only a test can keep true:
 
 - **truncation** is exercised against the real 499 entries (`the` matches 434), because a two-entry
   fixture can never reach `MAX_RESULTS`;
@@ -94,7 +120,16 @@ fixture cannot reach or that only a test can keep true:
 - **`search_content`** is asserted byte-for-byte, and asserted never to touch the corpus loader;
 - **every example query in the tool's own schema** is run against the real corpus. An agent copies
   those verbatim, and the first draft's `'retreats for themselves'` was Long's wording — this edition
-  is Hays, where 4.3 reads `get away from it all`, so the advertised example found nothing.
+  is Hays, where 4.3 reads `get away from it all`, so the advertised example found nothing;
+- **an exact entry number** must return the entry byte-for-byte, and a phrase inside the same entry
+  must still get a snippet. (Do not assert the *absence* of `…` from a full entry: Hays writes one
+  into 4.3 for a lacuna, `ward off all < … >`.)
+
+One test, `a failed load does not poison the isolate`, stubs `globalThis.fetch` to exercise the
+default loader across a rejection, a 404, a 200 carrying the wrong shape, a good corpus and finally
+the cache. It must stay the **only** one of its kind in the process: `entriesPromise` is module-scoped
+with no way to reset it from outside, so a second fetch-stub test would inherit whatever this one left
+cached and feed its own stub back into it. Every other test injects `deps.loadEntries` instead.
 
 ## Checking the live endpoint
 
