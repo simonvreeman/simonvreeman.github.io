@@ -1095,6 +1095,53 @@ Do not merge to `master` without the post-deploy checks in Step 4.
 
 ---
 
+## Task 13: Repair `og:url` across the site
+
+Found during Task 11, and larger than the defect that task targeted. **81 pages carry a broken `og:url`:**
+
+- **76 with an empty string** — all 73 `seneca/*.html` letters plus 3 in `stockdale/`, e.g. `seneca/letter-1.html:256` is `<meta property="og:url" content="">` while its canonical at line 237 is correct.
+- **5 still carrying UTM tags** — `index.html`, `discourses/index.html`, `discourses/enchiridion.html`, `discourses/fragments.html`, `discourses/george-long.html`.
+
+An empty `og:url` is worse than a tagged one. A tagged URL at least resolves; an empty string gives the platform nothing to canonicalise against, so a crawler falls back to whatever URL it was handed — including any tracking parameters a sharer appended. Every share of a Seneca letter is affected.
+
+**Files:** the 81 HTML files above; a new `tools/og-url/` generator and test.
+
+**Approach — derive, do not hand-edit 81 files.** Every affected page already has a correct `<link rel="canonical">`. Read it and write `og:url` to match, so the two cannot disagree. A hand-edit pass over 81 files would reintroduce the same class of error it is fixing.
+
+**Step 1: Write the failing test** — `tools/og-url/test/og-url.test.mjs`:
+
+```js
+// Every page that declares both a canonical and an og:url must agree on the URL.
+// An empty og:url or a tagged one is the failure this test exists to prevent.
+for (const file of htmlFiles) {
+  const canonical = /<link rel="canonical" href="([^"]*)"/.exec(html)?.[1];
+  const ogUrl = /<meta property="og:url" content="([^"]*)"/.exec(html)?.[1];
+  if (canonical === undefined || ogUrl === undefined) continue;
+  assert.equal(ogUrl, canonical, file);
+}
+```
+
+This is the whole guard: it fails today on 81 files and must pass on all of them afterwards. It also permanently prevents the next page from shipping with an empty one.
+
+**Step 2:** Confirm it fails, and that it names all 81.
+
+**Step 3:** Write `tools/og-url/build.mjs` to rewrite `og:url` from each file's canonical. Only touch files where the two differ, and **only** the `content="…"` of the `og:url` meta — no reformatting, no other edits. Report the count changed.
+
+**Step 4:** Run it, re-run the test, and inspect `git diff --stat` — expect exactly 81 files, one changed line each. Spot-check a Seneca letter, a Stockdale essay and `discourses/enchiridion.html` by hand.
+
+**Step 5:** Check for pages with a canonical but **no** `og:url` at all, and for any page whose canonical is itself missing or tagged. Report rather than fix — that is a different defect.
+
+**Step 6: Commit**
+
+```bash
+git add tools/og-url/ seneca/ stockdale/ index.html discourses/
+git commit -m "Point og:url at each page's canonical URL"
+```
+
+**Out of scope here:** the pre-existing dangling JSON-LD reference found in Task 11 — `meditations/index.html:837` has Book 7's `hasPart` pointing at `https://vreeman.com/meditations/#book7-56` with no node defining it, while its three siblings are defined at lines 1214/1226/1238 and the HTML anchor exists at line 2301. A missing JSON-LD node, not a bad href. Backlog.
+
+---
+
 ## Explicitly out of scope
 
 Do not do these in this plan, even if they look adjacent:
