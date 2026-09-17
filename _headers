@@ -5,6 +5,13 @@
     X-DNS-Prefetch-Control: on
     tdm-reservation: 0
     X-John-Deere: 6320
+    # rel="describedby" is llms.txt v2's one hard addition — without it the file is found only by an
+    # agent that already guessed the root path, which is the failure v2 set out to fix.
+    # rel="agent-skills" is a deliberate divergence: specification.website recommends this exact
+    # spelling, but the Cloudflare discovery RFC defines no link relation at all (it is well-known-URI
+    # only) and "agent-skills" is not in the IANA registry, so RFC 8288 2.1.2 would want a URI here.
+    # Kept as the bare token anyway: the token is what any client following that advice looks for,
+    # and a conformant URI nothing searches for would be worse. Revisit if it is ever registered.
     Link: <https://gtm.vreeman.com>; rel="preconnect"; crossorigin, <https://gtm.vreeman.com>; rel="dns-prefetch", <https://vreeman.com/schema.json>; rel="alternate"; type="application/ld+json", </llms.txt>; rel="describedby"; type="text/markdown", </.well-known/agent-skills/index.json>; rel="agent-skills"; type="application/json"
 
 # Prevent your pages.dev deployments showing in search results
