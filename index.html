@@ -828,8 +828,12 @@ dt, summary {
         }
       }
 
-      if (navigator.modelContext) {
-        register(navigator.modelContext);
+      // Current surface first, then the earlier draft. When neither exists, fall through to the
+      // shim below: isitagentready.com's runtime check looks for tools on navigator.modelContext
+      // in a browser that implements neither, and a missing shim reads as "no tools registered".
+      var native = document.modelContext || navigator.modelContext;
+      if (native) {
+        register(native);
       } else {
         try {
           var tools = [];
