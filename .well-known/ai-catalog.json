@@ -26,10 +26,10 @@
         "epictetus dichotomy of control",
         "GA4 UTM campaign URL builder",
         "marcus aurelius on getting away from it all",
-        "what stands in the way becomes the way"
+        "marcus aurelius on what stands in the way"
       ],
       "version": "1.1.0",
-      "updatedAt": "2026-09-17T11:36:32.966Z"
+      "updatedAt": "2026-09-17T11:42:03.235Z"
     },
     {
       "identifier": "urn:ai:vreeman.com:okf:stoicism",
@@ -50,7 +50,7 @@
         "marcus aurelius on memento mori"
       ],
       "version": "0.1",
-      "updatedAt": "2026-09-17T11:36:32.966Z"
+      "updatedAt": "2026-09-17T11:42:03.235Z"
     }
   ]
 }
