@@ -38,7 +38,7 @@
         "properties": {
           "query": {
             "type": "string",
-            "description": "Search terms, e.g. 'utm', 'measurement protocol', 'cro', 'seneca death', 'epictetus', 'meditations'."
+            "description": "Search terms, e.g. 'utm', 'measurement protocol', 'cro', 'seneca', 'epictetus', 'meditations'."
           }
         },
         "required": ["query"]

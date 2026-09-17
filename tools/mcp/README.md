@@ -58,10 +58,20 @@ callers get a response with nothing to strip.
 
 `.well-known/mcp/server-card.json` is the published advertisement for this endpoint, and
 `dispatch.test.mjs` holds the two in agreement: same tool names, and identical `inputSchema`, `title`
-and `description` per tool, plus the same protocol window, capabilities and version. `annotations` is
-the one field excluded — it is a call-time hint, not part of the published contract. The card's
-`version` is also what `tools/ards/build.mjs` copies into `.well-known/ai-catalog.json`, so bumping it
-there is what moves the catalog.
+and `description` per tool, plus the same protocol window, capabilities, server name, title and
+version. `annotations` is the one field excluded — it is a call-time hint, not part of the published
+contract. The card's `version` is also what `tools/ards/build.mjs` copies into
+`.well-known/ai-catalog.json`, so bumping it there is what moves the catalog.
+
+`card.description`, `card.endpoint`, `card.websiteUrl`, `card.repository` and `card.remotes[0].url`
+have **no counterpart in the code** — nothing in `functions/mcp.js` serves them — so no test here can
+hold them true. They are checked by reading them. `remotes[0].supportedProtocolVersions` is the
+exception and is compared, because the code does have a protocol window to compare against.
+
+**Watch-item:** every run of `tools/ards/build.mjs` restamps `updatedAt` on *both* catalog entries,
+including the OKF bundle, because `buildCatalog()` takes a single timestamp for the whole document.
+A registry therefore sees the OKF bundle as updated whenever the MCP card changes. Harmless today; if
+it ever matters the fix is per-entry provenance in the generator, not a change to this endpoint.
 
 ## Tools
 
@@ -145,7 +155,7 @@ reaching above `functions/`**. Verified rather than assumed:
 
     npx wrangler pages functions build --outfile=/tmp/mcp-bundle.js
 
-Compiles clean at about **36 KiB** against the 1 MB limit, with every imported symbol inlined and no
+Compiles clean at about **38 KiB** against the 1 MB limit, with every imported symbol inlined and no
 unresolved import left in the output. The module's trailing `mountSearch(document)` is guarded on
 `typeof document !== 'undefined'`, so it bundles in as a no-op — `document` does not exist in
 workerd. The DOM adapters ride along as dead code; at 33 KB, splitting the module to shed them would

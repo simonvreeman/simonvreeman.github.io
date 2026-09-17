@@ -186,8 +186,9 @@ test('initialize negotiates the version and advertises both tools; ping still an
   assert.match(init.result.instructions, /search_content/);
   assert.match(init.result.instructions, /search_meditations/);
   const ping = await dispatch({ jsonrpc: '2.0', id: 2, method: 'ping' });
-  // An EmptyResult is no longer literally empty: 2026-07-28 requires resultType on every result.
-  assert.deepEqual(ping.result, { resultType: 'complete' });
+  // An EmptyResult is no longer literally empty: 2026-07-28 requires resultType on every result,
+  // and serverInfo is a SHOULD on every response, so both ride along even here.
+  assert.deepEqual(ping.result, { resultType: 'complete', _meta: { [SERVER_INFO_META]: SERVER_INFO } });
   const bad = await dispatch({ jsonrpc: '2.0', id: 3, method: 'nope' });
   assert.equal(bad.error.code, -32601);
 });
@@ -201,17 +202,25 @@ test('both tools take a required query, and the new one is declared read-only', 
   assert.equal(med.annotations.readOnlyHint, true);
 });
 
-test('every example query in the tool description actually matches something', async () => {
-  // An agent copies these verbatim. The plan's original example, 'retreats for themselves', is Long's
-  // wording; this edition is Hays, where 4.3 reads 'get away from it all' — it would have returned
-  // nothing. Checked against the shipped corpus so a retranslation cannot quietly falsify the schema.
+test('every example query in every tool description actually matches something', async () => {
+  // An agent copies these verbatim. The plan's original Meditations example, 'retreats for
+  // themselves', is Long's wording; this edition is Hays, where 4.3 reads 'get away from it all' —
+  // it would have returned nothing. This loop was once narrowed to search_meditations, and
+  // search_content was quietly advertising 'seneca death', which its substring match over one
+  // string cannot hit because the two words are not adjacent in any CATALOG row. Check every tool:
+  // the bug is a property of advertising examples, not of one tool.
   const res = await dispatch({ jsonrpc: '2.0', id: 1, method: 'tools/list' });
-  const med = res.result.tools.find(t => t.name === 'search_meditations');
-  const examples = [...med.inputSchema.properties.query.description.matchAll(/'([^']+)'/g)].map(m => m[1]);
-  assert.ok(examples.length >= 2, 'the description should carry examples to check');
-  for (const q of examples) {
-    const hit = await call('search_meditations', { query: q }, realCorpus);
-    assert.doesNotMatch(hit.result.content[0].text, /^No entries match/, `example ${JSON.stringify(q)} finds nothing`);
+  for (const tool of res.result.tools) {
+    const examples = [...tool.inputSchema.properties.query.description.matchAll(/'([^']+)'/g)].map(m => m[1]);
+    assert.ok(examples.length >= 2, `${tool.name} should carry examples to check`);
+    for (const q of examples) {
+      const hit = await call(tool.name, { query: q }, realCorpus);
+      assert.doesNotMatch(
+        hit.result.content[0].text,
+        /^(No entries match|No results for)/,
+        `${tool.name} example ${JSON.stringify(q)} finds nothing`
+      );
+    }
   }
 });
 
@@ -248,6 +257,9 @@ test('a failed load does not poison the isolate for its whole life', async (t) =
 // key rather than at the top level.
 const PV_META = 'io.modelcontextprotocol/protocolVersion';
 const SERVER_INFO_META = 'io.modelcontextprotocol/serverInfo';
+// Spelled out rather than imported: this is the identity the endpoint publishes, and the card tests
+// below hold it equal to .well-known/mcp/server-card.json.
+const SERVER_INFO = { name: 'com.vreeman/site-search', title: 'Vreeman Site Search', version: '1.1.0' };
 const modern = (method, extra = {}) =>
   dispatch({ jsonrpc: '2.0', id: 1, method, params: { _meta: { [PV_META]: '2026-07-28', ...extra } } }, deps);
 
@@ -260,13 +272,27 @@ test('server/discover answers without a handshake', async () => {
   assert.equal(res.result.supportedVersions[0], '2026-07-28', 'newest first');
 });
 
-test('server/discover is a CacheableResult', async () => {
-  // ttlMs and cacheScope are required by CacheableResult; this server is anonymous and read-only,
-  // so its discovery response is the same for everyone and may be cached by shared proxies.
-  const res = await dispatch({ jsonrpc: '2.0', id: 1, method: 'server/discover' }, deps);
-  assert.equal(typeof res.result.ttlMs, 'number');
-  assert.ok(res.result.ttlMs >= 0);
-  assert.equal(res.result.cacheScope, 'public');
+test('every cacheable operation carries its caching hints', async () => {
+  // ttlMs and cacheScope are required on a "complete" result from a cacheable operation, and
+  // tools/list is one: ListToolsResult extends CacheableResult exactly as DiscoverResult does.
+  // Checking discover alone missed that for a while — the version axis and the operation axis have
+  // to be crossed, which is why this loops rather than naming one method.
+  for (const method of ['server/discover', 'tools/list']) {
+    const res = await dispatch({ jsonrpc: '2.0', id: 1, method }, deps);
+    assert.equal(res.result.resultType, 'complete', method);
+    assert.equal(typeof res.result.ttlMs, 'number', `${method} ttlMs`);
+    assert.ok(res.result.ttlMs >= 0, `${method} ttlMs`);
+    assert.equal(res.result.cacheScope, 'public', `${method} cacheScope`);
+  }
+});
+
+test('every response identifies the server, not just discovery', async () => {
+  // "Servers SHOULD include this field on every response." One ok() helper, so one place to get it
+  // right — and a result that supplies its own _meta must not lose it.
+  for (const method of ['server/discover', 'ping', 'tools/list', 'initialize']) {
+    const res = await dispatch({ jsonrpc: '2.0', id: 1, method }, deps);
+    assert.equal(res.result._meta[SERVER_INFO_META].name, 'com.vreeman/site-search', method);
+  }
 });
 
 test('every result declares resultType, as 2026-07-28 requires', async () => {
@@ -370,9 +396,19 @@ test('the transport pins two statuses to two error codes', async () => {
   // modern server from a legacy one, so a 200 here would provoke a needless fallback.
   assert.equal(bad.status, 400);
   assert.equal((await bad.json()).error.code, -32022);
-  const unknown = await post({ jsonrpc: '2.0', id: 1, method: 'resources/list' });
-  assert.equal(unknown.status, 404, 'an unimplemented method MUST be 404 with -32601');
+  // 404 for an unimplemented method is a 2026-07-28 MUST, so it is owed to a request that speaks
+  // 2026-07-28 — and to that one only.
+  const unknown = await post({
+    jsonrpc: '2.0', id: 1, method: 'resources/list', params: { _meta: { [PV_META]: '2026-07-28' } },
+  });
+  assert.equal(unknown.status, 404, 'a modern client gets the 404 its revision requires');
   assert.equal((await unknown.json()).error.code, -32601);
+  // A legacy client keeps the 200 it has always had here. An SDK transport that checks response.ok
+  // before parsing would otherwise turn a clean "Method not found" into a transport throw, and a
+  // legacy client has no reason to read the body of a 404 its own revision never produced.
+  const legacyUnknown = await post({ jsonrpc: '2.0', id: 1, method: 'resources/list' });
+  assert.equal(legacyUnknown.status, 200, 'no version declared: not a modern request');
+  assert.equal((await legacyUnknown.json()).error.code, -32601);
   const fine = await post({ jsonrpc: '2.0', id: 1, method: 'ping' });
   assert.equal(fine.status, 200);
 });
@@ -399,7 +435,9 @@ test('the server card advertises exactly what tools/list serves', async () => {
     assert.equal(published.title, served.title, `${served.name} title`);
     assert.equal(published.description, served.description, `${served.name} description`);
     // `annotations` is intentionally absent from the card — it is a hint to a client at call time,
-    // not part of the published contract — so it is the one field not compared.
+    // not part of the published contract — so it is the one field not compared. Revisit this line
+    // when annotations land on the card (the open watch-item is readOnlyHint on search_content):
+    // it encodes today's decision, not a permanent constraint.
     assert.equal(published.annotations, undefined);
   }
 });
@@ -412,6 +450,75 @@ test('the card and the code agree on the protocol window and the version', async
   assert.equal(card.protocolVersion, d.supportedVersions[0]);
   assert.deepEqual(card.capabilities, d.capabilities);
   assert.equal(card.serverInfo.version, d._meta[SERVER_INFO_META].version);
+  assert.equal(card.serverInfo.title, d._meta[SERVER_INFO_META].title);
+  assert.equal(card.title, d._meta[SERVER_INFO_META].title, 'the card names the server twice');
   assert.equal(card.version, d._meta[SERVER_INFO_META].version, 'the catalog copies this straight from the card');
   assert.equal(card.name, d._meta[SERVER_INFO_META].name);
+});
+
+// --- mirrored headers must agree with the body -----------------------------
+// Streamable HTTP copies `method`, the protocol version and `params.name` into headers so an
+// intermediary can route without parsing the body. If the two ever disagree, the intermediary and
+// the server act on different values — so a server that reads the body must reject the request.
+const postWith = (headers, body) =>
+  onRequestPost({
+    request: new Request('https://vreeman.com/mcp', { method: 'POST', headers, body: JSON.stringify(body) }),
+  });
+
+test('a header that contradicts the body is rejected with -32020', async () => {
+  const cases = [
+    ['mcp-protocol-version disagreeing with _meta',
+      { 'mcp-protocol-version': '2025-06-18' },
+      { jsonrpc: '2.0', id: 1, method: 'tools/list', params: { _meta: { [PV_META]: '2026-07-28' } } }],
+    ['mcp-method disagreeing with method',
+      { 'mcp-method': 'tools/call' },
+      { jsonrpc: '2.0', id: 1, method: 'tools/list' }],
+    ['mcp-name disagreeing with params.name',
+      { 'mcp-method': 'tools/call', 'mcp-name': 'search_content' },
+      { jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'search_meditations', arguments: { query: 'x' } } }],
+  ];
+  for (const [what, headers, body] of cases) {
+    const res = await postWith(headers, body);
+    assert.equal(res.status, 400, what);
+    const json = await res.json();
+    assert.equal(json.error.code, -32020, what);
+    assert.match(json.error.message, /^Header mismatch: /, what);
+  }
+});
+
+test('headers that agree with the body are served normally', async () => {
+  const res = await postWith(
+    { 'mcp-protocol-version': '2026-07-28', 'mcp-method': 'tools/call', 'mcp-name': 'search_content' },
+    { jsonrpc: '2.0', id: 1, method: 'tools/call',
+      params: { name: 'search_content', arguments: { query: 'utm' }, _meta: { [PV_META]: '2026-07-28' } } });
+  assert.equal(res.status, 200);
+  assert.match((await res.json()).result.content[0].text, /vreeman\.com\/utm/);
+});
+
+test('an Mcp-Name is decoded before it is compared', async () => {
+  // A value that is not plain-ASCII-safe travels as "=?base64?...?=" and servers MUST decode it
+  // before comparing. Encoding a name that matches the body must therefore still be accepted —
+  // comparing the raw sentinel would reject a perfectly conforming client.
+  const encoded = `=?base64?${Buffer.from('search_content', 'utf8').toString('base64')}?=`;
+  const ok = await postWith({ 'mcp-name': encoded },
+    { jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'search_content', arguments: { query: 'utm' } } });
+  assert.equal(ok.status, 200);
+  const bad = await postWith({ 'mcp-name': encoded },
+    { jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'search_meditations', arguments: { query: 'x' } } });
+  assert.equal(bad.status, 400);
+  assert.equal((await bad.json()).error.code, -32020);
+});
+
+test('a missing mirrored header is deliberately NOT a rejection', async () => {
+  // "A required standard header is missing" is a listed validation failure, but those headers are
+  // required only from 2026-07-28. Enforcing presence would reject every legacy client — the exact
+  // opposite of what a dual-era endpoint exists to do. This is a choice, not an oversight.
+  const res = await postWith({}, { jsonrpc: '2.0', id: 1, method: 'tools/list' });
+  assert.equal(res.status, 200);
+  assert.equal((await res.json()).result.tools.length, 2);
+  // Same for a legacy client that sends the version header but carries nothing in _meta to match.
+  const legacy = await postWith({ 'mcp-protocol-version': '2025-06-18' },
+    { jsonrpc: '2.0', id: 1, method: 'initialize', params: { protocolVersion: '2025-06-18' } });
+  assert.equal(legacy.status, 200);
+  assert.equal((await legacy.json()).result.protocolVersion, '2025-06-18');
 });

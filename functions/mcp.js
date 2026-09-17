@@ -32,6 +32,8 @@ const PROTOCOL_VERSION_META = "io.modelcontextprotocol/protocolVersion";
 const SERVER_INFO_META = "io.modelcontextprotocol/serverInfo";
 // schema.ts: UNSUPPORTED_PROTOCOL_VERSION. Distinct from -32602; carries {supported, requested}.
 const UNSUPPORTED_PROTOCOL_VERSION = -32022;
+// schema.ts: HeaderMismatchError, raised when a mirrored header contradicts the body.
+const HEADER_MISMATCH = -32020;
 
 const SERVER_INFO = {
   name: "com.vreeman/site-search",
@@ -48,10 +50,12 @@ const INSTRUCTIONS =
   "philosophy library. Use search_meditations to quote a specific entry of Marcus Aurelius' " +
   "Meditations; it returns a deep link to each matching entry.";
 
-// DiscoverResult extends CacheableResult, so ttlMs and cacheScope are required. Nothing here is
-// user-specific and the tool list is static, so a shared proxy may cache it for anyone; an hour
-// matches the edge cache _headers already puts on the corpus.
-const DISCOVER_TTL_MS = 3600000;
+// Caching hints, required on every result with resultType "complete" that comes back from a
+// cacheable operation — server/discover and tools/list here. Nothing this endpoint returns is
+// user-specific or authenticated and the tool list is static, so a shared proxy may cache it for
+// anyone; an hour matches the edge cache _headers already puts on the corpus.
+const CACHEABLE_TTL_MS = 3600000;
+const CACHE_HINTS = { ttlMs: CACHEABLE_TTL_MS, cacheScope: "public" };
 
 // Pages on this site (kept in sync with the WebMCP catalog in index.html).
 const CATALOG = [
@@ -88,7 +92,10 @@ const SEARCH_TOOL = {
     properties: {
       query: {
         type: "string",
-        description: "Search terms, e.g. 'utm', 'measurement protocol', 'cro', 'seneca death', 'epictetus', 'meditations'.",
+        // Every example here is run against this tool by tools/mcp/test/dispatch.test.mjs: an agent
+        // copies one verbatim, and 'seneca death' matched nothing (CATALOG is a substring match over
+        // one string, so two words only hit if they are adjacent in it).
+        description: "Search terms, e.g. 'utm', 'measurement protocol', 'cro', 'seneca', 'epictetus', 'meditations'.",
       },
     },
     required: ["query"],
@@ -198,7 +205,18 @@ function searchMeditations(entries, query) {
 // 2026-07-28 requires `resultType` on every result ("Servers implementing this protocol version
 // MUST include this field"). Clients on earlier revisions must treat an absent one as "complete"
 // and ignore unknown fields, so emitting it unconditionally is correct for both eras.
-const ok = (id, result) => ({ jsonrpc: "2.0", id, result: { resultType: "complete", ...result } });
+// serverInfo is a SHOULD on EVERY response, not just discovery, and every result in this file goes
+// through here. The spread order matters: a caller's own _meta keys are merged over the default, so
+// adding one later cannot silently drop serverInfo.
+const ok = (id, result) => ({
+  jsonrpc: "2.0",
+  id,
+  result: {
+    resultType: "complete",
+    ...result,
+    _meta: { [SERVER_INFO_META]: SERVER_INFO, ...result._meta },
+  },
+});
 const err = (id, code, message, data) => ({
   jsonrpc: "2.0",
   id,
@@ -225,6 +243,9 @@ export async function dispatch(msg, deps = {}) {
   if (msg.method !== "initialize") {
     const declared = (params._meta || {})[PROTOCOL_VERSION_META];
     if (declared !== undefined && !SUPPORTED_PROTOCOL_VERSIONS.includes(declared)) {
+      // `supported` names legacy revisions a modern client cannot use, which looks odd but is what
+      // the spec's own example does: the list is what the SERVER supports, and the client picks the
+      // newest it shares. Not a bug; do not "fix" it by filtering.
       return err(id, UNSUPPORTED_PROTOCOL_VERSION, "Unsupported protocol version", {
         supported: SUPPORTED_PROTOCOL_VERSIONS,
         requested: declared,
@@ -240,9 +261,7 @@ export async function dispatch(msg, deps = {}) {
         supportedVersions: SUPPORTED_PROTOCOL_VERSIONS,
         capabilities: CAPABILITIES,
         instructions: INSTRUCTIONS,
-        ttlMs: DISCOVER_TTL_MS,
-        cacheScope: "public",
-        _meta: { [SERVER_INFO_META]: SERVER_INFO },
+        ...CACHE_HINTS,
       });
     case "initialize": {
       // Deliberately NOT a delegation to server/discover: the two results are different shapes.
@@ -266,8 +285,10 @@ export async function dispatch(msg, deps = {}) {
     }
     case "ping":
       return ok(id, {});
+    // ListToolsResult extends CacheableResult as well: the caching hints are required here, not
+    // only on server/discover.
     case "tools/list":
-      return ok(id, { tools: [SEARCH_TOOL, MEDITATIONS_TOOL] });
+      return ok(id, { tools: [SEARCH_TOOL, MEDITATIONS_TOOL], ...CACHE_HINTS });
     case "tools/call": {
       const name = params.name;
       const args = params.arguments || {};
@@ -329,6 +350,12 @@ const json = (obj, status = 200, extra) =>
 // a malformed header being worse than none. This timestamp is 2026-07-28T00:00:00Z, the day the
 // handshake-less revision shipped and the handshake became deprecated.
 //
+// Scope caveat: RFC 9745 §2.2 scopes Deprecation to "the resource identified with the response it
+// occurred within", so a strict consumer reads this as /mcp being deprecated rather than the
+// `initialize` METHOD. There is no header that says "this method". The Link is the RFC-sanctioned
+// way to say what is actually meant, so it points at the backward-compatibility section rather than
+// the revision index, and the header is sent only on a handshake response.
+//
 // There is deliberately NO `Sunset`. RFC 8594 defines Sunset as the time the resource "will become
 // unresponsive", and RFC 9745 requires it to be no earlier than the deprecation date. We have no
 // date on which we intend to stop answering `initialize` — the spec schedules no removal for
@@ -337,16 +364,74 @@ const json = (obj, status = 200, extra) =>
 // planned, and give legacy clients more notice than the weeks a near date would offer.
 const LEGACY_HANDSHAKE_HEADERS = {
   deprecation: "@1785196800",
-  link: '<https://modelcontextprotocol.io/specification/2026-07-28>; rel="deprecation"',
+  link:
+    '<https://modelcontextprotocol.io/specification/2026-07-28/basic/versioning' +
+    '#backward-compatibility-with-initialization-based-versions>; rel="deprecation"',
 };
 
-// The transport pins two statuses to two JSON-RPC error codes. Everything else stays 200 with the
-// error in the body, which is what both eras expect.
-function httpStatusFor(res) {
+// The 2026-07-28 transport pins two statuses to two JSON-RPC error codes. Everything else stays 200
+// with the error in the body, which is what both eras expect.
+function httpStatusFor(res, modern) {
   const code = res.error && res.error.code;
-  if (code === UNSUPPORTED_PROTOCOL_VERSION) return 400; // modern clients detect a modern server by this
-  if (code === -32601) return 404; // "MUST respond with 404 Not Found" for an unimplemented method
+  // Unconditional: -32022 can only be produced by a request that declared a version, so a client
+  // that can see it is modern by construction. A 400 carrying a recognised modern error is also how
+  // a dual-era client tells a modern server from a legacy one.
+  if (code === UNSUPPORTED_PROTOCOL_VERSION) return 400;
+  // Gated, because the MUST lives in the 2026-07-28 binding and governs requests speaking it. A
+  // legacy client probing resources/list has always had a 200 with -32601 from this endpoint, and
+  // an SDK transport that checks response.ok before parsing would turn a clean "Method not found"
+  // into a transport throw. It has no reason to read the body, because its own revision never
+  // returned 404 here.
+  if (code === -32601 && modern) return 404;
   return 200;
+}
+
+// "=?base64?<value>?=" is the sentinel clients must use for a header value that is not plain-ASCII
+// safe, and servers MUST decode it before comparing against the body.
+function decodeHeaderValue(v) {
+  if (!v.startsWith("=?base64?") || !v.endsWith("?=")) return v;
+  try {
+    const bin = atob(v.slice(9, -2));
+    return new TextDecoder().decode(Uint8Array.from(bin, (c) => c.charCodeAt(0)));
+  } catch {
+    return v; // undecodable: compared as-is, so it mismatches and is rejected, which is correct
+  }
+}
+
+// Streamable HTTP mirrors selected body fields into headers so intermediaries can route without
+// parsing the body. A server that reads the body MUST reject any request where the two disagree —
+// otherwise a proxy routes on one value while this function answers another. Cloudflare is exactly
+// such an intermediary, which is why a read-only anonymous server still owes this check.
+//
+// DELIBERATELY only the mismatch half. "A required standard header is missing" is also a listed
+// validation failure, but those headers are required only from 2026-07-28: enforcing their presence
+// would reject every legacy client, which is the opposite of what a dual-era endpoint is for. A
+// header that is present and wrong is a broken or hostile client under any revision. For the same
+// reason the protocol-version check needs a version in the body to compare against — a legacy
+// client sends MCP-Protocol-Version but carries nothing in _meta.
+function headerMismatch(request, msg) {
+  const header = (n) => request.headers.get(n);
+  const params = msg.params || {};
+  const declared = (params._meta || {})[PROTOCOL_VERSION_META];
+  const version = header("mcp-protocol-version");
+  if (version !== null && declared !== undefined && version !== declared) {
+    return `MCP-Protocol-Version header value '${version}' does not match body value '${declared}'`;
+  }
+  const method = header("mcp-method");
+  if (method !== null && method !== msg.method) {
+    return `Mcp-Method header value '${method}' does not match body value '${msg.method}'`;
+  }
+  // Mcp-Name mirrors params.name, and only these requests have one to mirror.
+  if (msg.method === "tools/call") {
+    const name = header("mcp-name");
+    if (name !== null) {
+      const decoded = decodeHeaderValue(name);
+      if (decoded !== params.name) {
+        return `Mcp-Name header value '${decoded}' does not match body value '${params.name}'`;
+      }
+    }
+  }
+  return null;
 }
 
 export async function onRequestPost(context) {
@@ -379,13 +464,19 @@ export async function onRequestPost(context) {
     return json(err(msg.id !== undefined ? msg.id : null, -32600, "Invalid Request"));
   }
 
+  const mismatch = headerMismatch(context.request, msg);
+  if (mismatch) {
+    return json(err(msg.id !== undefined ? msg.id : null, HEADER_MISMATCH, `Header mismatch: ${mismatch}`), 400);
+  }
+
   const res = await dispatch(msg);
   // "Was this the legacy handshake?" is a property of the REQUEST, and the request is right here —
   // so the deprecation headers are derived from msg.method rather than smuggled out of dispatch()
   // on a marker field. That keeps dispatch() a pure message-in/message-out function with one return
   // value, hands callers a response with nothing to strip, and costs no mutation.
   const legacy = msg.method === "initialize";
-  return json(res, httpStatusFor(res), legacy ? LEGACY_HANDSHAKE_HEADERS : undefined);
+  const modern = ((msg.params || {})._meta || {})[PROTOCOL_VERSION_META] !== undefined;
+  return json(res, httpStatusFor(res, modern), legacy ? LEGACY_HANDSHAKE_HEADERS : undefined);
 }
 
 export function onRequestGet() {
