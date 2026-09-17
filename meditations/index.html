@@ -3389,6 +3389,17 @@ footer {
       </div>
     </template>
 <script type="module" src="search.js"></script>
+<!-- WebMCP: feature-detect before downloading, not inside the bundle. A visitor whose browser has no
+     WebMCP should fetch nothing at all, so the guard is here and not at the top of webmcp.js — a module
+     that returns early has already been downloaded and parsed. Guard the load, then guard the call. -->
+<script>
+if (document.modelContext || navigator.modelContext) {
+  var s = document.createElement('script');
+  s.type = 'module';
+  s.src = 'webmcp.js';
+  document.head.appendChild(s);
+}
+</script>
 <script>
 window.onload = function(){
   setTimeout(function(){

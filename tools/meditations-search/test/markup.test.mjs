@@ -24,6 +24,16 @@ test('search module is loaded as a module script', () => {
   assert.match(html, /<script type="module" src="search\.js"><\/script>/);
 });
 
+test('the WebMCP bundle is loaded only when the API exists', () => {
+  // Guard the LOAD, not just the registration: a visitor whose browser has no
+  // WebMCP must download nothing at all, not a script that returns early.
+  const m = /<script>\s*if\s*\((document\.modelContext|navigator\.modelContext)[\s\S]{0,400}?webmcp\.js[\s\S]*?<\/script>/.exec(html);
+  assert.ok(m, 'an inline guard injects webmcp.js');
+  assert.match(m[0], /document\.modelContext/, 'checks the current surface');
+  assert.match(m[0], /navigator\.modelContext/, 'and the earlier draft');
+  assert.ok(!/<script type="module" src="webmcp\.js">/.test(html), 'never loaded unconditionally');
+});
+
 test('widget markup lives in the page, inside an inert template', () => {
   const m = /<template id="search-template">([\s\S]*?)<\/template>/.exec(html);
   assert.ok(m, 'the page carries <template id="search-template">');
