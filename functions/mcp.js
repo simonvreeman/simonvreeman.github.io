@@ -11,12 +11,15 @@
 // Exposes two tools: `search_content` over the page catalog below (mirroring the WebMCP tool on the
 // homepage), and `search_meditations` over the 499 entries of the Meditations.
 //
-// The Meditations matching logic is IMPORTED from meditations/search.js — the same module the page's
-// own search box runs — so quote folding, label matching and snippets have one definition, not three.
+// The Meditations answer is IMPORTED, not written here: searchMeditations() lives in
+// meditations/tool-result.js and is the same function the WebMCP tool on the Meditations page runs,
+// over matching logic from meditations/search.js — the module the page's own search box runs. One
+// definition of the answer, for two surfaces that advertise one tool name.
 // Cloudflare Pages compiles functions/ with esbuild and inlines relative imports, including ones
-// reaching above functions/, so this resolves at deploy time; see tools/mcp/README.md. The module's
+// reaching above functions/, so this resolves at deploy time; see tools/mcp/README.md. search.js's
 // trailing mountSearch(document) is guarded on `typeof document`, so it bundles in as a no-op here.
-import { findMatches, MIN_QUERY, snippet, statusText, withLower } from "../meditations/search.js";
+import { searchMeditations } from "../meditations/tool-result.js";
+import { withLower } from "../meditations/search.js";
 
 // Newest first: DiscoverResult.supportedVersions is the list a modern client picks from.
 const MODERN_PROTOCOL_VERSION = "2026-07-28";
@@ -163,43 +166,6 @@ const defaultLoadEntries = () =>
       entriesPromise = null;
       throw e;
     }));
-
-const MAX_RESULTS = 20;
-
-// findMatches/snippet/statusText are imported from meditations/search.js, never copied. `entries`
-// arrives rehydrated — see the withLower() call in dispatch().
-function searchMeditations(entries, query) {
-  const { query: q, matches } = findMatches(entries, query);
-  // findMatches() returns no matches below MIN_QUERY without looking at the corpus. The browser
-  // renders an empty status line for that; over MCP, saying "no entries match" would be a false
-  // negative the agent has no way to doubt.
-  if (q.length < MIN_QUERY) {
-    return `Queries must be at least ${MIN_QUERY} characters; "${q}" was not searched.`;
-  }
-  if (!matches.length) return `${statusText(0)} "${q}".`;
-  // An exact entry number is a request to READ that entry, not to find it — and `instructions`
-  // promises this tool can quote one. A ~140-character window would leave the agent no way to get
-  // the rest but to fetch all 210 KB of entries.json (4.3 alone is 2,378 characters). This is the
-  // one place the browser's semantics do not transfer: there a snippet is a link you click, here it
-  // is the whole answer. The label branch of findMatches() is also the only way a match can carry no
-  // occurrence of the query in its text, since the leading "§ 4.3" is stripped at build time.
-  const exact = matches.length === 1 && matches[0].label === q;
-  const shown = matches.slice(0, MAX_RESULTS);
-  // The edition is named per call: it appears in the tool description too, but an agent may not
-  // carry that into its answer, and a Meditations quotation is worth attributing correctly.
-  const capped =
-    matches.length > MAX_RESULTS ? `; showing the first ${MAX_RESULTS} — refine the query for fewer` : "";
-  const head = `${statusText(matches.length)} "${q}" (trans. Hays${capped}):`;
-  const lines = shown.map((e) => {
-    let text = e.text;
-    if (!exact) {
-      const s = snippet(e, q);
-      text = (s.leading ? "…" : "") + s.before + s.hit + s.after + (s.trailing ? "…" : "");
-    }
-    return `• ${e.label} — ${text} — https://vreeman.com/meditations/#${e.id}`;
-  });
-  return [head, ...lines].join("\n");
-}
 
 // --- JSON-RPC helpers ----------------------------------------------------
 // 2026-07-28 requires `resultType` on every result ("Servers implementing this protocol version

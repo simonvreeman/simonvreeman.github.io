@@ -25,13 +25,17 @@ test('search module is loaded as a module script', () => {
 });
 
 test('the WebMCP bundle is loaded only when the API exists', () => {
-  // Guard the LOAD, not just the registration: a visitor whose browser has no
-  // WebMCP must download nothing at all, not a script that returns early.
-  const m = /<script>\s*if\s*\((document\.modelContext|navigator\.modelContext)[\s\S]{0,400}?webmcp\.js[\s\S]*?<\/script>/.exec(html);
-  assert.ok(m, 'an inline guard injects webmcp.js');
-  assert.match(m[0], /document\.modelContext/, 'checks the current surface');
-  assert.match(m[0], /navigator\.modelContext/, 'and the earlier draft');
-  assert.ok(!/<script type="module" src="webmcp\.js">/.test(html), 'never loaded unconditionally');
+  // Guard the LOAD, not just the registration: a visitor whose browser has no WebMCP must download
+  // nothing at all, not a script that returns early. Matched by reading the inline scripts rather
+  // than by pinning a shape, so the guard stays free to be an IIFE, to carry its rationale, or to
+  // grow a second branch — what is asserted is that the feature check precedes the load.
+  const inline = [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)]
+    .map(m => m[1]).find(s => s.includes('webmcp.js'));
+  assert.ok(inline, 'an inline script injects webmcp.js');
+  assert.match(inline, /document\.modelContext/, 'checks the current surface');
+  assert.match(inline, /navigator\.modelContext/, 'and the earlier draft');
+  assert.ok(inline.indexOf('modelContext') < inline.indexOf('webmcp.js'), 'the feature check comes before the load');
+  assert.ok(!/<script[^>]*\bsrc="webmcp\.js"/.test(html), 'never loaded unconditionally');
 });
 
 test('widget markup lives in the page, inside an inert template', () => {

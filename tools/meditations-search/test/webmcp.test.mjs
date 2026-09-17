@@ -53,6 +53,15 @@ const PAIR = [entry('book2-1'), entry('book4-3')];
 const pairDoc = pageOf(PAIR);
 const fullDoc = pageOf(shipped);
 
+// Any "the two outputs agree" assertion is worthless if both outputs are the same emptiness, so every
+// query that is supposed to find something is checked for a hit FIRST. Hays, not Long: the corpus is
+// Gregory Hays' translation, so a query remembered from the public-domain 1862 Long ("men seek
+// retreats for themselves") matches nothing at all and silently turns a comparison into a tautology.
+function assertHit(text, query, expected) {
+  assert.ok(!text.startsWith('No entries match'), `"${query}" matched nothing — Long's wording, not Hays'?`);
+  assert.equal(text.split('\n').length - 1, expected, `result lines for "${query}"`);
+}
+
 const callServer = (query, entries) =>
   dispatch(
     { jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'search_meditations', arguments: { query } } },
@@ -94,13 +103,14 @@ test('the tool registers itself through document.modelContext.registerTool', () 
 
 test('the browser tool and the server tool are the same tool', async () => {
   // The design's whole premise: "an agent that knows the server-side tool will recognise the browser
-  // one immediately". That holds only while the name, the schema and the description agree.
+  // one immediately". Compared WHOLE rather than field by field: a hand-picked list of fields passes
+  // happily while the two descriptors differ in a field nobody thought to list — which is how `title`
+  // went missing here — and it would keep passing for the next field added on either side.
   const res = await dispatch({ jsonrpc: '2.0', id: 1, method: 'tools/list' });
   const server = res.result.tools.find(t => t.name === 'search_meditations');
-  assert.equal(tool.name, server.name);
-  assert.equal(tool.description, server.description);
-  assert.deepEqual(tool.inputSchema, server.inputSchema);
-  assert.deepEqual(tool.annotations, server.annotations);
+  const mine = { ...tool };
+  delete mine.execute; // the one field the server's descriptor cannot have: it is not the caller
+  assert.deepEqual(mine, server);
 });
 
 test('the declarative surface gets the same tool', () => {
@@ -110,9 +120,13 @@ test('the declarative surface gets the same tool', () => {
 
 test('execute() answers exactly what /mcp answers, entry for entry', async () => {
   globalThis.document = pairDoc;
-  for (const query of ['retreats', '4.3', 'wake up', 'nothing whatsoever matches this']) {
+  // 'people' hits both entries (a plural head line), 'wake up' one, '4.3' is the exact-label branch,
+  // and only the last query is allowed to find nothing.
+  const cases = [['people', 2], ['wake up', 1], ['4.3', 1], ['nothing whatsoever matches this', null]];
+  for (const [query, hits] of cases) {
     const mine = await tool.execute({ query });
     const theirs = await callServer(query, PAIR);
+    if (hits !== null) assertHit(mine.content[0].text, query, hits);
     assert.equal(mine.content[0].text, theirs.result.content[0].text, `query: ${query}`);
     assert.equal(mine.isError, theirs.result.isError, `isError for: ${query}`);
   }
@@ -120,9 +134,15 @@ test('execute() answers exactly what /mcp answers, entry for entry', async () =>
 
 test('over the whole book too: truncation, full entries, snippets, short queries', async () => {
   globalThis.document = fullDoc;
-  for (const query of ['the', '4.3', 'get away from it all', 'Verus', 'I', 'zzzzz']) {
+  // Expected hit counts against the shipped 499, so a query that quietly stops matching (a corpus
+  // regeneration, a folding change, Long's phrasing slipping in) fails here instead of comparing two
+  // "No entries match" strings and calling it parity. 'I' is under MIN_QUERY and 'zzzzz' finds
+  // nothing: those two are the only ones with no hit to assert.
+  const cases = [['the', 20], ['4.3', 1], ['get away from it all', 1], ['Verus', 5], ['I', null], ['zzzzz', null]];
+  for (const [query, hits] of cases) {
     const mine = await fullModule.tool.execute({ query });
     const theirs = await callServer(query, shipped);
+    if (hits !== null) assertHit(mine.content[0].text, query, hits);
     assert.equal(mine.content[0].text, theirs.result.content[0].text, `query: ${query}`);
   }
   // Spot-check the two shapes that distinguish this tool from a plain snippet search, so a future
@@ -161,10 +181,13 @@ test('a missing or empty query is refused the way the server refuses it', async 
 
 test('the index is built once and kept', async () => {
   globalThis.document = pairDoc;
-  const first = (await tool.execute({ query: 'retreats' })).content[0].text;
+  // The query MUST match something, or this test passes with the cache removed: two runs of an
+  // unmatched query agree perfectly, on "No entries match", whether the index was reused or rebuilt.
+  const first = (await tool.execute({ query: 'wake up' })).content[0].text;
+  assertHit(first, 'wake up', 1);
   // A page with no Books at all: a second buildIndex() would find nothing and the answer would change.
   globalThis.document = emptyPage();
-  assert.equal((await tool.execute({ query: 'retreats' })).content[0].text, first);
+  assert.equal((await tool.execute({ query: 'wake up' })).content[0].text, first);
 });
 
 // --- import 3: no API anywhere --------------------------------------------

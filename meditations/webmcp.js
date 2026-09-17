@@ -4,20 +4,15 @@
 // Loaded only by the inline guard in index.html, which feature-detects the API before fetching this
 // file: a visitor whose browser has no WebMCP downloads nothing. That is why the guard lives in the
 // page and not at the top of this module — a module that returns early has already been downloaded,
-// parsed and (with search.js) pulled a second file down with it.
+// parsed and pulled its own imports down with it.
 //
 // The tool name, inputSchema and description match `search_meditations` on https://vreeman.com/mcp,
-// so an agent that knows one recognises the other. Because the names match, the ANSWERS have to
-// match too — the same query must not come back in two shapes depending on which surface the agent
-// happened to reach. searchMeditations() below is therefore a deliberate mirror of the function of
-// the same name in functions/mcp.js; change one and tools/meditations-search/test/webmcp.test.mjs
-// fails, because it compares the two outputs directly over the shipped corpus.
-//
-// Unlike the server, this side needs no corpus and no fetch: the entries are the page.
+// so an agent that knows one recognises the other — and because the names match, the ANSWER is not
+// written here either: searchMeditations() comes from tool-result.js, the one module both surfaces
+// run. Unlike the server, this side needs no corpus and no fetch: the entries are the page.
 
-import { buildIndex, findMatches, MIN_QUERY, snippet, statusText } from './search.js';
-
-const MAX_RESULTS = 20;
+import { buildIndex } from './search.js';
+import { searchMeditations } from './tool-result.js';
 
 // mountSearch() builds an index too, lazily on first panel open, but keeps it in a closure and does
 // not export it — so this is a second pass over the same 499 entries. That is accepted knowingly:
@@ -28,46 +23,18 @@ const MAX_RESULTS = 20;
 // re-read text the document already holds. buildIndex() is a pure read of `main > section[id=bookN]`,
 // which nothing on the page mutates — the widget mounts after <header>, outside <main> — so building
 // it twice is wasteful, never wrong.
+//
+// `??=` caches an empty index as readily as a full one ([] is not nullish). That cannot happen on
+// this page — markup.test.mjs pins all 499 markers inside twelve `main > section[id=bookN]` — but if
+// it ever could, every later call would answer "No entries match" for the life of the page. The test
+// that would catch it is "the index is built once and kept" in webmcp.test.mjs, which is written to
+// fail when the index is NOT reused; a `??=` over a truthiness test would need its mirror image.
 let index = null;
 const ensureIndex = () => (index ??= buildIndex(document));
 
-// A mirror of searchMeditations() in functions/mcp.js, down to the wording. See the note above.
-// The deep links are absolute vreeman.com URLs, as the server's are: an agent quotes the canonical
-// address of an entry, not whatever host this copy of the page was served from.
-export function searchMeditations(entries, rawQuery) {
-  const { query: q, matches } = findMatches(entries, rawQuery);
-  // findMatches() returns no matches below MIN_QUERY without looking at the corpus. The search panel
-  // renders an empty status line for that; to an agent, "no entries match" would be a false negative
-  // it has no way to doubt.
-  if (q.length < MIN_QUERY) {
-    return `Queries must be at least ${MIN_QUERY} characters; "${q}" was not searched.`;
-  }
-  if (!matches.length) return `${statusText(0)} "${q}".`;
-  // An exact entry number is a request to READ that entry, not to find it: a ~140-character window
-  // would leave the agent no way to get the rest. (It is also the only way a match can carry no
-  // occurrence of the query in its text, since the leading "§ 4.3" is stripped when the index is
-  // built.) The browser's own results list keeps showing snippets — there a snippet is a link you
-  // click, here it is the whole answer.
-  const exact = matches.length === 1 && matches[0].label === q;
-  const shown = matches.slice(0, MAX_RESULTS);
-  const capped =
-    matches.length > MAX_RESULTS ? `; showing the first ${MAX_RESULTS} — refine the query for fewer` : '';
-  // The edition is named per call: it is in the tool description too, but an agent may not carry
-  // that into its answer, and a Meditations quotation is worth attributing correctly.
-  const head = `${statusText(matches.length)} "${q}" (trans. Hays${capped}):`;
-  const lines = shown.map((e) => {
-    let text = e.text;
-    if (!exact) {
-      const s = snippet(e, q);
-      text = (s.leading ? '…' : '') + s.before + s.hit + s.after + (s.trailing ? '…' : '');
-    }
-    return `• ${e.label} — ${text} — https://vreeman.com/meditations/#${e.id}`;
-  });
-  return [head, ...lines].join('\n');
-}
-
 export const tool = {
   name: 'search_meditations',
+  title: 'Search the Meditations',
   description:
     "Search the 499 entries of Marcus Aurelius' Meditations (Books 1–12, Gregory Hays translation) " +
     'and return the matching entries with a deep link. Books only — the Introduction, Notes and ' +
@@ -88,9 +55,10 @@ export const tool = {
   async execute(input) {
     const query = input && input.query;
     // The server validates this in its JSON-RPC dispatcher, before the search function ever runs;
-    // there is no dispatcher here, so the check lives at the same seam an agent reaches — and says
-    // the same sentence. Without it, an empty query would fall through to "must be at least 2
-    // characters", which describes a search that was attempted rather than an argument that is missing.
+    // there is no dispatcher here, so the check lives at the seam an agent actually reaches — and
+    // says the same sentence, which webmcp.test.mjs pins against the server's own rejection. Without
+    // it, an empty query would fall through to "must be at least 2 characters", which describes a
+    // search that was attempted rather than an argument that is missing.
     if (typeof query !== 'string' || query.trim() === '') {
       return {
         content: [{ type: 'text', text: "The 'query' argument is required (a non-empty search string)." }],
@@ -105,16 +73,21 @@ export const tool = {
 // `navigator` yields undefined rather than throwing, and both objects exist in every browser that
 // can run this module at all, so the expression is safe without a typeof dance.
 //
-// No stand-in when neither exists. This page is NOT the surface isitagentready.com scans; the
-// homepage is, and shims deliberately (see Task 7 and §5.2 of the design). Installing a fake API
-// here would only tell other scripts on this page that a WebMCP agent is present when none is.
+// Prefer the imperative registerTool() and fall through to the declarative provideContext() — on a
+// THROW as well as on an absence, as the homepage's register() does. A registerTool() that exists
+// and throws has registered nothing, so replacing a tool set that never received the tool is not the
+// hazard it would be after a successful call.
+//
+// No stand-in when neither surface exists. This page is NOT the one isitagentready.com scans; the
+// homepage is, and shims deliberately (see §5.2 of the agent-surfaces design). A fake API here would
+// only tell other scripts on this page that a WebMCP agent is present when none is.
 const mc = document.modelContext || navigator.modelContext;
 if (mc) {
+  let registered = false;
   if (typeof mc.registerTool === 'function') {
-    try { mc.registerTool(tool); } catch {}
-  } else if (typeof mc.provideContext === 'function') {
-    // provideContext() REPLACES the tool set, so this branch is reached only when the imperative
-    // call is unavailable — never as a second registration of the same tool.
+    try { mc.registerTool(tool); registered = true; } catch {}
+  }
+  if (!registered && typeof mc.provideContext === 'function') {
     try { mc.provideContext({ tools: [tool] }); } catch {}
   }
 }
