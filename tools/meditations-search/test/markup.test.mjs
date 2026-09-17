@@ -46,7 +46,7 @@ test('page hooks the search CSS and JS rely on', () => {
   // The print stylesheet hides the widget.
   assert.match(html, /@media print \{[\s\S]*?\.search[\s\S]*?display: none/);
 
-  // Every Book section is a direct child of <main>: buildIndex() selects `main > section[id]`.
+  // Book sections are in order inside <main> and sections never nest; direct parentage is checked in the last test.
   const main = html.slice(html.indexOf('<main>'), html.indexOf('</main>'));
   const books = [...main.matchAll(/<section id="(book\d+)">/g)].map(m => m[1]);
   assert.deepEqual(books, Array.from({ length: 12 }, (_, i) => `book${i + 1}`));
@@ -57,4 +57,34 @@ test('page hooks the search CSS and JS rely on', () => {
     depth += t === '<section' ? 1 : -1;
     assert.ok(depth >= 0 && depth <= 1, 'sections are never nested');
   }
+});
+
+test('page hooks the mount point and the toggle focus style rely on', () => {
+  // mountSearch() inserts the widget right after <header id="header">, so the toggle follows the skip link in Tab order.
+  assert.match(html, /<header id="header">\s*<a href="#introduction" class="skip-to-main-content-link">/);
+  // The closed toggle needs its own keyboard-focus colour in both schemes: the global :focus ring is too faint on the white disc.
+  assert.equal((html.match(/#search-toggle:focus-visible/g) || []).length, 2, 'light and dark focus-visible rules');
+  // The widget now precedes the .fixed back-to-top link in the DOM, so it must out-stack it (both are position: fixed).
+  assert.match(html, /\.search \{[^}]*z-index: 11;/, '.search stacks above .fixed (z-index 10)');
+});
+
+test('page hooks the keyboard and phone behaviour rely on', () => {
+  // Enter in the field moves focus to the first result; the phone keyboard labels the key accordingly.
+  assert.match(html, /<input id="search-input" type="search" enterkeyhint="search"/);
+  // The panel height follows the visual viewport (set as --vvh by mountSearch) so the keyboard does not cover it.
+  assert.match(html, /#search-panel \{[^}]*max-height: min\(70dvh, calc\(var\(--vvh, 100dvh\) - 4\.5rem\)\);/);
+  // body sets "onum" 1; the labels must reset the low-level property or they render oldstyle in most fonts.
+  assert.match(html, /#search-results a strong \{[^}]*font-feature-settings: 'lnum' on, 'tnum' on;/);
+});
+
+test('Book sections are direct children of main and every entry marker is inside a Book', () => {
+  // buildIndex() selects `main > section[id]`: anything wrapping a Book would silently drop it from the index.
+  const inner = html.slice(html.indexOf('<main>') + 6, html.indexOf('</main>'));
+  assert.match(inner.replace(/<section id="[\w-]+">[\s\S]*?<\/section>/g, ''), /^\s*$/, '<main> holds only top-level sections');
+  // A marker moved out of its Book keeps the whole-file count but drops out of the index.
+  const marker = /<(?:h3|strong) id="book\d+-\d+[a-z]?"/g;
+  const inBooks = [...inner.matchAll(/<section id="book\d+">([\s\S]*?)<\/section>/g)]
+    .reduce((n, [, body]) => n + (body.match(marker) || []).length, 0);
+  assert.equal(inBooks, 499);
+  assert.equal((html.match(marker) || []).length, inBooks, 'no entry markers outside the Books');
 });

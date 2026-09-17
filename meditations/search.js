@@ -1,12 +1,14 @@
 // Search within Books 1–12 of the Meditations.
-// Pure helpers are exported for tests (tools/meditations-search/test/).
-// DOM access happens only in the adapter functions and mountSearch(); module top level is DOM-free.
+// The pure helpers (through isSearchShortcut) and the DOM adapters are exported for the node tests in
+// tools/meditations-search/test/ (the adapters run against a small fake DOM there) and for console
+// checks via import(). The only top-level DOM access is the guarded auto-mount on the last line.
 
 // Entry ids are bookN-M, with an optional letter suffix for sub-entries (e.g. book4-49a).
 const ENTRY_ID = /^book(\d+)-(\d+[a-z]?)$/;
 
-// Fold curly quotes to straight ones for matching only. Each replacement is a single
-// UTF-16 code unit, so offsets found in the folded string stay valid in the original text.
+// Fold curly quotes to straight ones for matching only. snippet() slices entry.text by offsets found
+// in entry.lower, so lower must stay index-aligned with text: each replacement here is one UTF-16 code
+// unit, and toLowerCase() preserves length for everything in the Books (U+0130 İ is the only exception).
 const foldQuotes = s => s.replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
 
 export function normalizeText(s) {
@@ -78,13 +80,24 @@ export function snippet(entry, query, radius = SNIPPET_RADIUS) {
   };
 }
 
+// Cmd/Ctrl+K opens the search. ev.key is what the layout produced; the physical KeyK position counts
+// only when that is not a Latin letter (Cyrillic, Greek…), so Cmd+T on Dvorak stays a new tab.
+export function isSearchShortcut(ev) {
+  if (!(ev.metaKey || ev.ctrlKey) || ev.altKey || ev.shiftKey) return false;
+  const k = (ev.key || '').toLowerCase();
+  return k === 'k' || (ev.code === 'KeyK' && !/^\p{Script=Latin}$/u.test(k));
+}
+
 const BOOK_ID = /^book\d+$/;
-const STRIP_SELECTOR = 'sup, .return'; // footnote markers and § return links are dropped; line breaks become spaces
+const STRIP_SELECTOR = 'sup, .return'; // footnote markers and § return links
+// textContent joins nodes with nothing in between, so line breaks and block descendants are padded
+// with spaces; otherwise "…world.</li><li>My…" would fuse into "world.My" without whitespace between tags.
+const PAD_SELECTOR = 'br, li, p';
 
 export function visibleText(el) {
   const clone = el.cloneNode(true);
   clone.querySelectorAll(STRIP_SELECTOR).forEach(n => n.remove());
-  clone.querySelectorAll('br').forEach(n => n.replaceWith(' '));
+  clone.querySelectorAll(PAD_SELECTOR).forEach(n => { n.before(' '); n.after(' '); });
   return normalizeText(clone.textContent || '');
 }
 
@@ -123,19 +136,38 @@ export function mountSearch(doc) {
   if (!template || !template.content) return null;
   const root = template.content.firstElementChild?.cloneNode(true);
   if (!root) return null;
-  doc.body.appendChild(root);
 
   const toggle = root.querySelector('#search-toggle');
   const panel = root.querySelector('#search-panel');
   const input = root.querySelector('#search-input');
   const status = root.querySelector('#search-status');
   const results = root.querySelector('#search-results');
-  let index = null; // built lazily on first open
+  if (!toggle || !panel || !input || !status || !results) return null; // hand-edited template: leave the page alone
+
+  // Mount right after <header> so the toggle follows the skip link in Tab order. .search is
+  // position: fixed, so its place in the DOM has no layout effect, but it now precedes the .fixed
+  // back-to-top link, so .search takes z-index 11 to keep the open panel painting above that disc.
+  const header = doc.getElementById('header');
+  if (header) header.after(root); else doc.body.appendChild(root);
+  let index = null;
+  // Built lazily on first open. render() calls it too so the order never matters: on the page the field sits
+  // in the hidden panel, so open() always comes first, but tests and console checks can fire input cold.
+  const ensureIndex = () => index ?? (index = buildIndex(doc));
 
   const isOpen = () => !panel.hidden;
 
+  // A phone's on-screen keyboard shrinks only the visual viewport, which dvh and position: fixed ignore,
+  // so expose that height for the panel's max-height (see the #search-panel rule). height * scale factors
+  // pinch-zoom (and iOS's auto-zoom on focus) back out, so only the keyboard shrinks the panel.
+  const vv = doc.defaultView.visualViewport;
+  if (vv) {
+    const track = () => root.style.setProperty('--vvh', `${Math.round(vv.height * vv.scale)}px`);
+    vv.addEventListener('resize', track);
+    track();
+  }
+
   function open() {
-    if (!index) index = buildIndex(doc);
+    ensureIndex();
     panel.hidden = false;
     toggle.setAttribute('aria-expanded', 'true');
     input.focus();
@@ -148,57 +180,68 @@ export function mountSearch(doc) {
     if (refocus) toggle.focus();
   }
 
-  function render() {
-    if (!index) index = buildIndex(doc);
-    const { query, matches } = findMatches(index, input.value);
-    results.replaceChildren();
-    if (query.length < MIN_QUERY) { status.textContent = ''; return; }
-    status.textContent = statusText(matches.length);
-    const frag = doc.createDocumentFragment();
-    for (const entry of matches) {
-      const li = doc.createElement('li');
-      const a = doc.createElement('a');
-      a.href = `#${entry.id}`;
-      const strong = doc.createElement('strong');
-      strong.textContent = entry.label;
-      a.appendChild(strong);
-      // On narrow viewports the fixed panel would cover the entry just jumped to, so close it.
-      a.addEventListener('click', () => { if (doc.defaultView.matchMedia('(max-width: 60em)').matches) close(false); });
-      li.appendChild(a);
-
-      const s = snippet(entry, query);
-      const span = doc.createElement('span');
-      span.className = 'search-snippet';
-      span.append((s.leading ? '…' : '') + s.before);
-      if (s.hit) {
-        const mark = doc.createElement('mark');
-        mark.textContent = s.hit;
-        span.appendChild(mark);
-      }
-      span.append(s.after + (s.trailing ? '…' : ''));
-      a.append(' ', span);
-      frag.appendChild(li);
+  // <li><a href="#bookN-M"><strong>N.M</strong> <span class="search-snippet">…<mark>hit</mark>…</span></a></li>
+  function resultItem(entry, query) {
+    const li = doc.createElement('li');
+    const a = doc.createElement('a');
+    a.href = `#${entry.id}`;
+    const strong = doc.createElement('strong');
+    strong.textContent = entry.label;
+    const s = snippet(entry, query);
+    const span = doc.createElement('span');
+    span.className = 'search-snippet';
+    span.append((s.leading ? '…' : '') + s.before);
+    if (s.hit) {
+      const mark = doc.createElement('mark');
+      mark.textContent = s.hit;
+      span.appendChild(mark);
     }
-    results.appendChild(frag);
+    span.append(s.after + (s.trailing ? '…' : ''));
+    a.append(strong, ' ', span);
+    li.appendChild(a);
+    return li;
+  }
+
+  function render() {
+    const { query, matches } = findMatches(ensureIndex(), input.value);
+    status.textContent = query.length < MIN_QUERY ? '' : statusText(matches.length);
+    results.replaceChildren(...matches.map(entry => resultItem(entry, query)));
   }
 
   toggle.addEventListener('click', () => (isOpen() ? close(true) : open()));
   input.addEventListener('input', render);
 
+  // On narrow viewports the fixed panel would cover the entry just jumped to, so a result click closes it.
+  results.addEventListener('click', (ev) => {
+    if (ev.target.closest('a') && doc.defaultView.matchMedia('(max-width: 60em)').matches) close(false);
+  });
+
+  // Keys that commit or cancel an IME composition are the IME's, not ours. keyCode 229: Safari before the
+  // WebKit fix for bug 311717 (2026-04) fires the commit key after compositionend, with isComposing false.
+  const composing = ev => ev.isComposing || ev.keyCode === 229;
+
   doc.addEventListener('keydown', (ev) => {
-    const k = ev.key.toLowerCase();
-    if ((ev.metaKey || ev.ctrlKey) && !ev.altKey && !ev.shiftKey && (k === 'k' || ev.code === 'KeyK')) {
+    if (isSearchShortcut(ev)) {
       ev.preventDefault();
       open();
-    } else if (ev.key === 'Escape' && !ev.isComposing && isOpen()) {
+    } else if (ev.key === 'Escape' && !composing(ev) && isOpen()) {
       ev.preventDefault(); // also stops type=search from clearing the field
-      close(true);
+      close(root.contains(doc.activeElement)); // after a result click focus is on the page: leave it there
+    } else if (ev.key === 'Enter' && !composing(ev) && ev.target === input && isOpen()) {
+      ev.preventDefault();
+      results.querySelector('a')?.focus(); // off the field, which also dismisses a phone keyboard
     }
   });
 
-  // Click/tap outside the widget closes it; clicking a result (inside) keeps it open.
-  doc.addEventListener('pointerdown', (ev) => {
-    if (isOpen() && !root.contains(ev.target)) close(false);
+  // A click outside the widget closes it. Listen for click, not pointerdown (Chromium reports a scrollbar
+  // drag as a pointerdown on <html>), and for pointer clicks only when the press started outside too: a
+  // drag that begins in the field and ends past the panel dispatches its click on the common ancestor,
+  // <body>. Keyboard, assistive-technology and script clicks carry detail 0 and have no pointerdown of
+  // their own, so they never consult the flag (a press inside that ends without a click would stale it).
+  let pressOutside = true;
+  doc.addEventListener('pointerdown', (ev) => { pressOutside = !root.contains(ev.target); });
+  doc.addEventListener('click', (ev) => {
+    if (isOpen() && !root.contains(ev.target) && (pressOutside || ev.detail === 0)) close(false);
   });
 
   return root;

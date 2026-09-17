@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { groupEntries, normalizeText, findMatches, statusText, MIN_QUERY, snippet, SNIPPET_RADIUS } from '../../../meditations/search.js';
+import { groupEntries, normalizeText, findMatches, statusText, MIN_QUERY, snippet, isSearchShortcut } from '../../../meditations/search.js';
 
 test('normalizeText collapses whitespace and trims', () => {
   assert.equal(normalizeText('  a \n\t b  '), 'a b');
@@ -155,4 +155,45 @@ test('findMatches folds typographic quotes while snippet keeps the original text
   const q = findMatches(entries, '"logos"');
   assert.deepEqual(q.matches.map(e => e.label), ['4.14']);
   assert.equal(snippet(q.matches[0], q.query).hit, '“logos”');
+});
+
+test('snippet trims the space left when a cut lands on a word boundary', () => {
+  const entry = groupEntries([{ marker: 'book2-1', text: '2.1 aa bb cc hit dd ee ff' }])[0];
+  const s = snippet(entry, 'hit', 4); // start is the space before "cc", end is the start of "ee"
+  assert.equal(s.before, 'cc ');
+  assert.equal(s.after, ' dd');
+  assert.equal(s.leading, true);
+  assert.equal(s.trailing, true);
+});
+
+test('snippet for a label-only match trims the space left by a word-boundary cut', () => {
+  const entry = groupEntries([{ marker: 'book4-3', text: '4.3 aa bb cc dd ee' }])[0];
+  const s = snippet(entry, '4.3', 3); // radius * 2 = 6 is the first character of "cc"
+  assert.equal(s.hit, '');
+  assert.equal(s.before, 'aa bb');
+  assert.equal(s.leading, false);
+  assert.equal(s.trailing, true);
+});
+
+test('isSearchShortcut accepts Cmd+K and Ctrl+K', () => {
+  assert.equal(isSearchShortcut({ key: 'k', code: 'KeyK', metaKey: true }), true);
+  assert.equal(isSearchShortcut({ key: 'K', code: 'KeyK', ctrlKey: true }), true);
+  assert.equal(isSearchShortcut({ key: 'k', code: 'KeyV', metaKey: true }), true); // Dvorak: K sits on the QWERTY V position
+  assert.equal(isSearchShortcut({ key: 'k', ctrlKey: true }), true);               // no code at all
+});
+
+test('isSearchShortcut ignores the physical K position on Latin layouts, so Dvorak Cmd+T stays a new tab', () => {
+  assert.equal(isSearchShortcut({ key: 't', code: 'KeyK', metaKey: true }), false);
+  assert.equal(isSearchShortcut({ key: 'e', code: 'KeyK', ctrlKey: true }), false);
+});
+
+test('isSearchShortcut falls back to the physical K key when the layout produced a non-Latin character', () => {
+  assert.equal(isSearchShortcut({ key: 'л', code: 'KeyK', ctrlKey: true }), true);
+  assert.equal(isSearchShortcut({ key: 'λ', code: 'KeyK', metaKey: true }), true);
+});
+
+test('isSearchShortcut requires Cmd or Ctrl alone', () => {
+  assert.equal(isSearchShortcut({ key: 'k', code: 'KeyK' }), false);
+  assert.equal(isSearchShortcut({ key: 'k', code: 'KeyK', metaKey: true, shiftKey: true }), false);
+  assert.equal(isSearchShortcut({ key: 'k', code: 'KeyK', ctrlKey: true, altKey: true }), false);
 });

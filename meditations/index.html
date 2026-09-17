@@ -221,7 +221,7 @@ footer {
   position: fixed;
   top: .75rem;
   right: 1em;
-  z-index: 10;
+  z-index: 11;
   font-family: var(--sans-serif);
   font-size: 1rem;
   line-height: 1.4;
@@ -240,14 +240,14 @@ footer {
   cursor: pointer;
 }
 .fixed:hover, .fixed:focus, .fixed:active,
-#search-toggle:hover, #search-toggle[aria-expanded="true"] {
+#search-toggle:hover, #search-toggle:focus-visible, #search-toggle[aria-expanded="true"] {
   color: var(--blue-dark);
 }
 #search-panel {
   box-sizing: border-box;
   width: min(28em, calc(100vw - 2em));
   max-height: 70vh;
-  max-height: 70dvh;
+  max-height: min(70dvh, calc(var(--vvh, 100dvh) - 4.5rem));
   margin-top: .5rem;
   padding: 1rem;
   overflow: hidden;
@@ -309,6 +309,7 @@ footer {
 }
 #search-results a strong {
   margin-right: .25em;
+  font-feature-settings: 'lnum' on, 'tnum' on;
   font-variant-numeric: lining-nums tabular-nums;
 }
 #search-results .search-snippet {
@@ -358,7 +359,7 @@ footer {
     color: inherit;
   }
   .fixed:hover, .fixed:focus, .fixed:active,
-  #search-toggle:hover, #search-toggle[aria-expanded="true"] {
+  #search-toggle:hover, #search-toggle:focus-visible, #search-toggle[aria-expanded="true"] {
     color: var(--blue-lighter);
   }
   #search-results .search-snippet {
@@ -3381,7 +3382,7 @@ footer {
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
         </button>
         <div id="search-panel" role="search" hidden>
-          <input id="search-input" type="search" placeholder="Search Meditations" autocomplete="off" spellcheck="false" aria-label="Search Meditations Books 1&ndash;12">
+          <input id="search-input" type="search" enterkeyhint="search" placeholder="Search Meditations" autocomplete="off" spellcheck="false" aria-label="Search Meditations Books 1&ndash;12">
           <p id="search-status" role="status"></p>
           <ol id="search-results" role="list"></ol>
         </div>
