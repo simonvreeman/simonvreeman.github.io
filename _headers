@@ -5,7 +5,7 @@
     X-DNS-Prefetch-Control: on
     tdm-reservation: 0
     X-John-Deere: 6320
-    Link: <https://gtm.vreeman.com>; rel="preconnect"; crossorigin, <https://gtm.vreeman.com>; rel="dns-prefetch", <https://vreeman.com/schema.json>; rel="alternate"; type="application/ld+json", </llms.txt>; rel="describedby"; type="text/markdown"
+    Link: <https://gtm.vreeman.com>; rel="preconnect"; crossorigin, <https://gtm.vreeman.com>; rel="dns-prefetch", <https://vreeman.com/schema.json>; rel="alternate"; type="application/ld+json", </llms.txt>; rel="describedby"; type="text/markdown", </.well-known/agent-skills/index.json>; rel="agent-skills"; type="application/json"
 
 # Prevent your pages.dev deployments showing in search results
 https://:vreeman.pages.dev/*
@@ -47,3 +47,18 @@ https://:vreeman.pages.dev/*
     Content-Type: application/json
     Access-Control-Allow-Origin: *
     Cache-Control: public, max-age=3600
+
+# Agent Skills discovery index (RFC: cloudflare/agent-skills-discovery-rfc v0.2.0), advertised by the
+# rel="agent-skills" Link above. Both Content-Types are a MUST in the RFC, so neither is left to what
+# Pages would infer: an index that is not application/json, or a SKILL.md that arrives as text/html,
+# is a skill a conformant client refuses. CORS so browser-based agents can reach it too.
+# Deliberately no Cache-Control on SKILL.md: each index entry carries a SHA-256 of the file, and a
+# SKILL.md outliving the index that describes it is a digest mismatch, which clients MUST treat as
+# tampering. The index's own hour matches the rest of the machine-readable surfaces here.
+/.well-known/agent-skills/index.json
+    Content-Type: application/json
+    Access-Control-Allow-Origin: *
+    Cache-Control: public, max-age=3600
+/.well-known/agent-skills/*/SKILL.md
+    Content-Type: text/markdown; charset=utf-8
+    Access-Control-Allow-Origin: *
