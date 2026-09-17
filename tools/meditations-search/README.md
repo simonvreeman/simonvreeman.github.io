@@ -53,9 +53,11 @@ agent can fetch once instead of scraping 516 KB of HTML.
 Regenerate it whenever the Books change; `index.test.mjs` fails if the file and the page disagree.
 Grouping, labels, the stripped leading `§ 4.3` and quote folding all come from `groupEntries()` in
 `meditations/search.js`, so the corpus cannot drift from what readers search in the browser. `lower` is
-not shipped — it is derivable, and carrying it would nearly double the file. To search the corpus, put
-it back by feeding the entries through `groupEntries()` again rather than re-implementing the folding:
-`findMatches()` reads `entry.lower` unconditionally and throws without it.
+not shipped — it is derivable, and carrying it would nearly double the file. `findMatches()` reads
+`entry.lower` unconditionally and throws without it, so a consumer puts it back with **`withLower()`**,
+exported from `meditations/search.js` and the same helper `groupEntries()` itself ends with. Do not
+rehydrate by re-running `groupEntries()` over its own output: it strips a leading `§ N.M`, so a second
+pass would truncate any entry whose text legitimately begins with its own number.
 
 ## Tests
 

@@ -13,14 +13,13 @@ import { scanBooks } from './lib/scan-html.mjs';
 import { groupEntries } from '../../meditations/search.js';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-export const SOURCE_PATH = 'meditations/index.html';
-export const OUTPUT_PATH = 'meditations/entries.json';
-export const EXPECTED_ENTRIES = 499;
+const SOURCE_PATH = 'meditations/index.html';
+const OUTPUT_PATH = 'meditations/entries.json';
+const EXPECTED_ENTRIES = 499;
 
 export function buildEntries(html) {
   // `lower` is derivable from `text`; shipping it would nearly double the file for nothing. A consumer
-  // that wants to search puts it back by feeding these entries through groupEntries() again — see the
-  // hydrate() helper in test/index.test.mjs — rather than re-implementing its quote folding.
+  // that wants to search puts it back with withLower() from meditations/search.js.
   return groupEntries(scanBooks(html)).map(({ id, label, text }) => ({ id, label, text }));
 }
 

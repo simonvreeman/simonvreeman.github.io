@@ -5,18 +5,17 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { buildEntries } from '../build-index.mjs';
-import { groupEntries, findMatches } from '../../../meditations/search.js';
+import { withLower, findMatches } from '../../../meditations/search.js';
 
 const html = readFileSync(new URL('../../../meditations/index.html', import.meta.url), 'utf8');
 const raw = readFileSync(new URL('../../../meditations/entries.json', import.meta.url), 'utf8');
 const shipped = JSON.parse(raw);
 
 // The corpus ships { id, label, text } only: `lower` is derivable and would nearly double the file.
-// findMatches() reads e.lower unconditionally, so a consumer must put it back before searching — and
-// the way to do that is to hand the entries to the same groupEntries() that built them, never to
-// re-implement its quote folding. Task 3's MCP server has to do exactly this too.
-const hydrate = entries => groupEntries(entries.map(e => ({ marker: e.id, text: e.text })));
-const searchable = hydrate(shipped);
+// findMatches() reads e.lower unconditionally, so a consumer puts it back with withLower() — the same
+// helper groupEntries() itself ends with, never a re-implementation of its quote folding. Task 3's MCP
+// server does the same. withLower() mutates, so give it copies and leave `shipped` as it was parsed.
+const searchable = withLower(shipped.map(e => ({ ...e })));
 
 test('the corpus has all 499 entries', () => {
   assert.equal(shipped.length, 499);
@@ -33,21 +32,32 @@ test('the corpus is written one entry per line', () => {
   // build-index.mjs's main(), which the round-trip above cannot see.
   assert.ok(raw.endsWith('\n'), 'file ends with a newline');
   const lines = raw.trimEnd().split('\n');
-  assert.equal(lines.length, shipped.length + 2, 'a line each for [ , every entry, and ]');
   assert.equal(lines[0], '[');
   assert.equal(lines.at(-1), ']');
-  assert.deepEqual(JSON.parse(lines[1].replace(/,$/, '')), shipped[0]);
+  // Every line between the brackets is one whole entry — the property a streaming consumer relies on,
+  // which subsumes both the line count and each line's shape. The separating commas are not checked
+  // here: dropping one makes the file invalid JSON, so the parse at the top of this file catches it.
+  assert.deepEqual(lines.slice(1, -1).map(l => JSON.parse(l.replace(/,$/, ''))), shipped);
 });
 
-test('labels match the markers in the HTML, in document order', () => {
+test('ids and labels match the entry markers in the HTML, in document order', () => {
   const markers = [...html.matchAll(/<(?:h3|strong) id="(book\d+-\d+[a-z]?)"/g)].map(m => m[1]);
   assert.deepEqual(shipped.map(e => e.id), markers);
+  assert.deepEqual(shipped.map(e => e.label), markers.map(m => m.replace(/^book(\d+)-/, '$1.')));
 });
 
-test('rehydrating the corpus reproduces it exactly', () => {
+test('withLower adds `lower` without touching the text it indexes', () => {
   // If this drifted, every search below would be testing something other than the shipped text.
   assert.deepEqual(searchable.map(({ id, label, text }) => ({ id, label, text })), shipped);
+  // snippet() slices entry.text by offsets found in entry.lower, so the two must stay index-aligned.
   assert.ok(searchable.every(e => typeof e.lower === 'string' && e.lower.length === e.text.length));
+});
+
+test('withLower is idempotent, so a consumer cannot corrupt the corpus by applying it twice', () => {
+  // The reason to export it rather than rehydrate by re-running groupEntries() over its own output:
+  // that strips a leading "§ N.M" a second time, truncating any entry whose text begins with its own
+  // number. No entry does today, which is exactly why only a test keeps it that way.
+  assert.deepEqual(withLower(withLower(shipped.map(e => ({ ...e })))), searchable);
 });
 
 test('no entity survived into the corpus', () => {

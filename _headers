@@ -39,7 +39,9 @@ https://:vreeman.pages.dev/*
     Cache-Control: public, max-age=3600
 
 # Meditations corpus — the MCP server's search index, and a machine-readable
-# edition of Books 1–12. Open CORS so browser agents can fetch it too.
+# edition of Books 1–12. Open CORS so browser agents can fetch it too. Unlike
+# entitymap.json above, the Content-Type is stated rather than left to the default:
+# this is the one file fetched cross-origin by programs, so the contract is explicit.
 /meditations/entries.json
     Content-Type: application/json
     Access-Control-Allow-Origin: *
