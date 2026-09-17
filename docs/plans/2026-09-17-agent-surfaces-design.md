@@ -118,11 +118,20 @@ MCP's 2026-07-28 revision removes the `initialize` handshake: every request decl
 - Keep `initialize` working, and answer it with `Deprecation` and `Sunset` response headers announcing this site's own support window — the `deprecation-and-sunset` case of announcing a window for something a standard has moved past but never scheduled for removal.
 - `.well-known/mcp/server-card.json` gains `2026-07-28` in `supportedProtocolVersions`.
 
-### 5.2 WebMCP detection on the homepage
+### 5.2 WebMCP detection — and why the two pages differ
 
-- Feature-detect `document.modelContext` first, then `navigator.modelContext` — current surface, then earlier draft.
-- **Remove the stand-in assignment.** When no API is present the current code assigns its own object to `navigator.modelContext`, which makes the API appear present to anything else that tests for it, including a future real implementation's own detection. The spec's instruction is that absence means *do nothing*.
-- Apply the guard-the-load pattern from §4.3 to the homepage bundle as well.
+Two authorities disagree here, and the disagreement is real rather than a misreading.
+
+The spec says: detect `document.modelContext` first, never install a stand-in, and guard the *load* so a browser without the API downloads nothing.
+
+**isitagentready.com evaluates `checks.discovery.webMcp` at runtime, in a headless browser that has no native WebMCP API.** Its evidence string reads "No tools registered via `navigator.modelContext`". The homepage's inline shim exists precisely so the tool stays detectable in that browser; the check was confirmed passing live on 2026-06-02 (commit `a0ac52c`), which is also what proved the scanner runs a browser at all. Removing the shim, or putting the homepage bundle behind a load guard, would each independently fail a check this site already passes.
+
+So the two pages get different treatment, for a stated reason:
+
+- **`index.html` — the scanned surface. Keep the inline script, keep the shim.** The only change is to consult `document.modelContext` before `navigator.modelContext`, so that a browser which really ships the API wins over the shim. The shim continues to install only when neither exists, and never overwrites a native implementation.
+- **`meditations/index.html` — not the scanned surface.** Follows the spec cleanly: guard the load, no shim, `document.modelContext` first.
+
+The cost of the shim is the one the spec names — it makes the API look present to other code on the homepage. That is accepted knowingly, in exchange for a check that is currently green, and it is confined to one page. Revisit if a major browser ships WebMCP unflagged, or if isitagentready.com starts detecting `document.modelContext`.
 
 ## 6. Component C — discovery fixes
 

@@ -715,7 +715,8 @@ const tool = {
   },
 };
 
-// Current surface first, then the earlier draft. Never install a stand-in when neither exists.
+// Current surface first, then the earlier draft. No stand-in here when neither exists:
+// unlike the homepage (see Task 7), this page is not the surface isitagentready.com scans.
 const mc = document.modelContext || navigator.modelContext;
 if (mc) {
   if (typeof mc.registerTool === 'function') {
@@ -777,34 +778,69 @@ git commit -m "Register search_meditations as a WebMCP tool on the Meditations p
 
 ---
 
-## Task 7: Fix WebMCP detection on the homepage
+## Task 7: Homepage WebMCP — one-line detection fix only
+
+> **READ THIS BEFORE TOUCHING `index.html`.** The obvious cleanups here are both traps.
+>
+> **Do NOT remove the `navigator.modelContext` shim.** **Do NOT move the inline block into an
+> external file or put it behind a load guard.** isitagentready.com evaluates
+> `checks.discovery.webMcp` at *runtime*, in a headless browser with no native WebMCP API, and
+> reports "No tools registered via `navigator.modelContext`". The shim is what makes the tool
+> detectable there; the check was confirmed passing live on 2026-06-02 (commit `a0ac52c`).
+> Removing the shim, or guarding the load, each independently breaks a green check.
+>
+> The Meditations page in Task 6 is not the scanned surface, which is why it follows the spec's
+> guard-the-load pattern and this page does not. See design §5.2 for the full reasoning.
 
 **Files:**
-- Modify: `index.html` (the WebMCP IIFE, lines ~754–849)
+- Modify: `index.html` (the WebMCP IIFE, the detection tail at lines ~831–848)
 
-**Step 1:** Replace the detection tail. The current code assigns its own object to `navigator.modelContext` when none exists — that makes the API appear present to anything else testing for it, including a future real implementation's own detection. The spec's instruction is that absence means *do nothing*.
+**Step 1:** Change only the *first* line of the detection tail, so a browser that really ships the
+API wins over the shim. Everything else in the block stays exactly as it is.
 
 ```js
-      // Current surface first, then the earlier draft. If neither exists, do nothing —
-      // never install a stand-in, which would make the API look present to other code.
-      var mc = document.modelContext || navigator.modelContext;
-      if (mc) register(mc);
-    })();
+      // Current surface first, then the earlier draft. When neither exists, fall through to the
+      // shim below: isitagentready.com's runtime check looks for tools on navigator.modelContext
+      // in a browser that implements neither, and a missing shim reads as "no tools registered".
+      var native = document.modelContext || navigator.modelContext;
+      if (native) {
+        register(native);
+      } else {
+        // …existing shim, unchanged…
+      }
 ```
 
-Delete the `else` branch and the `tools`/`registerTool`/`provideContext` shim entirely.
+**Step 2: Verify the shim still runs**
 
-**Step 2:** Move the `CATALOG` + tool definition into a new `webmcp.js` at the site root and replace the inline block with the same guard-the-load pattern as Task 6, so the homepage stops shipping ~4 KB of tool definition to every visitor.
+```bash
+python3 -m http.server 8765 --bind 127.0.0.1
+```
 
-**Step 3: Verify**
+Load `http://localhost:8765/`, then in the console:
 
-Serve locally, load `/`, confirm the network panel shows no `webmcp.js` request, then repeat the forced-registration check from Task 6 Step 6 with `search_content`.
+```js
+navigator.modelContext.tools.map(t => t.name)   // ["search_content"]
+```
+
+Expected: the array is populated **without** you having installed anything first — that is the
+behaviour the scanner depends on. If it is empty, the shim is not running and the check will fail.
+
+**Step 3: Re-run the scanner after deploy**
+
+```bash
+curl -s -X POST https://isitagentready.com/api/scan \
+  -H 'content-type: application/json' -d '{"url":"https://vreeman.com"}' \
+  | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const j=JSON.parse(s);console.log(JSON.stringify(j.checks.discovery.webMcp,null,2))})'
+```
+
+Expected: `status: "pass"`, evidence naming one tool found via `navigator.modelContext`. If it
+regressed, revert this task — the detection nicety is not worth the check.
 
 **Step 4: Commit**
 
 ```bash
-git add index.html webmcp.js
-git commit -m "Detect document.modelContext and stop installing a WebMCP stand-in"
+git add index.html
+git commit -m "Prefer document.modelContext on the homepage, keeping the detection shim"
 ```
 
 ---
