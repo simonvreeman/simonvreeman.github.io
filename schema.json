@@ -1,7 +1,7 @@
 {
   "@context": "http://schema.org",
   "@type": "WebSite",
-  "@id": "#website",
+  "@id": "https://vreeman.com/#website",
   "url": "https://vreeman.com/",
   "name": "Vreeman.com",
   "alternateName": "Simon Vreeman",
@@ -231,7 +231,7 @@
     "url": "https://vreeman.com/",
     "keywords": "Simon Vreeman, Simon, Vreeman, Marketing, Growth Marketing, Technical Marketing, CRO, SEO, Analytics, VanMoof, Fietsenwinkel.nl, The Next Web, Valk Exclusief",
     "isPartOf":{
-      "@id": "#website"
+      "@id": "https://vreeman.com/#website"
     },
     "mainEntity": {
       "@id": "#person"
