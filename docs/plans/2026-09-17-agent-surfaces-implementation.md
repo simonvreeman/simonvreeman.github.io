@@ -455,9 +455,8 @@ const MEDITATIONS_TOOL = {
 
 const MAX_RESULTS = 20;
 
-// findMatches/snippet/statusText are duplicated here rather than imported: a Pages Function
-// cannot import from meditations/search.js at deploy time. tools/mcp/test/dispatch.test.mjs
-// and tools/meditations-search/test/search.test.mjs pin both copies to the same behaviour.
+// findMatches/snippet/statusText are IMPORTED from meditations/search.js, never copied — see
+// the import at the top of this file. One definition of quote folding for browser and server.
 function searchMeditations(entries, query) {
   const { query: q, matches } = findMatches(entries, query);
   if (!matches.length) return `No entries match "${q}".`;
@@ -473,11 +472,19 @@ function searchMeditations(entries, query) {
 }
 ```
 
-Copy `findMatches`, `snippet`, `statusText`, `normalizeText`, `foldQuotes`, `wordEnd`, `MIN_QUERY` and `SNIPPET_RADIUS` verbatim from `meditations/search.js` into `functions/mcp.js`. `groupEntries` is **not** needed — `entries.json` is already grouped — but `findMatches` reads `e.lower`, which the corpus omits, so rebuild it on load:
+**Import from `meditations/search.js`. Do not copy anything.**
 
 ```js
-const withLower = (entries) => entries.map((e) => ({ ...e, lower: foldQuotes(e.text).toLowerCase() }));
+import { findMatches, snippet, statusText, withLower } from "../meditations/search.js";
 ```
+
+An earlier draft of this plan claimed a Pages Function cannot import across directories at deploy time. **That is wrong, and it was tested:** Cloudflare Pages compiles `functions/` with esbuild and inlines relative imports, including ones reaching above `functions/`. `wrangler pages functions build` produces a 31 KB bundle against a 1 MB limit, every import resolves, and the module's trailing `if (typeof document !== 'undefined') mountSearch(document);` bundles in as a no-op because `document` is undefined in workerd — precisely what that guard is for. The DOM adapters ride along as dead code; at 31 KB that is not worth a module split (YAGNI), and the split stays mechanical if it ever is.
+
+Editing `search.js` therefore redeploys the function. That coupling is the point, not a cost.
+
+`groupEntries` is **not** needed — `entries.json` is already grouped. But `findMatches` reads `e.lower`, which the corpus omits, so rebuild it with `withLower` on load.
+
+**Never rehydrate by re-running `groupEntries`.** It strips a leading `^[§\s]*N\.M(?!\d)\s*`, so a second pass truncates any entry whose text legitimately begins with its own number — `'7.9 years of war taught him nothing.'` becomes `'years of war taught him nothing.'`. No entry trips it today; the symptom when one does is a silently truncated quotation in an agent's answer. `withLower` touches only `lower`, so it is provably non-destructive.
 
 **3c.** Route the tool in `tools/call`, and add it to `tools/list`:
 
@@ -498,7 +505,7 @@ Expected: PASS, 7 tests.
 
 **Step 5: Write `tools/mcp/README.md`**
 
-Cover: what the endpoint is, the two tools, why `findMatches` is duplicated and which tests pin the copies together, and how to run the tests. Follow the tone of `tools/meditations-search/README.md`.
+Cover: what the endpoint is, the two tools, that matching logic is imported from `meditations/search.js` rather than duplicated (and that editing `search.js` redeploys the function), why rehydration uses `withLower` and never a second `groupEntries` pass, and how to run the tests. Follow the tone of `tools/meditations-search/README.md`.
 
 **Step 6: Commit**
 
