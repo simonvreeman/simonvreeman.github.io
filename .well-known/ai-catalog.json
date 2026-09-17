@@ -18,15 +18,18 @@
       "url": "https://vreeman.com/.well-known/mcp/server-card.json",
       "description": "MCP server for vreeman.com — search Simon Vreeman's technical-marketing tools (GA4 UTM builder, Measurement Protocol hit builder, CRO tools, experiment hypothesis builder) and Stoic philosophy library (Seneca's letters, Marcus Aurelius' Meditations, Epictetus' Discourses, Stockdale's essays, classic poems).",
       "capabilities": [
-        "search_content"
+        "search_content",
+        "search_meditations"
       ],
       "representativeQueries": [
         "seneca letters on the fear of death",
         "epictetus dichotomy of control",
-        "GA4 UTM campaign URL builder"
+        "GA4 UTM campaign URL builder",
+        "marcus aurelius on getting away from it all",
+        "what stands in the way becomes the way"
       ],
-      "version": "1.0.0",
-      "updatedAt": "2026-06-21T19:01:55.606Z"
+      "version": "1.1.0",
+      "updatedAt": "2026-09-17T11:36:32.966Z"
     },
     {
       "identifier": "urn:ai:vreeman.com:okf:stoicism",
@@ -47,7 +50,7 @@
         "marcus aurelius on memento mori"
       ],
       "version": "0.1",
-      "updatedAt": "2026-06-21T19:01:55.606Z"
+      "updatedAt": "2026-09-17T11:36:32.966Z"
     }
   ]
 }
