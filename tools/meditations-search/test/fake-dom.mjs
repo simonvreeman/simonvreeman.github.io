@@ -116,8 +116,12 @@ export function fire(target, type, init = {}) {
 
 // Void elements never get a closing tag; <br> is the only one the Books use.
 const VOID = new Set(['br', 'hr', 'img', 'input', 'link', 'meta']);
-// The characters meditations/index.html writes as entities. Serialising them back exercises
-// decodeEntities() in the differential tests, and & < > must be escaped for correctness anyway.
+// The characters meditations/index.html writes as entities, so fixtures resemble the real page.
+// Only & < > are load-bearing: they must be escaped for the scanner to read the markup correctly,
+// and the < > lacuna fixture pins decode-after-strip ordering. Dropping — – … § from this table
+// fails no test — decodeEntities() is pinned directly by its own unit test, not through here.
+// A fixture containing a literal & serialises to &amp;, which decodeEntities() then throws on as an
+// unknown entity. That is intended: the Books contain no &amp;, and the throw is the contract.
 const CHARS = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '—': '&mdash;', '–': '&ndash;', '…': '&hellip;', '§': '&#167;' };
 const escapeText = s => s.replace(/[&<>—–…§]/g, c => CHARS[c]);
 const escapeAttr = s => s.replace(/[&<>]/g, c => CHARS[c]).replace(/"/g, '&quot;');

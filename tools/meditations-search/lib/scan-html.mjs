@@ -38,7 +38,8 @@ const STRIP_ELEMENTS = new RegExp(String.raw`<sup\b[^>]*>[\s\S]*?</sup>|<a\b[^>]
 const PAD_TAGS = /<\/?(?:br|li|p)\b[^>]*>/gi;
 
 // Entities are decoded last: &lt; and &gt; would otherwise look like tags to the tag stripper.
-export function stripTags(html) {
+// Internal: scanBooks is the only caller. Not exported, so nothing outside can depend on it.
+function stripTags(html) {
   return decodeEntities(
     html.replace(STRIP_ELEMENTS, '')
         .replace(PAD_TAGS, ' $& ')
