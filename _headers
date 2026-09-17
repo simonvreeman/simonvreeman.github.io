@@ -37,3 +37,10 @@ https://:vreeman.pages.dev/*
     Content-Type: application/okf-bundle+gzip
     Access-Control-Allow-Origin: *
     Cache-Control: public, max-age=3600
+
+# Meditations corpus — the MCP server's search index, and a machine-readable
+# edition of Books 1–12. Open CORS so browser agents can fetch it too.
+/meditations/entries.json
+    Content-Type: application/json
+    Access-Control-Allow-Origin: *
+    Cache-Control: public, max-age=3600

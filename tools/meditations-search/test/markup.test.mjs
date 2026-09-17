@@ -88,3 +88,16 @@ test('Book sections are direct children of main and every entry marker is inside
   assert.equal(inBooks, 499);
   assert.equal((html.match(marker) || []).length, inBooks, 'no entry markers outside the Books');
 });
+
+test('every h3/strong id inside a Book is entry-shaped', () => {
+  // itemFromElement() takes the FIRST strong[id] in an element and only then tests it against
+  // ENTRY_ID, so a <p> whose first strong[id] were a non-entry id yields marker: null and buildIndex()
+  // drops that entry outright. The Node scanner's STRONG_ID instead finds the first strong whose id
+  // already matches, so it would keep the entry — a silent divergence. Rather than pin parity on the
+  // DOM's worse behaviour (losing an entry on purpose), assert the case cannot arise.
+  const inner = html.slice(html.indexOf('<main>') + 6, html.indexOf('</main>'));
+  const ids = [...inner.matchAll(/<section id="book\d+">([\s\S]*?)<\/section>/g)]
+    .flatMap(([, body]) => [...body.matchAll(/<(?:h3|strong)\b[^>]*?\sid="([^"]*)"/g)].map(m => m[1]));
+  assert.equal(ids.length, 499, 'no h3/strong carries an id beyond the 499 entry markers');
+  assert.deepEqual(ids.filter(id => !/^book\d+-\d+[a-z]?$/.test(id)), [], 'no non-entry ids in the Books');
+});

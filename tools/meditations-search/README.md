@@ -41,6 +41,22 @@ labelled `4.49a`). Total: **499 entries**. The index is built lazily on first op
 - `<br>` and the boundaries of `<li>` and `<p>` descendants count as spaces, so words on either side stay
   apart even without whitespace between tags.
 
+## Generated corpus
+
+`meditations/entries.json` is the same 499 entries as a machine-readable file: `{ id, label, text }`
+per entry, document order, one entry per line (210 KB). It is what the MCP server's
+`search_meditations` tool searches, and it stands on its own as a typed edition of Books 1–12 that an
+agent can fetch once instead of scraping 516 KB of HTML.
+
+    node tools/meditations-search/build-index.mjs
+
+Regenerate it whenever the Books change; `index.test.mjs` fails if the file and the page disagree.
+Grouping, labels, the stripped leading `§ 4.3` and quote folding all come from `groupEntries()` in
+`meditations/search.js`, so the corpus cannot drift from what readers search in the browser. `lower` is
+not shipped — it is derivable, and carrying it would nearly double the file. To search the corpus, put
+it back by feeding the entries through `groupEntries()` again rather than re-implementing the folding:
+`findMatches()` reads `entry.lower` unconditionally and throws without it.
+
 ## Tests
 
     node --test tools/meditations-search/test/*.test.mjs
@@ -49,11 +65,18 @@ labelled `4.49a`). Total: **499 entries**. The index is built lazily on first op
   snippets) and the Cmd/Ctrl+K guard.
 - `dom.test.mjs` — the DOM adapters (`visibleText`, `itemFromElement`, `buildIndex`) and `mountSearch()`,
   run against the small fake DOM in `fake-dom.mjs`.
+- `scan-html.test.mjs` — the Node-side HTML scanner in `lib/scan-html.mjs`, checked against the
+  browser's `buildIndex()` on the same markup so the two walks cannot diverge.
+- `index.test.mjs` — the generated corpus: 499 entries in document order, byte-identical to what
+  `build-index.mjs` produces from the current HTML, free of entities and § markers, and searchable
+  (words inside the Books are found, words from the Introduction, Notes and Index of Persons are not).
 - `markup.test.mjs` — guards the page-markup assumptions in `meditations/index.html`: 12 Book sections as
   direct, unnested children of `<main>` with all 17 + 482 = 499 entry markers inside them, the module `<script>`
   tag, the print rule that hides `.search`, `<template id="search-template">` with the five ids `mountSearch()`
   looks up and the input's `enterkeyhint`, the `<header>` mount point, the toggle's focus style, the `.search`
-  stacking order, the panel's visual-viewport height and the labels' lining figures.
+  stacking order, the panel's visual-viewport height and the labels' lining figures. It also asserts that every
+  `h3`/`strong` id inside a Book is entry-shaped, which is what keeps the DOM walk and the scanner
+  from disagreeing about an element whose first `strong[id]` is not a marker.
 
 ## Local testing
 

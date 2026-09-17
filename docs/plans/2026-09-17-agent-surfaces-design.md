@@ -65,7 +65,7 @@ Already correct, and to be left alone: `sitemap.xml` carries no `<?xml-styleshee
 [{ "id": "book4-3", "label": "4.3", "text": "People look for retreats for themselves…" }, …]
 ```
 
-499 objects, document order. Roughly 450 KB.
+499 objects, document order, one per line. 210 KB.
 
 Produced by `tools/meditations-search/build-index.mjs`. The generator does exactly one new thing: scan `meditations/index.html` for the twelve `<section id="bookN">` blocks and emit `{ marker, text }` items in document order, applying the same two exclusions the browser applies (`<sup>` footnote markers, `.return` § links) and the same `<br>`/`<li>`/`<p>` padding rule. It then calls **`groupEntries()` imported from `../../meditations/search.js`**, so labels, the stripped leading `§ 4.3`, quote folding and whitespace collapsing cannot drift from what readers get in the browser. `lower` is dropped before writing — it is derivable, and doubling the file to carry it would be waste.
 
