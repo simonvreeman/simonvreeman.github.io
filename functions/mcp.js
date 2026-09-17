@@ -1,6 +1,12 @@
 // MCP server for vreeman.com — Cloudflare Pages Function serving https://vreeman.com/mcp
 // Stateless JSON-RPC 2.0 over the MCP Streamable HTTP transport (application/json only;
-// no SSE, no sessions, no auth — read-only). Spec: https://modelcontextprotocol.io/specification/2025-06-18
+// no SSE, no sessions, no auth — read-only). Spec: https://modelcontextprotocol.io/specification/2026-07-28
+//
+// DUAL-ERA. The 2026-07-28 revision removed the `initialize` handshake: every request declares its
+// own protocol version in params._meta, sessions and the standalone GET stream are gone, and
+// `server/discover` is mandatory. Older ("legacy") clients open with a handshake and have no way to
+// fall forward when it is refused, so this one URL answers both eras — which the spec explicitly
+// permits: "A dual-era server MAY serve both eras concurrently on the same endpoint or process."
 //
 // Exposes two tools: `search_content` over the page catalog below (mirroring the WebMCP tool on the
 // homepage), and `search_meditations` over the 499 entries of the Meditations.
@@ -12,14 +18,40 @@
 // trailing mountSearch(document) is guarded on `typeof document`, so it bundles in as a no-op here.
 import { findMatches, MIN_QUERY, snippet, statusText, withLower } from "../meditations/search.js";
 
-const SUPPORTED_PROTOCOL_VERSIONS = ["2025-06-18", "2025-03-26", "2024-11-05"];
-const LATEST_PROTOCOL_VERSION = "2025-06-18";
+// Newest first: DiscoverResult.supportedVersions is the list a modern client picks from.
+const MODERN_PROTOCOL_VERSION = "2026-07-28";
+// Versions reachable through the `initialize` handshake. 2025-11-25 is a legacy revision we do not
+// implement, so it is deliberately absent rather than claimed.
+const LEGACY_PROTOCOL_VERSIONS = ["2025-06-18", "2025-03-26", "2024-11-05"];
+const SUPPORTED_PROTOCOL_VERSIONS = [MODERN_PROTOCOL_VERSION, ...LEGACY_PROTOCOL_VERSIONS];
+const LATEST_LEGACY_PROTOCOL_VERSION = LEGACY_PROTOCOL_VERSIONS[0];
+
+// Reserved _meta keys (schema.ts: RequestMetaObject / ResultMetaObject). Any prefix whose second
+// label is `modelcontextprotocol` or `mcp` belongs to MCP; these are its own.
+const PROTOCOL_VERSION_META = "io.modelcontextprotocol/protocolVersion";
+const SERVER_INFO_META = "io.modelcontextprotocol/serverInfo";
+// schema.ts: UNSUPPORTED_PROTOCOL_VERSION. Distinct from -32602; carries {supported, requested}.
+const UNSUPPORTED_PROTOCOL_VERSION = -32022;
 
 const SERVER_INFO = {
   name: "com.vreeman/site-search",
   title: "Vreeman Site Search",
-  version: "1.0.0",
+  version: "1.1.0",
 };
+
+const CAPABILITIES = { tools: { listChanged: false } };
+
+// Named once and served by both `server/discover` and the legacy `initialize`, so the two eras can
+// never drift into describing different servers.
+const INSTRUCTIONS =
+  "Use search_content to find pages on vreeman.com — Simon Vreeman's marketing tools and Stoic " +
+  "philosophy library. Use search_meditations to quote a specific entry of Marcus Aurelius' " +
+  "Meditations; it returns a deep link to each matching entry.";
+
+// DiscoverResult extends CacheableResult, so ttlMs and cacheScope are required. Nothing here is
+// user-specific and the tool list is static, so a shared proxy may cache it for anyone; an hour
+// matches the edge cache _headers already puts on the corpus.
+const DISCOVER_TTL_MS = 3600000;
 
 // Pages on this site (kept in sync with the WebMCP catalog in index.html).
 const CATALOG = [
@@ -163,7 +195,10 @@ function searchMeditations(entries, query) {
 }
 
 // --- JSON-RPC helpers ----------------------------------------------------
-const ok = (id, result) => ({ jsonrpc: "2.0", id, result });
+// 2026-07-28 requires `resultType` on every result ("Servers implementing this protocol version
+// MUST include this field"). Clients on earlier revisions must treat an absent one as "complete"
+// and ignore unknown fields, so emitting it unconditionally is correct for both eras.
+const ok = (id, result) => ({ jsonrpc: "2.0", id, result: { resultType: "complete", ...result } });
 const err = (id, code, message, data) => ({
   jsonrpc: "2.0",
   id,
@@ -178,18 +213,55 @@ export async function dispatch(msg, deps = {}) {
   const loadEntries = deps.loadEntries || defaultLoadEntries;
   const id = msg.id;
   const params = msg.params || {};
+
+  // A modern request names its version in params._meta; `initialize` is the legacy handshake and
+  // names it in params.protocolVersion instead, so it is negotiated separately below.
+  //
+  // An ABSENT version is served rather than rejected. The transport allows exactly that for a
+  // server that supports clients older than 2025-06-18 — which never sent a version at all — and we
+  // do (2025-03-26, 2024-11-05). A version that IS named and that we do not implement must be
+  // refused with -32022 rather than answered under some other revision: the error is what tells the
+  // client which versions to retry with.
+  if (msg.method !== "initialize") {
+    const declared = (params._meta || {})[PROTOCOL_VERSION_META];
+    if (declared !== undefined && !SUPPORTED_PROTOCOL_VERSIONS.includes(declared)) {
+      return err(id, UNSUPPORTED_PROTOCOL_VERSION, "Unsupported protocol version", {
+        supported: SUPPORTED_PROTOCOL_VERSIONS,
+        requested: declared,
+      });
+    }
+  }
+
   switch (msg.method) {
+    // Mandatory since 2026-07-28 ("Servers MUST implement it"), and the one request a modern client
+    // can send before it knows anything about us.
+    case "server/discover":
+      return ok(id, {
+        supportedVersions: SUPPORTED_PROTOCOL_VERSIONS,
+        capabilities: CAPABILITIES,
+        instructions: INSTRUCTIONS,
+        ttlMs: DISCOVER_TTL_MS,
+        cacheScope: "public",
+        _meta: { [SERVER_INFO_META]: SERVER_INFO },
+      });
     case "initialize": {
+      // Deliberately NOT a delegation to server/discover: the two results are different shapes.
+      // DiscoverResult has `supportedVersions` (an array) and hides serverInfo under _meta; the
+      // legacy InitializeResult has a single `protocolVersion` and a top-level `serverInfo`.
+      //
+      // Negotiated against the LEGACY list only. A client that gets here speaks the handshake, and
+      // 2026-07-28 is the one revision with no handshake — naming it would have the client stamp
+      // MCP-Protocol-Version: 2026-07-28 on legacy-shaped requests. "Another protocol version [we]
+      // support" has to mean one this client can actually use.
       const requested = params.protocolVersion;
-      const protocolVersion = SUPPORTED_PROTOCOL_VERSIONS.includes(requested) ? requested : LATEST_PROTOCOL_VERSION;
+      const protocolVersion = LEGACY_PROTOCOL_VERSIONS.includes(requested)
+        ? requested
+        : LATEST_LEGACY_PROTOCOL_VERSION;
       return ok(id, {
         protocolVersion,
-        capabilities: { tools: { listChanged: false } },
+        capabilities: CAPABILITIES,
         serverInfo: SERVER_INFO,
-        instructions:
-          "Use search_content to find pages on vreeman.com — Simon Vreeman's marketing tools and Stoic " +
-          "philosophy library. Use search_meditations to quote a specific entry of Marcus Aurelius' " +
-          "Meditations; it returns a deep link to each matching entry.",
+        instructions: INSTRUCTIONS,
       });
     }
     case "ping":
@@ -232,12 +304,50 @@ export async function dispatch(msg, deps = {}) {
 const CORS = {
   "access-control-allow-origin": "*",
   "access-control-allow-methods": "POST, GET, OPTIONS",
-  "access-control-allow-headers": "content-type, accept, mcp-protocol-version, mcp-session-id, authorization",
+  // mcp-method and mcp-name are REQUIRED on every 2026-07-28 request. A browser-based client would
+  // be stopped at the preflight without them here, whatever dispatch() is willing to answer.
+  // mcp-session-id is kept only so a pre-2026 client's preflight still passes; we never read it.
+  "access-control-allow-headers":
+    "content-type, accept, mcp-protocol-version, mcp-method, mcp-name, mcp-session-id, authorization",
+  // Neither Deprecation nor Link is CORS-safelisted, so without this a browser-based client is
+  // handed the deprecation notice below and cannot read a byte of it — and a browser client is
+  // precisely the kind most likely to be modern enough to act on it.
+  "access-control-expose-headers": "deprecation, link",
   "access-control-max-age": "86400",
 };
 
-const json = (obj, status = 200) =>
-  new Response(JSON.stringify(obj), { status, headers: { "content-type": "application/json", ...CORS } });
+const json = (obj, status = 200, extra) =>
+  new Response(JSON.stringify(obj), {
+    status,
+    headers: { "content-type": "application/json", ...CORS, ...extra },
+  });
+
+// The legacy handshake is deprecated, not scheduled for removal, and these headers say exactly that.
+//
+// RFC 9745 makes `Deprecation` an Item Structured Field whose value MUST be a Date: an "@" followed
+// by a Unix timestamp. The string "true" is not a Date and would simply be discarded as malformed —
+// a malformed header being worse than none. This timestamp is 2026-07-28T00:00:00Z, the day the
+// handshake-less revision shipped and the handshake became deprecated.
+//
+// There is deliberately NO `Sunset`. RFC 8594 defines Sunset as the time the resource "will become
+// unresponsive", and RFC 9745 requires it to be no earlier than the deprecation date. We have no
+// date on which we intend to stop answering `initialize` — the spec schedules no removal for
+// dual-era servers — and announcing one we would not honour is worse than staying silent. Add one
+// here (an IMF-fixdate, e.g. "Wed, 30 Sep 2027 00:00:00 GMT") if and when removal is actually
+// planned, and give legacy clients more notice than the weeks a near date would offer.
+const LEGACY_HANDSHAKE_HEADERS = {
+  deprecation: "@1785196800",
+  link: '<https://modelcontextprotocol.io/specification/2026-07-28>; rel="deprecation"',
+};
+
+// The transport pins two statuses to two JSON-RPC error codes. Everything else stays 200 with the
+// error in the body, which is what both eras expect.
+function httpStatusFor(res) {
+  const code = res.error && res.error.code;
+  if (code === UNSUPPORTED_PROTOCOL_VERSION) return 400; // modern clients detect a modern server by this
+  if (code === -32601) return 404; // "MUST respond with 404 Not Found" for an unimplemented method
+  return 200;
+}
 
 export async function onRequestPost(context) {
   let raw;
@@ -268,7 +378,14 @@ export async function onRequestPost(context) {
   if (typeof msg.method !== "string") {
     return json(err(msg.id !== undefined ? msg.id : null, -32600, "Invalid Request"));
   }
-  return json(await dispatch(msg));
+
+  const res = await dispatch(msg);
+  // "Was this the legacy handshake?" is a property of the REQUEST, and the request is right here —
+  // so the deprecation headers are derived from msg.method rather than smuggled out of dispatch()
+  // on a marker field. That keeps dispatch() a pure message-in/message-out function with one return
+  // value, hands callers a response with nothing to strip, and costs no mutation.
+  const legacy = msg.method === "initialize";
+  return json(res, httpStatusFor(res), legacy ? LEGACY_HANDSHAKE_HEADERS : undefined);
 }
 
 export function onRequestGet() {

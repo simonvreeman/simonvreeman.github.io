@@ -4,7 +4,64 @@
 JSON-RPC 2.0 over the MCP Streamable HTTP transport, `application/json` only — no SSE, no sessions,
 no auth, read-only. `GET` answers 405 (there is no stream to open); `OPTIONS` answers the CORS
 preflight; a POSTed notification or response is acknowledged with 202 and no body. Batch arrays are
-not supported. Spec: <https://modelcontextprotocol.io/specification/2025-06-18>.
+not supported. Spec: <https://modelcontextprotocol.io/specification/2026-07-28>.
+
+## Protocol versions: one URL, both eras
+
+The 2026-07-28 revision removed the `initialize` handshake. Every request now declares its own
+protocol version in `params._meta["io.modelcontextprotocol/protocolVersion"]` (mirrored into the
+`MCP-Protocol-Version` header), protocol-level sessions and the standalone `GET` stream are gone, and
+**`server/discover` is mandatory**. The endpoint serves both eras, which the spec explicitly permits
+— "a dual-era server MAY serve both eras concurrently on the same endpoint" — because a legacy client
+opens with a handshake and has no way to fall forward when one is refused.
+
+- **`server/discover`** returns a `DiscoverResult`: `supportedVersions` (an array, newest first — there
+  is no singular `protocolVersion` on it), `capabilities`, `instructions`, the `ttlMs`/`cacheScope`
+  that `CacheableResult` requires, and `serverInfo` under `_meta["io.modelcontextprotocol/serverInfo"]`
+  rather than at the top level.
+- **`initialize`** keeps answering, in its own legacy shape, and is *not* a delegation to
+  `server/discover` — the two results differ in every field named above. It negotiates against the
+  **legacy** list only: naming 2026-07-28 to a client that speaks the handshake would name the one
+  revision that has none, and the client would then stamp `MCP-Protocol-Version: 2026-07-28` on
+  legacy-shaped requests. `SUPPORTED_PROTOCOL_VERSIONS` omits 2025-11-25, a legacy revision we do not
+  implement, rather than claiming it.
+- **A version we do not serve** is refused with `-32022` (`UnsupportedProtocolVersionError`) carrying
+  `{ supported, requested }`, at HTTP **400** — never answered under some other revision. An
+  unimplemented method is `-32601` at HTTP **404**. Those two statuses are how a dual-era *client*
+  tells a modern server from a legacy one, so they are not cosmetic.
+- **An absent version is served, not refused.** The transport allows that for a server supporting
+  clients older than 2025-06-18, which never sent a version at all; we support them.
+- **Every result carries `resultType: "complete"`**, which 2026-07-28 requires of every result.
+  Earlier revisions read an absent one as `"complete"` and ignore unknown fields, so one `ok()`
+  helper serves both eras.
+
+### Deprecating the handshake
+
+A response to `initialize` — and only to `initialize` — carries `Deprecation` and a `deprecation`
+`Link`. Per **RFC 9745** `Deprecation` is an Item Structured Field whose value **must be a Date**:
+`@1785196800` (2026-07-28T00:00:00Z, the day the handshake-less revision shipped). `Deprecation: true`
+is not a Date and a conforming parser discards it — a malformed header is worse than none. Both are
+named in `Access-Control-Expose-Headers`, since neither is CORS-safelisted and a browser-based client
+would otherwise be handed a notice it cannot read.
+
+There is deliberately **no `Sunset`**. RFC 8594 defines it as the time the resource becomes
+unresponsive, and no such time is planned: the spec schedules no removal for dual-era servers. Add
+one (an IMF-fixdate, e.g. `Wed, 30 Sep 2027 00:00:00 GMT`) only when removal is genuinely planned,
+with more notice than a few weeks.
+
+Whether a request was the legacy handshake is a property of the **request**, so `onRequestPost`
+derives these headers from `msg.method` rather than having `dispatch()` smuggle a flag out on the
+response object. `dispatch()` stays a pure message-in/message-out function with one return value and
+callers get a response with nothing to strip.
+
+### The card and the code
+
+`.well-known/mcp/server-card.json` is the published advertisement for this endpoint, and
+`dispatch.test.mjs` holds the two in agreement: same tool names, and identical `inputSchema`, `title`
+and `description` per tool, plus the same protocol window, capabilities and version. `annotations` is
+the one field excluded — it is a call-time hint, not part of the published contract. The card's
+`version` is also what `tools/ards/build.mjs` copies into `.well-known/ai-catalog.json`, so bumping it
+there is what moves the catalog.
 
 ## Tools
 
@@ -88,7 +145,7 @@ reaching above `functions/`**. Verified rather than assumed:
 
     npx wrangler pages functions build --outfile=/tmp/mcp-bundle.js
 
-Compiles clean at about **33 KiB** against the 1 MB limit, with every imported symbol inlined and no
+Compiles clean at about **36 KiB** against the 1 MB limit, with every imported symbol inlined and no
 unresolved import left in the output. The module's trailing `mountSearch(document)` is guarded on
 `typeof document !== 'undefined'`, so it bundles in as a no-op — `document` does not exist in
 workerd. The DOM adapters ride along as dead code; at 33 KB, splitting the module to shed them would
