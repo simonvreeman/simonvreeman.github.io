@@ -17,6 +17,11 @@ labelled `4.49a`). Total: **499 entries**. The index is built lazily on first op
 
 ## Behaviour
 
+- **Scroll controls:** Random/Search hide when scrolling down and return when scrolling up, with a
+  12px movement threshold to ignore jitter. They remain visible within 80px of the top. Back to Top
+  follows the same direction rule, but is hidden within 300px of the top. Open Search and keyboard
+  focus keep controls visible; reduced-motion preferences disable the fade/slide transition.
+
 - **Random paragraph:** the button to the left of Search jumps to an entry in Books 1–12. It chooses
   the marked pool 80% of the time and the unmarked pool 20%, then picks uniformly within that pool.
   Marks in continuation paragraphs count. If one pool is empty, it uses the other. The current entry

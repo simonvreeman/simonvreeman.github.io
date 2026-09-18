@@ -85,6 +85,39 @@ test('mountSearch places the widget right after the header so the toggle is an e
   assert.deepEqual(doc.body.children.map(e => e.tagName), ['HEADER', 'DIV', 'MAIN', 'TEMPLATE']);
 });
 
+test('scroll controls follow direction, ignore jitter and overscroll, and reset near the top', () => {
+  const doc = page();
+  doc.documentElement = { scrollHeight: 3000 };
+  Object.assign(doc.defaultView, { innerHeight: 800, scrollY: 0 });
+  const top = h('a', { class: 'fixed', href: '#header' });
+  doc.body.append(top);
+  const root = mountSearch(doc);
+  const state = () => [root, top].map(el => el.attrs['data-scroll-hidden']);
+  const scroll = y => { doc.defaultView.scrollY = y; fire(doc, 'scroll'); };
+  assert.deepEqual(state(), ['false', 'true']);
+  scroll(500);
+  assert.deepEqual(state(), ['true', 'true']);
+  scroll(496);
+  assert.deepEqual(state(), ['true', 'true']);
+  scroll(488);
+  assert.deepEqual(state(), ['false', 'false']);
+  scroll(492);
+  assert.deepEqual(state(), ['false', 'false']);
+  scroll(500);
+  assert.deepEqual(state(), ['true', 'true']);
+  scroll(2250);
+  scroll(2200); // Bouncing back from below the document is not an upward scroll.
+  assert.deepEqual(state(), ['true', 'true']);
+  scroll(2188);
+  assert.deepEqual(state(), ['false', 'false']);
+  scroll(250);
+  assert.deepEqual(state(), ['false', 'true']);
+  scroll(-50);
+  scroll(0);
+  scroll(70);
+  assert.deepEqual(state(), ['false', 'true']);
+});
+
 test('mountSearch leaves the page untouched when the template lacks any of the five ids', () => {
   for (const name of WIDGET_IDS) {
     const doc = page({ [name]: `${name}-x` });

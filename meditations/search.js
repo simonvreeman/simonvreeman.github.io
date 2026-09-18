@@ -197,6 +197,32 @@ export function mountSearch(doc) {
   // back-to-top link, so .search takes z-index 11 to keep the open panel painting above that disc.
   const header = doc.getElementById('header');
   if (header) header.after(root); else doc.body.appendChild(root);
+
+  // Accumulate small movements, but reset at each reversal so trackpad jitter does not flicker
+  // the controls. Clamp Safari's rubber-band overscroll at both ends of the document.
+  const backToTop = doc.querySelector('.fixed');
+  let previousY = null;
+  let travel = 0;
+  let scrollingDown = false;
+  const trackScroll = () => {
+    const view = doc.defaultView;
+    const maxY = Math.max(0, (doc.documentElement?.scrollHeight ?? 0) - (view.innerHeight ?? 0));
+    const y = Math.min(maxY, Math.max(0, view.scrollY ?? 0));
+    const delta = previousY === null ? 0 : y - previousY;
+    previousY = y;
+    if (delta) {
+      travel = Math.sign(delta) === Math.sign(travel) ? travel + delta : delta;
+      if (Math.abs(travel) >= 12) scrollingDown = travel > 0;
+    }
+    if (y <= 80) {
+      scrollingDown = false;
+      travel = 0;
+    }
+    root.setAttribute('data-scroll-hidden', String(scrollingDown));
+    backToTop?.setAttribute('data-scroll-hidden', String(y <= 300 || scrollingDown));
+  };
+  doc.addEventListener('scroll', trackScroll, { passive: true });
+  trackScroll();
   let index = null;
   // Built lazily on first open. render() calls it too so the order never matters: on the page the field sits
   // in the hidden panel, so open() always comes first, but tests and console checks can fire input cold.

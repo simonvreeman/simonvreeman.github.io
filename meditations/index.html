@@ -252,6 +252,18 @@ footer {
   justify-content: flex-end;
   gap: .5rem;
 }
+.search, .fixed {
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+.search[data-scroll-hidden="true"]:not(:focus-within):not(:has([aria-expanded="true"])),
+.fixed[data-scroll-hidden="true"]:not(:focus-visible) {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-.5rem);
+}
+.fixed[data-scroll-hidden="true"]:not(:focus-visible) {
+  transform: translateY(.5rem);
+}
 #search-toggle, #random-paragraph {
   margin: 0;
 }
