@@ -227,6 +227,7 @@ footer {
   line-height: 1.4;
 }
 .fixed, #search-toggle {
+  box-sizing: border-box;
   display: grid;
   place-items: center;
   width: 2.75rem;
@@ -235,7 +236,9 @@ footer {
   padding: 0;
   border: none;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: rgb(255 255 255 / 35%);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
   color: inherit;
   cursor: pointer;
 }
@@ -352,7 +355,10 @@ footer {
   td, th {
     border: 1px solid var(--white);
   }
-  .fixed, #search-toggle, #search-panel {
+  .fixed, #search-toggle {
+    background-color: color-mix(in oklch, var(--eigengrau) 25%, transparent);
+  }
+  #search-panel {
     background-color: var(--eigengrau);
   }
   .fixed {
@@ -402,6 +408,7 @@ footer {
     <link rel="canonical" href="https://vreeman.com/meditations/">
     <link rel="alternate" href="https://vreeman.com/meditations/" hreflang="x-default">
     <link rel="alternate" href="https://vreeman.com/meditations/" hreflang="en">
+    <link rel="describedby" href="https://vreeman.com/llms.txt" type="text/markdown">
     <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
     <meta name="description" content="Read for free Meditations by Marcus Aurelius, the book by the Roman emperor and Stoic philosopher, in an English translation by Gregory Hays.">
     <meta name="keywords" content="Meditations, Marcus Aurelius, stoicism, philosophy, Gregory Hays">
@@ -427,7 +434,7 @@ footer {
     <meta property="book:tag" content="Meditations, Marcus Aurelius, stoicism, philosophy, Gregory Hays">
     <meta property="og:site_name" content="Vreeman.com">
     <meta property="og:title" content="Meditations by Marcus Aurelius">
-    <meta property="og:url" content="https://vreeman.com/meditations/?utm_source=social&utm_medium=organic&utm_campaign=share">
+    <meta property="og:url" content="https://vreeman.com/meditations/">
     <meta property="og:description" content="Read for free Meditations by Marcus Aurelius, the book by the Roman emperor and Stoic philosopher, in an English translation by Gregory Hays.">
     <meta property="og:image" content="https://vreeman.com/meditations/meditations.jpg">
     <meta property="og:image:type" content="image/jpeg">
@@ -1103,7 +1110,7 @@ footer {
       "url": "https://people.virginia.edu/~bgh2n/"
     },
     {
-      "@id": "https://vreeman.com/",
+      "@id": "https://vreeman.com/#website",
       "@type": "WebSite",
       "name": "Vreeman.com",
       "url": "https://vreeman.com",
@@ -1120,7 +1127,7 @@ footer {
       "name": "📘 Meditations by Marcus Aurelius. Translation by Gregory Hays.",
       "url": "https://vreeman.com/meditations/",
       "isPartOf": {
-        "@id": "https://vreeman.com/"
+        "@id": "https://vreeman.com/#website"
       },
       "hasPart": {
         "@id": "https://vreeman.com/meditations/#/schema/book"
@@ -3389,6 +3396,24 @@ footer {
       </div>
     </template>
 <script type="module" src="search.js"></script>
+<script>
+// WebMCP: feature-detect before downloading, not inside the bundle. A visitor whose browser has no
+// WebMCP should fetch nothing at all, so the guard is here rather than at the top of the module — a
+// module that returns early has already been downloaded and parsed. Guard the load, then guard the
+// call: the module re-checks before it registers. document.modelContext is the current surface,
+// navigator.modelContext the earlier draft.
+//
+// This runs while the page parses, so an implementation injected later — an extension content script
+// at document_idle, a polyfill on DOMContentLoaded — is deliberately not picked up: an in-page tool
+// that appears only for some visitors, some of the time, is a worse contract than one that is either
+// there at load or not at all. Revisit if a real extension-provided implementation turns up.
+if (document.modelContext || navigator.modelContext) {
+  const s = document.createElement('script');
+  s.type = 'module';
+  s.src = 'webmcp.js';
+  document.head.appendChild(s);
+}
+</script>
 <script>
 window.onload = function(){
   setTimeout(function(){

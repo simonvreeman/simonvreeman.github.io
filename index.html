@@ -251,7 +251,7 @@ dt, summary {
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Vreeman.com">
     <meta property="og:title" content="Simon Vreeman">
-    <meta property="og:url" content="https://vreeman.com/?utm_source=social&utm_medium=organic&utm_campaign=share">
+    <meta property="og:url" content="https://vreeman.com/">
     <meta property="og:description" content="Hi, I am Simon Vreeman, and I am a Growth & Technical Marketing Advisor. I optimize websites based on insights & data.">
     <meta property="og:logo" content="https://vreeman.com/img/simon-vreeman-2.jpg">
     <meta property="og:image" content="https://vreeman.com/img/simon-vreeman-2.jpg">
@@ -285,11 +285,12 @@ dt, summary {
     <link rel="microsub" href="https://aperture.p3k.io/microsub/563">
     <link rel="micropub" href="https://vreeman.com/micropub">
     <link rel="ai-catalog" href="https://vreeman.com/.well-known/ai-catalog.json">
+    <link rel="describedby" href="https://vreeman.com/llms.txt" type="text/markdown">
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "WebSite",
-  "@id": "#website",
+  "@id": "https://vreeman.com/#website",
   "url": "https://vreeman.com/",
   "name": "Vreeman.com",
   "alternateName": "Simon Vreeman",
@@ -518,7 +519,7 @@ dt, summary {
     "url": "https://vreeman.com/",
     "keywords": "Simon Vreeman, Simon, Vreeman, Marketing, Growth Marketing, Technical Marketing, CRO, SEO, Analytics, VanMoof, Fietsenwinkel.nl, The Next Web, Valk Exclusief",
     "isPartOf":{
-      "@id": "#website"
+      "@id": "https://vreeman.com/#website"
     },
     "mainEntity": {
       "@id": "#person"
@@ -828,8 +829,12 @@ dt, summary {
         }
       }
 
-      if (navigator.modelContext) {
-        register(navigator.modelContext);
+      // Current surface first, then the earlier draft. When neither exists, fall through to the
+      // shim below: isitagentready.com's runtime check looks for tools on navigator.modelContext
+      // in a browser that implements neither, and a missing shim reads as "no tools registered".
+      var native = document.modelContext || navigator.modelContext;
+      if (native) {
+        register(native);
       } else {
         try {
           var tools = [];

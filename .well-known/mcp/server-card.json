@@ -2,7 +2,7 @@
   "name": "com.vreeman/site-search",
   "title": "Vreeman Site Search",
   "description": "MCP server for vreeman.com — search Simon Vreeman's technical-marketing tools (GA4 UTM builder, Measurement Protocol hit builder, CRO tools, experiment hypothesis builder) and Stoic philosophy library (Seneca's letters, Marcus Aurelius' Meditations, Epictetus' Discourses, Stockdale's essays, classic poems).",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "websiteUrl": "https://vreeman.com/",
   "repository": {
     "url": "https://github.com/simonvreeman/simonvreeman.github.io",
@@ -11,16 +11,16 @@
   "serverInfo": {
     "name": "com.vreeman/site-search",
     "title": "Vreeman Site Search",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
-  "protocolVersion": "2025-06-18",
-  "supportedProtocolVersions": ["2025-06-18", "2025-03-26", "2024-11-05"],
+  "protocolVersion": "2026-07-28",
+  "supportedProtocolVersions": ["2026-07-28", "2025-06-18", "2025-03-26", "2024-11-05"],
   "endpoint": "https://vreeman.com/mcp",
   "remotes": [
     {
       "url": "https://vreeman.com/mcp",
       "transport": "streamable-http",
-      "supportedProtocolVersions": ["2025-06-18", "2025-03-26", "2024-11-05"]
+      "supportedProtocolVersions": ["2026-07-28", "2025-06-18", "2025-03-26", "2024-11-05"]
     }
   ],
   "capabilities": {
@@ -32,13 +32,28 @@
     {
       "name": "search_content",
       "title": "Search Simon Vreeman's site",
-      "description": "Search Simon Vreeman's site and return matching pages (title + URL). Covers technical-marketing tools (GA4 UTM builder, Measurement Protocol hit builder, CRO tools, experiment hypothesis builder) and a Stoic philosophy library (Seneca, Marcus Aurelius, Epictetus, Stockdale, classic poems).",
+      "description": "Search Simon Vreeman's site and return matching pages (title + URL). Covers technical-marketing tools (GA4 UTM builder, Measurement Protocol hit builder, CRO tools, experiment hypothesis builder) and a Stoic philosophy library (Seneca's letters, Marcus Aurelius' Meditations, Epictetus' Discourses, Stockdale's essays, classic poems).",
       "inputSchema": {
         "type": "object",
         "properties": {
           "query": {
             "type": "string",
-            "description": "Search terms, e.g. 'utm', 'measurement protocol', 'cro', 'seneca death', 'epictetus', 'meditations'."
+            "description": "Search terms, e.g. 'utm', 'measurement protocol', 'cro', 'seneca', 'epictetus', 'meditations'."
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "search_meditations",
+      "title": "Search the Meditations",
+      "description": "Search the 499 entries of Marcus Aurelius' Meditations (Books 1–12, Gregory Hays translation) and return the matching entries with a deep link. Books only — the Introduction, Notes and Index of Persons are not searched. Each hit is a snippet of about 140 characters and at most 20 are returned per call, so a broad word needs a narrower query; an exact entry number such as '4.3' returns that entry's full text instead of a snippet.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "A phrase, e.g. 'get away from it all', or an entry number such as '4.3'."
           }
         },
         "required": ["query"]

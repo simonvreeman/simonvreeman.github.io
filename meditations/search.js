@@ -15,6 +15,16 @@ export function normalizeText(s) {
   return String(s ?? '').replace(/\s+/g, ' ').trim();
 }
 
+// findMatches() and snippet() read entry.lower, which meditations/entries.json does not ship — it is
+// derivable, and carrying it would nearly double that file. This is how a consumer puts it back: the
+// same fold, the same alignment rule, and `text` untouched, so applying it twice is harmless. Do not
+// rehydrate by re-running groupEntries() over its own output; that strips a leading "§ N.M" a second
+// time and would truncate an entry whose text legitimately begins with its own number.
+export function withLower(entries) {
+  for (const e of entries) e.lower = foldQuotes(e.text).toLowerCase();
+  return entries;
+}
+
 // items: [{ marker: 'book4-3' | 'book4-49a' | null, text: '…' }] in document order.
 // Returns [{ id, label, text, lower }]; label is '4.3' or '4.49a'.
 export function groupEntries(items) {
@@ -32,8 +42,7 @@ export function groupEntries(items) {
     if (!current || !t) continue;
     current.text = current.text ? `${current.text} ${t}` : t;
   }
-  for (const e of entries) e.lower = foldQuotes(e.text).toLowerCase();
-  return entries;
+  return withLower(entries);
 }
 
 export const MIN_QUERY = 2;

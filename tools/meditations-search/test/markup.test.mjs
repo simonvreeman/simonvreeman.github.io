@@ -24,6 +24,20 @@ test('search module is loaded as a module script', () => {
   assert.match(html, /<script type="module" src="search\.js"><\/script>/);
 });
 
+test('the WebMCP bundle is loaded only when the API exists', () => {
+  // Guard the LOAD, not just the registration: a visitor whose browser has no WebMCP must download
+  // nothing at all, not a script that returns early. Matched by reading the inline scripts rather
+  // than by pinning a shape, so the guard stays free to be an IIFE, to carry its rationale, or to
+  // grow a second branch — what is asserted is that the feature check precedes the load.
+  const inline = [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)]
+    .map(m => m[1]).find(s => s.includes('webmcp.js'));
+  assert.ok(inline, 'an inline script injects webmcp.js');
+  assert.match(inline, /document\.modelContext/, 'checks the current surface');
+  assert.match(inline, /navigator\.modelContext/, 'and the earlier draft');
+  assert.ok(inline.indexOf('modelContext') < inline.indexOf('webmcp.js'), 'the feature check comes before the load');
+  assert.ok(!/<script[^>]*\bsrc="webmcp\.js"/.test(html), 'never loaded unconditionally');
+});
+
 test('widget markup lives in the page, inside an inert template', () => {
   const m = /<template id="search-template">([\s\S]*?)<\/template>/.exec(html);
   assert.ok(m, 'the page carries <template id="search-template">');
@@ -87,4 +101,17 @@ test('Book sections are direct children of main and every entry marker is inside
     .reduce((n, [, body]) => n + (body.match(marker) || []).length, 0);
   assert.equal(inBooks, 499);
   assert.equal((html.match(marker) || []).length, inBooks, 'no entry markers outside the Books');
+});
+
+test('every h3/strong id inside a Book is entry-shaped', () => {
+  // itemFromElement() takes the FIRST strong[id] in an element and only then tests it against
+  // ENTRY_ID, so a <p> whose first strong[id] were a non-entry id yields marker: null and buildIndex()
+  // drops that entry outright. The Node scanner's STRONG_ID instead finds the first strong whose id
+  // already matches, so it would keep the entry — a silent divergence. Rather than pin parity on the
+  // DOM's worse behaviour (losing an entry on purpose), assert the case cannot arise.
+  const inner = html.slice(html.indexOf('<main>') + 6, html.indexOf('</main>'));
+  const ids = [...inner.matchAll(/<section id="book\d+">([\s\S]*?)<\/section>/g)]
+    .flatMap(([, body]) => [...body.matchAll(/<(?:h3|strong)\b[^>]*?\sid="([^"]*)"/g)].map(m => m[1]));
+  assert.equal(ids.length, 499, 'no h3/strong carries an id beyond the 499 entry markers');
+  assert.deepEqual(ids.filter(id => !/^book\d+-\d+[a-z]?$/.test(id)), [], 'no non-entry ids in the Books');
 });

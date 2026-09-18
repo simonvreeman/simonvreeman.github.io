@@ -113,3 +113,27 @@ export function fire(target, type, init = {}) {
   for (let n = target; n; n = n.parentNode) for (const fn of n.listeners?.[type] ?? []) fn(ev);
   return ev;
 }
+
+// Void elements never get a closing tag; <br> is the only one the Books use.
+const VOID = new Set(['br', 'hr', 'img', 'input', 'link', 'meta']);
+// The characters meditations/index.html writes as entities, so fixtures resemble the real page.
+// Only & < > are load-bearing: they must be escaped for the scanner to read the markup correctly,
+// and the < > lacuna fixture pins decode-after-strip ordering. Dropping — – … § from this table
+// fails no test — decodeEntities() is pinned directly by its own unit test, not through here.
+// A fixture containing a literal & serialises to &amp;, which decodeEntities() then throws on as an
+// unknown entity. That is intended: the Books contain no &amp;, and the throw is the contract.
+const CHARS = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '—': '&mdash;', '–': '&ndash;', '…': '&hellip;', '§': '&#167;' };
+const escapeText = s => s.replace(/[&<>—–…§]/g, c => CHARS[c]);
+const escapeAttr = s => s.replace(/[&<>]/g, c => CHARS[c]).replace(/"/g, '&quot;');
+
+// The inverse of an HTML parse, so a fixture authored once as an h() tree can be handed to the DOM
+// adapters in search.js and, as markup, to the Node scanner in lib/scan-html.mjs. Attributes keep
+// their insertion order, which is what lets a fixture mirror the page's `id`-first entry markers.
+export function serialize(node) {
+  if (node instanceof Text) return escapeText(node.data);
+  const inner = node.childNodes.map(serialize).join('');
+  if (node.tagName.startsWith('#')) return inner; // Document: a fragment, with no tag of its own
+  const tag = node.tagName.toLowerCase();
+  const attrs = Object.entries(node.attrs).map(([k, v]) => ` ${k}="${escapeAttr(String(v))}"`).join('');
+  return VOID.has(tag) ? `<${tag}${attrs}>` : `<${tag}${attrs}>${inner}</${tag}>`;
+}

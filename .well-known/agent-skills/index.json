@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "vreeman-stoic-library",
+      "type": "skill-md",
+      "description": "Look up, search or quote Marcus Aurelius' Meditations. Use when a task needs the exact wording of an entry (such as 4.3), passages on a theme such as anger or death, or a stable citation link to one. Covers all 499 entries of Books 1-12 in the Gregory Hays translation, published on vreeman.com as an MCP search tool, one JSON file holding the whole corpus, and a permanent anchor per entry. Also the way in to the rest of that site's Stoic library of Epictetus, Seneca and Stockdale.",
+      "url": "/.well-known/agent-skills/vreeman-stoic-library/SKILL.md",
+      "digest": "sha256:11cb3977f1f1cd7c7f5ffa7a035f92bb8f83bfe8da0a9e9fdca5778781f2ea8d"
+    }
+  ]
+}

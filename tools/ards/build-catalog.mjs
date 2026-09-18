@@ -21,10 +21,17 @@ export function buildCatalog(serverCard, now) {
         url: `${SITE_ORIGIN}/.well-known/mcp/server-card.json`,
         description: serverCard.description,
         capabilities: (serverCard.tools || []).map(t => t.name),
+        // Semantic hints for registries, not literal search strings: none of these matches the
+        // corpus verbatim, and they are not meant to. The Meditations wording still follows the
+        // edition this site publishes, Gregory Hays — Long's "retreats for themselves" would point
+        // a registry at an idiom nothing here uses. Keep the list at five: the validator warns
+        // outside 2–5.
         representativeQueries: [
           'seneca letters on the fear of death',
           'epictetus dichotomy of control',
           'GA4 UTM campaign URL builder',
+          'marcus aurelius on getting away from it all',
+          'marcus aurelius on what stands in the way',
         ],
         version: serverCard.version,
         updatedAt: now,
