@@ -227,6 +227,7 @@ footer {
   line-height: 1.4;
 }
 .fixed, #search-toggle {
+  box-sizing: border-box;
   display: grid;
   place-items: center;
   width: 2.75rem;
@@ -235,7 +236,9 @@ footer {
   padding: 0;
   border: none;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: rgb(255 255 255 / 35%);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
   color: inherit;
   cursor: pointer;
 }
@@ -352,7 +355,10 @@ footer {
   td, th {
     border: 1px solid var(--white);
   }
-  .fixed, #search-toggle, #search-panel {
+  .fixed, #search-toggle {
+    background-color: color-mix(in oklch, var(--eigengrau) 25%, transparent);
+  }
+  #search-panel {
     background-color: var(--eigengrau);
   }
   .fixed {
