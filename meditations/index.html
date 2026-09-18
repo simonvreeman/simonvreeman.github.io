@@ -226,7 +226,7 @@ footer {
   font-size: 1rem;
   line-height: 1.4;
 }
-.fixed, #search-toggle {
+.fixed, #search-toggle, #random-paragraph {
   box-sizing: border-box;
   display: grid;
   place-items: center;
@@ -243,8 +243,23 @@ footer {
   cursor: pointer;
 }
 .fixed:hover, .fixed:focus, .fixed:active,
+#random-paragraph:hover, #random-paragraph:focus-visible,
 #search-toggle:hover, #search-toggle:focus-visible, #search-toggle[aria-expanded="true"] {
   color: var(--blue-dark);
+}
+.search-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: .5rem;
+}
+.search-actions button {
+  margin: 0;
+}
+#random-paragraph {
+  width: auto;
+  padding: 0 1rem;
+  border-radius: 2rem;
+  font: inherit;
 }
 #search-panel {
   box-sizing: border-box;
@@ -355,7 +370,7 @@ footer {
   td, th {
     border: 1px solid var(--white);
   }
-  .fixed, #search-toggle {
+  .fixed, #search-toggle, #random-paragraph {
     background-color: color-mix(in oklch, var(--eigengrau) 25%, transparent);
   }
   #search-panel {
@@ -365,7 +380,8 @@ footer {
     color: inherit;
   }
   .fixed:hover, .fixed:focus, .fixed:active,
-  #search-toggle:hover, #search-toggle:focus-visible, #search-toggle[aria-expanded="true"] {
+  #random-paragraph:hover, #random-paragraph:focus-visible,
+#search-toggle:hover, #search-toggle:focus-visible, #search-toggle[aria-expanded="true"] {
     color: var(--blue-lighter);
   }
   #search-results .search-snippet {
@@ -3385,9 +3401,12 @@ footer {
     </a>
     <template id="search-template">
       <div id="search" class="search">
+        <div class="search-actions">
+        <button id="random-paragraph" type="button" title="Go to a random entry in Books 1–12, favoring marked passages">Random paragraph</button>
         <button id="search-toggle" type="button" aria-label="Search the Books" title="Search Meditations Books 1&ndash;12 (&#8984;K / Ctrl+K)" aria-expanded="false" aria-controls="search-panel" aria-keyshortcuts="Meta+K Control+K">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
         </button>
+        </div>
         <div id="search-panel" role="search" hidden>
           <input id="search-input" type="search" enterkeyhint="search" placeholder="Search Meditations" autocomplete="off" spellcheck="false" aria-label="Search Meditations Books 1&ndash;12">
           <p id="search-status" role="status"></p>

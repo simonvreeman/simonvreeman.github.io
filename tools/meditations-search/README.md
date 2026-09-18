@@ -17,6 +17,12 @@ labelled `4.49a`). Total: **499 entries**. The index is built lazily on first op
 
 ## Behaviour
 
+- **Random paragraph:** the button to the left of Search jumps to an entry in Books 1–12. It chooses
+  the marked pool 80% of the time and the unmarked pool 20%, then picks uniformly within that pool.
+  Marks in continuation paragraphs count. If one pool is empty, it uses the other. The current entry
+  at the reading line and the current fragment destination are excluded, including during smooth scrolling.
+  Random closes Search and moves keyboard focus to the chosen entry.
+
 - **Open:** the fixed top-right magnifier icon, or **Cmd/Ctrl+K** (focuses the field if already open). On
   layouts where that key produces a non-Latin letter (Cyrillic, Greek) the physical K position counts too.
 - **Enter** in the field moves focus to the first result (on a phone this also dismisses the keyboard); Enter

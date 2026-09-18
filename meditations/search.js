@@ -97,7 +97,7 @@ export function isSearchShortcut(ev) {
   return k === 'k' || (ev.code === 'KeyK' && !/^\p{Script=Latin}$/u.test(k));
 }
 
-const BOOK_ID = /^book\d+$/;
+const BOOK_ID = /^book(?:[1-9]|1[0-2])$/;
 const STRIP_SELECTOR = 'sup, .return'; // footnote markers and § return links
 // textContent joins nodes with nothing in between, so line breaks and block descendants are padded
 // with spaces; otherwise "…world.</li><li>My…" would fuse into "world.My" without whitespace between tags.
@@ -111,15 +111,54 @@ export function visibleText(el) {
 }
 
 // One item per direct child of a Book section.
+function entryMarker(el) {
+  if (el.tagName === 'H3' && ENTRY_ID.test(el.id)) return el;
+  const strong = el.querySelector('strong[id]');
+  return strong && ENTRY_ID.test(strong.id) ? strong : null;
+}
+
 export function itemFromElement(el) {
-  let marker = null;
-  if (el.tagName === 'H3' && ENTRY_ID.test(el.id)) {
-    marker = el.id;
-  } else {
-    const strong = el.querySelector('strong[id]');
-    if (strong && ENTRY_ID.test(strong.id)) marker = strong.id;
+  return { marker: entryMarker(el)?.id ?? null, text: visibleText(el) };
+}
+
+// Include marks in continuation paragraphs and lists, up to the next entry marker.
+export function buildRandomEntries(doc) {
+  const entries = [];
+  for (const section of doc.querySelectorAll('main > section[id]')) {
+    if (!BOOK_ID.test(section.id)) continue;
+    let current = null;
+    for (const child of section.children) {
+      if (child.tagName === 'H2') continue;
+      const marker = entryMarker(child);
+      if (marker) {
+        current = { id: marker.id, marked: false, marker, section };
+        entries.push(current);
+      }
+      if (current && child.querySelector('mark')) current.marked = true;
+    }
   }
-  return { marker, text: visibleText(el) };
+  return entries;
+}
+
+export function randomEntry(entries, currentId, random = Math.random) {
+  const available = entries.filter(entry => entry.id !== currentId);
+  const marked = available.filter(entry => entry.marked);
+  const unmarked = available.filter(entry => !entry.marked);
+  // Choose the pool first, then choose uniformly within it. An empty pool falls back to the other.
+  const pool = !marked.length ? unmarked : !unmarked.length ? marked
+    : random() < 0.8 ? marked : unmarked;
+  return pool.length ? pool[Math.floor(random() * pool.length)] : null;
+}
+
+// Follow manual scrolling as well as fragment navigation: the entry at the reading line is current.
+export function currentEntryId(entries) {
+  let current = null;
+  for (const entry of entries) {
+    const bounds = entry.section.getBoundingClientRect();
+    if (bounds.top > 100 || bounds.bottom <= 100) continue;
+    if (entry.marker.getBoundingClientRect().top <= 100) current = entry.id;
+  }
+  return current;
 }
 
 // Index only <section id="bookN"> inside <main>; everything else on the page is ignored.
@@ -216,6 +255,20 @@ export function mountSearch(doc) {
     status.textContent = query.length < MIN_QUERY ? '' : statusText(matches.length);
     results.replaceChildren(...matches.map(entry => resultItem(entry, query)));
   }
+
+  let randomEntries = null;
+  root.querySelector('#random-paragraph')?.addEventListener('click', () => {
+    randomEntries ??= buildRandomEntries(doc);
+    // Exclude the fragment too, so another click during smooth scrolling cannot repeat the destination.
+    const candidates = randomEntries.filter(entry => `#${entry.id}` !== doc.defaultView.location.hash);
+    const entry = randomEntry(candidates, currentEntryId(randomEntries));
+    if (!entry) return;
+    close(false);
+    doc.defaultView.location.hash = entry.id;
+    // Move keyboard and screen-reader focus to the selected passage.
+    entry.marker.setAttribute('tabindex', '-1');
+    entry.marker.focus({ preventScroll: true });
+  });
 
   toggle.addEventListener('click', () => (isOpen() ? close(true) : open()));
   input.addEventListener('input', render);
