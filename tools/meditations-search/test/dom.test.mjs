@@ -55,6 +55,7 @@ function page(ids = {}, { narrow = false, visualViewport = null } = {}) {
     h('p', {}, h('strong', { id: 'book2-1' }, '2.1'), ' Tranquillity comes from within.'),
     h('p', {}, h('strong', { id: 'book2-2' }, '2.2'), ' Throw away your books.')));
   const root = h('div', { id: 'search', class: 'search' },
+    h('button', { id: 'random-paragraph', type: 'button' }),
     h('button', { id: id('search-toggle'), type: 'button', 'aria-expanded': 'false' }),
     h('div', { id: id('search-panel'), hidden: '' },
       h('input', { id: id('search-input'), type: 'search' }),
@@ -254,4 +255,36 @@ test('the widget exposes the layout-viewport height minus the keyboard so the pa
   vv.height = 300;
   listeners.forEach(fn => fn());
   assert.equal(root.style.getPropertyValue('--vvh'), '600px');
+});
+
+
+test('Random focuses before navigation and explicitly scrolls even when the fragment does not', () => {
+  const doc = page();
+  const { root, panel } = opened(doc);
+  const calls = [];
+  let hash = '#book2-1';
+  doc.defaultView.location = {
+    get hash() { return hash; },
+    set hash(value) { calls.push('navigate'); hash = `#${value}`; },
+  };
+  doc.getElementById('book2').getBoundingClientRect = () => ({ top: -10, bottom: 1000 });
+  for (const [id, top] of [['book2-1', 50], ['book2-2', 500]]) {
+    doc.getElementById(id).getBoundingClientRect = () => ({ top });
+  }
+  const destination = doc.getElementById('book2-2');
+  destination.focus = options => {
+    assert.equal(options.preventScroll, true);
+    calls.push('focus');
+    doc.activeElement = destination;
+  };
+  destination.scrollIntoView = options => {
+    assert.deepEqual(options, { block: 'start' });
+    calls.push('scroll');
+  };
+  fire(root.querySelector('#random-paragraph'), 'click');
+  assert.deepEqual(calls, ['focus', 'navigate', 'scroll']);
+  assert.equal(hash, '#book2-2');
+  assert.equal(panel.hidden, true);
+  assert.equal(doc.activeElement, destination);
+  assert.equal(destination.attrs.tabindex, '-1');
 });

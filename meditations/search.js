@@ -264,10 +264,13 @@ export function mountSearch(doc) {
     const entry = randomEntry(candidates, currentEntryId(randomEntries));
     if (!entry) return;
     close(false);
-    doc.defaultView.location.hash = entry.id;
-    // Move keyboard and screen-reader focus to the selected passage.
+    // Set focus before starting navigation so focus changes cannot interrupt the scroll.
     entry.marker.setAttribute('tabindex', '-1');
     entry.marker.focus({ preventScroll: true });
+    doc.defaultView.location.hash = entry.id;
+    // Explicitly reveal the passage as well as updating its URL. Use the page's scroll behavior,
+    // including its reduced-motion setting, rather than relying solely on fragment scrolling.
+    entry.marker.scrollIntoView({ block: 'start' });
   });
 
   toggle.addEventListener('click', () => (isOpen() ? close(true) : open()));
