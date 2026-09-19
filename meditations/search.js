@@ -150,13 +150,19 @@ export function randomEntry(entries, currentId, random = Math.random) {
   return pool.length ? pool[Math.floor(random() * pool.length)] : null;
 }
 
+// Keep shuffle and the location trail on the same reading line on narrow screens.
+export function readingLine(doc) {
+  const breadcrumb = doc.querySelector('.breadcrumb');
+  return Math.max(100, breadcrumb && !breadcrumb.hidden ? breadcrumb.getBoundingClientRect().bottom + 20 : 100);
+}
+
 // Follow manual scrolling as well as fragment navigation: the entry at the reading line is current.
-export function currentEntryId(entries) {
+export function currentEntryId(entries, readingLine = 100) {
   let current = null;
   for (const entry of entries) {
     const bounds = entry.section.getBoundingClientRect();
-    if (bounds.top > 100 || bounds.bottom <= 100) continue;
-    if (entry.marker.getBoundingClientRect().top <= 100) current = entry.id;
+    if (bounds.top > readingLine || bounds.bottom <= readingLine) continue;
+    if (entry.marker.getBoundingClientRect().top <= readingLine) current = entry.id;
   }
   return current;
 }
@@ -287,7 +293,7 @@ export function mountSearch(doc) {
     randomEntries ??= buildRandomEntries(doc);
     // Exclude the fragment too, so another click during smooth scrolling cannot repeat the destination.
     const candidates = randomEntries.filter(entry => `#${entry.id}` !== doc.defaultView.location.hash);
-    const entry = randomEntry(candidates, currentEntryId(randomEntries));
+    const entry = randomEntry(candidates, currentEntryId(randomEntries, readingLine(doc)));
     if (!entry) return;
     close(false);
     // Set focus before starting navigation so focus changes cannot interrupt the scroll.

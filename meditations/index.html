@@ -186,7 +186,7 @@ footer {
   z-index: 10;
 }
 [id] {
-  scroll-margin-top: 2ex;
+  scroll-margin-top: 5rem;
 }
 #progress {
   background-color: var(--blue-light);
@@ -216,6 +216,49 @@ footer {
 }
 @keyframes progress {
   from { transform: scaleX(0); }
+}
+/* Reading location stays available while the other reading controls recede. */
+.breadcrumb {
+  position: fixed;
+  top: .75rem;
+  left: 1rem;
+  z-index: 10;
+  max-width: calc(100vw - 9rem);
+  border-radius: .25rem;
+  background: light-dark(rgb(255 255 255 / 95%), oklch(0.20 0.01 285.06 / .96));
+  font: .875rem/1.4 var(--sans-serif);
+}
+.breadcrumb[hidden], .breadcrumb li[hidden] { display: none; }
+.breadcrumb ol {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 .25rem;
+  list-style: none;
+}
+.breadcrumb li { display: flex; align-items: center; min-width: 0; }
+.breadcrumb li:first-child { flex-shrink: 0; }
+.breadcrumb .separator { margin: 0 .125rem; opacity: .45; }
+.breadcrumb a {
+  display: block;
+  padding: .75rem .375rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: color-mix(in oklch, currentColor 75%, transparent);
+  text-decoration: none;
+  font-variant-numeric: tabular-nums;
+}
+.breadcrumb a[aria-current] { color: inherit; }
+.breadcrumb a:hover, .breadcrumb a:focus-visible {
+  color: light-dark(var(--blue-dark), var(--blue-lighter));
+  text-decoration: underline;
+}
+.breadcrumb a:focus-visible { outline-offset: -3px; }
+.breadcrumb [data-passage="true"] a { min-width: 5ch; }
+@media (max-width: 40em) {
+  .breadcrumb { display: none; }
+  [id] { scroll-margin-top: 7rem; }
 }
 .search {
   position: fixed;
@@ -405,7 +448,7 @@ footer {
   a {
     text-decoration: none;
   }
-  .return, .fixed, .search, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
+  .breadcrumb, .return, .fixed, .search, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
     display: none;
   }
   mark, mark[title], mark[title] > a {
@@ -1355,6 +1398,13 @@ footer {
       <h1>Meditations by Marcus Aurelius</h1>
       <h2>A new translation, with an introduction, by Gregory Hays</h2>
     </header>
+    <nav class="breadcrumb" aria-label="Reading location" hidden>
+      <ol>
+        <li><a href="#header">Meditations</a></li>
+        <li hidden><span class="separator" aria-hidden="true">›</span><a></a></li>
+        <li hidden><span class="separator" aria-hidden="true">›</span><a></a></li>
+      </ol>
+    </nav>
     <hr>
     <nav>
       <h2 id="nav"><a href="#nav" title="Meditations &mdash; Table of Contents">&#35;</a> Table of Contents <a href="#header" title="Back to top">↑</a></h2>
@@ -3423,6 +3473,7 @@ footer {
       </div>
     </template>
 <script type="module" src="search.js"></script>
+<script type="module" src="breadcrumb.js"></script>
 <script>
 // WebMCP: feature-detect before downloading, not inside the bundle. A visitor whose browser has no
 // WebMCP should fetch nothing at all, so the guard is here rather than at the top of the module — a
