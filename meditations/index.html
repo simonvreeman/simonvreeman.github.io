@@ -219,6 +219,7 @@ footer {
 }
 /* Reading location stays available while the other reading controls recede. */
 .breadcrumb {
+  hanging-punctuation: none;
   position: fixed;
   top: .75rem;
   left: 1rem;
@@ -238,7 +239,11 @@ footer {
 }
 .breadcrumb li { display: flex; align-items: center; min-width: 0; }
 .breadcrumb li:first-child { flex-shrink: 0; }
-.breadcrumb .separator { margin: 0 .125rem; opacity: .45; }
+.breadcrumb .separator {
+  flex: 0 0 .75rem;
+  text-align: center;
+  opacity: .45;
+}
 .breadcrumb a {
   display: block;
   padding: .75rem .375rem;
