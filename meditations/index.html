@@ -8,6 +8,7 @@
     <link rel="dns-prefetch" href="https://gtm.vreeman.com">
     <meta name="text-scale" content="scale">
 <style>
+/* Colors and font stacks. */
 :root {
   color-scheme: dark light;
   --eigengrau: oklch(0.20 0.01 285.06);
@@ -22,10 +23,8 @@
   --cursive: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;
   font-variant-ligatures: no-contextual;
 }
-::-moz-selection {
-  color: var(--eigengrau);
-  background-color: var(--blue-lighter);
-}
+
+/* Selection, focus and document layout. */
 ::selection {
   color: var(--eigengrau);
   background-color: var(--blue-lighter);
@@ -46,11 +45,7 @@ html {
   overflow-y: scroll;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent;
   hanging-punctuation: first allow-end last;
 }
@@ -64,8 +59,8 @@ body {
   font-size: 1.125rem;
   line-height: 1.618;
   font-feature-settings: "onum" 1;
+  font-kerning: normal;
   text-rendering: geometricPrecision;
-  -moz-font-feature-settings: "kern";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
@@ -73,6 +68,7 @@ body {
   overflow-wrap: break-word;
   text-wrap: pretty;
 }
+/* Reading typography and tables. */
 h1, h2, h3, h4, h5 {
   font-family: var(--sans-serif);
   text-wrap: balance;
@@ -95,11 +91,11 @@ td, th {
 tbody {
   vertical-align: text-bottom;
 }
+/* Links, quotations, notes and highlights. */
 a {
   background-color: transparent;
   color: var(--blue-dark);
   text-decoration-skip-ink: auto;
-  -ms-touch-action: manipulation;
   touch-action: manipulation;
 }
 a:active, a:focus, a:hover {
@@ -148,7 +144,7 @@ li::marker {
   color: var(--blue-dark);
   font-weight: 700;
 }
-ul ul, ul ul ul {
+ul ul {
   font-size: 1rem;
   list-style: inherit;
 }
@@ -188,16 +184,23 @@ footer {
 [id] {
   scroll-margin-top: 5rem;
 }
+/* Reading navigation and progress. Hide the indicator without a scroll timeline. */
 #progress {
-  background-color: var(--blue-light);
-  height: .125rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  transform-origin: left center;
-  width: 100%;
-  animation: progress linear;
-  animation-timeline: scroll();
+  display: none;
+}
+@supports (animation-timeline: scroll()) {
+  #progress {
+    display: block;
+    background-color: var(--blue-light);
+    height: .125rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform-origin: left center;
+    width: 100%;
+    animation: progress linear;
+    animation-timeline: scroll();
+  }
 }
 .skip-to-main-content-link {
   position: absolute;
@@ -266,6 +269,7 @@ footer {
   .breadcrumb { display: none; }
   [id] { scroll-margin-top: 7rem; }
 }
+/* Floating reading controls. */
 .search {
   position: fixed;
   top: .75rem;
@@ -316,6 +320,7 @@ footer {
 #search-toggle, #random-paragraph {
   margin: 0;
 }
+/* Search panel, status and scrollable results. */
 #search-panel {
   box-sizing: border-box;
   width: min(28em, calc(100vw - 2em));
@@ -394,7 +399,11 @@ footer {
   padding: 0 .125rem;
   white-space: normal;
 }
+/* Motion preferences apply to reading controls and fragment navigation. */
 @media (prefers-reduced-motion: reduce) {
+  #progress {
+    display: none;
+  }
   *, ::after, ::before, html {
     scroll-behavior: auto !important;
   }
@@ -403,6 +412,7 @@ footer {
     transition: none !important;
   }
 }
+/* Theme overrides. */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: var(--eigengrau);
@@ -436,15 +446,20 @@ footer {
   }
   .fixed:hover, .fixed:focus, .fixed:active,
   #random-paragraph:hover, #random-paragraph:focus-visible,
-#search-toggle:hover, #search-toggle:focus-visible, #search-toggle[aria-expanded="true"] {
+  #search-toggle:hover, #search-toggle:focus-visible, #search-toggle[aria-expanded="true"] {
     color: var(--blue-lighter);
   }
   #search-results .search-snippet {
     color: var(--white);
   }
 }
+/* Print independently of the screen color scheme. */
 @media print {
+  td, th, hr {
+    border-color: oklch(0 0 none);
+  }
   body {
+    background-color: oklch(1 0 none);
     font-size: 1rem;
     line-height: 1.618;
   }
@@ -454,14 +469,14 @@ footer {
   a {
     text-decoration: none;
   }
-  .breadcrumb, .return, .fixed, .search, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
+  #progress, .skip-to-main-content-link, .breadcrumb, .return, .fixed, .search, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
     display: none;
   }
   mark, mark[title], mark[title] > a {
     background-color: oklch(1.00 0.00 none);
     color: oklch(0.00 0.00 none);
   }
-  main table, nav ul, ul ul, ul ul ul {
+  main table, nav ul, ul ul {
     font-size: 80%;
   }
   main h2 {
