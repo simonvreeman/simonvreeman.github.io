@@ -10,7 +10,9 @@ const labels = {
 
 export function headingLabel(heading) {
   const clone = heading.cloneNode(true);
-  clone.querySelectorAll('a, sup').forEach(node => node.remove());
+  clone.querySelectorAll('a, sup, .heading-marker').forEach(node => {
+    if (!node.classList.contains('heading-link')) node.remove();
+  });
   return clone.textContent.replace(/\s+/g, ' ').trim();
 }
 

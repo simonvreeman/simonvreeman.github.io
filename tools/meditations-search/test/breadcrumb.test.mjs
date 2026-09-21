@@ -34,3 +34,13 @@ test('editorial labels remove navigation symbols while preserving emphasized tex
   assert.equal(headingLabel(heading), 'Stoicism and the Meditations');
   assert.match(heading.textContent, /§/);
 });
+
+test('editorial labels retain linked heading text and exclude footnotes', () => {
+  const heading = h('h3', {},
+    h('a', { class: 'heading-link', href: '#stoicism' },
+      h('span', { class: 'heading-marker section', 'aria-hidden': 'true' }),
+      ' Stoicism and the ', h('em', {}, 'Meditations')),
+    h('sup', {}, h('a', { href: '#note' }, 'i')), ' ', h('a', { href: '#header' }, '↑'));
+  assert.equal(headingLabel(heading), 'Stoicism and the Meditations');
+  assert.match(heading.textContent, /i↑|i ↑/);
+});
