@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
 <title>Cowboy Song - Bökkers</title>
 <meta charset="UTF-8">
@@ -27,6 +27,39 @@
   h1 {
     hyphens: manual;
   }
+  figure {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    margin: 0 0 1.5rem;
+    padding: 0.75rem 0;
+    background: Canvas;
+    color: CanvasText;
+    border-bottom: 1px solid GrayText;
+  }
+  audio { display: block; width: 100%; margin: 0.5rem 0; }
+  #lyric-options { font-size: 0.875rem; line-height: 1.5; }
+  #lyric-options p { margin: 0.25rem 0; }
+  #playback-status:empty { display: none; }
+  #lyrics br { display: none; }
+  #lyrics [data-start] { display: block; }
+  .lyric-line {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 0.25rem;
+    padding: 0.125rem 0.375rem;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    text-align: inherit;
+    cursor: pointer;
+  }
+  .lyric-line:hover { background: rgba(128, 128, 128, 0.12); }
+  .lyric-line[aria-current="true"] { background: #ffe69a; color: #29200b; }
+  .lyric-line:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 </style>
 <script type="application/ld+json">
   {
@@ -54,48 +87,56 @@
     <audio controls autoplay loop preload="auto">
       <source src="music/bokkers-cowboy-song.mp3" type="audio/mpeg">
     </audio>
+    <div id="lyric-options" hidden>
+      <label><input id="follow-lyrics" type="checkbox" checked> Volg de tekst automatisch</label>
+      <p>Klik op een regel om vanaf daar te luisteren.</p>
+    </div>
+    <p id="playback-status" role="status"></p>
   </figure>
-  <p>Ik ben een cowboy met een hele dikke lul<br/>En als ik naar de bank toe ga, dan is mijn saldo nul</p>
-  <p>Ik ga nooit naar de hoeren, want dat vind ik flauwekul<br/>Ik ben een cowboy met een hele dikke lul</p>
-  <p>Dikke lul</p>
-  <p>Ik ben een cowboy met een hele dikke penis<br/>Vanavond, ja, dan pak ik je, 't is menens</p>
-  <p>Ik weet niet of misschien ook erg gemeen is<br/>Maar ik ben een cowboy met een hele dikke penis</p>
-  <p>Dikke penis</p>
-  <p>Ik ben een cowboy met een hele dikke zwans<br/>Hij staat mooi waterpas en in balans</p>
-  <p>De snikkel shine die zorgt voor extra glans<br/>Ik ben een cowboy met een hele dikke zwans</p>
-  <p>Dikke zwans</p>
-  <p>Ik ben een cowboy met een dikke tampeloeres<br/>Ik kan altijd meteen zien of 't een hoer is</p>
-  <p>Ik geloof dat dat toch wel enorm stoer is<br/>Ik ben een cowboy met een dikke tampeloeres</p>
-  <p>Dikke tampeloeres</p>
-  <p>Ik ben een cowboy met een hele dikke staaf<br/>Ik doe ook aan SM en dan speel ik graag voor slaaf</p>
-  <p>En altijd als ik klaarkom, ja, dan roep ik steeds Alaaf!<br/>Ik ben een cowboy met een hele dikke staaf</p>
-  <p>Dikke staaf</p>
-  <p>Ik ben een cowboy met een hele dikke gieter<br/>Als ik klaarkom, heb je gauw een halve liter</p>
-  <p>Alleen het opruimen is wel gesodemieter<br/>Ik ben een cowboy met een hele dikke gieter</p>
-  <p>Dikke gieter</p>
-  <p>Ik ben een cowboy met een heel groot klokkenspel<br/>Maar laatst, tijdens het plompzakken toen zat het zaakje knel</p>
-  <p>En als ik daaraan terugdenk, ja, dan krijg ik kippenvel<br/>Ik ben een cowboy met een heel groot klokkenspel</p>
-  <p>Klokkenspel</p>
-  <p>Ik ben een cowboy met een hele dikke paal<br/>Ik ga vaak met mezelf aan de haal</p>
-  <p>Ik heb altijd wat te neuken, dus dat is best paradoxaal<br/>Ik ben een cowboy met een hele dikke paal</p>
-  <p>Dikke paal</p>
-  <p>Ik ben een cowboy met een hele dikke snikkel<br/>Ik kan beffen als de beste, ja, ik ben een echte bikkel</p>
-  <p>Voor de smaak neem ik nadien meestal een Tickle<br/>Ik ben een cowboy met een hele dikke snikkel</p>
-  <p>Dikke snikkel</p>
-  <p>Ik ben een cowboy met een grote jongeheer<br/>Ik ga de hele week enorm te keer</p>
-  <p>Behalve dan op zondag, want dan doet mijn voorhuid zeer<br/>Ik ben een cowboy met een grote jongeheer</p>
-  <p>Jonge heer</p>
-  <p>Ik ben een cowboy met een hele dikke swiep<br/>Ik steek hem elke avond in een miep</p>
-  <p>Ik ben ook nog getrouwd, dus ik doe alles in 't geniep<br/>Ik ben een cowboy met een hele dikke swiep</p>
-  <p>Dikke swiep</p>
-  <p>Ik ben een cowboy met een hele dikke worst<br/>Ik heb laatst buiten liggen neuken bij wel twintig graden vorst</p>
-  <p>En nu zit er op m'n eikel een hele dikke korst<br/>Ik ben een cowboy met een hele dikke worst</p>
-  <p>Dikke worst</p>
-  <p>Ik ben een cowboy met een hele dikke knots<br/>Hij smaakt naar whisky cola maar hij ruikt altijd naar kots</p>
-  <p>De dames vinden het niet leuk als ik hem tegen hun prostaat aan bots<br/>Ik ben een cowboy met een ontzettend dikke knots</p>
-  <p>Dikke knots</p>
-  <p>Ik ben een cowboy met een hele dikke jaap<br/>Van huis uit ben ik echt een Roomse paap</p>
-  <p>En steevast na het neuken, ja, dan val ik steeds in slaap<br/>&ctdot;</p>
+  <div id="lyrics">
+  <p><span data-start="21.66" data-end="25.56">Ik ben een cowboy met een hele dikke lul</span><br/><span data-start="26.96" data-end="31.56">En als ik naar de bank toe ga, dan is mijn saldo nul</span></p>
+  <p><span data-start="32.10" data-end="36.24">Ik ga nooit naar de hoeren, want dat vind ik flauwekul</span><br/><span data-start="36.52" data-end="39.92">Ik ben een cowboy met een hele dikke lul</span></p>
+  <p><span data-start="41.52" data-end="42.84">Dikke lul</span></p>
+  <p><span data-start="43.40" data-end="47.20">Ik ben een cowboy met een hele dikke penis</span><br/><span data-start="49.12" data-end="51.94">Vanavond, ja, dan pak ik je, 't is menens</span></p>
+  <p><span data-start="53.38" data-end="57.14">Ik weet niet of misschien ook erg gemeen is</span><br/><span data-start="57.90" data-end="61.58">Maar ik ben een cowboy met een hele dikke penis</span></p>
+  <p><span data-start="63.26" data-end="64.62">Dikke penis</span></p>
+  <p><span data-start="64.94" data-end="68.74">Ik ben een cowboy met een hele dikke zwans</span><br/><span data-start="70.06" data-end="73.74">Hij staat mooi waterpas en in balans</span></p>
+  <p><span data-start="74.72" data-end="78.42">De snikkel shine die zorgt voor extra glans</span><br/><span data-start="79.42" data-end="83.14">Ik ben een cowboy met een hele dikke zwans</span></p>
+  <p><span data-start="84.68" data-end="86.20">Dikke zwans</span></p>
+  <p><span data-start="86.74" data-end="90.50">Ik ben een cowboy met een dikke tampeloeres</span><br/><span data-start="91.72" data-end="95.56">Ik kan altijd meteen zien of 't een hoer is</span></p>
+  <p><span data-start="96.52" data-end="100.34">Ik geloof dat dat toch wel enorm stoer is</span><br/><span data-start="100.82" data-end="104.90">Ik ben een cowboy met een dikke tampeloeres</span></p>
+  <p><span data-start="106.28" data-end="107.64">Dikke tampeloeres</span></p>
+  <p><span data-start="108.40" data-end="112.12">Ik ben een cowboy met een hele dikke staaf</span><br/><span data-start="113.68" data-end="117.56">Ik doe ook aan SM en dan speel ik graag voor slaaf</span></p>
+  <p><span data-start="118.54" data-end="122.88">En altijd als ik klaarkom, ja, dan roep ik steeds Alaaf!</span><br/><span data-start="122.88" data-end="127.36">Ik ben een cowboy met een hele dikke staaf</span></p>
+  <p><span data-start="127.58" data-end="129.78">Dikke staaf</span></p>
+  <p><span data-start="129.86" data-end="133.62">Ik ben een cowboy met een hele dikke gieter</span><br/><span data-start="134.86" data-end="138.62">Als ik klaarkom, heb je gauw een halve liter</span></p>
+  <p><span data-start="139.56" data-end="143.26">Alleen het opruimen is wel gesodemieter</span><br/><span data-start="144.10" data-end="148.02">Ik ben een cowboy met een hele dikke gieter</span></p>
+  <p><span data-start="149.32" data-end="150.76">Dikke gieter</span></p>
+  <p><span data-start="151.46" data-end="154.62">Ik ben een cowboy met een heel groot klokkenspel</span><br/><span data-start="156.52" data-end="161.06">Maar laatst, tijdens het plompzakken toen zat het zaakje knel</span></p>
+  <p><span data-start="161.46" data-end="165.78">En als ik daaraan terugdenk, ja, dan krijg ik kippenvel</span><br/><span data-start="166.10" data-end="169.58">Ik ben een cowboy met een heel groot klokkenspel</span></p>
+  <p><span data-start="170.60" data-end="172.48">Klokkenspel</span></p>
+  <p><span data-start="173.26" data-end="176.80">Ik ben een cowboy met een hele dikke paal</span><br/><span data-start="178.12" data-end="181.58">Ik ga vaak met mezelf aan de haal</span></p>
+  <p><span data-start="183.12" data-end="186.64">Ik heb altijd wat te neuken, dus dat is best paradoxaal</span><br/><span data-start="186.94" data-end="191.22">Ik ben een cowboy met een hele dikke paal</span></p>
+  <p><span data-start="193.26" data-end="194.70">Dikke paal</span></p>
+  <p><span data-start="194.88" data-end="198.40">Ik ben een cowboy met een hele dikke snikkel</span><br/><span data-start="199.58" data-end="204.44">Ik kan beffen als de beste, ja, ik ben een echte bikkel</span></p>
+  <p><span data-start="204.68" data-end="208.08">Voor de smaak neem ik nadien meestal een Tickle</span><br/><span data-start="208.88" data-end="212.84">Ik ben een cowboy met een hele dikke snikkel</span></p>
+  <p><span data-start="214.04" data-end="215.60">Dikke snikkel</span></p>
+  <p><span data-start="216.40" data-end="219.94">Ik ben een cowboy met een grote jongeheer</span><br/><span data-start="221.24" data-end="224.72">Ik ga de hele week enorm te keer</span></p>
+  <p><span data-start="226.68" data-end="230.82">Behalve dan op zondag, want dan doet mijn voorhuid zeer</span><br/><span data-start="231.00" data-end="234.96">Ik ben een cowboy met een grote jongeheer</span></p>
+  <p><span data-start="236.42" data-end="237.78">Jonge heer</span></p>
+  <p><span data-start="237.90" data-end="241.86">Ik ben een cowboy met een hele dikke swiep</span><br/><span data-start="243.10" data-end="246.20">Ik steek hem elke avond in een miep</span></p>
+  <p><span data-start="248.10" data-end="252.38">Ik ben ook nog getrouwd, dus ik doe alles in 't geniep</span><br/><span data-start="252.52" data-end="256.10">Ik ben een cowboy met een hele dikke swiep</span></p>
+  <p><span data-start="257.98" data-end="259.62">Dikke swiep</span></p>
+  <p><span data-start="259.68" data-end="263.20">Ik ben een cowboy met een hele dikke worst</span><br/><span data-start="264.62" data-end="269.18">Ik heb laatst buiten liggen neuken bij wel twintig graden vorst</span></p>
+  <p><span data-start="269.68" data-end="273.80">En nu zit er op m'n eikel een hele dikke korst</span><br/><span data-start="273.80" data-end="277.62">Ik ben een cowboy met een hele dikke worst</span></p>
+  <p><span data-start="279.62" data-end="280.98">Dikke worst</span></p>
+  <p><span data-start="281.16" data-end="284.62">Ik ben een cowboy met een hele dikke knots</span><br/><span data-start="286.50" data-end="290.72">Hij smaakt naar whisky cola maar hij ruikt altijd naar kots</span></p>
+  <p><span data-start="291.40" data-end="295.60">De dames vinden het niet leuk als ik hem tegen hun prostaat aan bots</span><br/><span data-start="295.78" data-end="298.62">Ik ben een cowboy met een ontzettend dikke knots</span></p>
+  <p><span data-start="300.88" data-end="302.32">Dikke knots</span></p>
+  <p><span data-start="302.76" data-end="306.62">Ik ben een cowboy met een hele dikke jaap</span><br/><span data-start="307.72" data-end="311.62">Van huis uit ben ik echt een Roomse paap</span></p>
+  <p><span data-start="312.84" data-end="317.28">En steevast na het neuken, ja, dan val ik steeds in slaap</span><br/>&ctdot;</p>
+  </div>
   <h3>&mdash; Bökkers</h3>
   <p>Hendrik Jan Bökkers & Erik Neimeijer</p>
+<script src="cowboy-song.js" defer></script>
 </body></html>
