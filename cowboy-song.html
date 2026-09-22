@@ -100,22 +100,69 @@
       "@id": "https://vreeman.com/cowboy-song#recording",
       "name": "Cowboy Song",
       "url": "https://vreeman.com/cowboy-song",
-      "audio": "https://vreeman.com/music/bokkers-cowboy-song.mp3",
+      "duration": "PT6M16S",
+      "encoding": {
+        "@id": "https://vreeman.com/cowboy-song#audio"
+      },
       "byArtist": [
-        { "@id": "https://vreeman.com/cowboy-song#hendrik-jan-bokkers" },
-        { "@id": "https://vreeman.com/cowboy-song#erik-neimeijer" }
+        {
+          "@id": "https://vreeman.com/cowboy-song#hendrik-jan-bokkers"
+        },
+        {
+          "@id": "https://vreeman.com/cowboy-song#erik-neimeijer"
+        }
       ],
-      "recordingOf": { "@id": "https://vreeman.com/cowboy-song#composition" }
+      "recordingOf": {
+        "@id": "https://vreeman.com/cowboy-song#composition"
+      },
+      "creator": [
+        {
+          "@id": "https://vreeman.com/cowboy-song#hendrik-jan-bokkers"
+        },
+        {
+          "@id": "https://vreeman.com/cowboy-song#erik-neimeijer"
+        }
+      ]
     },
     {
       "@type": "MusicComposition",
       "@id": "https://vreeman.com/cowboy-song#composition",
       "name": "Cowboy Song",
-      "url": "https://vreeman.com/cowboy-song",
+      "inLanguage": "nl",
+      "musicCompositionForm": "Song",
+      "lyrics": {
+        "@id": "https://vreeman.com/cowboy-song#lyrics"
+      },
       "composer": [
-        { "@id": "https://vreeman.com/cowboy-song#hendrik-jan-bokkers" },
-        { "@id": "https://vreeman.com/cowboy-song#erik-neimeijer" }
+        {
+          "@id": "https://vreeman.com/cowboy-song#hendrik-jan-bokkers"
+        },
+        {
+          "@id": "https://vreeman.com/cowboy-song#erik-neimeijer"
+        }
+      ],
+      "lyricist": [
+        {
+          "@id": "https://vreeman.com/cowboy-song#hendrik-jan-bokkers"
+        },
+        {
+          "@id": "https://vreeman.com/cowboy-song#erik-neimeijer"
+        }
       ]
+    },
+    {
+      "@type": "AudioObject",
+      "@id": "https://vreeman.com/cowboy-song#audio",
+      "contentUrl": "https://vreeman.com/music/bokkers-cowboy-song.mp3",
+      "encodingFormat": "audio/mpeg",
+      "contentSize": "5997179 bytes",
+      "bitrate": "127545 bits per second"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://vreeman.com/cowboy-song#lyrics",
+      "url": "https://vreeman.com/cowboy-song#lyrics",
+      "inLanguage": "nl"
     },
     {
       "@type": "Person",
