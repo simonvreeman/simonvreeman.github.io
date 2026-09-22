@@ -10,6 +10,24 @@
 <link rel="canonical" href="https://vreeman.com/cowboy-song">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤠</text></svg>">
 <style>
+  :root {
+    /* Official palette: https://achterhoeksevlag.nl/downloads/ */
+    --flag-dark-green: #1c5733;
+    --flag-green: #00953b;
+    --flag-light-green: #76bd23;
+    --flag-beige: #d6caa0;
+    --heading-color: var(--flag-dark-green);
+    --lyric-hover-background: var(--flag-beige);
+    --lyric-hover-color: var(--flag-dark-green);
+    accent-color: var(--flag-green);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --heading-color: var(--flag-beige);
+      --lyric-hover-background: var(--flag-dark-green);
+      --lyric-hover-color: var(--flag-beige);
+    }
+  }
   * {
     font-family: "New York", -apple-system-ui-serif, ui-serif, Palatino, Georgia, Cambria, "Times New Roman", Times, serif;
     -webkit-font-smoothing: subpixel-antialiased;
@@ -26,6 +44,7 @@
   }
   h1 {
     hyphens: manual;
+    color: var(--heading-color);
   }
   figure {
     position: sticky;
@@ -35,7 +54,12 @@
     padding: 0.75rem 0;
     background: Canvas;
     color: CanvasText;
-    border-bottom: 1px solid GrayText;
+    border-bottom: 4px solid var(--flag-green);
+    border-image: linear-gradient(to right,
+      var(--flag-dark-green) 0% 25%,
+      var(--flag-green) 25% 50%,
+      var(--flag-light-green) 50% 75%,
+      var(--flag-beige) 75% 100%) 1;
   }
   audio { display: block; width: 100%; margin: 0.5rem 0; }
   #lyric-options { font-size: 0.875rem; line-height: 1.5; }
@@ -57,9 +81,15 @@
     text-align: inherit;
     cursor: pointer;
   }
-  .lyric-line:hover { background: rgba(128, 128, 128, 0.12); }
-  .lyric-line[aria-current="true"] { background: #ffe69a; color: #29200b; }
-  .lyric-line:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+  .lyric-line:hover {
+    background: var(--lyric-hover-background);
+    color: var(--lyric-hover-color);
+  }
+  .lyric-line[aria-current="true"] {
+    background: var(--flag-beige);
+    color: var(--flag-dark-green);
+  }
+  .lyric-line:focus-visible { outline: 2px solid var(--heading-color); outline-offset: 2px; }
 </style>
 <script type="application/ld+json">
   {
@@ -88,8 +118,8 @@
       <source src="music/bokkers-cowboy-song.mp3" type="audio/mpeg">
     </audio>
     <div id="lyric-options" hidden>
-      <label><input id="follow-lyrics" type="checkbox" checked> Volg de tekst automatisch</label>
-      <p>Klik op een regel om vanaf daar te luisteren.</p>
+      <label><input id="follow-lyrics" type="checkbox" checked> Loat de tekst vanzelf metlop'n</label>
+      <p>Klik op 'n regel um vanof doar te luuster'n.</p>
     </div>
     <p id="playback-status" role="status"></p>
   </figure>
