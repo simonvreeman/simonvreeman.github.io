@@ -5,10 +5,10 @@ import { fileURLToPath } from 'node:url';
 import { scanBooks, decodeEntities } from './lib/scan-html.mjs';
 
 // Editorial selection: entry + opening words, so new highlights do not shift IDs.
+// Additional openings explicitly select adjacent marks, preserving paragraph breaks.
 const selection = [
   ['1-7', 'To read attentively'],
   ['2-1', 'We were born to work together'],
-  ['2-4', 'Remember how long'],
   ['2-11', 'You could leave life'],
   ['3-3', 'You boarded'],
   ['4-3', '“The world is nothing'],
@@ -23,12 +23,22 @@ const selection = [
   ['5-6', 'Some people, when they do'],
   ['5-9', 'Not to feel exasperated'],
   ['5-16', 'The things you think about'],
-  ['5-20', 'What stands in the way'],
+  ['5-20', 'The impediment to action', 'What stands in the way'],
   ['5-23', 'Keep in mind how fast'],
+  ['5-37', 'But true good fortune'],
   ['6-11', 'When jarred'],
   ['6-19', 'Not to assume it’s impossible'],
   ['6-21', 'If anyone can refute me'],
   ['6-30', 'Revere the gods'],
+  ['6-38', 'Keep reminding yourself'],
+  ['6-47', 'The only thing that isn’t worthless'],
+  ['6-48', 'When you need encouragement'],
+  ['6-53', 'Practice really hearing'],
+  ['7-7', 'Don’t be ashamed to need help'],
+  ['7-27', 'Treat what you don’t have'],
+  ['7-47', 'To watch the courses'],
+  ['7-59', 'Dig deep'],
+  ['7-69', 'Perfection of character'],
   ['8-16', 'Remember that to change your mind'],
   ['8-22', 'Stick to what’s in front'],
   ['8-29', 'To erase false perceptions'],
@@ -42,10 +52,12 @@ const selection = [
   ['9-29', 'Do what nature demands'],
   ['10-4', 'If they’ve made a mistake'],
   ['10-16', 'To stop talking about'],
+  ['10-30', 'When faced with people’s bad behavior'],
   ['11-9', 'As you move forward'],
   ['11-18', 'How much more damage'],
   ['12-4', 'It never ceases to amaze me'],
   ['12-17', 'If it’s not right'],
+  ['12-19', 'It’s time you realized'],
   ['12-22', 'It’s all in how you perceive it'],
   ['12-36', 'So make your exit with grace'],
 ];
@@ -55,19 +67,31 @@ export function buildPassages(html) {
   const marks = [];
   for (const section of html.matchAll(/<section id="book\d+"[^>]*>([\s\S]*?)<\/section>/g)) {
     let id;
+    let previousEnd = 0;
     for (const match of section[1].matchAll(/<(?:h3|strong) id="(book\d+-\d+[a-z]?)"[^>]*>|<mark\b[^>]*>([\s\S]*?)<\/mark>/g)) {
       if (match[1]) { id = match[1]; continue; }
       if (!id) throw new Error('Highlight without an entry');
       const text = decodeEntities(match[2].replace(/<sup\b[^>]*>[\s\S]*?<\/sup>/g, '')
         .replace(/<\/?(?:br|p|li)\b[^>]*>/g, ' ').replace(/<[^>]+>/g, ''))
         .replace(/\s+/g, ' ').trim();
-      marks.push({ id, label: id.slice(4).replace('-', '.'), text });
+      const adjacent = /^(?:\s|<\/?p\b[^>]*>)*$/.test(section[1].slice(previousEnd, match.index));
+      marks.push({ id, label: id.slice(4).replace('-', '.'), text, adjacent });
+      previousEnd = match.index + match[0].length;
     }
   }
-  return selection.map(([entry, opening]) => {
-    const matches = marks.filter(mark => mark.id === `book${entry}` && mark.text.startsWith(opening));
-    if (matches.length !== 1) throw new Error(`Expected one marked passage for ${entry}: ${opening}`);
-    return matches[0];
+  return selection.map(([entry, ...openings]) => {
+    const selected = openings.map(opening => {
+      const matches = marks.filter(mark => mark.id === `book${entry}` && mark.text.startsWith(opening));
+      if (matches.length !== 1) throw new Error(`Expected one marked passage for ${entry}: ${opening}`);
+      return matches[0];
+    });
+    for (let i = 1; i < selected.length; i++) {
+      if (marks.indexOf(selected[i]) !== marks.indexOf(selected[i - 1]) + 1 || !selected[i].adjacent) {
+        throw new Error(`Expected adjacent marked passages for ${entry}`);
+      }
+    }
+    const { id, label } = selected[0];
+    return { id, label, text: selected.map(mark => mark.text).join('\n') };
   });
 }
 

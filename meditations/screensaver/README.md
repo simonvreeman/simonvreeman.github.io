@@ -2,9 +2,10 @@
 
 Open `/meditations/screensaver/` through the site's static server.
 
-The collection contains 42 editorially selected, standalone highlights. Each is
-one contiguous `<mark>` from Books 1–12; no unmarked text is added and separate
-highlights are never joined. Wording and entry links come from the original page.
+The collection contains 53 editorially selected, standalone highlights. Each uses exact `<mark>` excerpts
+from Books 1–12; no unmarked text is added or wording rewritten. The two adjacent
+marked paragraphs in 5.20 are explicitly selected together, with a line break.
+All other selections use a single highlight. Wording and entry links come from the original page.
 The opening words in `tools/meditations-search/build-screensaver.mjs` identify the
 selection. Regenerate after editing highlights:
 

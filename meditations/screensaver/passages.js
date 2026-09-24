@@ -11,11 +11,6 @@ export default [
     "text": "We were born to work together like feet, hands, and eyes, like the two rows of teeth, upper and lower. To obstruct each other is unnatural. To feel anger at someone, to turn your back on him: these are obstructions."
   },
   {
-    "id": "book2-4",
-    "label": "2.4",
-    "text": "Remember how long you’ve been putting this off, how many extensions the gods gave you, and you didn’t use them. At some point you have to recognize what world it is that you belong to; what power rules it and from what source you spring; that there is a limit to the time assigned you, and if you don’t use it to free yourself it will be gone and will never return."
-  },
-  {
     "id": "book2-11",
     "label": "2.11",
     "text": "You could leave life right now. Let that determine what you do and say and think."
@@ -88,12 +83,17 @@ export default [
   {
     "id": "book5-20",
     "label": "5.20",
-    "text": "What stands in the way becomes the way."
+    "text": "The impediment to action advances action.\nWhat stands in the way becomes the way."
   },
   {
     "id": "book5-23",
     "label": "5.23",
     "text": "Keep in mind how fast things pass by and are gone—those that are now, and those to come. Existence flows past us like a river: the “what” is in constant flux, the “why” has a thousand variations. Nothing is stable, not even what’s right here."
+  },
+  {
+    "id": "book5-37",
+    "label": "5.37",
+    "text": "But true good fortune is what you make for yourself. Good fortune: good character, good intentions, and good actions."
   },
   {
     "id": "book6-11",
@@ -114,6 +114,51 @@ export default [
     "id": "book6-30",
     "label": "6.30",
     "text": "Revere the gods; watch over human beings. Our lives are short. The only rewards of our existence here are an unstained character and unselfish acts."
+  },
+  {
+    "id": "book6-38",
+    "label": "6.38",
+    "text": "Keep reminding yourself of the way things are connected, of their relatedness. All things are implicated in one another and in sympathy with each other. This event is the consequence of some other one. Things push and pull on each other, and breathe together, and are one."
+  },
+  {
+    "id": "book6-47",
+    "label": "6.47",
+    "text": "The only thing that isn’t worthless: to live this life out truthfully and rightly. And be patient with those who don’t."
+  },
+  {
+    "id": "book6-48",
+    "label": "6.48",
+    "text": "When you need encouragement, think of the qualities the people around you have: this one’s energy, that one’s modesty, another’s generosity, and so on. Nothing is as encouraging as when virtues are visibly embodied in the people around us, when we’re practically showered with them."
+  },
+  {
+    "id": "book6-53",
+    "label": "6.53",
+    "text": "Practice really hearing what people say. Do your best to get inside their minds."
+  },
+  {
+    "id": "book7-7",
+    "label": "7.7",
+    "text": "Don’t be ashamed to need help. Like a soldier storming a wall, you have a mission to accomplish. And if you’ve been wounded and you need a comrade to pull you up? So what?"
+  },
+  {
+    "id": "book7-27",
+    "label": "7.27",
+    "text": "Treat what you don’t have as nonexistent. Look at what you have, the things you value most, and think of how much you’d crave them if you didn’t have them. But be careful. Don’t feel such satisfaction that you start to overvalue them—that it would upset you to lose them."
+  },
+  {
+    "id": "book7-47",
+    "label": "7.47",
+    "text": "To watch the courses of the stars as if you revolved with them. To keep constantly in mind how the elements alter into one another. Thoughts like this wash off the mud of life below."
+  },
+  {
+    "id": "book7-59",
+    "label": "7.59",
+    "text": "Dig deep; the water—goodness—is down there. And as long as you keep digging, it will keep bubbling up."
+  },
+  {
+    "id": "book7-69",
+    "label": "7.69",
+    "text": "Perfection of character: to live your last day, every day, without frenzy, or sloth, or pretense."
   },
   {
     "id": "book8-16",
@@ -181,6 +226,11 @@ export default [
     "text": "To stop talking about what the good man is like, and just be one."
   },
   {
+    "id": "book10-30",
+    "label": "10.30",
+    "text": "When faced with people’s bad behavior, turn around and ask when you have acted like that. When you saw money as a good, or pleasure, or social position. Your anger will subside as soon as you recognize that they acted under compulsion (what else could they do?)."
+  },
+  {
     "id": "book11-9",
     "label": "11.9",
     "text": "As you move forward in the logos, people will stand in your way. They can’t keep you from doing what’s healthy; don’t let them stop you from putting up with them either. Take care on both counts. Not just sound judgments, solid actions—tolerance as well, for those who try to obstruct us or give us trouble in other ways."
@@ -199,6 +249,11 @@ export default [
     "id": "book12-17",
     "label": "12.17",
     "text": "If it’s not right, don’t do it. If it’s not true, don’t say it."
+  },
+  {
+    "id": "book12-19",
+    "label": "12.19",
+    "text": "It’s time you realized that you have something in you more powerful and miraculous than the things that affect you and make you dance like a puppet."
   },
   {
     "id": "book12-22",

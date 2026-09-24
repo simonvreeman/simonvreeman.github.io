@@ -15,6 +15,16 @@ test('shipped passages are exact curated highlights with valid references', () =
   assert.throws(() => buildPassages(html.replace('The things you think about determine', 'Changed source text determines')), /Expected one marked passage/);
 });
 
+test('5.20 preserves both adjacent highlights without including or skipping unmarked text', () => {
+  const html = fs.readFileSync(new URL('../../../meditations/index.html', import.meta.url), 'utf8');
+  const passage = buildPassages(html).find(p => p.id === 'book5-20');
+  assert.equal(passage.text, 'The impediment to action advances action.\nWhat stands in the way becomes the way.');
+  assert.ok(!buildPassages(html).some(p => p.id === 'book2-4'));
+  const separated = html.replace('The impediment to action advances action.</mark>',
+    'The impediment to action advances action.</mark>Unmarked intervening text.');
+  assert.throws(() => buildPassages(separated), /Expected adjacent marked passages/);
+});
+
 test('shuffle completes each cycle and never repeats at the cycle boundary', () => {
   const items = ['a', 'b', 'c', 'd'];
   for (const random of [() => 0, () => .999, Math.random]) {

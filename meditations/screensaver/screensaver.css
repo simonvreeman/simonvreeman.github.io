@@ -55,6 +55,7 @@ figure { width: min(100%, 54rem); margin: 0; text-align: center; opacity: 1; tra
 figure.fading { opacity: 0; }
 .ornament { height: 1px; width: 2rem; margin: 0 auto 2.75rem; background: var(--accent); opacity: .65; }
 blockquote {
+  white-space: pre-line;
   color: var(--passage-ink);
   font-size: clamp(1.7rem, 3vw, 3rem); font-weight: 400; line-height: 1.45;
   letter-spacing: -.025em; text-wrap: balance; overflow-wrap: break-word;
