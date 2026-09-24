@@ -66,7 +66,6 @@ figcaption { margin-top: 2.5rem; font-family: var(--sans); font-size: .7rem; lin
 #reference { display: inline-block; color: color-mix(in oklch, var(--accent) 70%, var(--paper)); padding: .25rem; }
 #reference:hover { text-decoration: underline; text-underline-offset: .3em; }
 .controls-area { position: fixed; bottom: 0; inset-inline: 0; padding: 1.25rem 1rem max(1.25rem, env(safe-area-inset-bottom)); text-align: center; }
-.translation { font: .62rem/1.5 var(--sans); letter-spacing: .04em; color: var(--muted); margin: 0 0 1rem; }
 .controls { display: inline-flex; align-items: center; justify-content: center; gap: .15rem; padding: .3rem .4rem; border: 1px solid var(--line); border-radius: 100px; background: var(--panel); color: var(--muted); font: .675rem var(--sans); max-width: 100%; }
 button, select { cursor: pointer; color: inherit; border: 0; background: transparent; min-height: 40px; border-radius: 100px; padding: 0 .6rem; }
 button:hover, select:hover, button[aria-pressed="true"] { color: var(--ink); background: var(--line); }
@@ -83,8 +82,6 @@ option { color: var(--ink); background: var(--paper); }
   color: var(--ink); opacity: 0; pointer-events: none; transition: opacity 2s ease;
 }
 #head.ready { opacity: var(--head-opacity); }
-.credit { font: .6rem/1.5 var(--sans); letter-spacing: .04em; color: var(--muted); margin: .65rem 0 0; }
-.credit a { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: .2em; white-space: nowrap; }
 .chrome { transition: opacity 800ms ease; }
 body.idle .chrome { opacity: 0; pointer-events: none; }
 body.idle { cursor: none; }
@@ -112,9 +109,7 @@ body.idle { cursor: none; }
   blockquote, figure[data-length="long"] blockquote { max-width: 72ch; line-height: 1.4; }
   figcaption { margin-top: .75rem; line-height: 1.6; }
   .controls-area { padding-block: .5rem max(.5rem, env(safe-area-inset-bottom)); }
-  .translation { display: none; }
   .status { margin-top: .35rem; }
-  .credit { margin-top: .25rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; }
