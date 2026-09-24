@@ -51,10 +51,10 @@ a:hover { color: var(--accent); }
 .home { display: inline-flex; align-items: center; gap: .8rem; min-height: 44px; }
 .eyebrow { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; }
 main { min-height: 100svh; min-height: 100dvh; display: grid; place-items: center; padding: 8rem 2rem 12rem; }
-/* Trimmed text edges: the gaps run from the quote's baseline and the author's cap height. */
-figure { --rule-gap: 2.75rem; width: min(100%, 54rem); margin: 0; text-align: center; opacity: 1; transition: opacity 900ms ease; }
+/* Flex gaps keep Safari's trimmed text edges from collapsing adjacent margins. */
+figure { --rule-gap: 2.75rem; display: flex; flex-direction: column; align-items: center; gap: var(--rule-gap); width: min(100%, 54rem); margin: 0; text-align: center; opacity: 1; transition: opacity 900ms ease; }
 figure.fading { opacity: 0; }
-.ornament { height: 1px; width: 2rem; margin: var(--rule-gap) auto 0; background: var(--accent); opacity: .65; }
+.ornament { height: 1px; width: 2rem; flex-shrink: 0; background: var(--accent); opacity: .65; }
 blockquote {
   white-space: pre-line;
   color: var(--passage-ink);
@@ -64,7 +64,7 @@ blockquote {
   text-box: trim-end cap alphabetic;
 }
 figure[data-length="long"] blockquote { font-size: clamp(1.375rem, 2.3vw, 2.225rem); max-width: 44ch; line-height: 1.5; }
-figcaption { margin-top: var(--rule-gap); font-family: var(--sans); font-size: .7rem; line-height: 2; letter-spacing: .04em; }
+figcaption { text-box: trim-start cap alphabetic; font-family: var(--sans); font-size: .7rem; line-height: 2; letter-spacing: .04em; }
 .author { display: block; text-box: trim-start cap alphabetic; color: color-mix(in oklch, var(--muted) 70%, var(--paper)); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; }
 #reference { display: inline-block; color: color-mix(in oklch, var(--accent) 70%, var(--paper)); padding: .25rem; }
 #reference:hover { text-decoration: underline; text-underline-offset: .3em; }
