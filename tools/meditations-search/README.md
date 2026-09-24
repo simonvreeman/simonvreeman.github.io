@@ -119,6 +119,14 @@ no WebMCP downloads nothing. See `tools/mcp/README.md` for the server side.
   stacking order, the panel's visual-viewport height and the labels' lining figures. It also asserts that every
   `h3`/`strong` id inside a Book is entry-shaped, which is what keeps the DOM walk and the scanner
   from disagreeing about an element whose first `strong[id]` is not a marker.
+- `screensaver.test.mjs` — the screensaver's passages are exactly what `build-screensaver.mjs` produces from the
+  current highlights, the shuffle completes each cycle without repeating across the boundary, previous/next
+  revisits history, and longer passages get more reading time.
+- `screensaver-head.test.mjs` — the head's motion math (the rest pose reproduces the drawing, a turn moves the face
+  more than the silhouette, gaze limits, the exact spring, the drift), the generated drawing's shape and depth, and
+  `mountHead()`'s scheduling against a fake browser with a manual clock: animation frames only while he turns, a
+  slow timer while he drifts, nothing while the tab is hidden, and one still frame under reduced motion. On macOS only (it needs `sips`), it also checks that `head-data.js` is
+  byte-identical to the output of `build-screensaver-head.mjs`.
 
 ## Local testing
 
