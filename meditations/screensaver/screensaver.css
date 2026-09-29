@@ -42,7 +42,7 @@
 body { margin: 0; min-width: 280px; }
 button, select { font: inherit; }
 a { color: inherit; text-decoration: none; transition: color 200ms ease; }
-a:hover { color: var(--accent); }
+a:focus-visible { color: var(--accent); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 3px; }
 ::selection { background: var(--line); }
 .masthead {
@@ -68,28 +68,15 @@ blockquote {
 figure[data-length="long"] blockquote { font-size: clamp(1.375rem, 2.3vw, 2.225rem); max-width: 44ch; line-height: 1.5; }
 figcaption { text-box: trim-start cap alphabetic; font-family: var(--sans); font-size: .7rem; line-height: 2; letter-spacing: .04em; }
 .author { display: block; text-box: trim-start cap alphabetic; color: color-mix(in oklch, var(--muted) 70%, var(--paper)); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; }
-#reference { position: relative; display: inline-block; color: color-mix(in oklch, var(--accent) 70%, var(--paper)); padding: .25rem; }
-#reference::after {
-  content: ""; position: absolute; inset-inline: .25rem; bottom: .3rem;
-  height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left;
-  transition: transform 240ms ease;
-}
+#reference { display: inline-block; color: color-mix(in oklch, var(--accent) 70%, var(--paper)); padding: .25rem; }
 #reference:focus-visible { color: var(--accent); }
-#reference:focus-visible::after { transform: scaleX(1); }
 .controls-area { position: fixed; bottom: 0; inset-inline: 0; padding: 1.25rem 1rem max(1.25rem, env(safe-area-inset-bottom)); text-align: center; }
 .controls { display: inline-flex; align-items: center; justify-content: center; gap: .15rem; padding: .3rem .4rem; border: 1px solid var(--line); border-radius: 100px; background: var(--panel); color: var(--muted); font: .675rem var(--sans); max-width: 100%; }
-button, select { cursor: pointer; color: inherit; border: 0; background: transparent; min-height: 40px; border-radius: 100px; padding: 0 .6rem; transition: color 200ms ease, background-color 200ms ease, transform 200ms ease; }
+button, select { cursor: pointer; color: inherit; border: 0; background: transparent; min-height: 40px; border-radius: 100px; padding: 0 .6rem; transition: color 200ms ease, background-color 200ms ease; }
 button:focus-visible, select:focus-visible, button[aria-pressed="true"] { color: var(--ink); background: var(--line); }
 @media (hover: hover) {
   button:enabled:hover, select:enabled:hover { color: var(--ink); background: var(--line); }
-  #reference:hover { color: var(--accent); }
-  #reference:hover::after { transform: scaleX(1); }
-}
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .home span { transition: transform 200ms ease; }
-  .home:hover span { transform: translateX(-3px); }
-  button:enabled:hover { transform: translateY(-2px); }
-  button:enabled:active { transform: translateY(0); }
+  a:hover, #reference:hover { color: var(--accent); }
 }
 button:disabled { opacity: .35; cursor: default; background: transparent; }
 .icon-button { display: inline-grid; place-items: center; width: 40px; padding: 0; flex-shrink: 0; }
