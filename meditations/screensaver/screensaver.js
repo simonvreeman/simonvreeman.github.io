@@ -133,7 +133,7 @@ function mount() {
     const label = paused ? 'Resume rotation' : 'Pause rotation';
     pause.setAttribute('aria-label', label);
     pause.title = `${label} (Space)`;
-    $('#pause-icon').setAttribute('d', paused ? 'm9 5 10 7-10 7Z' : 'M9 6v12M15 6v12');
+    pause.classList.toggle('paused', paused);
     schedule();
   }
   function togglePause() { paused = !paused; updatePause(); }

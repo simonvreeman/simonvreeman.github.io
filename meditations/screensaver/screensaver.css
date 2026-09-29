@@ -93,6 +93,10 @@ button:focus-visible, select:focus-visible, button[aria-pressed="true"] { color:
 }
 button:disabled { opacity: .35; cursor: default; background: transparent; }
 .icon-button { display: inline-grid; place-items: center; width: 40px; padding: 0; flex-shrink: 0; }
+#pause svg { grid-area: 1 / 1; transition: opacity 180ms ease, transform 180ms ease; }
+#pause .play-icon { opacity: 0; transform: scale(.8); }
+#pause.paused .pause-icon { opacity: 0; transform: scale(.8); }
+#pause.paused .play-icon { opacity: 1; transform: scale(1); }
 svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
 .divider { width: 1px; height: 18px; background: var(--line); margin: 0 .35rem; }
 select { max-width: 6rem; }
@@ -101,7 +105,7 @@ option { color: var(--ink); background: var(--paper); }
 .status:empty { display: none; }
 #head {
   position: fixed; top: 50%; left: 50%; translate: -50% -50%; z-index: -1;
-  color: var(--ink); opacity: 0; pointer-events: none; transition: opacity 2s ease;
+  color: var(--ink); opacity: 0; pointer-events: none; transition: opacity 2s ease, color var(--theme-transition);
 }
 #head.ready { opacity: var(--head-opacity); }
 .chrome { transition: opacity 800ms ease; }

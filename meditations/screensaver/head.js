@@ -72,6 +72,7 @@ export function mountHead(canvas, drawing) {
   let start = performance.now(), last = start, hiddenAt = start; // may mount in a background tab
   let yaw = { x: 0, v: 0 }, pitch = { x: 0, v: 0 }, target = REST;
   let shown, color, frame = 0, timer = 0, resizeFrame = 0;
+  let blendingTheme = false;
   let scale = 1, originX = 0, originY = 0, pivotX = 0, pivotY = 0;
 
   // Fit the viewport height or, on narrow portrait screens, the width (a little
@@ -128,14 +129,17 @@ export function mountHead(canvas, drawing) {
     yaw = springStep(yaw, target.yaw, dt);
     pitch = springStep(pitch, target.pitch, dt);
     const next = pose(now);
-    if (reach * scale * (Math.abs(next.yaw - shown.yaw) + Math.abs(next.pitch - shown.pitch)) > threshold) draw(next);
+    const nextColor = getComputedStyle(canvas).color;
+    const colorChanged = nextColor !== color;
+    color = nextColor;
+    if (colorChanged || reach * scale * (Math.abs(next.yaw - shown.yaw) + Math.abs(next.pitch - shown.pitch)) > threshold) draw(next);
     schedule();
   }
   // Animation frames and quarter-pixel steps while he turns; a slow timer and
   // whole-pixel steps (invisible at this opacity) while only the drift moves him.
   function schedule() {
     if (frame || timer || document.hidden || motion.matches) return;
-    if (settled()) timer = setTimeout(tick, 125, 1);
+    if (!blendingTheme && settled()) timer = setTimeout(tick, 125, 1);
     else frame = requestAnimationFrame(() => tick(0.25));
   }
   function stop() {
@@ -150,6 +154,21 @@ export function mountHead(canvas, drawing) {
     schedule();
   }
 
+  // Sample CSS's interpolated color while the theme blends, even at rest.
+  canvas.addEventListener('transitionrun', event => {
+    if (event.propertyName !== 'color') return;
+    blendingTheme = true;
+    stop();
+    schedule();
+  });
+  function finishTheme(event) {
+    if (event.propertyName !== 'color') return;
+    blendingTheme = false;
+    redraw();
+  }
+  canvas.addEventListener('transitionend', finishTheme);
+  canvas.addEventListener('transitioncancel', finishTheme);
+
   addEventListener('pointermove', event => {
     if (event.pointerType === 'touch' || motion.matches) return;
     look(gazeTarget((event.clientX - pivotX) / (innerWidth / 2), (event.clientY - pivotY) / (innerHeight / 2)));
@@ -161,7 +180,7 @@ export function mountHead(canvas, drawing) {
   // Pause the drift's clock while hidden, so he does not jump on return.
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) { stop(); hiddenAt = performance.now(); }
-    else { const away = performance.now() - hiddenAt; start += away; last += away; schedule(); }
+    else { const away = performance.now() - hiddenAt; start += away; last += away; redraw(); schedule(); }
   });
   motion.addEventListener('change', () => { stop(); redraw(); schedule(); });
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', redraw);

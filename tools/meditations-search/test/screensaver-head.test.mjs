@@ -116,7 +116,7 @@ function fakeBrowser({ width = 1440, height = 900, ratio = 2, reduced = false } 
   stub('setTimeout', (fn, delay, ...args) => { timers.set(++id, { at: now + delay, fn, args }); return id; });
   stub('clearTimeout', key => timers.delete(key));
   stub('matchMedia', query);
-  stub('getComputedStyle', () => ({ color: 'black' }));
+  stub('getComputedStyle', canvas => ({ color: canvas.style.color || 'black' }));
   stub('addEventListener', on);
   stub('document', { hidden: false, addEventListener: on });
   query('(prefers-reduced-motion: reduce)').matches = reduced;
@@ -124,9 +124,11 @@ function fakeBrowser({ width = 1440, height = 900, ratio = 2, reduced = false } 
     clearRect() {}, beginPath() { path = []; }, moveTo(x, y) { path.push(x, y); }, lineTo(x, y) { path.push(x, y); },
     stroke() { counts.draws++; paths.push(path); },
   };
-  const canvas = { style: {}, width: 0, height: 0, classList: { add() {} }, getContext: () => context };
+  const canvas = { style: {}, width: 0, height: 0, classList: { add() {} }, getContext: () => context, addEventListener: on };
   return {
     canvas, counts,
+    transition(type, color) { canvas.style.color = color; emit(type, { propertyName: 'color' }); },
+    strokeColor: () => context.strokeStyle,
     run(seconds) {
       for (const end = now + seconds * 1000; now < end;) {
         now += 1000 / 60;
@@ -204,5 +206,22 @@ test('without a 2D context there is no head (so no credit either)', () => {
   try {
     browser.canvas.getContext = () => null;
     assert.equal(mountHead(browser.canvas, drawing), null);
+  } finally { browser.restore(); }
+});
+
+test('theme colors redraw smoothly at rest and stop requesting frames afterward', () => {
+  const browser = fakeBrowser();
+  try {
+    mountHead(browser.canvas, drawing);
+    browser.transition('transitionrun', 'gray');
+    browser.run(0.2);
+    assert.equal(browser.strokeColor(), 'gray');
+    assert.ok(browser.counts.frames > 0);
+    browser.transition('transitionend', 'white');
+    assert.equal(browser.strokeColor(), 'white');
+    browser.run(0.2);
+    const frames = browser.counts.frames;
+    browser.run(1);
+    assert.equal(browser.counts.frames, frames);
   } finally { browser.restore(); }
 });
