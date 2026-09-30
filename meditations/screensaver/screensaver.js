@@ -251,7 +251,8 @@ function mount() {
   Promise.all([import('./head.js'), import('./head-data.js')])
     .then(([{ mountHead }, { default: drawing }]) => {
       head = mountHead($('#head'), drawing);
-      if (head) $('.credit').hidden = false;
+      const credit = $('.credit');
+      if (head && credit) credit.hidden = false;
     })
     .catch(error => console.warn('Screensaver head unavailable', error));
 }

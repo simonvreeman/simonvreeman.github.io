@@ -72,10 +72,10 @@ figcaption { text-box: trim-start cap alphabetic; font-family: var(--sans); font
 #reference:focus-visible { color: var(--accent); }
 .controls-area { position: fixed; bottom: 0; inset-inline: 0; padding: 1.25rem 1rem max(1.25rem, env(safe-area-inset-bottom)); text-align: center; }
 .controls { display: inline-flex; align-items: center; justify-content: center; gap: .15rem; padding: .3rem .4rem; border: 1px solid var(--line); border-radius: 100px; background: var(--panel); color: var(--muted); font: .675rem var(--sans); max-width: 100%; }
-button, select { cursor: pointer; color: inherit; border: 0; background: transparent; min-height: 40px; border-radius: 100px; padding: 0 .6rem; transition: color 200ms ease, background-color 200ms ease; }
+button, select { cursor: pointer; color: inherit; border: 0; background: transparent; min-height: 40px; border-radius: 100px; padding: 0 .6rem; transition: color 200ms ease, background-color 300ms ease; }
 button:focus-visible, select:focus-visible, button[aria-pressed="true"] { color: var(--ink); background: var(--line); }
 @media (hover: hover) {
-  button:enabled:hover, select:enabled:hover { color: var(--ink); background: var(--line); }
+  button:enabled:hover, select:enabled:hover { color: var(--ink); background: color-mix(in oklch, var(--accent) 35%, transparent); }
   a:hover, #reference:hover { color: var(--accent); }
 }
 button:disabled { opacity: .35; cursor: default; background: transparent; }

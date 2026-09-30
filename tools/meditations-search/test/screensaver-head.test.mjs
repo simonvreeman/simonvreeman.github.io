@@ -225,3 +225,34 @@ test('theme colors redraw smoothly at rest and stop requesting frames afterward'
     assert.equal(browser.counts.frames, frames);
   } finally { browser.restore(); }
 });
+
+test('a reversed theme transition settles on the latest color', () => {
+  const browser = fakeBrowser();
+  try {
+    mountHead(browser.canvas, drawing);
+    browser.transition('transitionrun', 'gray');
+    browser.run(0.1);
+    browser.transition('transitioncancel', 'gray');
+    browser.transition('transitionrun', 'silver');
+    browser.run(0.1);
+    assert.equal(browser.strokeColor(), 'silver');
+    browser.transition('transitionend', 'black');
+    browser.run(0.1);
+    assert.equal(browser.strokeColor(), 'black');
+    const frames = browser.counts.frames;
+    browser.run(1);
+    assert.equal(browser.counts.frames, frames);
+  } finally { browser.restore(); }
+});
+
+test('reduced-motion theme changes redraw immediately without scheduling animation', () => {
+  const browser = fakeBrowser({ reduced: true });
+  try {
+    const head = mountHead(browser.canvas, drawing);
+    browser.canvas.style.color = 'white';
+    head.redraw();
+    browser.run(1);
+    assert.equal(browser.strokeColor(), 'white');
+    assert.deepEqual(browser.counts, { frames: 0, timers: 0, draws: 2 });
+  } finally { browser.restore(); }
+});
