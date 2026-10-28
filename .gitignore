@@ -4,3 +4,7 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 img/simon-vreeman-1.jpg
+
+# Local research scratch (not published)
+research_notes/
+reports/
