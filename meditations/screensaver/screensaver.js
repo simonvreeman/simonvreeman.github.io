@@ -46,20 +46,17 @@ function mount() {
   const $ = selector => document.querySelector(selector);
   const figure = $('#passage');
   const quote = $('#quote');
-  const rule = $('.ornament');
   const reference = $('#reference');
   const pause = $('#pause');
   const previous = $('#previous');
   const appearance = $('#appearance');
-  const awake = $('#awake');
-  const fullscreen = $('#fullscreen');
+  const mode = $('#screensaver');
   const status = $('#status');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const sequence = new PassageSequence(passages);
   let current;
   let paused = motion.matches;
   let timer;
-  let clock;
   let idleTimer;
   let statusTimer;
   let resizeFrame;
@@ -81,17 +78,11 @@ function mount() {
       head?.rest(); // he looks back at the viewer
     }, 4500);
   }
-  // The rule under the passage is its clock: it draws out from the centre over
-  // the reading time. A pause holds it where it is; with no clock running it is
-  // a plain, full rule.
   function schedule() {
     clearTimeout(timer);
-    if (paused || document.hidden || busy) { clock?.pause(); return; }
-    const duration = readingTime(current.text);
-    timer = setTimeout(() => change('next'), duration);
-    clock?.cancel();
-    clock = motion.matches ? null
-      : rule.animate({ scale: ['0 1', '1 1'] }, { duration, pseudoElement: '::after' });
+    if (!paused && !document.hidden && !busy) {
+      timer = setTimeout(() => change('next'), readingTime(current.text));
+    }
   }
   function fitQuote() {
     quote.style.fontSize = '';
@@ -136,11 +127,17 @@ function mount() {
   function render(passage) {
     current = passage;
     quote.textContent = passage.text;
-    figure.dataset.length = passage.text.length > 260 ? 'long' : 'short';
+    const length = passage.text.length;
+    figure.dataset.length = length > 260 ? 'long' : length < 75 ? 'brief' : 'short';
     reference.textContent = `Meditations · ${passage.label}`;
     reference.href = `/meditations/#${passage.id}`;
     reference.setAttribute('aria-label', `Read Meditations ${passage.label} in context (opens in a new tab)`);
     previous.disabled = sequence.position <= 0;
+    // Burn-in guard: each passage sits a few pixels from where the last one did,
+    // and the head behind it follows slowly.
+    for (const axis of ['x', 'y']) {
+      document.body.style.setProperty(`--drift-${axis}`, `${Math.round((Math.random() - 0.5) * 24)}px`);
+    }
     layoutQuote();
   }
   async function change(direction) {
@@ -151,8 +148,6 @@ function mount() {
     figure.classList.add('fading');
     if (!motion.matches) await new Promise(resolve => setTimeout(resolve, 900));
     if (token !== transition) return;
-    clock?.cancel();
-    clock = null;
     render(direction === 'previous' ? sequence.previous() : sequence.next());
     figure.classList.remove('fading');
     busy = false;
@@ -190,62 +185,62 @@ function mount() {
     try { localStorage.setItem('meditations-appearance', mode); } catch {}
   });
 
-  fullscreen.hidden = !document.fullscreenEnabled;
-  async function toggleFullscreen() {
-    if (!document.fullscreenEnabled) return;
-    try {
-      if (document.fullscreenElement) await document.exitFullscreen();
-      else await document.documentElement.requestFullscreen();
-    } catch { announce('Fullscreen is unavailable in this browser.'); }
-  }
-  fullscreen.addEventListener('click', toggleFullscreen);
-  document.addEventListener('fullscreenchange', () => {
-    const label = document.fullscreenElement ? 'Exit fullscreen' : 'Enter fullscreen';
-    fullscreen.setAttribute('aria-label', label);
-    fullscreen.title = `${label} (F)`;
-    reveal();
-  });
-
-  let wantsAwake = false;
+  // One button for what a screensaver is: fullscreen and a screen that stays
+  // awake, each where the browser has it (an iPhone has no fullscreen).
+  const canFullscreen = document.fullscreenEnabled;
+  const canWake = 'wakeLock' in navigator;
+  let screensaver = false;
   let wakeLock = null;
   let requestingWake = false;
-  awake.hidden = !('wakeLock' in navigator);
-  function updateAwake() {
-    awake.setAttribute('aria-pressed', String(wantsAwake));
-    awake.textContent = wantsAwake ? 'Staying awake' : 'Keep awake';
+  mode.hidden = !canFullscreen && !canWake;
+  function updateScreensaver() {
+    const label = screensaver ? 'Stop screensaver' : 'Start screensaver';
+    mode.setAttribute('aria-pressed', String(screensaver));
+    mode.setAttribute('aria-label', label);
+    mode.title = `${label} (F)`;
   }
   async function requestWake() {
-    if (!wantsAwake || document.hidden || wakeLock || requestingWake) return;
+    if (!canWake || !screensaver || document.hidden || wakeLock || requestingWake) return;
     requestingWake = true;
     try {
       const lock = await navigator.wakeLock.request('screen');
-      if (!wantsAwake || document.hidden) { await lock.release(); return; }
+      if (!screensaver || document.hidden) { await lock.release(); return; }
       wakeLock = lock;
       lock.addEventListener('release', () => {
         if (wakeLock !== lock) return;
         wakeLock = null;
-        if (!document.hidden && wantsAwake) {
-          wantsAwake = false;
-          updateAwake();
-          announce('Your screen can sleep again. Select Keep awake to try again.');
-        }
+        if (!document.hidden && screensaver) announce('Your screen can sleep again.');
       });
     } catch {
-      wantsAwake = false;
-      updateAwake();
       announce('Your browser could not keep the screen awake.');
     } finally { requestingWake = false; }
   }
-  awake.addEventListener('click', async () => {
-    wantsAwake = !wantsAwake;
+  async function toggleScreensaver() {
+    if (mode.hidden) return;
+    screensaver = !screensaver;
     status.textContent = '';
-    updateAwake();
-    if (wantsAwake) await requestWake();
-    else if (wakeLock) {
+    updateScreensaver();
+    if (screensaver) {
+      // Both are asked for at once, while the click still counts as a gesture.
+      const full = canFullscreen && !document.fullscreenElement
+        ? document.documentElement.requestFullscreen().catch(() => announce('Fullscreen is unavailable in this browser.'))
+        : null;
+      await Promise.all([full, requestWake()]);
+      if (!screensaver) return;
+      if (!document.fullscreenElement && !wakeLock) { screensaver = false; updateScreensaver(); }
+      else if (!canFullscreen) announce('The screen will stay awake.');
+    } else {
       const lock = wakeLock;
       wakeLock = null;
-      try { await lock.release(); } catch {}
+      try { await lock?.release(); } catch {}
+      try { if (document.fullscreenElement) await document.exitFullscreen(); } catch {}
     }
+  }
+  mode.addEventListener('click', toggleScreensaver);
+  // Leaving fullscreen another way (Esc) ends the screensaver too.
+  document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement && screensaver) toggleScreensaver();
+    reveal();
   });
 
   document.addEventListener('visibilitychange', () => {
@@ -263,7 +258,7 @@ function mount() {
     if (event.key === 'ArrowRight') { event.preventDefault(); change('next'); }
     else if (event.key === 'ArrowLeft' && sequence.position > 0) { event.preventDefault(); change('previous'); }
     else if (event.code === 'Space') { event.preventDefault(); togglePause(); }
-    else if (event.key?.toLowerCase() === 'f') toggleFullscreen();
+    else if (event.key?.toLowerCase() === 'f') toggleScreensaver();
   });
   document.addEventListener('pointermove', reveal, { passive: true });
   document.addEventListener('pointerdown', reveal, { passive: true });

@@ -10,6 +10,7 @@
   --line: oklch(0.52 0.10 255.84 / .22);
   --panel: oklch(0.99 0.004 85 / .72);
   --shade: oklch(0.45 0.03 75 / .1);
+  --faint: color-mix(in oklch, var(--muted) 70%, var(--paper));
   --head-opacity: .1;
   --theme-transition: 400ms ease;
   --serif: ui-serif, -apple-system-ui-serif, Palatino, Georgia, Cambria, "Times New Roman", Times, serif;
@@ -54,20 +55,28 @@ body::before {
     radial-gradient(ellipse 85% 80% at 50% 46%, transparent 35%, var(--shade));
 }
 button { font: inherit; }
-a { color: inherit; text-decoration: none; transition: color 200ms ease; }
-a:focus-visible { color: var(--accent); }
+/* Links are the one thing in colour, and all alike: the accent, dimmed, and at
+   full strength under the pointer, on keyboard focus and while pressed. */
+a { color: color-mix(in oklch, var(--accent) 70%, var(--paper)); text-decoration: none; transition: color 200ms ease; }
+a:focus-visible, a:active { color: var(--accent); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 3px; }
 ::selection { background: var(--line); }
+/* One label style for everything that is not the passage. */
+.masthead, figcaption, .controls-area { font-family: var(--sans); font-size: .7rem; letter-spacing: .04em; }
 .masthead {
   position: absolute; top: 0; inset-inline: 0; padding: 2rem 2.5rem;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  color: var(--muted); font-family: var(--sans); font-size: .75rem;
+  color: var(--muted);
 }
 .home { display: inline-flex; align-items: center; gap: .8rem; min-height: 44px; }
-.eyebrow { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; }
 main { min-height: 100svh; min-height: 100dvh; display: grid; place-items: center; padding: 8rem 2rem 12rem; }
-/* Flex gaps keep Safari's trimmed text edges from collapsing adjacent margins. */
-figure { --rule-gap: 2.75rem; display: flex; flex-direction: column; align-items: center; gap: var(--rule-gap); width: min(100%, 54rem); margin: 0; text-align: center; }
+/* Flex gaps keep Safari's trimmed text edges from collapsing adjacent margins.
+   The script moves each passage a few pixels (--drift-x, --drift-y), so a screen
+   left on for hours does not keep lighting the same pixels. */
+figure {
+  --rule-gap: 2.75rem; display: flex; flex-direction: column; align-items: center; gap: var(--rule-gap);
+  width: min(100%, 54rem); margin: 0; text-align: center; translate: var(--drift-x, 0px) var(--drift-y, 0px);
+}
 /* A passage comes into focus, then the rule, then who said it; it leaves all at
    once. The script waits out the 900ms exit before it swaps the text. */
 figure > * {
@@ -81,10 +90,7 @@ figure.fading > * { --reveal: .9s; --reveal-delay: 0s; opacity: 0; }
 figure.fading blockquote { filter: blur(5px); }
 /* Without the script the passage in the markup simply stays. */
 html:not(.js) figure.fading > * { opacity: 1; filter: none; }
-/* The rule keeps time: the script draws it out from the centre while a passage
-   is on its clock. Paused, or with reduced motion, it is a plain rule. */
-.ornament { height: 1px; width: 2rem; flex-shrink: 0; background: var(--line); }
-.ornament::after { content: ""; display: block; height: 100%; background: var(--accent); opacity: .65; transition: background-color var(--theme-transition); }
+.ornament { height: 1px; width: 2rem; flex-shrink: 0; background: var(--faint); }
 blockquote {
   white-space: pre-line;
   color: var(--passage-ink);
@@ -93,17 +99,18 @@ blockquote {
   max-width: 36ch; margin: 0 auto; font-kerning: normal;
   text-box: trim-end cap alphabetic;
 }
+/* A line or two is set larger; a long passage smaller and wider. */
+figure[data-length="brief"] blockquote { font-size: clamp(2rem, 3.8vw, 3.75rem); max-width: 30ch; line-height: 1.35; letter-spacing: -.03em; }
 figure[data-length="long"] blockquote { font-size: clamp(1.375rem, 2.3vw, 2.225rem); max-width: 44ch; line-height: 1.5; }
 /* A column of its own, like the figure: with a trimmed caption Safari also trims
    the reference's line and closes the space under the author. */
-figcaption { display: flex; flex-direction: column; align-items: center; font-family: var(--sans); font-size: .7rem; line-height: 2; letter-spacing: .04em; }
-.author { display: block; text-box: trim-start cap alphabetic; color: color-mix(in oklch, var(--muted) 70%, var(--paper)); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; }
-#reference { display: inline-block; color: color-mix(in oklch, var(--accent) 70%, var(--paper)); padding: .25rem; }
-#reference:focus-visible { color: var(--accent); }
+figcaption { display: flex; flex-direction: column; align-items: center; line-height: 2; }
+.author { display: block; text-box: trim-start cap alphabetic; color: var(--faint); }
+#reference { display: inline-block; padding: .25rem; }
 .controls-area { position: fixed; bottom: 0; inset-inline: 0; padding: 1.25rem 1rem max(1.25rem, env(safe-area-inset-bottom)); text-align: center; }
 .controls {
   display: inline-flex; align-items: center; justify-content: center; gap: .15rem; padding: .3rem .4rem; max-width: 100%;
-  border: 1px solid var(--line); border-radius: 100px; color: var(--muted); font: .675rem var(--sans);
+  border: 1px solid var(--line); border-radius: 100px; color: var(--muted);
   background: var(--panel); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
   box-shadow: 0 10px 30px -18px oklch(0 0 0 / .45);
 }
@@ -111,7 +118,7 @@ button { cursor: pointer; color: inherit; border: 0; background: transparent; mi
 button:focus-visible, button[aria-pressed="true"] { color: var(--ink); background: var(--line); }
 @media (hover: hover) {
   button:enabled:hover { color: var(--ink); background: color-mix(in oklch, var(--accent) 35%, transparent); }
-  a:hover, #reference:hover { color: var(--accent); }
+  a:hover { color: var(--accent); }
 }
 button:disabled { opacity: .35; cursor: default; background: transparent; }
 .icon-button { display: inline-grid; place-items: center; width: 40px; padding: 0; flex-shrink: 0; }
@@ -123,17 +130,24 @@ button:disabled { opacity: .35; cursor: default; background: transparent; }
 svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
 svg .solid { fill: currentColor; }
 .divider { width: 1px; height: 18px; background: var(--line); margin: 0 .35rem; }
-.status { font: .7rem var(--sans); color: var(--muted); margin: .65rem 0 0; }
+.status { color: var(--muted); margin: .65rem 0 0; }
 .status:empty { display: none; }
+/* Small print in the corner, level with the controls and never under them. */
+.credit {
+  position: absolute; right: 2.5rem; bottom: calc(max(1.25rem, env(safe-area-inset-bottom)) + 1.6rem); translate: 0 50%;
+  max-width: calc(50vw - 11.5rem); margin: 0; text-align: right; text-wrap: balance; line-height: 1.6; color: var(--faint);
+}
 #head {
-  position: fixed; top: 50%; left: 50%; translate: -50% -50%; z-index: -1;
-  color: var(--ink); opacity: 0; pointer-events: none; transition: opacity 2s ease, color var(--theme-transition);
+  position: fixed; top: 50%; left: 50%; z-index: -1;
+  translate: calc(-50% + var(--drift-x, 0px)) calc(-50% + var(--drift-y, 0px));
+  color: var(--ink); opacity: 0; pointer-events: none;
+  transition: opacity 2s ease, color var(--theme-transition), translate 60s linear;
 }
 #head.ready { opacity: var(--head-opacity); }
 .chrome { transition: opacity 800ms ease; }
 /* Blend the theme palette without changing passage or idle fade timings. */
 .masthead { transition: opacity 800ms ease, color var(--theme-transition); }
-.author, .status { transition: color var(--theme-transition); }
+.author, .status, .credit { transition: color var(--theme-transition); }
 .divider { transition: background-color var(--theme-transition); }
 .controls {
   transition: background-color var(--theme-transition), border-color var(--theme-transition), color var(--theme-transition);
@@ -143,12 +157,15 @@ body.idle { cursor: none; }
 [hidden] { display: none !important; }
 @media (max-width: 550px) {
   .masthead { padding: 1rem 1.25rem; }
-  .eyebrow { font-size: .55rem; letter-spacing: .1em; }
   main { padding: 6.5rem 1.5rem 11rem; }
   figure { --rule-gap: 2.25rem; }
   .controls { gap: 0; padding: .25rem; flex-wrap: wrap; border-radius: 1.5rem; }
   .divider { margin: 0 .15rem; }
   button { padding-inline: .4rem; }
+}
+/* Upright phones have no corner beside the controls: the credit goes under them. */
+@media (max-width: 700px) and (orientation: portrait) {
+  .credit { position: static; translate: none; max-width: none; margin-top: .65rem; text-align: center; }
 }
 @media (max-height: 600px) {
   main { padding-block: 5rem 10rem; }
@@ -159,10 +176,11 @@ body.idle { cursor: none; }
   .masthead { padding: .5rem 1.25rem; }
   main { padding-block: 3.5rem 4.75rem; }
   figure { --rule-gap: 1.125rem; }
-  blockquote, figure[data-length="long"] blockquote { max-width: 72ch; line-height: 1.4; }
+  blockquote, figure[data-length="brief"] blockquote, figure[data-length="long"] blockquote { max-width: 72ch; line-height: 1.4; }
   figcaption { line-height: 1.6; }
   .controls-area { padding-block: .5rem max(.5rem, env(safe-area-inset-bottom)); }
   .status { margin-top: .35rem; }
+  .credit { right: 1.25rem; bottom: calc(max(.5rem, env(safe-area-inset-bottom)) + 1.6rem); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; }
