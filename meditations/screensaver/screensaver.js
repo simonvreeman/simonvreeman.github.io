@@ -46,6 +46,7 @@ function mount() {
   const $ = selector => document.querySelector(selector);
   const figure = $('#passage');
   const quote = $('#quote');
+  const rule = $('.ornament');
   const reference = $('#reference');
   const pause = $('#pause');
   const previous = $('#previous');
@@ -58,6 +59,7 @@ function mount() {
   let current;
   let paused = motion.matches;
   let timer;
+  let clock;
   let idleTimer;
   let statusTimer;
   let resizeFrame;
@@ -79,11 +81,17 @@ function mount() {
       head?.rest(); // he looks back at the viewer
     }, 4500);
   }
+  // The rule under the passage is its clock: it draws out from the centre over
+  // the reading time. A pause holds it where it is; with no clock running it is
+  // a plain, full rule.
   function schedule() {
     clearTimeout(timer);
-    if (!paused && !document.hidden && !busy) {
-      timer = setTimeout(() => change('next'), readingTime(current.text));
-    }
+    if (paused || document.hidden || busy) { clock?.pause(); return; }
+    const duration = readingTime(current.text);
+    timer = setTimeout(() => change('next'), duration);
+    clock?.cancel();
+    clock = motion.matches ? null
+      : rule.animate({ scale: ['0 1', '1 1'] }, { duration, pseudoElement: '::after' });
   }
   function fitQuote() {
     quote.style.fontSize = '';
@@ -106,6 +114,25 @@ function mount() {
     }
     fits(low);
   }
+  // Chrome balances six lines at most and Firefox ten; past that a last word can
+  // sit alone. So narrow a longer passage as far as it goes without adding a line.
+  function balanceQuote() {
+    const height = quote.offsetHeight;
+    if (height < 6.5 * parseFloat(getComputedStyle(quote).lineHeight)) return;
+    let high = quote.offsetWidth;
+    let low = high / 2;
+    while (high - low > 2) {
+      const middle = (low + high) / 2;
+      quote.style.maxWidth = `${middle}px`;
+      if (quote.offsetHeight > height) low = middle; else high = middle;
+    }
+    quote.style.maxWidth = `${high}px`;
+  }
+  function layoutQuote() {
+    quote.style.maxWidth = '';
+    fitQuote();
+    balanceQuote();
+  }
   function render(passage) {
     current = passage;
     quote.textContent = passage.text;
@@ -114,7 +141,7 @@ function mount() {
     reference.href = `/meditations/#${passage.id}`;
     reference.setAttribute('aria-label', `Read Meditations ${passage.label} in context (opens in a new tab)`);
     previous.disabled = sequence.position <= 0;
-    fitQuote();
+    layoutQuote();
   }
   async function change(direction) {
     if (busy) return;
@@ -124,6 +151,8 @@ function mount() {
     figure.classList.add('fading');
     if (!motion.matches) await new Promise(resolve => setTimeout(resolve, 900));
     if (token !== transition) return;
+    clock?.cancel();
+    clock = null;
     render(direction === 'previous' ? sequence.previous() : sequence.next());
     figure.classList.remove('fading');
     busy = false;
@@ -144,12 +173,21 @@ function mount() {
     if (motion.matches) { paused = true; updatePause(); }
   });
 
-  appearance.value = document.documentElement.dataset.theme || 'system';
-  appearance.addEventListener('change', () => {
-    if (appearance.value === 'system') delete document.documentElement.dataset.theme;
-    else document.documentElement.dataset.theme = appearance.value;
+  // One button steps through the three appearances; its icon shows the current one.
+  const appearances = ['system', 'light', 'dark'];
+  function showAppearance(mode) {
+    appearance.dataset.mode = mode;
+    appearance.title = `Appearance: ${mode}`;
+    appearance.setAttribute('aria-label', appearance.title);
+  }
+  showAppearance(document.documentElement.dataset.theme || 'system');
+  appearance.addEventListener('click', () => {
+    const mode = appearances[(appearances.indexOf(appearance.dataset.mode) + 1) % appearances.length];
+    if (mode === 'system') delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = mode;
+    showAppearance(mode);
     head?.redraw();
-    try { localStorage.setItem('meditations-appearance', appearance.value); } catch {}
+    try { localStorage.setItem('meditations-appearance', mode); } catch {}
   });
 
   fullscreen.hidden = !document.fullscreenEnabled;
@@ -234,16 +272,14 @@ function mount() {
   document.addEventListener('click', event => {
     if (event.detail) event.target.closest('button, a')?.blur();
   });
-  appearance.addEventListener('change', () => {
-    if (!appearance.matches(':focus-visible')) appearance.blur();
-  });
   document.addEventListener('focusin', reveal);
   window.addEventListener('resize', () => {
     cancelAnimationFrame(resizeFrame);
-    resizeFrame = requestAnimationFrame(fitQuote);
+    resizeFrame = requestAnimationFrame(layoutQuote);
   });
   $('.controls').hidden = false;
   render(sequence.next());
+  figure.classList.remove('fading'); // the first passage arrives like every other
   updatePause();
   reveal();
   // The head is decoration: load it after the first passage renders, and never

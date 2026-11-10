@@ -1,3 +1,5 @@
+/* Registered as a color so the shading blends with the rest of the theme. */
+@property --shade { syntax: "<color>"; inherits: true; initial-value: transparent; }
 :root {
   color-scheme: light;
   --paper: oklch(0.97 0.006 85);
@@ -6,7 +8,8 @@
   --muted: oklch(0.47 0.015 255);
   --accent: oklch(0.52 0.10 255.84);
   --line: oklch(0.52 0.10 255.84 / .22);
-  --panel: oklch(0.99 0.004 85 / .95);
+  --panel: oklch(0.99 0.004 85 / .72);
+  --shade: oklch(0.45 0.03 75 / .1);
   --head-opacity: .1;
   --theme-transition: 400ms ease;
   --serif: ui-serif, -apple-system-ui-serif, Palatino, Georgia, Cambria, "Times New Roman", Times, serif;
@@ -14,7 +17,7 @@
   font-family: var(--serif);
   background: var(--paper);
   color: var(--ink);
-  transition: background-color var(--theme-transition), color var(--theme-transition);
+  transition: background-color var(--theme-transition), color var(--theme-transition), --shade var(--theme-transition);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -25,7 +28,8 @@
     --muted: oklch(0.67 0.018 255);
     --accent: oklch(0.74 0.07 244.77);
     --line: oklch(0.74 0.07 244.77 / .24);
-    --panel: oklch(0.23 0.01 285.06 / .95);
+    --panel: oklch(0.23 0.01 285.06 / .72);
+    --shade: oklch(0 0 0 / .38);
   }
 }
 :root[data-theme="dark"] {
@@ -36,11 +40,20 @@
   --muted: oklch(0.67 0.018 255);
   --accent: oklch(0.74 0.07 244.77);
   --line: oklch(0.74 0.07 244.77 / .24);
-  --panel: oklch(0.23 0.01 285.06 / .95);
+  --panel: oklch(0.23 0.01 285.06 / .72);
+  --shade: oklch(0 0 0 / .38);
 }
 * { box-sizing: border-box; }
 body { margin: 0; min-width: 280px; }
-button, select { font: inherit; }
+/* The room: the page darkens a little toward its edges, and a fine grain gives
+   the paper tooth and keeps that falloff from banding. */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 .08'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 85% 80% at 50% 46%, transparent 35%, var(--shade));
+}
+button { font: inherit; }
 a { color: inherit; text-decoration: none; transition: color 200ms ease; }
 a:focus-visible { color: var(--accent); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 3px; }
@@ -54,9 +67,24 @@ a:focus-visible { color: var(--accent); }
 .eyebrow { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; }
 main { min-height: 100svh; min-height: 100dvh; display: grid; place-items: center; padding: 8rem 2rem 12rem; }
 /* Flex gaps keep Safari's trimmed text edges from collapsing adjacent margins. */
-figure { --rule-gap: 2.75rem; display: flex; flex-direction: column; align-items: center; gap: var(--rule-gap); width: min(100%, 54rem); margin: 0; text-align: center; opacity: 1; transition: opacity 900ms ease; }
-figure.fading { opacity: 0; }
-.ornament { height: 1px; width: 2rem; flex-shrink: 0; background: var(--accent); opacity: .65; }
+figure { --rule-gap: 2.75rem; display: flex; flex-direction: column; align-items: center; gap: var(--rule-gap); width: min(100%, 54rem); margin: 0; text-align: center; }
+/* A passage comes into focus, then the rule, then who said it; it leaves all at
+   once. The script waits out the 900ms exit before it swaps the text. */
+figure > * {
+  transition:
+    opacity var(--reveal, 1.6s) ease var(--reveal-delay, 0s), filter var(--reveal, 1.6s) ease var(--reveal-delay, 0s),
+    color var(--theme-transition), background-color var(--theme-transition);
+}
+.ornament { --reveal-delay: .6s; }
+figcaption { --reveal-delay: 1s; }
+figure.fading > * { --reveal: .9s; --reveal-delay: 0s; opacity: 0; }
+figure.fading blockquote { filter: blur(5px); }
+/* Without the script the passage in the markup simply stays. */
+html:not(.js) figure.fading > * { opacity: 1; filter: none; }
+/* The rule keeps time: the script draws it out from the centre while a passage
+   is on its clock. Paused, or with reduced motion, it is a plain rule. */
+.ornament { height: 1px; width: 2rem; flex-shrink: 0; background: var(--line); }
+.ornament::after { content: ""; display: block; height: 100%; background: var(--accent); opacity: .65; transition: background-color var(--theme-transition); }
 blockquote {
   white-space: pre-line;
   color: var(--passage-ink);
@@ -66,28 +94,35 @@ blockquote {
   text-box: trim-end cap alphabetic;
 }
 figure[data-length="long"] blockquote { font-size: clamp(1.375rem, 2.3vw, 2.225rem); max-width: 44ch; line-height: 1.5; }
-figcaption { text-box: trim-start cap alphabetic; font-family: var(--sans); font-size: .7rem; line-height: 2; letter-spacing: .04em; }
+/* A column of its own, like the figure: with a trimmed caption Safari also trims
+   the reference's line and closes the space under the author. */
+figcaption { display: flex; flex-direction: column; align-items: center; font-family: var(--sans); font-size: .7rem; line-height: 2; letter-spacing: .04em; }
 .author { display: block; text-box: trim-start cap alphabetic; color: color-mix(in oklch, var(--muted) 70%, var(--paper)); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; }
 #reference { display: inline-block; color: color-mix(in oklch, var(--accent) 70%, var(--paper)); padding: .25rem; }
 #reference:focus-visible { color: var(--accent); }
 .controls-area { position: fixed; bottom: 0; inset-inline: 0; padding: 1.25rem 1rem max(1.25rem, env(safe-area-inset-bottom)); text-align: center; }
-.controls { display: inline-flex; align-items: center; justify-content: center; gap: .15rem; padding: .3rem .4rem; border: 1px solid var(--line); border-radius: 100px; background: var(--panel); color: var(--muted); font: .675rem var(--sans); max-width: 100%; }
-button, select { cursor: pointer; color: inherit; border: 0; background: transparent; min-height: 40px; border-radius: 100px; padding: 0 .6rem; transition: color 200ms ease, background-color 300ms ease; }
-button:focus-visible, select:focus-visible, button[aria-pressed="true"] { color: var(--ink); background: var(--line); }
+.controls {
+  display: inline-flex; align-items: center; justify-content: center; gap: .15rem; padding: .3rem .4rem; max-width: 100%;
+  border: 1px solid var(--line); border-radius: 100px; color: var(--muted); font: .675rem var(--sans);
+  background: var(--panel); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px -18px oklch(0 0 0 / .45);
+}
+button { cursor: pointer; color: inherit; border: 0; background: transparent; min-height: 40px; border-radius: 100px; padding: 0 .6rem; transition: color 200ms ease, background-color 300ms ease; }
+button:focus-visible, button[aria-pressed="true"] { color: var(--ink); background: var(--line); }
 @media (hover: hover) {
-  button:enabled:hover, select:enabled:hover { color: var(--ink); background: color-mix(in oklch, var(--accent) 35%, transparent); }
+  button:enabled:hover { color: var(--ink); background: color-mix(in oklch, var(--accent) 35%, transparent); }
   a:hover, #reference:hover { color: var(--accent); }
 }
 button:disabled { opacity: .35; cursor: default; background: transparent; }
 .icon-button { display: inline-grid; place-items: center; width: 40px; padding: 0; flex-shrink: 0; }
-#pause svg { grid-area: 1 / 1; transition: opacity 180ms ease, transform 180ms ease; }
-#pause .play-icon { opacity: 0; transform: scale(.8); }
-#pause.paused .pause-icon { opacity: 0; transform: scale(.8); }
-#pause.paused .play-icon { opacity: 1; transform: scale(1); }
+/* Buttons with several states stack their icons and cross-fade between them. */
+#pause svg, #appearance svg { grid-area: 1 / 1; transition: opacity 180ms ease, transform 180ms ease; }
+#pause .play-icon, #pause.paused .pause-icon, #appearance svg { opacity: 0; transform: scale(.8); }
+#pause.paused .play-icon,
+#appearance[data-mode="system"] .system-icon, #appearance[data-mode="light"] .light-icon, #appearance[data-mode="dark"] .dark-icon { opacity: 1; transform: scale(1); }
 svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+svg .solid { fill: currentColor; }
 .divider { width: 1px; height: 18px; background: var(--line); margin: 0 .35rem; }
-select { max-width: 6rem; }
-option { color: var(--ink); background: var(--paper); }
 .status { font: .7rem var(--sans); color: var(--muted); margin: .65rem 0 0; }
 .status:empty { display: none; }
 #head {
@@ -98,14 +133,13 @@ option { color: var(--ink); background: var(--paper); }
 .chrome { transition: opacity 800ms ease; }
 /* Blend the theme palette without changing passage or idle fade timings. */
 .masthead { transition: opacity 800ms ease, color var(--theme-transition); }
-blockquote, .author, .status { transition: color var(--theme-transition); }
-.ornament, .divider { transition: background-color var(--theme-transition); }
+.author, .status { transition: color var(--theme-transition); }
+.divider { transition: background-color var(--theme-transition); }
 .controls {
   transition: background-color var(--theme-transition), border-color var(--theme-transition), color var(--theme-transition);
 }
 body.idle .chrome { opacity: 0; pointer-events: none; }
 body.idle { cursor: none; }
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 [hidden] { display: none !important; }
 @media (max-width: 550px) {
   .masthead { padding: 1rem 1.25rem; }
@@ -114,7 +148,7 @@ body.idle { cursor: none; }
   figure { --rule-gap: 2.25rem; }
   .controls { gap: 0; padding: .25rem; flex-wrap: wrap; border-radius: 1.5rem; }
   .divider { margin: 0 .15rem; }
-  button, select { padding-inline: .4rem; }
+  button { padding-inline: .4rem; }
 }
 @media (max-height: 600px) {
   main { padding-block: 5rem 10rem; }
